@@ -1,0 +1,91 @@
+@mixin list-style(){
+    list-style: none;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 0; 
+} 
+ 
+@mixin font-style($font-type,$font-weight:false,$font-size:false, $color:false) {
+
+    font-family: $font-type, sans-serif;
+
+    @if $font-weight {
+        font-weight: $font-weight;
+    }
+    @if $font-size{
+        font-size: $font-size;
+    }
+    @if $color{
+        color : $color;
+    } 
+}
+@mixin border-radius($radius) { 
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+ }
+
+ @mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+ @mixin respond($breakpoint) {
+     // ref bootstrap 4: https://bootstrapcreative.com/bootstrap-4-grid-explained-examples/
+    @if $breakpoint == xs { // < 576px
+        @media only all  and (min-width: 0em) { @content };
+    }
+    @if $breakpoint == sm { // >= 576px
+        @media only all  and (min-width: 36em) { @content };
+    }
+    @if $breakpoint == md { // >= 768px
+        @media only all  and (min-width: 48em) { @content };
+    }
+    @if $breakpoint == lg { // >= 992px
+        @media only screen and (min-width: 62em) { @content };
+    }
+    @if $breakpoint == xl { // >= 1200px
+        @media only screen and (min-width: 75em) { @content };
+    }
+}
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin multiLineEllipsis($fontSize: 16px, $lineHeight: 1.2, $lineCount: 1, $offset: 0){
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    height: ($fontSize*$lineHeight*$lineCount)-($offset*$lineCount); /* Fallback for non-webkit */
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    -webkit-line-clamp: $lineCount;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// ratio picture
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: ($height / $width) * 100%;
+    }
+    > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
