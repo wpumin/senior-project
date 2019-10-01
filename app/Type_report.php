@@ -15,4 +15,9 @@ class Type_report extends Model
 
     protected $guarded = ['id'];
     protected $dates = ['created_at', 'updated_at'];
+
+    public function report()
+    {
+        return $this->hasMany('App\Report');
+    }
 }

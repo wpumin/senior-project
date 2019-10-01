@@ -18,15 +18,25 @@ class User extends Model
     protected $guarded = ['id'];
     protected $dates = ['created_at', 'updated_at'];
 
-    // public function user()
-    // {
-    //     return $this->belongsTo('App\User');
-    // }
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment');
+    }
 
-    // public function bill()
-    // {
-    //     return $this->belongsTo('App\Bill');
-    // }
+    public function student()
+    {
+        return $this->hasMany('App\Student');
+    }
+
+    public function report()
+    {
+        return $this->hasMany('App\Report');
+    }
+
+    public function payment_log()
+    {
+        return $this->hasMany('App\Payment_log');
+    }
 
 
     // public function room()
