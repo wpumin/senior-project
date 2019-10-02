@@ -28,6 +28,7 @@ class CreateStudentsTable extends Migration
             $table->integer('price');
             $table->string('image')->nullable();
             $table->string('qr_code')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

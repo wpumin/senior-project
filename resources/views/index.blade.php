@@ -1,4 +1,4 @@
 
-@extends('layouts.main_local')
+@extends('layouts.main')
 
 @section('title','หน้าหลัก')

@@ -42,7 +42,7 @@ class DemoCron extends Command
 
         $data = Student::get();
         foreach ($data as $key) {
-            $key['status'] = 0;
+            $key['status'] = 0; 
             $key->save();
         }
         /*
