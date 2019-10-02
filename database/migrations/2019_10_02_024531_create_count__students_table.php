@@ -17,7 +17,6 @@ class CreateCountStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('card_id');
             $table->string('time_card');
-            $table->timestamps();
         });
     }
 
