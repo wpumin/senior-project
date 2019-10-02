@@ -14,22 +14,25 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('card_id');
-            $table->string('user_id');
-            $table->string('school_id');
-            $table->string('car_id');
+            $table->Increments('id');
+            $table->integer('card_id')->unsigned();
+            $table->string('user_id')->nullable();
+            $table->string('school_id')->nullable();
+            $table->string('car_id')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('nickname');
             $table->string('phone')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
-            $table->string('price');
+            $table->integer('price');
             $table->string('image')->nullable();
             $table->string('qr_code')->nullable();
             $table->timestamps();
         });
+
+        
+       
     }
 
     /**
