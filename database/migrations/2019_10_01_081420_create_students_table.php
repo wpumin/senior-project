@@ -15,7 +15,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->Increments('id');
-            $table->integer('card_id')->unsigned();
+            $table->string('card_id')->nullable();
             $table->string('user_id')->nullable();
             $table->string('school_id')->nullable();
             $table->string('car_id')->nullable();
@@ -30,9 +30,6 @@ class CreateStudentsTable extends Migration
             $table->string('qr_code')->nullable();
             $table->timestamps();
         });
-
-        
-       
     }
 
     /**
