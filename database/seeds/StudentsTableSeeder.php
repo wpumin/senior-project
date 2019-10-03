@@ -16,7 +16,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
         ]);
 
         DB::table('students')->insert([
@@ -24,7 +24,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -33,7 +33,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -42,7 +42,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -51,7 +51,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -60,7 +60,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -69,7 +69,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -78,7 +78,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -87,7 +87,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -96,7 +96,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -105,7 +105,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -114,7 +114,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -123,7 +123,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -132,7 +132,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -141,7 +141,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -150,7 +150,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -159,7 +159,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -168,7 +168,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -177,7 +177,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -186,7 +186,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -195,7 +195,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -204,7 +204,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -213,7 +213,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -222,7 +222,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -231,7 +231,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -240,7 +240,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -249,7 +249,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -258,7 +258,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -267,7 +267,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -276,7 +276,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -285,7 +285,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -294,7 +294,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -303,7 +303,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -312,7 +312,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -321,7 +321,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -330,7 +330,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -339,7 +339,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -348,7 +348,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -357,7 +357,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -366,7 +366,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -375,7 +375,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -384,7 +384,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -393,7 +393,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -402,7 +402,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -411,7 +411,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -420,7 +420,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -429,7 +429,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -438,7 +438,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -447,7 +447,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -456,7 +456,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -465,7 +465,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -474,7 +474,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -483,7 +483,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -492,7 +492,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -501,7 +501,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -510,7 +510,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -519,7 +519,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -528,7 +528,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -537,7 +537,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -546,7 +546,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -555,7 +555,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -564,7 +564,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -573,7 +573,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -582,7 +582,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -591,7 +591,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -600,7 +600,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -609,7 +609,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -618,7 +618,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -627,7 +627,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -636,7 +636,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -645,7 +645,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -654,7 +654,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -663,7 +663,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -672,7 +672,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -681,7 +681,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -690,7 +690,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -699,7 +699,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -708,7 +708,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -717,7 +717,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -726,7 +726,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -735,7 +735,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -744,7 +744,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -753,7 +753,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -762,7 +762,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -771,7 +771,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -780,7 +780,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -789,7 +789,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -798,7 +798,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -807,7 +807,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -816,7 +816,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -825,7 +825,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -834,7 +834,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -843,7 +843,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -852,7 +852,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -861,7 +861,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -870,7 +870,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -879,7 +879,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -888,7 +888,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -897,7 +897,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -906,7 +906,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -915,7 +915,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -924,7 +924,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -933,7 +933,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -942,7 +942,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -951,7 +951,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -960,7 +960,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -969,77 +969,77 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'บีม',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'เดียว',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'แนน',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'ป่าน',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'บอล',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'เตย',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
-        
+
         DB::table('students')->insert([
             'nickname' => 'แจ๊',
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
     }

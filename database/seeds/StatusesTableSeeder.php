@@ -13,17 +13,22 @@ class StatusesTableSeeder extends Seeder
     public function run()
     {
         DB::table('statuses')->insert([
-            'name' => 'ชำระแล้ว',
+            'name' => 'ยังไม่ขึ้นรถ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('statuses')->insert([
-            'name' => 'รอตรวจสอบ',
+            'name' => 'ขึ้นรถแล้ว',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('statuses')->insert([
-            'name' => 'ค้างชำระ',
+            'name' => 'ลงรถแล้ว',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('statuses')->insert([
+            'name' => 'แจ้งเดินทางเอง',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
