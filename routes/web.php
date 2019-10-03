@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/appointment', 'AppointmentController@createAppointment');
+Route::post('/report', 'ReportController@createReport');
 

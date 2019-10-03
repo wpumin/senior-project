@@ -4,40 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Student;
-use App\Appointment;
+use App\Report;
+use App\Type_report;
 use LogicException;
 use Validator;
 use Illuminate\Support\Facades\DB;
 
-class AppointmentController extends Controller
+class ReportController extends Controller
 {
     public function __construct(Request $request)
         {
             $this->request = $request;
         }
 
-    public function createAppointment()
-        {
+    public function createReport()
+        {   
             $user = User::all()->toArray();
-            $student = Student::all()->toArray();
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
-                'period_time' => 'required',
-                'date' => 'required',
-                'content' => ''
+                'type_id' => 'required',
+                'title' => 'required',
+                'content' => 'required'
             ]);
             if ($validate->fails()) {
                 throw new LogicException($validate->errors());
             }
             DB::beginTransaction();
-            $res['member'] = Appointment::create([
+            $res['member'] = Report::create([
                 'user_id' => $this->request->input('user_id'),
-                'period_time' => $this->request->input('period_time'),
-                'date' => $this->request->input('date'),
+                'type_id' => $this->request->input('type_id'),
+                'title' => $this->request->input('title'),
                 'content' => $this->request->input('content')
                 ]);
             DB::commit();
         }
-    
 }
