@@ -13,17 +13,19 @@ class AppointmentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('appointments')->insert([
+            'user_id' => 1,
             'period_time' => 'เช้า(ขาไป)',
-            'date' => Str::random(8),
+            'date' => Carbon::now()->format('Y-m-d'),
             'content' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')        
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('appointments')->insert([
+            'user_id' => 2,
             'period_time' => 'เย็น(ขากลับ)',
-            'date' => Str::random(8),
+            'date' => Carbon::now()->format('Y-m-d'),
             'content' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')        
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }
