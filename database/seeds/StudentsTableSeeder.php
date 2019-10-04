@@ -16,7 +16,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
         ]);
 
         DB::table('students')->insert([
@@ -24,7 +24,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -33,7 +33,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -42,7 +42,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -51,7 +51,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -60,7 +60,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -69,7 +69,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -78,7 +78,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -87,7 +87,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -96,7 +96,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -105,7 +105,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -114,7 +114,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -123,7 +123,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -132,7 +132,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -141,7 +141,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -150,7 +150,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -159,7 +159,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -168,7 +168,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -177,7 +177,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -186,7 +186,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -195,7 +195,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -204,7 +204,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -213,7 +213,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -222,7 +222,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -231,7 +231,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -240,7 +240,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -249,7 +249,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -258,7 +258,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -267,7 +267,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -276,7 +276,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -285,7 +285,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -294,7 +294,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -303,7 +303,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -312,7 +312,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -321,7 +321,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -330,7 +330,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -339,7 +339,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -348,7 +348,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -357,7 +357,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -366,7 +366,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -375,7 +375,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -384,7 +384,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -393,7 +393,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -402,7 +402,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -411,7 +411,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -420,7 +420,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -429,7 +429,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -438,7 +438,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -447,7 +447,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -456,7 +456,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -465,7 +465,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -474,7 +474,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -483,7 +483,7 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
 
         ]);
 
@@ -492,7 +492,554 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 0
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ดีบ',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ปลาย',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เฟิร์ส',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ปุ๊กปิ๊ก',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ปิงปอง',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ปลาย',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'บีม',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'แจ้',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เจ',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'จูน',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'มิค',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'มาค',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ใบเตย',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'พลอย',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ไอโฟน',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'กอนเน่',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'แคลนอล',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เนย (เบาว่าน)',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'น้ำทิพย์',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ภา',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เฟิร์น',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ตาล',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'แบม',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'น้ำฝน',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ทราย',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เฟิร์น',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'มาย',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ชมพู่',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'แม็ค',
+            'price' => 600,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เนย',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เนม',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ส้ม',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ฝ้าย (หน้าวัด)',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'นุ่น',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'น้องส้มน้ำ',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'อะตอม',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เชล',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ไตตัน',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ไตเติล',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ลูกตาล',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'ตังตัง',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'กิ๊ฟ',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'มีน',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'เมต',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'พลอย',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'กานิว',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'กำนัน',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'แมลงปอ',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'น้ำ',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'นาข้าว',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'มิว',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'โอ๋',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+        DB::table('students')->insert([
+            'nickname' => 'อั๋น',
+            'price' => 500,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'บีม',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'เดียว',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'แนน',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'ป่าน',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'บอล',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'เตย',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 2,
+            'status' => 1
+
+        ]);
+
+
+        DB::table('students')->insert([
+            'nickname' => 'แจ๊',
+            'price' => 350,
+            'card_id' => Str::random(8),
+            'car_id' => 1,
+            'status' => 1
 
         ]);
     }

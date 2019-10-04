@@ -8,7 +8,7 @@ class Payment_log extends Model
 {
     protected $table = 'payment_logs';
     protected $fillable = [
-        'month', 'year', 'user_id', 'status_id'
+        'tran_key', 'month', 'year', 'user_id', 'status_id'
 
 
     ];
