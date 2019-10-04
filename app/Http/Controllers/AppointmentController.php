@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Appointment;
+use App\Student;
 use Carbon\Carbon;
 use LogicException;
 use Validator;
@@ -23,6 +24,7 @@ class AppointmentController extends Controller
 
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
+                'student_id' => 'required',
                 'period_time' => 'required',
                 'date' => 'required',
                 'content' => ''
@@ -34,12 +36,17 @@ class AppointmentController extends Controller
 
             DB::beginTransaction();
 
-            $res['member'] = Appointment::create([
+            $res['App_log'] = Appointment::create([
                 'user_id' => $this->request->input('user_id'),
+                'student_id' => $this->request->input('student_id'),
                 'period_time' => $this->request->input('period_time'),
                 'date' => $this->request->input('date'),
                 'content' => $this->request->input('content'),
             ]);
+
+            $student = Student::where('id', $this->request->input('student_id'))->first();
+            $student->status = 4;
+            $student->save();
 
             DB::commit();
             return $this->responseRequestSuccess('Success!');
