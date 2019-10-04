@@ -20,38 +20,49 @@ class PaymentController extends Controller
 
         try {
 
-        $validate = Validator::make($this->request->all(), [
-            'tran_key' => 'required',
-            'user_id' => 'required',
-            'time' => 'required',
-            'date' => 'required',
-            'content' => 'required',
-            'bill_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-        if ($validate->fails()) {
-            throw new LogicException($validate->errors());
+            $validate = Validator::make($this->request->all(), [
+                'tran_key' => 'required',
+                'user_id' => 'required',
+                'time' => 'required',
+                'date' => 'required',
+                'content' => 'required',
+                'bill_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+            if ($validate->fails()) {
+                throw new LogicException($validate->errors());
+            }
+
+            $payment = Payment_inform::create($this->request->all());
+            $word_date = explode("/", $this->request->input('date'));
+            $word_time = explode(":", $this->request->input('time'));
+
+            $date = '';
+            $time = '';
+
+            foreach ($word_time as $key) {
+                $time .= $key;
+            }
+            foreach ($word_date as $key) {
+                $date .= $key;
+            }
+            $result = $date . '_' . $time;
+
+            DB::beginTransaction();
+            if ($this->request->file('bill_image')) {
+                $image_filename = $this->request->file('bill_image')->getClientOriginalName();
+                $image_name = $this->request->input('first_name') . '_' . $result . '_' . $image_filename;
+                $public_path = 'images/Payments/';
+                $destination = base_path() . "/public/" . $public_path;
+                $this->request->file('bill_image')->move($destination, $image_name);
+                $payment->bill_image = $public_path . $image_name;
+            }
+            $payment->save();
+
+            DB::commit();
+            return $this->responseRequestSuccess('Success!');
+        } catch (Exception $e) {
+            return response()->json($this->formatResponse($e->getMessage()));
         }
-        $payment = Payment_inform::create($this->request->all());
-
-        dd(explode("/",$this->request->input('date')));
-
-        DB::beginTransaction();
-        if ($this->request->file('bill_image')) {
-            $image_filename = $this->request->file('bill_image')->getClientOriginalName();
-            $image_name = $this->request->input('first_name'). '_'. $this->request->input('date'). '_'. $this->request->input('time') . '_' . $image_filename;
-            $public_path = 'images/Payments/';
-            $destination = base_path() . "/public/" . $public_path;
-            $this->request->file('bill_image')->move($destination, $image_name);
-            $payment->bill_image = $public_path . $image_name;
-        }
-        $payment->save();
-
-        DB::commit();
-        return $this->responseRequestSuccess('Success!');
-    } catch (Exception $e) {
-        return response()->json($this->formatResponse($e->getMessage()));
-    }
-
     }
 
     /*
