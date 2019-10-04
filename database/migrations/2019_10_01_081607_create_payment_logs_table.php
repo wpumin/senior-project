@@ -15,6 +15,7 @@ class CreatePaymentLogsTable extends Migration
     {
         Schema::create('payment_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('tran_key');
             $table->string('month');
             $table->string('year');
             $table->string('user_id');

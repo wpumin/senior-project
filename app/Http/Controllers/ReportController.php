@@ -19,6 +19,8 @@ class ReportController extends Controller
 
     public function createReport()
         {   
+            try
+            {
             $user = User::all()->toArray();
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
@@ -37,5 +39,31 @@ class ReportController extends Controller
                 'content' => $this->request->input('content')
                 ]);
             DB::commit();
+            return $this->responseRequestSuccess('Success!');
+        } catch (Exception $e) {
+            return response()->json($this->formatResponse($e->getMessage()));
         }
+        }
+        /*
+    |--------------------------------------------------------------------------
+    | response เมื่อข้อมูลส่งถูกต้อง
+    |--------------------------------------------------------------------------
+     */
+    protected function responseRequestSuccess($ret)
+    {
+        return response()->json(['status' => 'success', 'data' => $ret], 200)
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | response เมื่อข้อมูลมีการผิดพลาด
+    |--------------------------------------------------------------------------
+     */
+    protected function responseRequestError($status = '', $ret = '', $message = 'Bad request', $statusCode = 200)
+    {
+        return response()->json(['status' => $status, 'data' => $ret, 'error' => $message], $statusCode)
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    }
 }

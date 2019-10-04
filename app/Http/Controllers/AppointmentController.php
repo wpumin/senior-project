@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Appointment;
+use Carbon\Carbon;
 use LogicException;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -30,13 +31,14 @@ class AppointmentController extends Controller
                 throw new LogicException($validate->errors());
             }
 
+
             DB::beginTransaction();
 
             $res['member'] = Appointment::create([
                 'user_id' => $this->request->input('user_id'),
                 'period_time' => $this->request->input('period_time'),
                 'date' => $this->request->input('date'),
-                'content' => $this->request->input('content')
+                'content' => $this->request->input('content'),
             ]);
 
             DB::commit();

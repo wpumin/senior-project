@@ -15,12 +15,12 @@ class CreatePaymentInformsTable extends Migration
     {
         Schema::create('payment_informs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('payment_log_id');
-            $table->string('user_id');
-            $table->string('time');
-            $table->timestamp('date');
-            $table->string('content');
-            $table->string('bill_image');
+            $table->string('tran_key')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('time')->nullable();
+            $table->string('date')->nullable();
+            $table->string('content')->nullable();
+            $table->string('bill_image')->nullable();
             $table->timestamps();
         });
     }
