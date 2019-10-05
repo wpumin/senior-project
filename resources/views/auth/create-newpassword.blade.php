@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','ลืมรหัสผ่าน')
+@section('title','สร้างรหัสผ่านใหม่')
 
 @section('content')
 <div class="content-login">

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','ลืมรหัสผ่าน')
+@section('title','ยืนยันรหัส OTP')
 
 @section('content')
 <div class="content-login">
