@@ -36,7 +36,7 @@
             <link rel="stylesheet" href="{{ URL::asset('plugins/wow/animate.css') }}">
 
             <!-- // TODO: Must to do everytime when you want to update stylesheet on server -->
-            <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=1.0.0.1') }}" >
+            <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=1.0.0.0') }}" >
 
             <!-- // ! Javascript -->
             <script src="{{ URL::asset('js/jquery-3.4.1.min.js') }}"></script>
@@ -80,10 +80,32 @@
 
         </head>
         <body>
-
-        @yield('header')
+{{-- 
+        <header class="header">
+            <div class="container-fluid" style="background: red;">
+                <div class="row menu-desktop">
+                    <div class="col-12">
+                        <h1>I'm in Header.</h1>
+                    </div>
+                </div>
+                {{-- <div class="row menu-mobile">
+                    <div class="col-12">
+                        <h1>I'm in Header.</h1>
+                    </div>
+                </div> --}}
+            </div>
+        </header> --}}
 
         @yield('content')
 
+        {{-- <footer class="footer">
+            <div class="container-fluid" style="background: yellow;">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>I'm in Footer</h1>
+                    </div>
+                </div>
+            </div>
+        </footer> --}}
     </body>
 </html>

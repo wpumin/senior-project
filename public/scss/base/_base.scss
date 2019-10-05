@@ -38,7 +38,10 @@ background: $bgSecond;
 } 
 
 html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
     font-family: $font-normal;
+    color: $textPrimary;
     font-size: 62.5%; // 1rem = 10px;
     transition: 0.3s all;
 }
@@ -59,205 +62,80 @@ body {
     }
 }
 
-.content-width-xs{
-	width: 100%;
-
-    margin: 0 auto;
+h1 {
+    font-size: $mdSize;
+    @include respond(md){
+        font-size: $lSize;
+    }
     @include respond(lg){
-        max-width: 1200px;
+        font-size: $xlSize;
     }
 }
 
-
-.content-width-s{
-	width: 100%;
-
-    margin: 0 auto;
+h2 {
+    font-size: $sSize;
+    @include respond(md){
+        font-size: $mdSize;
+    }
     @include respond(lg){
-        max-width: 800px;
+        font-size: $lSize;
     }
 }
 
-.content-width-m{
-	width: 100%;
-
-    margin: 0 auto;
+h3 {
+    font-size: 1.8rem;
+    @include respond(md){
+        font-size: $sSize;
+    }
     @include respond(lg){
-        max-width: 900px;
+        font-size: $mdSize;
     }
 }
 
-section:not(.index-content, .header, .banner-section, .banner-section2, .award-current, .sub-main-menu, .pagination, .news-list-and-grid, .news-content, .news-comments, .section-breadcrumb, .news, .about-history, [class^="content-news"], .download-app-and-government, .slogan-content, .vision-content, .about-office, .purchase-wrapper, .news-related, .about-office-contact, .news-list-or-grid, .activity-last-topic, .activity-grid,.about-mission, .footer-selling,.about-objective, .sample-bill, .note-bill, .donate-wrapper, .about-iso){
-    padding: 3.6rem 0 !important;
+p, th, td, label, input, textarea, button, a, b{
+    
+    font-family: $font-normal;
+    font-size: $xsSize;
+    @include respond(xl){   
+        font-size: $xsSize;
+    }
 }
 
-// section.about-office{
-//     padding-bottom: 3.6rem;
+section{
+    padding: 2.5rem 0;
+}
+
+// section[class="header"]{
+//     padding: 0;
 // }
 
-[class*="section-breadcrumb"]{
-    @media screen and(max-width: 812px){
-        padding: 2rem 0 0 0!important;
-    }
-    @media screen and(min-width: 813px) and(max-width: 1199px){
-        padding: 3rem 0;
-    }
-    padding: 1rem 0 3rem 0 !important;
+.fixed{
+    position: fixed !important;
+    width: 100%;
+    @include respond(lg){
+        position: relative !important;
+        top: 0;
+   }
 }
 
-div[class*="-box"]{
-    // box-shadow: 3px 3px 9px 0 $shadowBox;?
-}
-
-div[class*="-image"]{
-    // box-shadow: 3px 3px 9px 0 $shadowImage;
+div[class*="-box"], div[class*="-image"]{
+    box-shadow: 0px 3px 6px 0 $shadow;
 }
 
 .active {
     font-size: bold;
 }
 
-h1 {
-//    @include font-style($font-medium, normal, $mdSize, $normal);
-
-   @include respond(md){
-       font-size: $mdSize;
-   }
-   @include respond(lg){
-       font-size: $lSize;
-   }
+.cursor-pointer{
+    cursor: pointer !important;
 }
-
-h2 {
-    // @include font-style($font-medium, normal, 2rem, $normal);
-
-    @include respond(md){
-        font-size: $sSize;
-    }
-
-    @include respond(lg){
-        font-size: $mdSize;
-    }
-    &.t34{
-        // @include font-style($font-medium, normal, $sSize, $normal);
-        padding: 1rem 0;
-    
-        @include respond(md){
-            // font-size: $mdSize !important;
-            padding: 1.2rem 0;
-        }
-        
-        @include respond(lg){
-            font-size: 3.4rem !important;
-            padding: 1.5rem 0;
-        }
-    }
-}
-
-h3 {
-    // @include font-style($font-medium, normal, 1.8rem , $normal);
-
-    @include respond(md){
-        font-size: $xsSize;
-    }
-    @include respond(lg){
-        font-size: $sSize;
-    }
-}
-
-p, th, td, label{
-    // @include font-style($font-medium, normal, $xsSize, $normal);
-
-    @include respond(xl){   
-        // font-size: $sSize;
-    }
-}
-
-.button {
-    &-primary{
-        // @extend %button-general;
-        // background: $blueActive;
-        // color: $white;
-        // border: 1px solid $blueActive;
-        &:hover{
-            transition: 0.3s ease-in-out;
-            // color: $blueActive;
-            // background: $white;
-            // border: 1px solid $blueActive;
-        }
-    }
-    &-secoundary{
-        // @extend %button-general;
-        // background: $white;
-        // color: $blueActive;
-        // border: 1px solid $blueActive;
-
-        &:hover{
-            transition: 0.3s ease-in-out;
-            // color: $white;
-            // background: $blueActive;
-        }
-    }
-}
-
-.normal{
-    font-weight: normal !important;
-}
-
 
 .hidden{
     display: none;
 }
 
-.color-blue{
-    // color: $blueOcean;
-}
 .owl-carousel:not(.owl-loaded){ 
     opacity: 0; 
-}
-
-.see-more{
-    // @include font-style($font-normal, normal, 1.8rem);
-}
-
-.see-more-ud{
-    // @include font-style($font-normal, normal, 1.8rem);
-    text-decoration: underline !important;
-}
-
-.bd-bottom{
-    // border-bottom: 1px solid $grayLight;
-}
-
-%dot-style{
-    &::before{
-        content: "";
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        margin-right: 0.75rem;
-        transform: translateY(3px);
-    }
-}
-
-.content-body{
-    // background: $white;
-    position: relative;
-    padding-bottom: 2rem;
-    @include respond(lg){
-        padding-bottom: 4.3rem;
-    }
-}
-
-// smooth-scrollbar
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-// blorder-none 
-.border-none{
-    border: none !important;
 }
 
 .wow {
@@ -270,33 +148,6 @@ html {
     animation-duration: 400ms;
 }
 
-.input-file{
-    flex: 0 0 14rem;
-    display: table;
-    padding: 0.75rem 3.5rem;
-    // color: $white;
-    // background: $blueActive;
-    border-radius: 3rem;
-    transition: 0.3s ease-in-out;
-    // border: 1px solid $blueActive;
-    margin-bottom: 0;
-    &:hover{
-        transition: 0.3s ease-in-out;
-        // color: $blueActive;
-        // background: $white;
-    }
-}
-
-// icon, logo which need to display cursor is pointer
-.cursor-pointer{
-    cursor: pointer !important;
-}
-
-.fixed{
-    position: fixed !important;
-    width: 100%;
-    @include respond(lg){
-        position: relative !important;
-        top: 0;
-   }
+.underline{
+    text-decoration: underline !important;
 }

@@ -1,7 +1,42 @@
-@extends('layouts.app')
+@extends('layouts.main')
+
+@section('title','เข้าสู่ระบบ')
+
+{{-- @extends('layouts.header') --}}
 
 @section('content')
-<div class="container">
+<div class="content-login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
+                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
+                    {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
+                    <form action="#" class="">
+                        <div class="mt-4">
+                            <input type="text" name="username" class="input-box" placeholder="ชื่อผู้ใช้" required autocomplete="username" autofocus>
+                        </div>
+                        <div class="mt-4">
+                            <input type="password" name="password" class="input-box" placeholder="รหัสผ่าน" required autocomplete="current-password">
+                        </div>
+                        <div class="forgot-password text-right">
+                            <a href="#">ลืมรหัสผ่าน?</a>
+                        </div>
+                        <div class="mt-5">
+                            <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
+                        </div>
+                        <div class="mt-4">
+                            <label class="small-ps" for="readCondition">หากยังไม่ได้สมัครสมาชิก <a class="small-ps underline" href="#">อ่านเงื่อนไขการให้บริการ</a></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +104,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
+
+{{-- @extends('layouts.header') --}}
+
+

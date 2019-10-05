@@ -1,0 +1,63 @@
+@keyframes fadeBG {
+    $textWhite: #FFF;
+    // bg linear gradient login 
+    0% {background-color: $bgSecond;}
+    25%{background-color:$bgSecond;}
+    50%{background-color:$bgSecondLight;}
+    75%{background-color:$bgSecond;}
+    100% {background-color: $bgSecond;}
+  }
+
+.content-login{
+
+    //bg color
+    width:100%;
+    height:100vh;
+    color:white;
+    animation: fadeBG 6s infinite;
+    background: url('../images/login/bg-login2.png') right bottom no-repeat, 
+                url('../images/login/bg-login.png') left top no-repeat;
+    @include respond(md){
+        background-size: contain;
+    }
+    
+
+    //form
+    .login-form{
+        height: 100vh;
+        .logo{
+            width: 15rem;
+            // max-width: 30rem;
+        }
+        input{
+            border: 0;
+            outline: 0;
+            padding: 0.75rem 2rem;
+            border-radius: 2.5rem;
+            box-shadow: 0px 3px 6px 0 $shadow;
+            &.submit-box{
+                background: $bgDarkGray;
+                // border: 1px solid $bgDarkGray;
+                color: $textWhite;
+                transition: .3s ease-in-out;
+                &:hover{
+                    transition: .3s ease-in-out;
+                    background: rgba($bgDarkGray, 0.4);
+                    color: $textWhite;
+                    // border: 1px solid $bgWhite;
+                }
+            }
+        }
+        .forgot-password{
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .small-ps{
+            color: rgba($textWhite, 0.4);
+            font-size: $ssxsSize;
+        }
+    }
+
+
+}
+

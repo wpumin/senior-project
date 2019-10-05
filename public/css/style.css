@@ -78,7 +78,10 @@ a {
   color: #9F9F9F; }
 
 html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
   font-family: "Kanit Regular";
+  color: #353535;
   font-size: 62.5%;
   transition: 0.3s all; }
 
@@ -94,107 +97,65 @@ body {
       body.active {
         position: relative; } }
 
-.content-width-xs {
-  width: 100%;
-  margin: 0 auto; }
+h1 {
+  font-size: 2.4rem; }
+  @media only all and (min-width: 48em) {
+    h1 {
+      font-size: 2.6rem; } }
   @media only screen and (min-width: 62em) {
-    .content-width-xs {
-      max-width: 1200px; } }
+    h1 {
+      font-size: 3rem; } }
 
-.content-width-s {
-  width: 100%;
-  margin: 0 auto; }
+h2 {
+  font-size: 2rem; }
+  @media only all and (min-width: 48em) {
+    h2 {
+      font-size: 2.4rem; } }
   @media only screen and (min-width: 62em) {
-    .content-width-s {
-      max-width: 800px; } }
+    h2 {
+      font-size: 2.6rem; } }
 
-.content-width-m {
-  width: 100%;
-  margin: 0 auto; }
+h3 {
+  font-size: 1.8rem; }
+  @media only all and (min-width: 48em) {
+    h3 {
+      font-size: 2rem; } }
   @media only screen and (min-width: 62em) {
-    .content-width-m {
-      max-width: 900px; } }
+    h3 {
+      font-size: 2.4rem; } }
 
-section:not(.index-content, .header, .banner-section, .banner-section2, .award-current, .sub-main-menu, .pagination, .news-list-and-grid, .news-content, .news-comments, .section-breadcrumb, .news, .about-history, [class^="content-news"], .download-app-and-government, .slogan-content, .vision-content, .about-office, .purchase-wrapper, .news-related, .about-office-contact, .news-list-or-grid, .activity-last-topic, .activity-grid, .about-mission, .footer-selling, .about-objective, .sample-bill, .note-bill, .donate-wrapper, .about-iso) {
-  padding: 3.6rem 0 !important; }
+p, th, td, label, input, textarea, button, a, b {
+  font-family: "Kanit Regular";
+  font-size: 1.6rem; }
+  @media only screen and (min-width: 75em) {
+    p, th, td, label, input, textarea, button, a, b {
+      font-size: 1.6rem; } }
 
-[class*="section-breadcrumb"] {
-  padding: 1rem 0 3rem 0 !important; }
-  @media screen and (max-width: 812px) {
-    [class*="section-breadcrumb"] {
-      padding: 2rem 0 0 0 !important; } }
-  @media screen and (min-width: 813px) and (max-width: 1199px) {
-    [class*="section-breadcrumb"] {
-      padding: 3rem 0; } }
+section {
+  padding: 2.5rem 0; }
+
+.fixed {
+  position: fixed !important;
+  width: 100%; }
+  @media only screen and (min-width: 62em) {
+    .fixed {
+      position: relative !important;
+      top: 0; } }
+
+div[class*="-box"], div[class*="-image"] {
+  box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.16); }
 
 .active {
   font-size: bold; }
 
-@media only all and (min-width: 48em) {
-  h1 {
-    font-size: 2.4rem; } }
-
-@media only screen and (min-width: 62em) {
-  h1 {
-    font-size: 3.6rem; } }
-
-@media only all and (min-width: 48em) {
-  h2 {
-    font-size: 2rem; } }
-
-@media only screen and (min-width: 62em) {
-  h2 {
-    font-size: 2.4rem; } }
-
-h2.t34 {
-  padding: 1rem 0; }
-  @media only all and (min-width: 48em) {
-    h2.t34 {
-      padding: 1.2rem 0; } }
-  @media only screen and (min-width: 62em) {
-    h2.t34 {
-      font-size: 3.4rem !important;
-      padding: 1.5rem 0; } }
-
-@media only all and (min-width: 48em) {
-  h3 {
-    font-size: 1.6rem; } }
-
-@media only screen and (min-width: 62em) {
-  h3 {
-    font-size: 2rem; } }
-
-.button-primary:hover {
-  transition: 0.3s ease-in-out; }
-
-.button-secoundary:hover {
-  transition: 0.3s ease-in-out; }
-
-.normal {
-  font-weight: normal !important; }
+.cursor-pointer {
+  cursor: pointer !important; }
 
 .hidden {
   display: none; }
 
 .owl-carousel:not(.owl-loaded) {
   opacity: 0; }
-
-.see-more-ud {
-  text-decoration: underline !important; }
-
-.content-body {
-  position: relative;
-  padding-bottom: 2rem; }
-  @media only screen and (min-width: 62em) {
-    .content-body {
-      padding-bottom: 4.3rem; } }
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden; }
-
-.border-none {
-  border: none !important; }
 
 .wow {
   visibility: hidden; }
@@ -204,26 +165,8 @@ html {
   -moz-animation-duration: 400ms;
   animation-duration: 400ms; }
 
-.input-file {
-  flex: 0 0 14rem;
-  display: table;
-  padding: 0.75rem 3.5rem;
-  border-radius: 3rem;
-  transition: 0.3s ease-in-out;
-  margin-bottom: 0; }
-  .input-file:hover {
-    transition: 0.3s ease-in-out; }
-
-.cursor-pointer {
-  cursor: pointer !important; }
-
-.fixed {
-  position: fixed !important;
-  width: 100%; }
-  @media only screen and (min-width: 62em) {
-    .fixed {
-      position: relative !important;
-      top: 0; } }
+.underline {
+  text-decoration: underline !important; }
 
 /* Kanit-400 - latin */
 @font-face {
@@ -342,3 +285,52 @@ html {
   content: '\f105'; }
 
 /* '' */
+@keyframes fadeBG {
+  0% {
+    background-color: #F46F21; }
+  25% {
+    background-color: #F46F21; }
+  50% {
+    background-color: #E68628; }
+  75% {
+    background-color: #F46F21; }
+  100% {
+    background-color: #F46F21; } }
+
+.content-login {
+  width: 100%;
+  height: 100vh;
+  color: white;
+  animation: fadeBG 6s infinite;
+  background: url("../images/login/bg-login2.png") right bottom no-repeat, url("../images/login/bg-login.png") left top no-repeat; }
+  @media only all and (min-width: 48em) {
+    .content-login {
+      background-size: contain; } }
+  .content-login .login-form {
+    height: 100vh; }
+    .content-login .login-form .logo {
+      width: 15rem; }
+    .content-login .login-form input {
+      border: 0;
+      outline: 0;
+      padding: 0.75rem 2rem;
+      border-radius: 2.5rem;
+      box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.16); }
+      .content-login .login-form input.submit-box {
+        background: #353535;
+        color: #FFF;
+        transition: .3s ease-in-out; }
+        .content-login .login-form input.submit-box:hover {
+          transition: .3s ease-in-out;
+          background: rgba(53, 53, 53, 0.4);
+          color: #FFF; }
+    .content-login .login-form .forgot-password {
+      margin-top: 1.5rem;
+      margin-bottom: 2rem; }
+    .content-login .login-form .small-ps {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.2rem; }
+
+.header {
+  background: linear-gradient(to right, #F46F21, #E68628);
+  color: #FFF; }
