@@ -12,7 +12,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
-                    <form action="#" class="">
+                    <form action="#" id="loginForm">
                         <div class="mt-4">
                             <input type="text" name="username" class="input-box" placeholder="ชื่อผู้ใช้" required autofocus>
                         </div>
@@ -20,7 +20,7 @@
                             <input type="password" name="password" class="input-box" placeholder="รหัสผ่าน" required>
                         </div>
                         <div class="forgot-password text-right">
-                            <a href="forgot-password">ลืมรหัสผ่าน?</a>
+                            <span class="spinner-border hidden"><a href="forgot-password">ลืมรหัสผ่าน?</a>
                         </div>
                         <div class="mt-5">
                             <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
@@ -34,6 +34,57 @@
         </div>
     </div>
 </div>
+
+<!-- Modal: Failed-->
+<div class="wrap-modal">
+    <div class="modal fade" id="errorLogin" tabindex="-1" role="dialog" aria-labelledby="errorLogin" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>เข้าสู่ระบบไม่สำเร็จ</b>
+                <p>ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('#delete-spinner').click(function() {
+        $('.spinner-border').addClass('hidden');
+        $('.input-box').val('');
+    });
+
+    $(document).ready(function(){	
+        $("#loginForm").submit(function(event){
+            $('.spinner-border').removeClass('hidden');
+            submitForm();
+            return false;
+        });
+    });
+
+    function submitForm(){
+        $.ajax({
+            type: "POST",
+            url: "",
+            cache:false,
+            data: $('form#loginForm').serialize(),
+            success: function(response){
+                // $(location).attr('href', '');
+            },
+            error: function(){
+                $(".wrap-modal > #errorLogin").modal('show');
+            }
+        });
+    }
+
+</script>
 
 
 {{-- <div class="container">
