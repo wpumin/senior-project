@@ -20,7 +20,7 @@
                             <input type="password" name="password" class="input-box" placeholder="รหัสผ่าน" required>
                         </div>
                         <div class="forgot-password text-right">
-                            <span class="spinner-border hidden"><a href="forgot-password">ลืมรหัสผ่าน?</a>
+                            <span class="spinner-border hidden"></span> <a href="forgot-password">ลืมรหัสผ่าน?</a>
                         </div>
                         <div class="mt-5">
                             <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
