@@ -11,16 +11,15 @@
 .content-login{
 
     //bg color
-    width:100%;
+    width:100vw;
     height:100vh;
     color:white;
-    animation: fadeBG 6s infinite;
+    animation: fadeBG 8s infinite;
     background: url('../images/login/bg-login2.png') right bottom no-repeat, 
                 url('../images/login/bg-login.png') left top no-repeat;
-    @include respond(md){
+    @include respond(lg){
         background-size: contain;
     }
-    
 
     //form
     .login-form{
@@ -28,25 +27,6 @@
         .logo{
             width: 15rem;
             // max-width: 30rem;
-        }
-        input{
-            border: 0;
-            outline: 0;
-            padding: 0.75rem 2rem;
-            border-radius: 2.5rem;
-            box-shadow: 0px 3px 6px 0 $shadow;
-            &.submit-box{
-                background: $bgDarkGray;
-                // border: 1px solid $bgDarkGray;
-                color: $textWhite;
-                transition: .3s ease-in-out;
-                &:hover{
-                    transition: .3s ease-in-out;
-                    background: rgba($bgDarkGray, 0.4);
-                    color: $textWhite;
-                    // border: 1px solid $bgWhite;
-                }
-            }
         }
         .forgot-password{
             margin-top: 1.5rem;

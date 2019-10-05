@@ -14,13 +14,13 @@
                     {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
                     <form action="#" class="">
                         <div class="mt-4">
-                            <input type="text" name="username" class="input-box" placeholder="ชื่อผู้ใช้" required autocomplete="username" autofocus>
+                            <input type="text" name="username" class="input-box" placeholder="ชื่อผู้ใช้" required autofocus>
                         </div>
                         <div class="mt-4">
-                            <input type="password" name="password" class="input-box" placeholder="รหัสผ่าน" required autocomplete="current-password">
+                            <input type="password" name="password" class="input-box" placeholder="รหัสผ่าน" required>
                         </div>
                         <div class="forgot-password text-right">
-                            <a href="#">ลืมรหัสผ่าน?</a>
+                            <a href="forgot-password">ลืมรหัสผ่าน?</a>
                         </div>
                         <div class="mt-5">
                             <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
@@ -107,6 +107,6 @@
 </div> --}}
 @endsection
 
-{{-- @extends('layouts.header') --}}
+{{-- @extends('layouts.footer') --}}
 
 

@@ -124,11 +124,18 @@ h3 {
     h3 {
       font-size: 2.4rem; } }
 
-p, th, td, label, input, textarea, button, a, b {
+p, th, td, label, input, textarea, button, a {
   font-family: "Kanit Regular";
   font-size: 1.6rem; }
   @media only screen and (min-width: 75em) {
-    p, th, td, label, input, textarea, button, a, b {
+    p, th, td, label, input, textarea, button, a {
+      font-size: 1.6rem; } }
+
+b {
+  font-weight: bold;
+  font-size: 1.6rem; }
+  @media only screen and (min-width: 75em) {
+    b {
       font-size: 1.6rem; } }
 
 section {
@@ -167,6 +174,24 @@ div[class*="-box"], div[class*="-image"] {
 
 .underline {
   text-decoration: underline !important; }
+
+input {
+  border: 0;
+  outline: 0;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem;
+  box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.16); }
+  input.submit-box {
+    background: #353535;
+    color: #FFF;
+    transition: .3s ease-in-out; }
+    input.submit-box:hover {
+      transition: .3s ease-in-out;
+      background: rgba(53, 53, 53, 0.4);
+      color: #FFF; }
+
+img {
+  pointer-events: none; }
 
 /* Kanit-400 - latin */
 @font-face {
@@ -285,6 +310,70 @@ div[class*="-box"], div[class*="-image"] {
   content: '\f105'; }
 
 /* '' */
+.wrap-modal {
+  width: 100%; }
+  .wrap-modal .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-right: 0;
+    width: 85%; }
+    @media only all and (min-width: 48em) {
+      .wrap-modal .modal {
+        width: 48%; } }
+    @media only screen and (min-width: 62em) {
+      .wrap-modal .modal {
+        width: 33%; } }
+    @media only screen and (min-width: 75em) {
+      .wrap-modal .modal {
+        width: 26%; } }
+    .wrap-modal .modal-header {
+      border-radius: 1.4rem 1.4rem 0 0;
+      padding: 0.75rem 1rem; }
+      .wrap-modal .modal-header._success {
+        background-color: #F46F21; }
+    .wrap-modal .modal-content {
+      border-radius: 1.5rem; }
+    .wrap-modal .modal-body p {
+      padding: 0.75rem 0;
+      font-size: 1.4rem;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center; }
+      @media only all and (min-width: 48em) {
+        .wrap-modal .modal-body p {
+          font-size: 1.6rem; } }
+      .wrap-modal .modal-body p span {
+        color: #F46F21; }
+    .wrap-modal .modal-body b {
+      text-align: center;
+      margin-bottom: 1rem; }
+    .wrap-modal .modal-body button {
+      padding: 0.625rem 2rem !important;
+      font-size: 1.4rem;
+      padding: 1rem 1.5rem;
+      border-radius: 15rem;
+      margin: 0 0.25rem;
+      min-width: 10rem;
+      max-width: 12rem; }
+      @media only all and (min-width: 48em) {
+        .wrap-modal .modal-body button {
+          font-size: 1.6rem; } }
+      .wrap-modal .modal-body button.btn-primary {
+        background-color: #353535;
+        border-color: #6c757d !important; }
+        .wrap-modal .modal-body button.btn-primary:not(:disabled):not(.disabled):active {
+          background-color: #2b2b2b !important; }
+        .wrap-modal .modal-body button.btn-primary:focus {
+          box-shadow: 0 0 0 0.2rem rgba(53, 53, 53, 0.25) !important; }
+      .wrap-modal .modal-body button.btn-secondary {
+        background-color: #F46F21;
+        border-color: #ff9657 !important; }
+        .wrap-modal .modal-body button.btn-secondary:not(:disabled):not(.disabled):active {
+          background-color: #f55f09 !important; }
+        .wrap-modal .modal-body button.btn-secondary:focus {
+          box-shadow: 0 0 0 0.2rem rgba(244, 111, 33, 0.25) !important; }
+
 @keyframes fadeBG {
   0% {
     background-color: #F46F21; }
@@ -298,32 +387,18 @@ div[class*="-box"], div[class*="-image"] {
     background-color: #F46F21; } }
 
 .content-login {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   color: white;
-  animation: fadeBG 6s infinite;
+  animation: fadeBG 8s infinite;
   background: url("../images/login/bg-login2.png") right bottom no-repeat, url("../images/login/bg-login.png") left top no-repeat; }
-  @media only all and (min-width: 48em) {
+  @media only screen and (min-width: 62em) {
     .content-login {
       background-size: contain; } }
   .content-login .login-form {
     height: 100vh; }
     .content-login .login-form .logo {
       width: 15rem; }
-    .content-login .login-form input {
-      border: 0;
-      outline: 0;
-      padding: 0.75rem 2rem;
-      border-radius: 2.5rem;
-      box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.16); }
-      .content-login .login-form input.submit-box {
-        background: #353535;
-        color: #FFF;
-        transition: .3s ease-in-out; }
-        .content-login .login-form input.submit-box:hover {
-          transition: .3s ease-in-out;
-          background: rgba(53, 53, 53, 0.4);
-          color: #FFF; }
     .content-login .login-form .forgot-password {
       margin-top: 1.5rem;
       margin-bottom: 2rem; }
