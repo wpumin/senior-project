@@ -58,7 +58,7 @@
             </div>
             <div class="modal-body my-4 text-center">
                 <b>อีเมลไม่ถูกต้อง</b>
-                <p>กรุณากรอกอีเมลที่ถูกต้อง</p>
+                <p>ไม่พบอีเมลดังกล่าวในระบบ</p>
                 <div class="modal-button text-center mt-3">
                     <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
