@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -11,36 +11,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
-class RegisterController extends Controller
+class RegisterUserController extends Controller
 {
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-   
-    public function register()
+    public function register_user()
     {   
         try {
 
@@ -116,22 +94,18 @@ class RegisterController extends Controller
         $user->email = $this->request->input('email');
         $user->address = $this->request->input('address');
         $user->username = $this->request->input('username');
-        $user->password = $this->request->input('password');
+        $user->password = Hash::make($this->request->password);
  
 
     $user->save();
 
     DB::commit();
-    return $this->responseRequestSuccess('Success!');
-    } catch (Exception $e) {
-        return response()->json($this->formatResponse($e->getMessage()));
+        return $this->responseRequestSuccess('Success!');
+        } catch (Exception $e) {
+            return response()->json($this->formatResponse($e->getMessage()));
+        }
     }
-}
-public function register_student()
-{
-    dd('test');
-}
-     /*
+    /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง
     |--------------------------------------------------------------------------

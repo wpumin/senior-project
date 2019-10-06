@@ -12,12 +12,12 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
-                    <form action="#" id="loginForm">
+                    <form id="loginForm">
                         <div class="mt-4">
-                            <input type="text" name="username" class="input-box" placeholder="ชื่อผู้ใช้" required autofocus>
+                            <input type="text" name="username" id="username" class="input-box" placeholder="ชื่อผู้ใช้" required autofocus>
                         </div>
                         <div class="mt-4">
-                            <input type="password" name="password" class="input-box" placeholder="รหัสผ่าน" required>
+                            <input type="password" name="password" id="password" class="input-box" placeholder="รหัสผ่าน" required>
                         </div>
                         <div class="forgot-password text-right">
                             <span class="spinner-border hidden"></span> <a href="forgot-password">ลืมรหัสผ่าน?</a>
@@ -61,7 +61,7 @@
         $('.input-box').val('');
     });
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
         $("#loginForm").submit(function(event){
             $('.spinner-border').removeClass('hidden');
             submitForm();
@@ -72,13 +72,17 @@
     function submitForm(){
         $.ajax({
             type: "POST",
-            url: "",
+            url: "http://localhost:8000/login",
             cache:false,
             data: $('form#loginForm').serialize(),
-            success: function(response){
-                // $(location).attr('href', '');
+            success: function(result){
+                // $(location).attr('href', 'confirm-otp');
+
+                if (result.status == 'not_user') {
+                    $(".wrap-modal > #errorLogin").modal('show');
+                }
             },
-            error: function(){
+            error: function(result){
                 $(".wrap-modal > #errorLogin").modal('show');
             }
         });

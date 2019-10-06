@@ -22,10 +22,12 @@ class CreateStudentsTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('nickname');
-            $table->string('phone')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('school')->nullable();
+            $table->string('address')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
-            $table->integer('price');
+            $table->integer('price')->nullable();
             $table->string('image')->nullable();
             $table->string('qr_code')->nullable();
             $table->string('status')->nullable();
