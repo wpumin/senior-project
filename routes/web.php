@@ -47,7 +47,8 @@ Route::get('/reset', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/auth/register', 'RegisterController@register');\
+Route::post('register/user', 'RegisterUserController@register_user');
+Route::post('/auth/register_student', 'RegisterController@register_student');
 Route::post('/auth/login', 'LoginController@login');
 Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
