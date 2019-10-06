@@ -94,7 +94,7 @@ class RegisterUserController extends Controller
         $user->email = $this->request->input('email');
         $user->address = $this->request->input('address');
         $user->username = $this->request->input('username');
-        $user->password = $this->request->input('password');
+        $user->password = Hash::make($this->request->password);
  
 
     $user->save();
