@@ -193,6 +193,12 @@ input {
 img {
   pointer-events: none; }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3; }
+
 /* Kanit-400 - latin */
 @font-face {
   font-family: 'Kanit Regular';
@@ -374,6 +380,114 @@ img {
         .wrap-modal .modal-body button.btn-secondary:focus {
           box-shadow: 0 0 0 0.2rem rgba(244, 111, 33, 0.25) !important; }
 
+header {
+  position: relative; }
+  header .row1 {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    background-image: url("../images/bg/bg_head.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 1.25rem 0; }
+    @media only all and (min-width: 48em) {
+      header .row1 {
+        padding: 0.875rem 0; } }
+    @media only screen and (min-width: 62em) {
+      header .row1 {
+        padding: 1rem 0; } }
+    header .row1 .header {
+      width: 100%;
+      color: #FFF; }
+      header .row1 .header .left {
+        margin-left: 2rem; }
+        header .row1 .header .left img {
+          width: 5.5rem; }
+      header .row1 .header .right {
+        margin-right: 2rem; }
+        header .row1 .header .right .right_sub table tbody tr td {
+          color: #FFF;
+          padding: 0.25rem 0; }
+        header .row1 .header .right .right_sub table tbody tr td:nth-child(1) {
+          text-align: right;
+          width: 10rem; }
+        header .row1 .header .right .right_sub table tbody tr td:nth-child(2) {
+          text-align: center;
+          width: 6rem; }
+        header .row1 .header .right .right_sub table tbody tr td:nth-child(3) {
+          text-align: left;
+          width: 14rem; }
+          header .row1 .header .right .right_sub table tbody tr td:nth-child(3).role {
+            color: #353535;
+            background: yellow;
+            border-radius: 1.5rem; }
+        header .row1 .header .right .right_sub .sign-out {
+          margin-left: 3rem;
+          height: 100%;
+          padding: 1.55rem 2.5rem !important;
+          font-size: 1.4rem;
+          padding: 1rem 1.5rem;
+          border-radius: 15rem;
+          background: #353535;
+          color: #FFF;
+          transition: .3s ease-in-out; }
+          @media only all and (min-width: 48em) {
+            header .row1 .header .right .right_sub .sign-out {
+              font-size: 1.6rem; } }
+          header .row1 .header .right .right_sub .sign-out:after {
+            margin-left: 0.5rem;
+            content: "";
+            background-image: url("../images/general/logout.svg");
+            width: 1.5rem;
+            height: 1.5rem;
+            filter: invert(1); }
+          header .row1 .header .right .right_sub .sign-out:hover {
+            transition: .3s ease-in-out;
+            background: rgba(53, 53, 53, 0.4); }
+    header .row1 .mobile-header .left ul {
+      list-style-type: none; }
+      header .row1 .mobile-header .left ul li {
+        z-index: 4;
+        cursor: pointer;
+        line-height: 1;
+        padding: 2rem 0;
+        font-family: "Kanit Medium", sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        color: #FFF; }
+        header .row1 .mobile-header .left ul li.hamburger {
+          position: relative;
+          width: 2.5rem;
+          cursor: pointer; }
+          header .row1 .mobile-header .left ul li.hamburger span {
+            position: absolute;
+            background-color: #FFF;
+            height: 3px;
+            top: 1.9rem;
+            width: 100%;
+            -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s; }
+            header .row1 .mobile-header .left ul li.hamburger span:first-child {
+              top: 1.2rem;
+              transform: rotate(0); }
+            header .row1 .mobile-header .left ul li.hamburger span:nth-child(2) {
+              top: 2.55rem; }
+          header .row1 .mobile-header .left ul li.hamburger.active span:first-child {
+            opacity: 0; }
+          header .row1 .mobile-header .left ul li.hamburger.active span:nth-child(2) {
+            top: 2rem;
+            transform: rotate(-45deg); }
+          header .row1 .mobile-header .left ul li.hamburger.active span:last-child {
+            transform: rotate(45deg);
+            top: 2rem; }
+          header .row1 .mobile-header .left ul li.hamburger.active:after {
+            display: none; }
+    header .row1 .mobile-header .right object {
+      width: 2.5rem;
+      filter: invert(1); }
+  header .row2 {
+    position: absolute; }
+
 @keyframes fadeBG {
   0% {
     background-color: #F46F21; }
@@ -405,7 +519,3 @@ img {
     .content-login .login-form .small-ps {
       color: rgba(255, 255, 255, 0.4);
       font-size: 1.2rem; }
-
-.header {
-  background: linear-gradient(to right, #F46F21, #E68628);
-  color: #FFF; }

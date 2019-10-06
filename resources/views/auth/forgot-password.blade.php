@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main_external')
 
 @section('title','ลืมรหัสผ่าน')
 

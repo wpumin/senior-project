@@ -185,3 +185,11 @@ input{
 img {
     pointer-events: none;
 }
+
+//fixed menu top
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}

@@ -1,6 +1,33 @@
 $(function () {
+  //gerneral
   $(".hidden").hide();
+
+  // init wow
   new WOW().init();
+
+  //navbar fixed top
+  window.onscroll = function() {navOnScroll()};
+            
+  var header = document.getElementById("header-on-scroll");
+  var sticky = header.offsetTop;
+  
+  function navOnScroll() {
+      if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+      } else {
+          header.classList.remove("sticky");
+      }
+  }
+
+  //menu toggle
+  $(".hamburger").on("click", function () {
+      const id = $(this).attr("id");
+      $(this).toggleClass("active");
+      $(".row2").slideToggle();
+      $("body").toggleClass("active");
+  });
+
+
 });
 
 
