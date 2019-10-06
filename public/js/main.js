@@ -1,16 +1,13 @@
 $(function () {
-  //gerneral
+  //gerneral hidden
   $(".hidden").hide();
-
-  // init wow
-  new WOW().init();
 
   //navbar fixed top
   window.onscroll = function() {navOnScroll()};
-            
+              
   var header = document.getElementById("header-on-scroll");
   var sticky = header.offsetTop;
-  
+    
   function navOnScroll() {
       if (window.pageYOffset > sticky) {
           header.classList.add("sticky");
@@ -18,6 +15,9 @@ $(function () {
           header.classList.remove("sticky");
       }
   }
+
+  // init wow
+  new WOW().init();
 
   //menu toggle
   $(".hamburger").on("click", function () {

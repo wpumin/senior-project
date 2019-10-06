@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
-                    <p class="text-center my-3"> กรุณากรอกอีเมลของท่าน <span class="spinner-border hidden"> </span></p>
+                    <p class="text-center my-3"> กรุณากรอกอีเมลของท่าน <span class="spinner-border"> </span></p>
                     
                     <form action="#" class="" id="checkEmail">
                         <div class="mt-4">
@@ -71,13 +71,13 @@
 <script>
 
     $('#delete-spinner').click(function() {
-        $('.spinner-border').addClass('hidden');
+        $('.spinner-border').css('display','none');   
         $('.input-box').val('');
     });
 
     $(document).ready(function(){	
         $("#checkEmail").submit(function(event){
-            $('.spinner-border').removeClass('hidden');
+            $('.spinner-border').css('display','inline-block');   
             submitForm();
             return false;
         });
@@ -89,11 +89,21 @@
             url: "",
             cache:false,
             data: $('form#checkEmail').serialize(),
-            success: function(response){
-                $(".wrap-modal > #sendOTP").modal('show');
+            success: function(result){
+
+                // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
+                if (result.status == 'have_email')) {
+                    $(".wrap-modal > #sendOTP").modal('show');
+                }
+
+                // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
+                if (result.status == 'dont_have_email')) {
+                    $(".wrap-modal > #errorEmail").modal('show');
+                }
+ 
             },
             error: function(){
-                $(".wrap-modal > #errorEmail").modal('show');
+                // $(".wrap-modal > #errorEmail").modal('show');
             }
         });
     }

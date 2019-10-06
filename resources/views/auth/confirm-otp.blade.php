@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
-                    <p class="text-center my-3"> กรุณายืนยันรหัส OTP 6 หลัก <span class="spinner-border hidden"> </span></p>
+                    <p class="text-center my-3"> กรุณายืนยันรหัส OTP 6 หลัก <span class="spinner-border"> </span></p>
                     
                     <form action="#" class="" id="checkOTP">
                         <div class="mt-4">
@@ -52,13 +52,13 @@
 <script>
 
     $('#delete-spinner').click(function() {
-        $('.spinner-border').addClass('hidden');
+        $('.spinner-border').css('display','none');   
         $('.input-box').val('');
     });
 
     $(document).ready(function(){	
         $("#checkOTP").submit(function(event){
-            $('.spinner-border').removeClass('hidden');
+            $('.spinner-border').css('display','inline-block');   
             submitForm();
             return false;
         });
@@ -70,11 +70,22 @@
             url: "",
             cache:false,
             data: $('form#checkOTP').serialize(),
-            success: function(response){
-                $(location).attr('href', 'create-newpassword');
+            success: function(result){
+
+                // ยืนยันสำเร็จ
+                if (result.status == 'success_confirm_otp')) {
+                    $(location).attr('href', 'create-newpassword');
+                }
+                
+                // ยืนยันไม่สำเร็จ
+                if (result.status == 'error_confirm_otp')) {
+                    $(".wrap-modal > #errorOTP").modal('show');
+                }
+
+                
             },
             error: function(){
-                $(".wrap-modal > #errorOTP").modal('show');
+                // $(".wrap-modal > #errorOTP").modal('show');
             }
         });
     }

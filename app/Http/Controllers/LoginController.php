@@ -40,10 +40,10 @@ class LoginController extends Controller
                 $user->save();
                 return $this->responseRequestSuccess($user);
             } else {
-                return $this->responseRequestError('wrong_pass');
+                return $this->responseRequestError('incorrect_password');
             }
         } else {
-            return $this->responseRequestError('not_user');
+            return $this->responseRequestError('no_user');
         }
     }
 

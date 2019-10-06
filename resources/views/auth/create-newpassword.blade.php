@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
-                    <p class="text-center my-3"> กรุณายืนยันรหัสผ่านใหม่  <span class="spinner-border hidden"> </span></p>
+                    <p class="text-center my-3"> กรุณายืนยันรหัสผ่านใหม่  <span class="spinner-border"> </span></p>
                     
                     <form action="#" class="" id="changePassword">
                         <div class="mt-4">
@@ -74,13 +74,13 @@
 <script>
 
     $('#delete-spinner').click(function() {
-        $('.spinner-border').addClass('hidden');
+        $('.spinner-border').css('display','none');   
         $('.input-box').val('');
     });
 
     $(document).ready(function(){	
         $("#changePassword").submit(function(event){
-            $('.spinner-border').removeClass('hidden');
+            $('.spinner-border').css('display','inline-block');   
             submitForm();
             return false;
         });
@@ -92,14 +92,24 @@
             url: "",
             cache:false,
             data: $('form#changePassword').serialize(),
-            success: function(response){
-                $(".wrap-modal > #successNewPassword").modal('show');
-                setTimeout(function(){
-                    $(location).attr('href', 'login');
-                },3000);
+            success: function(result){
+
+                // เปลี่ยนรหัสผ่านสำเร็จ
+                if (result.status == 'success_create_newpassword')) {
+                    $(".wrap-modal > #successNewPassword").modal('show');
+                    setTimeout(function(){
+                        $(location).attr('href', 'login');
+                    },3000);
+                }
+
+                // รหัสผ่านไม่ตรงกัน
+                if (result.status == 'error_create_newpassword')) {
+                    $(".wrap-modal > #errorNewPassword").modal('show');
+                }
+
             },
             error: function(){
-                $(".wrap-modal > #errorNewPassword").modal('show');
+                // $(".wrap-modal > #errorNewPassword").modal('show');
             }
         });
     }

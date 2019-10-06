@@ -12,7 +12,6 @@
 */
 
 // login
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -30,20 +29,9 @@ Route::get('/create-newpassword', function () {
 });
 
 // index
-
 Route::get('/index', function () {
     return view('index');
 });
-
-
-Route::get('/email', function () {
-    return view('auth.passwords.email');
-});
-
-Route::get('/reset', function () {
-    return view('auth.passwords.reset');
-});
-
 
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');

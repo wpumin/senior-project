@@ -199,6 +199,14 @@ img {
   width: 100%;
   z-index: 3; }
 
+.spinner-border {
+  display: none;
+  border: .2rem solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner-border .75s linear infinite;
+  animation: spinner-border .75s linear infinite; }
+
 /* Kanit-400 - latin */
 @font-face {
   font-family: 'Kanit Regular';
