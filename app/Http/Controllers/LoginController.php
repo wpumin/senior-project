@@ -34,17 +34,17 @@ class LoginController extends Controller
         if ($user) {
 
             if (Hash::check($this->request->password, $user->password)) {
-                    // $token = $this->jwt($user);
-                    // $user->token = $token;
-                    // $user->last_login_date = Carbon::now();
-                    $user->save();
-                    return $this->responseRequestSuccess($user);
+                // $token = $this->jwt($user);
+                // $user->token = $token;
+                // $user->last_login_date = Carbon::now();
+                $user->save();
+                return $this->responseRequestSuccess($user);
             } else {
                 return $this->responseRequestError('wrong_pass');
             }
         } else {
-            return $this->responseRequestError('wrong_pass2');
-            }
+            return $this->responseRequestError('not_user');
+        }
     }
 
     protected function responseRequestSuccess($ret)
