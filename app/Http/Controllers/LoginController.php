@@ -65,4 +65,19 @@ class LoginController extends Controller
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     }
+    /*
+    |--------------------------------------------------------------------------
+    | ตัวเข้ารหัส JWT
+    |--------------------------------------------------------------------------
+     */
+    protected function jwt($user)
+    {
+        $payload = [
+            'iss' => "lumen-jwt", // Issuer of the token
+            'sub' => $user->id, // Subject of the token
+            'iat' => time(), // Time when JWT was issued.
+            'exp' => time() + env('JWT_EXPIRE_HOUR') * 60 * 60, // Expiration time
+        ];
+        return JWT::encode($payload, env('JWT_SECRET'));
+    }
 }
