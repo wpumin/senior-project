@@ -23,7 +23,7 @@ class CreatePaymentLogsTable extends Migration
             $table->string('car_id')->nullable();
             $table->string('price')->nullable();
             $table->string('qr_code')->nullable();
-            $table->timestamps();
+            $table->string('created_at');
         });
     }
 
