@@ -77,7 +77,7 @@
             data: $('form#loginForm').serialize(),
             success: function(result){
 
-                // login สำรเ็จ
+                // login สำเร็จ
                 if(result.status == 'success') {
                     $(location).attr('href', 'index');
                 }
