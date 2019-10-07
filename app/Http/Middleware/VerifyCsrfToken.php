@@ -25,6 +25,7 @@ class VerifyCsrfToken extends Middleware
         '/bill',
         '/login',
         '/register/user',
-        'register/student'
+        'register/student',
+        '/forgotpassword'
     ];
 }
