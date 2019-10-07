@@ -9,11 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "blocktrail/cryptojs-aes-php": "^0.1.0",
         "fideloper/proxy": "^4.0",
+        "firebase/php-jwt": "^5.0",
+        "illuminate/mail": "^6.1",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "blocktrail/cryptojs-aes-php": "^0.1.0",
-        "firebase/php-jwt": "^5.0",
         "laravel/ui": "^1.0",
         "nesbot/carbon": "^2.24"
     },

@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'last_name' => 'ลิลิตสัจจะ',
             'relationship' => 'พ่อ',
             'address' => 'ตำบลหูช้าง',
-            'email' => 'ashita11479@gmail.com',
+            'email' => 'ashita_11479@hotmail.com',
             'mobile' => '0898911553',
             'image' => 'pic A',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')

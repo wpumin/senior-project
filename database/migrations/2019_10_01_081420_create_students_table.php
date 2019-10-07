@@ -15,22 +15,20 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('card_id')->nullable();
             $table->string('user_id')->nullable();
-            $table->string('school_id')->nullable();
+            $table->string('card_id')->nullable();
             $table->string('car_id')->nullable();
+            $table->string('school_id')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('nickname');
             $table->string('mobile')->nullable();
-            $table->string('school')->nullable();
             $table->string('address')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
             $table->integer('price')->nullable();
             $table->string('image')->nullable();
-            $table->string('qr_code')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->nullable()->default(1);
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             AppointmentsTableSeeder::class,
             ReportTableSeeder::class,
             PaymentStatusTableSeeder::class,
-            TypeReportTableSeeder::class
+            TypeReportTableSeeder::class,
         ]);
     }
 }
