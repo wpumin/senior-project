@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Crypt;
 use App\Otp;
 use App\User;
+use Carbon\Carbon;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -14,10 +15,16 @@ use Illuminate\Support\Facades\Validator;
 
 class ForgotPasswordController extends Controller
 {
-    public function ForgotPassword(Request $request)
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
+
+    public function ForgotPassword()
     {
         // validator
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($this->request->all(), [
             'email' => 'required',
         ]);
         if ($validator->fails()) {
@@ -25,7 +32,7 @@ class ForgotPasswordController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $this->request->input('email'))->first();
         if ($user) {
 
                 $template_html = 'mail.forgot_password';
@@ -39,9 +46,9 @@ class ForgotPasswordController extends Controller
                     'ref' => $genREF,
                     'otp' => $genOTP
                 ];
-                
+
                 $otp = new Otp();
-                $otp->email = $request->email;
+                $otp->email = $this->request->input('email');
                 $otp->ref = $genREF;
                 $otp->otp = $genOTP;
 
@@ -61,7 +68,7 @@ class ForgotPasswordController extends Controller
 
                     return $this->responseRequestSuccess($info);
                 }
-            
+
         } else {
             return $this->responseRequestError('error');
         }
@@ -123,5 +130,5 @@ class ForgotPasswordController extends Controller
 
         return CryptoJSAES::decrypt($key, $passphrase);
     }
-    
+
 }
