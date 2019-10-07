@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'relationship' => 'พ่อ',
             'address' => 'ตำบลหูช้าง',
             'email' => 'ashita11479@gmail.com',
-            'phone' => '0898911553',
+            'mobile' => '0898911553',
             'image' => 'pic A',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
             'relationship' => 'พ่อ',
             'address' => 'ตำบลบ้านไร่',
             'email' => 'dvver@gmail.com',
-            'phone' => '0648763436',
+            'mobile' => '0648763436',
             'image' => 'pic A',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

@@ -35,8 +35,8 @@ class RegisterStudentController extends Controller
         // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
    
-    //validator Phone
-    $validator_phone = Validator::make($this->request->all(), [
+    //validator mobile
+    $validator_mobile = Validator::make($this->request->all(), [
         'mobile' => 'required|digits_between:9,10',
     ]);
 
@@ -45,10 +45,10 @@ class RegisterStudentController extends Controller
         return $this->responseRequestError('error', $errors);
     }
 
-    //validator Phone
-    if ($validator_phone->fails()) {
-        $errors_ph = $validator_phone->errors();
-        return $this->responseRequestError('not_rule_phone', $errors_ph);
+    //validator mobile
+    if ($validator_mobile->fails()) {
+        $errors_ph = $validator_mobile->errors();
+        return $this->responseRequestError('not_rule_mobile', $errors_ph);
     }
     $student = new Student();
     DB::beginTransaction();

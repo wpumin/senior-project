@@ -35,8 +35,8 @@ class RegisterUserController extends Controller
         'password' => 'required'
         ]);
    
-    //validator Phone
-    $validator_phone = Validator::make($this->request->all(), [
+    //validator mobile
+    $validator_mobile = Validator::make($this->request->all(), [
         'mobile' => 'required|digits_between:9,10',
     ]);
 
@@ -67,10 +67,10 @@ class RegisterUserController extends Controller
         return $this->responseRequestError('not_rule_pass', $errors_p);
     }
 
-    //validator Phone
-    if ($validator_phone->fails()) {
-        $errors_ph = $validator_phone->errors();
-        return $this->responseRequestError('not_rule_phone', $errors_ph);
+    //validator mobile
+    if ($validator_mobile->fails()) {
+        $errors_ph = $validator_mobile->errors();
+        return $this->responseRequestError('not_rule_mobile', $errors_ph);
     }
     $user = new User();
 

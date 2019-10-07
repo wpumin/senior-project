@@ -20,12 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('relationship');
             $table->string('mobile');
-            $table->string('line_id');
+            $table->string('line_id')->nullable();
             $table->string('email');
             $table->string('address');
             $table->string('username');
             $table->string('password');
-
+            $table->string('token')->nullable();
+            $table->timestamp('last_login_date')->nullable();
             $table->timestamps();
         });
     }

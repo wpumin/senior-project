@@ -57,13 +57,13 @@
 <script>
 
     $('#delete-spinner').click(function() {
-        $('.spinner-border').css('display','none');  
+        $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
 
     $(document).ready(function(){
         $("#loginForm").submit(function(event){
-            $('.spinner-border').css('display','inline-block');    
+            $('.spinner-border').css('display','inline-block');
             submitForm();
             return false;
         });
