@@ -5,7 +5,7 @@
     font-family: 'Kanit Regular';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/kanit/kanit-regular.ttf') format('truetype');
+    src: url('../../fonts/kanit/kanit-regular.ttf') format('truetype');
 }
 
 /* Kanit-500 - latin */
@@ -13,7 +13,7 @@
     font-family: 'Kanit Medium';
     font-style: normal;
     font-weight: 500;
-    src: url('../fonts/kanit/kanit-medium.ttf') format('truetype');
+    src: url('../../fonts/kanit/kanit-medium.ttf') format('truetype');
 }
 
 /* Kanit-700 - latin */
@@ -21,77 +21,5 @@
     font-family: 'Kanit Bold';
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/kanit/kanit-bold.ttf') format('truetype');
+    src: url('../../fonts/kanit/kanit-bold.ttf') format('truetype');
 }
-
-//! Fontello (Icons) ---------------------------------------------------
-@font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.eot?3156045');
-    src: url('../font/fontello.eot?3156045#iefix') format('embedded-opentype'),
-         url('../font/fontello.woff2?3156045') format('woff2'),
-         url('../font/fontello.woff?3156045') format('woff'),
-         url('../font/fontello.ttf?3156045') format('truetype'),
-         url('../font/fontello.svg?3156045#fontello') format('svg');
-    font-weight: normal;
-    font-style: normal;
-  }
-  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-  /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-  /*
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
-      font-family: 'fontello';
-      src: url('../font/fontello.svg?3156045#fontello') format('svg');
-    }
-  }
-  */
-   
-   [class^="bearbus-icon-"]:before, [class*=" bearbus-icon-"]:before {
-    font-family: "fontello";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-   
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: .2em;
-    text-align: center;
-    /* opacity: .8; */
-   
-    /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant: normal;
-    text-transform: none;
-   
-    /* fix buttons height, for twitter bootstrap */
-    line-height: 1em;
-   
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
-    margin-left: .2em;
-   
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
-   
-    /* Font smoothing. That was taken from TWBS */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-   
-    /* Uncomment for 3D effect */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-  }
-   
-  .bearbus-icon-calendar:before { content: '\e800'; } /* '' */
-  .bearbus-icon-search:before { content: '\e801'; } /* '' */
-  .bearbus-icon-mail:before { content: '\e802'; } /* '' */
-  .bearbus-icon-megaphone:before { content: '\e803'; } /* '' */
-  .bearbus-icon-shop:before { content: '\e804'; } /* '' */
-  .bearbus-icon-calendar-1:before { content: '\e805'; } /* '' */
-  .bearbus-icon-user:before { content: '\e806'; } /* '' */
-  .bearbus-icon-mail-1:before { content: '\e807'; } /* '' */
-  .bearbus-icon-cog:before { content: '\e808'; } /* '' */
-  .bearbus-icon-eye:before { content: '\e809'; } /* '' */
-  .bearbus-icon-money:before { content: '\e80a'; } /* '' */
-  .bearbus-icon-bell-alt:before { content: '\f0f3'; } /* '' */
-  .bearbus-icon-angle-right:before { content: '\f105'; } /* '' */

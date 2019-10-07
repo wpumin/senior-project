@@ -52,6 +52,7 @@ header{
                         }
                     }
                     .sign-out{
+                        transition: .3s ease-in-out;
                         margin-left: 3rem;
                         height: 100%;
                         padding: 1.55rem 2.5rem !important;
@@ -59,7 +60,7 @@ header{
                         @include respond(md){
                             font-size: $xsSize;
                         }
-                        padding: 1rem 1.5rem;
+                        // padding: 1rem 1.5rem;
                         border-radius: 15rem;
                         background: $bgDarkGray;
                         color: $textWhite;
@@ -82,7 +83,7 @@ header{
             }
         }
         
-        .mobile-header{
+        .tablet-header{
             .left{
                 ul{
                     list-style-type: none;
@@ -154,6 +155,19 @@ header{
         }
     }
     .row2{
+        display: none;
+        @include respond(md){
+            display: block;
+        }
+        @include respond(lg){
+            display: none;
+        }
+        z-index: 2;
+        background: $bgWhite;
+        height: 100vh;
+        width: 100vw;
+        background-color: $bgWhite;
+        padding: 2rem;
         position: absolute;
     }
 }

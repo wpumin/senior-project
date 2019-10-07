@@ -15,8 +15,8 @@
     height:100vh;
     color:white;
     animation: fadeBG 8s infinite;
-    background: url('../images/login/bg-login2.png') right bottom no-repeat, 
-                url('../images/login/bg-login.png') left top no-repeat;
+    background: url('../../images/login/bg-login2.png') right bottom no-repeat, 
+                url('../../images/login/bg-login.png') left top no-repeat;
     @include respond(lg){
         background-size: contain;
     }
