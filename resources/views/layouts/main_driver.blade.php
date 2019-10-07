@@ -26,7 +26,7 @@
     <!-- Data Table CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
 </head>
