@@ -19,63 +19,69 @@ class RegisterStudentController extends Controller
     }
 
     public function register_student()
-    {   
+    {
         try {
 
-        $validator = Validator::make($this->request->all(), [
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'nickname' => 'required',
-        'mobile' => 'required',
-        'school' => 'required',
-        'address' => 'required',
-        'lattitude' => 'required',
-        'longtitude' => 'required',
-        // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-   
-    //validator mobile
-    $validator_mobile = Validator::make($this->request->all(), [
-        'mobile' => 'required|digits_between:9,10',
-    ]);
+            $validator = Validator::make($this->request->all(), [
+                'user_id' => 'required',
+                'school_id' => 'required',
+                'car_id' => 'required',
+                'card_id' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'nickname' => 'required',
+                'mobile' => 'required',
+                'school' => 'required',
+                'address' => 'required',
+                'lattitude' => 'required',
+                'longtitude' => 'required',
+                'price' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
 
-    if ($validator->fails()) {
-        $errors = $validator->errors();
-        return $this->responseRequestError('error', $errors);
-    }
+            //validator mobile
+            $validator_mobile = Validator::make($this->request->all(), [
+                'mobile' => 'required|digits_between:9,10',
+            ]);
 
-    //validator mobile
-    if ($validator_mobile->fails()) {
-        $errors_ph = $validator_mobile->errors();
-        return $this->responseRequestError('not_rule_mobile', $errors_ph);
-    }
-    $student = new Student();
-    DB::beginTransaction();
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                return $this->responseRequestError('error', $errors);
+            }
 
-    if ($this->request->file('image')) {
-        $image_filename = $this->request->file('image')->getClientOriginalName();
-        $image_name = $this->request->input('first_name') . '_' . $image_filename;
-        $public_path = 'images/Students/';
-        $destination = base_path() . "/public/" . $public_path;
-        $this->request->file('image')->move($destination, $image_name);
-        $student->image = $public_path . $image_name;
-    }
-    
-        // 'image' => $this->request->input('image'),
-        $student->first_name = $this->request->input('first_name');
-        $student->last_name = $this->request->input('last_name');
-        $student->nickname = $this->request->input('nickname');
-        $student->mobile = $this->request->input('mobile');
-        $student->school = $this->request->input('school');
-        $student->address = $this->request->input('address');
-        $student->lattitude = $this->request->input('lattitude');
-        $student->longtitude = $this->request->input('longtitude');
+            //validator mobile
+            if ($validator_mobile->fails()) {
+                $errors_ph = $validator_mobile->errors();
+                return $this->responseRequestError('not_rule_mobile', $errors_ph);
+            }
+            $student = new Student();
+            DB::beginTransaction();
 
-    $student->save();
+            if ($this->request->file('image')) {
+                $image_filename = $this->request->file('image')->getClientOriginalName();
+                $image_name = $this->request->input('first_name') . '_' . $image_filename;
+                $public_path = 'images/Students/';
+                $destination = base_path() . "/public/" . $public_path;
+                $this->request->file('image')->move($destination, $image_name);
+                $student->image = $public_path . $image_name;
+            }
 
-    DB::commit();
-        return $this->responseRequestSuccess('Success!');
+            // 'image' => $this->request->input('image'),
+            $student->first_name = $this->request->input('first_name');
+            $student->last_name = $this->request->input('last_name');
+            $student->nickname = $this->request->input('nickname');
+            $student->mobile = $this->request->input('mobile');
+            $student->school = $this->request->input('school');
+            $student->address = $this->request->input('address');
+            $student->lattitude = $this->request->input('lattitude');
+            $student->longtitude = $this->request->input('longtitude');
+            $student->price = $this->request->input('price');
+
+            $student->save();
+
+            DB::commit();
+            return $this->responseRequestSuccess('Success!');
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
