@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             ReportTableSeeder::class,
             PaymentStatusTableSeeder::class,
             TypeReportTableSeeder::class,
-            qrcodetableseeder::class
         ]);
     }
 }
