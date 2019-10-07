@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 use App\Otp;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
+
 class ForgotPasswordController extends Controller
 {
     public function ForgotPassword(Request $request)
@@ -26,9 +27,6 @@ class ForgotPasswordController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if ($user) {
-
-            //if actived
-            if ($user = User::where('email', $request->email)) {
 
                 $template_html = 'mail.forgot_password';
 
@@ -46,10 +44,10 @@ class ForgotPasswordController extends Controller
                 $otp->email = $request->email;
                 $otp->ref = $genREF;
                 $otp->otp = $genOTP;
-                
 
                 if ($otp->save()) {
                     Mail::send($template_html, $template_data, function ($msg) use ($user) {
+                        // dd($user->email);
                         $msg->subject('ลืมรหัสผ่าน === Forgot');
                         $msg->to([$user->email]);
                         $msg->from('dviver100@gmail.com', 'Bear-Bus');
@@ -63,10 +61,7 @@ class ForgotPasswordController extends Controller
 
                     return $this->responseRequestSuccess($info);
                 }
-            } else {
-                //not active
-                return $this->responseRequestError('no_activate');
-            }
+            
         } else {
             return $this->responseRequestError('error');
         }
@@ -105,6 +100,28 @@ class ForgotPasswordController extends Controller
     protected function strRandom_otp($length = 6)
     {
         return substr(str_shuffle('0123456789'), 0, $length);
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ encrypt
+    |--------------------------------------------------------------------------
+     */
+    protected function encrypt($key)
+    {
+        $passphrase = "my passphrase";
+
+        return CryptoJSAES::encrypt($key, $passphrase);
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ decrypt
+    |--------------------------------------------------------------------------
+     */
+    protected function decrypt($key)
+    {
+        $passphrase = "my passphrase";
+
+        return CryptoJSAES::decrypt($key, $passphrase);
     }
     
 }
