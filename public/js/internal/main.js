@@ -49,7 +49,7 @@
       Sidebar Menu Control Mobile
     -------------------------------------*/
   $(".sidebar-toggle-mobile").on("click", function () {
-    $("#wrapper").toggleClass("sidebar-collapsed-mobile");
+    $("#wrapper").toggleClass("sidebar-collapsed-mobile", 2000);
     if ($("#wrapper").hasClass("sidebar-collapsed")) {
       $("#wrapper").removeClass("sidebar-collapsed");
     }
@@ -427,6 +427,23 @@
           }
         ]
       });
+    }
+
+
+    /*-------------------------------------
+                Navbar fixed top
+      -------------------------------------*/
+    window.onscroll = function() {navOnScroll()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function navOnScroll() {
+      if (window.pageYOffset > sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
     }
   });
 
