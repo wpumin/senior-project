@@ -79,7 +79,7 @@
 
                 // login สำรเ็จ
                 if(result.status == 'success') {
-                    $(location).attr('href', 'confirm-otp');
+                    $(location).attr('href', 'index');
                 }
 
                 // รหัสผ่านผิด

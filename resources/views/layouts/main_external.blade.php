@@ -17,12 +17,10 @@
             <link rel="manifest" href="../../../manifest.json">
 
             <!-- Bootstrap -->
-            <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap/bootstrap_external.min.css') }}">
 
             <!-- // ! StyleSheet -->
 
-            <!-- Datepicker -->
-            <link rel="stylesheet" href="{{ URL::asset('plugins/datepicker/bootstrap-datepicker.min.css') }}">
             <!-- Fullcalendar -->
             <link rel="stylesheet" href="{{ URL::asset('plugins/fullcalendar/core/main.css') }}">
             <link rel="stylesheet" href="{{ URL::asset('plugins/fullcalendar/daygrid/main.css') }}">
@@ -36,14 +34,13 @@
             <link rel="stylesheet" href="{{ URL::asset('plugins/wow/animate.css') }}">
 
             <!-- // TODO: Must to do everytime when you want to update stylesheet on server -->
-            <link rel="stylesheet" href="{{ URL::asset('css/style.css?v=1.0.0.1') }}" >
+            <link rel="stylesheet" href="{{ URL::asset('css/external/style.css?v=1.0.0.1') }}" >
 
             <!-- // ! Javascript -->
-            <script src="{{ URL::asset('js/jquery-3.4.1.min.js') }}"></script>
-            <script src="{{ URL::asset('plugins/bootstrap/popper.min.js') }}"></script>
-            <script src="{{ URL::asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
-            <!-- Datepicker -->
-            <script src="{{ URL::asset('plugins/datepicker/bootstrap-datepicker.min.js') }}"></script>
+            <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
+            <script src="{{ URL::asset('plugins/bootstrap/popper_external.min.js') }}"></script>
+            <script src="{{ URL::asset('plugins/bootstrap/bootstrap_external.min.js') }}"></script>
+
             <!-- Fullcalendar -->
             <script src="{{ URL::asset('plugins/fullcalendar/core/main.js') }}"></script>
             <script src="{{ URL::asset('plugins/fullcalendar/core/th.js') }}"></script>
@@ -76,7 +73,7 @@
             </script>
 
             
-            <script src="{{ URL::asset('js/main.js') }}"></script>
+            <script src="{{ URL::asset('js/external/main.js') }}"></script>
 
         </head>
         <body>
