@@ -64,16 +64,7 @@
             </div>
             <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
                 <ul class="navbar-nav">
-                    <li class="navbar-item header-search-bar">
-                        <div class="input-group stylish-input-group">
-                            <span class="input-group-addon">
-                                <button type="submit">
-                                    <span class="flaticon-search" aria-hidden="true"></span>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" placeholder="ค้นหา ...">
-                        </div>
-                    </li>
+                    {{-- don't remove --}}
                 </ul>
                 <ul class="navbar-nav">
                     <li class="navbar-item dropdown header-admin">
@@ -94,15 +85,15 @@
                             <div class="item-content">
                                 <ul class="settings-list">
                                     <li><a href="#"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                    <li><a href="#"><i class="flaticon-list"></i>ขอบเขตงาน</a></li>
+                                    {{-- <li><a href="#"><i class="flaticon-list"></i>ขอบเขตงาน</a></li>
                                     <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>กล่องข้อความ</a></li>
-                                    <li><a href="#"><i class="flaticon-gear-loading"></i>ตั้งตค่าแจ้งเตือน</a></li>
-                                    <li><a href="#"><i class="flaticon-turn-off"></i>ออกจากระบบ</a></li>
+                                    <li><a href="#"><i class="flaticon-gear-loading"></i>ตั้งตค่าแจ้งเตือน</a></li> --}}
+                                    <li><a href="#"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li class="navbar-item dropdown header-message">
+                    {{-- <li class="navbar-item dropdown header-message">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
                             <i class="far fa-envelope"></i>
@@ -173,7 +164,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="navbar-item dropdown header-notification">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
