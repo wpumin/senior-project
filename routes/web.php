@@ -38,6 +38,8 @@ Route::post('register/user', 'RegisterUserController@register_user');
 Route::post('register/student', 'RegisterStudentController@register_student');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::post('/forgotpassword', 'ForgotPasswordController@ForgotPassword');
+Route::post('/newpassword', 'NewPasswordController@NewPassword');
+Route::post('/receiveotp', 'ReceiveOTPController@receiveOTP');
 Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
