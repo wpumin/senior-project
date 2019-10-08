@@ -449,15 +449,45 @@
 
 })(jQuery);
 
-    /*-------------------------------------
-                Refresh 3 second
+
+ /*-------------------------------------
+                Google Map Embed
       -------------------------------------*/
-$(document).ready(
-  function() {
-      setInterval(function() {
-          var randomnumber = Math.floor(Math.random() * 100);
-          $('#show').text(
-                  'I am getting refreshed every 3 seconds..! Random Number ==> '
-                          + randomnumber);
-      }, 3000);
+
+$(document).ready(function() {
+  var map = null;
+  var myMarker;
+  var myLatlng;
+
+  function initializeGMap(lat, lng) {
+    myLatlng = new google.maps.LatLng(lat, lng);
+
+    var myOptions = {
+      zoom: 12,
+      zoomControl: true,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    myMarker = new google.maps.Marker({
+      position: myLatlng
+    });
+    myMarker.setMap(map);
+  }
+
+  // Re-init map before show modal
+  $('#mapEmbed').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    initializeGMap(button.data('lat'), button.data('lng'));
+    $("#location-map").css("width", "100%");
+    $("#map_canvas").css("width", "100%");
   });
+
+  // Trigger map resize event after modal shown
+  $('#mapEmbed').on('shown.bs.modal', function() {
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(myLatlng);
+  });
+});

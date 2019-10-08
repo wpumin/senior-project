@@ -4437,6 +4437,9 @@ ul {
 .text-orange {
   color: #ffa001;
 }
+.text-special-orange{
+  color: rgb(255, 127, 53) !important;
+}
 .text-red {
   color: #ff0000;
 }
@@ -4493,6 +4496,26 @@ ul {
   text-align: center;
 }
 
-.student-profile-table table tbody{
-  
+/* modal */
+.modal{
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+
+.modal-body{
+  padding: 1.2rem 1.05rem;
+}
+
+.modal .modal-header{
+  border-radius: 14px 14px 0 0 ;
+  background-color: #F46F21;
+}
+
+#map_canvas{
+  border-radius: 8px;
 }

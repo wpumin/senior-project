@@ -98,7 +98,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
                             {{-- <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>ลบออก</a> --}}
-                            <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
+                            <a class="dropdown-item" href="" value = "Refresh" onclick="history.go(0)"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรชทั้งหมด</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -169,7 +169,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.724490' data-lng='100.489828'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -253,7 +253,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -274,7 +274,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -295,7 +295,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -316,7 +316,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -337,7 +337,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -358,7 +358,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -379,7 +379,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -400,7 +400,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -421,7 +421,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -442,7 +442,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>รีเฟรช</a>
-                                            <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'><i class="fas fa-map-marker-alt text-red"></i>ดูข้อมูล</a>
                                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>แก้ไข</a>
                                         </div>
                                     </div>
@@ -454,25 +454,35 @@
             </div>
         </div>
         <!-- Student Table Area End Here -->
+    
+        <!-- Modal -->
+        <div class="modal fade" id="mapEmbed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> --}}
+                    {{-- <h4 class="modal-title" id="myModalLabel">Modal title</h4> --}}
+                    </div>
+                    <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 modal_body_content px-4">
+                        <h2 class="mb-2 text-special-orange">กาย</h2>
+                        <p>ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 modal_body_map">
+                        <div class="location-map" id="location-map">
+                            <div style="width: 800px; height: 400px;" id="map_canvas"></div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal End Here -->
 
+            <script src="//maps.googleapis.com/maps/api/js"></script>
 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection
