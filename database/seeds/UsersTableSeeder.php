@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
@@ -13,8 +14,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'username' => 'kid_test',
-            'password' => '123123123',
+            'username' => 'kid',
+            'password' => Hash::make('123123123'),
             'first_name' => 'อชิตะ',
             'last_name' => 'ลิลิตสัจจะ',
             'relationship' => 'พ่อ',
@@ -26,8 +27,8 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'username' => 'blon_test',
-            'password' => '11111111',
+            'username' => 'blon',
+            'password' => Hash::make('123123123'),
             'first_name' => 'โกญจนาท',
             'last_name' => 'เกษศิลป์',
             'relationship' => 'พ่อ',

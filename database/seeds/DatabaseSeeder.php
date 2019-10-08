@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ReportTableSeeder::class,
             PaymentStatusTableSeeder::class,
             TypeReportTableSeeder::class,
+            RolesTableSeeder::class,
         ]);
     }
 }
