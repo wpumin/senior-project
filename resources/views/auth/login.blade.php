@@ -72,12 +72,12 @@
     function submitForm(){
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/login",
+            url: "https://bear-bus.com/login",
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){
 
-                // login สำรเ็จ
+                // login สำเร็จ
                 if(result.status == 'success') {
                     $(location).attr('href', 'index');
                 }

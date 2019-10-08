@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/fullcalendar.min.css') }}">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/animate.min.css') }}">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css') }}">
     <!-- Modernize js -->
@@ -35,7 +37,7 @@
     <!-- Preloader End Here -->
     <div id="wrapper" class="wrapper bg-ash">
        <!-- Header Menu Area Start Here -->
-        <div class="navbar navbar-expand-md header-menu-one bg-light">
+        <div class="navbar navbar-expand-md header-menu-one bg-light" id="navbar">
             <div class="nav-bar-header-one">
                 <div class="header-logo">
                     <a href="index.html">
@@ -54,7 +56,7 @@
             </div>
             <div class="d-md-none mobile-nav-bar">
                <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
-                    <i class="far fa-arrow-alt-circle-down"></i>
+                    <i class="far fa-arrow-alt-circle-down "></i>
                 </button>
                 <button type="button" class="navbar-toggler sidebar-toggle-mobile">
                     <i class="fas fa-bars"></i>
@@ -69,7 +71,7 @@
                                     <span class="flaticon-search" aria-hidden="true"></span>
                                 </button>
                             </span>
-                            <input type="text" class="form-control" placeholder="Find Something . . .">
+                            <input type="text" class="form-control" placeholder="ค้นหา ...">
                         </div>
                     </li>
                 </ul>
@@ -78,8 +80,8 @@
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
                             <div class="admin-title">
-                                <h5 class="item-title">Stevne Zone</h5>
-                                <span>Admin</span>
+                                <h5 class="item-title">อชิตะ ลิลิตสัจจะ</h5>
+                                <span>แอดมิน</span>
                             </div>
                             <div class="admin-img">
                                 <img src="{{ url('images/internal/figure/admin.jpg') }}" alt="Admin">
@@ -87,7 +89,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">Steven Zone</h6>
+                                <h6 class="item-title">คุณ อชิตะ ลิลิตสัจจะ</h6>
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
@@ -221,12 +223,10 @@
                     </li>
                      <li class="navbar-item dropdown header-language">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" 
-                        data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>EN</a>
+                        data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                         <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Thai</a>
                             <a class="dropdown-item" href="#">English</a>
-                            <a class="dropdown-item" href="#">Spanish</a>
-                            <a class="dropdown-item" href="#">Franchis</a>
-                            <a class="dropdown-item" href="#">Chiness</a>
                         </div>
                     </li>
                 </ul>
@@ -892,6 +892,10 @@
     <script src="{{ URL::asset('js/internal/fullcalendar.min.js') }}"></script>
     <!-- Chart Js -->
     <script src="{{ URL::asset('js/internal/Chart.min.js') }}"></script>
+    <!-- Scroll Up Js -->
+    <script src="{{ URL::asset('js/internal/jquery.scrollUp.min.js') }}"></script>
+    <!-- Data Table Js -->
+    <script src="{{ URL::asset('js/internal/jquery.dataTables.min.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
 
