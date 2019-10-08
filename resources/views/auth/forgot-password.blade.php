@@ -11,7 +11,7 @@
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณากรอกอีเมลของท่าน <span class="spinner-border"> </span></p>
                     
-                    <form action="#" class="" id="checkEmail">
+                    <form class="" id="checkEmail">
                         <div class="mt-4">
                             <input type="email" name="email" class="input-box" placeholder="อีเมล" required autofocus>
                         </div>
@@ -86,18 +86,18 @@
     function submitForm(){
         $.ajax({
             type: "POST",
-            url: "",
+            url: "http://localhost:8000/forgotpassword",
             cache:false,
             data: $('form#checkEmail').serialize(),
             success: function(result){
-
                 // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
-                if (result.status == 'have_email')) {
-                    $(".wrap-modal > #sendOTP").modal('show');
+                console.log(result.status);
+                if (result.status == 'success') {
+                    $(".wrap-modal > #sendOTP").modal('show');;
                 }
 
                 // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
-                if (result.status == 'dont_have_email')) {
+                if (result.status == 'error') {
                     $(".wrap-modal > #errorEmail").modal('show');
                 }
  
