@@ -8,13 +8,14 @@ class User extends Model
 {
     protected $table = 'users';
     protected $fillable = [
-        'image','first_name','last_name', 'relationship', 'mobile','line_id', 'email', 'address','username','password', 'token', 'last_login_date'
+        'image', 'first_name', 'last_name', 'relationship', 'mobile', 'line_id', 'email', 'address', 'username', 'token'
 
 
     ];
 
     protected $guarded = ['id'];
-    protected $dates = ['created_at', 'updated_at'];
+    protected $dates = ['created_at', 'updated_at', 'last_login_date'];
+    protected $hidden = ['password'];
 
     public function appointment()
     {

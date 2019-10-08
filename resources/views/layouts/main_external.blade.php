@@ -3,6 +3,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="csrf-token" content="{{ csrf_token() }}">
 
             <!-- Basic SEO -->
             <meta name="description" content="Comfortable with the bare by school bus tracking">
@@ -10,7 +11,7 @@
             <meta name="googlebot" content="Bear Bus, BEAR BUS, School bus tracking">
 
             <title> @yield('title') - Bear Bus </title>
-            
+
             <!-- Manifest -->
             <meta name="theme-color" content="#f1f1f1">
             <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
@@ -72,13 +73,13 @@
                 });
             </script>
 
-            
+
             <script src="{{ URL::asset('js/external/main.js') }}"></script>
 
         </head>
         <body>
 
         @yield('content')
-        
+
     </body>
 </html>

@@ -13,6 +13,7 @@
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
                     <form id="loginForm">
+                            @csrf
                         <div class="mt-4">
                             <input type="text" name="username" id="username" class="input-box" placeholder="ชื่อผู้ใช้" required autofocus>
                         </div>
@@ -73,6 +74,9 @@
         $.ajax({
             type: "POST",
             url: "http://localhost:8000/login",
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){

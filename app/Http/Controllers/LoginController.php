@@ -8,7 +8,6 @@ use App\User;
 use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -30,11 +29,13 @@ class LoginController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $user = User::where('username', $this->request->username)->first();
+        // dd($this->request->method());
+
+        $user = User::where('username', $this->request->input('username'))->first();
 
         if ($user) {
 
-            if (Hash::check($this->request->password, $user->password)) {
+            if (Hash::check($this->request->input('password'), $user->password)) {
                 $token = $this->jwt($user);
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
@@ -47,7 +48,11 @@ class LoginController extends Controller
             return $this->responseRequestError('no_user');
         }
     }
-
+    /*
+    |--------------------------------------------------------------------------
+    | response เมื่อข้อมูลส่งถูกต้อง
+    |--------------------------------------------------------------------------
+     */
     protected function responseRequestSuccess($ret)
     {
         return response()->json(['status' => 'success', 'data' => $ret], 200)
