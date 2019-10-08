@@ -27,12 +27,7 @@ class VerifyCsrfToken extends Middleware
         '/register/user',
         'register/student',
         '/forgotpassword',
-<<<<<<< HEAD
         '/receiveotp',
         '/newpassword'
-=======
-        '/recieveotp',
-        '/newpassword',
->>>>>>> feature/NewPassword
     ];
 }
