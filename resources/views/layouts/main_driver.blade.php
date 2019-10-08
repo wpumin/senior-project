@@ -43,6 +43,14 @@
                     <a href="index.html">
                         <img src="{{ url('images/internal/logo.png') }}" alt="logo">
                     </a>
+                    <div class="d-md-none mobile-nav-bar">
+                        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+                            <i class="far fa-arrow-alt-circle-down "></i>
+                        </button>
+                        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
                 </div>
                  <div class="toggle-button sidebar-toggle">
                     <button type="button" class="item-link">
@@ -53,14 +61,6 @@
                         </span>
                     </button>
                 </div>
-            </div>
-            <div class="d-md-none mobile-nav-bar">
-               <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
-                    <i class="far fa-arrow-alt-circle-down "></i>
-                </button>
-                <button type="button" class="navbar-toggler sidebar-toggle-mobile">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
             <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
                 <ul class="navbar-nav">
@@ -225,14 +225,14 @@
             <!-- Sidebar Area Start Here -->
             <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
                <div class="mobile-sidebar-header d-md-none">
-                    <div class="header-logo">
+                    {{-- <div class="header-logo">
                         <a href="index.html"><img src="{{ url('images/internal/logo1.png') }}" alt="logo"></a>
-                    </div>
+                    </div> --}}
                </div>
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
+                            <a href="#" class="nav-link menu-active"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>

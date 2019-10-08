@@ -72,7 +72,7 @@
     function submitForm(){
         $.ajax({
             type: "POST",
-            url: "https://bear-bus.com/login",
+            url: "http://localhost:8000/login",
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){

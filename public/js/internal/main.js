@@ -51,7 +51,7 @@
   $(".sidebar-toggle-mobile").on("click", function () {
     $("#wrapper").toggleClass("sidebar-collapsed-mobile", 2000);
     if ($("#wrapper").hasClass("sidebar-collapsed")) {
-      $("#wrapper").removeClass("sidebar-collapsed");
+        $("#wrapper").removeClass("sidebar-collapsed");
     }
   });
 
@@ -448,3 +448,16 @@
   });
 
 })(jQuery);
+
+    /*-------------------------------------
+                Refresh 3 second
+      -------------------------------------*/
+$(document).ready(
+  function() {
+      setInterval(function() {
+          var randomnumber = Math.floor(Math.random() * 100);
+          $('#show').text(
+                  'I am getting refreshed every 3 seconds..! Random Number ==> '
+                          + randomnumber);
+      }, 3000);
+  });
