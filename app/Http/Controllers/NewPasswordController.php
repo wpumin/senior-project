@@ -19,22 +19,54 @@ class NewPasswordController extends Controller
         $this->request = $request;
     }
 
+    // public function newPassword()
+    // {
+    //     try {
+
+    //         $validate = Validator::make($this->request->all(), [
+    //             'email' => 'required',
+    //             'password' => 'required|min:8|max:20',
+    //             'confirm_password' => 'required'
+    //         ]);
+    //         if ($validate->fails()) {
+    //             return $this->responseRequestError('error');
+    //         }
+            
+    //         if ($user = User::where('email', decrypt($this->request->email))->first()) {
+    //                 if ($this->request->password == $this->request->confirm_password) {
+
+
+    //                     $user->password = Hash::make($this->request->password);
+
+    //                     if ($user->save()) {
+
+    //                         return $this->responseRequestSuccess('Success!');
+    //                     }
+    //                 } else {
+
+    //                 return $this->responseRequestError('pass_not_same');
+    //             }
+    //         } else {
+    //             return $this->responseRequestError('email incorrect');
+    //         }
+            
+    //     } catch (DecryptException $e) {
+    //         return 'ไม่พบข้อมูล';
+    //     }
     public function newPassword()
     {
         try {
-
             $validate = Validator::make($this->request->all(), [
-                'email ' => 'required',
+                'email' => 'required',
                 'password' => 'required|min:8|max:20',
                 'confirm_password' => 'required'
             ]);
+            if ($validate->fails()) {
 
-            if (!$validate->fails()) {
                 return $this->responseRequestError('error');
             }
 
             if ($user = User::where('email', decrypt($this->request->email))->first()) {
-
                 if ($this->request->password == $this->request->confirm_password) {
 
 
@@ -51,10 +83,13 @@ class NewPasswordController extends Controller
             } else {
                 return $this->responseRequestError('email incorrect');
             }
-        } catch (Exception $e) {
+        } 
+        catch (DecryptException $e) {
             return 'ไม่พบข้อมูล';
         }
     }
+    
+    
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง
