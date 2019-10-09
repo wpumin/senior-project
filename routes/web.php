@@ -45,3 +45,8 @@ Route::post('/againotp', 'AgainOTPController@againOTP');
 Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
+
+$router->group(['prefix' => 'api/v1', 'middleware' => 'jwt.auth'], function ($router) {
+
+    $router->post('check', 'LoginController@index');
+});
