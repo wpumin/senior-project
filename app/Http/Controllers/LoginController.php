@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Role;
 use Carbon\Carbon;
 use App\User;
 use Firebase\JWT\JWT;
@@ -15,6 +16,11 @@ class LoginController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
+    }
+
+    public function index()
+    {
+        return view('index');
     }
 
     public function login()
@@ -34,15 +40,15 @@ class LoginController extends Controller
         $user = User::where('username', $this->request->input('username'))->first();
 
         if ($user) {
-
+            $role = Role::where('id', $user->role)->first();
+            // dd($role['name']);
             if (Hash::check($this->request->input('password'), $user->password)) {
                 $token = $this->jwt($user);
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
                 $user->save();
-                return $this->responseRequestSuccess($user)
-                    ->cookie('Authorization', $user->token)
-                    ->cookie('name', $user->first_name);
+                $user->role = $role['name'];
+                return $this->responseRequestSuccess($user);
             } else {
                 return $this->responseRequestError('incorrect_password');
             }

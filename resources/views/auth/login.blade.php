@@ -56,6 +56,48 @@
 </div>
 
 <script>
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function deleteAllCookies() {
+
+        var res = document.cookie;
+        var multiple = res.split(";");
+
+
+        for (var i = 0; i < multiple.length; i++) {
+
+            var key = multiple[i].split("=");
+            document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        for (var i = 0; i < multiple.length; i++) {
+
+            var key = multiple[i].split("=");
+            document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
+        }
+
+    }
 
     $('#delete-spinner').click(function() {
         $('.spinner-border').css('display','none');
@@ -63,6 +105,7 @@
     });
 
     $(document).ready(function(){
+
         $("#loginForm").submit(function(event){
             $('.spinner-border').css('display','inline-block');
             submitForm();
@@ -71,6 +114,7 @@
     });
 
     function submitForm(){
+
         $.ajax({
             type: "POST",
             url: "http://localhost:8000/login",
@@ -83,7 +127,13 @@
 
                 // login สำเร็จ
                 if(result.status == 'success') {
+                    setCookie('Authorization', result.data['token'], 30);
+                    setCookie('name', result.data['first_name'], 30);
+                    setCookie('role', result.data['role'], 30);
+                    setCookie('f_name', result.data['first_name'], 30);
+                    setCookie('l_name', result.data['last_name'], 30);
                     $(location).attr('href', 'index');
+
                 }
 
                 // รหัสผ่านผิด

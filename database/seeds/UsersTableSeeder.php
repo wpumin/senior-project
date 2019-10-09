@@ -29,9 +29,9 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'username' => 'blon',
             'password' => Hash::make('123123123'),
-            'first_name' => 'โกญจนาท',
-            'last_name' => 'เกษศิลป์',
-            'relationship' => 'พ่อ',
+            'first_name' => 'Khonjanat',
+            'last_name' => 'Ketsin',
+            'relationship' => 'Dad',
             'address' => 'ตำบลบ้านไร่',
             'email' => 'dvver@gmail.com',
             'mobile' => '0648763436',
