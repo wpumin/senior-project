@@ -48,48 +48,48 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="item-content">
-                            <div class="item-title">ยังไม่ขึ้นรถ</div>
-                            <div class="item-number"><span class="counter" data-num="23">23 คน</span></div>
+                            <div class="item-content">
+                                <div class="item-title">ยังไม่ขึ้นรถ</div>
+                            <div class="item-number"><span class="counter" id="no" data-num="{{$no}}">23 คน</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="dashboard-summery-one mg-b-20">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <div class="item-icon bg-light-yellow">
-                            <i class="flaticon-bus text-orange"></i>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="dashboard-summery-one mg-b-20">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-bus text-orange"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="item-content">
-                            <div class="item-title">ขึ้นรถแล้ว</div>
-                            <div class="item-number"><span class="counter" data-num="34">34 คน</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="dashboard-summery-one mg-b-20">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <div class="item-icon bg-light-green">
-                            <i class="flaticon-school text-green"></i>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="item-content">
-                            <div class="item-title">ลงรถแล้ว</div>
-                            <div class="item-number"><span class="counter" data-num="0">0 คน</span></div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">ขึ้นรถแล้ว</div>
+                            <div class="item-number"><span class="counter" id="up" data-num="{{$up}}">34 คน</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="dashboard-summery-one mg-b-20">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-green">
+                                <i class="flaticon-school text-green"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">ลงรถแล้ว</div>
+                            <div class="item-number"><span class="counter" id="down" data-num="{{$down}}">0 คน</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="dashboard-summery-one mg-b-20">
                 <div class="row align-items-center">
@@ -152,7 +152,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {{-- <tr>
                                 <td>1</td>
                                 <td>มายด์</td>
                                 <td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>
@@ -406,14 +406,14 @@
                                         </a>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
         <!-- Student Table Area End Here -->
-    
+
         <!-- Google Map Modal -->
         <div class="modal fade" id="mapEmbed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-md modal-dialog-centered" role="document">
@@ -469,3 +469,78 @@
         <script src="//maps.googleapis.com/maps/api/js"></script>
 
 @endsection
+
+<script>
+
+        setInterval(function(){
+                  $.ajax({
+                     url:'/tasks/refresh',
+                     type:'GET',
+                     dataType:'json',
+                     success:function(response){
+
+                        if(response.status == 'success'){
+                            document.getElementById("no").innerHTML = response.data['no'];
+                            document.getElementById("up").innerHTML = response.data['up'];
+                            document.getElementById("down").innerHTML = response.data['down'];
+                            document.getElementById("self").innerHTML = response.data['self'];
+                        }
+                     },error:function(err){
+
+                     }
+                  })
+
+
+                  $.ajax({
+                     url:'/tasks/refresh/student',
+                     type:'GET',
+                     dataType:'json',
+                     success:function(response){
+
+                        if(response.status == 'success'){
+                            $('table tbody').html('');
+                            var status = '';
+                            // console.log(response.data['student'].length);
+                            for(var i=0;i<response.data['student'].length;i++){
+
+                                if (response.data['student'][i]['status'] == '1') {
+                                    status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
+                                }else if (response.data['student'][i]['status'] == '2') {
+                                    status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
+                                }else if (response.data['student'][i]['status'] == '3') {
+                                    status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
+                                }else {
+                                    status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                                }
+
+                                $('table tbody').append(
+                                '<tr>'+
+                                '<td>'+response.data['student'][i]['id']+'</td>'+
+                                '<td>'+response.data['student'][i]['nickname']+'</td>'+
+                                status+
+                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>'+
+                                '<td>'+response.data['student'][i]['address']+'</td>'+
+                                '<td>'+response.data['student'][i]['user_id']+'</td>'+
+                                '<td>พ่อ</td>'+
+                                '<td>'+response.data['student'][i]['mobile']+'</td>'+
+                                '<td>'+
+                                '<div class="dropdown">'+
+                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat="13.756664" data-lng="100.532987">'+
+                                '<span class="flaticon-pin"></span>'+
+                                '</a>'+
+                                '</div>'+
+                                '</td>'+
+                                '</tr>'
+                                );
+
+                           }
+
+                        }
+                     },error:function(err){
+
+                     }
+                  })
+               }, 5000);
+
+
+        </script>

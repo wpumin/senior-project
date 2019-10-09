@@ -28,6 +28,7 @@ use Facade\Ignition\Exceptions\InvalidConfig;
 use Facade\Ignition\DumpRecorder\DumpRecorder;
 use Facade\Ignition\Middleware\SetNotifierName;
 use Facade\Ignition\QueryRecorder\QueryRecorder;
+use Facade\Ignition\Commands\SolutionMakeCommand;
 use Facade\Ignition\Middleware\AddGitInformation;
 use Facade\Ignition\Views\Engines\CompilerEngine;
 use Facade\Ignition\Context\LaravelContextDetector;
@@ -53,6 +54,7 @@ use Facade\Ignition\SolutionProviders\TableNotFoundSolutionProvider;
 use Illuminate\View\Engines\CompilerEngine as LaravelCompilerEngine;
 use Facade\Ignition\SolutionProviders\MissingPackageSolutionProvider;
 use Facade\Ignition\SolutionProviders\UndefinedVariableSolutionProvider;
+use Facade\Ignition\SolutionProviders\UnknownValidationSolutionProvider;
 use Facade\Ignition\SolutionProviders\InvalidRouteActionSolutionProvider;
 use Facade\Ignition\SolutionProviders\RunningLaravelDuskInProductionProvider;
 use Facade\Ignition\SolutionProviders\IncorrectValetDbCredentialsSolutionProvider;
@@ -74,7 +76,13 @@ class IgnitionServiceProvider extends ServiceProvider
 
         $this
             ->registerViewEngines()
+            ->registerHousekeepingRoutes()
+            ->registerLogHandler()
             ->setupQueue($this->app->queue);
+
+        $this->app->make(QueryRecorder::class)->register();
+        $this->app->make(LogRecorder::class)->register();
+        $this->app->make(DumpRecorder::class)->register();
     }
 
     public function register()
@@ -83,13 +91,11 @@ class IgnitionServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/ignition.php', 'ignition');
 
         $this
-            ->registerHousekeepingRoutes()
             ->registerSolutionProviderRepository()
             ->registerExceptionRenderer()
             ->registerWhoopsHandler()
             ->registerIgnitionConfig()
             ->registerFlare()
-            ->registerLogHandler()
             ->registerLogRecorder()
             ->registerDumpCollector()
             ->registerCommands();
@@ -257,7 +263,7 @@ class IgnitionServiceProvider extends ServiceProvider
 
     protected function registerLogRecorder()
     {
-        $logCollector = $this->app->make(LogRecorder::class)->register();
+        $logCollector = $this->app->make(LogRecorder::class);
 
         $this->app->singleton(LogRecorder::class);
 
@@ -268,7 +274,7 @@ class IgnitionServiceProvider extends ServiceProvider
 
     protected function registerDumpCollector()
     {
-        $dumpCollector = $this->app->make(DumpRecorder::class)->register();
+        $dumpCollector = $this->app->make(DumpRecorder::class);
 
         $this->app->singleton(DumpRecorder::class);
 
@@ -280,15 +286,17 @@ class IgnitionServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         $this->app->bind('command.flare:test', TestCommand::class);
+        $this->app->bind('command.make:solution', SolutionMakeCommand::class);
 
         $this->commands([
             'command.flare:test',
+            'command.make:solution',
         ]);
     }
 
     protected function registerQueryRecorder()
     {
-        $queryCollector = $this->app->make(QueryRecorder::class)->register();
+        $queryCollector = $this->app->make(QueryRecorder::class);
 
         $this->app->singleton(QueryRecorder::class);
 
@@ -338,6 +346,7 @@ class IgnitionServiceProvider extends ServiceProvider
             MergeConflictSolutionProvider::class,
             RunningLaravelDuskInProductionProvider::class,
             MissingColumnSolutionProvider::class,
+            UnknownValidationSolutionProvider::class,
         ];
     }
 
