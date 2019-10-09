@@ -41,6 +41,7 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::post('/forgotpassword', 'ForgotPasswordController@ForgotPassword');
 Route::post('/newpassword', 'NewPasswordController@NewPassword');
 Route::post('/receiveotp', 'ReceiveOTPController@receiveOTP');
+Route::post('/againotp', 'AgainOTPController@againOTP');
 Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
