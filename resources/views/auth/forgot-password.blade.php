@@ -91,7 +91,6 @@
             data: $('form#checkEmail').serialize(),
             success: function(result){
                 // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
-                console.log(result.status);
                 if (result.status == 'success') {
                     $(".wrap-modal > #sendOTP").modal('show');;
                 }
