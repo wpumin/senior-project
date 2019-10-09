@@ -493,7 +493,28 @@ $(document).ready(function() {
 });
 
 
-$( document ).ready(function() {
-  console.log( 'ready!' );
+
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel({
+    loop:true,
+    autoplay: true,
+    autoplayTimeout:5000,
+    autoplayHoverPause:false,
+    margin:20,
+    responsiveClass:true,
+    responsive : {
+      0 : {
+          items: 1,
+          dots:true,
+      },
+      480 : {
+          items: 2,
+      },
+      1280 : {
+          items: 4,
+      }
+  }
+  });
 });
+
 

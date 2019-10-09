@@ -4601,3 +4601,137 @@ ul {
   background-color: #ff0000 !important;
   color: white;
 }
+
+/* owl-carousel */
+@media only screen and (max-width: 567px){
+  .owl-carousel.owl-loaded {
+    position: relative;
+  }
+  .owl-carousel .owl-stage{
+    padding-bottom: 3rem;
+  } 
+  .owl-dots{
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.owl-item .item{
+  background-size: cover;
+  border-radius: 15px !important;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 767px) {
+  .owl-item .item{
+    height: 24rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 849px){
+  .owl-item .item{
+    height: 14rem;
+  }
+}
+
+@media only screen and (min-width: 850px) and (max-width: 1199px){
+  .owl-item .item{
+    height: 21rem;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .owl-item .item{
+    height: 13rem;
+  }
+}
+
+@media only screen and (min-width: 1300px){
+  .owl-item .item{
+    height: 14rem;
+  }
+}
+
+@media only screen and (min-width: 1400px){
+  .owl-item .item{
+    height: 17rem;
+  }
+}
+
+@media only screen and (min-width: 1441px){
+  .owl-item .item{
+    height: 24rem;
+  }
+}
+
+.owl-item.active .item{
+  border-radius: 15px;
+}
+
+.owl-dots{
+  text-align: center;
+  padding: 1rem 0 2rem 0;
+}
+
+.owl-dots .owl-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #bcbcbc !important;
+  margin: 0 5px;
+}
+
+.owl-dots .owl-dot.active{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(255, 127, 53) !important;
+}
+
+@media only screen and (max-width: 567px){
+  .owl-dots .owl-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    margin: 0 5px;
+  }
+  .owl-dots .owl-dot.active{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white !important;
+  }
+}
+
+/* heading */
+@media only screen and (max-width: 767px) {
+  .heading{
+    border-bottom: 2px solid rgb(255, 127, 53);
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0 20px;
+    padding: 14.5px 0;
+    margin-top: 0;
+  }
+  .heading h3{
+    position: absolute;
+    padding: 0 10px;
+    background: #f0f1f3;
+  }
+}
+
+.heading h3{
+  color: rgb(255, 127, 53);
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px){
+  .heading h3{
+    border-bottom: 2px solid rgb(255, 127, 53);
+    width: fit-content;
+  }
+}

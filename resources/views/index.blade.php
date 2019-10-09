@@ -3,23 +3,41 @@
 @section('title','หน้าหลัก')
 
 @section('content')
-<!-- Breadcubs Area Start Here -->
-<div class="breadcrumbs-area">
-        <h3>หน้าหลัก</h3>
-        {{-- <ul>
-            <li>
-                <a href="#">หน้าหลัก</a>
-            </li>
-        </ul> --}}
-    </div>
-    <!-- Breadcubs Area End Here -->
+
+<style>
+
+</style>
 
     <!-- Owl-Carousel Area -->
-    
+    <!-- คิวรี่ 2 ขนาด มือถือกับแท๊บเล็ตขึ้นไป -->
+    <!-- มือถือไล่สีแถบล่าง -->
+    <div class="heading mt-5 text-left">
+        <h3>อัพเดตข่าวสาร</h3>
+    </div>
+    <div class="owl-carousel owl-theme d-md-none">
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+    </div>
+    <!-- ไอแพดขึ้นไป -->
+    <div class="owl-carousel owl-theme d-none d-md-block">
+        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+    </div>
     <!-- Owl-Carousel Area End Here-->
 
 
     <!-- Dashboard summery Start Here -->
+    <div class="heading text-left">
+        <h3>สถานะนักเรียน</h3>
+    </div>
     <div class="row gutters-20">
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="dashboard-summery-one mg-b-20">
@@ -449,30 +467,5 @@
         <!-- Picture Modal End Here -->
 
         <script src="//maps.googleapis.com/maps/api/js"></script>
-
-        <script>
-        
-        responsive : {
-            // breakpoint from 0 up
-            0 : {
-                option1 : value,
-                option2 : value,
-                ...
-            },
-            // breakpoint from 480 up
-            480 : {
-                option1 : value,
-                option2 : value,
-                ...
-            },
-            // breakpoint from 768 up
-            768 : {
-                option1 : value,
-                option2 : value,
-                ...
-            }
-        }
-        
-        </script>
 
 @endsection

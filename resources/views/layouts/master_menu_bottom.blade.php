@@ -1,8 +1,3 @@
-<?php if (!isset($_COOKIE['Authorization'])) { ?>
-    <script type="text/javascript">
-        window.location.replace('http://localhost:8000/');
-    </script>
-<?php } ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -76,8 +71,8 @@
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
                             <div class="admin-title">
-                                <h5 class="item-title" id="name_driver">balalonks</h5>
-                                <span id="role">คนขับรถ</span>
+                                <h5 class="item-title">balalonks</h5>
+                                <span>คนขับรถ</span>
                             </div>
                             <div class="admin-img">
                                 <img src="{{ url('images/internal/figure/driver.jpg') }}" alt="Admin">
@@ -85,12 +80,12 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></span></h6>
+                                <h6 class="item-title">คุณ โกญจนาท เกษศิลป์</h6>
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
                                     <li><a href="#"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                    <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                    <li><a href="#"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -130,7 +125,7 @@
                         </div>
                     </li>
                      <li class="navbar-item dropdown header-language">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
+                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" 
                         data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#">Thai</a>
@@ -169,19 +164,23 @@
             </div>
             <!-- Sidebar Area End Here -->
             <div class="dashboard-content-one">
-
+                
                 @yield('content')
 
             <!-- Footer Area -->
+            <footer class="footer-wrap-layout1 d-none d-md-block">
+                    <div class="copyright">© Copyrights <a href="#">BEAR BUS</a> 2019. All rights reserved. Designed by <a href="#">Dev-Banrai</a>
+                    </div>
+            </footer>
             <footer class="footer-wrap-layout1 fixed-bottom d-md-none">
                 <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
                             <div class="d-md-none mobile-nav-bar justify-content-between">
-                                <div><a href="#" class="nav-link active"><i class="flaticon-home text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link"><i class="flaticon-promotion text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link"><i class="flaticon-man text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link active"><i class="flaticon-home text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link"><i class="flaticon-appointment text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link"><i class="flaticon-promotion text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link"><i class="flaticon-man text-noactive"></i></a></div>  
                             </div>
                         </div>
                     </div>
@@ -192,56 +191,6 @@
         </div>
         <!-- Page Area End Here -->
     </div>
-    <script>
-            function setCookie(cname, cvalue, exdays) {
-                   var d = new Date();
-                   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-                   var expires = "expires=" + d.toGMTString();
-                   document.cookie = cname + "=" + cvalue + ";" + expires + ";";
-               }
-
-               function getCookie(cname) {
-                   var name = cname + "=";
-                   var decodedCookie = decodeURIComponent(document.cookie);
-                   var ca = decodedCookie.split(';');
-                   for (var i = 0; i < ca.length; i++) {
-                       var c = ca[i];
-                       while (c.charAt(0) == ' ') {
-                           c = c.substring(1);
-                       }
-                       if (c.indexOf(name) == 0) {
-                           return c.substring(name.length, c.length);
-                       }
-                   }
-                   return "";
-               }
-
-               function deleteAllCookies() {
-
-                   var res = document.cookie;
-                   var multiple = res.split(";");
-
-
-                   for (var i = 0; i < multiple.length; i++) {
-
-                       var key = multiple[i].split("=");
-                       document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                   }
-
-                   for (var i = 0; i < multiple.length; i++) {
-
-                       var key = multiple[i].split("=");
-                       document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
-                   }
-
-               }
-
-               document.getElementById("name_driver").innerHTML = getCookie('name');
-               document.getElementById("role").innerHTML = getCookie('role');
-               document.getElementById("f_name").innerHTML = getCookie('f_name');
-               document.getElementById("l_name").innerHTML = getCookie('l_name');
-
-           </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>
     <!-- Plugins js -->
