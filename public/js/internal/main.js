@@ -491,3 +491,9 @@ $(document).ready(function() {
     map.setCenter(myLatlng);
   });
 });
+
+
+$( document ).ready(function() {
+  console.log( 'ready!' );
+});
+

@@ -13,14 +13,20 @@
         </ul> --}}
     </div>
     <!-- Breadcubs Area End Here -->
+
+    <!-- Owl-Carousel Area -->
+    
+    <!-- Owl-Carousel Area End Here-->
+
+
     <!-- Dashboard summery Start Here -->
     <div class="row gutters-20">
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="dashboard-summery-one mg-b-20">
                 <div class="row align-items-center">
                     <div class="col-6">
-                        <div class="item-icon bg-light-black">
-                            <i class="flaticon-bench text-black"></i>
+                        <div class="item-icon bg-light-red">
+                            <i class="flaticon-bench text-red"></i>
                         </div>
                     </div>
                     <div class="col-6">
@@ -70,8 +76,8 @@
             <div class="dashboard-summery-one mg-b-20">
                 <div class="row align-items-center">
                     <div class="col-6">
-                        <div class="item-icon bg-light-red">
-                            <i class="flaticon-calendar-1 text-red"></i>
+                        <div class="item-icon bg-light-black">
+                            <i class="flaticon-calendar-1 text-black"></i>
                         </div>
                     </div>
                     <div class="col-6">
@@ -148,7 +154,7 @@
                             <tr>
                                 <td>2</td>
                                 <td>มายด์2</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">แจ้งเดินทางเอง</td>
+                                <td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -165,7 +171,7 @@
                             <tr>
                                 <td>3</td>
                                 <td>มายด์3</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -182,7 +188,7 @@
                             <tr>
                                 <td>4</td>
                                 <td>มายด์4</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -216,7 +222,7 @@
                             <tr>
                                 <td>6</td>
                                 <td>มายด์6</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -233,7 +239,7 @@
                             <tr>
                                 <td>7</td>
                                 <td>มายด์7</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">แจ้งเดินทางเอง</td>
+                                <td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -250,7 +256,7 @@
                             <tr>
                                 <td>8</td>
                                 <td>มายด์8</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -267,7 +273,7 @@
                             <tr>
                                 <td>9</td>
                                 <td>มายด์9</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -284,7 +290,7 @@
                             <tr>
                                 <td>10</td>
                                 <td>มายด์10</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -318,7 +324,7 @@
                             <tr>
                                 <td>12</td>
                                 <td>มายด์12</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -335,7 +341,7 @@
                             <tr>
                                 <td>13</td>
                                 <td>มายด์13</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -352,7 +358,7 @@
                             <tr>
                                 <td>14</td>
                                 <td>มายด์14</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -369,7 +375,7 @@
                             <tr>
                                 <td>15</td>
                                 <td>มายด์15</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
@@ -443,5 +449,30 @@
         <!-- Picture Modal End Here -->
 
         <script src="//maps.googleapis.com/maps/api/js"></script>
+
+        <script>
+        
+        responsive : {
+            // breakpoint from 0 up
+            0 : {
+                option1 : value,
+                option2 : value,
+                ...
+            },
+            // breakpoint from 480 up
+            480 : {
+                option1 : value,
+                option2 : value,
+                ...
+            },
+            // breakpoint from 768 up
+            768 : {
+                option1 : value,
+                option2 : value,
+                ...
+            }
+        }
+        
+        </script>
 
 @endsection

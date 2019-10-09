@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/animate.min.css') }}">
     <!-- Data Table CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
     <!-- Modernize js -->
@@ -207,6 +209,8 @@
     <script src="{{ URL::asset('js/internal/Chart.min.js') }}"></script>
     <!-- Data Table Js -->
     <script src="{{ URL::asset('js/internal/jquery.dataTables.min.js') }}"></script>
+    <!-- Owl-Carousel -->
+    <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
 
