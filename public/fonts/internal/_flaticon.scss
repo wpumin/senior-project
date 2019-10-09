@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 07/10/2019 10:37
+    Creation date: 09/10/2019 03:45
     */
 
     @font-face {
@@ -67,19 +67,21 @@
 .flaticon-bank:before { content: "\f11b"; }
 .flaticon-notification:before { content: "\f11c"; }
 .flaticon-lock:before { content: "\f11d"; }
-.flaticon-user:before { content: "\f11e"; }
-.flaticon-invoice:before { content: "\f11f"; }
-.flaticon-qr-code:before { content: "\f120"; }
-.flaticon-address:before { content: "\f121"; }
-.flaticon-reading:before { content: "\f122"; }
-.flaticon-comment:before { content: "\f123"; }
-.flaticon-bus:before { content: "\f124"; }
-.flaticon-bench:before { content: "\f125"; }
-.flaticon-school:before { content: "\f126"; }
-.flaticon-school-1:before { content: "\f127"; }
-.flaticon-money:before { content: "\f128"; }
-.flaticon-more:before { content: "\f129"; }
-.flaticon-calendar-2:before { content: "\f12a"; }
+.flaticon-invoice:before { content: "\f11e"; }
+.flaticon-qr-code:before { content: "\f11f"; }
+.flaticon-address:before { content: "\f120"; }
+.flaticon-reading:before { content: "\f121"; }
+.flaticon-comment:before { content: "\f122"; }
+.flaticon-bus:before { content: "\f123"; }
+.flaticon-bench:before { content: "\f124"; }
+.flaticon-school:before { content: "\f125"; }
+.flaticon-school-1:before { content: "\f126"; }
+.flaticon-money:before { content: "\f127"; }
+.flaticon-more:before { content: "\f128"; }
+.flaticon-calendar-2:before { content: "\f129"; }
+.flaticon-pin:before { content: "\f12a"; }
+.flaticon-user:before { content: "\f12b"; }
+.flaticon-bell:before { content: "\f12c"; }
     
     $font-Flaticon-calendar: "\f100";
     $font-Flaticon-arrow: "\f101";
@@ -111,16 +113,18 @@
     $font-Flaticon-bank: "\f11b";
     $font-Flaticon-notification: "\f11c";
     $font-Flaticon-lock: "\f11d";
-    $font-Flaticon-user: "\f11e";
-    $font-Flaticon-invoice: "\f11f";
-    $font-Flaticon-qr-code: "\f120";
-    $font-Flaticon-address: "\f121";
-    $font-Flaticon-reading: "\f122";
-    $font-Flaticon-comment: "\f123";
-    $font-Flaticon-bus: "\f124";
-    $font-Flaticon-bench: "\f125";
-    $font-Flaticon-school: "\f126";
-    $font-Flaticon-school-1: "\f127";
-    $font-Flaticon-money: "\f128";
-    $font-Flaticon-more: "\f129";
-    $font-Flaticon-calendar-2: "\f12a";
+    $font-Flaticon-invoice: "\f11e";
+    $font-Flaticon-qr-code: "\f11f";
+    $font-Flaticon-address: "\f120";
+    $font-Flaticon-reading: "\f121";
+    $font-Flaticon-comment: "\f122";
+    $font-Flaticon-bus: "\f123";
+    $font-Flaticon-bench: "\f124";
+    $font-Flaticon-school: "\f125";
+    $font-Flaticon-school-1: "\f126";
+    $font-Flaticon-money: "\f127";
+    $font-Flaticon-more: "\f128";
+    $font-Flaticon-calendar-2: "\f129";
+    $font-Flaticon-pin: "\f12a";
+    $font-Flaticon-user: "\f12b";
+    $font-Flaticon-bell: "\f12c";

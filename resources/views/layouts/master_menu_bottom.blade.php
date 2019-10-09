@@ -40,15 +40,13 @@
         <div class="navbar navbar-expand-md header-menu-one bg-light" id="navbar">
             <div class="nav-bar-header-one">
                 <div class="header-logo">
-                    <a href="index.html">
-                        <img src="{{ url('images/internal/logo.png') }}" alt="logo">
+                    <a href="index">
+                        <img class="logo-header" src="{{ url('images/internal/logo_temp.png') }}" alt="logo">
                     </a>
-                    <div class="d-md-none mobile-nav-bar">
+                    <div class="d-md-none mobile-nav-bar justify-content-between">
+                        <h3 class="text-light mb-0 pl-2">BEAR BUS</h3>
                         <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
-                            <i class="far fa-arrow-alt-circle-down "></i>
-                        </button>
-                        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
-                            <i class="fas fa-bars"></i>
+                            <i class="fas fa-user-circle text-light"></i>
                         </button>
                     </div>
                 </div>
@@ -85,86 +83,11 @@
                             <div class="item-content">
                                 <ul class="settings-list">
                                     <li><a href="#"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                    {{-- <li><a href="#"><i class="flaticon-list"></i>ขอบเขตงาน</a></li>
-                                    <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>กล่องข้อความ</a></li>
-                                    <li><a href="#"><i class="flaticon-gear-loading"></i>ตั้งตค่าแจ้งเตือน</a></li> --}}
                                     <li><a href="#"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    {{-- <li class="navbar-item dropdown header-message">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="far fa-envelope"></i>
-                            <div class="item-title d-md-none text-16 mg-l-10">กล่องข้อความ</div>
-                            <span>5</span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <div class="item-header">
-                                <h6 class="item-title">5 ข้อความ</h6>
-                            </div>
-                            <div class="item-content">
-                                <div class="media">
-                                    <div class="item-img bg-skyblue author-online">
-                                        <img src="{{ url('images/internal/figure/student11.png') }}" alt="img">
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="item-title">
-                                            <a href="#">
-                                                <span class="item-name">ภูมินท์ วงษ์ศิริ</span> 
-                                                <span class="item-time">07/10/2562 11:31</span> 
-                                            </a>  
-                                        </div>
-                                        <p>แจ้งน้องบล้อน บ้านไร่ กลับบ้านเองนะครับ วันพรุ่งนี้ ทำไมส่งไม่ไป</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-img bg-yellow author-online">
-                                        <img src="{{ url('images/internal/figure/student12.png') }}" alt="img">
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="item-title">
-                                            <a href="#">
-                                                <span class="item-name">อัญชลี ลัญชกรวงษ์</span> 
-                                                <span class="item-time">07/10/2562 11:30</span> 
-                                            </a>  
-                                        </div>
-                                        <p>วันนี้น้องฝน ทัพหลวง กลับบ้านเองนะคะตอนเย็น</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-img bg-pink">
-                                        <img src="{{ url('images/internal/figure/student13.png') }}" alt="img">
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="item-title">
-                                            <a href="#">
-                                                <span class="item-name">ภูมินท์ วงษ์ศิริ</span> 
-                                                <span class="item-time">07/10/2562 11:29</span> 
-                                            </a>  
-                                        </div>
-                                        <p>แจ้งน้องบล้อน บ้านไร่ กลับบ้านเองนะครับ วันพรุ่งนี้ ทำไมส่งไม่ไป</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-img bg-violet-blue">
-                                        <img src="{{ url('images/internal/figure/student11.png') }}" alt="img">
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="item-title">
-                                            <a href="#">
-                                                <span class="item-name">ภูมินท์ วงษ์ศิริ</span> 
-                                                <span class="item-time">07/10/2562 11:29</span> 
-                                            </a>  
-                                        </div>
-                                        <p>แจ้งน้องบล้อน บ้านไร่ กลับบ้านเองนะครับ วันพรุ่งนี้</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li> --}}
                     <li class="navbar-item dropdown header-notification">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
@@ -175,7 +98,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">3 การแจ้งเตือน</h6>
+                                <h6 class="item-title">2 การแจ้งเตือน</h6>
                             </div>
                             <div class="item-content">
                                 <div class="media">
@@ -242,11 +165,22 @@
                 
                 @yield('content')
 
-                <footer class="footer-wrap-layout1">
-                    <div class="copyright">© Copyrights <a href="#">Bear Bus</a> 2019. All rights reserved. Designed by <a
-                            href="#">Team Dev-Banrai</a></div>
-                </footer>
-                <!-- Footer Area End Here -->
+            <!-- Footer Area -->
+            <footer class="footer-wrap-layout1 fixed-bottom d-md-none">
+                <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
+                    <div class="nav-bar-footer-user" style="padding-right: 2rem;">
+                        <div class="header-logo">
+                            <div class="d-md-none mobile-nav-bar justify-content-between">
+                                <div><a href="#" class="nav-link active"><i class="flaticon-home text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link"><i class="flaticon-appointment text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link"><i class="flaticon-promotion text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link"><i class="flaticon-man text-noactive"></i></a></div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer Area End Here -->
             </div>
         </div>
         <!-- Page Area End Here -->
@@ -275,6 +209,10 @@
     <script src="{{ URL::asset('js/internal/jquery.dataTables.min.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
+
+    <script>
+        $('.fixed-bottom').css('bottom',-40);
+    </script>
 
 </body>
 

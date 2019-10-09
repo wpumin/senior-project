@@ -1,4 +1,4 @@
-@extends('layouts.main_external')
+@extends('layouts.master_external')
 
 @section('title','เข้าสู่ระบบ')
 
