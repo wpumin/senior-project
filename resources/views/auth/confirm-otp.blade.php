@@ -88,6 +88,8 @@
                 // $(".wrap-modal > #errorOTP").modal('show');
             }
         });
+
+        
     }
 
 </script>

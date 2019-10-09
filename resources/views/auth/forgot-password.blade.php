@@ -39,8 +39,8 @@
             <div class="modal-body my-4 text-center">
                 <b>ระบบส่ง OTP ไปยังอีเมลท่านสำเร็จ</b>
                 <p>กรุณาตรวจสอบอีเมลของท่าน หากไม่พบ ให้ตรวจสอบที่ถังขยะ หรือ รายการที่ลบ</p>
-                <div class="modal-button text-center mt-3">
-                    <a href="#"><button type="button" class="btn btn-secondary">ส่งอีกครั้ง</button></a>
+                <div class="modal-button text-center mt-3" >
+                    <a href="confirm-otp"><button type="button" class="btn btn-secondary" onclick="submitForm()">ส่งอีกครั้ง</button></a>
                     <a href="confirm-otp"><button type="button" class="btn btn-primary">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
@@ -105,6 +105,8 @@
                 // $(".wrap-modal > #errorEmail").modal('show');
             }
         });
+
+
     }
 
 </script>
