@@ -82,7 +82,7 @@
                                 <span id="role">คนขับรถ</span>
                             </div>
                             <div class="admin-img">
-                                <img src="{{ url('images/internal/figure/driver.jpg') }}" alt="Admin">
+                                <img id="photo_user" src="{{ url('images/internal/figure/driver.jpg') }}" alt="Admin">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -247,6 +247,7 @@
     document.getElementById("role").innerHTML = getCookie('role');
     document.getElementById("f_name").innerHTML = getCookie('f_name');
     document.getElementById("l_name").innerHTML = getCookie('l_name');
+    document.getElementById("photo_user").src = getCookie('image');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>
