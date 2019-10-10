@@ -29,6 +29,5 @@ class VerifyCsrfToken extends Middleware
         '/forgotpassword',
         '/receiveotp',
         '/newpassword',
-        '/againotp'
     ];
 }

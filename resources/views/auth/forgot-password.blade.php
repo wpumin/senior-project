@@ -70,6 +70,16 @@
 
 <script>
 
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
     $('#delete-spinner').click(function() {
         $('.spinner-border').css('display','none');   
         $('.input-box').val('');
@@ -87,12 +97,17 @@
         $.ajax({
             type: "POST",
             url: "http://localhost:8000/forgotpassword",
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             cache:false,
             data: $('form#checkEmail').serialize(),
             success: function(result){
+                
                 // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
                 if (result.status == 'success') {
-                    $(".wrap-modal > #sendOTP").modal('show');;
+                    setCookie('ref', result.data['ref'], 30);
+                    $(".wrap-modal > #sendOTP").modal('show');
                 }
 
                 // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่

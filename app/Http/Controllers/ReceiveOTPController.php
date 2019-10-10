@@ -29,14 +29,14 @@ class ReceiveOTPController extends Controller
         ]);
 
         if ($validate->fails()) {
-            throw new LogicException($validate->errors()->first());
+            throw new LogicException($validate->errors()->first()); 
         }
 
         $userOTP = Otp::where('otp', $request->otp)->where('ref', decrypt($request->ref))->first();
 
         if ($userOTP) {
 
-            return $this->responseRequestSuccess('Success!');
+            return $this->responseRequestSuccess('success');
         } else {
             return $this->responseRequestError('error');
             }

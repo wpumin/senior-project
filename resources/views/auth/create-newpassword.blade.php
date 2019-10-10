@@ -95,7 +95,7 @@
             success: function(result){
 
                 // เปลี่ยนรหัสผ่านสำเร็จ
-                if (result.status == 'success_create_newpassword')) {
+                if (result.status == 'success_create_newpassword') {
                     $(".wrap-modal > #successNewPassword").modal('show');
                     setTimeout(function(){
                         $(location).attr('href', 'login');
@@ -103,7 +103,7 @@
                 }
 
                 // รหัสผ่านไม่ตรงกัน
-                if (result.status == 'error_create_newpassword')) {
+                if (result.status == 'error_create_newpassword') {
                     $(".wrap-modal > #errorNewPassword").modal('show');
                 }
 
