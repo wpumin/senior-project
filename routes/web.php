@@ -30,9 +30,9 @@ Route::get('/create-newpassword', function () {
 });
 
 // index
-Route::get('/index', function () {
-    return view('index');
-});
+// Route::get('/index', function () {
+//     return view('index');
+// });
 
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');

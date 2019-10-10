@@ -101,7 +101,7 @@
                     <div class="col-6">
                         <div class="item-content">
                             <div class="item-title">แจ้งเดินทางเอง</div>
-                            <div class="item-number"><span class="counter" data-num="2">2 คน</span></div>
+                            <div class="item-number"><span class="counter" id="self"  data-num="">2 คน</span></div>
                         </div>
                     </div>
                 </div>
