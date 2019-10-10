@@ -16,7 +16,6 @@ class RefreshController extends Controller
         $down = Student::where('status', 3)->count();
         $self = Student::where('status', 4)->count();
 
-
         $data['no'] = $no;
         $data['up'] = $up;
         $data['down'] = $down;
@@ -34,9 +33,6 @@ class RefreshController extends Controller
         $down = Student::where('status', 3)->count();
         $self = Student::where('status', 4)->count();
 
-
-
-
         $data['no'] = $no;
         $data['up'] = $up;
         $data['down'] = $down;
@@ -47,9 +43,6 @@ class RefreshController extends Controller
 
     public function student()
     {
-
-        $info = Student::get();
-
         $users = DB::table('students')
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
@@ -57,10 +50,7 @@ class RefreshController extends Controller
             ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')
             ->get();
 
-
-
         $data['student'] = $users;
-
 
         return $this->responseRequestSuccess($data);
     }
