@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class RefreshController extends Controller
 {
     public function run()
     {
-
         $no = Student::where('status', 1)->count();
         $up = Student::where('status', 2)->count();
         $down = Student::where('status', 3)->count();
@@ -35,6 +35,8 @@ class RefreshController extends Controller
         $self = Student::where('status', 4)->count();
 
 
+
+
         $data['no'] = $no;
         $data['up'] = $up;
         $data['down'] = $down;
@@ -48,9 +50,16 @@ class RefreshController extends Controller
 
         $info = Student::get();
 
+        $users = DB::table('students')
+            ->join('users', 'students.user_id', '=', 'users.id')
+            ->join('cars', 'students.car_id', '=', 'cars.id')
+            ->join('schools', 'students.school_id', '=', 'schools.id')
+            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')
+            ->get();
 
 
-        $data['student'] = $info;
+
+        $data['student'] = $users;
 
 
         return $this->responseRequestSuccess($data);

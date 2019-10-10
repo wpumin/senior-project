@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('123123123'),
             'first_name' => 'อชิตะ',
             'last_name' => 'ลิลิตสัจจะ',
+            'fullname_u' => 'อชิตะ.ลิลิตสัจจะ',
             'relationship' => 'พ่อ',
             'address' => 'ตำบลหูช้าง',
             'email' => 'ashita_11479@hotmail.com',

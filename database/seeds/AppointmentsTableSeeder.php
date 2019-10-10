@@ -16,7 +16,7 @@ class AppointmentsTableSeeder extends Seeder
             'user_id' => 1,
             'period_time' => 'เช้า(ขาไป)',
             'date' => Carbon::now()->format('Y-m-d'),
-            'content' => '',
+            'content' => NULL,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 

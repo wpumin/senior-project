@@ -21,13 +21,14 @@ class CreateStudentsTable extends Migration
             $table->string('school_id')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('fullname_s')->nullable();
             $table->string('nickname');
             $table->string('mobile')->nullable();
             $table->string('address')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
             $table->integer('price')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image_stu')->nullable();
             $table->string('status')->nullable()->default(1);
             $table->timestamps();
         });

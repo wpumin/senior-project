@@ -15,8 +15,14 @@ class StudentsTableSeeder extends Seeder
             'nickname' => 'จ๋าย',
             'price' => 900,
             'card_id' => Str::random(8),
+            'first_name' => 'โกญจนาท',
+            'last_name' => 'เกษศิลป์',
+            'fullname_s' => 'โกญจนาท.เกษศิลป์',
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
         ]);
 
         DB::table('students')->insert([
@@ -24,7 +30,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -33,7 +42,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -42,7 +54,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -51,7 +66,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -60,7 +78,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -69,7 +90,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -78,7 +102,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -87,7 +114,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -96,7 +126,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -105,7 +138,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -114,7 +150,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -123,7 +162,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -132,7 +174,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -141,7 +186,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -150,7 +198,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -159,7 +210,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -168,7 +222,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -177,7 +234,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -186,7 +246,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -195,7 +258,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -204,7 +270,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -213,7 +282,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -222,7 +294,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -231,7 +306,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -240,7 +318,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -249,7 +330,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -258,7 +342,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -267,7 +354,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -276,7 +366,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -285,7 +378,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -294,7 +390,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -303,7 +402,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -312,7 +414,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -321,7 +426,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -330,7 +438,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -339,7 +450,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -348,7 +462,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 900,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -357,7 +474,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -366,7 +486,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -375,7 +498,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 700,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -384,7 +510,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -393,7 +522,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -402,7 +534,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -411,7 +546,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -420,7 +558,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -429,7 +570,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -438,7 +582,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -447,7 +594,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -456,7 +606,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -465,7 +618,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 650,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -474,7 +630,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -483,7 +642,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -492,7 +654,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -501,7 +666,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -510,7 +678,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -519,7 +690,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -528,7 +702,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -537,7 +714,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -546,7 +726,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -555,7 +738,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -564,7 +750,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -573,7 +762,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -582,7 +774,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -591,7 +786,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -600,7 +798,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -609,7 +810,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -618,7 +822,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -627,7 +834,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -636,7 +846,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -645,7 +858,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -654,7 +870,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -663,7 +882,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -672,7 +894,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -681,7 +906,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -690,7 +918,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -699,7 +930,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -708,7 +942,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -717,7 +954,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -726,7 +966,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -735,7 +978,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -744,7 +990,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -753,7 +1002,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 600,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -762,7 +1014,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -771,7 +1026,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -780,7 +1038,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -789,7 +1050,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -798,7 +1062,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -807,7 +1074,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -816,7 +1086,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -825,7 +1098,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -834,7 +1110,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -843,7 +1122,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -852,7 +1134,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -861,7 +1146,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -870,7 +1158,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -879,7 +1170,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -888,7 +1182,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -897,7 +1194,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -906,7 +1206,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -915,7 +1218,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -924,7 +1230,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -933,7 +1242,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -942,7 +1254,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -951,7 +1266,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -960,7 +1278,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -969,7 +1290,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 500,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -979,7 +1303,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -989,7 +1316,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -999,7 +1329,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -1009,7 +1342,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -1019,7 +1355,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -1029,7 +1368,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
 
@@ -1039,7 +1381,10 @@ class StudentsTableSeeder extends Seeder
             'price' => 350,
             'card_id' => Str::random(8),
             'car_id' => 1,
-            'status' => 1
+            'status' => 1,
+            'image_stu' => 'images/Students/เจนจ๋า_earn.jpg',
+            'user_id' => 1,
+            'school_id' => 1
 
         ]);
     }

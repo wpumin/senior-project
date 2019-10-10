@@ -50,7 +50,7 @@
                     <div class="col-6">
                         <div class="item-content">
                             <div class="item-title">ยังไม่ขึ้นรถ</div>
-                            <div class="item-number"><span class="counter" data-num="{{$no}}"></span></div>
+                            <div class="item-number"><span class="counter" id="no" data-num="{{$no}}"></span></div>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     <div class="col-6">
                         <div class="item-content">
                             <div class="item-title">ขึ้นรถแล้ว</div>
-                            <div class="item-number"><span class="counter" data-num="{{$up}}"></span></div>
+                            <div class="item-number"><span class="counter" id="up" data-num="{{$up}}"></span></div>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     <div class="col-6">
                         <div class="item-content">
                             <div class="item-title">ลงรถแล้ว</div>
-                            <div class="item-number"><span class="counter" data-num="{{$down}}"></span></div>
+                            <div class="item-number"><span class="counter" id="down" data-num="{{$down}}"></span></div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <div class="col-6">
                         <div class="item-content">
                             <div class="item-title">แจ้งเดินทางเอง</div>
-                            <div class="item-number"><span class="counter" data-num="{{$self}}"></span></div>
+                            <div class="item-number"><span class="counter" id="self" data-num="{{$self}}"></span></div>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
             </div>
         </div>
         <!-- Student Table Area End Here -->
-    
+
         <!-- Google Map Modal -->
         <div class="modal fade" id="mapEmbed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-md modal-dialog-centered" role="document">
@@ -190,104 +190,124 @@
 
         <!-- Picture Modal-->
         <div class="modal fade" id="studentProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    </div>
-                    <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12 modal_body_content px-4">
-                        <h2 class="mb-2 text-special-orange">มายด์</h2>
-                        <p class="">ลภัสลัล จิรเวชสุนทรกุล | โรงเรียนทัพหลวง</p>
+                <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                        <img class="w-100" src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="">
+                        <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 modal_body_content px-4">
+                            <h2 class="mb-2 text-special-orange" id="myNickName" >มายด์</h2>
+                            <p><span id="myName"></span></p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <img class="w-100" id="img01" src="" alt="">
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Picture Modal End Here -->
+            <!-- Picture Modal End Here -->
 
-        <script src="//maps.googleapis.com/maps/api/js"></script>
+            <script src="//maps.googleapis.com/maps/api/js"></script>
+            <script>
 
-        <script>
+                    setInterval(function(){
 
-            setInterval(function(){
-                      $.ajax({
-                         url:'/tasks/refresh',
-                         type:'GET',
-                         dataType:'json',
-                         success:function(response){
-    
-                            if(response.status == 'success'){
-                                document.getElementById("no").innerHTML = response.data['no'];
-                                document.getElementById("up").innerHTML = response.data['up'];
-                                document.getElementById("down").innerHTML = response.data['down'];
-                                document.getElementById("self").innerHTML = response.data['self'];
-                            }
-                         },error:function(err){
-    
-                         }
-                      })
-    
-    
-                      $.ajax({
-                         url:'/tasks/refresh/student',
-                         type:'GET',
-                         dataType:'json',
-                         success:function(response){
-    
-                            if(response.status == 'success'){
-                                $('table tbody').html('');
-                                var status = '';
-                                // console.log(response.data['student'].length);
-                                for(var i=0;i<response.data['student'].length;i++){
-    
-                                    if (response.data['student'][i]['status'] == '1') {
-                                        status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
-                                    }else if (response.data['student'][i]['status'] == '2') {
-                                        status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
-                                    }else if (response.data['student'][i]['status'] == '3') {
-                                        status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
-                                    }else {
-                                        status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                              $.ajax({
+                                 url:'/tasks/refresh',
+                                 type:'GET',
+                                 dataType:'json',
+                                 success:function(response){
+
+                                    if(response.status == 'success'){
+                                        document.getElementById("no").innerHTML = response.data['no'];
+                                        document.getElementById("up").innerHTML = response.data['up'];
+                                        document.getElementById("down").innerHTML = response.data['down'];
+                                        document.getElementById("self").innerHTML = response.data['self'];
                                     }
-    
-                                    $('table tbody').append(
-                                        '<tr>'+
+                                 },error:function(err){
+
+                                 }
+                              })
+
+
+                              $.ajax({
+                                 url:'/tasks/refresh/student',
+                                 type:'GET',
+                                 dataType:'json',
+                                 success:function(response){
+
+                                    if(response.status == 'success'){
+                                        $('table tbody').html('');
+                                        var status = '';
+                                        let modal = document.getElementById("studentProfile");
+                                        let modalImg = document.getElementById("img01");
+                                        let modalNickName = document.getElementById("myNickName");
+                                        let modalName = document.getElementById("myName");
+                                        let modalSchool = document.getElementById("school");
+
+                                        // console.log(response.data['student'].length);
+                                        for(var i=0;i<response.data['student'].length;i++){
+
+                                            if (response.data['student'][i]['status'] == '1') {
+                                                status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
+                                            }else if (response.data['student'][i]['status'] == '2') {
+                                                status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
+                                            }else if (response.data['student'][i]['status'] == '3') {
+                                                status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
+                                            }else {
+                                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                                            }
+
+                                            $('table tbody').append(
+                                            '<tr>'+
                                             '<td>'+response.data['student'][i]['id']+'</td>'+
-                                            '<td>'+response.data['student'][i]['nickname']+'</td>'+status+
-                                            '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{URL::asset('')}}'+response.data['student'][i]['image']+'"></a></td>'+
-                                            '<td>'+response.data['student'][i]['school_id']+'</td>'+
-                                            '<td>'+response.data['student'][i]['user_id']+'</td>'+
-                                            '<td>พ่อ</td>'+
+                                            '<td>'+response.data['student'][i]['nickname']+'</td>'+
+                                            status+
+                                            '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc='+response.data['student'][i]['name_school']+' name='+response.data['student'][i]['fullname_s']+' src={{URL::asset('')}}'+response.data['student'][i]['image_stu']+' alt='+response.data['student'][i]['nickname']+'></a></td>'+
+                                            '<td>'+response.data['student'][i]['name_school']+'</td>'+
+                                            '<td>'+response.data['student'][i]['fullname_u']+'</td>'+
+                                            '<td>'+response.data['student'][i]['relationship']+'</td>'+
                                             '<td>'+response.data['student'][i]['mobile']+'</td>'+
                                             '<td>'+
-                                                '<div class="dropdown">'+
-                                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat="13.756664" data-lng="100.532987">'+
-                                                '<span class="flaticon-pin"></span>'+
-                                                '</a>'+
-                                                '</div>'+
+                                            '<div class="dropdown">'+
+                                            '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='+response.data['student'][i]['lattitude']+' data-lng='+response.data['student'][i]['longtitude']+'>'+
+                                            '<span class="flaticon-pin"></span>'+
+                                            '</a>'+
+                                            '</div>'+
                                             '</td>'+
-                                        '</tr>'
-                                    );
-    
-                               }
-    
-                            }
-                         },error:function(err){
-    
-                         }
-                      })
-                   }, 5000);
-    
-    
-            </script>
-    
+                                            '</tr>'
+                                            );
+
+                                            let img = document.getElementsByClassName("myImg");
+
+                                            // let nickname = document.getElementsByClassName("nickname");
+                                            // let name = document.getElementsByClassName("name");
+                                            img[i].onclick = function () {
+                                                // console.log(img[i]);
+                                                modal.style.display = "block";
+                                                modalImg.src = this.src;
+                                                modalNickName.innerHTML = this.alt;
+                                                modalName.innerHTML = this.name;
+                                                // modalSchool.innerHTML = this.desc;
+
+                                            }
+                                       }
+
+                                    }
+                                 },error:function(err){
+
+                                 }
+                              })
+                           }, 5000);
+
+
+                    </script>
+
 
 @endsection
 

@@ -29,6 +29,7 @@ class RegisterStudentController extends Controller
                 'card_id' => 'required',
                 'first_name' => 'required',
                 'last_name' => 'required',
+                'fullname' => 'required',
                 'nickname' => 'required',
                 'mobile' => 'required',
                 'address' => 'required',
@@ -73,6 +74,7 @@ class RegisterStudentController extends Controller
             $student->card_id = $this->request->input('card_id');
             $student->first_name = $this->request->input('first_name');
             $student->last_name = $this->request->input('last_name');
+            $student->fullname = $this->request->input('first_name') . '.' . $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
             $student->mobile = $this->request->input('mobile');
             $student->address = $this->request->input('address');
