@@ -1,6 +1,6 @@
 @extends('layouts.master_menu_bottom')
 
-@section('title','หน้าหลัก')
+@section('title','ชำระเงิน')
 
 @section('content')
 
@@ -15,21 +15,21 @@
         <h3>อัพเดตข่าวสาร</h3>
     </div>
     <div class="owl-carousel owl-theme d-md-none">
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
     </div>
     <!-- ไอแพดขึ้นไป -->
     <div class="owl-carousel owl-theme d-none d-md-block">
-        <a href="#"><div class="item" style="background-image: url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
-        <a href="#"><div class="item" style="background-image: url({{ URL::asset('images/internal/banner/news.jpg') }})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
     </div>
     <!-- Owl-Carousel Area End Here-->
 
@@ -48,48 +48,48 @@
                         </div>
                     </div>
                     <div class="col-6">
-                            <div class="item-content">
-                                <div class="item-title">ยังไม่ขึ้นรถ</div>
-                            <div class="item-number"><span class="counter" id="no" data-num="{{$no}}">23 คน</span></div>
-                            </div>
+                        <div class="item-content">
+                            <div class="item-title">ยังไม่ขึ้นรถ</div>
+                            <div class="item-number"><span class="counter" data-num="{{$no}}"></span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="dashboard-summery-one mg-b-20">
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <div class="item-icon bg-light-yellow">
-                                <i class="flaticon-bus text-orange"></i>
-                            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+            <div class="dashboard-summery-one mg-b-20">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="item-icon bg-light-yellow">
+                            <i class="flaticon-bus text-orange"></i>
                         </div>
-                        <div class="col-6">
-                            <div class="item-content">
-                                <div class="item-title">ขึ้นรถแล้ว</div>
-                            <div class="item-number"><span class="counter" id="up" data-num="{{$up}}">34 คน</span></div>
-                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="item-content">
+                            <div class="item-title">ขึ้นรถแล้ว</div>
+                            <div class="item-number"><span class="counter" data-num="{{$up}}"></span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="dashboard-summery-one mg-b-20">
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <div class="item-icon bg-light-green">
-                                <i class="flaticon-school text-green"></i>
-                            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+            <div class="dashboard-summery-one mg-b-20">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="item-icon bg-light-green">
+                            <i class="flaticon-school text-green"></i>
                         </div>
-                        <div class="col-6">
-                            <div class="item-content">
-                                <div class="item-title">ลงรถแล้ว</div>
-                            <div class="item-number"><span class="counter" id="down" data-num="{{$down}}">0 คน</span></div>
-                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="item-content">
+                            <div class="item-title">ลงรถแล้ว</div>
+                            <div class="item-number"><span class="counter" data-num="{{$down}}"></span></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="dashboard-summery-one mg-b-20">
                 <div class="row align-items-center">
@@ -101,7 +101,7 @@
                     <div class="col-6">
                         <div class="item-content">
                             <div class="item-title">แจ้งเดินทางเอง</div>
-                            <div class="item-number"><span class="counter" id="self"  data-num="">2 คน</span></div>
+                            <div class="item-number"><span class="counter" data-num="{{$self}}"></span></div>
                         </div>
                     </div>
                 </div>
@@ -152,268 +152,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- <tr>
-                                <td>1</td>
-                                <td>มายด์</td>
-                                <td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>มายด์2</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.724490' data-lng='100.489828'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>มายด์3</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.724490' data-lng='100.489828'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>มายด์4</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>มายด์5</td>
-                                <td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>มายด์6</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>มายด์7</td>
-                                <td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>มายด์8</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>มายด์9</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>มายด์10</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>มายด์11</td>
-                                <td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>มายด์12</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>มายด์13</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>14</td>
-                                <td>มายด์14</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.725887' data-lng='100.492993'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>15</td>
-                                <td>มายด์15</td>
-                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
-                                <td>ทัพหลวง</td>
-                                <td>ภูมินท์ วงษ์ศิริ</td>
-                                <td>พ่อ</td>
-                                <td>0898115155</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
-                                            <span class="flaticon-pin"></span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr> --}}
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
         <!-- Student Table Area End Here -->
-
+    
         <!-- Google Map Modal -->
         <div class="modal fade" id="mapEmbed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-md modal-dialog-centered" role="document">
@@ -468,79 +214,81 @@
 
         <script src="//maps.googleapis.com/maps/api/js"></script>
 
+        <script>
+
+            setInterval(function(){
+                      $.ajax({
+                         url:'/tasks/refresh',
+                         type:'GET',
+                         dataType:'json',
+                         success:function(response){
+    
+                            if(response.status == 'success'){
+                                document.getElementById("no").innerHTML = response.data['no'];
+                                document.getElementById("up").innerHTML = response.data['up'];
+                                document.getElementById("down").innerHTML = response.data['down'];
+                                document.getElementById("self").innerHTML = response.data['self'];
+                            }
+                         },error:function(err){
+    
+                         }
+                      })
+    
+    
+                      $.ajax({
+                         url:'/tasks/refresh/student',
+                         type:'GET',
+                         dataType:'json',
+                         success:function(response){
+    
+                            if(response.status == 'success'){
+                                $('table tbody').html('');
+                                var status = '';
+                                // console.log(response.data['student'].length);
+                                for(var i=0;i<response.data['student'].length;i++){
+    
+                                    if (response.data['student'][i]['status'] == '1') {
+                                        status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
+                                    }else if (response.data['student'][i]['status'] == '2') {
+                                        status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
+                                    }else if (response.data['student'][i]['status'] == '3') {
+                                        status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
+                                    }else {
+                                        status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                                    }
+    
+                                    $('table tbody').append(
+                                        '<tr>'+
+                                            '<td>'+response.data['student'][i]['id']+'</td>'+
+                                            '<td>'+response.data['student'][i]['nickname']+'</td>'+status+
+                                            '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{URL::asset('')}}'+response.data['student'][i]['image']+'"></a></td>'+
+                                            '<td>'+response.data['student'][i]['school_id']+'</td>'+
+                                            '<td>'+response.data['student'][i]['user_id']+'</td>'+
+                                            '<td>พ่อ</td>'+
+                                            '<td>'+response.data['student'][i]['mobile']+'</td>'+
+                                            '<td>'+
+                                                '<div class="dropdown">'+
+                                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat="13.756664" data-lng="100.532987">'+
+                                                '<span class="flaticon-pin"></span>'+
+                                                '</a>'+
+                                                '</div>'+
+                                            '</td>'+
+                                        '</tr>'
+                                    );
+    
+                               }
+    
+                            }
+                         },error:function(err){
+    
+                         }
+                      })
+                   }, 5000);
+    
+    
+            </script>
+    
+
 @endsection
 
-<script>
 
-        setInterval(function(){
-                  $.ajax({
-                     url:'/tasks/refresh',
-                     type:'GET',
-                     dataType:'json',
-                     success:function(response){
-
-                        if(response.status == 'success'){
-                            document.getElementById("no").innerHTML = response.data['no'];
-                            document.getElementById("up").innerHTML = response.data['up'];
-                            document.getElementById("down").innerHTML = response.data['down'];
-                            document.getElementById("self").innerHTML = response.data['self'];
-                        }
-                     },error:function(err){
-
-                     }
-                  })
-
-
-                  $.ajax({
-                     url:'/tasks/refresh/student',
-                     type:'GET',
-                     dataType:'json',
-                     success:function(response){
-
-                        if(response.status == 'success'){
-                            $('table tbody').html('');
-                            var status = '';
-                            // console.log(response.data['student'].length);
-                            for(var i=0;i<response.data['student'].length;i++){
-
-                                if (response.data['student'][i]['status'] == '1') {
-                                    status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
-                                }else if (response.data['student'][i]['status'] == '2') {
-                                    status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
-                                }else if (response.data['student'][i]['status'] == '3') {
-                                    status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
-                                }else {
-                                    status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
-                                }
-
-                                $('table tbody').append(
-                                '<tr>'+
-                                '<td>'+response.data['student'][i]['id']+'</td>'+
-                                '<td>'+response.data['student'][i]['nickname']+'</td>'+
-                                status+
-                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>'+
-                                '<td>'+response.data['student'][i]['address']+'</td>'+
-                                '<td>'+response.data['student'][i]['user_id']+'</td>'+
-                                '<td>พ่อ</td>'+
-                                '<td>'+response.data['student'][i]['mobile']+'</td>'+
-                                '<td>'+
-                                '<div class="dropdown">'+
-                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat="13.756664" data-lng="100.532987">'+
-                                '<span class="flaticon-pin"></span>'+
-                                '</a>'+
-                                '</div>'+
-                                '</td>'+
-                                '</tr>'
-                                );
-
-                           }
-
-                        }
-                     },error:function(err){
-
-                     }
-                  })
-               }, 5000);
-
-
-        </script>
