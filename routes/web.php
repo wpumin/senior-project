@@ -30,9 +30,9 @@ Route::get('/create-newpassword', function () {
 });
 
 // index
-Route::get('/driver/index', function () {
-    return view('driver/index');
-});
+// Route::get('/driver/index', function () {
+//     return view('driver.index');
+// });
 
 // payment
 Route::get('/parent/payment/overview', function () {
@@ -51,6 +51,6 @@ Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
 
-Route::get('/tasks', 'RefreshController@run');
+Route::get('/driver/index', 'RefreshController@run');
 Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');

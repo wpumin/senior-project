@@ -22,7 +22,7 @@ class RefreshController extends Controller
         $data['down'] = $down;
         $data['self'] = $self;
 
-        return view('index', $data);
+        return view('driver.index', $data);
     }
 
 
