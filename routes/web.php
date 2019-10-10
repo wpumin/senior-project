@@ -30,8 +30,13 @@ Route::get('/create-newpassword', function () {
 });
 
 // index
-Route::get('/index', function () {
-    return view('index');
+Route::get('/driver/index', function () {
+    return view('driver/index');
+});
+
+// payment
+Route::get('/parent/payment/overview', function () {
+    return view('parent.payment_overview');
 });
 
 Auth::routes();

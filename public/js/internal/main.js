@@ -2,7 +2,7 @@
   "use strict";
 
   /*-------------------------------------
-      Sidebar Toggle Menu
+            Sidebar Toggle Menu
     -------------------------------------*/
   $('.sidebar-toggle-view').on('click', '.sidebar-nav-item .nav-link', function (e) {
     if (!$(this).parents('#wrapper').hasClass('sidebar-collapsed')) {
@@ -37,7 +37,7 @@
   });
 
   /*-------------------------------------
-      Sidebar Menu Control
+           Sidebar Menu Control
     -------------------------------------*/
   $(".sidebar-toggle").on("click", function () {
     window.setTimeout(function () {
@@ -46,7 +46,7 @@
   });
 
   /*-------------------------------------
-      Sidebar Menu Control Mobile
+        Sidebar Menu Control Mobile
     -------------------------------------*/
   $(".sidebar-toggle-mobile").on("click", function () {
     $("#wrapper").toggleClass("sidebar-collapsed-mobile", 2000);
@@ -56,7 +56,7 @@
   });
 
   /*-------------------------------------
-      jquery Scollup activation code
+       jquery Scollup activation code
    -------------------------------------*/
   $.scrollUp({
     scrollText: '<i class="fa fa-angle-up"></i>',
@@ -66,7 +66,7 @@
   });
 
   /*-------------------------------------
-      jquery Scollup activation code
+       jquery Scollup activation code
     -------------------------------------*/
   $("#preloader").fadeOut("slow", function () {
     $(this).remove();
@@ -74,7 +74,7 @@
 
   $(function () {
     /*-------------------------------------
-          Data Table init
+                Data Table init
       -------------------------------------*/
     if ($.fn.DataTable !== undefined) {
       $('.data-table').DataTable({
@@ -91,19 +91,19 @@
     }
 
     /*-------------------------------------
-          All Checkbox Checked
+            All Checkbox Checked
       -------------------------------------*/
     $(".checkAll").on("click", function () {
       $(this).parents('.table').find('input:checkbox').prop('checked', this.checked);
     });
 
     /*-------------------------------------
-          Tooltip init
+               Tooltip init
       -------------------------------------*/
     $('[data-toggle="tooltip"]').tooltip();
 
     /*-------------------------------------
-          Select 2 Init
+                Select 2 Init
       -------------------------------------*/
     if ($.fn.select2 !== undefined) {
       $('.select2').select2({
@@ -112,7 +112,7 @@
     }
 
     /*-------------------------------------
-          Date Picker
+                 Date Picker
       -------------------------------------*/
     if ($.fn.datepicker !== undefined) {
       $('.air-datepicker').datepicker({
@@ -131,7 +131,7 @@
     }
 
     /*-------------------------------------
-          Counter
+                  Counter
       -------------------------------------*/
     var counterContainer = $(".counter");
     if (counterContainer.length) {
@@ -142,7 +142,7 @@
     }
 
     /*-------------------------------------
-          Line Chart 
+                  Line Chart 
       -------------------------------------*/
     if ($("#earning-line-chart").length) {
 
@@ -266,8 +266,9 @@
     }
 
     /*-------------------------------------
-          Bar Chart 
+                  Bar Chart 
       -------------------------------------*/
+
     if ($("#expense-bar-chart").length) {
 
       var barChartData = {
@@ -360,6 +361,7 @@
     /*-------------------------------------
           Doughnut Chart 
       -------------------------------------*/
+
     if ($("#student-doughnut-chart").length) {
 
       var doughnutChartData = {
@@ -396,6 +398,7 @@
     /*-------------------------------------
           Calender initiate 
       -------------------------------------*/
+
     if ($.fn.fullCalendar !== undefined) {
       $('#fc-calender').fullCalendar({
         header: {
@@ -429,10 +432,10 @@
       });
     }
 
-
     /*-------------------------------------
                 Navbar fixed top
       -------------------------------------*/
+
     window.onscroll = function() {navOnScroll()};
 
     var navbar = document.getElementById("navbar");
@@ -492,7 +495,9 @@ $(document).ready(function() {
   });
 });
 
-
+  /*-------------------------------------
+              Owl-Carousel (Banner)
+      -------------------------------------*/
 
 $(document).ready(function(){
   $(".owl-carousel").owlCarousel({

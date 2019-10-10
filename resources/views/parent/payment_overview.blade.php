@@ -1,6 +1,6 @@
 @extends('layouts.master_menu_bottom')
 
-@section('title','หน้าหลัก')
+@section('title','ชำระเงิน')
 
 @section('content')
 
@@ -15,21 +15,21 @@
         <h3>อัพเดตข่าวสาร</h3>
     </div>
     <div class="owl-carousel owl-theme d-md-none">
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
     </div>
     <!-- ไอแพดขึ้นไป -->
     <div class="owl-carousel owl-theme d-none d-md-block">
-        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
-        <a href="#"><div class="item" style="background-image: url(images/internal/banner/news.jpg)"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+        <a href="#"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
     </div>
     <!-- Owl-Carousel Area End Here-->
 
@@ -156,7 +156,7 @@
                                 <td>1</td>
                                 <td>มายด์</td>
                                 <td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -173,7 +173,7 @@
                                 <td>2</td>
                                 <td>มายด์2</td>
                                 <td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -190,7 +190,7 @@
                                 <td>3</td>
                                 <td>มายด์3</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -207,7 +207,7 @@
                                 <td>4</td>
                                 <td>มายด์4</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -224,7 +224,7 @@
                                 <td>5</td>
                                 <td>มายด์5</td>
                                 <td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -241,7 +241,7 @@
                                 <td>6</td>
                                 <td>มายด์6</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -258,7 +258,7 @@
                                 <td>7</td>
                                 <td>มายด์7</td>
                                 <td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -275,7 +275,7 @@
                                 <td>8</td>
                                 <td>มายด์8</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -292,7 +292,7 @@
                                 <td>9</td>
                                 <td>มายด์9</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -309,7 +309,7 @@
                                 <td>10</td>
                                 <td>มายด์10</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -326,7 +326,7 @@
                                 <td>11</td>
                                 <td>มายด์11</td>
                                 <td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -343,7 +343,7 @@
                                 <td>12</td>
                                 <td>มายด์12</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -360,7 +360,7 @@
                                 <td>13</td>
                                 <td>มายด์13</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -377,7 +377,7 @@
                                 <td>14</td>
                                 <td>มายด์14</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -394,7 +394,7 @@
                                 <td>15</td>
                                 <td>มายด์15</td>
                                 <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="images/internal/figure/student2.png" alt="student"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
                                 <td>ทัพหลวง</td>
                                 <td>ภูมินท์ วงษ์ศิริ</td>
                                 <td>พ่อ</td>
@@ -457,7 +457,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                        <img class="w-100" src="images/internal/figure/student2.png" alt="">
+                        <img class="w-100" src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="">
                         </div>
                     </div>
                     </div>
