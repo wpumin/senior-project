@@ -50,3 +50,7 @@ Route::post('/againotp', 'AgainOTPController@againOTP');
 Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
+
+Route::get('/tasks', 'RefreshController@run');
+Route::get('/tasks/refresh', 'RefreshController@refresh');
+Route::get('/tasks/refresh/student', 'RefreshController@student');

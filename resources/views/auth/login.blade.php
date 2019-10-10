@@ -132,7 +132,8 @@
                     setCookie('role', result.data['role'], 30);
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
-                    $(location).attr('href', '/driver/index');
+                    setCookie('image', result.data['image'], 30);
+                    $(location).attr('href', 'tasks');
 
                 }
 

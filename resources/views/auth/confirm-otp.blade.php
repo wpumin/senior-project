@@ -11,12 +11,13 @@
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณายืนยันรหัส OTP 6 หลัก <span class="spinner-border"> </span></p>
                     
-                    <form action="#" class="" id="checkOTP">
+                    <form class="" id="checkOTP">
+                        @csrf
                         <div class="mt-4">
-                            <input type="text" name="otp" class="input-box" placeholder="รหัส OTP" required autofocus>
+                            <input type="text" id="otp" name="otp" class="input-box" placeholder="รหัส OTP" required autofocus>
                         </div>
                         <div class="mt-5">
-                            <input type="submit" name="submit" class="submit-box w-100" value="ยืนยัน" data-toggle="modal">
+                            <input type="submit" name="submit" class="submit-box w-100"  value="ยืนยัน" data-toggle="modal">
                             <!-- data-target="#sendOTP" -->
                         </div>
                         <div class="mt-4 text-center">
@@ -40,7 +41,7 @@
                 <b>รหัส OTP ไม่ถูกต้อง</b>
                 <p>กรุณากรอก OTP ที่ถูกต้อง หากไม่ได้รับรหัส OTP สามารถกดปุ่ม <span>"ส่งอีกครั้ง"</span> ได้</p>
                 <div class="modal-button text-center mt-3">
-                    <a href="#"><button type="button" class="btn btn-secondary">ส่งอีกครั้ง</button></a>
+                    <a href="confirm-otp"><button type="button" class="btn btn-secondary">ส่งอีกครั้ง</button></a>
                     <button type="button" class="btn btn-primary" data-dismiss="modal" id="delete-spinner" data-dismiss="modal">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
@@ -50,6 +51,22 @@
 </div>
 
 <script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
 
     $('#delete-spinner').click(function() {
         $('.spinner-border').css('display','none');   
@@ -58,27 +75,36 @@
 
     $(document).ready(function(){	
         $("#checkOTP").submit(function(event){
-            $('.spinner-border').css('display','inline-block');   
+            $('.spinner-border').css('display','inline-block');  
             submitForm();
             return false;
         });
     });
 
     function submitForm(){
+        var ref = getCookie('ref');
+        var otp = $('#otp').val();
         $.ajax({
             type: "POST",
-            url: "",
+            url: "http://localhost:8000/receiveotp",
+            // headers: {
+            // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            // },
             cache:false,
-            data: $('form#checkOTP').serialize(),
+            data: {
+                ref: ref,
+                otp: otp
+            },
             success: function(result){
 
+
                 // ยืนยันสำเร็จ
-                if (result.status == 'success_confirm_otp')) {
+                if (result.status == 'success') {
                     $(location).attr('href', 'create-newpassword');
                 }
                 
                 // ยืนยันไม่สำเร็จ
-                if (result.status == 'error_confirm_otp')) {
+                if (result.status == 'error') {
                     $(".wrap-modal > #errorOTP").modal('show');
                 }
 
@@ -88,8 +114,6 @@
                 // $(".wrap-modal > #errorOTP").modal('show');
             }
         });
-
-        
     }
 
 </script>
