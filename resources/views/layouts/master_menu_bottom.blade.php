@@ -161,7 +161,7 @@
                             <div class="item-content">
                                 <ul class="settings-list">
                                     <li><a href="#"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                    <li><a href="#"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                    <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                         </div>
                     </li>
                         <li class="navbar-item dropdown header-language">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" 
+                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#">Thai</a>
@@ -219,7 +219,7 @@
                <div class="mobile-sidebar-header d-md-none">
                </div>
                 {{-- meu active (don't remove) --}}
-                <?php 
+                <?php
                     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     $current_page = (explode("/",$current_url));
                     $menu_active = $current_page[2];
@@ -291,18 +291,18 @@
                         <div class="header-logo">
                             {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
                             <div class="d-none mobile-nav-bar justify-content-between">
-                                <div><a href="#" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
                             {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
                             <div class="d-md-none mobile-nav-bar justify-content-between">
-                                <div><a href="#" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>  
-                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>  
+                                <div><a href="#" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -362,7 +362,7 @@
     document.getElementById("role").innerHTML = getCookie('role');
     document.getElementById("f_name").innerHTML = getCookie('f_name');
     document.getElementById("l_name").innerHTML = getCookie('l_name');
-    document.getElementById("photo_user").src = getCookie('image');
+    document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie();
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

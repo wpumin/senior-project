@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'address' => 'ตำบลหูช้าง',
             'email' => 'ashita_11479@hotmail.com',
             'mobile' => '0898911553',
-            'image' => 'pic A',
+            'image' => 'images/Students/เจนจ๋า_earn.jpg',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             'address' => 'ตำบลบ้านไร่',
             'email' => 'dvver@gmail.com',
             'mobile' => '0648763436',
-            'image' => 'pic A',
+            'image' => 'images/Students/เจนจ๋า_earn.jpg',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
