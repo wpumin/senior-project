@@ -281,10 +281,6 @@
                 @yield('content')
 
             <!-- Footer Area -->
-            <footer class="footer-wrap-layout1 d-none d-md-block">
-                <div class="copyright">© Copyrights <a href="#">BEAR BUS</a> 2019. All rights reserved. Designed by <a href="#">Dev-Banrai</a></div>
-                <?php //echo $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>
-            </footer>
             <footer class="footer-wrap-layout1 fixed-bottom d-md-none">
                 <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">

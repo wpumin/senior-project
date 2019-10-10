@@ -48,6 +48,7 @@ class RefreshController extends Controller
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')
+            ->where('car_id', '1') // ลองใส่เทสเฉยๆ (ต๊)
             ->get();
 
         $data['student'] = $users;

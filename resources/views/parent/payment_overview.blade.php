@@ -407,6 +407,194 @@
                                     </div>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>มายด์15</td>
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img src="{{ URL::asset("images/internal/figure/student2.png") }}" alt="student"></a></td>
+                                <td>ทัพหลวง</td>
+                                <td>ภูมินท์ วงษ์ศิริ</td>
+                                <td>พ่อ</td>
+                                <td>0898115155</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat='13.756664' data-lng='100.532987'>
+                                            <span class="flaticon-pin"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -467,5 +655,11 @@
         <!-- Picture Modal End Here -->
 
         <script src="//maps.googleapis.com/maps/api/js"></script>
+
+        <script>
+        $( document ).ready(functio(){
+            $('.dataTables_paginate').css('display','block');
+        });
+        </script>
 
 @endsection

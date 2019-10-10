@@ -876,6 +876,9 @@ h6 {
   margin-right: 14px;
   width: 22px;
 }
+.dataTables_paginate{
+  /* display: none; */
+}
 .dataTables_wrapper .dataTables_paginate {
   padding-top: 20px;
 }
@@ -4557,6 +4560,14 @@ ul {
   margin: auto;
   overflow: hidden;
 }
+
+@media only screen and (min-width: 1500px){
+  .modal#studentProfile{
+      width: 35%;
+      margin: auto;
+  }
+}
+
 
 .modal-content {
   border-radius: 15px;
