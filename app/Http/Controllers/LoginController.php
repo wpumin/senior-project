@@ -47,8 +47,14 @@ class LoginController extends Controller
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
                 $user->save();
-                $user->role = $role['name'];
-                return $this->responseRequestSuccess($user);
+
+                // $user->role = $role['name'];
+                return $this->responseRequestSuccess($user)
+                    ->cookie(
+                        'car_id',
+                        $user->car_id,
+                        360
+                    );
             } else {
                 return $this->responseRequestError('incorrect_password');
             }

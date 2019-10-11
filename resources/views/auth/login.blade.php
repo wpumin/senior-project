@@ -130,10 +130,25 @@
                     setCookie('Authorization', result.data['token'], 30);
                     setCookie('name', result.data['first_name'], 30);
                     setCookie('role', result.data['role'], 30);
+                    // setCookie('car_id', result.data['car_id'], 30);
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
                     setCookie('image', result.data['image'], 30);
-                    $(location).attr('href', '/driver/index');
+
+                    if (result.data['role'] == '1') {
+
+                        //Page User
+
+                    }else  if (result.data['role'] == '2') {
+
+                        //Page Driver
+                        $(location).attr('href', '/driver/index');
+                    }else  if (result.data['role'] == '3') {
+
+                        //Page Admin
+
+                    }
+
 
                 }
 

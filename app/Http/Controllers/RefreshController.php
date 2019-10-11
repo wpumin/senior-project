@@ -6,15 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class RefreshController extends Controller
 {
+
     public function run()
     {
-        $no = Student::where('status', 1)->count();
-        $up = Student::where('status', 2)->count();
-        $down = Student::where('status', 3)->count();
-        $self = Student::where('status', 4)->count();
+        $car_id = Cookie::get('car_id');
+
+        $no = Student::where('status', 1)->where('car_id', $car_id)->count();
+        $up = Student::where('status', 2)->where('car_id', $car_id)->count();
+        $down = Student::where('status', 3)->where('car_id', $car_id)->count();
+        $self = Student::where('status', 4)->where('car_id', $car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -28,10 +32,12 @@ class RefreshController extends Controller
     public function refresh()
     {
 
-        $no = Student::where('status', 1)->count();
-        $up = Student::where('status', 2)->count();
-        $down = Student::where('status', 3)->count();
-        $self = Student::where('status', 4)->count();
+        $car_id = Cookie::get('car_id');
+
+        $no = Student::where('status', 1)->where('car_id', $car_id)->count();
+        $up = Student::where('status', 2)->where('car_id', $car_id)->count();
+        $down = Student::where('status', 3)->where('car_id', $car_id)->count();
+        $self = Student::where('status', 4)->where('car_id', $car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -43,12 +49,13 @@ class RefreshController extends Controller
 
     public function student()
     {
+        $car_id = Cookie::get('car_id');
+
         $users = DB::table('students')
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')
-            ->where('car_id', '1') // ลองใส่เทสเฉยๆ (ต๊)
+            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $car_id)
             ->get();
 
         $data['student'] = $users;
