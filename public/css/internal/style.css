@@ -775,6 +775,9 @@ h6 {
 3. VENDOR CUSTOM STYLE
 =========================================================================*/
 /*=============== 3.1 Data Table ==================*/
+table tbody tr td a, table tbody tr td a:hover{
+  color: #646464;
+}
 .dataTables_wrapper .table {
   border-collapse: collapse;
   border: 1px solid #e1e1e1;
@@ -1030,9 +1033,12 @@ h6 {
 }
 /*=============== 3.3 Select 2 ==================*/
 .select2-container .select2-selection--single {
-  background-color: #f0f1f3;
-  border-color: #f0f1f3;
-  height: 50px;
+  /* background-color: #f0f1f3; */
+  /* border-color: #f0f1f3; */
+  border: none;
+  background-color: #f8f8f8;
+  /* height: 50px; */
+  height: 45px;
 }
 .select2-container .select2-selection--single:focus {
   outline: none;
@@ -1041,14 +1047,16 @@ h6 {
   border: 1px solid #aaaaaa;
 }
 .select2-container .select2-selection--single .select2-selection__rendered {
-  line-height: 50px;
+  /* line-height: 50px; */
+  line-height: 44px;
   color: #b4b4b4;
   padding-left: 20px;
   padding-right: 30px;
   font-size: 15px;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-  height: 50px;
+  /* height: 50px; */
+  height: 42px;
   top: 0;
   right: 15px;
 }
@@ -4561,6 +4569,10 @@ ul {
   overflow: hidden;
 }
 
+.modal button{
+  outline: none !important;
+}
+
 @media only screen and (min-width: 1500px){
   .modal#studentProfile{
       width: 35%;
@@ -4597,6 +4609,12 @@ ul {
   background-color: #646464 !important;
   color: white;
 }
+
+.badge-light-gray{
+  background-color: #c4c4c4 !important;
+  color: white;
+}
+
 
 .badge-orange{
   background-color: #ffa001 !important;
@@ -4789,3 +4807,33 @@ ul {
     width: fit-content;
   }
 }
+
+/* submenu-mobile */
+.submenu-mobile{
+  position: relative;
+  color: white;
+  background-color: #ffae01;
+  padding: 1.65rem 0;
+}
+
+.submenu-mobile .left, .submenu-mobile .right {
+  text-align: center;
+  flex: 0 0 50%;
+}
+
+.submenu-mobile .left a, .submenu-mobile .right a {
+  color: white;
+}
+
+.submenu-mobile .left.active:before, .submenu-mobile .right.active:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom: 5px #ffef15 solid;
+  height: 5px;
+  width: 50%;
+}
+
+
+

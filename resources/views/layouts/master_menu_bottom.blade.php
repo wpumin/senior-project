@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/main.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/bootstrap.min.css') }}">
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/select2.min.css') }}">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/all.min.css') }}">
     <!-- Flaticon CSS -->
@@ -211,6 +213,15 @@
                 </ul>
             </div>
         </div>
+        {{-- สำหรับผู้ปกครอง --}}
+        <div class="submenu-mobile d-flex flex-row justify-content-center align-items-center d-md-none">
+            <div class="left active">
+                <a href="#">ชำระเงิน</a>
+            </div>
+            <div class="right">
+                <a href="#">แจ้งชำระเงิน</a>
+            </div>
+        </div>
         <!-- Header Menu Area End Here -->
         <!-- Page Area Start Here -->
         <div class="dashboard-page-one">
@@ -311,6 +322,7 @@
     </div>
 
     <script>
+
         function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -368,6 +380,8 @@
     <script src="{{ URL::asset('js/internal/popper.min.js') }}"></script>
     <!-- Bootstrap js -->
     <script src="{{ URL::asset('js/internal/bootstrap.min.js') }}"></script>
+    <!-- Select2 Js -->
+    <script src="{{ URL::asset('js/internal/select2.min.js') }}"></script>
     <!-- Counterup Js -->
     <script src="{{ URL::asset('js/internal/jquery.counterup.min.js') }}"></script>
     <!-- Moment Js -->
