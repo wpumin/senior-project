@@ -355,7 +355,7 @@
     }
 
     document.getElementById("name").innerHTML = getCookie('name');
-    document.getElementById("role").innerHTML = getCookie('role');
+    document.getElementById("role").innerHTML = getCookie('role_name');
     document.getElementById("f_name").innerHTML = getCookie('f_name');
     document.getElementById("l_name").innerHTML = getCookie('l_name');
     document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie();

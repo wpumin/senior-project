@@ -40,15 +40,15 @@ class LoginController extends Controller
         $user = User::where('username', $this->request->input('username'))->first();
 
         if ($user) {
+
             $role = Role::where('id', $user->role)->first();
-            // dd($role['name']);
             if (Hash::check($this->request->input('password'), $user->password)) {
                 $token = $this->jwt($user);
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
                 $user->save();
 
-                // $user->role = $role['name'];
+                $user->role_name = $role['name'];
                 return $this->responseRequestSuccess($user)
                     ->cookie(
                         'car_id',

@@ -130,7 +130,7 @@
                     setCookie('Authorization', result.data['token'], 30);
                     setCookie('name', result.data['first_name'], 30);
                     setCookie('role', result.data['role'], 30);
-                    // setCookie('car_id', result.data['car_id'], 30);
+                    setCookie('role_name', result.data['role_name'], 30);
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
                     setCookie('image', result.data['image'], 30);
