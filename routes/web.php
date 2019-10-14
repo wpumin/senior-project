@@ -39,6 +39,10 @@ Route::get('/parent/payment/overview', function () {
     return view('parent.payment_overview');
 });
 
+Route::get('/parent/payment/confirm', function () {
+    return view('parent.payment_confirm');
+});
+
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');
 Route::post('register/student', 'RegisterStudentController@register_student');

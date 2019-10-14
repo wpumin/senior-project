@@ -14,6 +14,7 @@
     <title> @yield('title') - Bear Bus </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('images/bearbus.png')}}">
     <!-- Normalize CSS -->
@@ -30,6 +31,8 @@
     <link rel="stylesheet" href="{{ URL::asset('fonts/internal/flaticon.css') }}">
     <!-- Full Calender CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/fullcalendar.min.css') }}">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/datepicker.min.css') }}">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/animate.min.css') }}">
     <!-- Data Table CSS -->
@@ -223,14 +226,15 @@
             }else{
                 $menu_active2 = "";
             }
+            // echo $menu_active2;
         ?>
         {{-- สำหรับผู้ปกครอง --}}
-        <div class="submenu-mobile <?php if($menu_active2 == "overview") echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
-            <div class="left active">
-                <a href="#">ชำระเงิน</a>
+        <div class="submenu-mobile <?php if($menu_active2 == "overview" || $menu_active2 == "confirm")  echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
+            <div class="left <?php if($menu_active2=="overview") echo "active"; else "" ?>">
+                <a href="{{ url('parent/payment/overview') }}">ชำระเงิน</a>
             </div>
-            <div class="right">
-                <a href="#">แจ้งชำระเงิน</a>
+            <div class="right <?php if($menu_active2=="confirm") echo "active"; else "" ?>">
+                <a href="{{ url('parent/payment/confirm') }}">แจ้งชำระเงิน</a>
             </div>
         </div>
         <!-- Header Menu Area End Here -->
@@ -265,12 +269,12 @@
                             </li>
                             <li class="nav-item sidebar-nav-item">
                                 <a href="#" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การชำระเงิน</span></a>
-                                <ul class="nav sub-group-menu <?php if(!empty($menu_active2 == "overview")) echo "sub-group-active"; else echo "";?>">
+                                <ul class="nav sub-group-menu <?php if(!empty($menu_active2 == "overview" || $menu_active2=="confirm")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="{{url('parent/payment/overview')}}" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="index3.html" class="nav-link"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
+                                        <a href="{{url('parent/payment/confirm')}}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
                                     </li>
                                 </ul>
                             </li>
@@ -287,36 +291,36 @@
                     </div>
             </div>
             <!-- Sidebar Area End Here -->
+            
             <div class="dashboard-content-one py-5">
-
                 @yield('content')
-
             </div>
-                            <!-- Footer Area -->
-                <footer class="footer-wrap-layout1 fixed-bottom d-block d-md-none">
-                    <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
-                        <div class="nav-bar-footer-user" style="padding-right: 2rem;">
-                            <div class="header-logo">
-                                {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                                <div class="d-none mobile-nav-bar justify-content-between">
-                                    <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                    <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
-                                    <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
-                                </div>
-                                {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                                <div class="d-md-none mobile-nav-bar justify-content-between">
-                                    <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
-                                    <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                    <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
-                                    <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
-                                </div>
+
+            <!-- Footer Area -->
+            <footer class="footer-wrap-layout1 fixed-bottom d-block d-md-none">
+                <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
+                    <div class="nav-bar-footer-user" style="padding-right: 2rem;">
+                        <div class="header-logo">
+                            {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
+                            <div class="d-none mobile-nav-bar justify-content-between">
+                                <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
+                            </div>
+                            {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
+                            <div class="d-md-none mobile-nav-bar justify-content-between">
+                                <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
                         </div>
                     </div>
-                </footer>
-                <!-- Footer Area End Here -->
+                </div>
+            </footer>
+            <!-- Footer Area End Here -->
         </div>
         <!-- Page Area End Here -->
     </div>
@@ -392,10 +396,14 @@
     <script src="{{ URL::asset('js/internal/jquery.scrollUp.min.js') }}"></script>
     <!-- Full Calender Js -->
     <script src="{{ URL::asset('js/internal/fullcalendar.min.js') }}"></script>
+    <!-- Full Calender Js -->
+    <script src="{{ URL::asset('js/internal/datepicker.min.js') }}"></script>
     <!-- Chart Js -->
     <script src="{{ URL::asset('js/internal/Chart.min.js') }}"></script>
     <!-- Data Table Js -->
     <script src="{{ URL::asset('js/internal/jquery.dataTables.min.js') }}"></script>
+    <!-- Dropzone Js -->
+    <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script>
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Custom Js -->
