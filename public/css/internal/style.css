@@ -1162,7 +1162,7 @@ table tbody tr td a, table tbody tr td a:hover{
   letter-spacing: 1px;
   padding: 10px;
   cursor: pointer;
-  z-index: 9;
+  z-index: 1;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -1477,6 +1477,20 @@ ul {
   color: #707070;
 }
 /*=============== 5.4 Header Menu ==================*/
+@media only screen and (max-width: 767px){
+  #mobile-navbar-inner{
+    height: 100vh;
+    background: white;
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    top: 60px;
+    display: block;
+    left: 0px;
+    display: none;
+  }
+}
+
 .logo-header{
   width: 16rem;
 }
@@ -1634,6 +1648,7 @@ ul {
   border-radius: 50%;
 }
 .header-main-menu {
+  z-index: 3;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -3603,6 +3618,7 @@ ul {
 }
 .bg-light {
   background: #ffffff !important;
+  z-index: 3;
   /* background: rgb(255, 127, 53) !important; */
 }
 
@@ -3699,6 +3715,41 @@ ul {
 }
 .bg-linkedin {
   background-color: #1565c0 !important;
+}
+.bg-kbank{
+  background: #00a950;
+  color: white;
+}
+.bg-kbank:hover{
+  background: #019245 !important;
+}
+.bg-ktb{
+  background: #00a3e3;
+  color: white;
+}
+.bg-ktb:hover{
+  background: #0089be !important;
+}
+.bg-scb{
+  background: #482782;
+  color: white;
+}
+.bg-scb:hover{
+  background: #391577 !important;
+}
+.bg-krungsri{
+  background: #f7cd00;
+  color: white;
+}
+.bg-krungsri:hover{
+  background: #d1ae01 !important;
+}
+.bg-aomsin{
+  background: #e6078a;
+  color: white;
+}
+.bg-aomsin:hover{
+  background: #ce087b !important;
 }
 .sidebar-color {
   background-color: #353535 !important;
@@ -4615,6 +4666,10 @@ ul {
   color: white;
 }
 
+.text-light-gray{
+  color: #c4c4c4 !important
+}
+
 
 .badge-orange{
   background-color: #ffa001 !important;
@@ -4785,7 +4840,7 @@ ul {
     position: relative;
     width: 100%;
     text-align: center;
-    margin: 20px 0 20px;
+    margin: 0px 0 30px;
     padding: 14.5px 0;
     margin-top: 0;
   }
@@ -4810,10 +4865,18 @@ ul {
 
 /* submenu-mobile */
 .submenu-mobile{
+  position: fixed !important;
+  top: 60px;
+  width: 100%;
   position: relative;
   color: white;
   background-color: #ffae01;
   padding: 1.65rem 0;
+  z-index: 2;
+}
+
+.submenu-mobile .left{
+  border-right: 1px solid rgba(255,255 ,0, 0.2);
 }
 
 .submenu-mobile .left, .submenu-mobile .right {
@@ -4835,5 +4898,35 @@ ul {
   width: 50%;
 }
 
+/* bank icon */
 
+@media only screen and (max-width: 767px){
+  .bank-icon img{
+      width: 60px;
+    }
+}
+.bank-icon img{
+  width: 30px;
+  filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.2));
+}
+
+/* selector color */
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: rgba(244, 111, 33, 0.9) !important;
+}
+
+::selection {
+  color: white;
+  background: rgba(244, 111, 33, 0.9) !important;
+}
+
+/* logo payment */
+.logo-payment{
+  width: 33px;
+}
+
+p.small{
+  font-size: 12px;
+}
 

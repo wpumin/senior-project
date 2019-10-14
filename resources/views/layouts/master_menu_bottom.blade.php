@@ -56,7 +56,7 @@
                     </a>
                     <div class="d-md-none mobile-nav-bar justify-content-between">
                         <h3 class="text-light mb-0 pl-2">BEAR BUS</h3>
-                        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+                        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
                             <i class="fas fa-user-circle text-light"></i>
                         </button>
                     </div>
@@ -71,7 +71,7 @@
                     </button>
                 </div>
             </div>
-            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar-inner">
                 <ul class="navbar-nav">
                     {{-- don't remove --}}
                 </ul>
@@ -213,8 +213,19 @@
                 </ul>
             </div>
         </div>
+        {{-- meu active (don't remove) --}}
+        <?php
+            $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+            $current_page = (explode("/",$current_url));
+            $menu_active = $current_page[2];
+            if(!empty($current_page[3])){
+                $menu_active2 = $current_page[3];
+            }else{
+                $menu_active2 = "";
+            }
+        ?>
         {{-- สำหรับผู้ปกครอง --}}
-        <div class="submenu-mobile d-flex flex-row justify-content-center align-items-center d-md-none">
+        <div class="submenu-mobile <?php if($menu_active2 == "overview") echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
             <div class="left active">
                 <a href="#">ชำระเงิน</a>
             </div>
@@ -229,17 +240,6 @@
             <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
                <div class="mobile-sidebar-header d-md-none">
                </div>
-                {{-- meu active (don't remove) --}}
-                <?php
-                    $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-                    $current_page = (explode("/",$current_url));
-                    $menu_active = $current_page[2];
-                    if(!empty($current_page[3])){
-                        $menu_active2 = $current_page[3];
-                    }else{
-                        $menu_active2 = "";
-                    }
-                ?>
                 {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
                 <div class="sidebar-menu-content d-none">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
@@ -287,36 +287,36 @@
                     </div>
             </div>
             <!-- Sidebar Area End Here -->
-            <div class="dashboard-content-one">
+            <div class="dashboard-content-one py-5">
 
                 @yield('content')
 
-            <!-- Footer Area -->
-            <footer class="footer-wrap-layout1 fixed-bottom d-md-none">
-                <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
-                    <div class="nav-bar-footer-user" style="padding-right: 2rem;">
-                        <div class="header-logo">
-                            {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                            <div class="d-none mobile-nav-bar justify-content-between">
-                                <div><a href="#" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
-                            </div>
-                            {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                            <div class="d-md-none mobile-nav-bar justify-content-between">
-                                <div><a href="#" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
+            </div>
+                            <!-- Footer Area -->
+                <footer class="footer-wrap-layout1 fixed-bottom d-block d-md-none">
+                    <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
+                        <div class="nav-bar-footer-user" style="padding-right: 2rem;">
+                            <div class="header-logo">
+                                {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
+                                <div class="d-none mobile-nav-bar justify-content-between">
+                                    <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                    <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
+                                    <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
+                                </div>
+                                {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
+                                <div class="d-md-none mobile-nav-bar justify-content-between">
+                                    <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                    <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
+                                    <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                    <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
-            <!-- Footer Area End Here -->
-            </div>
+                </footer>
+                <!-- Footer Area End Here -->
         </div>
         <!-- Page Area End Here -->
     </div>

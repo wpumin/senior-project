@@ -451,9 +451,9 @@
     }
   });
 
-  // $('.navbar-toggler').click(function(){
-  //   $('.header-main-menu').slideToggle();
-  // });
+  $('#mobile-navbar').click(function(){
+    $('.header-main-menu').slideToggle('slow');
+  });
 
 
 
