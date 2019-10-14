@@ -44,12 +44,13 @@ Route::post('register/user', 'RegisterUserController@register_user');
 Route::post('register/student', 'RegisterStudentController@register_student');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::post('/forgotpassword', 'ForgotPasswordController@ForgotPassword');
+Route::post('/forgotpassword/againotp', 'ForgotPasswordController@againOTP');
 Route::post('/newpassword', 'NewPasswordController@NewPassword');
 Route::post('/receiveotp', 'ReceiveOTPController@receiveOTP');
-Route::post('/againotp', 'AgainOTPController@againOTP');
 Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
+
 
 Route::get('/driver/index', 'RefreshController@run');
 Route::get('/tasks/refresh', 'RefreshController@refresh');

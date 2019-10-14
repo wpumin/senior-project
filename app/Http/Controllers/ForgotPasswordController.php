@@ -76,6 +76,48 @@ class ForgotPasswordController extends Controller
     }
     /*
     |--------------------------------------------------------------------------
+    | OTP again
+    |--------------------------------------------------------------------------
+     */
+    public function againOTP()
+    {
+        $template_html = 'mail.forgot_password';
+
+        // Create OTP
+        $genREF = $this->strRandom_ref();
+        $genOTP = $this->strRandom_otp();
+
+        $user = User::where('email', decrypt($this->request->input('email')))->first();
+
+        $template_data = [
+
+            'ref' => $genREF,
+            'otp' => $genOTP
+        ];
+        $otp = new Otp();
+        $otp->email = decrypt($this->request->input('email'));
+        $otp->ref = $genREF;
+        $otp->otp = $genOTP;
+
+        if ($otp->save()) {
+            Mail::send($template_html, $template_data, function ($msg) use ($user) {
+                $msg->subject('ลืมรหัสผ่าน === Forgot');
+                $msg->to([$user->email]);
+                $msg->from('dviver100@gmail.com', 'ClickNext');
+            });
+
+            $info = [
+                'email' => encrypt($user->email),
+                'username' => encrypt($user->username),
+                'ref' => encrypt($otp->ref)
+            ];
+
+            return $this->responseRequestSuccess($info);
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง
     |--------------------------------------------------------------------------
      */

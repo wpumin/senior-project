@@ -13,7 +13,7 @@
                     
                     <form class="" id="checkEmail">
                         <div class="mt-4">
-                            <input type="email" name="email" class="input-box" placeholder="อีเมล" required autofocus>
+                            <input type="email" id="email" name="email" class="input-box" placeholder="อีเมล" required autofocus>
                         </div>
                         <div class="mt-5">
                             <input type="submit" name="submit" class="submit-box w-100" value="ยืนยัน" data-toggle="modal">
@@ -94,20 +94,22 @@
     });
 
     function submitForm(){
+        var email = $('#email').val();
         $.ajax({
             type: "POST",
             url: "http://localhost:8000/forgotpassword",
-            headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
             cache:false,
-            data: $('form#checkEmail').serialize(),
+            data: {
+                email: email
+            },
             success: function(result){
                 
                 // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
                 if (result.status == 'success') {
                     setCookie('ref', result.data['ref'], 30);
-                    $(".wrap-modal > #sendOTP").modal('show');
+                    setCookie('email', result.data['email'], 30);
+                    window.location.replace('http://localhost:8000/confirm-otp');
+                    // $(".wrap-modal > #sendOTP").modal('show');
                 }
 
                 // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่

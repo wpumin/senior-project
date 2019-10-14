@@ -30,7 +30,7 @@ class NewPasswordController extends Controller
             ]);
             if ($validate->fails()) {
 
-                return $this->responseRequestError('error');
+                return $this->responseRequestError('pass_too_short');
             }
 
             if ($user = User::where('email', decrypt($this->request->email))->first()) {
