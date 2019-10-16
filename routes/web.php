@@ -55,3 +55,5 @@ Route::post('/bill', 'PaymentController@addPayment');
 Route::get('/driver/index', 'RefreshController@run');
 Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');
+
+Route::get('firebase/{lat}/{long}', 'FirebaseController@index');

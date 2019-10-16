@@ -35,8 +35,6 @@ class LoginController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        // dd($this->request->method());
-
         $user = User::where('username', $this->request->input('username'))->first();
 
         if ($user) {
