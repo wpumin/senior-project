@@ -165,7 +165,7 @@
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
-                                    <li><a href="#"><i class="flaticon-user"></i>โปรไฟล์</a></li>
+                                    <li><a href="{{ url('parent/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
                                     <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                 </ul>
                             </div>

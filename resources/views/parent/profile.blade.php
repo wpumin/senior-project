@@ -256,6 +256,12 @@
 </div>
 {{-- ข้อมูลบุตรหลาน end --}}
 
+<div class="mt-4 mt-md-5 text-center">
+    <a href="/" onclick="deleteAllCookies()">
+        <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100 logout-btn""><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
+    </a>
+</div>
+
 @endsection
 
 @section('script')
