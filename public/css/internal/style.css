@@ -4108,10 +4108,18 @@ ul {
     }
 }
 
+@media only screen and (max-width: 992px){
+    .dashboard-card-seven .social-media .social-like {
+        font-size: 24px !important;
+        color: #ffffff;
+    }
+}
+
 .dashboard-card-seven .social-media .social-like {
     font-size: 26px;
     color: #ffffff;
 }
+
 
 /*=============== 7.2 Dashboard Page Two ==================*/
 .dashboard-card-ten .card-body .student-info .media {
