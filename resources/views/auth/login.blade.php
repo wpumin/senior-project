@@ -138,7 +138,7 @@
                     if (result.data['role'] == '1') {
 
                         //Page User
-
+                        // $(location).attr('href', '/driver/index');
                     }else  if (result.data['role'] == '2') {
 
                         //Page Driver
