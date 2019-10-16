@@ -25,9 +25,9 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+  font-size: 20px;
+  font-style: normal;
+  margin-left: 20px;
 }
 
 .flaticon-calendar:before { content: "\f100"; }
@@ -42,7 +42,7 @@ margin-left: 20px;
 .flaticon-bus-stop:before { content: "\f109"; }
 .flaticon-exclamation:before { content: "\f10a"; }
 .flaticon-appointment:before { content: "\f10b"; }
-.flaticon-download-arrow:before { content: "\f10c"; }
+.flaticon-download-arrow:before { content: "\f10c"; margin-left: 0; }
 .flaticon-bin:before { content: "\f10d"; }
 .flaticon-correct-signal:before { content: "\f10e"; }
 .flaticon-man:before { content: "\f10f"; }
@@ -62,7 +62,7 @@ margin-left: 20px;
 .flaticon-lock:before { content: "\f11d"; }
 .flaticon-invoice:before { content: "\f11e"; }
 .flaticon-qr-code:before { content: "\f11f"; }
-.flaticon-address:before { content: "\f120"; }
+.flaticon-address:before { content: "\f120"; margin-left: 0; }
 .flaticon-reading:before { content: "\f121"; }
 .flaticon-comment:before { content: "\f122"; }
 .flaticon-bus:before { content: "\f123"; }

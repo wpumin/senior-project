@@ -225,7 +225,7 @@ var Dropzone = function (_Emitter) {
          * the event `maxfilesexceeded` will be called. The dropzone element gets the
          * class `dz-max-files-reached` accordingly so you can provide visual feedback.
          */
-        maxFilesize: 3,
+        maxFilesize: 4,
 
         /**
          * The name of the file param that gets transferred.
@@ -299,12 +299,12 @@ var Dropzone = function (_Emitter) {
          * 1024 is technically incorrect, because `1024 bytes` are `1 kibibyte` not `1 kilobyte`.
          * You can change this to `1024` if you don't care about validity.
          */
-        filesizeBase: 1000,
+        filesizeBase: 4000,
 
         /**
          * Can be used to limit the maximum number of files that will be handled by this Dropzone
          */
-        maxFiles: null,
+        maxFiles: 3,
 
         /**
          * An optional object to send additional headers to the server. Eg:
@@ -439,12 +439,12 @@ var Dropzone = function (_Emitter) {
          * If the filesize is too big.
          * `{{filesize}}` and `{{maxFilesize}}` will be replaced with the respective configuration values.
          */
-        dictFileTooBig: "ไฟล์ขนาดใหญ่เกิน ({{filesize}}MiB). ขนาดสูงสุดต้องไม่เกิน: {{maxFilesize}}MiB.",
+        dictFileTooBig: "ไฟล์ขนาดใหญ่เกิน ({{filesize}}MB). ขนาดสูงสุดต้องไม่เกิน: {{maxFilesize}}MB.",
 
         /**
          * If the file doesn't match the file type.
          */
-        dictInvalidFileType: "คุณไม่สามารถอัพโหลดไฟล์ประเภทนี้ได้",
+        dictInvalidFileType: "ท่านไม่สามารถอัพโหลดไฟล์ประเภทนี้ได้",
 
         /**
          * If the server response was invalid.
@@ -481,7 +481,7 @@ var Dropzone = function (_Emitter) {
          * Displayed if `maxFiles` is st and exceeded.
          * The string `{{maxFiles}}` will be replaced by the configuration value.
          */
-        dictMaxFilesExceeded: "คุณไม่สามารถอัพไฟล์เกินกำหนดได้",
+        dictMaxFilesExceeded: "ท่านไม่สามารถอัพไฟล์เกินกำหนดได้",
 
         /**
          * Allows you to translate the different units. Starting with `tb` for terabytes and going down to

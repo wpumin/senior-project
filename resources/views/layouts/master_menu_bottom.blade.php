@@ -265,7 +265,7 @@
                 <div class="sidebar-menu-content">
                         <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                             <li class="nav-item">
-                                <a href="{{url('driver/index')}}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
+                                <a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                             </li>
                             <li class="nav-item sidebar-nav-item">
                                 <a href="#" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การชำระเงิน</span></a>
@@ -279,13 +279,13 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
+                                <a href="{{url('parent/appointment')}}" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
+                                <a href="{{url('parent/report')}}" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
+                                <a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
                             </li>
                         </ul>
                     </div>
@@ -310,11 +310,11 @@
                             </div>
                             {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
                             <div class="d-md-none mobile-nav-bar justify-content-between">
-                                <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
+                                <div><a href="{{url('parent/appointment')}}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="{{url('parent/report')}}" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                <div><a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -368,13 +368,13 @@
                 document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
             }
 
-    }
+        }
 
-    document.getElementById("name").innerHTML = getCookie('name');
-    document.getElementById("role").innerHTML = getCookie('role_name');
-    document.getElementById("f_name").innerHTML = getCookie('f_name');
-    document.getElementById("l_name").innerHTML = getCookie('l_name');
-    document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie();
+        document.getElementById("name").innerHTML = getCookie('name');
+        document.getElementById("role").innerHTML = getCookie('role_name');
+        document.getElementById("f_name").innerHTML = getCookie('f_name');
+        document.getElementById("l_name").innerHTML = getCookie('l_name');
+        document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie();
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>
@@ -412,6 +412,8 @@
     <script>
         $('.fixed-bottom').css('bottom',-40);
     </script>
+
+    @yield('script')
 
 </body>
 

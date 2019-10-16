@@ -196,9 +196,11 @@ h6 {
 /*=============== 2.3 Forms ==================*/
 .form-group .form-control {
     height: 45px;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
+    background-color: #f0f1f3;
     font-size: 14px;
-    color: #111111;
+    /* color: #111111; */
+    color: #747d84;
     border-radius: 4px;
     border: none;
     padding: 5px 15px;
@@ -1246,9 +1248,11 @@ table tbody tr td a:hover {
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
+    background-color: #f0f1f3;
     /* line-height: 50px; */
     line-height: 44px;
-    color: #b4b4b4;
+    /* color: #b4b4b4; */
+    color: #747d84;
     padding-left: 20px;
     padding-right: 30px;
     font-size: 15px;
@@ -2936,6 +2940,7 @@ ul {
 @media only screen and (max-width: 575px) {
     .single-info-details .item-content .item-header .header-elements {
         margin-bottom: 15px;
+        float: right;
     }
 }
 
@@ -3019,6 +3024,7 @@ ul {
 }
 
 .new-added-form .form-group .form-control {
+    font-size: 15px;
     background-color: #f0f1f3;
     /* height: 50px; */
     height: 45px;
@@ -3026,10 +3032,10 @@ ul {
 
 .new-added-form .form-group i {
     position: absolute;
-    top: 56px;
+    top: 15px;
     right: 34px;
     font-size: 15px;
-    color: #000;
+    color: #747d84;
 }
 
 .new-added-form .form-group .textarea {
@@ -3058,7 +3064,7 @@ ul {
 /*=============== 6.2 Notice Board ==================*/
 .notice-board-wrap {
     max-height: 900px;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-right: 20px;
 }
 
@@ -5558,7 +5564,7 @@ ul {
 /* TODO customize */
 
 .sticky {
-    z-index: 46;
+    z-index: 99999;
     position: fixed;
     top: 0;
     width: 100%;
@@ -5855,6 +5861,7 @@ ul {
 .submenu-mobile .left a,
 .submenu-mobile .right a {
     color: white;
+    font-size: 17px;
 }
 
 .submenu-mobile .left.active:before {
@@ -6066,7 +6073,7 @@ ul {
     }
 }
 
-@-webkit-keyframes pulse {
+/* @-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
         -moz-transform: scale(1);
@@ -6142,7 +6149,7 @@ ul {
         -o-transform: scale(1);
         transform: scale(1);
     }
-}
+} */
 
 .dropzone,
 .dropzone * {
@@ -6153,7 +6160,8 @@ ul {
     border-radius: 5px;
     min-height: 200px;
     border: 1px dashed rgba(0, 0, 0, 0.1);
-    background: white;
+    /* background: #f8f8f8; */
+    background-color: #f0f1f3;
     padding: 20px 20px;
 }
 
@@ -6215,6 +6223,7 @@ ul {
 
 .dropzone .dz-preview.dz-image-preview {
     background: white;
+    z-index: 1;
 }
 
 .dropzone .dz-preview.dz-image-preview .dz-details {
@@ -6292,8 +6301,8 @@ ul {
     -ms-transform: scale(1.05, 1.05);
     -o-transform: scale(1.05, 1.05);
     transform: scale(1.05, 1.05);
-    -webkit-filter: blur(8px);
-    filter: blur(8px);
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
 }
 
 .dropzone .dz-preview .dz-image {
@@ -6311,6 +6320,7 @@ ul {
 }
 
 .dropzone .dz-preview.dz-success .dz-success-mark {
+    cursor: pointer !important;
     -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
     -moz-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
     -ms-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
@@ -6320,6 +6330,7 @@ ul {
 
 .dropzone .dz-preview.dz-error .dz-error-mark {
     opacity: 1;
+    cursor: pointer !important;
     -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
     -moz-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
     -ms-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
@@ -6329,12 +6340,12 @@ ul {
 
 .dropzone .dz-preview .dz-success-mark,
 .dropzone .dz-preview .dz-error-mark {
-    pointer-events: none;
+    cursor: pointer !important;
     opacity: 0;
     z-index: 500;
     position: absolute;
     display: block;
-    top: 50%;
+    top: 42%;
     left: 50%;
     margin-left: -27px;
     margin-top: -27px;
@@ -6342,6 +6353,7 @@ ul {
 
 .dropzone .dz-preview .dz-success-mark svg,
 .dropzone .dz-preview .dz-error-mark svg {
+    cursor: pointer !important;
     display: block;
     width: 54px;
     height: 54px;
@@ -6411,11 +6423,11 @@ ul {
 
 .dropzone .dz-preview.dz-error:hover .dz-error-message {
     opacity: 1;
-    pointer-events: auto;
+    cursor: pointer !important;
 }
 
 .dropzone .dz-preview .dz-error-message {
-    pointer-events: none;
+    cursor: pointer !important;
     z-index: 1000;
     position: absolute;
     display: block;
@@ -6428,7 +6440,7 @@ ul {
     transition: opacity 0.3s ease;
     border-radius: 8px;
     font-size: 13px;
-    top: 130px;
+    top: 150px;
     left: -10px;
     width: 140px;
     background: #be2626;
@@ -6469,4 +6481,51 @@ ul {
 
 .datepicker--cel.datepicker--cell-day.-current-{
   color: #ff7f35 !important;
+}
+
+.dz-preview.dz-image-preview{
+    background: transparent !important;
+}
+
+.dropzone.dz-clickable *{
+    cursor: pointer;
+    fill: #d30000;
+}
+
+.dz-error.dz-image-preview .dz-image{
+    filter: grayscale(1) !important;
+    opacity: 0.2 !important;
+}
+
+/* custom buttom on modal */
+.btn.btn-primary{
+    background-color: #353535;
+    border-color: #6c757d !important;
+    padding: 0.625rem 2rem !important;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    border-radius: 15rem;
+    margin: 0 0.25rem;
+    min-width: 10rem;
+    max-width: 12rem;
+}
+
+/* text-area */
+textarea.form-control{
+    padding: 11px 15px !important;
+}
+
+/* profile */
+.parent-profile{
+    border-radius: 5px;
+}
+@media only screen and (min-width: 1200px){
+    .parent-profile{
+        max-width: 333px;
+        border-radius: 0;
+    }
+}
+
+.maps iframe{
+    width: 100%;
 }

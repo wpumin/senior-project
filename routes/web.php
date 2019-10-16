@@ -34,14 +34,35 @@ Route::get('/create-newpassword', function () {
 //     return view('driver.index');
 // });
 
-// payment
-Route::get('/parent/payment/overview', function () {
-    return view('parent.payment_overview');
+// parent
+Route::group(array('prefix' => 'parent'), function()
+{
+    Route::get('/index', function()
+    {
+        return view('parent.index');
+    });
+    Route::get('/payment/overview', function()
+    {
+    	return view('parent.payment_overview');
+    });
+    Route::get('/payment/confirm', function()
+    {
+    	return view('parent.payment_confirm');
+    });
+    Route::get('/appointment', function()
+    {
+    	return view('parent.appointment');
+    });
+    Route::get('/report', function()
+    {
+    	return view('parent.report');
+    });
+    Route::get('/profile', function()
+    {
+    	return view('parent.profile');
+    });
 });
 
-Route::get('/parent/payment/confirm', function () {
-    return view('parent.payment_confirm');
-});
 
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');
