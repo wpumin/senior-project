@@ -32,6 +32,8 @@ class FirebaseController extends Controller
                 'long' => $long
             ]);
 
+            
+
 
 
 
