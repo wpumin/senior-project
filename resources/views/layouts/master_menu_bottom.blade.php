@@ -1,10 +1,3 @@
-<?php if (!isset($_COOKIE['Authorization'])) { ?>
-
-    <script type="text/javascript">
-        window.location.replace('http://localhost:8000/');
-    </script>
-
-<?php } ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -312,9 +305,9 @@
                             <div class="d-md-none mobile-nav-bar justify-content-between">
                                 <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
-                                <div><a href="{{url('parent/appointment')}}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="{{url('parent/report')}}" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
-                                <div><a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
+                                <div><a href="{{ url('parent/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="{{ url('parent/report') }}" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                <div><a href="{{ url('parent/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
                         </div>
                     </div>

@@ -5582,6 +5582,7 @@ ul {
 /* ! driver display */
 .student-profile img {
     width: 40px !important;
+    height: 40px;
     border-radius: 50%;
 }
 
@@ -5592,7 +5593,7 @@ ul {
 
 /* modal */
 .modal {
-    width: 90%;
+    /* width: 90%; */
     margin: auto;
     overflow: hidden;
 }
@@ -6536,4 +6537,8 @@ textarea.form-control{
 
 .maps iframe{
     width: 100%;
+}
+
+.logout-btn i:before{
+    margin-left: 0;
 }

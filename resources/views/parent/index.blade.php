@@ -1,8 +1,21 @@
 @extends('layouts.master_menu_bottom')
 
-@section('title','ชำระเงิน')
+@section('title','หน้าหลัก')
 
 @section('content')
+
+<!-- Onesignal -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            appId: "74f3cba2-78c1-4a35-b99f-305a6e8137b5",
+            safari_web_id: "web.onesignal.auto.579431ec-451c-467f-a977-87d9f3b6152b",
+            autoRegister: true
+        });
+    });
+</script>
 
 <!-- Owl-Carousel Area -->
 <!-- คิวรี่ 2 ขนาด มือถือกับแท๊บเล็ตขึ้นไป -->
@@ -29,41 +42,29 @@
 </div>
 <!-- Owl-Carousel Area End Here-->
 
+<div class="heading text-left">
+    <h3>ติดตามรถรับส่งนักเรียน</h3>
+</div>
 <div class="card ui-tab-card">
     <div class="card-body">
-        <div class="heading-layout1 mg-b-25">
-            <div class="item-title">
-                <h3>Default Tab</h3>
-            </div>
-        </div>
         <div class="basic-tab">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">Home</a>
+                    <a class="nav-link active" data-toggle="tab" href="#gps" role="tab" aria-selected="true">GPS ติดตามรถ </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-selected="false">Profile</a>
+                    <a class="nav-link" data-toggle="tab" href="#route" role="tab" aria-selected="false">เส้นทางการเดินรถ</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#tab3" role="tab" aria-selected="false">Settings</a>
-                </li>
-            </ul>
+            </ul> 
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <div class="tab-pane fade show active" id="gps" role="tabpanel">
                     <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                     It has survived not only five centuries,but alsowhen an unknown printer took a galley of type 
                     and scrambled it to make a type specimen book. It has survived not only five centuries, but 
                     alsowhen an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                     It has survived not only five centuries, but also</p>
                 </div>
-                <div class="tab-pane fade" id="tab2" role="tabpanel">
-                    <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries,but alsowhen an unknown printer took a galley of type 
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but 
-                    alsowhen an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries, but also</p>
-                </div>
-                <div class="tab-pane fade" id="tab3" role="tabpanel">
+                <div class="tab-pane fade" id="route" role="tabpanel">
                     <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                     It has survived not only five centuries,but alsowhen an unknown printer took a galley of type 
                     and scrambled it to make a type specimen book. It has survived not only five centuries, but 
@@ -74,5 +75,10 @@
         </div>
     </div>
 </div>
+
+
+@endsection
+
+@section('script')
 
 @endsection

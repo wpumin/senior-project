@@ -60,19 +60,6 @@
             <!-- WOW -->
             <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
 
-            <!-- Onesignal -->
-            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-            <script>
-                var OneSignal = window.OneSignal || [];
-                OneSignal.push(function () {
-                    OneSignal.init({
-                        appId: "74f3cba2-78c1-4a35-b99f-305a6e8137b5",
-                        safari_web_id: "web.onesignal.auto.579431ec-451c-467f-a977-87d9f3b6152b",
-                        autoRegister: true
-                    });
-                });
-            </script>
-
 
             <script src="{{ URL::asset('js/external/main.js') }}"></script>
 
