@@ -61,6 +61,10 @@ Route::group(array('prefix' => 'parent'), function()
     {
     	return view('parent.profile');
     });
+    Route::get('/dashboard', function()
+    {
+    	return view('parent.dashboard');
+    });
 });
 
 

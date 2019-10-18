@@ -36,9 +36,11 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
+    
 </head>
 
-<body>
+<body onload="init();">
+    <!-- google map -->
     <!-- Preloader Start Here -->
     <div id="preloader"></div>
     <!-- Preloader End Here -->

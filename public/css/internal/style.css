@@ -2408,8 +2408,11 @@ ul {
 }
 
 .header-main-menu .navbar-nav .header-admin .navbar-nav-link .admin-img img {
+    width: 40px !important;
+    height: 40px;
     border-radius: 50%;
-    width: 40px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .header-main-menu .navbar-nav .header-admin .navbar-nav-link .admin-title {
@@ -3412,14 +3415,26 @@ ul {
     }
 }
 
+.ui-tab-card .card-body .basic-tab .nav-tabs .nav-item .nav-link{
+    border-radius: 0;
+    border: none;
+    color: white;
+    background: #353535;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2) !important;
+}
+
 .ui-tab-card .card-body .basic-tab .nav-tabs .nav-item .nav-link.active {
-    color: #3d5afe;
+    border: none;
+    /* color: #3d5afe; */
+    color: #fb7a2e;
 }
 
 .ui-tab-card .card-body .basic-tab .tab-content .tab-pane {
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
     border-top: none;
-    padding: 25px 30px 5px;
+    /* padding: 25px 30px 5px; */
+    /* padding: 15px; */
 }
 
 .ui-tab-card .card-body .custom-tab .nav-tabs {
@@ -5584,6 +5599,8 @@ ul {
     width: 40px !important;
     height: 40px;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .student-profile-table table thead,
@@ -5813,6 +5830,42 @@ ul {
         background-color: white !important;
     }
 }
+
+.weather-carousel .item{
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px 0px rgba(229, 229, 229, 0.75);
+}
+
+@media only screen and (max-width: 567px){
+    .weather-carousel .owl-dots{ 
+        text-align: center;
+        padding: 2rem 0 3.5rem 0;
+    }
+    .weather-carousel .owl-item.active .item{
+        padding: 4rem 0 7rem 0 !important;
+    }
+    .weather-carousel .owl-dots .owl-dot{
+        background: rgb(187, 187, 187) !important;
+    }
+    
+    .weather-carousel .owl-dots .owl-dot.active{
+        background: rgb(255, 127, 53) !important;
+    }
+}
+
+.weather-carousel .owl-item.active .item{
+    height: auto !important;
+    padding: 4rem 0;
+}
+.weather-carousel .owl-dots{ 
+    padding: 2rem 0;
+}
+
+.weather-carousel .owl-stage{
+    padding-bottom: 0;
+}
+
 
 /* heading */
 @media only screen and (max-width: 767px) {
@@ -6542,3 +6595,136 @@ textarea.form-control{
 .logout-btn i:before{
     margin-left: 0;
 }
+
+/* google map */
+#map{
+    height: 450px;
+}
+
+#result{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    height: 80%;
+    margin: auto;
+    border: 4px solid #dddddd;
+    background: #ffffff;
+    overflow: auto;
+    z-index: 2;
+}
+
+.ldmap_button, .ldmap_bottomright.ldmap_maparea, .ldmap_topright.ldmap_maparea, .ldmap_navigation.ldmap_maparea, .ldmap_crosshair{
+    display: none;
+}
+
+.nav-item._index{
+    width: 50%;
+}
+
+@media only screen and (max-width: 767px){
+    #onesignal-bell-launcher{
+        bottom: 73px !important;
+        right: 15px !important;
+    }
+}
+
+.ldmap_popup_close{
+    filter: grayscale(100%) !important;
+}
+
+.ldmap_popup_title{
+    color: #fb7a2f;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ldmap_popup_detail, .ldmap_geomlabel, .ldmap_contextmenu.ldmap_selectable{
+    font-family: 'Kanit', sans-serif;
+}
+
+/* result */
+#result{
+    border: none;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 0 0 6px 6px;
+}
+
+.ldroute_menu{
+    display: none !important;
+}
+
+#result > div > span.ldroute_menu{
+    display: none !important;
+}
+
+.ldroute_placeholder .ldroute_info{
+    height: 47px !important;
+    padding: 14px 8px !important;
+    color: #fff;
+    background: #fa772b !important;
+    font-size: 16px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ldroute_placeholder .ldroute_item{
+    padding: 15px 6px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.ldroute_placeholder .ldroute_item{
+    background: white !important;
+}
+
+.ldroute_placeholder .ldroute_road {
+    color: rgb(255, 127, 53) !important;
+}
+
+.ldroute_icon{
+    filter: grayscale(100%) !important;
+}
+
+.ldroute_item.ldroute_dest, .ldroute_item.ldroute_type_road, .ldroute_dist{
+    font-size: 13px !important;
+}
+
+.border-customtlr5{
+    border-radius: 5px 5px 0 0 !important;
+}
+
+/* custom scrollbar */
+
+.custom-scrollbar {
+    height: 70px;
+    overflow-y: scroll;
+  }
+  
+  /* To style the document scrollbar, remove `.custom-scrollbar` */
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  /* weather */
+  .icon-weather{
+    width: 100px !important;
+    margin: 0 auto !important;
+  }
+
+  .description-weather{
+      font-size: 17px;
+      font-weight: bold;
+      color:  rgb(255, 127, 53);
+  }
