@@ -35,35 +35,27 @@ Route::get('/create-newpassword', function () {
 // });
 
 // parent
-Route::group(array('prefix' => 'parent'), function()
-{
-    Route::get('/index', function()
-    {
+Route::group(array('prefix' => 'parent'), function () {
+    Route::get('/index', function () {
         return view('parent.index');
     });
-    Route::get('/payment/overview', function()
-    {
-    	return view('parent.payment_overview');
+    Route::get('/payment/overview', function () {
+        return view('parent.payment_overview');
     });
-    Route::get('/payment/confirm', function()
-    {
-    	return view('parent.payment_confirm');
+    Route::get('/payment/confirm', function () {
+        return view('parent.payment_confirm');
     });
-    Route::get('/appointment', function()
-    {
-    	return view('parent.appointment');
+    Route::get('/appointment', function () {
+        return view('parent.appointment');
     });
-    Route::get('/report', function()
-    {
-    	return view('parent.report');
+    Route::get('/report', function () {
+        return view('parent.report');
     });
-    Route::get('/profile', function()
-    {
-    	return view('parent.profile');
+    Route::get('/profile', function () {
+        return view('parent.profile');
     });
-    Route::get('/dashboard', function()
-    {
-    	return view('parent.dashboard');
+    Route::get('/dashboard', function () {
+        return view('parent.dashboard');
     });
 });
 
@@ -86,3 +78,4 @@ Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');
 
 Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
+Route::get('firebase/getlocation', 'FirebaseController@get_location');
