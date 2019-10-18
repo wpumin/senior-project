@@ -75,6 +75,18 @@ function convertStringDes($input){
         <div id="result" class="custom-scrollbar" style="border-radius: 0 0 8px 8px;"></div>
     </div>
 </div>
+
+<div class="heading text-left">
+    <h3>กราฟเฉลี่ยเวลาขึ้นลงรถ</h3>
+</div>
+
+<div class="card ui-tab-card">
+    <div class="card-body" style="padding: 15px;">
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+
+
 <div class="heading text-left">
     <h3>พยากรณ์สภาพอากาศ</h3>
 </div>
@@ -147,7 +159,119 @@ function convertStringDes($input){
 
 @section('script')
 
+
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
+
+<script type="text/javascript">
+    Highcharts.chart('container', {
+
+        chart: {
+            scrollablePlotArea: {
+                minWidth: 700
+            }
+        },
+
+        data: {
+            csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
+            beforeParse: function (csv) {
+                return csv.replace(/\n\n/g, '\n');
+            }
+        },
+
+        title: {
+            text: ''
+            // text: 'Daily sessions at www.highcharts.com'
+        },
+
+        subtitle: {
+            // text: 'Source: Google Analytics'
+        },
+
+        xAxis: {
+            tickInterval: 7 * 24 * 3600 * 1000, // one week
+            tickWidth: 0,
+            gridLineWidth: 1,
+            labels: {
+                align: 'left',
+                x: 3,
+                y: -3
+            }
+        },
+
+        yAxis: [{ // left y axis
+            title: {
+                text: null
+            },
+            labels: {
+                align: 'left',
+                x: 3,
+                y: 16,
+                format: '{value:.,0f}'
+            },
+            showFirstLabel: false
+        }, { // right y axis
+            linkedTo: 0,
+            gridLineWidth: 0,
+            opposite: true,
+            title: {
+                text: null
+            },
+            labels: {
+                align: 'right',
+                x: -3,
+                y: 16,
+                format: '{value:.,0f}'
+            },
+            showFirstLabel: false
+        }],
+
+        legend: {
+            align: 'left',
+            verticalAlign: 'top',
+            borderWidth: 0
+        },
+
+        tooltip: {
+            shared: true,
+            crosshairs: true
+        },
+
+        plotOptions: {
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function (e) {
+                            hs.htmlExpand(null, {
+                                pageOrigin: {
+                                    x: e.pageX || e.clientX,
+                                    y: e.pageY || e.clientY
+                                },
+                                headingText: this.series.name,
+                                maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+                                    this.y + ' sessions',
+                                width: 200
+                            });
+                        }
+                    }
+                },
+                marker: {
+                    lineWidth: 1
+                }
+            }
+        },
+
+        series: [{
+            name: 'All sessions',
+            lineWidth: 4,
+            marker: {
+                radius: 4
+            }
+        }, {
+            name: 'New users'
+        }]
+    });
+</script>
 
 <script>
 
@@ -185,7 +309,7 @@ setInterval(function(){
             })
 
 
-        }, 10000);
+        }, 30000);
 
     // long do map
     function init() {
