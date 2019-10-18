@@ -5,7 +5,7 @@
 @section('content')
 
 
-<?php 
+<?php
 
 function convertStringDay($input){
 
@@ -150,66 +150,105 @@ function convertStringDes($input){
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script>
+
+setInterval(function(){
+
+            $.ajax({
+                url:'http://www.arduino.lnw.mn/firebase/getlocation',
+                type:'GET',
+                dataType:'json',
+                success:function(response){
+
+                if(response.status == 'success'){
+
+                    init();
+
+                    // console.log(response['data']['lat']);
+                    var marker = new longdo.Marker({ lon: response['data']['long'], lat: response['data']['lat'] },
+                    {
+                        title: 'Bear-Bus',
+                        icon: {
+                            url: 'https://bear-bus.com/images/internal/marker3.png'
+                        },
+                        detail: 'ตำแหน่งปัจจุบัน',
+                        // visibleRange: { min: 7, max: 9 },
+                        draggable: false,
+                        weight: longdo.OverlayWeight.Top,
+                    });
+
+                    map.Overlays.add(marker);
+
+                }
+                },error:function(err){
+
+                }
+            })
+
+
+        }, 10000);
+
     // long do map
     function init() {
+
 
         map = new longdo.Map({
             placeholder: document.getElementById('map')
         });
+
         map.Route.placeholder(document.getElementById('result'));
         map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
-            { 
-                title: 'จุดรับส่งที่ 1', 
-                detail: 'เทศบาลตำบลบ้านไร่' 
+            {
+                title: 'จุดรับส่งที่ 1',
+                detail: 'เทศบาลตำบลบ้านไร่'
             }
         ));
         // หูช้าง
         map.Route.add(new longdo.Marker({ lat: 15.147868, lon: 99.672083  },
-            { 
-                title: 'จุดรับส่งที่ 2', 
-                detail: 'ตำบลหูช้าง' 
+            {
+                title: 'จุดรับส่งที่ 2',
+                detail: 'ตำบลหูช้าง'
             }
         ));
         // การุ้ง
         map.Route.add(new longdo.Marker({ lat: 15.175955, lon: 99.696781 },
-            { 
-                title: 'จุดรับส่งที่ 3', 
-                detail: 'ตำบลเมืองโบราณการุ้ง' 
+            {
+                title: 'จุดรับส่งที่ 3',
+                detail: 'ตำบลเมืองโบราณการุ้ง'
             }
         ));
         // คลองโป่ง
         map.Route.add(new longdo.Marker({ lat: 15.215208, lon: 99.690788 },
-            { 
-                title: 'จุดรับส่งที่ 4', 
-                detail: 'ตำบลบ้านคลองโป่ง' 
+            {
+                title: 'จุดรับส่งที่ 4',
+                detail: 'ตำบลบ้านคลองโป่ง'
             }
         ));
         // เขาตะพาบ
         map.Route.add(new longdo.Marker({ lat: 15.260942, lon: 99.680222 },
-            { 
-                title: 'จุดรับส่งที่ 5', 
-                detail: 'ตำบลเขาตะพาบ' 
+            {
+                title: 'จุดรับส่งที่ 5',
+                detail: 'ตำบลเขาตะพาบ'
             }
         ));
         // โรงเรียนหนองฉางวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.382140, lon: 99.851870 },
-            { 
-                title: 'จุดรับส่งที่ 6', 
-                detail: 'โรงเรียนหนองฉางวิทยา' 
+            {
+                title: 'จุดรับส่งที่ 6',
+                detail: 'โรงเรียนหนองฉางวิทยา'
             }
         ));
         // โรงเรียนธรรมานุวัตรวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.390607, lon: 99.833714 },
-            { 
-                title: 'จุดรับส่งที่ 7', 
-                detail: 'โรงเรียนธรรมานุวัตรวิทยา' 
+            {
+                title: 'จุดรับส่งที่ 7',
+                detail: 'โรงเรียนธรรมานุวัตรวิทยา'
             }
         ));
         // โรงเรียนวัดหนองขุนชาติ
         map.Route.add(new longdo.Marker({ lat: 15.388589, lon: 99.835618 },
-            { 
-                title: 'จุดรับส่งที่ 8', 
-                detail: 'โรงเรียนวัดหนองขุนชาติ' 
+            {
+                title: 'จุดรับส่งที่ 8',
+                detail: 'โรงเรียนวัดหนองขุนชาติ'
             }
         ));
         map.Route.search();
@@ -219,7 +258,7 @@ function convertStringDes($input){
 
     // Open API Weather
     // ************************************* API Weather ***************************************************************
-    const apiKey = "d301010cd434715400ddfa07b232b7c7"; // User: ez-top Email: 
+    const apiKey = "d301010cd434715400ddfa07b232b7c7"; // User: ez-top Email:
     const cityID = "1605221"; // cityName: prachin+buri
     const urlCurrent = "https://api.openweathermap.org/data/2.5/weather?id=" + cityID + "&appid=" + apiKey;
     const urlForecast = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + apiKey;
@@ -262,7 +301,7 @@ function convertStringDes($input){
     function theResponseForecast(response){
         var jsonObject = JSON.parse(response); // jsonObj -> jsObject
 
-        console.log(jsonObject);
+        // console.log(jsonObject);
 
         weatherForecast1.src =  "<?php echo url('images/internal/weather') ?>/" + jsonObject.list[2].weather[0].icon + ".svg";
         weatherForecast2.src =  "<?php echo url('images/internal/weather') ?>/" + jsonObject.list[10].weather[0].icon + ".svg";

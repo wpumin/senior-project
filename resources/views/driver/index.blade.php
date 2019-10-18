@@ -220,6 +220,7 @@
 
 
         setInterval(function(){
+            
             $.ajax({
                 url:'/tasks/refresh',
                 type:'GET',
