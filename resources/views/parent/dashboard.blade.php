@@ -154,7 +154,7 @@ function convertStringDes($input){
 setInterval(function(){
 
             $.ajax({
-                url:'http://www.arduino.lnw.mn/firebase/getlocation',
+                url:'https://www.bear-bus.com/firebase/getlocation',
                 type:'GET',
                 dataType:'json',
                 success:function(response){

@@ -32,10 +32,26 @@ class FirebaseController extends Controller
                 'long' => $long
             ]);
 
-            
+        $location = $ref->getvalue();
+        $data = [];
+        $data['lat'] = $location['lat'];
+        $data['long'] = $location['long'];
 
 
 
+        return $this->responseRequestSuccess($data);
+    }
+
+    public function get_location()
+    {
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/laravelfirebase-a740f-firebase-adminsdk-cfi9h-d6d5f987a8.json');
+        $firebase = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->withDatabaseUri('https://laravelfirebase-a740f.firebaseio.com/')
+            ->create();
+
+        $database = $firebase->getDatabase();
+        $ref = $database->getReference('location');
 
         $location = $ref->getvalue();
         $data = [];
