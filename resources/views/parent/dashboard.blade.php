@@ -5,7 +5,7 @@
 @section('content')
 
 
-<?php 
+<?php
 
 function convertStringDay($input){
 
@@ -75,6 +75,18 @@ function convertStringDes($input){
         <div id="result" class="custom-scrollbar" style="border-radius: 0 0 8px 8px;"></div>
     </div>
 </div>
+
+<div class="heading text-left">
+    <h3>กราฟเฉลี่ยเวลาขึ้นลงรถ</h3>
+</div>
+
+<div class="card ui-tab-card">
+    <div class="card-body" style="padding: 15px;">
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+
+
 <div class="heading text-left">
     <h3>พยากรณ์สภาพอากาศ</h3>
 </div>
@@ -147,69 +159,220 @@ function convertStringDes($input){
 
 @section('script')
 
+
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
+<script type="text/javascript">
+    Highcharts.chart('container', {
+
+        chart: {
+            scrollablePlotArea: {
+                minWidth: 700
+            }
+        },
+
+        data: {
+            csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
+            beforeParse: function (csv) {
+                return csv.replace(/\n\n/g, '\n');
+            }
+        },
+
+        title: {
+            text: ''
+            // text: 'Daily sessions at www.highcharts.com'
+        },
+
+        subtitle: {
+            // text: 'Source: Google Analytics'
+        },
+
+        xAxis: {
+            tickInterval: 7 * 24 * 3600 * 1000, // one week
+            tickWidth: 0,
+            gridLineWidth: 1,
+            labels: {
+                align: 'left',
+                x: 3,
+                y: -3
+            }
+        },
+
+        yAxis: [{ // left y axis
+            title: {
+                text: null
+            },
+            labels: {
+                align: 'left',
+                x: 3,
+                y: 16,
+                format: '{value:.,0f}'
+            },
+            showFirstLabel: false
+        }, { // right y axis
+            linkedTo: 0,
+            gridLineWidth: 0,
+            opposite: true,
+            title: {
+                text: null
+            },
+            labels: {
+                align: 'right',
+                x: -3,
+                y: 16,
+                format: '{value:.,0f}'
+            },
+            showFirstLabel: false
+        }],
+
+        legend: {
+            align: 'left',
+            verticalAlign: 'top',
+            borderWidth: 0
+        },
+
+        tooltip: {
+            shared: true,
+            crosshairs: true
+        },
+
+        plotOptions: {
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function (e) {
+                            hs.htmlExpand(null, {
+                                pageOrigin: {
+                                    x: e.pageX || e.clientX,
+                                    y: e.pageY || e.clientY
+                                },
+                                headingText: this.series.name,
+                                maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+                                    this.y + ' sessions',
+                                width: 200
+                            });
+                        }
+                    }
+                },
+                marker: {
+                    lineWidth: 1
+                }
+            }
+        },
+
+        series: [{
+            name: 'All sessions',
+            lineWidth: 4,
+            marker: {
+                radius: 4
+            }
+        }, {
+            name: 'New users'
+        }]
+    });
+</script>
+
 <script>
+
+setInterval(function(){
+
+            $.ajax({
+                url:'https://www.bear-bus.com/firebase/getlocation',
+                type:'GET',
+                dataType:'json',
+                success:function(response){
+
+                if(response.status == 'success'){
+
+                    init();
+
+                    // console.log(response['data']['lat']);
+                    var marker = new longdo.Marker({ lon: response['data']['long'], lat: response['data']['lat'] },
+                    {
+                        title: 'Bear-Bus',
+                        icon: {
+                            url: 'https://bear-bus.com/images/internal/marker3.png'
+                        },
+                        detail: 'ตำแหน่งปัจจุบัน',
+                        // visibleRange: { min: 7, max: 9 },
+                        draggable: false,
+                        weight: longdo.OverlayWeight.Top,
+                    });
+
+                    map.Overlays.add(marker);
+
+                }
+                },error:function(err){
+
+                }
+            })
+
+
+        }, 30000);
+
     // long do map
     function init() {
+
 
         map = new longdo.Map({
             placeholder: document.getElementById('map')
         });
+
         map.Route.placeholder(document.getElementById('result'));
         map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
-            { 
-                title: 'จุดรับส่งที่ 1', 
-                detail: 'เทศบาลตำบลบ้านไร่' 
+            {
+                title: 'จุดรับส่งที่ 1',
+                detail: 'เทศบาลตำบลบ้านไร่'
             }
         ));
         // หูช้าง
         map.Route.add(new longdo.Marker({ lat: 15.147868, lon: 99.672083  },
-            { 
-                title: 'จุดรับส่งที่ 2', 
-                detail: 'ตำบลหูช้าง' 
+            {
+                title: 'จุดรับส่งที่ 2',
+                detail: 'ตำบลหูช้าง'
             }
         ));
         // การุ้ง
         map.Route.add(new longdo.Marker({ lat: 15.175955, lon: 99.696781 },
-            { 
-                title: 'จุดรับส่งที่ 3', 
-                detail: 'ตำบลเมืองโบราณการุ้ง' 
+            {
+                title: 'จุดรับส่งที่ 3',
+                detail: 'ตำบลเมืองโบราณการุ้ง'
             }
         ));
         // คลองโป่ง
         map.Route.add(new longdo.Marker({ lat: 15.215208, lon: 99.690788 },
-            { 
-                title: 'จุดรับส่งที่ 4', 
-                detail: 'ตำบลบ้านคลองโป่ง' 
+            {
+                title: 'จุดรับส่งที่ 4',
+                detail: 'ตำบลบ้านคลองโป่ง'
             }
         ));
         // เขาตะพาบ
         map.Route.add(new longdo.Marker({ lat: 15.260942, lon: 99.680222 },
-            { 
-                title: 'จุดรับส่งที่ 5', 
-                detail: 'ตำบลเขาตะพาบ' 
+            {
+                title: 'จุดรับส่งที่ 5',
+                detail: 'ตำบลเขาตะพาบ'
             }
         ));
         // โรงเรียนหนองฉางวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.382140, lon: 99.851870 },
-            { 
-                title: 'จุดรับส่งที่ 6', 
-                detail: 'โรงเรียนหนองฉางวิทยา' 
+            {
+                title: 'จุดรับส่งที่ 6',
+                detail: 'โรงเรียนหนองฉางวิทยา'
             }
         ));
         // โรงเรียนธรรมานุวัตรวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.390607, lon: 99.833714 },
-            { 
-                title: 'จุดรับส่งที่ 7', 
-                detail: 'โรงเรียนธรรมานุวัตรวิทยา' 
+            {
+                title: 'จุดรับส่งที่ 7',
+                detail: 'โรงเรียนธรรมานุวัตรวิทยา'
             }
         ));
         // โรงเรียนวัดหนองขุนชาติ
         map.Route.add(new longdo.Marker({ lat: 15.388589, lon: 99.835618 },
-            { 
-                title: 'จุดรับส่งที่ 8', 
-                detail: 'โรงเรียนวัดหนองขุนชาติ' 
+            {
+                title: 'จุดรับส่งที่ 8',
+                detail: 'โรงเรียนวัดหนองขุนชาติ'
             }
         ));
         map.Route.search();
@@ -219,7 +382,7 @@ function convertStringDes($input){
 
     // Open API Weather
     // ************************************* API Weather ***************************************************************
-    const apiKey = "d301010cd434715400ddfa07b232b7c7"; // User: ez-top Email: 
+    const apiKey = "d301010cd434715400ddfa07b232b7c7"; // User: ez-top Email:
     const cityID = "1605221"; // cityName: prachin+buri
     const urlCurrent = "https://api.openweathermap.org/data/2.5/weather?id=" + cityID + "&appid=" + apiKey;
     const urlForecast = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + apiKey;
@@ -262,7 +425,7 @@ function convertStringDes($input){
     function theResponseForecast(response){
         var jsonObject = JSON.parse(response); // jsonObj -> jsObject
 
-        console.log(jsonObject);
+        // console.log(jsonObject);
 
         weatherForecast1.src =  "<?php echo url('images/internal/weather') ?>/" + jsonObject.list[2].weather[0].icon + ".svg";
         weatherForecast2.src =  "<?php echo url('images/internal/weather') ?>/" + jsonObject.list[10].weather[0].icon + ".svg";
