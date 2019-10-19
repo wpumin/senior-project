@@ -246,42 +246,43 @@ function convertStringDes($input){
 </script>
 
 <script>
+    
 
-setInterval(function(){
+    setInterval(function(){
 
-            $.ajax({
-                url:'https://www.bear-bus.com/firebase/getlocation',
-                type:'GET',
-                dataType:'json',
-                success:function(response){
+        $.ajax({
+            url:'https://www.bear-bus.com/firebase/getlocation',
+            type:'GET',
+            dataType:'json',
+            success:function(response){
 
-                if(response.status == 'success'){
+            if(response.status == 'success'){
 
-                    init();
+                init();
 
-                    // console.log(response['data']['lat']);
-                    var marker = new longdo.Marker({ lon: response['data']['long'], lat: response['data']['lat'] },
-                    {
-                        title: 'Bear-Bus',
-                        icon: {
-                            url: 'https://bear-bus.com/images/internal/marker3.png'
-                        },
-                        detail: 'ตำแหน่งปัจจุบัน',
-                        // visibleRange: { min: 7, max: 9 },
-                        draggable: false,
-                        weight: longdo.OverlayWeight.Top,
-                    });
+                // console.log(response['data']['lat']);
+                var marker = new longdo.Marker({ lon: response['data']['long'], lat: response['data']['lat'] },
+                {
+                    title: 'Bear-Bus',
+                    icon: {
+                        url: 'https://bear-bus.com/images/internal/marker3.png'
+                    },
+                    detail: 'ตำแหน่งปัจจุบัน',
+                    // visibleRange: { min: 7, max: 9 },
+                    draggable: false,
+                    weight: longdo.OverlayWeight.Top,
+                });
 
-                    map.Overlays.add(marker);
+                map.Overlays.add(marker);
 
-                }
-                },error:function(err){
+            }
+            },error:function(err){
 
-                }
-            })
+            }
+        })
 
 
-        }, 30000);
+    }, 30000);
 
     // long do map
     function init() {
@@ -290,6 +291,9 @@ setInterval(function(){
         map = new longdo.Map({
             placeholder: document.getElementById('map')
         });
+
+        map.location({ lat: 15.233078, lon: 99.736881   }, true);
+
 
         map.Route.placeholder(document.getElementById('result'));
         map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
