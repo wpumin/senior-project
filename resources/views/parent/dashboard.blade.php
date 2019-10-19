@@ -204,7 +204,9 @@ function convertStringDes($input){
         tooltip: {
             crosshairs: true,
             shared: true,
-            valueSuffix: ' น.'
+            valueSuffix: ' น.',
+            valueDecimals: 2,
+            animation: true
         },
         plotOptions: {
             spline: {
