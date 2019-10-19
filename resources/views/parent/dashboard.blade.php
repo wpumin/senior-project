@@ -292,7 +292,7 @@ function convertStringDes($input){
             placeholder: document.getElementById('map')
         });
 
-        map.location({ lat: 15.233078, lon: 99.736881   }, true);
+        map.location({ lat: 15.276799, lon: 99.716797 }, true);
 
 
         map.Route.placeholder(document.getElementById('result'));

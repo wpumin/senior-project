@@ -99,9 +99,13 @@ $(document).ready(function(){
 
 // long do map
 function init() {
+    
     map = new longdo.Map({
         placeholder: document.getElementById('map')
     });
+
+    map.location({ lat: 15.276799, lon: 99.716797 }, true);
+
     map.Route.placeholder(document.getElementById('result'));
     map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
         { 
