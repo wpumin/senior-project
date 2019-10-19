@@ -293,7 +293,7 @@ function convertStringDes($input){
         });
 
         map.location({ lat: 15.263551, lon: 99.672852 }, true);
-        map.zoomRange({ min:9});
+        map.zoomRange({ min:9, max: 16});
 
 
         map.Route.placeholder(document.getElementById('result'));
