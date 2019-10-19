@@ -42,7 +42,7 @@
 </div>
 <!-- Owl-Carousel Area End Here-->
 
-<div class="heading text-left">
+{{-- <div class="heading text-left">
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
 <div class="card ui-tab-card">
@@ -67,6 +67,16 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+<div class="heading text-left">
+    <h3>ติดตามรถรับส่งนักเรียน</h3>
+</div>
+<div class="card ui-tab-card">
+    <div class="card-body" style="padding: 15px;">
+        <div id="map" style="border-radius: 5px 5px 0 0;"></div>
+        <div id="result" class="custom-scrollbar" style="border-radius: 0 0 8px 8px;"></div>
+    </div>
 </div>
 
 <div class="text-center">
@@ -81,6 +91,11 @@
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script>
+
+// hide scrollup
+$(document).ready(function(){
+    $('#scrollUp').css('z-index','-1');
+});
 
 // long do map
 function init() {
