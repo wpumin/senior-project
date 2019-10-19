@@ -6728,3 +6728,13 @@ textarea.form-control{
       font-weight: bold;
       color:  rgb(255, 127, 53);
   }
+
+/* highchart */
+#container, tspan, text{
+    font-size: 14px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.highcharts-credits{
+    display: none;
+}

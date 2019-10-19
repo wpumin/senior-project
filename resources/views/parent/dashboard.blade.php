@@ -164,112 +164,82 @@ function convertStringDes($input){
 
 <script type="text/javascript">
     Highcharts.chart('container', {
-
         chart: {
-            scrollablePlotArea: {
-                minWidth: 700
-            }
+            type: 'areaspline'
         },
-
-        data: {
-            csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
-            beforeParse: function (csv) {
-                return csv.replace(/\n\n/g, '\n');
-            }
-        },
-
         title: {
             text: ''
-            // text: 'Daily sessions at www.highcharts.com'
         },
-
         subtitle: {
-            // text: 'Source: Google Analytics'
+            text: ''
         },
-
         xAxis: {
-            tickInterval: 7 * 24 * 3600 * 1000, // one week
-            tickWidth: 0,
-            gridLineWidth: 1,
+            categories: [
+                '01/10/2562', 
+                '02/10/2562', 
+                '03/10/2562', 
+                '04/10/2562', 
+                '05/10/2562', 
+                '06/10/2562',
+                '07/10/2562', 
+                '08/10/2562', 
+                '09/10/2562', 
+                '10/10/2562', 
+                '11/10/2562', 
+                '12/10/2562',
+                '13/10/2562',
+                '14/10/2562'
+            ]
+        },
+        yAxis: {
+            title: {
+                text: 'เวลา'
+            },
             labels: {
-                align: 'left',
-                x: 3,
-                y: -3
+                formatter: function () {
+                    return this.value + ' น.';
+                }
             }
         },
-
-        yAxis: [{ // left y axis
-            title: {
-                text: null
-            },
-            labels: {
-                align: 'left',
-                x: 3,
-                y: 16,
-                format: '{value:.,0f}'
-            },
-            showFirstLabel: false
-        }, { // right y axis
-            linkedTo: 0,
-            gridLineWidth: 0,
-            opposite: true,
-            title: {
-                text: null
-            },
-            labels: {
-                align: 'right',
-                x: -3,
-                y: 16,
-                format: '{value:.,0f}'
-            },
-            showFirstLabel: false
-        }],
-
-        legend: {
-            align: 'left',
-            verticalAlign: 'top',
-            borderWidth: 0
-        },
-
         tooltip: {
+            crosshairs: true,
             shared: true,
-            crosshairs: true
+            valueSuffix: ' น.'
         },
-
         plotOptions: {
-            series: {
-                cursor: 'pointer',
-                point: {
-                    events: {
-                        click: function (e) {
-                            hs.htmlExpand(null, {
-                                pageOrigin: {
-                                    x: e.pageX || e.clientX,
-                                    y: e.pageY || e.clientY
-                                },
-                                headingText: this.series.name,
-                                maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                    this.y + ' sessions',
-                                width: 200
-                            });
-                        }
-                    }
-                },
+            spline: {
                 marker: {
+                    radius: 4,
+                    // lineColor: '#666666',
                     lineWidth: 1
                 }
             }
         },
+        series: [
+            {
+                areaspline: {
+                    fillOpacity: 1
+                },
+                color: "#f6cb43",
+                name: 'เย็น',
+                marker: {
+                    symbol: 'circle'
+                },
+                data: [16.23, 16.12, 16.25, 16.34, 16.32, 16.26, 16.07, 16.27, 16.12, 16.11, 16.28, 16.12, 16.45 ,16.00]
+            },
+            {
+                areaspline: {
+                    fillOpacity: 1
+                },
+                color: "#fb7a2e",
+                name: 'เช้า',
+                marker: {
+                    symbol: 'cicle'
+                },
+                data: [7.27, 7.29, 7.21, 7.20, 7.12, 7.34, 7.36, 7.45, 7.23, 7.13, 7.23, 7.34, 7.54, 7.52]
 
-        series: [{
-            name: 'All sessions',
-            lineWidth: 4,
-            marker: {
-                radius: 4
             }
-        }, {
-            name: 'New users'
-        }]
+        ]
     });
 </script>
 
