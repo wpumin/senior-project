@@ -175,17 +175,17 @@ function convertStringDes($input){
         },
         xAxis: {
             categories: [
-                '01/10/2562', 
-                '02/10/2562', 
-                '03/10/2562', 
-                '04/10/2562', 
-                '05/10/2562', 
+                '01/10/2562',
+                '02/10/2562',
+                '03/10/2562',
+                '04/10/2562',
+                '05/10/2562',
                 '06/10/2562',
-                '07/10/2562', 
-                '08/10/2562', 
-                '09/10/2562', 
-                '10/10/2562', 
-                '11/10/2562', 
+                '07/10/2562',
+                '08/10/2562',
+                '09/10/2562',
+                '10/10/2562',
+                '11/10/2562',
                 '12/10/2562',
                 '13/10/2562',
                 '14/10/2562'
@@ -246,22 +246,13 @@ function convertStringDes($input){
 </script>
 
 <script>
-    
+
 
     setInterval(function(){
 
-        $.ajax({
-            url:'https://www.bear-bus.com/firebase/getlocation',
-            type:'GET',
-            dataType:'json',
-            success:function(response){
+        $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
 
-            if(response.status == 'success'){
-
-                init();
-
-                // console.log(response['data']['lat']);
-                var marker = new longdo.Marker({ lon: response['data']['long'], lat: response['data']['lat'] },
+            var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
                 {
                     title: 'Bear-Bus',
                     icon: {
@@ -274,13 +265,7 @@ function convertStringDes($input){
                 });
 
                 map.Overlays.add(marker);
-
-            }
-            },error:function(err){
-
-            }
-        })
-
+        });
 
     }, 30000);
 
