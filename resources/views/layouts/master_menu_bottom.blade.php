@@ -38,8 +38,21 @@
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
     
 </head>
+{{-- menu active (don't remove) --}}
+<?php
+    $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    $current_page = (explode("/",$current_url));
+    $menu_active = $current_page[2];
+    // echo $menu_active;
+    if(!empty($current_page[3]))
+    {
+        $menu_active2 = $current_page[3];
+    }else{
+        $menu_active2 = "";
+    }
+?>
 
-<body onload="init();">
+<body <?php if($current_page[1] == "parent" && ($menu_active == "index" || $menu_active == "dashboard")){ echo "onload='init();'"; } ?>">
     <!-- google map -->
     <!-- Preloader Start Here -->
     <div id="preloader"></div>
@@ -74,7 +87,7 @@
                     {{-- don't remove --}}
                 </ul>
                 {{-- header สำหรับคนขับ เอา @can ครอบตรงนี้ --}}
-                <ul class="navbar-nav d-none">
+                <ul class="navbar-nav">
                     <li class="navbar-item dropdown header-admin">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
@@ -83,7 +96,7 @@
                                 <span id="role">คนขับรถ</span>
                             </div>
                             <div class="admin-img">
-                                <img id="photo_user" src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="Driver">
+                                <img src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="Driver">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -108,11 +121,11 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">2 การแจ้งเตือน</h6>
+                                <h6 class="item-title">3 การแจ้งเตือน</h6>
                             </div>
                             <div class="item-content">
                                 <div class="media">
-                                    <div class="item-icon bg-skyblue">
+                                    <div class="item-icon bg-orange">
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
@@ -122,7 +135,7 @@
                                 </div>
                                 <div class="media">
                                     <div class="item-icon bg-orange">
-                                        <i class="fas fa-calendar-alt"></i>
+                                        <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
                                         <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
@@ -131,7 +144,7 @@
                                 </div>
                                 <div class="media">
                                     <div class="item-icon bg-orange">
-                                        <i class="fas fa-calendar-alt"></i>
+                                        <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
                                         <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
@@ -151,7 +164,7 @@
                     </li>
                 </ul>
                 {{-- header สำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                <ul class="navbar-nav">
+                <ul class="navbar-nav d-none">
                     <li class="navbar-item dropdown header-admin">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
@@ -185,11 +198,11 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">2 การแจ้งเตือน</h6>
+                                <h6 class="item-title">3 การแจ้งเตือน</h6>
                             </div>
                             <div class="item-content">
                                 <div class="media">
-                                    <div class="item-icon bg-skyblue">
+                                    <div class="item-icon bg-orange">
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
@@ -198,7 +211,7 @@
                                     </div>
                                 </div>
                                 <div class="media">
-                                    <div class="item-icon bg-skyblue">
+                                    <div class="item-icon bg-orange">
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
@@ -207,7 +220,7 @@
                                     </div>
                                 </div>
                                 <div class="media">
-                                    <div class="item-icon bg-skyblue">
+                                    <div class="item-icon bg-orange">
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
@@ -229,18 +242,6 @@
                 </ul>
             </div>
         </div>
-        {{-- meu active (don't remove) --}}
-        <?php
-            $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-            $current_page = (explode("/",$current_url));
-            $menu_active = $current_page[2];
-            if(!empty($current_page[3])){
-                $menu_active2 = $current_page[3];
-            }else{
-                $menu_active2 = "";
-            }
-            // echo $menu_active2;
-        ?>
         {{-- สำหรับผู้ปกครอง --}}
         <div class="submenu-mobile <?php if($menu_active2 == "overview" || $menu_active2 == "confirm")  echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
             <div class="left <?php if($menu_active2=="overview") echo "active"; else "" ?>">
@@ -258,24 +259,24 @@
                <div class="mobile-sidebar-header d-md-none">
                </div>
                 {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                <div class="sidebar-menu-content d-none">
+                <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                         <li class="nav-item">
                             <a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link <?php if($menu_active == "appoinment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
+                            <a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appoinment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
+                            <a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
+                            <a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
                         </li>
                     </ul>
                 </div>
                 {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                <div class="sidebar-menu-content">
+                <div class="sidebar-menu-content d-none">
                         <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                             <li class="nav-item">
                                 <a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
@@ -315,14 +316,14 @@
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
                             {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                            <div class="d-none mobile-nav-bar justify-content-between">
+                            <div class="d-md-none mobile-nav-bar justify-content-between">
                                 <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "boardcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
-                                <div><a href="#" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
+                                <div><a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
+                                <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
                             {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                            <div class="d-md-none mobile-nav-bar justify-content-between">
+                            <div class="d-none mobile-nav-bar justify-content-between">
                                 <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>

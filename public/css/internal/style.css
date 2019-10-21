@@ -6572,6 +6572,18 @@ ul {
     max-width: 12rem;
 }
 
+.btn.btn-secondary{
+    background-color: #F46F21;
+    border-color: rgb(255, 146, 57) !important;
+    padding: 0.625rem 2rem !important;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    border-radius: 15rem;
+    margin: 0 0.25rem;
+    min-width: 10rem;
+    max-width: 12rem;
+}
+
 /* text-area */
 textarea.form-control{
     padding: 11px 15px !important;

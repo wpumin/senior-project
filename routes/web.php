@@ -59,6 +59,22 @@ Route::group(array('prefix' => 'parent'), function () {
     });
 });
 
+// driver
+Route::group(array('prefix' => 'driver'), function () {
+    Route::get('/index', function () {
+        return view('driver.index');
+    });
+    Route::get('/appointment', function () {
+        return view('driver.appointment');
+    });
+    Route::get('/broadcast', function () {
+        return view('driver.broadcast');
+    });
+    Route::get('/profile', function () {
+        return view('driver.profile');
+    });
+});
+
 
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');
