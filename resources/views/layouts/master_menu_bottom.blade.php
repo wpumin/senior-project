@@ -116,7 +116,7 @@
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <div class="post-title">ส่งเด็กนักเรียนครบ</div>
+                                        <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
                                         <span>1 นาทีที่แล้ว</span>
                                     </div>
                                 </div>
@@ -125,8 +125,17 @@
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <div class="post-title">แจ้งเดินทางกลับเอง 5 รายการ</div>
-                                        <span>2 ชั่วโมง 20 นาทีที่แล้ว</span>
+                                        <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
+                                        <span>1 ชั่วโมง 20 นาทีที่แล้ว</span>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="item-icon bg-orange">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                        <span>8 ชั่วโมงที่แล้ว</span>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +193,7 @@
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <div class="post-title">น้องคิดได้ลงจากรถแล้ว</div>
+                                        <div class="post-title">น้องคิด ได้ลงจากรถแล้ว</div>
                                         <span>1 นาทีที่แล้ว</span>
                                     </div>
                                 </div>
@@ -193,8 +202,17 @@
                                         <i class="fas fa-check"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <div class="post-title">น้องมาร์ชได้ลงจากรถแล้ว</div>
+                                        <div class="post-title">น้องมาร์ช ได้ลงจากรถแล้ว</div>
                                         <span>1 นาทีที่แล้ว</span>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="item-icon bg-skyblue">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <div class="post-title">น้องมาร์ช ได้ขึ้นรถแล้ว</div>
+                                        <span>8 ชั่วโมงที่แล้ว</span>
                                     </div>
                                 </div>
                             </div>

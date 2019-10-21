@@ -2282,20 +2282,20 @@ ul {
 
 .header-main-menu .navbar-nav .header-notification .navbar-nav-link span {
     position: absolute;
-    top: -14px;
-    right: -20px;
-    height: 30px;
-    width: 30px;
-    line-height: 28px;
+    top: -9px;
+    right: -15px;
+    height: 25px;
+    width: 25px;
+    line-height: 21px;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 11px;
     background-color: #ff3131;
     border: 2px solid #ffffff;
     border-radius: 50%;
     display: block;
     text-align: center;
     -webkit-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
 @media only screen and (max-width: 767px) {
