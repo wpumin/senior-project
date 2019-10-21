@@ -136,17 +136,13 @@
                     setCookie('image', result.data['image'], 30);
 
                     if (result.data['role'] == '1') {
-
                         //Page User
-                        // $(location).attr('href', '/driver/index');
+                        $(location).attr('href', '/parent/index');
                     }else  if (result.data['role'] == '2') {
-
                         //Page Driver
                         $(location).attr('href', '/driver/index');
                     }else  if (result.data['role'] == '3') {
-
                         //Page Admin
-
                     }
 
 
