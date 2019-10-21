@@ -43,7 +43,7 @@
                 {{-- <b>เปลี่ยนรหัสผ่านสำเร็จ</b> --}}
                 <p>เปลี่ยนรหัสผ่านสำเร็จ</p>
                 <div class="modal-button text-center mt-3">
-                    <a href="http://localhost:8000"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href="/"><button type="button" class="btn btn-primary">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
