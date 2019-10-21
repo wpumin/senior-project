@@ -251,6 +251,11 @@ function convertStringDes($input){
     setInterval(function(){
 
         $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
+            // console.log(result['data']['lat']);
+
+            map = new longdo.Map({
+            placeholder: document.getElementById('map')
+            });
 
             var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
                 {
@@ -263,11 +268,13 @@ function convertStringDes($input){
                     draggable: false,
                     weight: longdo.OverlayWeight.Top,
                 });
-
+                init();
                 map.Overlays.add(marker);
+
         });
 
-    }, 30000);
+
+    }, 25000);
 
     // long do map
     function init() {
