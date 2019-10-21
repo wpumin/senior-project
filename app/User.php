@@ -2,38 +2,44 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'users';
     protected $fillable = [
-        'name', 'email', 'password',
+        'image', 'first_name', 'last_name', 'relationship', 'mobile', 'line_id', 'email', 'address', 'username', 'token', 'car_id'
+
+
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $guarded = ['id'];
+    protected $dates = ['created_at', 'updated_at', 'last_login_date'];
+    protected $hidden = ['password'];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment');
+    }
+
+    public function student()
+    {
+        return $this->hasMany('App\Student');
+    }
+
+    public function report()
+    {
+        return $this->hasMany('App\Report');
+    }
+
+    public function payment_log()
+    {
+        return $this->hasMany('App\Payment_log');
+    }
+
+
+    // public function room()
+    // {
+    //     return $this->belongsTo('App\Room');
+    // }
 }

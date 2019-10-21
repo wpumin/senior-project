@@ -1,0 +1,82 @@
+.wrap-modal{
+    width: 100%;
+    //modal
+    .modal{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding-right: 0;
+        width: 85%;
+        @include respond(md){
+            width: 48%;
+        }
+        @include respond(lg){
+            width: 33%;
+        }
+        @include respond(xl){
+            width: 26%;
+        }
+        &-header{
+            border-radius: 1.4rem 1.4rem 0 0;
+            padding: 0.75rem 1rem;
+            &._success{
+                // background-color: $statusSuccess; 
+                background-color: $bgSecond; 
+            }
+        }
+        &-content{
+            border-radius: 1.5rem;
+        }
+        &-body{
+            p{
+                padding: 0.75rem 0;
+                font-size: $sxsSize;
+                @include respond(md){
+                    font-size: $xsSize;
+                }
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+                span{
+                    color: $textSecond;
+                }
+            }
+            b{
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            button{
+                padding: 0.625rem 2rem !important;
+                font-size: $sxsSize;
+                @include respond(md){
+                    font-size: $xsSize;
+                }
+                padding: 1rem 1.5rem;
+                border-radius: 15rem;
+                margin: 0 0.25rem;
+                min-width: 10rem;
+                max-width: 12rem;
+                &.btn-primary{
+                    background-color: $bgDarkGray;
+                    border-color: #6c757d !important;
+                    &:not(:disabled):not(.disabled):active{
+                        background-color: #2b2b2b !important;
+                    }
+                    &:focus{
+                        box-shadow: 0 0 0 0.2rem rgba($bgDarkGray,.25) !important;
+                    }
+                }
+                &.btn-secondary{
+                    background-color: $bgSecond;
+                    border-color: #ff9657 !important;
+                    &:not(:disabled):not(.disabled):active{
+                        background-color: rgb(245, 95, 9) !important;
+                    }
+                    &:focus{
+                        box-shadow: 0 0 0 0.2rem rgba($bgSecond,.25) !important;
+                    }
+                }
+            }
+        }
+    }
+}

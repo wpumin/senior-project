@@ -1,13 +1,19 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
+        RewriteEngine On
+        RewriteCond %{HTTPS} off
+        RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
     </IfModule>
 
     RewriteEngine On
 
     # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    #RewriteCond %{HTTP:Authorization} .
+    #RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
