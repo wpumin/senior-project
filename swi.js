@@ -1,5 +1,5 @@
-const version = 2018120701;
-const cachePrefix = 'bearbus-';
+const version = 2019221001;
+const cachePrefix = 'bearbus-internal-';
 const staticCacheName = `${cachePrefix}static-${version}`;
 const expectedCaches = [staticCacheName];
 
