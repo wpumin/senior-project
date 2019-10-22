@@ -6,6 +6,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
     <meta name="description" content="">
+    <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
+    <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <!-- Favicon -->

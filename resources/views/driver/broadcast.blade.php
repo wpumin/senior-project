@@ -9,35 +9,35 @@
     <h3>Broadcast</h3>
 </div>
 <div class="row gutters-20 mt-md-4">
-    <div class="col-12 btn-broadcast" data-toggle="modal" data-target="#confirmBroadcast" data-display="รถจอดพักเทศบาลบ้านไร่">
+    <div class="col-12 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="รถจอดพักเทศบาลบ้านไร่">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-fb">
                 <div class="social-like"> <span class="flaticon-bus-stop"></span> รถจอดพักเทศบาลบ้านไร่</div>
             </div>
         </div>
     </div>
-    <div class="col-12 btn-broadcast" data-toggle="modal" data-target="#confirmBroadcast" data-display="รถเสีย">
+    <div class="col-12 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="รถเสีย">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-twitter">
                 <div class="social-like"> <span class="flaticon-exclamation"></span> รถเสีย</div>
             </div>
         </div>
     </div>
-    <div class="col-12 btn-broadcast" data-toggle="modal" data-target="#confirmBroadcast" data-display="การจราจรติดขัด">
+    <div class="col-12 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="การจราจรติดขัด">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-gplus">
                 <div class="social-like"> <span class="flaticon-exclamation"></span> การจราจรติดขัด</div>
             </div>
         </div>
     </div>
-    <div class="col-12 btn-broadcast" data-toggle="modal" data-target="#confirmBroadcast" data-display="ทัศนวิสัยไม่ดี">
+    <div class="col-12 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="ทัศนวิสัยไม่ดี">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-linked">
                 <div class="social-like"><span class="flaticon-exclamation"></span> ทัศนวิสัยไม่ดี</div>
             </div>
         </div>
     </div> 
-    <div class="col-12 btn-broadcast" data-toggle="modal" data-target="#confirmBroadcast" data-display="เกิดอุบัติเหตุ">
+    <div class="col-12 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="เกิดอุบัติเหตุ">
         <div class="card dashboard-card-seven pb-0 pointer">
             <div class="social-media bg-special-orange hover-linked">
                 <div class="social-like"><span class="flaticon-exclamation"></span> เกิดอุบัติเหตุ</div>

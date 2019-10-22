@@ -15,7 +15,9 @@
             <!-- Manifest -->
             <meta name="theme-color" content="#f1f1f1">
             <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
-            <link rel="manifest" href="../../../manifest.json">
+            <link rel="manifest" href="/manifest.json">
+            <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
+            <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
 
             <!-- Bootstrap -->
             <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap/bootstrap_external.min.css') }}">
@@ -62,6 +64,21 @@
 
 
             <script src="{{ URL::asset('js/external/main.js') }}"></script>
+
+            <script type="text/javascript">
+                // Initialize the service worker
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('/service-worker.js', {
+                        scope: '.' 
+                    }).then(function (registration) {
+                        // Registration was successful
+                        console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function (err) {
+                        // registration failed :(
+                        console.log('Bear Bus: ServiceWorker registration failed: ', err);
+                    });
+                }
+            </script>
 
         </head>
         <body>
