@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="th">
 
 <head>
     <meta charset="utf-8">
@@ -38,6 +38,21 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
+    <!-- Service Worker-->
+    <script type="text/javascript">
+        // Initialize the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/swi.js', {
+                scope: '.' 
+            }).then(function (registration) {
+                // Registration was successful
+                console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('Bear Bus: ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
     
 </head>
 {{-- menu active (don't remove) --}}

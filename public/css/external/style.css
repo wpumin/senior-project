@@ -211,21 +211,21 @@ img {
   font-family: 'Kanit Regular';
   font-style: normal;
   font-weight: 400;
-  src: url("../../fonts/kanit/kanit-regular.ttf") format("truetype"); }
+  src: url("../../fonts/kanit/kanit-regular.woff2") format("woff2"); }
 
 /* Kanit-500 - latin */
 @font-face {
   font-family: 'Kanit Medium';
   font-style: normal;
   font-weight: 500;
-  src: url("../../fonts/kanit/kanit-medium.ttf") format("truetype"); }
+  src: url("../../fonts/kanit/kanit-medium.woff2") format("woff2"); }
 
 /* Kanit-700 - latin */
 @font-face {
   font-family: 'Kanit Bold';
   font-style: normal;
   font-weight: 700;
-  src: url("../../fonts/kanit/kanit-bold.ttf") format("truetype"); }
+  src: url("../../fonts/kanit/kanit-bold.woff2") format("woff2"); }
 
 .wrap-modal {
   width: 100%; }

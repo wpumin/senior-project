@@ -11,7 +11,7 @@
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
-                    {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
+                    <h1 class="text-center my-3 d-none"> เข้าสู่ระบบ </h1>
                     <form id="loginForm">
                             @csrf
                         <div class="mt-4">
@@ -47,7 +47,7 @@
                 <b>เข้าสู่ระบบไม่สำเร็จ</b>
                 <p>ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>กรุณาทำรายการใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -119,7 +119,7 @@
 
     }
 
-    $('#delete-spinner').click(function() {
+    $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
@@ -137,7 +137,7 @@
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/login",
+            url: "https://bear-bus.com/login",
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

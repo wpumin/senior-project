@@ -10,7 +10,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณายืนยันรหัส OTP 6 หลัก <span class="spinner-border"> </span></p>
-                    
+                    <h1 class="text-center my-3 d-none"> ยืนยันรหัส OTP </h1>
                     <form class="" id="checkOTP">
                         <div class="mt-4">
                             <input type="text" id="otp" name="otp" class="input-box" placeholder="รหัส OTP" required autofocus>
@@ -41,7 +41,7 @@
                 <p>กรุณากรอก OTP ที่ถูกต้อง หากไม่ได้รับรหัส OTP สามารถกดปุ่ม <span>"ส่งอีกครั้ง"</span> ได้</p>
                 <div class="modal-button text-center mt-3">
                     <a href="confirm-otp" ><button type="button" class="btn btn-secondary" onclick="sendAgain()">ส่งอีกครั้ง</button></a>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="delete-spinner" data-dismiss="modal">ตกลง</button></a>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal" data-dismiss="modal">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>กรุณาทำรายการใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -101,7 +101,7 @@ console.log(getCookie('ref'));
         return "";
     }
 
-    $('#delete-spinner').click(function() {
+    $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');   
         $('.input-box').val('');
     });
@@ -131,7 +131,7 @@ console.log(getCookie('ref'));
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/receiveotp",
+            url: "https://bear-bus.com/receiveotp",
             cache:false,
             data: {
                 ref: ref,
@@ -143,7 +143,7 @@ console.log(getCookie('ref'));
                 // ยืนยันสำเร็จ
                 if (result.status == 'success') {
 
-                    window.location.replace('http://localhost:8000/create-newpassword');
+                    window.location.replace('https://bear-bus.com/create-newpassword');
                     
                 }
                 
@@ -169,7 +169,7 @@ console.log(getCookie('ref'));
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/forgotpassword/againotp",
+            url: "https://bear-bus.com/forgotpassword/againotp",
             cache:false,
             data: {
                 email: email

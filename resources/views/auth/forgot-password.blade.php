@@ -10,7 +10,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณากรอกอีเมลของท่าน <span class="spinner-border"> </span></p>
-                    
+                    <h1 class="text-center my-3 d-none"> ลืมรหัสผ่าน </h1>
                     <form class="" id="checkEmail">
                         <div class="mt-4">
                             <input type="email" id="email" name="email" class="input-box" placeholder="อีเมล" required autofocus>
@@ -60,7 +60,7 @@
                 <b>อีเมลไม่ถูกต้อง</b>
                 <p>ไม่พบอีเมลดังกล่าวในระบบ</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>กรุณาทำรายการใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -100,7 +100,7 @@
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
-    $('#delete-spinner').click(function() {
+    $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');   
         $('.input-box').val('');
     });
@@ -117,7 +117,7 @@
         var email = $('#email').val();
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/forgotpassword",
+            url: "https://bear-bus.com/forgotpassword",
             cache:false,
             data: {
                 email: email
@@ -128,7 +128,7 @@
                 if (result.status == 'success') {
                     setCookie('ref', result.data['ref'], 30);
                     setCookie('email', result.data['email'], 30);
-                    window.location.replace('http://localhost:8000/confirm-otp');
+                    window.location.replace('https://bear-bus.com/confirm-otp');
                     // $(".wrap-modal > #sendOTP").modal('show');
                 }
 

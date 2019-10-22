@@ -10,7 +10,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณายืนยันรหัสผ่านใหม่  <span class="spinner-border"> </span></p>
-                    
+                    <h1 class="text-center my-3 d-none"> สร้างรหัสผ่านใหม่ </h1>
                     <form action="#" class="" id="changePassword">
                         <div class="mt-4">
                             <input type="password" name="password" id="password" class="input-box" placeholder="รหัสผ่านใหม่" required autofocus>
@@ -62,7 +62,7 @@
                 <b>รหัสผ่านไม่ตรงกัน</b>
                 <p>กรุณากรอกรหัสผ่านทั้งสองให้ตรงกัน</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <b>รหัสผ่านต้องมีตัวอักขระ 8 ตัว ขึ้นไป</b>
                 <p>กรุณากรอกรหัสผ่านให้ถูกต้อง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>กรุณาทำรายการใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -137,7 +137,7 @@
         }
         return "";
     }
-    $('#delete-spinner').click(function() {
+    $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');   
         $('.input-box').val('');
     });
@@ -156,7 +156,7 @@
         var cfpassword = $('#cfpassword').val();
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/newpassword",
+            url: "https://bear-bus.com/newpassword",
             cache:false,
             data: {
                 email: email,
