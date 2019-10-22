@@ -2531,6 +2531,10 @@ ul {
 }
 
 /*=============== 5.5 Sidebar Menu ==================*/
+.sidebar-main{
+    height: inherit;
+}
+
 .sidebar-menu-one {
     width: 26rem;
     position: fixed;
@@ -5615,6 +5619,10 @@ ul {
     overflow: hidden;
 }
 
+.modal-dialog{
+    margin: 0 auto;
+}
+
 .modal button {
     outline: none !important;
 }
@@ -6584,6 +6592,23 @@ ul {
     max-width: 12rem;
 }
 
+.btn.btn-secondary:hover, .btn.btn-secondary:active {
+    background-color: rgb(235, 96, 16) !important;
+    border-color: rgb(255, 136, 39) !important;
+    padding: 0.625rem 2rem !important;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    border-radius: 15rem;
+    margin: 0 0.25rem;
+    min-width: 10rem;
+    max-width: 12rem;
+}
+
+.btn:focus.btn-secondary{
+    box-shadow: 0 0 0 0.2rem rgba(255, 136, 39, 0.7) !important;
+}
+
+
 /* text-area */
 textarea.form-control{
     padding: 11px 15px !important;
@@ -6749,4 +6774,8 @@ textarea.form-control{
 
 .highcharts-credits{
     display: none;
+}
+
+.pointer{
+    cursor: pointer;
 }
