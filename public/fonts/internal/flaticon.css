@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 09/10/2019 03:45
+  	Creation date: 21/10/2019 07:58
   	*/
 
 @font-face {
@@ -25,9 +25,9 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-  font-size: 20px;
-  font-style: normal;
-  margin-left: 20px;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
 }
 
 .flaticon-calendar:before { content: "\f100"; }
@@ -39,8 +39,8 @@
 .flaticon-graph:before { content: "\f106"; }
 .flaticon-plus:before { content: "\f107"; }
 .flaticon-woman:before { content: "\f108"; }
-.flaticon-bus-stop:before { content: "\f109"; }
-.flaticon-exclamation:before { content: "\f10a"; }
+.flaticon-bus-stop:before { content: "\f109"; margin-left: 0;}
+.flaticon-exclamation:before { content: "\f10a"; margin-left: 0;}
 .flaticon-appointment:before { content: "\f10b"; }
 .flaticon-download-arrow:before { content: "\f10c"; margin-left: 0; }
 .flaticon-bin:before { content: "\f10d"; }
@@ -75,3 +75,6 @@
 .flaticon-pin:before { content: "\f12a"; }
 .flaticon-user:before { content: "\f12b"; }
 .flaticon-bell:before { content: "\f12c"; }
+.flaticon-edit-1:before { content: "\f12d"; }
+.flaticon-correct:before { content: "\f12e"; margin-left: 0.5rem;}
+.flaticon-exit:before { content: "\f12f"; margin-left: 0;}

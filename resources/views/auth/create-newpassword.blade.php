@@ -89,6 +89,25 @@
     </div>
 </div>
     
+<!-- Modal: System error-->
+<div class="wrap-modal">
+    <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ระบบเกิดข้อผิดพลาด</b>
+                <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
 
 <script>
 
@@ -164,7 +183,7 @@
 
             },
             error: function(){
-                // $(".wrap-modal > #errorNewPassword").modal('show');
+                $(".wrap-modal > #systemError").modal('show');
             }
         });
     }

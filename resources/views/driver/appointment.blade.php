@@ -53,13 +53,132 @@
                     <tr>
                         <td>1</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-gray d-block mg-t-8">รอการอนุมัติ</td>
-                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/driver.jpg') }}"></a></td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
-                        <td><div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-bin"></span></a></div></td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>มอส</td>
+                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
+                        <td>ทัพหลวง</td>
+                        <td>สมปอง ทองเหลือง</td>
+                        <td>แม่</td>
+                        <td>090-978-5703</td>
+                        <td>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -70,25 +189,144 @@
 
 <!-- Delete Modal -->
 <div class="wrap-modal">
-        <div class="modal fade" id="deleteTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
-                <div class="modal-content">
-                <div class="modal-header _success">
-                </div>
-                <div class="modal-body my-4 text-center">
-                    <b>ต้องการลบ</b>
-                    <p>ประวัติแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
-                    <div class="modal-button text-center mt-3">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ตกลง</button>
-                        <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ยกเลิก</button>
-                        <!-- data-dismiss="modal" -->
-                    </div>
+    <div class="modal fade" id="deleteTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ยกเลิกการนัดหมาย</b>
+                <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
+                    <!-- data-dismiss="modal" -->
                 </div>
             </div>
         </div>
     </div>
-<!-- Google Map Modal End Here -->
+</div>
+<!-- Delete Modal End Here -->
 
+<!-- Accept Modal -->
+<div class="wrap-modal">
+    <div class="modal fade" id="acceptTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ยืนยันการนัดหมาย</b>
+                <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-secondary" id="confirmAccept">ยืนยัน</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Accept Modal End Here -->
+
+<!-- Picture Modal-->
+<div class="modal fade" id="studentProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document" style="max-width: 450px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12 modal_body_content px-4">
+                <h2 class="mb-2 text-special-orange" id="nickname" >มอส</h2>
+                <p>กฤตภาส แสงวิกุลกิจ | โรงเรียนคลองบ้านโป่ง</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" id="imgProfile" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Picture Modal End Here -->
+
+<!-- Modal: System error-->
+<div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ระบบเกิดข้อผิดพลาด</b>
+                <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- System error End Here -->   
+
+@endsection
+
+
+@section('script')
+    <script>
+       $('#confirmDelete').click(function(){
+
+            $.ajax({
+                type: "POST",
+                url: "",
+                // url: "http://localhost:8000/delete-appointment",
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                cache:false,
+                success: function(result){
+
+                    // ลบสำเร็จ
+                    if(result.status == 'success') {
+                        // ลบข้อมูลแบบ ajax
+                    }
+                    
+                },
+                error: function(result){
+                    $('#deleteTran').modal('hide');
+                    $(".wrap-modal > #systemError").modal('show');
+                }
+            });
+        });
+
+        $('#confirmAccept').click(function(){
+
+            $.ajax({
+                type: "POST",
+                url: "",
+                // url: "http://localhost:8000/accept-appointment",
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                cache:false,
+                success: function(result){
+
+                    // ยืนยันสำเร็จ
+                    if(result.status == 'success') {
+                        // ยืนยันการนัดหมายแบบ ajax
+                    }
+                    
+                },
+                error: function(result){
+                    $('#acceptTran').modal('hide');
+                    $(".wrap-modal > #systemError").modal('show');
+                }
+            });
+        });
+    </script>
 @endsection
 
 
