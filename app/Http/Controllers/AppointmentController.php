@@ -21,7 +21,6 @@ class AppointmentController extends Controller
     {
 
         try {
-
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'student_id' => 'required',
@@ -30,9 +29,10 @@ class AppointmentController extends Controller
                 'content' => ''
             ]);
             if ($validate->fails()) {
-                throw new LogicException($validate->errors());
+                // throw new LogicException($validate->errors());
+                $errors = $validate->errors();
+                return $this->responseRequestError('field_required');
             }
-
 
             DB::beginTransaction();
 
@@ -49,7 +49,7 @@ class AppointmentController extends Controller
             $student->save();
 
             DB::commit();
-            return $this->responseRequestSuccess('Success!');
+            return $this->responseRequestSuccess('success');
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }

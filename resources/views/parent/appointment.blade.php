@@ -22,28 +22,35 @@
                     @csrf
                     <div class="row">
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
-                            <select class="select2" required autocomplete="off">
+                            <select class="select2" required autocomplete="off" id="user_id">
+                                <option value="">ผู้ปกครอง</option>
+                                <option value="1">นายสมโรจ โคตรเอา</option>
+                                <option value="2">นางสาวสมสุข สู่สวรรค์</option>
+                            </select>
+                        </div>
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group ">
+                            <select class="select2" required autocomplete="off" id="student_id">
                                 <option value="">เด็กนักเรียน</option>
                                 <option value="1">อชิตะ ลิลิตสัจจะ (รร. ทับหลวง)</option>
                                 <option value="2">มาชิตะ ลิลิตสัจจะ (รร. บ้านไร่)</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off">
+                            <select class="select2" required autocomplete="off" id="period_time">
                                 <option value="">ช่วงเวลา</option>
                                 <option value="1">เช้า (ขาไป)</option>
                                 <option value="2">เย็น (ขากลับ)</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <input type="text" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker" data-position="bottom right" required autocomplete="off">
+                            <input type="text" id="date"placeholder="วว/ดด/ปปปป" class="form-control air-datepicker" data-position="bottom right" required autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-12 form-group">
-                            <textarea class="textarea form-control" name="message" id="form-message" cols="10" rows="12" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                            <textarea class="textarea form-control" name="message" id="content" cols="10" rows="12" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                         </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
-                            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal">ยืนยัน</button>
+                            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
                         </div>
                     </div>
                 </form>
@@ -92,7 +99,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                            <tr>
                                     <td>1</td>
                                     <td>อชิตะ ลิลิตสัจจะ</td>
                                     <td>คิด</td>
@@ -211,7 +218,7 @@
                                     <td>19/09/2562</td>
                                     <td>ช่วงเช้า</td>
                                     <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
-                                </tr>                            
+                                </tr>                  
                             </tbody>
                         </table>
                     </div>
@@ -231,7 +238,7 @@
                 <b>การแจ้งการเดินทางเองสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการเดินทางเองของท่านแล้ว กรุณาตรวจสอบสถานะภายใน 24 ชั่วโมง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary" onclick="addData()">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -280,7 +287,7 @@
 
 @section('script')
 <script>
-
+    
     $(document).ready(function(){	
 
         $("#appointmentForm").submit(function(event){ 
@@ -297,24 +304,53 @@
     });
 
     function submitForm(){
+        // var user = document.getElementById("user_id");
+        // var student = document.getElementById("student_id");
+        // var time = document.getElementById("period_time");
+        // var date = document.getElementById("date");
+        // var content = document.getElementById("content");
+        var user_id = $('#user_id').val();
+        var student_id = $('#student_id').val();
+        var period_time = $('#period_time').val();
+        var date = $('#date').val();
+        var content = $('#content').val();
+
         $.ajax({
             type: "POST",
-            url: "",
+            url: "http://localhost:8000/appointment",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             cache:false,
-            data: $('form#appointmentForm').serialize(),
+            // data: $('form#appointmentForm').serialize(),
+            data: {
+                user_id: user_id,
+                student_id: student_id,
+                period_time: period_time,
+                date: date,
+                content: content,
+            },
+            
             success: function(result){
-                
-                // ส่งฟอร์มสำเร็จ
+                    // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
+                    // <tbody>
+                    //         <tr>
+                    //                 <td>1</td>
+                    //                 <td>อชิตะ ลิลิตสัจจะ</td>
+                    //                 <td>คิด</td>
+                    //                 <td>10/10/2562</td>
+                    //                 <td>ช่วงเช้า</td>
+                    //                 <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                    //         </tr>
+                    //         </tbody>
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-                if (result.status == 'error') {
+                if (result.status == 'field_required') {
                     $(".wrap-modal > #failAppointment").modal('show');
+                    window.location.reload(true);
                 }
                 
             },
@@ -324,6 +360,74 @@
             }
         });
     }
+
+</script>
+
+<script>
+    $(document).ready(function(){	
+
+    $("#appointmentForm").submit(function(event){ 
+        $('#btn-submit').prop('disabled',true);
+        $('#btn-submit').css('cursor','not-allowed');
+        addData();
+        return false;
+    });
+
+    $('button.btn-primary').click(function(){
+        $('#btn-submit').prop('disabled',false);
+        $('#btn-submit').css('cursor','pointer');
+    });
+    });
+
     
+    function addData(){
+        var student_id = $('#student_id').val();
+        var period_time = $('#period_time').val();
+        var date = $('#date').val();
+        var content = $('#content').val();
+
+        var i=0;
+            $('.menuHeader').each(function(){
+            i++;
+            var newID='menu'+i;
+            $(this).attr('id',newID);
+            $(this).val(i);
+            });
+
+        document.getElementById("ID").innerHTML = newID;
+
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/appointment",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            cache:false,
+            // data: $('form#appointmentForm').serialize(),
+            data: {
+                student_id: student_id,
+                period_time: period_time,
+                date: date,
+                content: content,
+                newID: newID
+            },
+            success: function(result){
+                alert("ID")
+                <tr>
+                    <td id="ID"></td>
+                    <td>อชิตะ ลิลิตสัจจะ</td>
+                    <td>มาร์ช</td>
+                    <td>01/10/2562</td>
+                    <td>ช่วงเช้า</td>
+                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                </tr>
+            },
+            error: function(){
+                // เซิร์ฟเวอร์มีปัญหา
+                $(".wrap-modal > #errorAppointment").modal('show');
+            }
+        });
+    }
 </script>
 @endsection

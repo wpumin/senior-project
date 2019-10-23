@@ -20,10 +20,17 @@
                 <form id="reportForm" class="new-added-form">
                     <div class="row">
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
-                            <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off">
+                            <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off" id="title">
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off">
+                            <select class="select2" required autocomplete="off" id="user_id">
+                                <option value="">ผู้ปกครอง</option>
+                                <option value="1">นายสมโรจ โคตรเอา</option>
+                                <option value="2">นางสาวสมสุข สู่สวรรค์ </option>
+                            </select>
+                        </div>
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
+                            <select class="select2" required autocomplete="off" id="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
                                 <option value="1">พฤติกรรมคนขับ</option>
                                 <option value="2">ระบบการชำระเงิน</option>
@@ -34,7 +41,7 @@
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off">
+                            <select class="select2" required autocomplete="off" id="order_id">
                                 <option value="">ระดับความสำคัญ</option>
                                 <option value="1">เล็กน้อย</option>
                                 <option value="2">ปานกลาง</option>
@@ -42,10 +49,10 @@
                             </select>
                         </div>
                         <div class="col-12 form-group">
-                            <textarea class="textarea form-control" name="message" id="form-message" cols="10" rows="15" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                            <textarea class="textarea form-control" name="message" id="content" cols="10" rows="15" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                         </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
-                            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal">ยืนยัน</button>
+                            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
                         </div>
                     </div>
                 </form>
@@ -127,7 +134,7 @@
                 <b>การร้องเรียนสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการร้องเรียนของท่านแล้ว</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href="{{url('parent/report')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -163,7 +170,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>ขณะนี้เซิร์ฟเวอร์มีปัญหา กรุณาแจ้งเรื่องใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href="{{url('parent/report')}}"><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -192,24 +199,38 @@
     });
 
     function submitForm(){
+        var user_id = $('#user_id').val();
+        var type_id = $('#type_id').val();
+        var order_id = $('#order_id').val();
+        var title = $('#title').val();
+        var content = $('#content').val();
+
         $.ajax({
             type: "POST",
-            url: "",
+            url: "http://localhost:8000/report",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             cache:false,
-            data: $('form#reportForm').serialize(),
+            // data: $('form#reportForm').serialize(),
+            data: {
+                user_id: user_id,
+                type_id: type_id,
+                order_id: order_id,
+                title: title,
+                content: content,
+            },
             success: function(result){
-                
+                alert(title)
                 // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successReport").modal('show');
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-                if (result.status == 'error') {
+                if (result.status == 'field_required') {
                     $(".wrap-modal > #failReport").modal('show');
+                    window.location.reload(true);
                 }
                 
             },
