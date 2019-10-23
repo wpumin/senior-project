@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
     <meta name="description" content="">
-    <link rel="manifest" href="/mfdi.json">
+    <link rel="manifest" href="/mfpi.json">
     <meta name="theme-color" content="#f1f1f1">
     <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
     <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">

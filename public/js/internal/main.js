@@ -3,7 +3,7 @@
 -------------------------------------*/
 const startServiceWorker = () => {
   navigator.serviceWorker.register('swi.js', {
-    scope: './driver/index'
+    scope: './parent/index'
   });
 }
 

@@ -1,4 +1,4 @@
-const version = 2019221001;
+const version =  new Date().getTime();
 const cachePrefix = 'bearbus-internal-';
 const staticCacheName = `${cachePrefix}static-${version}`;
 const expectedCaches = [staticCacheName];
