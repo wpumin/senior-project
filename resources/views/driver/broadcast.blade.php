@@ -116,7 +116,7 @@
         // don't remove use only this page
         jQuery(document).ready(function(){
             if (jQuery(window).width() > 567) {
-                jQuery("#wrapper").css("height", "100vh");
+                // jQuery("#wrapper").css("height", "100vh");
                 jQuery(".dashboard-page-one").css("height", "inherit");
                 jQuery(".dashboard-page-one").css("margin-top", "7rem");
                 jQuery(".navbar-expand-md").css("position", "fixed");

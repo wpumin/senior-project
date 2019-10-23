@@ -1,3 +1,14 @@
+/*-------------------------------------
+        Service Worker
+-------------------------------------*/
+const startServiceWorker = () => {
+  navigator.serviceWorker.register('swi.js', {
+    scope: './parent/index'
+  });
+}
+
+startServiceWorker();
+
 (function ($) {
 
   "use strict";

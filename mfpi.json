@@ -2,8 +2,7 @@
   "name": "Bear Bus",
   "short_name": "Bear Bus",
   "description": "school bus tracking progressive web app based on Geolocation API.",
-  "start_url": "/",
-  "scope": ["/forgot-password", "/confirm-otp", "/create-newpassword"],
+  "start_url": "/driver/index",
   "theme_color": "#f1f1f1",
   "background_color": "#F46F21",
   "icons": [
