@@ -137,7 +137,7 @@
 
         $.ajax({
             type: "POST",
-            url: "https://bear-bus.com/login",
+            url: "http://localhost:8000/login",
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -154,6 +154,7 @@
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
                     setCookie('image', result.data['image'], 30);
+                    setCookie('car_id', result.data['car_id'], 30);
 
                     if (result.data['role'] == '1') {
                         //Page User

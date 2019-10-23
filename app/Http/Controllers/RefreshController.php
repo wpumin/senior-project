@@ -7,18 +7,22 @@ use App\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Validator;
 
 class RefreshController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
 
     public function run()
     {
-        $car_id = Cookie::get('car_id');
 
-        $no = Student::where('status', 1)->where('car_id', $car_id)->count();
-        $up = Student::where('status', 2)->where('car_id', $car_id)->count();
-        $down = Student::where('status', 3)->where('car_id', $car_id)->count();
-        $self = Student::where('status', 4)->where('car_id', $car_id)->count();
+        $no = Student::where('status', 1)->where('car_id', $this->request->car_id)->count();
+        $up = Student::where('status', 2)->where('car_id', $this->request->car_id)->count();
+        $down = Student::where('status', 3)->where('car_id', $this->request->car_id)->count();
+        $self = Student::where('status', 4)->where('car_id', $this->request->car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -32,12 +36,10 @@ class RefreshController extends Controller
     public function refresh()
     {
 
-        $car_id = Cookie::get('car_id');
-
-        $no = Student::where('status', 1)->where('car_id', $car_id)->count();
-        $up = Student::where('status', 2)->where('car_id', $car_id)->count();
-        $down = Student::where('status', 3)->where('car_id', $car_id)->count();
-        $self = Student::where('status', 4)->where('car_id', $car_id)->count();
+        $no = Student::where('status', 1)->where('car_id', $this->request->car_id)->count();
+        $up = Student::where('status', 2)->where('car_id', $this->request->car_id)->count();
+        $down = Student::where('status', 3)->where('car_id', $this->request->car_id)->count();
+        $self = Student::where('status', 4)->where('car_id', $this->request->car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -49,13 +51,12 @@ class RefreshController extends Controller
 
     public function student()
     {
-        $car_id = Cookie::get('car_id');
 
         $users = DB::table('students')
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $car_id)
+            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
             ->get();
 
         $data['student'] = $users;
