@@ -41,8 +41,10 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}" async></script>
+    <script src="{{ URL::asset('js/external/main.js') }}"></script>
     <!-- Service Worker-->
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         // Initialize the service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/swi.js', {
@@ -55,7 +57,7 @@
                 console.log('Bear Bus: ServiceWorker registration failed: ', err);
             });
         }
-    </script>
+    </script> --}}
     
 </head>
 {{-- menu active (don't remove) --}}
@@ -116,7 +118,7 @@
                                 <span id="role">คนขับรถ</span>
                             </div>
                             <div class="admin-img">
-                                <img src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="Driver">
+                                <img id="photo_user" src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="Driver">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -408,7 +410,7 @@
         document.getElementById("role").innerHTML = getCookie('role_name');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
-        document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie();
+        document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

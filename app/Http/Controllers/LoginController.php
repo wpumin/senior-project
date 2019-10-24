@@ -47,7 +47,7 @@ class LoginController extends Controller
                 $user->save();
 
                 $user->role_name = $role['name'];
-                $user->car_id = $user->car_id;
+
                 return $this->responseRequestSuccess($user);
             } else {
                 return $this->responseRequestError('incorrect_password');
