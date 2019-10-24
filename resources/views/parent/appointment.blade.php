@@ -99,15 +99,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                                <tr>
                                     <td>1</td>
-                                    <td></td>
-                                    <td>คิด</td>
-                                    <td>10/10/2562</td>
-                                    <td>ช่วงเช้า</td>
+                                    <td id="user"></td>
+                                    <td id="student"></td>
+                                    <td id="time"></td>
+                                    <td id="dates"></td>
                                     <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>2</td>
                                     <td>มาชิตะ ลิลิตสัจจะ</td>
                                     <td>มาร์ช</td>
@@ -218,7 +218,7 @@
                                     <td>19/09/2562</td>
                                     <td>ช่วงเช้า</td>
                                     <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
-                                </tr>                  
+                                </tr>                   -->
                             </tbody>
                         </table>
                     </div>
@@ -238,7 +238,7 @@
                 <b>การแจ้งการเดินทางเองสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการเดินทางเองของท่านแล้ว กรุณาตรวจสอบสถานะภายใน 24 ชั่วโมง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary" onclick="addData()">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -275,7 +275,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>ขณะนี้เซิร์ฟเวอร์มีปัญหา กรุณาแจ้งเรื่องใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -286,6 +286,7 @@
 @endsection
 
 @section('script')
+
 <script>
     
     $(document).ready(function(){	
@@ -304,16 +305,12 @@
     });
 
     function submitForm(){
-        // var user = document.getElementById("user_id");
-        // var student = document.getElementById("student_id");
-        // var time = document.getElementById("period_time");
-        // var date = document.getElementById("date");
-        // var content = document.getElementById("content");
         var user_id = $('#user_id').val();
         var student_id = $('#student_id').val();
         var period_time = $('#period_time').val();
         var date = $('#date').val();
         var content = $('#content').val();
+
 
         $.ajax({
             type: "POST",
@@ -335,13 +332,13 @@
                     // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
-                    var user = document.getElementById("user_id");
-                    var student = document.getElementById("student_id");
-                    var time = document.getElementById("period_time");
-                    var date = document.getElementById("date");
-                    var content = document.getElementById("content");
+                    // document.getElementById("new_id").innerHTML = new_id;
+                    document.getElementById("user").innerHTML = user_id;
+                    document.getElementById("student").innerHTML = student_id;
+                    document.getElementById("time").innerHTML = period_time;
+                    document.getElementById("dates").innerHTML = date;
+                    document.getElementById("content").innerHTML = content;
                 }
-                alert(user)
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
                 if (result.status == 'field_required') {
@@ -359,61 +356,5 @@
 
 </script>
 
-<script>
-    $(document).ready(function(){	
 
-    $("#successAppointment").submit(function(event){ 
-        $('#btn-primary').prop('disabled',true);
-        $('#btn-primary').css('cursor','not-allowed');
-        addData();
-        return false;
-    });
-
-    $('button.btn-primary').click(function(){
-        $('#btn-primary').prop('disabled',false);
-        $('#btn-primary').css('cursor','pointer');
-    });
-    });
-
-    
-    function addData(){
-        var student_id = $('#student_id').val();
-        var period_time = $('#period_time').val();
-        var date = $('#date').val();
-        var content = $('#content').val();
-
-        var i=0;
-            $('.menuHeader').each(function(){
-            i++;
-            var newID='menu'+i;
-            $(this).attr('id',newID);
-            $(this).val(i);
-            });
-
-
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8000/appointment",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            cache:false,
-            // data: $('form#appointmentForm').serialize(),
-            data: {
-                student_id: student_id,
-                period_time: period_time,
-                date: date,
-                content: content,
-                newID: newID
-            },
-            success: function(result){
-                document.getElementById("ID").innerHTML = newID;
-            },
-            error: function(){
-                // เซิร์ฟเวอร์มีปัญหา
-                $(".wrap-modal > #errorAppointment").modal('show');
-            }
-        });
-    }
-</script>
 @endsection
