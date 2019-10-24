@@ -36,7 +36,7 @@
             <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
             <script src="{{ URL::asset('js/external/main.js') }}"></script>
 
-            {{-- <script type="text/javascript">
+            <script type="text/javascript">
                 // Initialize the service worker
                 if ('serviceWorker' in navigator) {
                     navigator.serviceWorker.register('/swe.js', {
@@ -49,7 +49,7 @@
                         console.log('Bear Bus: ServiceWorker registration failed: ', err);
                     });
                 }
-            </script> --}}
+            </script>
 
         </head>
         <body>
