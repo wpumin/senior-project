@@ -12,6 +12,7 @@
         "blocktrail/cryptojs-aes-php": "^0.1.0",
         "fideloper/proxy": "^4.0",
         "firebase/php-jwt": "^5.0",
+        "guzzlehttp/guzzle": "^6.4",
         "illuminate/mail": "^6.1",
         "kreait/firebase-php": "4.0",
         "laravel/framework": "^6.0",

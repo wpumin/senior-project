@@ -101,13 +101,13 @@
     }
 
     $('.delete-spinner').click(function() {
-        $('.spinner-border').css('display','none');   
+        $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
         $("#checkEmail").submit(function(event){
-            $('.spinner-border').css('display','inline-block');   
+            $('.spinner-border').css('display','inline-block');
             submitForm();
             return false;
         });
@@ -117,18 +117,20 @@
         var email = $('#email').val();
         $.ajax({
             type: "POST",
-            url: "https://bear-bus.com/forgotpassword",
+            url: "/forgotpassword",
             cache:false,
             data: {
                 email: email
             },
             success: function(result){
-                
+
+                alert(result);
                 // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
                 if (result.status == 'success') {
                     setCookie('ref', result.data['ref'], 30);
                     setCookie('email', result.data['email'], 30);
-                    window.location.replace('https://bear-bus.com/confirm-otp');
+                    $(location).attr('href', '/confirm-otp');
+                    // window.location.replace('https://bear-bus.com/confirm-otp');
                     // $(".wrap-modal > #sendOTP").modal('show');
                 }
 
@@ -136,9 +138,9 @@
                 if (result.status == 'error') {
                     $(".wrap-modal > #errorEmail").modal('show');
                 }
- 
+
             },
-            error: function(){
+            error: function(result){
                 $(".wrap-modal > #systemError").modal('show');
             }
         });
