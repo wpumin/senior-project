@@ -137,7 +137,7 @@
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/login",
+            url: "https://bear-bus.com/login",
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
