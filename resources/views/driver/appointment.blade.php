@@ -92,7 +92,7 @@
                     <tr>
                         <td>4</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
@@ -105,7 +105,7 @@
                     <tr>
                         <td>5</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
@@ -118,7 +118,7 @@
                     <tr>
                         <td>6</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
@@ -131,7 +131,7 @@
                     <tr>
                         <td>7</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
@@ -144,7 +144,7 @@
                     <tr>
                         <td>8</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
@@ -157,7 +157,7 @@
                     <tr>
                         <td>9</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
@@ -170,7 +170,7 @@
                     <tr>
                         <td>10</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>

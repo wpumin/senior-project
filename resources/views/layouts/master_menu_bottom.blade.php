@@ -490,7 +490,6 @@
     <script src="{{ URL::asset('js/internal/jquery.dataTables.min.js') }}"></script>
     <!-- HighChart Js -->
     <script src="{{ URL::asset('js/internal/highcharts.js') }}"></script>
-    <script src="{{ URL::asset('js/internal/data.js') }}"></script>
     <!-- Dropzone Js -->
     <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script>
     <!-- Owl-Carousel -->

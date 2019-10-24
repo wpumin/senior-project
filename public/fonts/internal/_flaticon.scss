@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 21/10/2019 07:58
+    Creation date: 24/10/2019 17:02
     */
 
     @font-face {
@@ -85,6 +85,10 @@
 .flaticon-edit-1:before { content: "\f12d"; }
 .flaticon-correct:before { content: "\f12e"; }
 .flaticon-exit:before { content: "\f12f"; }
+.flaticon-compass-1:before { content: "\f130"; }
+.flaticon-compass:before { content: "\f131"; }
+.flaticon-compass-2:before { content: "\f132"; }
+.flaticon-info-1:before { content: "\f133"; }
     
     $font-Flaticon-calendar: "\f100";
     $font-Flaticon-arrow: "\f101";
@@ -134,3 +138,7 @@
     $font-Flaticon-edit-1: "\f12d";
     $font-Flaticon-correct: "\f12e";
     $font-Flaticon-exit: "\f12f";
+    $font-Flaticon-compass-1: "\f130";
+    $font-Flaticon-compass: "\f131";
+    $font-Flaticon-compass-2: "\f132";
+    $font-Flaticon-info-1: "\f133";

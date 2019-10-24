@@ -106,7 +106,7 @@
                                     <td>มาร์ช</td>
                                     <td>10/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
@@ -114,7 +114,7 @@
                                     <td>มาร์ช</td>
                                     <td>09/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
@@ -122,7 +122,7 @@
                                     <td>มาร์ช</td>
                                     <td>08/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
@@ -130,7 +130,7 @@
                                     <td>มาร์ช</td>
                                     <td>07/10/2562</td>
                                     <td>ช่วงเย็น</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
@@ -138,7 +138,7 @@
                                     <td>มาร์ช</td>
                                     <td>02/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
@@ -146,7 +146,7 @@
                                     <td>มาร์ช</td>
                                     <td>02/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
@@ -154,7 +154,7 @@
                                     <td>มาร์ช</td>
                                     <td>01/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
@@ -162,7 +162,7 @@
                                     <td>มาร์ช</td>
                                     <td>01/10/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
@@ -170,7 +170,7 @@
                                     <td>มาร์ช</td>
                                     <td>30/09/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>11</td>
@@ -178,7 +178,7 @@
                                     <td>มาร์ช</td>
                                     <td>29/09/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>12</td>
@@ -186,7 +186,7 @@
                                     <td>มาร์ช</td>
                                     <td>28/09/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>13</td>
@@ -194,7 +194,7 @@
                                     <td>มาร์ช</td>
                                     <td>27/09/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>14</td>
@@ -202,7 +202,7 @@
                                     <td>มาร์ช</td>
                                     <td>23/09/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>
                                 <tr>
                                     <td>15</td>
@@ -210,7 +210,7 @@
                                     <td>มาร์ช</td>
                                     <td>19/09/2562</td>
                                     <td>ช่วงเช้า</td>
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>                            
                             </tbody>
                         </table>
