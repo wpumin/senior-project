@@ -92,6 +92,8 @@ Route::post('/bill', 'PaymentController@addPayment');
 Route::get('/driver/index', 'RefreshController@run');
 Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');
+Route::get('/tasks/refresh/user', 'RefreshController@user');
+
 
 // Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');

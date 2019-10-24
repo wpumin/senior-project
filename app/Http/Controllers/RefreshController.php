@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\User;
+use App\Appointment;
+use App\Report;
+use App\Payment_log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -13,7 +17,7 @@ class RefreshController extends Controller
 
     public function run()
     {
-        $car_id = Cookie::get('car_id');
+        $student_id = Cookie::get('student_id');
 
         $no = Student::where('status', 1)->where('car_id', $car_id)->count();
         $up = Student::where('status', 2)->where('car_id', $car_id)->count();
@@ -57,11 +61,30 @@ class RefreshController extends Controller
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $car_id)
             ->get();
-
         $data['student'] = $users;
 
         return $this->responseRequestSuccess($data);
     }
+
+    public function user()
+    {
+        // $car_id = Cookie::get('car_id');
+
+        $users = DB::table('users')
+            ->join('appointments', 'users.appointment_id', '=', 'appointment.id')
+            ->join('students', 'users.student_id', '=', 'student.id')
+            ->join('report', 'users.report_id', '=', 'report.id')
+            ->join('payment_log', 'users.payment_log_id', '=', 'payment_log.id')
+            ->select('users.*', 'students.fullname_s', 'students.nickname', 'appointments.date', 'appointments.period_time')->where('cars.id', $car_id)
+            ->get();
+
+        $data['user'] = $users;
+
+        dd($user);
+
+        return $this->responseRequestSuccess($data);
+    }
+
 
 
     /*

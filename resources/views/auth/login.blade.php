@@ -154,6 +154,7 @@
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
                     setCookie('image', result.data['image'], 30);
+                    setCookie('user_id', result.data['id'], 30);
 
                     if (result.data['role'] == '1') {
                         //Page User

@@ -24,14 +24,8 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
                             <select class="select2" required autocomplete="off" id="user_id">
                                 <option value="">ผู้ปกครอง</option>
-                                <?php
-                                    $list = mysqli_query($conn,"SELECT * FROM `vehicle_registration` where `status`='0' ");
-                                    while ($row_ah = mysqli_fetch_assoc($list)) {
-                                ?>
-                                    <option value="<?php echo $row_ah['id']; ?>"><?php echo $row_ah['car_no']; ?></option>
-                                <?php } ?>
-                                <!-- <option value="1">นายสมโรจ โคตรเอา</option>
-                                <option value="2">นางสาวสมสุข สู่สวรรค์</option> -->
+                                <option value="1">นายสมโรจ โคตรเอา</option>
+                                <option value="2">นางสาวสมสุข สู่สวรรค์</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
@@ -107,13 +101,13 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td id="user"></td>
-                                    <td id="student"></td>
-                                    <td id="time"></td>
-                                    <td id="dates"></td>
+                                    <td>อชิตะ ลิลิตสัจจะ</td>
+                                    <td>คิด</td>
+                                    <td>08/08/2562</td>
+                                    <td>ชวงเช้า</td>
                                     <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
                                 </tr>
-                                <!-- <tr>
+                                <tr>
                                     <td>2</td>
                                     <td>มาชิตะ ลิลิตสัจจะ</td>
                                     <td>มาร์ช</td>
@@ -224,7 +218,7 @@
                                     <td>19/09/2562</td>
                                     <td>ช่วงเช้า</td>
                                     <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
-                                </tr>                   -->
+                                </tr>                  
                             </tbody>
                         </table>
                     </div>
@@ -311,15 +305,12 @@
     });
 
     function submitForm(){
-        // var user_id = $('#user_id').val();
-        // var student_id = $('#student_id').val();
-        // var period_time = $('#period_time').val();
-        // var date = $('#date').val();
-        // var content = $('#content').val();
-        var user = document.getElementById("user_id");
-        var strUser = user.options[user.selectedIndex].value;
-        alert(strUser)
-
+        var user_id = $('#user_id').val();
+        var student_id = $('#student_id').val();
+        var period_time = $('#period_time').val();
+        var date = $('#date').val();
+        var content = $('#content').val();
+        
         $.ajax({
             type: "POST",
             url: "/appointment",
@@ -340,12 +331,11 @@
                     // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
-                    // // document.getElementById("new_id").innerHTML = new_id;
-                    document.getElementById("user").innerHTML = user_id;
-                    document.getElementById("student").innerHTML = student_id;
-                    document.getElementById("time").innerHTML = period_time;
-                    document.getElementById("dates").innerHTML = date;
-                    document.getElementById("content").innerHTML = content;
+                    // document.getElementById("user").innerHTML = user_id;
+                    // document.getElementById("student").innerHTML = student_id;
+                    // document.getElementById("time").innerHTML = period_time;
+                    // document.getElementById("dates").innerHTML = date;
+                    // document.getElementById("content").innerHTML = content;
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
@@ -360,6 +350,86 @@
                 $(".wrap-modal > #errorAppointment").modal('show');
             }
         });
+
+
+
+        $.ajax({
+                url: '/tasks/refresh/student',
+                type: 'GET',
+                data: {
+                    car_id: getCookie('car_id')
+                },
+                dataType: 'json',
+                success: function(response) {
+
+                    if (response.status == 'success') {
+                        $('table tbody').html('');
+                        var status = '';
+                        let modal = document.getElementById("studentProfile");
+                        let modalImg = document.getElementById("imgProfile");
+                        let modalNickName = document.getElementById("nickname");
+                        let modalFirstName = document.getElementById("firstname");
+                        let modalSurname = document.getElementById("surname");
+                        let modalSchool = document.getElementById("school");
+
+                        // console.log(response.data['student'].length);
+                        for (var i = 0; i < response.data['student'].length; i++) {
+
+                            if (response.data['student'][i]['status'] == '1') {
+                                status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
+                            } else if (response.data['student'][i]['status'] == '2') {
+                                status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
+                            } else if (response.data['student'][i]['status'] == '3') {
+                                status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
+                            } else {
+                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                            }
+
+                            $('table tbody').append(
+                                '<tr>' +
+                                '<td>' + (i + 1) + '</td>' +
+                                '<td>' + response.data['student'][i]['nickname'] + '</td>' +
+                                status +
+                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc=' + response.data['student'][i]['name_school'] + ' name=' + response.data['student'][i]['fullname_s'] + ' src=https://bear-bus.com/' + response.data['student'][i]['image_stu'] + ' alt=' + response.data['student'][i]['nickname'] + '></a></td>' +
+                                '<td>' + response.data['student'][i]['name_school'] + '</td>' +
+                                '<td>' + response.data['student'][i]['fullname_u'] + '</td>' +
+                                '<td>' + response.data['student'][i]['relationship'] + '</td>' +
+                                '<td>' + response.data['student'][i]['mobile'] + '</td>' +
+                                '<td>' +
+                                '<div class="dropdown">' +
+                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data['student'][i]['lattitude'] + ' data-lng=' + response.data['student'][i]['longtitude'] + '>' +
+                                '<span class="flaticon-pin"></span>' +
+                                '</a>' +
+                                '</div>' +
+                                '</td>' +
+                                '</tr>'
+                            );
+
+
+                            let img = document.getElementsByClassName("myImg");
+                            let firstname = response.data['student'][i]['first_name'];
+                            let lastname = response.data['student'][i]['last_name'];
+                            let nickname = response.data['student'][i]['nickname'];
+                            let school = response.data['student'][i]['name_school'];
+
+                            img[i].onclick = function() {
+                                // console.log(img[i]);
+                                modal.style.display = "block";
+                                modalImg.src = this.src;
+                                modalFirstName.innerHTML = firstname;
+                                modalSurname.innerHTML = lastname;
+                                modalNickName.innerHTML = nickname;
+                                modalSchool.innerHTML = school;
+
+                            }
+                        }
+
+                    }
+                },
+                error: function(err) {
+
+                }
+            })
     }
 
 </script>
