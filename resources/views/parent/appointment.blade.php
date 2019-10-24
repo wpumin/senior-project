@@ -24,8 +24,14 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
                             <select class="select2" required autocomplete="off" id="user_id">
                                 <option value="">ผู้ปกครอง</option>
-                                <option value="1">นายสมโรจ โคตรเอา</option>
-                                <option value="2">นางสาวสมสุข สู่สวรรค์</option>
+                                <?php
+                                    $list = mysqli_query($conn,"SELECT * FROM `vehicle_registration` where `status`='0' ");
+                                    while ($row_ah = mysqli_fetch_assoc($list)) {
+                                ?>
+                                    <option value="<?php echo $row_ah['id']; ?>"><?php echo $row_ah['car_no']; ?></option>
+                                <?php } ?>
+                                <!-- <option value="1">นายสมโรจ โคตรเอา</option>
+                                <option value="2">นางสาวสมสุข สู่สวรรค์</option> -->
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
@@ -305,16 +311,18 @@
     });
 
     function submitForm(){
-        var user_id = $('#user_id').val();
-        var student_id = $('#student_id').val();
-        var period_time = $('#period_time').val();
-        var date = $('#date').val();
-        var content = $('#content').val();
-
+        // var user_id = $('#user_id').val();
+        // var student_id = $('#student_id').val();
+        // var period_time = $('#period_time').val();
+        // var date = $('#date').val();
+        // var content = $('#content').val();
+        var user = document.getElementById("user_id");
+        var strUser = user.options[user.selectedIndex].value;
+        alert(strUser)
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/appointment",
+            url: "/appointment",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -332,7 +340,7 @@
                     // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
-                    // document.getElementById("new_id").innerHTML = new_id;
+                    // // document.getElementById("new_id").innerHTML = new_id;
                     document.getElementById("user").innerHTML = user_id;
                     document.getElementById("student").innerHTML = student_id;
                     document.getElementById("time").innerHTML = period_time;
