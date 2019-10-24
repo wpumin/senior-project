@@ -101,7 +101,7 @@
                             <tbody>
                             <tr>
                                     <td>1</td>
-                                    <td>อชิตะ ลิลิตสัจจะ</td>
+                                    <td></td>
                                     <td>คิด</td>
                                     <td>10/10/2562</td>
                                     <td>ช่วงเช้า</td>
@@ -335,16 +335,11 @@
                     // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
-                    // <tbody>
-                    //         <tr>
-                    //                 <td>1</td>
-                    //                 <td>อชิตะ ลิลิตสัจจะ</td>
-                    //                 <td>คิด</td>
-                    //                 <td>10/10/2562</td>
-                    //                 <td>ช่วงเช้า</td>
-                    //                 <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
-                    //         </tr>
-                    //         </tbody>
+                    var user = document.getElementById("user_id");
+                    var student = document.getElementById("student_id");
+                    var time = document.getElementById("period_time");
+                    var date = document.getElementById("date");
+                    var content = document.getElementById("content");
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
