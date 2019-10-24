@@ -7,10 +7,10 @@ $(document).ready(function() {
 
 });
 
-const startServiceWorker = () => {
-    navigator.serviceWorker.register('swe.js', {
-      scope: './'
-    });
-}
+// const startServiceWorker = () => {
+//     navigator.serviceWorker.register('swe.js', {
+//       scope: './'
+//     });
+// }
 
-startServiceWorker();
+// startServiceWorker();

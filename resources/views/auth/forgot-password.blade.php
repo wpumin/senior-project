@@ -138,7 +138,7 @@
                 }
  
             },
-            error: function(){
+            error: function(result){
                 $(".wrap-modal > #systemError").modal('show');
             }
         });
