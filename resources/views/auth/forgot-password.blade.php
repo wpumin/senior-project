@@ -118,7 +118,6 @@
         $.ajax({
             type: "POST",
             url: "/forgotpassword",
-            cache:false,
             data: {
                 email: email
             },
@@ -141,6 +140,7 @@
 
             },
             error: function(result){
+                alert(result);
                 $(".wrap-modal > #systemError").modal('show');
             }
         });

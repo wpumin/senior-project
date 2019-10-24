@@ -33,7 +33,7 @@
 </div>
 
 <!-- Modal: Success-->
-<div class="wrap-modal">    
+<div class="wrap-modal">
     <div class="modal fade" id="successNewPassword" tabindex="-1" role="dialog" aria-labelledby="successNewPassword" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -88,7 +88,7 @@
         </div>
     </div>
 </div>
-    
+
 <!-- Modal: System error-->
 <div class="wrap-modal">
     <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
@@ -107,7 +107,7 @@
         </div>
     </div>
 </div>
-    
+
 
 <script>
 
@@ -138,13 +138,13 @@
         return "";
     }
     $('.delete-spinner').click(function() {
-        $('.spinner-border').css('display','none');   
+        $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
         $("#changePassword").submit(function(event){
-            $('.spinner-border').css('display','inline-block');   
+            $('.spinner-border').css('display','inline-block');
             submitForm();
             return false;
         });
@@ -157,7 +157,6 @@
         $.ajax({
             type: "POST",
             url: "https://bear-bus.com/newpassword",
-            cache:false,
             data: {
                 email: email,
                 password: password,

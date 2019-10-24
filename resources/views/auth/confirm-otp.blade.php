@@ -132,7 +132,6 @@ console.log(getCookie('ref'));
         $.ajax({
             type: "POST",
             url: "/receiveotp",
-            cache:false,
             data: {
                 ref: ref,
                 otp: otp
