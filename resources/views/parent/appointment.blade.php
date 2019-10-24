@@ -341,6 +341,7 @@
                     var date = document.getElementById("date");
                     var content = document.getElementById("content");
                 }
+                alert(user)
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
                 if (result.status == 'field_required') {
@@ -361,16 +362,16 @@
 <script>
     $(document).ready(function(){	
 
-    $("#appointmentForm").submit(function(event){ 
-        $('#btn-submit').prop('disabled',true);
-        $('#btn-submit').css('cursor','not-allowed');
+    $("#successAppointment").submit(function(event){ 
+        $('#btn-primary').prop('disabled',true);
+        $('#btn-primary').css('cursor','not-allowed');
         addData();
         return false;
     });
 
     $('button.btn-primary').click(function(){
-        $('#btn-submit').prop('disabled',false);
-        $('#btn-submit').css('cursor','pointer');
+        $('#btn-primary').prop('disabled',false);
+        $('#btn-primary').css('cursor','pointer');
     });
     });
 
@@ -389,8 +390,6 @@
             $(this).val(i);
             });
 
-        document.getElementById("ID").innerHTML = newID;
-
 
         $.ajax({
             type: "POST",
@@ -408,15 +407,7 @@
                 newID: newID
             },
             success: function(result){
-                alert("ID")
-                <tr>
-                    <td id="ID"></td>
-                    <td>อชิตะ ลิลิตสัจจะ</td>
-                    <td>มาร์ช</td>
-                    <td>01/10/2562</td>
-                    <td>ช่วงเช้า</td>
-                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
-                </tr>
+                document.getElementById("ID").innerHTML = newID;
             },
             error: function(){
                 // เซิร์ฟเวอร์มีปัญหา
