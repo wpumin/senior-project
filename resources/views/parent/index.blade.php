@@ -5,13 +5,6 @@
 @section('content')
 
 <!-- Onesignal -->
-<script src="https://bear-bus.com/swi.js" async=""></script>
-<script>
-if ('serviceWorker' in navigator) {
-    console.log('page is registering two service workers')
-    navigator.serviceWorker.register('swi.js', {scope: './'})
-}
-</script>
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
     var OneSignal = window.OneSignal || [];

@@ -6,10 +6,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
     <meta name="description" content="">
-    <link rel="manifest" href="/mfpi.json">
-    <meta name="theme-color" content="#f1f1f1">
-    <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
-    <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -41,8 +37,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
-    <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}" async></script>
-    <script src="{{ URL::asset('js/external/main.js') }}"></script>
+    <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
+    {{-- <script src="{{ URL::asset('js/external/main.js') }}"></script> --}}
     <!-- Service Worker-->
     {{-- <script type="text/javascript">
         // Initialize the service worker

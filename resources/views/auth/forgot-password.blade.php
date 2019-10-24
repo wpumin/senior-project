@@ -140,7 +140,7 @@
 
             },
             error: function(result){
-                alert(result);
+                // alert(result);
                 $(".wrap-modal > #systemError").modal('show');
             }
         });
