@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('images/bearbus.png')}}">
     <!-- Normalize CSS -->
@@ -48,7 +48,7 @@
         // Initialize the service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/swi.js', {
-                scope: '.' 
+                scope: '.'
             }).then(function (registration) {
                 // Registration was successful
                 console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
@@ -58,7 +58,7 @@
             });
         }
     </script> --}}
-    
+
 </head>
 {{-- menu active (don't remove) --}}
 <?php
@@ -108,6 +108,10 @@
                 <ul class="navbar-nav">
                     {{-- don't remove --}}
                 </ul>
+                <?php
+                    if($_COOKIE['role'] == '2') {
+
+                ?>
                 {{-- header สำหรับคนขับ เอา @can ครอบตรงนี้ --}}
                 <ul class="navbar-nav">
                     <li class="navbar-item dropdown header-admin">
@@ -118,7 +122,7 @@
                                 <span id="role">คนขับรถ</span>
                             </div>
                             <div class="admin-img">
-                                <img id="photo_user" src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="Driver">
+                                <img id="photo_user" alt="Driver">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -185,8 +189,16 @@
                         </div>
                     </li>
                 </ul>
+                <?php
+                }
+
+                ?>
+                 <?php
+                    if($_COOKIE['role'] == '1') {
+
+                 ?>
                 {{-- header สำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                <ul class="navbar-nav d-none">
+                <ul class="navbar-nav">
                     <li class="navbar-item dropdown header-admin">
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
@@ -262,8 +274,16 @@
                         </div>
                     </li>
                 </ul>
+                <?php
+                    }
+
+                ?>
             </div>
         </div>
+        <?php
+            if($_COOKIE['role'] == '1') {
+
+        ?>
         {{-- สำหรับผู้ปกครอง --}}
         <div class="submenu-mobile <?php if($menu_active2 == "overview" || $menu_active2 == "confirm")  echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
             <div class="left <?php if($menu_active2=="overview") echo "active"; else "" ?>">
@@ -273,6 +293,10 @@
                 <a href="{{ url('parent/payment/confirm') }}">แจ้งชำระเงิน</a>
             </div>
         </div>
+        <?php
+            }
+
+        ?>
         <!-- Header Menu Area End Here -->
         <!-- Page Area Start Here -->
         <div class="dashboard-page-one">
@@ -280,6 +304,10 @@
             <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
                <div class="mobile-sidebar-header d-md-none">
                </div>
+               <?php
+                if($_COOKIE['role'] == '2') {
+
+                ?>
                 {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
@@ -297,8 +325,16 @@
                         </li>
                     </ul>
                 </div>
+                <?php
+                }
+
+                ?>
+                <?php
+                if($_COOKIE['role'] == '1') {
+
+                ?>
                 {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                <div class="sidebar-menu-content d-none">
+                <div class="sidebar-menu-content">
                         <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                             <li class="nav-item">
                                 <a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
@@ -325,9 +361,12 @@
                             </li>
                         </ul>
                     </div>
+                    <?php
+                        }
+                    ?>
             </div>
             <!-- Sidebar Area End Here -->
-            
+
             <div class="dashboard-content-one py-5">
                 @yield('content')
             </div>
@@ -337,6 +376,10 @@
                 <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
+                                <?php
+                                if($_COOKIE['role'] == '2') {
+
+                                ?>
                             {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
                             <div class="d-md-none mobile-nav-bar justify-content-between">
                                 <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
@@ -344,14 +387,25 @@
                                 <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
                                 <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
+                            <?php
+                            }
+
+                            ?>
+                            <?php
+                            if($_COOKIE['role'] == '1') {
+
+                            ?>
                             {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                            <div class="d-none mobile-nav-bar justify-content-between">
+                            <div class="mobile-nav-bar justify-content-between">
                                 <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/report') }}" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
                                 <div><a href="{{ url('parent/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
                             </div>
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
