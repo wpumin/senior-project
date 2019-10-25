@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-    
+
 
 <script>
 console.log(getCookie('email'));
@@ -102,22 +102,22 @@ console.log(getCookie('ref'));
     }
 
     $('.delete-spinner').click(function() {
-        $('.spinner-border').css('display','none');   
+        $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
 
-    
 
-    $(document).ready(function(){	
+
+    $(document).ready(function(){
 
         $("#checkOTP").submit(function(event){
-            $('.spinner-border').css('display','inline-block');  
+            $('.spinner-border').css('display','inline-block');
             submitForm();
             return false;
         });
 
         $("#sendAgain").submit(function(event){
-            $('.spinner-border').css('display','inline-block');   
+            $('.spinner-border').css('display','inline-block');
             sendAgain();
             return false;
         });
@@ -131,8 +131,7 @@ console.log(getCookie('ref'));
 
         $.ajax({
             type: "POST",
-            url: "https://bear-bus.com/receiveotp",
-            cache:false,
+            url: "/receiveotp",
             data: {
                 ref: ref,
                 otp: otp
@@ -143,16 +142,17 @@ console.log(getCookie('ref'));
                 // ยืนยันสำเร็จ
                 if (result.status == 'success') {
 
-                    window.location.replace('https://bear-bus.com/create-newpassword');
-                    
+                    $(location).attr('href', '/create-newpassword');
+                    // window.location.replace('https://bear-bus.com/create-newpassword');
+
                 }
-                
+
                 // ยืนยันไม่สำเร็จ
                 if (result.status == 'error') {
                     $(".wrap-modal > #errorOTP").modal('show');
                 }
 
-                
+
             },
             error: function(){
                 // $(".wrap-modal > #errorOTP").modal('show');
@@ -175,7 +175,7 @@ console.log(getCookie('ref'));
                 email: email
             },
             success: function(result){
-                
+
                 // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
                 if (result.status == 'success') {
                     setCookie('ref', result.data['ref'], 30);

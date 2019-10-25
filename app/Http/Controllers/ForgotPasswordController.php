@@ -7,9 +7,7 @@ use App\User;
 use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Blocktrail\CryptoJSAES\CryptoJSAES;
@@ -36,40 +34,39 @@ class ForgotPasswordController extends Controller
         $user = User::where('email', $this->request->input('email'))->first();
         if ($user) {
 
-                $template_html = 'mail.forgot_password';
+            $template_html = 'mail.forgot_password';
 
-                // Create OTP
-                $genREF = $this->strRandom_ref();
-                $genOTP = $this->strRandom_otp();
+            // Create OTP
+            $genREF = $this->strRandom_ref();
+            $genOTP = $this->strRandom_otp();
 
-                $template_data = [
+            $template_data = [
 
-                    'ref' => $genREF,
-                    'otp' => $genOTP
+                'ref' => $genREF,
+                'otp' => $genOTP
+            ];
+
+            $otp = new Otp();
+            $otp->email = $this->request->input('email');
+            $otp->ref = $genREF;
+            $otp->otp = $genOTP;
+
+            if ($otp->save()) {
+                Mail::send($template_html, $template_data, function ($msg) use ($user) {
+                    // dd($user->email);
+                    $msg->subject('ลืมรหัสผ่าน === Forgot');
+                    $msg->to([$user->email]);
+                    $msg->from('dviver100@gmail.com', 'Bear-Bus');
+                });
+
+                $info = [
+                    'email' => encrypt($user->email),
+                    'username' => encrypt($user->username),
+                    'ref' => encrypt($otp->ref)
                 ];
 
-                $otp = new Otp();
-                $otp->email = $this->request->input('email');
-                $otp->ref = $genREF;
-                $otp->otp = $genOTP;
-
-                if ($otp->save()) {
-                    Mail::send($template_html, $template_data, function ($msg) use ($user) {
-                        // dd($user->email);
-                        $msg->subject('ลืมรหัสผ่าน === Forgot');
-                        $msg->to([$user->email]);
-                        $msg->from('dviver100@gmail.com', 'Bear-Bus');
-                    });
-
-                    $info = [
-                        'email' => encrypt($user->email),
-                        'username' => encrypt($user->username),
-                        'ref' => encrypt($otp->ref)
-                    ];
-
-                    return $this->responseRequestSuccess($info);
-                }
-
+                return $this->responseRequestSuccess($info);
+            }
         } else {
             return $this->responseRequestError('error');
         }
@@ -178,5 +175,4 @@ class ForgotPasswordController extends Controller
 
         return CryptoJSAES::decrypt($key, $passphrase);
     }
-
 }

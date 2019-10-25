@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 const startServiceWorker = () => {
     navigator.serviceWorker.register('swe.js', {
-      scope: './'
+      scope: './' 
     });
 }
 

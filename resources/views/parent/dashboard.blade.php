@@ -77,7 +77,7 @@ function convertStringDes($input){
 </div>
 
 <div class="heading text-left">
-    <h3>กราฟเฉลี่ยเวลาขึ้นลงรถ</h3>
+    <h3>กราฟเฉลี่ยเวลาขึ้น-ลงรถ</h3>
 </div>
 
 <div class="card ui-tab-card">

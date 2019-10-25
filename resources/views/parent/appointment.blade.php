@@ -331,11 +331,11 @@
                     // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
-                    // document.getElementById("user").innerHTML = user_id;
-                    // document.getElementById("student").innerHTML = student_id;
-                    // document.getElementById("time").innerHTML = period_time;
-                    // document.getElementById("dates").innerHTML = date;
-                    // document.getElementById("content").innerHTML = content;
+                    document.getElementById("user").innerHTML = user_id;
+                    document.getElementById("student").innerHTML = student_id;
+                    document.getElementById("time").innerHTML = period_time;
+                    document.getElementById("dates").innerHTML = date;
+                    document.getElementById("content").innerHTML = content;
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
@@ -354,47 +354,28 @@
 
 
         $.ajax({
-                url: '/tasks/refresh/student',
+                url: '/tasks/refresh/appointment',
                 type: 'GET',
-                data: {
-                    car_id: getCookie('car_id')
-                },
+                data: {},
                 dataType: 'json',
                 success: function(response) {
 
                     if (response.status == 'success') {
                         $('table tbody').html('');
-                        var status = '';
-                        let modal = document.getElementById("studentProfile");
-                        let modalImg = document.getElementById("imgProfile");
-                        let modalNickName = document.getElementById("nickname");
-                        let modalFirstName = document.getElementById("firstname");
-                        let modalSurname = document.getElementById("surname");
-                        let modalSchool = document.getElementById("school");
-
-                        // console.log(response.data['student'].length);
-                        for (var i = 0; i < response.data['student'].length; i++) {
-
-                            if (response.data['student'][i]['status'] == '1') {
-                                status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
-                            } else if (response.data['student'][i]['status'] == '2') {
-                                status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
-                            } else if (response.data['student'][i]['status'] == '3') {
-                                status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
-                            } else {
-                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
-                            }
+                        // let modal = document.getElementById("studentProfile");
+                        let modalUser = document.getElementById("user_id");
+                        let modalStudent = document.getElementById("student_id");
+                        let modalPeriodTime = document.getElementById("period_time_id");
+                        let modalDate = document.getElementById("date");
+                        let modalContent = document.getElementById("content");
 
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                '<td>' + response.data['student'][i]['nickname'] + '</td>' +
-                                status +
-                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc=' + response.data['student'][i]['name_school'] + ' name=' + response.data['student'][i]['fullname_s'] + ' src=https://bear-bus.com/' + response.data['student'][i]['image_stu'] + ' alt=' + response.data['student'][i]['nickname'] + '></a></td>' +
-                                '<td>' + response.data['student'][i]['name_school'] + '</td>' +
-                                '<td>' + response.data['student'][i]['fullname_u'] + '</td>' +
-                                '<td>' + response.data['student'][i]['relationship'] + '</td>' +
-                                '<td>' + response.data['student'][i]['mobile'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['date'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['name'] + '</td>' +
                                 '<td>' +
                                 '<div class="dropdown">' +
                                 '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data['student'][i]['lattitude'] + ' data-lng=' + response.data['student'][i]['longtitude'] + '>' +
@@ -406,24 +387,10 @@
                             );
 
 
-                            let img = document.getElementsByClassName("myImg");
-                            let firstname = response.data['student'][i]['first_name'];
-                            let lastname = response.data['student'][i]['last_name'];
-                            let nickname = response.data['student'][i]['nickname'];
-                            let school = response.data['student'][i]['name_school'];
-
-                            img[i].onclick = function() {
-                                // console.log(img[i]);
-                                modal.style.display = "block";
-                                modalImg.src = this.src;
-                                modalFirstName.innerHTML = firstname;
-                                modalSurname.innerHTML = lastname;
-                                modalNickName.innerHTML = nickname;
-                                modalSchool.innerHTML = school;
-
-                            }
-                        }
-
+                            let student = response.data['appointment'][i]['fullname_s'];
+                            let nickname = response.data['appointment'][i]['nickname'];
+                            let date = response.data['appointment'][i]['date'];
+                            let period = response.data['appointment'][i]['name'];
                     }
                 },
                 error: function(err) {

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="heading mt-md-5 text-left d-none d-md-block">
+<div class="heading mt-md-2 text-left d-none d-md-block">
     <h3>โปรไฟล์</h3>
 </div>
 <div class="d-md-none text-center">
@@ -34,6 +34,10 @@
                 <div class="info-table table-responsive">
                     <table class="table text-nowrap">
                         <tbody>
+                           <tr>
+                                <td>ชื่อเล่น:</td>
+                                <td class="font-medium text-dark-medium">บาลาล้อน</td>
+                            </tr>
                             <tr>
                                 <td>ตำแหน่ง:</td>
                                 <td class="font-medium text-dark-medium">คนขับรถ</td>

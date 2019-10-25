@@ -7,22 +7,27 @@ use App\Student;
 use App\User;
 use App\Appointment;
 use App\Report;
+use App\Period_time;
 use App\Payment_log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Validator;
 
 class RefreshController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
 
     public function run()
     {
-        $student_id = Cookie::get('student_id');
 
-        $no = Student::where('status', 1)->where('car_id', $car_id)->count();
-        $up = Student::where('status', 2)->where('car_id', $car_id)->count();
-        $down = Student::where('status', 3)->where('car_id', $car_id)->count();
-        $self = Student::where('status', 4)->where('car_id', $car_id)->count();
+        $no = Student::where('status', 1)->where('car_id', $this->request->car_id)->count();
+        $up = Student::where('status', 2)->where('car_id', $this->request->car_id)->count();
+        $down = Student::where('status', 3)->where('car_id', $this->request->car_id)->count();
+        $self = Student::where('status', 4)->where('car_id', $this->request->car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -36,12 +41,10 @@ class RefreshController extends Controller
     public function refresh()
     {
 
-        $car_id = Cookie::get('car_id');
-
-        $no = Student::where('status', 1)->where('car_id', $car_id)->count();
-        $up = Student::where('status', 2)->where('car_id', $car_id)->count();
-        $down = Student::where('status', 3)->where('car_id', $car_id)->count();
-        $self = Student::where('status', 4)->where('car_id', $car_id)->count();
+        $no = Student::where('status', 1)->where('car_id', $this->request->car_id)->count();
+        $up = Student::where('status', 2)->where('car_id', $this->request->car_id)->count();
+        $down = Student::where('status', 3)->where('car_id', $this->request->car_id)->count();
+        $self = Student::where('status', 4)->where('car_id', $this->request->car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -53,34 +56,29 @@ class RefreshController extends Controller
 
     public function student()
     {
-        $car_id = Cookie::get('car_id');
 
         $users = DB::table('students')
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $car_id)
+            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
             ->get();
         $data['student'] = $users;
 
         return $this->responseRequestSuccess($data);
     }
 
-    public function user()
+    public function appointment()
     {
-        // $car_id = Cookie::get('car_id');
-
-        $users = DB::table('users')
-            ->join('appointments', 'users.appointment_id', '=', 'appointment.id')
-            ->join('students', 'users.student_id', '=', 'student.id')
-            ->join('report', 'users.report_id', '=', 'report.id')
-            ->join('payment_log', 'users.payment_log_id', '=', 'payment_log.id')
-            ->select('users.*', 'students.fullname_s', 'students.nickname', 'appointments.date', 'appointments.period_time')->where('cars.id', $car_id)
+        $appointment = DB::table('appointments')
+            ->join('users', 'appointments.user_id', '=', 'users.id')
+            ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
+            ->join('students', 'appointments.student_id', '=', 'students.id')
+            ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
             ->get();
 
-        $data['user'] = $users;
+        $data['appointment'] = $appointment;
 
-        dd($user);
 
         return $this->responseRequestSuccess($data);
     }
