@@ -1796,6 +1796,7 @@ ul {
 
 .navbar.navbar-expand-md.header-menu-one.bg-light {
     padding-right: 0;
+    z-index: 19;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2542,7 +2543,13 @@ ul {
     bottom: 0;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    z-index: 10;
+    z-index: 4;
+}
+
+@media only screen and (min-width: 1200px){
+    .sidebar-color {
+        min-height: calc(100vh - 7rem);
+    }
 }
 
 .sidebar-menu-one .sidebar-menu-content {

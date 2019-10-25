@@ -75,6 +75,32 @@ Route::group(array('prefix' => 'driver'), function () {
     });
 });
 
+// driver
+Route::group(array('prefix' => 'admin'), function () {
+    Route::get('/index', function () {
+        return view('admin.index');
+    });
+    Route::get('/car-management', function () {
+        return view('admin.appointment');
+    });
+    Route::get('/user-management', function () {
+        return view('admin.appointment');
+    });
+    Route::get('/news', function () {
+        return view('admin.appointment');
+    });
+    Route::get('/payment', function () {
+        return view('admin.broadcast');
+    });
+    Route::get('/dashboard', function () {
+        return view('admin.profile');
+    });
+    Route::get('/profile', function () {
+        return view('admin.profile');
+    });
+});
+
+
 
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');
