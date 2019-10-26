@@ -7,6 +7,7 @@ use App\User;
 use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Sendmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -19,19 +20,20 @@ class ForgotPasswordController extends Controller
         $this->request = $request;
     }
 
-
-    public function ForgotPassword()
+    public function pass_forgot()
     {
-        // validator
+
         $validator = Validator::make($this->request->all(), [
             'email' => 'required',
         ]);
+
         if ($validator->fails()) {
             $errors = $validator->errors();
             return $this->responseRequestError($errors);
         }
 
         $user = User::where('email', $this->request->input('email'))->first();
+
         if ($user) {
 
             $template_html = 'mail.forgot_password';
@@ -52,21 +54,48 @@ class ForgotPasswordController extends Controller
             $otp->otp = $genOTP;
 
             if ($otp->save()) {
-                Mail::send($template_html, $template_data, function ($msg) use ($user) {
-                    // dd($user->email);
-                    $msg->subject('ลืมรหัสผ่าน === Forgot');
-                    $msg->to([$user->email]);
-                    $msg->from('dviver100@gmail.com', 'Bear-Bus');
-                });
+
+                Mail::to($user->email)->send(new Sendmail('ลืมรหัสผ่าน === Forgot', $genREF, $genOTP));
+
+                // Mail::send($template_html, $template_data, function ($msg) use ($user) {
+                //     // dd($user->email);
+                //     $msg->subject('ลืมรหัสผ่าน === Forgot');
+                //     $msg->to([$user->email]);
+                //     $msg->from('dviver100@gmail.com', 'Bear-Bus');
+                // });
 
                 $info = [
-                    'email' => encrypt($user->email),
-                    'username' => encrypt($user->username),
-                    'ref' => encrypt($otp->ref)
+                    'email' => $this->encrypt($user->email),
+                    'username' => $this->encrypt($user->username),
+                    'ref' => $this->encrypt($otp->ref)
                 ];
 
                 return $this->responseRequestSuccess($info);
             }
+        } else {
+            return $this->responseRequestError('error');
+        }
+
+        return $this->responseRequestSuccess($otp->save());
+    }
+    public function receiveOTP()
+    {
+
+        $validate = Validator::make($this->request->all(), [
+
+            'ref' => 'required',
+            'otp' => 'required'
+        ]);
+
+        if ($validate->fails()) {
+            $errors = $validate->errors();
+            return $this->responseRequestError($errors);
+        }
+
+        $userOTP = Otp::where('otp', $this->request->otp)->where('ref', $this->decrypt($this->request->ref))->first();
+
+        if ($userOTP) {
+            return $this->responseRequestSuccess('success');
         } else {
             return $this->responseRequestError('error');
         }

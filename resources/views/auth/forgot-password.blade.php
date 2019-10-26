@@ -114,36 +114,36 @@
     });
 
     function submitForm(){
-        var email = $('#email').val();
-        $.ajax({
-            type: "POST",
-            url: "/forgotpassword",
-            data: {
-                email: email
-            },
-            success: function(result){
 
-                alert(result);
-                // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
-                if (result.status == 'success') {
-                    setCookie('ref', result.data['ref'], 30);
-                    setCookie('email', result.data['email'], 30);
-                    $(location).attr('href', '/confirm-otp');
-                    // window.location.replace('https://bear-bus.com/confirm-otp');
-                    // $(".wrap-modal > #sendOTP").modal('show');
-                }
+    var email = $('#email').val()
 
-                // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
-                if (result.status == 'error') {
-                    $(".wrap-modal > #errorEmail").modal('show');
-                }
+    const data = {
+        email: $('#email').val()
+    }
 
-            },
-            error: function(result){
-                // alert(result);
-                $(".wrap-modal > #systemError").modal('show');
+    $.post('https://bear-bus.com/pass_forgot',data , function(result, status) {
+
+        if (result['status'] == 'success') {
+
+            $.get('https://bear-bus.com/mail/mail.php?email='+email+'&ref='+result['data']['ref']+'&otp='+result['data']['otp'], function(result, status) {
+
+            });
+
+
+                setCookie('ref', result['data']['ref'], 30);
+                setCookie('email', result['data']['email'], 30);
+
+                $(location).attr('href', '/confirm-otp');
+                // window.location.replace('https://bear-bus.com/confirm-otp');
+                // $(".wrap-modal > #sendOTP").modal('show');
             }
-        });
+
+            // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
+            if (result.status == 'error') {
+                $(".wrap-modal > #errorEmail").modal('show');
+            }
+    });
+
 
 
     }

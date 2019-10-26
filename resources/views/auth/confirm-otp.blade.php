@@ -71,8 +71,6 @@
 
 
 <script>
-console.log(getCookie('email'));
-console.log(getCookie('ref'));
 
     function setCookie(name, value, days) {
             var expires = "";
@@ -131,7 +129,7 @@ console.log(getCookie('ref'));
 
         $.ajax({
             type: "POST",
-            url: "/receiveotp",
+            url: "/receive_otp",
             data: {
                 ref: ref,
                 otp: otp
