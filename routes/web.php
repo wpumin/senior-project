@@ -81,19 +81,22 @@ Route::group(array('prefix' => 'admin'), function () {
         return view('admin.index');
     });
     Route::get('/car-management', function () {
-        return view('admin.appointment');
+        return view('admin.car-management');
     });
     Route::get('/user-management', function () {
-        return view('admin.appointment');
+        return view('admin.user-management');
     });
     Route::get('/news', function () {
-        return view('admin.appointment');
+        return view('admin.news');
     });
-    Route::get('/payment', function () {
-        return view('admin.broadcast');
+    Route::get('/payment/car1', function () {
+        return view('admin.payment');
+    });
+    Route::get('/payment/car2', function () {
+        return view('admin.payment');
     });
     Route::get('/dashboard', function () {
-        return view('admin.profile');
+        return view('admin.dashboard');
     });
     Route::get('/profile', function () {
         return view('admin.profile');
