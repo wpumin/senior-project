@@ -5634,6 +5634,34 @@ ul {
     margin: 0 auto;
 }
 
+/* modal-dialog1: 350 550 */
+.modal-dialog1{
+    max-width: 550px;
+}
+
+@media only screen and (max-width: 567px){
+    .modal-dialog1{
+        max-width: 350px !important;
+    }
+}
+
+/* modal-dialog2: 350 450 */
+.modal-dialog2{
+    max-width: 450px;
+}
+
+@media only screen and (max-width: 567px){
+    .modal-dialog2{
+        max-width: 350px !important;
+    }
+}
+
+/* modal-dialog3: 350 */
+.modal-dialog3{
+    max-width: 350px;
+}
+
+
 .modal button {
     outline: none !important;
 }

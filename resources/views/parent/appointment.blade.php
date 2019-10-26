@@ -222,8 +222,8 @@
 
 <!-- Modal: Success -->
 <div class="wrap-modal">
-    <div class="modal fade" id="successAppointment" tabindex="-1" role="dialog" aria-labelledby="successAppointment" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="successAppointment" tabindex="-1" role="dialog" aria-labelledby="successAppointment" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -241,8 +241,8 @@
 
 <!-- Modal: Failed -->
 <div class="wrap-modal">
-    <div class="modal fade" id="failAppointment" tabindex="-1" role="dialog" aria-labelledby="failAppointment" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="failAppointment" tabindex="-1" role="dialog" aria-labelledby="failAppointment" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _error">
             </div>
@@ -259,8 +259,8 @@
 
 <!-- Modal: Server Error -->
 <div class="wrap-modal">
-    <div class="modal fade" id="errorAppointment" tabindex="-1" role="dialog" aria-labelledby="errorAppointment" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="errorAppointment" tabindex="-1" role="dialog" aria-labelledby="errorAppointment" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>

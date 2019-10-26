@@ -190,7 +190,7 @@
 <!-- Delete Modal -->
 <div class="wrap-modal">
     <div class="modal fade" id="deleteTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
+        <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -211,7 +211,7 @@
 <!-- Accept Modal -->
 <div class="wrap-modal">
     <div class="modal fade" id="acceptTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
+        <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -231,7 +231,7 @@
 
 <!-- Picture Modal-->
 <div class="modal fade" id="studentProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-md modal-dialog-centered" role="document" style="max-width: 450px;">
+    <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
