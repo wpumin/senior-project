@@ -1,6 +1,6 @@
 @extends('layouts.master_sidebar')
 
-@section('title','หนักหลัก')
+@section('title','หน้าหลัก')
 
 @section('content')
 
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker">
-                    <i class="far fa-calendar-alt"></i>
+                    <i class="far fa-calendar-alt" style="right: 22px;"></i>
                 </div>
                 <div class="col-1-xxxl col-xl-1 col-lg-1 col-12 form-group">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>

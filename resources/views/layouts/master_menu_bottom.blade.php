@@ -11,6 +11,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('images/bearbus.png')}}">
+    <!-- WOW -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/wow/animate.css') }}">
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/normalize.css') }}">
     <!-- Main CSS -->
@@ -34,10 +36,12 @@
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
+    <!-- WOW -->
+    <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
     <script src="{{ URL::asset('js/external/main.js') }}"></script>
 
 </head>
@@ -70,7 +74,8 @@
                     </a>
                     <div class="d-md-none mobile-nav-bar justify-content-between">
                         <h3 class="text-light mb-0 pl-2">BEAR BUS</h3>
-                        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
+                            {{-- pulse-animation --}}
                             <i class="fas fa-user-circle text-light"></i>
                         </button>
                     </div>
@@ -121,7 +126,7 @@
                                 aria-expanded="false">
                                 <i class="far fa-bell"></i>
                                 <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                <span>2</span>
+                                <span class="animated tada infinite">3</span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
@@ -203,7 +208,7 @@
                                 aria-expanded="false">
                                 <i class="far fa-bell"></i>
                                 <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                <span>2</span>
+                                <span class="animated tada infinite">3</span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">

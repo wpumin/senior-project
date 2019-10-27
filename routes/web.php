@@ -89,11 +89,17 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/news', function () {
         return view('admin.news');
     });
-    Route::get('/payment/car1', function () {
-        return view('admin.payment');
+    Route::get('/payment/overview/car1', function () {
+        return view('admin.payment_overview');
     });
-    Route::get('/payment/car2', function () {
-        return view('admin.payment');
+    Route::get('/payment/overview/car2', function () {
+        return view('admin.payment_overview');
+    });
+    Route::get('/payment/confirm/car1', function () {
+        return view('admin.payment_confirm');
+    });
+    Route::get('/payment/confirm/car2', function () {
+        return view('admin.payment_confirm');
     });
     Route::get('/dashboard', function () {
         return view('admin.dashboard');

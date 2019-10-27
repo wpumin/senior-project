@@ -2291,7 +2291,8 @@ ul {
     right: -15px;
     height: 25px;
     width: 25px;
-    line-height: 21px;
+    /* line-height: 21px; */
+    line-height: 20px;
     color: #ffffff;
     font-size: 11px;
     background-color: #ff3131;
@@ -2305,7 +2306,8 @@ ul {
 
 @media only screen and (max-width: 767px) {
     .header-main-menu .navbar-nav .header-notification .navbar-nav-link span {
-        top: 47%;
+        /* top: 47%; */
+        top: 22%;
         right: 0;
         transform: translateY(-50%);
     }
@@ -6829,4 +6831,23 @@ textarea.form-control{
     top: 17px;
     right: 26px;
     z-index: 3; 
+}
+
+/* 100vh - 7rem */
+.addHeight{
+    min-height: calc(100vh - 7rem);
+}
+
+@media only screen and (max-width: 567px){
+    .bank-icon img{
+        width: 80px;
+    }
+}
+@media only screen and (min-width: 567px){
+    .bank-icon img{
+        width: 70px;
+    }
+}
+.bank-icon{
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
 }

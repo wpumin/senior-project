@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 27/10/2019 04:35
+    Creation date: 27/10/2019 15:21
     */
 
     @font-face {
@@ -81,12 +81,14 @@
 .flaticon-logout-1:before { content: "\f129"; }
 .flaticon-compass:before { content: "\f12a"; }
 .flaticon-pin:before { content: "\f12b"; }
-.flaticon-bus:before { content: "\f12c"; }
-.flaticon-school:before { content: "\f12d"; }
-.flaticon-correct:before { content: "\f12e"; }
-.flaticon-exit:before { content: "\f12f"; }
-.flaticon-close-1:before { content: "\f130"; }
-.flaticon-tick:before { content: "\f131"; }
+.flaticon-correct:before { content: "\f12c"; }
+.flaticon-bus:before { content: "\f12d"; }
+.flaticon-close-1:before { content: "\f12e"; }
+.flaticon-money:before { content: "\f12f"; }
+.flaticon-school:before { content: "\f130"; }
+.flaticon-close-2:before { content: "\f131"; }
+.flaticon-correct-1:before { content: "\f132"; }
+.flaticon-correct-2:before { content: "\f133"; }
     
     $font-Flaticon-calendar: "\f100";
     $font-Flaticon-calendar-1: "\f101";
@@ -132,9 +134,11 @@
     $font-Flaticon-logout-1: "\f129";
     $font-Flaticon-compass: "\f12a";
     $font-Flaticon-pin: "\f12b";
-    $font-Flaticon-bus: "\f12c";
-    $font-Flaticon-school: "\f12d";
-    $font-Flaticon-correct: "\f12e";
-    $font-Flaticon-exit: "\f12f";
-    $font-Flaticon-close-1: "\f130";
-    $font-Flaticon-tick: "\f131";
+    $font-Flaticon-correct: "\f12c";
+    $font-Flaticon-bus: "\f12d";
+    $font-Flaticon-close-1: "\f12e";
+    $font-Flaticon-money: "\f12f";
+    $font-Flaticon-school: "\f130";
+    $font-Flaticon-close-2: "\f131";
+    $font-Flaticon-correct-1: "\f132";
+    $font-Flaticon-correct-2: "\f133";

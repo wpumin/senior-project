@@ -11,6 +11,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('images/bearbus.png')}}">
+    <!-- WOW -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/wow/animate.css') }}">
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/normalize.css') }}">
     <!-- Main CSS -->
@@ -34,9 +36,14 @@
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
+    <!-- WOW -->
+    <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
+    <script src="{{ URL::asset('js/external/main.js') }}"></script>
+
 
 </head>
 {{-- menu active (don't remove) --}}
@@ -51,6 +58,15 @@
     }else{
         $menu_active2 = "";
     }
+    if(!empty($current_page[4]))
+    {
+        $menu_active3 = $current_page[4];
+    }else{
+        $menu_active3 = "";
+    }
+    // echo '<pre>'. $menu_active . '</pre>';
+    // echo '<pre>'. $menu_active2 . '</pre>';
+    // echo '<pre>'. $menu_active3 . '</pre>';
 ?>
 
 <body <?php if($current_page[1] == "parent" && ($menu_active == "index" || $menu_active == "dashboard")){ echo "onload='init();'"; } ?>">
@@ -67,8 +83,10 @@
                         <img class="logo-header" src="{{ URL::asset('images/internal/logo_temp.png') }}" alt="logo">
                     </a>
                     <div class="d-md-none mobile-nav-bar justify-content-between">
-                        <h3 class="text-light mb-0 pl-2">BEAR BUS</h3>
-                        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
+                        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+                            <i class="fas fa-bars text-light"></i>
+                        </button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
                             <i class="fas fa-user-circle text-light"></i>
                         </button>
                     </div>
@@ -119,7 +137,7 @@
                                     aria-expanded="false">
                                     <i class="far fa-bell"></i>
                                     <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                    <span>2</span>
+                                    <span class="animated tada infinite">3</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -187,13 +205,24 @@
                                 <a href="{{ url('admin/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="{{ url('admin/payment') }}" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-rich"></i><span>แจ้งชำระเงิน</span></a>
-                                <ul class="nav sub-group-menu <?php if(($menu_active == "payment") && !empty($menu_active2 == "car1" || $menu_active2 == "car2")) echo "sub-group-active"; else echo "";?>">
+                                <a href="{{ url('admin/payment/overview') }}" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="flaticon-rich"></i><span>ภาพรวมการเงิน</span></a>
+                                <ul class="nav sub-group-menu <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1" || $menu_active3 == "car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
-                                        <a href="{{ url('admin/payment/car1') }}" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
+                                        <a href="{{ url('admin/payment/overview/car1') }}" class="nav-link <?php if(($menu_active2 == "overview") && ($menu_active3 == "car1")) echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('admin/payment/car2') }}" class="nav-link <?php if($menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
+                                        <a href="{{ url('admin/payment/overview/car2') }}" class="nav-link <?php if(($menu_active2 == "overview") && ($menu_active3 == "car2")) echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="{{ url('admin/payment/confirm') }}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="flaticon-correct-2"></i><span>ยืนยันการชำระเงิน</span></a>
+                                <ul class="nav sub-group-menu <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1" || $menu_active3 == "car2")) echo "sub-group-active"; else echo "";?>">
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/payment/confirm/car1') }}" class="nav-link <?php if(($menu_active2 == "confirm") && ($menu_active3 == "car1")) echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/payment/confirm/car2') }}" class="nav-link <?php if(($menu_active2 == "confirm") && ($menu_active3 == "car2")) echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -229,6 +258,9 @@
                                         <a href="#" class="nav-link <?php if($menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
                                     </li>
                                 </ul>
+                            </li>
+                             <li class="nav-item">
+                                <a href="#" class="nav-link <?php if($menu_active == "news") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>โพสต์ข่าวสาร</span></a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>

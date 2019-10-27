@@ -1,6 +1,6 @@
 @extends('layouts.master_menu_bottom')
 
-@section('title','หนักหลัก')
+@section('title','หน้าหลัก')
 
 @section('content')
 
