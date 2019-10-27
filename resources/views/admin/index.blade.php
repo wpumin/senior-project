@@ -68,7 +68,7 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mg-b-20">
+        <form class="mg-b-20 new-added-form">
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
@@ -95,6 +95,7 @@
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker">
+                    <i class="far fa-calendar-alt"></i>
                 </div>
                 <div class="col-1-xxxl col-xl-1 col-lg-1 col-12 form-group">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>

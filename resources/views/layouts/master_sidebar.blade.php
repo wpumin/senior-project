@@ -187,7 +187,7 @@
                                 <a href="{{ url('admin/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="{{ url('admin/payment') }}" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>แจ้งชำระเงิน</span></a>
+                                <a href="{{ url('admin/payment') }}" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-rich"></i><span>แจ้งชำระเงิน</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active == "payment") && !empty($menu_active2 == "car1" || $menu_active2 == "car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="{{ url('admin/payment/car1') }}" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
@@ -198,7 +198,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "user-management") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การจัดการสมาชิก</span></a>
+                                <a href="#" class="nav-link <?php if($menu_active == "user-management") echo "menu-active"; else echo ""?>"><i class="flaticon-woman"></i><span>การจัดการสมาชิก</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active == "user-management") && !empty($menu_active2 == "user" || $menu_active2=="staff")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link <?php if($menu_active2 == "user") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ผู้ปกครอง</a>
@@ -209,7 +209,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "car-management") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>รายละเอียดเด็กบนรถ</span></a>
+                                <a href="#" class="nav-link <?php if($menu_active == "car-management") echo "menu-active"; else echo ""?>"><i class="flaticon-cap"></i><span>รายละเอียดเด็กบนรถ</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active == "car-management") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
@@ -220,7 +220,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "dashboard") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>แดชบอร์ด</span></a>
+                                <a href="#" class="nav-link <?php if($menu_active == "dashboard") echo "menu-active"; else echo ""?>"><i class="flaticon-graph"></i><span>แดชบอร์ด</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active == "dashboard") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
