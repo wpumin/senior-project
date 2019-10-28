@@ -1796,6 +1796,7 @@ ul {
 
 .navbar.navbar-expand-md.header-menu-one.bg-light {
     padding-right: 0;
+    z-index: 19;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1857,6 +1858,10 @@ ul {
     align-items: center;
     height: inherit;
     /* padding: 0.5rem 0rem .5rem 1.5rem; */
+}
+
+.mobile-nav-bar div{
+    margin-left: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -2286,7 +2291,8 @@ ul {
     right: -15px;
     height: 25px;
     width: 25px;
-    line-height: 21px;
+    /* line-height: 21px; */
+    line-height: 20px;
     color: #ffffff;
     font-size: 11px;
     background-color: #ff3131;
@@ -2300,7 +2306,8 @@ ul {
 
 @media only screen and (max-width: 767px) {
     .header-main-menu .navbar-nav .header-notification .navbar-nav-link span {
-        top: 47%;
+        /* top: 47%; */
+        top: 22%;
         right: 0;
         transform: translateY(-50%);
     }
@@ -2542,7 +2549,13 @@ ul {
     bottom: 0;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    z-index: 10;
+    z-index: 4;
+}
+
+@media only screen and (min-width: 1200px){
+    .sidebar-color {
+        min-height: calc(100vh - 7rem);
+    }
 }
 
 .sidebar-menu-one .sidebar-menu-content {
@@ -2632,7 +2645,7 @@ ul {
 }
 
 .sidebar-menu-one .sidebar-menu-content .nav-sidebar-menu .sidebar-nav-item>.nav-link:after {
-    content: "\f113";
+    content: "\f11b";
     font-family: Flaticon;
     font-size: 10px;
     font-weight: 700;
@@ -5492,6 +5505,10 @@ ul {
     font-weight: 300;
 }
 
+.text-theme{
+    color: #353535;
+}
+
 .text-light {
     color: #ffffff !important;
 }
@@ -5622,6 +5639,34 @@ ul {
 .modal-dialog{
     margin: 0 auto;
 }
+
+/* modal-dialog1: 350 550 */
+.modal-dialog1{
+    max-width: 550px;
+}
+
+@media only screen and (max-width: 567px){
+    .modal-dialog1{
+        max-width: 350px !important;
+    }
+}
+
+/* modal-dialog2: 350 450 */
+.modal-dialog2{
+    max-width: 450px;
+}
+
+@media only screen and (max-width: 567px){
+    .modal-dialog2{
+        max-width: 350px !important;
+    }
+}
+
+/* modal-dialog3: 350 */
+.modal-dialog3{
+    max-width: 350px;
+}
+
 
 .modal button {
     outline: none !important;
@@ -6686,7 +6731,7 @@ textarea.form-control{
     position: relative;
     width: 100%;
     height: 400px;
-    border-radius: 0 0 6px 6px;
+    /* border-radius: 0 0 6px 6px; */
 }
 
 .ldroute_menu{
@@ -6728,7 +6773,7 @@ textarea.form-control{
 }
 
 .border-customtlr5{
-    border-radius: 5px 5px 0 0 !important;
+    /* border-radius: 5px 5px 0 0 !important; */
 }
 
 /* custom scrollbar */
@@ -6778,4 +6823,31 @@ textarea.form-control{
 
 .pointer{
     cursor: pointer;
+}
+
+/* toggle-result */
+.toggle-result{
+    position: absolute; 
+    top: 17px;
+    right: 26px;
+    z-index: 3; 
+}
+
+/* 100vh - 7rem */
+.addHeight{
+    min-height: calc(100vh - 7rem);
+}
+
+@media only screen and (max-width: 567px){
+    .bank-icon img{
+        width: 80px;
+    }
+}
+@media only screen and (min-width: 567px){
+    .bank-icon img{
+        width: 70px;
+    }
+}
+.bank-icon{
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
 }

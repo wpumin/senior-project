@@ -55,8 +55,8 @@
 
 <!-- Modal: Success -->
 <div class="wrap-modal">
-    <div class="modal fade" id="successConfirm" tabindex="-1" role="dialog" aria-labelledby="successConfirm" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="successConfirm" tabindex="-1" role="dialog" aria-labelledby="successConfirm" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -74,8 +74,8 @@
 
 <!-- Modal: Failed -->
 <div class="wrap-modal">
-    <div class="modal fade" id="failConfirm" tabindex="-1" role="dialog" aria-labelledby="failConfirm" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="failConfirm" tabindex="-1" role="dialog" aria-labelledby="failConfirm" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _error">
             </div>
@@ -93,8 +93,8 @@
 
 <!-- Modal: Server Error -->
 <div class="wrap-modal">
-    <div class="modal fade" id="errorConfirm" tabindex="-1" role="dialog" aria-labelledby="errorConfirm" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="errorConfirm" tabindex="-1" role="dialog" aria-labelledby="errorConfirm" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _error">
             </div>

@@ -60,7 +60,7 @@
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
@@ -73,7 +73,7 @@
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
@@ -86,98 +86,98 @@
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>มอส</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">อนุมัตแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัตแล้ว</td>
                         <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
                         <td>ทัพหลวง</td>
                         <td>สมปอง ทองเหลือง</td>
                         <td>แม่</td>
                         <td>090-978-5703</td>
                         <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-exit"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct"></span></a></div>
+                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
                     </tr>
                 </tbody>
@@ -190,7 +190,7 @@
 <!-- Delete Modal -->
 <div class="wrap-modal">
     <div class="modal fade" id="deleteTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
+        <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -211,7 +211,7 @@
 <!-- Accept Modal -->
 <div class="wrap-modal">
     <div class="modal fade" id="acceptTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px">
+        <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -231,7 +231,7 @@
 
 <!-- Picture Modal-->
 <div class="modal fade" id="studentProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-md modal-dialog-centered" role="document" style="max-width: 450px;">
+    <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>

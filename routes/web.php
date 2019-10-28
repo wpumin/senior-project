@@ -75,6 +75,41 @@ Route::group(array('prefix' => 'driver'), function () {
     });
 });
 
+// driver
+Route::group(array('prefix' => 'admin'), function () {
+    Route::get('/index', function () {
+        return view('admin.index');
+    });
+    Route::get('/car-management', function () {
+        return view('admin.car-management');
+    });
+    Route::get('/user-management', function () {
+        return view('admin.user-management');
+    });
+    Route::get('/news', function () {
+        return view('admin.news');
+    });
+    Route::get('/payment/overview/car1', function () {
+        return view('admin.payment_overview');
+    });
+    Route::get('/payment/overview/car2', function () {
+        return view('admin.payment_overview');
+    });
+    Route::get('/payment/confirm/car1', function () {
+        return view('admin.payment_confirm');
+    });
+    Route::get('/payment/confirm/car2', function () {
+        return view('admin.payment_confirm');
+    });
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/profile', function () {
+        return view('admin.profile');
+    });
+});
+
+
 
 Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');

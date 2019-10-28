@@ -39,10 +39,6 @@
                                 <td class="font-medium text-dark-medium">บาลาล้อน</td>
                             </tr>
                             <tr>
-                                <td>ตำแหน่ง:</td>
-                                <td class="font-medium text-dark-medium">คนขับรถ</td>
-                            </tr>
-                            <tr>
                                 <td>คันรถ:</td>
                                 <td class="font-medium text-dark-medium">2 (โกญจนาท เกษศิลป์)</td>
                             </tr>
@@ -84,12 +80,11 @@
         // don't remove use only this page
         jQuery(document).ready(function(){
             if (jQuery(window).width() > 567) {
-                // jQuery("#wrapper").css("height", "100vh");
-                jQuery(".dashboard-page-one").css("height", "inherit");
-                jQuery(".dashboard-page-one").css("margin-top", "7rem");
-                jQuery(".navbar-expand-md").css("position", "fixed");
-                jQuery(".navbar-expand-md").css("width", "100%");
-                jQuery(".navbar-expand-md").css("z-index", "99");
+                // jQuery(".dashboard-page-one").css("height", "inherit");
+                // jQuery(".dashboard-page-one").css("margin-top", "7rem");
+                // jQuery(".navbar-expand-md").css("position", "fixed");
+                // jQuery(".navbar-expand-md").css("width", "100%");
+                // jQuery(".navbar-expand-md").css("z-index", "99");
             }  
         });
     </script>

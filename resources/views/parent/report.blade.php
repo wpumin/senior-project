@@ -32,12 +32,13 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
-                                <option value="1">พฤติกรรมคนขับ</option>
-                                <option value="2">ระบบการชำระเงิน</option>
-                                <option value="3">ระบบแจ้งเดินทางเอง</option>
-                                <option value="4">ระบบติดตามรถบัส</option>
-                                <option value="5">แดชบอร์ด</option>
-                                <option value="6">แก้ไขโปรไฟล์</option>
+                                <option value="2">บริการทั่วไป</option>
+                                <option value="2">พฤติกรรมคนขับ</option>
+                                <option value="3">ระบบการชำระเงิน</option>
+                                <option value="4">ระบบแจ้งเดินทางเอง</option>
+                                <option value="5">ระบบติดตามรถบัส</option>
+                                <option value="6">แดชบอร์ด</option>
+                                <option value="7">แก้ไขโปรไฟล์</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
@@ -125,8 +126,8 @@
 
 <!-- Modal: Success -->
 <div class="wrap-modal">
-    <div class="modal fade" id="successReport" tabindex="-1" role="dialog" aria-labelledby="successReport" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="successReport" tabindex="-1" role="dialog" aria-labelledby="successReport" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -143,8 +144,8 @@
 
 <!-- Modal: Failed -->
 <div class="wrap-modal">
-    <div class="modal fade" id="failReport" tabindex="-1" role="dialog" aria-labelledby="failReport" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="failReport" tabindex="-1" role="dialog" aria-labelledby="failReport" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _error">
             </div>
@@ -161,8 +162,8 @@
 
 <!-- Modal: Server Error -->
 <div class="wrap-modal">
-    <div class="modal fade" id="errorReport" tabindex="-1" role="dialog" aria-labelledby="errorReport" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="errorReport" tabindex="-1" role="dialog" aria-labelledby="errorReport" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>

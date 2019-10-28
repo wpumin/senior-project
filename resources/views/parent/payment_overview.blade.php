@@ -402,7 +402,7 @@
 
 <!-- Invoice Modal -->
 <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-md modal-dialog-centered" role="document" style="max-width: 400px;">
+    <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <p class="text-light mb-0">รายละเอียดรหัส: 987</p>
@@ -462,7 +462,7 @@
 
 <!-- QR Modal -->
 <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-md modal-dialog-centered" role="document" style="max-width: 450px;">
+    <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="text-light" aria-hidden="true">&times;</span></button>

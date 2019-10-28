@@ -163,6 +163,7 @@
                         $(location).attr('href', '/driver/index');
                     }else  if (result.data['role'] == '3') {
                         //Page Admin
+                        $(location).attr('href', '/admin/index');
                     }
 
 

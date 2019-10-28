@@ -6,15 +6,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
     <meta name="description" content="">
-    <link rel="manifest" href="/mfpi.json">
-    <meta name="theme-color" content="#f1f1f1">
-    <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
-    <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('images/bearbus.png')}}">
+    <!-- WOW -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/wow/animate.css') }}">
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/normalize.css') }}">
     <!-- Main CSS -->
@@ -38,26 +36,13 @@
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.0') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
-    <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}" async></script>
+    <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
+    <!-- WOW -->
+    <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
     <script src="{{ URL::asset('js/external/main.js') }}"></script>
-    <!-- Service Worker-->
-    {{-- <script type="text/javascript">
-        // Initialize the service worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/swi.js', {
-                scope: '.'
-            }).then(function (registration) {
-                // Registration was successful
-                console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
-            }, function (err) {
-                // registration failed :(
-                console.log('Bear Bus: ServiceWorker registration failed: ', err);
-            });
-        }
-    </script> --}}
 
 </head>
 {{-- menu active (don't remove) --}}
@@ -89,7 +74,8 @@
                     </a>
                     <div class="d-md-none mobile-nav-bar justify-content-between">
                         <h3 class="text-light mb-0 pl-2">BEAR BUS</h3>
-                        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" id="mobile-navbar" aria-expanded="false">
+                            {{-- pulse-animation --}}
                             <i class="fas fa-user-circle text-light"></i>
                         </button>
                     </div>
@@ -109,174 +95,168 @@
                     {{-- don't remove --}}
                 </ul>
                 <?php
-                    if($_COOKIE['role'] == '2') {
-
-                ?>
-                {{-- header สำหรับคนขับ เอา @can ครอบตรงนี้ --}}
-                <ul class="navbar-nav">
-                    <li class="navbar-item dropdown header-admin">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            <div class="admin-title">
-                                <h5 class="item-title" id="name">ชื่อ</h5>
-                                <span id="role">คนขับรถ</span>
-                            </div>
-                            <div class="admin-img">
-                                <img id="photo_user" alt="Driver">
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <div class="item-header">
-                                <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></span></h6>
-                            </div>
-                            <div class="item-content">
-                                <ul class="settings-list">
-                                <li><a href="{{ url('driver/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                    <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navbar-item dropdown header-notification">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="far fa-bell"></i>
-                            <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                            <span>2</span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <div class="item-header">
-                                <h6 class="item-title">3 การแจ้งเตือน</h6>
-                            </div>
-                            <div class="item-content">
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
-                                        <span>1 นาทีที่แล้ว</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
-                                        <span>1 ชั่วโมง 20 นาทีที่แล้ว</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
-                                        <span>8 ชั่วโมงที่แล้ว</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                     <li class="navbar-item dropdown header-language">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
-                        data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Thai</a>
-                            <a class="dropdown-item" href="#">English</a>
-                        </div>
-                    </li>
-                </ul>
-                <?php
-                }
-
-                ?>
-                 <?php
                     if($_COOKIE['role'] == '1') {
+                ?>
+                    <ul class="navbar-nav">
+                        <li class="navbar-item dropdown header-admin">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <div class="admin-title">
+                                    <h5 class="item-title" id="name"></h5>
+                                    <span id="role"></span>
+                                </div>
+                                <div class="admin-img">
+                                    <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="Parent">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="item-header">
+                                    <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></h6>
+                                </div>
+                                <div class="item-content">
+                                    <ul class="settings-list">
+                                        <li><a href="{{ url('parent/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
+                                        <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="navbar-item dropdown header-notification">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="far fa-bell"></i>
+                                <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
+                                <span class="animated tada infinite">3</span>
+                            </a>
 
-                 ?>
-                {{-- header สำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                <ul class="navbar-nav">
-                    <li class="navbar-item dropdown header-admin">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            <div class="admin-title">
-                                <h5 class="item-title">nonstop</h5>
-                                <span>ผู้ปกครอง</span>
-                            </div>
-                            <div class="admin-img">
-                                <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="Parent">
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <div class="item-header">
-                                <h6 class="item-title">คุณ ภูมินท์ วงษ์ศิริ</h6>
-                            </div>
-                            <div class="item-content">
-                                <ul class="settings-list">
-                                    <li><a href="{{ url('parent/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                    <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navbar-item dropdown header-notification">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="far fa-bell"></i>
-                            <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                            <span>2</span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <div class="item-header">
-                                <h6 class="item-title">3 การแจ้งเตือน</h6>
-                            </div>
-                            <div class="item-content">
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">น้องคิด ได้ลงจากรถแล้ว</div>
-                                        <span>1 นาทีที่แล้ว</span>
-                                    </div>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="item-header">
+                                    <h6 class="item-title">3 การแจ้งเตือน</h6>
                                 </div>
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-check"></i>
+                                <div class="item-content">
+                                    <div class="media">
+                                        <div class="item-icon bg-orange">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="post-title">น้องคิด ได้ลงจากรถแล้ว</div>
+                                            <span>1 นาทีที่แล้ว</span>
+                                        </div>
                                     </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">น้องมาร์ช ได้ลงจากรถแล้ว</div>
-                                        <span>1 นาทีที่แล้ว</span>
+                                    <div class="media">
+                                        <div class="item-icon bg-orange">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="post-title">น้องมาร์ช ได้ลงจากรถแล้ว</div>
+                                            <span>1 นาทีที่แล้ว</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">น้องมาร์ช ได้ขึ้นรถแล้ว</div>
-                                        <span>8 ชั่วโมงที่แล้ว</span>
+                                    <div class="media">
+                                        <div class="item-icon bg-orange">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="post-title">น้องมาร์ช ได้ขึ้นรถแล้ว</div>
+                                            <span>8 ชั่วโมงที่แล้ว</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                        <li class="navbar-item dropdown header-language">
-                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
-                        data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Thai</a>
-                            <a class="dropdown-item" href="#">English</a>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                            <li class="navbar-item dropdown header-language">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Thai</a>
+                                <a class="dropdown-item" href="#">English</a>
+                            </div>
+                        </li>
+                    </ul>
                 <?php
                     }
+                ?>
+                <?php
+                    if($_COOKIE['role'] == '2') {
+                ?>
+                    <ul class="navbar-nav">
+                        <li class="navbar-item dropdown header-admin">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <div class="admin-title">
+                                    <h5 class="item-title" id="name">ชื่อ</h5>
+                                    <span id="role">คนขับรถ</span>
+                                </div>
+                                <div class="admin-img">
+                                    <img id="photo_user" alt="Driver">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="item-header">
+                                    <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></span></h6>
+                                </div>
+                                <div class="item-content">
+                                    <ul class="settings-list">
+                                    <li><a href="{{ url('driver/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
+                                        <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="navbar-item dropdown header-notification">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="far fa-bell"></i>
+                                <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
+                                <span class="animated tada infinite">3</span>
+                            </a>
 
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="item-header">
+                                    <h6 class="item-title">3 การแจ้งเตือน</h6>
+                                </div>
+                                <div class="item-content">
+                                    <div class="media">
+                                        <div class="item-icon bg-orange">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                            <span>1 นาทีที่แล้ว</span>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="item-icon bg-orange">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
+                                            <span>1 ชั่วโมง 20 นาทีที่แล้ว</span>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="item-icon bg-orange">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                            <span>8 ชั่วโมงที่แล้ว</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="navbar-item dropdown header-language">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Thai</a>
+                                <a class="dropdown-item" href="#">English</a>
+                            </div>
+                        </li>
+                    </ul>
+                <?php
+                    }
                 ?>
             </div>
         </div>
@@ -304,63 +284,58 @@
             <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
                <div class="mobile-sidebar-header d-md-none">
                </div>
-               <?php
-                if($_COOKIE['role'] == '2') {
-
-                ?>
-                {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                <div class="sidebar-menu-content">
-                    <ul class="nav nav-sidebar-menu sidebar-toggle-view">
-                        <li class="nav-item">
-                            <a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <?php
-                }
-
-                ?>
-                <?php
-                if($_COOKIE['role'] == '1') {
-
-                ?>
-                {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                <div class="sidebar-menu-content">
-                        <ul class="nav nav-sidebar-menu sidebar-toggle-view">
-                            <li class="nav-item">
-                                <a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
-                            </li>
-                            <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การชำระเงิน</span></a>
-                                <ul class="nav sub-group-menu <?php if(!empty($menu_active2 == "overview" || $menu_active2=="confirm")) echo "sub-group-active"; else echo "";?>">
-                                    <li class="nav-item">
-                                        <a href="{{url('parent/payment/overview')}}" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{url('parent/payment/confirm')}}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('parent/appointment')}}" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('parent/report')}}" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <?php
+                        if($_COOKIE['role'] == '1') {
+                    ?>
+                        <div class="sidebar-menu-content">
+                            <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                                <li class="nav-item">
+                                    <a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
+                                </li>
+                                <li class="nav-item sidebar-nav-item">
+                                    <a href="#" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การชำระเงิน</span></a>
+                                    <ul class="nav sub-group-menu <?php if(!empty($menu_active2 == "overview" || $menu_active2=="confirm")) echo "sub-group-active"; else echo "";?>">
+                                        <li class="nav-item">
+                                            <a href="{{url('parent/payment/overview')}}" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url('parent/payment/confirm')}}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('parent/appointment')}}" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('parent/report')}}" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if($_COOKIE['role'] == '2') {
+                    ?>
+                        <div class="sidebar-menu-content">
+                            <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                                <li class="nav-item">
+                                    <a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
+                                </li>
+                            </ul>
+                        </div>
                     <?php
                         }
                     ?>
@@ -376,33 +351,29 @@
                 <div class="navbar navbar-expand-md header-menu-one bg-light p-0">
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
-                                <?php
-                                if($_COOKIE['role'] == '2') {
-
-                                ?>
-                            {{-- เมนูสำหรับคนขับรถ เอา @can ครอบตรงนี้ --}}
-                            <div class="d-md-none mobile-nav-bar justify-content-between">
-                                <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                <div><a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
-                                <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
-                            </div>
-                            <?php
-                            }
-
-                            ?>
                             <?php
                             if($_COOKIE['role'] == '1') {
 
                             ?>
-                            {{-- เมนูสำหรับผู้ปกครอง เอา @can ครอบตรงนี้ --}}
-                            <div class="mobile-nav-bar justify-content-between">
-                                <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
-                                <div><a href="{{ url('parent/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                <div><a href="{{ url('parent/report') }}" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
-                                <div><a href="{{ url('parent/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
-                            </div>
+                                <div class="mobile-nav-bar justify-content-between">
+                                    <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                    <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
+                                    <div><a href="{{ url('parent/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="{{ url('parent/report') }}" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                    <div><a href="{{ url('parent/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
+                                </div>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($_COOKIE['role'] == '2') {
+                            ?>
+                                <div class="d-md-none mobile-nav-bar justify-content-between">
+                                    <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
+                                    <div><a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
+                                    <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
+                                </div>
                             <?php
                                 }
                             ?>
@@ -494,7 +465,6 @@
     <script src="{{ URL::asset('js/internal/jquery.dataTables.min.js') }}"></script>
     <!-- HighChart Js -->
     <script src="{{ URL::asset('js/internal/highcharts.js') }}"></script>
-    <script src="{{ URL::asset('js/internal/data.js') }}"></script>
     <!-- Dropzone Js -->
     <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script>
     <!-- Owl-Carousel -->

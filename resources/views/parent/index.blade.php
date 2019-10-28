@@ -5,13 +5,6 @@
 @section('content')
 
 <!-- Onesignal -->
-<script src="https://bear-bus.com/swi.js" async=""></script>
-<script>
-if ('serviceWorker' in navigator) {
-    console.log('page is registering two service workers')
-    navigator.serviceWorker.register('swi.js', {scope: './'})
-}
-</script>
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
     var OneSignal = window.OneSignal || [];
@@ -49,40 +42,14 @@ if ('serviceWorker' in navigator) {
 </div>
 <!-- Owl-Carousel Area End Here-->
 
-{{-- <div class="heading text-left">
-    <h3>ติดตามรถรับส่งนักเรียน</h3>
-</div>
-<div class="card ui-tab-card">
-    <div class="card-body" style="padding: 15px;">
-        <div class="basic-tab">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item _index">
-                    <a class="nav-link active" data-toggle="tab" href="#gps" role="tab" aria-selected="true" style="border-radius: 4px 0 0 0;">เส้นทางการเดินรถ</a>
-                </li>
-                <li class="nav-item _index">
-                    <a class="nav-link" data-toggle="tab" href="#route" role="tab" aria-selected="false" style="border-radius: 0 4px 0 0;">GPS ติดตามรถ</a>
-                </li>
-            </ul> 
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="gps" role="tabpanel">
-                    <div id="map"></div>
-                    <div id="result" class="custom-scrollbar"></div>
-                </div>
-                <div class="tab-pane fade" id="route" role="tabpanel">
-                    <div> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit asperiores unde, commodi eius sit molestiae. Possimus dolorem id exercitationem, odio ipsa quos rerum laborum saepe consequatur! Minima repellendus laudantium quas! Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tenetur tempora repellat quisquam fugit, voluptas obcaecati, in at perspiciatis cupiditate, totam ducimus excepturi harum omnis eligendi maxime! Fugiat, officia incidunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iusto eum molestias beatae, vitae quaerat aspernatur explicabo iure iste, odio hic a accusamus quos, ab enim quasi facilis magni nihil. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum mollitia sequi adipisci saepe, non corrupti voluptates, quasi cupiditate, numquam laborum reiciendis iusto laboriosam libero sit repellendus neque at? Dolor, doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit vel atque saepe laudantium dignissimos dolore, aperiam nisi, incidunt aliquam dicta mollitia ullam quas fugiat ad aut ab quos commodi at? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dolorum beatae praesentium quo mollitia possimus dicta, quos iusto error quae officiis quis hic. Cumque tempore alias, nostrum necessitatibus provident facilis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente maxime expedita, debitis saepe ad reprehenderit fugit hic. Provident molestiae explicabo neque? Possimus, ipsum voluptates inventore hic itaque ipsa amet ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus saepe nemo perferendis quia blanditiis in quibusdam necessitatibus facilis, sit ratione eius amet dolorum molestiae quos beatae aliquam maiores exercitationem! Minima! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, ipsa, debitis earum quidem cumque optio repudiandae illo, consequuntur eum harum reiciendis? Reprehenderit cumque suscipit in est illo ut assumenda beatae? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi amet laboriosam molestiae placeat, repellat perspiciatis delectus atque similique quis illum aliquam accusamus provident sequi veritatis voluptatibus nostrum sed assumenda! Voluptatem?</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 <div class="heading text-left">
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
 <div class="card ui-tab-card">
-    <div class="card-body" style="padding: 15px;">
-        <div id="map" style="border-radius: 5px 5px 0 0;"></div>
-        <div id="result" class="custom-scrollbar" style="border-radius: 0 0 8px 8px;"></div>
+    <div class="card-body" style="padding: 15px; position: relative;">
+        <span class="toggle-result flaticon-compass text-theme"></span>
+        <div id="map" style=""></div>
+        <div id="result" class="custom-scrollbar" style="display: none;"></div>
     </div>
 </div>
 
@@ -102,6 +69,10 @@ if ('serviceWorker' in navigator) {
 // hide scrollup
 $(document).ready(function(){
     $('#scrollUp').css('z-index','-1');
+});
+
+$('.toggle-result').click(function(){
+    $('#result').slideToggle();
 });
 
 // long do map

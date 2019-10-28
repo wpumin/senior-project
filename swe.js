@@ -9,7 +9,7 @@ const assetsToCache = [
   '/images/login/bg-login.png',
   '/images/login/bg-login2.png',
   // css
-  '/css/external/style.css',
+  '/css/external/style.css?v=1.0.0.2',
   // fonts
   '/fonts/kanit/kanit-regular.woff2',
   // js

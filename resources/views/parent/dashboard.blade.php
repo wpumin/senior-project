@@ -70,9 +70,10 @@ function convertStringDes($input){
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
 <div class="card ui-tab-card">
-    <div class="card-body" style="padding: 15px;">
-        <div id="map" style="border-radius: 5px 5px 0 0;"></div>
-        <div id="result" class="custom-scrollbar" style="border-radius: 0 0 8px 8px;"></div>
+    <div class="card-body" style="padding: 15px; position: relative;">
+        <span class="toggle-result flaticon-compass text-theme"></span>
+        <div id="map" style=""></div>
+        <div id="result" class="custom-scrollbar" style="display: none;"></div>
     </div>
 </div>
 
@@ -160,6 +161,7 @@ function convertStringDes($input){
 @section('script')
 
 
+
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script type="text/javascript">
@@ -168,10 +170,10 @@ function convertStringDes($input){
             type: 'areaspline'
         },
         title: {
-            text: ''
+            text: 'เวลาขึ้น-ลงเฉลี่ย'
         },
         subtitle: {
-            text: ''
+            text: 'เช้า: 7.25 น. | เย็น: 16.25 น.'
         },
         xAxis: {
             categories: [
@@ -246,7 +248,10 @@ function convertStringDes($input){
 </script>
 
 <script>
-
+    
+    $('.toggle-result').click(function(){
+        $('#result').slideToggle();
+    });
 
     setInterval(function(){
 

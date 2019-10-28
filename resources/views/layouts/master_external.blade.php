@@ -20,7 +20,7 @@
             <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
 
             <!-- Bootstrap -->
-            <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap/bootstrap_external.min.css') }}" async>
+            <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap/bootstrap_external.min.css') }}">
 
             <!-- // ! StyleSheet -->
             <!-- WOW -->
@@ -29,7 +29,7 @@
             <link rel="stylesheet" href="{{ URL::asset('css/external/style.css?v=1.0.0.2') }}" >
 
             <!-- // ! Javascript -->
-            <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}" async></script>
+            <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
             <script src="{{ URL::asset('plugins/bootstrap/popper_external.min.js') }}"></script>
             <script src="{{ URL::asset('plugins/bootstrap/bootstrap_external.min.js') }}"></script>
             <!-- WOW -->

@@ -166,9 +166,10 @@
                 // เปลี่ยนรหัสผ่านสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successNewPassword").modal('show');
-                    setTimeout(function(){
-                        $(location).attr('href', 'login');
-                    },3000);
+                    
+                    // setTimeout(function(){
+                    //     $(location).attr('href', 'login');
+                    // },3000);
                 }
 
                 // รหัสผ่านไม่ตรงกัน
