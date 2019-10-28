@@ -1,8 +1,10 @@
-@extends('layouts.master_menu_bottom')
+@extends('layouts.master_menu_bottom'), ['name' => $user])
+
 
 @section('title','แจ้งเดินทางเอง')
 
 @section('content')
+
 
 
 <div class="heading mt-md-5 text-left">
@@ -36,7 +38,7 @@
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off" id="period_time">
+                            <select class="select2" required autocomplete="off" id="period_time_id">
                                 <option value="">ช่วงเวลา</option>
                                 <option value="1">เช้า (ขาไป)</option>
                                 <option value="2">เย็น (ขากลับ)</option>
@@ -98,7 +100,7 @@
                                     <th>สถานะ</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <!-- <tbody>
                                 <tr>
                                     <td>1</td>
                                     <td>อชิตะ ลิลิตสัจจะ</td>
@@ -217,14 +219,9 @@
                                     <td>มาร์ช</td>
                                     <td>19/09/2562</td>
                                     <td>ช่วงเช้า</td>
-<<<<<<< HEAD
-                                    <td class="badge badge-pill badge-light-gray d-block mg-t-8">ได้รับการอนุมัติ</td>
-                                </tr>                  
-=======
                                     <td class="badge badge-pill badge-green d-block mg-t-8">ได้รับการอนุมัติ</td>
                                 </tr>                            
->>>>>>> develop
-                            </tbody>
+                            </tbody> -->
                         </table>
                     </div>
             </div>
@@ -312,7 +309,7 @@
     function submitForm(){
         var user_id = $('#user_id').val();
         var student_id = $('#student_id').val();
-        var period_time = $('#period_time').val();
+        var period_time_id = $('#period_time_id').val();
         var date = $('#date').val();
         var content = $('#content').val();
         
@@ -327,20 +324,16 @@
             data: {
                 user_id: user_id,
                 student_id: student_id,
-                period_time: period_time,
+                period_time_id: period_time_id,
                 date: date,
                 content: content,
             },
             
             success: function(result){
+                alert(student_id)
                     // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successAppointment").modal('show');
-                    document.getElementById("user").innerHTML = user_id;
-                    document.getElementById("student").innerHTML = student_id;
-                    document.getElementById("time").innerHTML = period_time;
-                    document.getElementById("dates").innerHTML = date;
-                    document.getElementById("content").innerHTML = content;
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
@@ -364,16 +357,17 @@
                 data: {},
                 dataType: 'json',
                 success: function(response) {
-
                     if (response.status == 'success') {
                         $('table tbody').html('');
-                        // let modal = document.getElementById("studentProfile");
-                        let modalUser = document.getElementById("user_id");
-                        let modalStudent = document.getElementById("student_id");
-                        let modalPeriodTime = document.getElementById("period_time_id");
-                        let modalDate = document.getElementById("date");
-                        let modalContent = document.getElementById("content");
+                        let modalUser = document.getElementById("user_id").innerHTML = user_id;
+                        let modalStudent = document.getElementById("student_id").innerHTML = student_id;
+                        let modalPeriodTime = document.getElementById("period_time_id").innerHTML = period_time_id;
+                        let modalDate = document.getElementById("date").innerHTML = date;
+                        let modalContent = document.getElementById("content").innerHTML = content;
+                        console.log(response.data)
+                        alert(modalUser)
 
+                        for (var i = 0; i < response.data['appointment'].length; i++) {
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
@@ -381,12 +375,7 @@
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['date'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                                '<td>' +
-                                '<div class="dropdown">' +
-                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data['student'][i]['lattitude'] + ' data-lng=' + response.data['student'][i]['longtitude'] + '>' +
-                                '<span class="flaticon-pin"></span>' +
-                                '</a>' +
-                                '</div>' +
+                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ'+ '</td>' +
                                 '</td>' +
                                 '</tr>'
                             );
@@ -396,6 +385,7 @@
                             let nickname = response.data['appointment'][i]['nickname'];
                             let date = response.data['appointment'][i]['date'];
                             let period = response.data['appointment'][i]['name'];
+                        }
                     }
                 },
                 error: function(err) {
