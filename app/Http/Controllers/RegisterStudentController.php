@@ -31,7 +31,6 @@ class RegisterStudentController extends Controller
                 'last_name' => 'required',
                 'fullname' => 'required',
                 'nickname' => 'required',
-                'mobile' => 'required',
                 'address' => 'required',
                 'lattitude' => 'required',
                 'longtitude' => 'required',
@@ -40,15 +39,17 @@ class RegisterStudentController extends Controller
                 // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                return $this->responseRequestError('error', $errors);
+            }
+
+
             //validator mobile
             $validator_mobile = Validator::make($this->request->all(), [
                 'mobile' => 'required|digits_between:9,10',
             ]);
 
-            if ($validator->fails()) {
-                $errors = $validator->errors();
-                return $this->responseRequestError('error', $errors);
-            }
 
             //validator mobile
             if ($validator_mobile->fails()) {
@@ -64,7 +65,7 @@ class RegisterStudentController extends Controller
                 $public_path = 'images/Students/';
                 $destination = base_path() . "/public/" . $public_path;
                 $this->request->file('image')->move($destination, $image_name);
-                $student->image = $public_path . $image_name;
+                $student->image_stu = $public_path . $image_name;
             }
 
             // 'image' => $this->request->input('image'),
@@ -74,13 +75,14 @@ class RegisterStudentController extends Controller
             $student->card_id = $this->request->input('card_id');
             $student->first_name = $this->request->input('first_name');
             $student->last_name = $this->request->input('last_name');
-            $student->fullname = $this->request->input('first_name') . '.' . $this->request->input('last_name');
+            $student->fullname_s = $this->request->input('fullname') . '.' . $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
             $student->mobile = $this->request->input('mobile');
             $student->address = $this->request->input('address');
             $student->lattitude = $this->request->input('lattitude');
             $student->longtitude = $this->request->input('longtitude');
             $student->price = $this->request->input('price');
+
 
             $student->save();
 
