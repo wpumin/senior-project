@@ -304,6 +304,11 @@
             $('#btn-submit').prop('disabled',false);
             $('#btn-submit').css('cursor','pointer');
         });
+
+        $('#sel1').change(function(){
+            var value = $(this).val();
+            // here redirect to link with item_count value
+        });
     });
 
     function submitForm(){

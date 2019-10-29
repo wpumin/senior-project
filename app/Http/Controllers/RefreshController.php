@@ -83,6 +83,13 @@ class RefreshController extends Controller
         return $this->responseRequestSuccess($data);
     }
 
+    public function checkUser()
+    {
+        $user_id = Student::all();
+        $student = Student::where('user_id', 4)->get()->toArray();
+        dd($user_id);
+    }
+
 
 
     /*

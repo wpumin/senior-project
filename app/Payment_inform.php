@@ -15,9 +15,4 @@ class Payment_inform extends Model
 
     protected $guarded = ['id'];
     protected $dates = ['created_at', 'updated_at'];
-
-    public function payment_log()
-    {
-        return $this->hasMany('App\Payment_log');
-    }
 }
