@@ -16,3 +16,4 @@ class Province extends Model
     protected $guarded = ['id'];
     protected $dates = ['created_at', 'updated_at'];
 }
+

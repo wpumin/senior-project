@@ -4,15 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Appointment extends Model
+class Order_report extends Model
 {
-    protected $table = 'appointments';
+    protected $table = 'order_reports';
     protected $fillable = [
-        'user_id', 'period_time_id', 'date', 'content', 'student_id', 'date'
+        'name'
 
 
     ];
 
     protected $guarded = ['id'];
     protected $dates = ['created_at', 'updated_at'];
+
+    public function report()
+    {
+        return $this->hasMany('App\Report');
+    }
 }

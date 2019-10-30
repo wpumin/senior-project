@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\User;
+use App\Appointment;
+use App\Report;
+use App\Period_time;
+use App\Payment_log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -58,12 +63,36 @@ class RefreshController extends Controller
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
             ->get();
-
         $data['student'] = $users;
 
         return $this->responseRequestSuccess($data);
     }
 
+    public function appointment()
+    {
+        // validator
+        $validator = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->responseRequestError($errors);
+        }
+
+        $appointment = DB::table('appointments')
+            ->join('users', 'appointments.user_id', '=', 'users.id')
+            ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
+            ->join('students', 'appointments.student_id', '=', 'students.id')
+            ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
+            ->where('appointments.user_id', $this->request->input('user_id'))
+            ->get();
+
+        $data['appointment'] = $appointment;
+
+
+        return $this->responseRequestSuccess($data);
+    }
 
     /*
     |--------------------------------------------------------------------------
