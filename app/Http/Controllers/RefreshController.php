@@ -70,11 +70,22 @@ class RefreshController extends Controller
 
     public function appointment()
     {
+        // validator
+        $validator = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->responseRequestError($errors);
+        }
+
         $appointment = DB::table('appointments')
             ->join('users', 'appointments.user_id', '=', 'users.id')
             ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
             ->join('students', 'appointments.student_id', '=', 'students.id')
             ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
+            ->where('appointments.user_id', $this->request->input('user_id'))
             ->get();
 
         $data['appointment'] = $appointment;
@@ -82,15 +93,6 @@ class RefreshController extends Controller
 
         return $this->responseRequestSuccess($data);
     }
-
-    public function checkUser()
-    {
-        $user_id = Student::all();
-        $student = Student::where('user_id', 4)->get()->toArray();
-        dd($user_id);
-    }
-
-
 
     /*
     |--------------------------------------------------------------------------

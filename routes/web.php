@@ -127,8 +127,9 @@ Route::post('/bill', 'PaymentController@addPayment');
 Route::get('/driver/index', 'RefreshController@run');
 Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');
-Route::get('/tasks/refresh/check', 'RefreshController@checkUser');
-Route::get('/tasks/refresh/appointment', 'RefreshController@appointment');
+Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
+
+Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
 
 
 // Route::get('firebase/{lat}/{long}', 'FirebaseController@index');

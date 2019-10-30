@@ -9,6 +9,7 @@ use App\Student;
 use Carbon\Carbon;
 use LogicException;
 use Validator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
@@ -16,6 +17,23 @@ class AppointmentController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
+    }
+
+    public function list()
+    {
+        $validate = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validate->fails()) {
+            // throw new LogicException($validate->errors());
+            $errors = $validate->errors();
+            return $this->responseRequestError('field_required');
+        }
+// dd($this->request->input('user_id'));
+        $students = Student::where('user_id', $this->request->input('user_id'))->get();
+
+        return $this->responseRequestSuccess($students);
     }
 
     public function createAppointment()
