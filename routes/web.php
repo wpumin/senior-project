@@ -98,6 +98,18 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/payment/confirm/car1', function () {
         return view('admin.payment_confirm');
     });
+    Route::get('/management/parent', function () {
+        return view('admin.parent_management');
+    });
+    Route::get('/management/parent/create', function () {
+        return view('admin.parent_management_create');
+    });
+    Route::get('/management/staff', function () {
+        return view('admin.staff_management');
+    });
+    Route::get('/management/staff/create', function () {
+        return view('admin.staff_management_create');
+    });
     Route::get('/payment/confirm/car2', function () {
         return view('admin.payment_confirm');
     });

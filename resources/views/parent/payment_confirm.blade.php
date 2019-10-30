@@ -134,6 +134,7 @@
         $.ajax({
             type: "POST",
             url: "",
+            // url: "http://localhost:8000/parent/confirm-payment",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

@@ -6851,3 +6851,28 @@ textarea.form-control{
 .bank-icon{
     filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
 }
+
+@media only screen and (max-width: 1440px){
+    .datePicker-custom{
+        right: 2rem !important;
+    }
+}
+
+.hr-adduser{
+    width: 100%; 
+    border-bottom: 1px solid #f0f1f3;
+}
+
+/* hide information openlayers */
+.ol-attribution{
+    display: none;
+}
+
+.ol-zoom-in, .ol-zoom-out, .ol-zoom-in:focus, .ol-zoom-out:focus{
+    outline: none;
+}
+
+/* google maps */
+.gm-style-mtc{
+    display: none !important;
+}

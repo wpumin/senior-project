@@ -72,22 +72,22 @@
 
 <!-- Modal: Success Broadcast-->
 <div class="modal fade" id="successBroadcast" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header _success">
-                </div>
-                <div class="modal-body my-4 text-center">
-                    <b>ประกาศสำเร็จ</b>
-                    <p>การแจ้งเตือนถูกส่งไปยังผู้ปกครอง</p>
-                    <div class="modal-button text-center mt-3">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button>
-                        <!-- data-dismiss="modal" -->
-                    </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ประกาศสำเร็จ</b>
+                <p>การแจ้งเตือนถูกส่งไปยังผู้ปกครอง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- Success Broadcast End Here -->   
+</div>
+<!-- Success Broadcast End Here -->   
 
 <!-- Modal: System error-->
 <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">

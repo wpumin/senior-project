@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <form class="mg-b-10">
-                    <div class="row gutters-8 new-added-form">
+                    <div class="row mb-5 mb-lg-0 new-added-form">
                         <div class="col-lg-4 col-12 form-group">
                             <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control">
                         </div>

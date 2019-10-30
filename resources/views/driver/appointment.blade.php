@@ -277,7 +277,9 @@
 
 @section('script')
     <script>
-       $('#confirmDelete').click(function(){
+        $('.sidebar-color').addClass('addHeight');
+        
+        $('#confirmDelete').click(function(){
 
             $.ajax({
                 type: "POST",

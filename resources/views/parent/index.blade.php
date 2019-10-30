@@ -65,6 +65,7 @@
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script>
+$('.sidebar-color').addClass('addHeight');
 
 // hide scrollup
 $(document).ready(function(){

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="heading mt-md-5 text-left d-none d-md-block">
+<div class="heading text-left d-none d-md-block">
     <h3>โปรไฟล์</h3>
 </div>
 <div class="d-md-none text-center">
