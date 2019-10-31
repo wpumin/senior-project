@@ -59,5 +59,6 @@ class ProvincesTableSeeder extends Seeder
             'status' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
     }
 }

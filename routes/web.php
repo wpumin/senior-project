@@ -139,8 +139,10 @@ Route::post('/bill', 'PaymentController@addPayment');
 Route::get('/driver/index', 'RefreshController@run');
 Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');
-Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
+Route::get('tasks/refresh/order', 'RefreshController@order_report');
 
+Route::post('tasks/refresh/report', 'RefreshController@report');
+Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
 Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
 
 

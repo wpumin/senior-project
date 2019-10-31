@@ -22,23 +22,23 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
                             <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off" id="title">
                         </div>
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
+                        {{-- <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="user_id">
                                 <option value="">ผู้ปกครอง</option>
                                 <option value="1">นายสมโรจ โคตรเอา</option>
                                 <option value="2">นางสาวสมสุข สู่สวรรค์ </option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
-                                <option value="2">บริการทั่วไป</option>
-                                <option value="2">พฤติกรรมคนขับ</option>
+                                <option value="7">บริการทั่วไป</option>
+                                <option value="1">พฤติกรรมคนขับ</option>
                                 <option value="3">ระบบการชำระเงิน</option>
                                 <option value="4">ระบบแจ้งเดินทางเอง</option>
-                                <option value="5">ระบบติดตามรถบัส</option>
-                                <option value="6">แดชบอร์ด</option>
-                                <option value="7">แก้ไขโปรไฟล์</option>
+                                <option value="4">ระบบติดตามรถบัส</option>
+                                <option value="5">แดชบอร์ด</option>
+                                <option value="6">แก้ไขโปรไฟล์</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
@@ -82,8 +82,8 @@
                         </div>
                     </div>
                 </form>
-                <div class="notice-board-wrap">
-                    <div class="notice-list">
+                <div class="notice-board-wrap" id="report">
+                    {{-- <div class="notice-list">
                         <div class="post-date badge-red"> เร่งด่วน | 13/06/2562 - พฤติกรรมคนขับ</div>
                         <h5 class="mb-2">หัวข้อ: คนขับรถขับรถเร็ว น่าหวาดเสียว</h5>
                         <p class="notice-title">รบกวนเจ้าของช่วยอบรมการขับรถของคนขับรถคันสีแดงๆ สายบ้านไร่ด้วยครับ</p>
@@ -117,7 +117,7 @@
                         <div class="post-date badge-red">เร่งด่วน | 20/06/256 - พฤติกรรมคนขับ</div>
                         <h5 class="mb-2">หัวข้อ: คนขับโกงเงินค่ารถเด็กครับ</h5>
                         <p class="notice-title">คนขับรถคัน โกญจนาท โกงเงินค่ารถลูกผมครับ ลูกผมจ่ายแล้วแต่บอกว่ายังไม่ได้จ่าย ฝากจัดการให้ผมหน่อยครับ ขอบคุณครับ</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -183,6 +183,21 @@
 
 @section('script')
 <script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+                return "";
+    }
 
     $(document).ready(function(){	
 
@@ -199,8 +214,43 @@
         });
     });
 
+    $.ajax({
+                url: '/tasks/refresh/report',
+                type: 'POST',
+                data: {
+                    user_id : getCookie('user_id')
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status == 'success') {
+
+                        for (var i = 0; i < response.data['report'].length; i++) {
+                            if (response.data['report'][i]['order_id'] == '1') {
+                                status = '<div class="post-date badge-green">';
+                                } else if (response.data['report'][i]['order_id'] == '2') {
+                                status = '<div class="post-date badge-orange">';
+                                } else if (response.data['report'][i]['order_id'] == '3') {
+                                status = '<div class="post-date badge-red">';
+                                } 
+
+                            $('#report').append(
+                                '<div class="notice-list">' +
+                                status+ response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['created_at'] + ' - '+ response.data['report'][i]['type_name'] + '</div>' +
+                                '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
+                                '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
+                                 +
+                                '</div>'
+                            );
+                        }
+                    }
+                },
+                error: function(err) {
+
+                }
+            })
+
     function submitForm(){
-        var user_id = $('#user_id').val();
+        var user_id = getCookie('user_id');  
         var type_id = $('#type_id').val();
         var order_id = $('#order_id').val();
         var title = $('#title').val();
@@ -213,31 +263,65 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             cache:false,
-            // data: $('form#reportForm').serialize(),
             data: {
                 user_id: user_id,
                 type_id: type_id,
                 order_id: order_id,
                 title: title,
                 content: content,
+
             },
             success: function(result){
-                alert(title)
                 // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successReport").modal('show');
+                    $.ajax({
+                        url: '/tasks/refresh/report',
+                        type: 'POST',
+                        data: {
+                            user_id : getCookie('user_id')
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            if (response.status == 'success') {
+
+                            for (var i = 0; i < response.data['report'].length; i++) {
+
+                                if (response.data['report'][i]['order_id'] == '1') {
+                                status = '<div class="post-date badge-green">';
+                                } else if (response.data['report'][i]['order_id'] == '2') {
+                                status = '<div class="post-date badge-orange">';
+                                } else if (response.data['report'][i]['order_id'] == '3') {
+                                status = '<div class="post-date badge-red">';
+                                } 
+
+                                $('#report').append(
+                                    '<div class="notice-list">' +
+                                    status + response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['created_at'] + ' - '+ response.data['report'][i]['type_name'] + '</div>' +
+                                    '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
+                                    '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
+                                    +
+                                    '</div>'
+                                    );
+                                }
+                            }
+                        },
+                    error: function(err) {
+
+                    }
+                    })
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
                 if (result.status == 'field_required') {
-                    $(".wrap-modal > #failReport").modal('show');
+                    $(".wrap-modal > #failAppointment").modal('show');
                     window.location.reload(true);
                 }
                 
             },
             error: function(){
                 // เซิร์ฟเวอร์มีปัญหา
-                $(".wrap-modal > #errorReport").modal('show');
+                $(".wrap-modal > #errorAppointment").modal('show');
             }
         });
     }

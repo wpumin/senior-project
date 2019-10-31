@@ -33,5 +33,7 @@ class VerifyCsrfToken extends Middleware
         'pass_forgot',
         '/tasks/refresh/appointment',
         '/tasks/refresh/appointment/student',
+        '/tasks/refresh/report',
+
     ];
 }

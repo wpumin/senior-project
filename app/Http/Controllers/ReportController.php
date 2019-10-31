@@ -8,6 +8,7 @@ use App\Type_report;
 use App\Order_report;
 use LogicException;
 use Validator;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
@@ -32,6 +33,8 @@ class ReportController extends Controller
                 $errors = $validate->errors();
                 return $this->responseRequestError('field_required');
             }
+
+            // dd($this->request->input('type_id'));
 
             DB::beginTransaction();
             $res['data'] = Report::create([
