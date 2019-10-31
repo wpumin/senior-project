@@ -87,6 +87,7 @@ class RefreshController extends Controller
             ->join('students', 'appointments.student_id', '=', 'students.id')
             ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
             ->where('appointments.user_id', $this->request->input('user_id'))
+            ->orderBy('appointments.date', 'desc')
             ->get();
 
         $data['appointment'] = $appointment;
@@ -121,6 +122,7 @@ class RefreshController extends Controller
 
         return $this->responseRequestSuccess($data);
     }
+
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง
