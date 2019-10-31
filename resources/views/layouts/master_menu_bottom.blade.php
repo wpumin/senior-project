@@ -106,7 +106,7 @@
                                         <span id="role"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="Parent">
+                                        <img src="{{ URL::asset('images/internal/figure/default.jpg') }}" alt="Parent">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">

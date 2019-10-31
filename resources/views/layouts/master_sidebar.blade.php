@@ -127,7 +127,7 @@
                                         <span id="role"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" alt="Driver">
+                                        <img id="photo_user" src="{{ URL::asset('images/internal/figure/default.jpg') }}" alt="Admin">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -248,13 +248,13 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "car-management") echo "menu-active"; else echo ""?>"><i class="flaticon-cap"></i><span>รายละเอียดเด็กบนรถ</span></a>
-                                <ul class="nav sub-group-menu <?php if(($menu_active == "car-management") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
+                                <a href="#" class="nav-link <?php if($menu_active == "car-overview") echo "menu-active"; else echo ""?>"><i class="flaticon-cap"></i><span>รายละเอียดเด็กบนรถ</span></a>
+                                <ul class="nav sub-group-menu <?php if(($menu_active == "car-overview") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
+                                        <a href="{{ url('admin/car-overview/car1') }}" class="nav-link <?php if($menu_active == "car-overview" && $menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
+                                        <a href="{{ url('admin/car-overview/car2') }}" class="nav-link <?php if($menu_active == "car-overview" && $menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
                                     </li>
                                 </ul>
                             </li>

@@ -1,69 +1,43 @@
-@extends('layouts.master_menu_bottom')
+@extends('layouts.master_sidebar')
 
-@section('title','หน้าหลัก')
+@section('title','รายละเอียดเด็กบนรถ')
 
 @section('content')
 
-{{-- ปิด pagination สำหรับหน้า driver/index เท่านั้น --}}
+{{-- สำหรับเขียนเลขคันรถ ถ้าไม่ใช่ให้ทำ js แทน --}}
+<?php
+    $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    $current_page = (explode("/",$current_url));
+    $menu_active = $current_page[2];
+    // echo $menu_active;
+    if(!empty($current_page[3]))
+    {
+        $menu_active2 = $current_page[3];
+    }else{
+        $menu_active2 = "";
+    }
+    if(!empty($current_page[4]))
+    {
+        $menu_active3 = $current_page[4];
+    }else{
+        $menu_active3 = "";
+    }
+    // echo '<pre>'. $menu_active . '</pre>';
+    // echo '<pre>'. $menu_active2 . '</pre>';
+    // echo '<pre>'. $menu_active3 . '</pre>';
+?>
+
 <style>
     .dataTables_paginate {
         display: none;
     }
 </style>
 
-<!-- Owl-Carousel Area -->
-<!-- คิวรี่ 2 ขนาด มือถือกับแท๊บเล็ตขึ้นไป -->
-<!-- มือถือไล่สีแถบล่าง -->
+<!-- Payment Table Area Start Here -->
 <div class="heading text-left">
-    <h3>อัพเดตข่าวสาร</h3>
+    <h3>รายละเอียดเด็กบนรถ</h3>
 </div>
-<div class="owl-carousel owl-theme d-md-none">
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-</div>
-<!-- ไอแพดขึ้นไป -->
-<div class="owl-carousel owl-theme d-none d-md-block">
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-</div>
-<!-- Owl-Carousel Area End Here-->
 
-<!-- Dashboard summery Start Here -->
-<div class="heading text-left">
-    <h3>สถานะนักเรียน</h3>
-</div>
 <div class="row gutters-20">
     <div class="col-xl-3 col-sm-6 col-12">
         <div class="dashboard-summery-one mg-b-20">
@@ -141,7 +115,7 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>ข้อมูลนักเรียนประจำคันรถ</h3>
+            <h3>ข้อมูลนักเรียนประจำคันรถที่ <?php if(($menu_active == "car-overview") && !empty($menu_active2 == "car1")) echo "1"; else echo "2";?></h3>
             </div>
             {{-- <div class="dropdown-refresh">
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
@@ -370,4 +344,4 @@
             })
         }, 2000);
     </script>
-    @endsection
+@endsection

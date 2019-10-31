@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 28/10/2019 06:13
+    Creation date: 31/10/2019 06:23
     */
 
     @font-face {
@@ -90,6 +90,9 @@
 .flaticon-correct-1:before { content: "\f132"; }
 .flaticon-correct-2:before { content: "\f133"; }
 .flaticon-edit:before { content: "\f134"; }
+.flaticon-minus:before { content: "\f135"; }
+.flaticon-minus-1:before { content: "\f136"; }
+.flaticon-photo:before { content: "\f137"; }
     
     $font-Flaticon-calendar: "\f100";
     $font-Flaticon-calendar-1: "\f101";
@@ -144,3 +147,6 @@
     $font-Flaticon-correct-1: "\f132";
     $font-Flaticon-correct-2: "\f133";
     $font-Flaticon-edit: "\f134";
+    $font-Flaticon-minus: "\f135";
+    $font-Flaticon-minus-1: "\f136";
+    $font-Flaticon-photo: "\f137";

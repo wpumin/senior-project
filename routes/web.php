@@ -80,12 +80,12 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/index', function () {
         return view('admin.index');
     });
-    Route::get('/car-management', function () {
-        return view('admin.car-management');
-    });
-    Route::get('/user-management', function () {
-        return view('admin.user-management');
-    });
+    // Route::get('/overview/car1', function () {
+    //     return view('admin.car-management');
+    // });
+    // Route::get('/overview/car2', function () {
+    //     return view('admin.car-management');
+    // });
     Route::get('/news', function () {
         return view('admin.news');
     });
@@ -96,6 +96,9 @@ Route::group(array('prefix' => 'admin'), function () {
         return view('admin.payment_overview');
     });
     Route::get('/payment/confirm/car1', function () {
+        return view('admin.payment_confirm');
+    });
+    Route::get('/payment/confirm/car2', function () {
         return view('admin.payment_confirm');
     });
     Route::get('/management/parent', function () {
@@ -109,9 +112,6 @@ Route::group(array('prefix' => 'admin'), function () {
     });
     Route::get('/management/staff/create', function () {
         return view('admin.staff_management_create');
-    });
-    Route::get('/payment/confirm/car2', function () {
-        return view('admin.payment_confirm');
     });
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
@@ -137,6 +137,8 @@ Route::post('/bill', 'PaymentController@addPayment');
 
 
 Route::get('/driver/index', 'RefreshController@run');
+Route::get('/admin/car-overview/car1', 'RefreshController@runAdmin');
+Route::get('/admin/car-overview/car2', 'RefreshController@runAdmin');
 Route::get('/tasks/refresh', 'RefreshController@refresh');
 Route::get('/tasks/refresh/student', 'RefreshController@student');
 Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
