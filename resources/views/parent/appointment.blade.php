@@ -267,10 +267,6 @@
 
                         $('table tbody').html('');
                         let modalUser = document.getElementById("name").innerHTML = name;
-                        // let modalStudent = document.getElementById("student_id").innerHTML = student_id;
-                        // let modalPeriodTime = document.getElementById("period_time_id").innerHTML = period_time_id;
-                        // let modalDate = document.getElementById("date").innerHTML = date;
-                        // let modalContent = document.getElementById("content").innerHTML = content;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {
                             $('table tbody').append(

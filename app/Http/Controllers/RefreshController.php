@@ -9,6 +9,7 @@ use App\Appointment;
 use App\Report;
 use App\Period_time;
 use App\Payment_log;
+use App\Order_report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -101,9 +102,37 @@ class RefreshController extends Controller
             ->join('students', 'appointments.student_id', '=', 'students.id')
             ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
             ->where('appointments.user_id', $this->request->input('user_id'))
+            ->orderBy('appointments.date', 'desc')
             ->get();
 
         $data['appointment'] = $appointment;
+
+
+        return $this->responseRequestSuccess($data);
+    }
+
+    public function report()
+    {
+        // validator
+        $validator = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->responseRequestError($errors);
+        }
+
+        $report = DB::table('reports')
+            ->join('users', 'reports.user_id', '=', 'users.id')
+            ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
+            ->join('order_reports', 'reports.order_id', '=', 'order_reports.id')
+            ->select('reports.*', 'type_reports.type_name','order_reports.name')
+            ->where('reports.user_id', $this->request->input('user_id'))
+            ->orderBy('reports.created_at', 'desc')
+            ->get();
+
+        $data['report'] = $report;
 
 
         return $this->responseRequestSuccess($data);
