@@ -95,7 +95,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">รายได้ปัจจุบัน</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="32400">32400</span></div>
+                        <div class="item-number"><span>฿</span><span class="counter" id="self" data-num="32400">32400</span></div>
                     </div>
                 </div>
             </div>

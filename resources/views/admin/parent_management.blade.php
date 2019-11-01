@@ -26,7 +26,7 @@
                     <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control">
                 </div>
                 <div class="col-4-xxxl col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยนามสกุล" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยเบอร์โทร" class="form-control">
                 </div>
                 <div class="col-1-xxxl col-lg-3 col-12 form-group">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
