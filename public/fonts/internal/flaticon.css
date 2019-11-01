@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 27/10/2019 15:21
+  	Creation date: 31/10/2019 06:23
   	*/
 
 @font-face {
@@ -25,9 +25,9 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+  font-size: 20px;
+  font-style: normal;
+  margin-left: 0px;
 }
 
 .flaticon-calendar:before { content: "\f100"; }
@@ -35,7 +35,7 @@ margin-left: 20px;
 .flaticon-cancel-event-interface-symbol-of-a-calendar-with-a-cross-button:before { content: "\f102"; }
 .flaticon-bin:before { content: "\f103"; }
 .flaticon-bill:before { content: "\f104"; }
-.flaticon-plus:before { content: "\f105"; }
+.flaticon-plus:before { content: "\f105"; font-size: 11px;}
 .flaticon-driver:before { content: "\f106"; }
 .flaticon-graph:before { content: "\f107"; }
 .flaticon-chat:before { content: "\f108"; }
@@ -82,3 +82,7 @@ margin-left: 20px;
 .flaticon-close-2:before { content: "\f131"; }
 .flaticon-correct-1:before { content: "\f132"; margin-left: 0.5rem;}
 .flaticon-correct-2:before { content: "\f133"; }
+.flaticon-edit:before { content: "\f134"; margin-right: 0.5rem;}
+.flaticon-minus:before { content: "\f135"; font-size: 11px;}
+.flaticon-minus-1:before { content: "\f136"; }
+.flaticon-photo:before { content: "\f137"; font-size: 30px; color: #bababa}

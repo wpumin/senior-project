@@ -8,7 +8,7 @@ class Type_report extends Model
 {
     protected $table = 'type_reports';
     protected $fillable = [
-        'name'
+        'type_name'
 
 
     ];

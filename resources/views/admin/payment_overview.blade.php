@@ -92,11 +92,10 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mg-b-20 new-added-form">
+        <form class="mb-5 mb-lg-0 new-added-form">
             <div class="row gutters-8">
-                <div class="col-3-xxxl col-xl-2 col-lg-2 col-12 form-group">
+                <div class="col-3-xxxl col-lg-3 col-12 form-group">
                     <select class="form-control select2" required autocomplete="off">
-                        <option value="">ค้นหาด้วยเดือน</option>
                         <option value="1">ตุลาคม 2562</option>
                         <option value="2">กันยายน 2562</option>
                         <option value="3">สิงหาคม 2562</option>
@@ -105,7 +104,7 @@
                         <option value="6">พฤษภาคม 2562</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-lg-3 col-12 form-group">
                     <select class="form-control select2" required autocomplete="off">
                         <option value="">ค้นหาด้วยจำนวนเงิน</option>
                         <option value="1">350.00</option>
@@ -116,7 +115,7 @@
                         <option value="6">900.00</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-lg-2 col-12 form-group">
                     <select class="form-control select2" required autocomplete="off">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
@@ -125,10 +124,10 @@
                         <option value="3">แพรว</option>
                     </select>
                 </div>
-                <div class="col-2-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-2-xxxl col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยรหัส" class="form-control">
                 </div>
-                <div class="col-1-xxxl col-xl-1 col-lg-1 col-12 form-group">
+                <div class="col-1-xxxl col-lg-2 col-12 form-group">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>

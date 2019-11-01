@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 
 class CreateReportsTable extends Migration
 {
@@ -17,6 +18,7 @@ class CreateReportsTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('type_id');
+            $table->string('order_id');
             $table->string('title');
             $table->string('content');
             $table->timestamps();

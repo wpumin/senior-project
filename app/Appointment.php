@@ -8,7 +8,7 @@ class Appointment extends Model
 {
     protected $table = 'appointments';
     protected $fillable = [
-        'user_id', 'period_time', 'date', 'content', 'student_id', 'date'
+        'user_id', 'period_time_id', 'date', 'content', 'student_id', 'date'
 
 
     ];

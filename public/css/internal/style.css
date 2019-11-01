@@ -1229,6 +1229,11 @@ table tbody tr td a:hover {
     }
 }
 
+/* select2 overwrite */      
+.select2{
+   width: 100%;
+}
+
 /*=============== 3.3 Select 2 ==================*/
 .select2-container .select2-selection--single {
     /* background-color: #f0f1f3; */
@@ -6850,4 +6855,92 @@ textarea.form-control{
 }
 .bank-icon{
     filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+@media only screen and (max-width: 1440px){
+    .datePicker-custom{
+        right: 2rem !important;
+    }
+}
+
+.hr-adduser{
+    width: 100%; 
+    border-bottom: 1px solid #f0f1f3;
+}
+
+/* hide information openlayers */
+.ol-attribution{
+    display: none;
+}
+
+.ol-zoom-in, .ol-zoom-out, .ol-zoom-in:focus, .ol-zoom-out:focus{
+    outline: none;
+}
+
+/* google maps */
+.gm-style-mtc{
+    display: none !important;
+}
+
+/* student profile */
+.student-heading{
+    justify-content: space-between !important;
+}
+
+.search_latitude, .search_longitude{
+    cursor: not-allowed;
+}
+
+/*  upload profile image */
+.uploader {
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    min-height: 200px;
+    background: #f3f3f3;
+    border: 2px dashed #e8e8e8;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: none;
+}
+
+.uploader span{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    outline: none !important;
+    border-radius: 50%;
+}
+
+.filePhoto{
+    border: none;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.uploader img{
+    border: 5px solid white;
+    color: transparent !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* border: none; */
+    object-fit: cover;
+    border-radius: 50%;
 }

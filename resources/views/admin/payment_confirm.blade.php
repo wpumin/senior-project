@@ -92,21 +92,19 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mg-b-20 new-added-form">
+        <form class="mb-5 mb-lg-0 new-added-form">
             <div class="row gutters-8">
-                <div class="col-2-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยรหัส" class="form-control">
-                </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-lg-3 col-12 form-group">
                     <select class="form-control select2" required autocomplete="off">
-                        <option value="">ค้นหาด้วยชื่อเล่น</option>
-                        <option value="1">จ๋าย</option>
-                        <option value="2">จ่า</option>
-                        <option value="3">สกาย</option>
-                        <option value="3">แพรว</option>
+                        <option value="1">ตุลาคม 2562</option>
+                        <option value="2">กันยายน 2562</option>
+                        <option value="3">สิงหาคม 2562</option>
+                        <option value="4">กรกฎาคม 2562</option>
+                        <option value="5">มิถุนายน 2562</option>
+                        <option value="6">พฤษภาคม 2562</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-lg-3 col-12 form-group">
                     <select class="form-control select2" required autocomplete="off">
                         <option value="">ค้นหาด้วยจำนวนเงิน</option>
                         <option value="1">350.00</option>
@@ -117,11 +115,19 @@
                         <option value="6">900.00</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-2 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker">
-                    <i class="far fa-calendar-alt" style="position: absolute; right: -2rem;"></i>
-                </div>  
-                <div class="col-1-xxxl col-xl-1 col-lg-1 col-12 form-group">
+                <div class="col-3-xxxl col-lg-2 col-12 form-group">
+                    <select class="form-control select2" required autocomplete="off">
+                        <option value="">ค้นหาด้วยชื่อเล่น</option>
+                        <option value="1">จ๋าย</option>
+                        <option value="2">จ่า</option>
+                        <option value="3">สกาย</option>
+                        <option value="3">แพรว</option>
+                    </select>
+                </div>
+                <div class="col-2-xxxl col-lg-2 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยรหัส" class="form-control">
+                </div>
+                <div class="col-1-xxxl col-lg-2 col-12 form-group">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
@@ -149,7 +155,7 @@
                         <td>900.00</td>
                         <td>26/10/2562 16:52:23</td>
                         <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -159,7 +165,7 @@
                         <td>900.00</td>
                         <td>26/10/2562 16:51:12</td>
                         <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -169,7 +175,7 @@
                         <td>900.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>4</td>
@@ -179,7 +185,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>5</td>
@@ -189,7 +195,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>6</td>
@@ -199,7 +205,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>7</td>
@@ -209,7 +215,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>8</td>
@@ -219,7 +225,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>9</td>
@@ -229,7 +235,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>10</td>
@@ -239,7 +245,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>11</td>
@@ -249,7 +255,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>12</td>
@@ -259,7 +265,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>13</td>
@@ -269,7 +275,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>14</td>
@@ -279,7 +285,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>15</td>
@@ -289,7 +295,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>16</td>
@@ -299,7 +305,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>17</td>
@@ -309,7 +315,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>18</td>
@@ -319,7 +325,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>19</td>
@@ -329,7 +335,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>20</td>
@@ -339,7 +345,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>21</td>
@@ -349,7 +355,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>22</td>
@@ -359,7 +365,7 @@
                         <td>650.00</td>
                         <td>26/10/2562 16:50:02</td>
                         <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-bill"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -368,49 +374,104 @@
 </div>
 <!-- Payment Table Area End Here -->
 
-<!-- Report Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog1 modal-md modal-dialog-centered" role="document">
+<!-- Confirm Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="text-light" aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12 modal_body_content px-4">
-                    <table class="detail">
-                        <tbody>
-                            <tr>
-                                <td style="width: 30%;">หัวข้อ:</td>
-                                <td>คนขับรถโกญจนาท ขับรถเร็วครับ</td>
-                            </tr>
-                            <tr>
-                                <td>ประเภท:</td>
-                                <td>พฤติกรรมคนขับ</td>
-                            </tr>
-                            <tr>
-                                <td>เวลาแจ้ง:</td>
-                                <td>24/10/2562 06:54:23</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="my-4">
-                        รายละเอียด: <br>
-                        รถรับส่งนักเรียน (โกญจนาท เกษศิลป์) ขับเร็ว
-                        มากครับ วันก่อนผมเจอเส้นโรงเรียนบ้านไร่วิทยา
-                        ยังไงรบกวนช่วยอบรมคนขับด้วยนะครับ เป็นห่วง
-                        บุตรหลานจริง ๆ
-                    </p>
-                    <p class="text-right mb-2">
-                        นาย สมัคร ลิลิตสัจจะ <br>
-                        087-234-2721
-                    </p>
+                    <div class="col-md-12 modal_body_content px-4 text-center">
+                        <h3 class="mb-2 text-special-orange text-right py-2">รหัส: 987</h3>
+                        <table>
+                            <tbody class="text-left">
+                                <tr>
+                                    <td style="width: 40%">นักเรียน: </td>
+                                    <td> ด.ช. สมเกียรติ เรียนดี</td>
+                                </tr>
+                                <tr>
+                                    <td>ผู้ปกตรอง: </td>
+                                    <td>นาย ธนงศักดิ์ เรียนดี</td>
+                                </tr>
+                                <tr>
+                                    <td>ติดต่อ: </td>
+                                    <td>089-811-5155</td>
+                                </tr>
+                                <tr>
+                                    <td>โอนเข้าบัญชี: </td>
+                                    <td>กรุงไทย</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <h6 class="mb-2 text-special-orange text-center py-2">หลักฐานการโอนเงิน (โปรดแสกน)</h6>
+                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="">
+                        <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน 4,000.00 บาท</h6>
+                        <p class="text-center mb-2 small">จ่ายเมื่อ 4/10/2562 08:03</p>
+                        <hr>
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-secondary" id="confirmPayment">ยืนยัน</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Report Modal End Here -->
+<!-- Confirm Modal End Here -->
 
+<!-- Modal: System error-->
+<div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ระบบเกิดข้อผิดพลาด</b>
+                <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- System error End Here -->   
+
+@endsection
+
+@section('script')
+<script>
+
+    // ajax
+    $('#confirmPayment').click(function(){
+
+        $.ajax({
+            type: "POST",
+            url: ","
+            // url: "http://localhost:8000/admin/confirm-payment",
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            cache:false,
+            success: function(result){
+
+                // ยืนยันลำเร็จ
+                if(result.status == 'success') {
+                    // ลบออกจากตารางแจ้งชำระเงิน แล้วเปลี่ยนสถานะการรอการตรวจสอบเป็น ชำระแล้ว
+                    $('#confirmModal').modal('hide');
+                }
+            },
+            error: function(result){
+                $('#confirmModal').modal('hide');
+                $(".wrap-modal > #systemError").modal('show');
+            }
+        });
+    });
+
+</script>
 @endsection

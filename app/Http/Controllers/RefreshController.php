@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\User;
+use App\Appointment;
+use App\Report;
+use App\Period_time;
+use App\Payment_log;
+use App\Order_report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -32,6 +38,21 @@ class RefreshController extends Controller
         return view('driver.index', $data);
     }
 
+    public function runAdmin()
+    {
+
+        $no = Student::where('status', 1)->where('car_id', '1')->count();
+        $up = Student::where('status', 2)->where('car_id', '1')->count();
+        $down = Student::where('status', 3)->where('car_id', '1')->count();
+        $self = Student::where('status', 4)->where('car_id', '1')->count();
+
+        $data['no'] = $no;
+        $data['up'] = $up;
+        $data['down'] = $down;
+        $data['self'] = $self;
+
+        return view('admin.car-overview', $data);
+    }
 
     public function refresh()
     {
@@ -58,12 +79,64 @@ class RefreshController extends Controller
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
             ->get();
-
         $data['student'] = $users;
 
         return $this->responseRequestSuccess($data);
     }
 
+    public function appointment()
+    {
+        // validator
+        $validator = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->responseRequestError($errors);
+        }
+
+        $appointment = DB::table('appointments')
+            ->join('users', 'appointments.user_id', '=', 'users.id')
+            ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
+            ->join('students', 'appointments.student_id', '=', 'students.id')
+            ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
+            ->where('appointments.user_id', $this->request->input('user_id'))
+            ->orderBy('appointments.date', 'desc')
+            ->get();
+
+        $data['appointment'] = $appointment;
+
+
+        return $this->responseRequestSuccess($data);
+    }
+
+    public function report()
+    {
+        // validator
+        $validator = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->responseRequestError($errors);
+        }
+
+        $report = DB::table('reports')
+            ->join('users', 'reports.user_id', '=', 'users.id')
+            ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
+            ->join('order_reports', 'reports.order_id', '=', 'order_reports.id')
+            ->select('reports.*', 'type_reports.type_name','order_reports.name')
+            ->where('reports.user_id', $this->request->input('user_id'))
+            ->orderBy('reports.created_at', 'desc')
+            ->get();
+
+        $data['report'] = $report;
+
+
+        return $this->responseRequestSuccess($data);
+    }
 
     /*
     |--------------------------------------------------------------------------

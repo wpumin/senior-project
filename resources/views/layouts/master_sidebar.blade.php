@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
+    <!-- Openlayers popup -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/openlayers/ol.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('plugins/openlayers/ol-popup.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('plugins/openlayers/popup.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
@@ -42,7 +46,13 @@
     <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
     <!-- WOW -->
     <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
+    <!-- Openlayers popup -->
+    <script src="{{ URL::asset('plugins/openlayers/ol.js') }}"></script>
+    <script src="{{ URL::asset('plugins/openlayers/ol-popup.js') }}"></script>
+    <script src="{{ URL::asset('plugins/openlayers/popup.js') }}"></script>
+    <!-- Custom JS -->
     <script src="{{ URL::asset('js/external/main.js') }}"></script>
+
 
 
 </head>
@@ -117,7 +127,7 @@
                                         <span id="role"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" alt="Driver">
+                                        <img id="photo_user" src="" alt="admin avatar">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -216,7 +226,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="{{ url('admin/payment/confirm') }}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="flaticon-correct-2"></i><span>ยืนยันการชำระเงิน</span></a>
+                                <a href="#" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="flaticon-correct-2"></i><span>ยืนยันการชำระเงิน</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1" || $menu_active3 == "car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="{{ url('admin/payment/confirm/car1') }}" class="nav-link <?php if(($menu_active2 == "confirm") && ($menu_active3 == "car1")) echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
@@ -227,24 +237,24 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "user-management") echo "menu-active"; else echo ""?>"><i class="flaticon-woman"></i><span>การจัดการสมาชิก</span></a>
-                                <ul class="nav sub-group-menu <?php if(($menu_active == "user-management") && !empty($menu_active2 == "user" || $menu_active2=="staff")) echo "sub-group-active"; else echo "";?>">
+                                <a href="#" class="nav-link <?php if($menu_active == "management") echo "menu-active"; else echo ""?>"><i class="flaticon-woman"></i><span>การจัดการสมาชิก</span></a>
+                                <ul class="nav sub-group-menu <?php if(($menu_active == "management") && !empty($menu_active2 == "parent" || $menu_active2=="staff")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "user") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ผู้ปกครอง</a>
+                                        <a href="{{ url('admin/management/parent') }}" class="nav-link <?php if($menu_active2 == "parent") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ผู้ปกครอง</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "staff") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>พนักงาน</a>
+                                        <a href="{{ url('admin/management/staff') }}" class="nav-link <?php if($menu_active2 == "staff") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>พนักงาน</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "car-management") echo "menu-active"; else echo ""?>"><i class="flaticon-cap"></i><span>รายละเอียดเด็กบนรถ</span></a>
-                                <ul class="nav sub-group-menu <?php if(($menu_active == "car-management") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
+                                <a href="#" class="nav-link <?php if($menu_active == "car-overview") echo "menu-active"; else echo ""?>"><i class="flaticon-cap"></i><span>รายละเอียดเด็กบนรถ</span></a>
+                                <ul class="nav sub-group-menu <?php if(($menu_active == "car-overview") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
+                                        <a href="{{ url('admin/car-overview/car1') }}" class="nav-link <?php if($menu_active == "car-overview" && $menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
+                                        <a href="{{ url('admin/car-overview/car2') }}" class="nav-link <?php if($menu_active == "car-overview" && $menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -330,7 +340,12 @@
         document.getElementById("role").innerHTML = getCookie('role_name');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
-        document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+        var elem = document.getElementById('photo_user');
+        if(getCookie('image') != ""){
+                document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+            }else{
+                document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+            }
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>
@@ -361,11 +376,14 @@
     <!-- HighChart Js -->
     <script src="{{ URL::asset('js/internal/highcharts.js') }}"></script>
     <!-- Dropzone Js -->
-    <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script>
+    <script src="{{ URL::asset('plugins/dropzone/dropzone_admin.js') }}"></script>
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
+
+    @yield('script')
+    
 </body>
 
 </html>

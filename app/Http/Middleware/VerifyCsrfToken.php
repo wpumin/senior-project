@@ -30,6 +30,10 @@ class VerifyCsrfToken extends Middleware
         '/receive_otp',
         '/newpassword',
         '/forgotpassword/againotp',
-        'pass_forgot'
+        'pass_forgot',
+        '/tasks/refresh/appointment',
+        '/tasks/refresh/appointment/student',
+        '/tasks/refresh/report',
+
     ];
 }

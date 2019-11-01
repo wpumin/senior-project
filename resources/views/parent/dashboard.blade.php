@@ -264,9 +264,9 @@ function convertStringDes($input){
 
             var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
                 {
-                    title: 'Bear-Bus',
+                    title: 'รถรับส่งนักเรียน',
                     icon: {
-                        url: 'https://bear-bus.com/images/internal/marker3.png'
+                        url: 'https://bear-bus.com/images/internal/bearbus.png'
                     },
                     detail: 'ตำแหน่งปัจจุบัน',
                     // visibleRange: { min: 7, max: 9 },
@@ -274,6 +274,9 @@ function convertStringDes($input){
                     weight: longdo.OverlayWeight.Top,
                 });
                 init();
+
+                // marker.move(marker);
+                // map.location(longdo.LocationMode.Geolocation);
                 map.Overlays.add(marker);
 
         });
@@ -297,6 +300,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
             {
                 title: 'จุดรับส่งที่ 1',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'เทศบาลตำบลบ้านไร่'
             }
         ));
@@ -304,6 +310,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.147868, lon: 99.672083  },
             {
                 title: 'จุดรับส่งที่ 2',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'ตำบลหูช้าง'
             }
         ));
@@ -311,6 +320,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.175955, lon: 99.696781 },
             {
                 title: 'จุดรับส่งที่ 3',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'ตำบลเมืองโบราณการุ้ง'
             }
         ));
@@ -318,6 +330,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.215208, lon: 99.690788 },
             {
                 title: 'จุดรับส่งที่ 4',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'ตำบลบ้านคลองโป่ง'
             }
         ));
@@ -325,6 +340,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.260942, lon: 99.680222 },
             {
                 title: 'จุดรับส่งที่ 5',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'ตำบลเขาตะพาบ'
             }
         ));
@@ -332,6 +350,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.382140, lon: 99.851870 },
             {
                 title: 'จุดรับส่งที่ 6',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'โรงเรียนหนองฉางวิทยา'
             }
         ));
@@ -339,6 +360,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.390607, lon: 99.833714 },
             {
                 title: 'จุดรับส่งที่ 7',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'โรงเรียนธรรมานุวัตรวิทยา'
             }
         ));
@@ -346,6 +370,9 @@ function convertStringDes($input){
         map.Route.add(new longdo.Marker({ lat: 15.388589, lon: 99.835618 },
             {
                 title: 'จุดรับส่งที่ 8',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
                 detail: 'โรงเรียนวัดหนองขุนชาติ'
             }
         ));
