@@ -6944,3 +6944,14 @@ textarea.form-control{
     object-fit: cover;
     border-radius: 50%;
 }
+
+@media only screen and (max-width: 768px){
+    .custom-nav{    
+        width: 50% !important;
+    }
+}
+
+.custom-nav{
+    width: 25%;
+    text-align: center;
+}
