@@ -160,8 +160,6 @@ function convertStringDes($input){
 
 @section('script')
 
-
-
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script type="text/javascript">
@@ -286,7 +284,6 @@ function convertStringDes($input){
 
     // long do map
     function init() {
-
 
         map = new longdo.Map({
             placeholder: document.getElementById('map')

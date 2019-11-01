@@ -35,10 +35,6 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
-    <!-- Openlayers popup -->
-    <link rel="stylesheet" href="{{ URL::asset('plugins/openlayers/ol.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('plugins/openlayers/ol-popup.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('plugins/openlayers/popup.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
@@ -46,10 +42,6 @@
     <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
     <!-- WOW -->
     <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
-    <!-- Openlayers popup -->
-    <script src="{{ URL::asset('plugins/openlayers/ol.js') }}"></script>
-    <script src="{{ URL::asset('plugins/openlayers/ol-popup.js') }}"></script>
-    <script src="{{ URL::asset('plugins/openlayers/popup.js') }}"></script>
     <!-- Custom JS -->
     <script src="{{ URL::asset('js/external/main.js') }}"></script>
 
@@ -262,10 +254,10 @@
                                 <a href="#" class="nav-link <?php if($menu_active == "dashboard") echo "menu-active"; else echo ""?>"><i class="flaticon-graph"></i><span>แดชบอร์ด</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active == "dashboard") && !empty($menu_active2 == "car1" || $menu_active2=="car2")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
+                                        <a href="{{ url('admin/dashboard/car1') }}" class="nav-link <?php if($menu_active == "dashboard" && $menu_active2 == "car1") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 1</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link <?php if($menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
+                                        <a href="{{ url('admin/dashboard/car2') }}" class="nav-link <?php if($menu_active == "dashboard" && $menu_active2 == "car2") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>คันที่ 2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -343,9 +335,9 @@
         var elem = document.getElementById('photo_user');
         if(getCookie('image') != ""){
                 document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
-            }else{
-                document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
-            }
+        }else{
+            document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+        }
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

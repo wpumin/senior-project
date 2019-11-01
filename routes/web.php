@@ -113,7 +113,10 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/management/staff/create', function () {
         return view('admin.staff_management_create');
     });
-    Route::get('/dashboard', function () {
+    Route::get('/dashboard/car1', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/dashboard/car2', function () {
         return view('admin.dashboard');
     });
     Route::get('/profile', function () {

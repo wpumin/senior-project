@@ -4,6 +4,27 @@
 
 @section('content')
 
+<?php
+    $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    $current_page = (explode("/",$current_url));
+    $menu_active = $current_page[2];
+    // echo $menu_active;
+    if(!empty($current_page[3]))
+    {
+        $menu_active2 = $current_page[3];
+    }else{
+        $menu_active2 = "";
+    }
+    if(!empty($current_page[4]))
+    {
+        $menu_active3 = $current_page[4];
+    }else{
+        $menu_active3 = "";
+    }
+    // echo '<pre>'. $menu_active . '</pre>';
+    // echo '<pre>'. $menu_active2 . '</pre>';
+    // echo '<pre>'. $menu_active3 . '</pre>';
+?>
 
 <!-- Payment Table Area Start Here -->
 <div class="heading text-left">
@@ -86,7 +107,7 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>ประจำคันรถที่ 1: เดือนตุลาคม 2562</h3>
+                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือนตุลาคม 2562</h3>
             </div>
             {{-- <div class="dropdown-refresh">
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>

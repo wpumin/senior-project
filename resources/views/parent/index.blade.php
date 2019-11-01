@@ -79,10 +79,6 @@ $('.toggle-result').click(function(){
 // long do map
 function init() {
 
-    // $('.toggle-result').click(function(){
-    //     $('#result').slideToggle();
-    // });
-
     setInterval(function(){
 
         $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
