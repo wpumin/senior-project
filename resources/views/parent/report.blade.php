@@ -22,23 +22,16 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
                             <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off" id="title">
                         </div>
-                        {{-- <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off" id="user_id">
-                                <option value="">ผู้ปกครอง</option>
-                                <option value="1">นายสมโรจ โคตรเอา</option>
-                                <option value="2">นางสาวสมสุข สู่สวรรค์ </option>
-                            </select>
-                        </div> --}}
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
-                                <option value="7">บริการทั่วไป</option>
-                                <option value="1">พฤติกรรมคนขับ</option>
+                                <option value="1">บริการทั่วไป</option>
+                                <option value="2">พฤติกรรมคนขับ</option>
                                 <option value="3">ระบบการชำระเงิน</option>
                                 <option value="4">ระบบแจ้งเดินทางเอง</option>
-                                <option value="4">ระบบติดตามรถบัส</option>
-                                <option value="5">แดชบอร์ด</option>
-                                <option value="6">แก้ไขโปรไฟล์</option>
+                                <option value="5">ระบบติดตามรถบัส</option>
+                                <option value="6">แดชบอร์ด</option>
+                                <option value="7">แก้ไขโปรไฟล์</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
@@ -83,41 +76,7 @@
                     </div>
                 </form>
                 <div class="notice-board-wrap" id="report">
-                    {{-- <div class="notice-list">
-                        <div class="post-date badge-red"> เร่งด่วน | 13/06/2562 - พฤติกรรมคนขับ</div>
-                        <h5 class="mb-2">หัวข้อ: คนขับรถขับรถเร็ว น่าหวาดเสียว</h5>
-                        <p class="notice-title">รบกวนเจ้าของช่วยอบรมการขับรถของคนขับรถคันสีแดงๆ สายบ้านไร่ด้วยครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date badge-orange"> ปานกลาง | 07/06/2562 - ระบบการชำระเงิน</div>
-                        <h5 class="mb-2">หัวข้อ: สถานะการจ่ายเงิน</h5>
-                        <p class="notice-title">ผมกดยืนยันการชำระเงินไป 2 วันแลัว ตอนนี้ยังไม่มีการตรวจสอบสลิปอีกหรอครับ ยังไงรบกวนด้วยนะครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date badge-orange">ปานกลาง | 04/06/2562 - ระบบแจ้งเดินทางเอง</div>
-                        <h5 class="mb-2">หัวข้อ: ระบบไม่อัพเดตข้อมูลที่กรอกในฟอร์ม</h5>
-                        <p class="notice-title">ผมกดปุ่ม ยืนยัน เพื่อยืนยันการเดินทางเองของลูกผมแต่ว่าระบบไม่ยอมอัพเดตรายการให้ผมฝั่งขวาของหน้าเว็บให้ผมอะครับ ยังไงรบกวนตรวจสอบหน่อยนะครับ ผมรบกวนเพิ่มรายการกลับบ้านเองให้น้องคิดวันที่ 22 เดือนนี้ด้วยนะครับ ตอนเช้าไปโรงเรียนเอง</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date badge-green">เล็กน้อย | 02/06/2562 - ระบบติดตามรถบัส</div>
-                        <h5 class="mb-2">หัวข้อ: รถในแผนที่ไม่ขยับ</h5>
-                        <p class="notice-title">ผมเปิดดู Google Map แล้วรถไม่ขยับเลยครับ ไม่ทราบว่าผมต้องทำยังไงรบกวนติดต่อกลับมาที่ 0898115155 ด้วยนะครับขอบคุณครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date badge-green">เล็กน้อย | 20/06/2562 - แดชบอร์ด</div>
-                        <h5 class="mb-2">หัวข้อ: พยากรณ์สภาพอากาศอุณหภูมิสูงสุด ต่ำสุดเท่ากันทุกวัน</h5>
-                        <p class="notice-title">ไม่มั่นใจว่าใช่บัคไหมครับอุณหภูมิสูงสุดและต่ำสุดของวันที่พยากรณ์ล่วงหน้าเท่ากันหมดทุกวันเลย</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date badge-orange">ปานกลาง | 20/06/2562 - โปรไฟล์</div>
-                        <h5 class="mb-2">หัวข้อ: แจ้งแก้ไขโปรไฟล์</h5>
-                        <p class="notice-title">โปรไฟล์ของผมผิดยังไงรบกวนแก้ชื่อจาก ภูมินทร์ เป็นภูมินท์ ด้วยนะครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date badge-red">เร่งด่วน | 20/06/256 - พฤติกรรมคนขับ</div>
-                        <h5 class="mb-2">หัวข้อ: คนขับโกงเงินค่ารถเด็กครับ</h5>
-                        <p class="notice-title">คนขับรถคัน โกญจนาท โกงเงินค่ารถลูกผมครับ ลูกผมจ่ายแล้วแต่บอกว่ายังไม่ได้จ่าย ฝากจัดการให้ผมหน่อยครับ ขอบคุณครับ</p>
-                    </div> --}}
+                    {{-- ข้อมูลในระบบ Report จะส่งเข้ามาในส่วนนี้ --}}
                 </div>
             </div>
         </div>

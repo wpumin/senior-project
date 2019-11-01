@@ -12,12 +12,17 @@ class TypeReportTableSeeder extends Seeder
     public function run()
     {
         DB::table('type_reports')->insert([
+            'type_name' => 'บริการทั่วไป',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('type_reports')->insert([
             'type_name' => 'พฤติกรรมคนขับ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('type_reports')->insert([
-            'type_name' => 'ระบบการเงิน',
+            'type_name' => 'ระบบการชำระเงิน',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
