@@ -127,7 +127,7 @@
                                         <span id="role"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" src="{{ URL::asset('images/internal/figure/default.jpg') }}" alt="Admin">
+                                        <img id="photo_user" src="" alt="admin avatar">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -340,7 +340,12 @@
         document.getElementById("role").innerHTML = getCookie('role_name');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
-        document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+        var elem = document.getElementById('photo_user');
+        if(getCookie('image') != ""){
+                document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+            }else{
+                document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+            }
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

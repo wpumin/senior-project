@@ -99,14 +99,13 @@
                     ?>
                         <ul class="navbar-nav">
                             <li class="navbar-item dropdown header-admin">
-                                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                    aria-expanded="false">
+                                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                                     <div class="admin-title">
                                         <h5 class="item-title" id="name"></h5>
                                         <span id="role"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img src="{{ URL::asset('images/internal/figure/default.jpg') }}" alt="Parent">
+                                        <img src="" id="photo_user" alt="Parent">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -188,7 +187,7 @@
                                         <span id="role">คนขับรถ</span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" alt="Driver">
+                                        <img src="" id="photo_user" alt="Driver">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -435,7 +434,11 @@
             document.getElementById("role").innerHTML = getCookie('role_name');
             document.getElementById("f_name").innerHTML = getCookie('f_name');
             document.getElementById("l_name").innerHTML = getCookie('l_name');
-            document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+            if(getCookie('image') != ""){
+                document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+            }else{
+                document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+            }
         </script>
         <!-- jquery-->
         <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

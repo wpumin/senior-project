@@ -79,9 +79,9 @@ $('.toggle-result').click(function(){
 // long do map
 function init() {
 
-    $('.toggle-result').click(function(){
-        $('#result').slideToggle();
-    });
+    // $('.toggle-result').click(function(){
+    //     $('#result').slideToggle();
+    // });
 
     setInterval(function(){
 
@@ -96,7 +96,7 @@ function init() {
                 {
                     title: 'รถรับส่งนักเรียน',
                     icon: {
-                        url: 'https://bear-bus.com/images/internal/marker4.png'
+                        url: 'https://bear-bus.com/images/internal/bearbus.png'
                     },
                     detail: 'ตำแหน่งปัจจุบัน',
                     // visibleRange: { min: 7, max: 9 },
