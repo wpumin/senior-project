@@ -43,7 +43,7 @@
     <!-- WOW -->
     <script src="{{ URL::asset('plugins/wow/wow.min.js') }}"></script>
     <!-- Custom JS -->
-    <script src="{{ URL::asset('js/external/main.js') }}"></script>
+    {{-- <script src="{{ URL::asset('js/external/main.js') }}"></script> --}}
 
 </head>
 {{-- menu active (don't remove) --}}

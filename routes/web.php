@@ -80,12 +80,6 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/index', function () {
         return view('admin.index');
     });
-    // Route::get('/overview/car1', function () {
-    //     return view('admin.car-management');
-    // });
-    // Route::get('/overview/car2', function () {
-    //     return view('admin.car-management');
-    // });
     Route::get('/news', function () {
         return view('admin.news');
     });

@@ -37,6 +37,7 @@
     function init() {
 
         setInterval(function(){
+            
 
             $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
                 // console.log(result['data']['lat']);
