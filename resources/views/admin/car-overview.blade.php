@@ -214,7 +214,10 @@
 </div>
 <!-- Picture Modal End Here -->
 
+    {{-- free --}}
     <script src="//maps.googleapis.com/maps/api/js"></script>
+    {{-- paid --}}
+    {{-- <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script> --}}
     <script>
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
@@ -310,7 +313,7 @@
                                 '<td>' +
                                 '<div class="dropdown">' +
                                 '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data['student'][i]['lattitude'] + ' data-lng=' + response.data['student'][i]['longtitude'] + '>' +
-                                '<span class="flaticon-pin"></span>' +
+                                '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
                                 '</a>' +
                                 '</div>' +
                                 '</td>' +

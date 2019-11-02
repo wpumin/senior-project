@@ -367,7 +367,9 @@
         });
     </script>
 
-    {{-- google maps (Free Trail) --}}
+    {{-- google maps (Free) --}}
+    {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> --}}
+    {{-- google maps (Paid) --}}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script>
     <script>
         var geocoder;
@@ -393,7 +395,8 @@
             marker = new google.maps.Marker({
                 map: map,
                 draggable: true,
-                position: latlng
+                position: latlng,
+                animation: google.maps.Animation.DROP
             });
             google.maps.event.addListener(marker, "dragend", function () {
                 var point = marker.getPosition();

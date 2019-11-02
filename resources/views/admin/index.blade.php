@@ -74,7 +74,7 @@
                     <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
                 </div>
                 <div class="col-xl-3 col-lg-2 col-12 form-group">
-                    <select class="form-control select2" required autocomplete="off">
+                    <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยระดับความสำคัญ</option>
                         <option value="1">เล็กน้อย</option>
                         <option value="2">ปานกลาง</option>
@@ -82,7 +82,7 @@
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-2 col-12 form-group">
-                    <select class="form-control select2" required autocomplete="off">
+                    <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยประเภท</option>
                         <option value="1">บริการทวั่ไป</option>
                         <option value="2">พฤติกรรมคนจับ</option>

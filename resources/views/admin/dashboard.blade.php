@@ -20,7 +20,7 @@
 <div class="card ui-tab-card">
     <div class="card-body">
         <div class="border-nav-tab">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs d-none d-md-flex" role="tablist">
                 <li class="nav-item custom-nav">
                     <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">ขึ้นรถ (เช้า)</a>
                 </li>
@@ -34,6 +34,14 @@
                     <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-selected="false">ลงรถ (เย็น)</a>
                 </li>
             </ul>
+            <div class="form-group  d-block d-md-none">
+                <select class="form-control" id="select-box">
+                    <option value="1">ขึ้นรถ (เช้า)</option>
+                    <option value="2">ลงรถ (เช้า)</option>
+                    <option value="3">ขึ้นรถ (เย็น)</option>
+                    <option value="4">ลงรถ (เย็น)</option>
+                </select>
+            </div>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                     <div class="table-responsive">
@@ -487,7 +495,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="tab39" role="tabpanel">
+                <div class="tab-pane fade" id="tab3" role="tabpanel">
                     <div class="table-responsive">
                         <table class="table bs-table table-striped table-bordered text-nowrap">
                             <thead>
@@ -714,7 +722,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tab4" role="tabpanel">
-                                        <div class="table-responsive">
+                    <div class="table-responsive">
                         <table class="table bs-table table-striped table-bordered text-nowrap">
                             <thead>
                                 <tr>
@@ -947,6 +955,21 @@
 @endsection
 
 @section('script')
+
+<script>
+
+$('#select-box').change(function () {
+   dropdown = $(this).val();
+  //first hide all tabs again when a new option is selected
+  $('.tab-pane').hide();
+//   $('.tab-pane.fade').fadeOut();
+//   console.log(dropdown);
+  //then show the tab content of whatever option value was selected
+  $('#tab' + dropdown).show();
+  $('#tab' + dropdown).css('opacity','1');                                        
+});
+
+</script>
 
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 

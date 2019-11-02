@@ -116,7 +116,7 @@
         <form class="mb-5 mb-lg-0 new-added-form">
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-lg-3 col-12 form-group">
-                    <select class="form-control select2" required autocomplete="off">
+                    <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>
                         <option value="2">กันยายน 2562</option>
                         <option value="3">สิงหาคม 2562</option>
@@ -126,7 +126,7 @@
                     </select>
                 </div>
                 <div class="col-3-xxxl col-lg-3 col-12 form-group">
-                    <select class="form-control select2" required autocomplete="off">
+                    <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยจำนวนเงิน</option>
                         <option value="1">350.00</option>
                         <option value="2">500.00</option>
@@ -137,7 +137,7 @@
                     </select>
                 </div>
                 <div class="col-3-xxxl col-lg-2 col-12 form-group">
-                    <select class="form-control select2" required autocomplete="off">
+                    <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
                         <option value="2">จ่า</option>

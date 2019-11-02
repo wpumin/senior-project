@@ -482,7 +482,9 @@ $(document).ready(function() {
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
     myMarker = new google.maps.Marker({
-      position: myLatlng
+      position: myLatlng,
+      draggable: false,
+      animation: google.maps.Animation.DROP
     });
     myMarker.setMap(map);
   }
