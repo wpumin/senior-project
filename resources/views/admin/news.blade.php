@@ -1,6 +1,6 @@
 @extends('layouts.master_sidebar')
 
-@section('title','จัดการบัญชีผู้ปกครอง')
+@section('title','จัดการข่าวสาร')
 
 @section('content')
 

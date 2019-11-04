@@ -8,7 +8,7 @@
 <div class="heading text-left">
     <h3>เพิ่มบัญชีผู้ปกครอง</h3>
 </div>
-<div class="card height-auto">
+<div class="card height-auto pb-0">
     <div class="card-body pt-5">
         <div class="heading-layout1">
             <div class="item-title">

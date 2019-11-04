@@ -17,7 +17,7 @@
 <div class="heading text-left">
     <h3>บันทึกการขึ้น-ลงรถประจำเดือน</h3>
 </div>
-<div class="card ui-tab-card">
+<div class="card ui-tab-card pb-0">
     <div class="card-body p-4 p-md-5">
         <div class="border-nav-tab">
             <ul class="nav nav-tabs d-none d-md-flex" role="tablist">

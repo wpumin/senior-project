@@ -17,7 +17,7 @@
                     <input type="text" placeholder="หมายเลขรายการ" class="form-control" required autocomplete="off">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="เวลา" class="form-control" required autocomplete="off">
+                    <input type="text" placeholder="เวลา" class="form-control" id="timepicker" required autocomplete="off">
                     <i class="far fa-clock"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
