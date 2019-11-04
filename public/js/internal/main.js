@@ -531,4 +531,85 @@ $(document).ready(function(){
   });
 });
 
-// openlayers
+  /*-------------------------------------
+                 Date Picker
+      -------------------------------------*/
+
+$(document).ready(function(){
+    $('#timepicker').mdtimepicker(); //Initializes the time picker
+      $('input.calendar').pignoseCalendar({
+          format: 'DD/MM/YYYY', // date format string.
+          disabledWeekdays: [0, 6], // SUN (0), SAT (6)
+          select: function(date, obj) {
+            var full_d=date[0].format('YYYY-MM-DD');
+            var prev=date[0];
+            var curnt=date[1];
+            var full_date=new Date(full_d);
+            console.log(full_d);
+
+        }
+    });
+});
+
+// setting feature is support from `v1.4.14` version.
+$('.calendar').pignoseCalendar('setting', {
+  // date format follows moment sheet.
+  // Check below link.
+  // https://momentjs.com/docs/#/parsing/string-format/
+  format: 'YYYY-MM-DD',
+  // Starting day of week. (0 is Sunday[default], 6 is Saturday
+  // and all day of week is in consecutive order.
+  // In this example, We will start from Saturday.
+  week: 6,
+  language: 'th', // Default Language
+  languages: {
+      // You will set `custom` language.
+      'th': {
+      // Weeks sun ~ sat.
+      weeks: [
+          'จ.',
+          'อ.',
+          'พ.',
+          'พฤ.',
+          'ศ.',
+          'ส.',
+          'อา.'
+      ],
+      // Month long names January ~ December
+      monthsLong: [
+          'มกราคม',
+          'กุมภาพันธ์',
+          'มีนาคม',
+          'เมษายน',
+          'พฤษภาคม',
+          'มิถุนายน',
+          'กรกฎาคม',
+          'สิงหาคม',
+          'กันยายน',
+          'ตุลาคม',
+          'พฤศจิกายน',
+          'ธันวาคม'
+      ],
+      // Month short names Jan ~ Dec
+      months: [
+          'ม.ค.',
+          'ก.พ.',
+          'มี.ค.',
+          'เม.ย.',
+          'พ.ค.',
+          'มิ.ย.',
+          'ก.ค.',
+          'ส.ค.',
+          'ก.ย.',
+          'ต.ค.',
+          'พ.ย.',
+          'ธ.ค.'
+      ],
+      // Other control words
+      controls: {
+          ok: 'ok',
+          cancel: 'cancel'
+      }
+      }
+  }
+});

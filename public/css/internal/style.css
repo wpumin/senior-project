@@ -6955,3 +6955,7 @@ textarea.form-control{
     width: 25%;
     text-align: center;
 }
+
+.calendar, #timepicker{
+    cursor: pointer !important;
+}

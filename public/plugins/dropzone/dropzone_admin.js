@@ -421,7 +421,7 @@ var Dropzone = function (_Emitter) {
         /**
          * The text used before any files are dropped.
          */
-        dictDefaultMessage: "<span class='flaticon-download-arrow'><span> อัพโหลดภาพโปรไฟล์",
+        dictDefaultMessage: "<span class='flaticon-download-arrow'><span> อัพโหลดไฟล์ภาพ",
 
         /**
          * The text that replaces the default message text it the browser is not supported.

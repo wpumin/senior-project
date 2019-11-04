@@ -33,8 +33,12 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/animate.min.css') }}">
     <!-- Data Table CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
-    <!-- Owl-Carousel -->
+    <!-- Owl-Carousel CSS -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
+    <!-- Time Picker CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/timepicker/mdtimepicker.css') }}">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/datepicker/pignose.calendar.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
@@ -128,7 +132,7 @@
                                     </div>
                                     <div class="item-content">
                                         <ul class="settings-list">
-                                        <li><a href="{{ url('driver/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
+                                        <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
                                             <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                         </ul>
                                     </div>
@@ -152,7 +156,7 @@
                                                 <i class="fas fa-check"></i>
                                             </div>
                                             <div class="media-body space-sm">
-                                                <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                                <div class="post-title">ร้องเรียน พฤติกรรมคนขับ</div>
                                                 <span>1 นาทีที่แล้ว</span>
                                             </div>
                                         </div>
@@ -161,7 +165,7 @@
                                                 <i class="fas fa-check"></i>
                                             </div>
                                             <div class="media-body space-sm">
-                                                <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
+                                                <div class="post-title">ร้องเรียน ระบบการเงิน</div>
                                                 <span>1 ชั่วโมง 20 นาทีที่แล้ว</span>
                                             </div>
                                         </div>
@@ -170,7 +174,7 @@
                                                 <i class="fas fa-check"></i>
                                             </div>
                                             <div class="media-body space-sm">
-                                                <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                                <div class="post-title">ร้องเรียน บริการทั่วไป</div>
                                                 <span>8 ชั่วโมงที่แล้ว</span>
                                             </div>
                                         </div>
@@ -229,7 +233,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item sidebar-nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "management") echo "menu-active"; else echo ""?>"><i class="flaticon-woman"></i><span>การจัดการสมาชิก</span></a>
+                                <a href="#" class="nav-link <?php if($menu_active == "management" && ($menu_active2 == "parent" || $menu_active2=="staff")) echo "menu-active"; else echo ""?>"><i class="flaticon-woman"></i><span>การจัดการสมาชิก</span></a>
                                 <ul class="nav sub-group-menu <?php if(($menu_active == "management") && !empty($menu_active2 == "parent" || $menu_active2=="staff")) echo "sub-group-active"; else echo "";?>">
                                     <li class="nav-item">
                                         <a href="{{ url('admin/management/parent') }}" class="nav-link <?php if($menu_active2 == "parent") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ผู้ปกครอง</a>
@@ -262,7 +266,7 @@
                                 </ul>
                             </li>
                              <li class="nav-item">
-                                <a href="#" class="nav-link <?php if($menu_active == "news") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>โพสต์ข่าวสาร</span></a>
+                                <a href="{{ url('admin/management/news') }}" class="nav-link <?php if($menu_active == "management" && $menu_active2 == "news" ) echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ข่าวสาร</span></a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
@@ -284,6 +288,8 @@
     </div>
 
     <script>
+
+        $('.sidebar-color').addClass('addHeight');
 
         function setCookie(cname, cvalue, exdays) {
         var d = new Date();
@@ -371,6 +377,10 @@
     <script src="{{ URL::asset('plugins/dropzone/dropzone_admin.js') }}"></script>
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+    <!-- Time Picker -->
+    <script src="{{ URL::asset('plugins/timepicker/mdtimepicker.js') }}"></script>
+    <!-- Date Picker -->
+    <script src="{{ URL::asset('plugins/datepicker/pignose.calendar.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
 

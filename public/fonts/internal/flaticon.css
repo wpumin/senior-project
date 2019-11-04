@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 31/10/2019 06:23
+  	Creation date: 02/11/2019 09:24
   	*/
 
 @font-face {
@@ -86,3 +86,4 @@
 .flaticon-minus:before { content: "\f135"; font-size: 11px;}
 .flaticon-minus-1:before { content: "\f136"; }
 .flaticon-photo:before { content: "\f137"; font-size: 30px; color: #bababa}
+.flaticon-new:before { content: "\f138"; }

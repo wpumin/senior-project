@@ -21,7 +21,7 @@
                     <i class="far fa-clock"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker" data-position="bottom right" required autocomplete="off">
+                    <input type="text" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                     <i class="far fa-calendar-alt"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">

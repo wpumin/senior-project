@@ -47,7 +47,7 @@
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <input type="text" id="date"placeholder="วว/ดด/ปปปป" class="form-control air-datepicker" data-position="bottom right" required autocomplete="off">
+                            <input type="text" id="date"placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-12 form-group">
@@ -82,7 +82,7 @@
                             </select>
                         </div>
                         <div class="col-lg-3 col-12 form-group">
-                            <input type="text" placeholder="ค้นหาวันที่" class="form-control air-datepicker" data-position="bottom right" autocomplete="off">
+                            <input type="text" placeholder="ค้นหาวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-lg-2 col-12 form-group">
@@ -103,14 +103,14 @@
                                 </tr>
                             </thead>
                             <tbody id="showForm">
-                                <!-- <tr>
-                                    <td>1</td>
-                                    <td>อชิตะ ลิลิตสัจจะ</td>
-                                    <td>คิด</td>
-                                    <td>08/08/2562</td>
-                                    <td>ชวงเช้า</td>
-                                    <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
-                                </tr>               -->
+                                 {{-- <tr>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                </tr>                --}}
                             </tbody>
                         </table>
                     </div>
@@ -265,7 +265,7 @@
                 success: function(response) {
                     if (response.status == 'success') {
 
-                        $('table tbody').html('');
+                        // $('table tbody').html('');
                         let modalUser = document.getElementById("name").innerHTML = name;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {

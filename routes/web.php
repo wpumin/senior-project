@@ -80,8 +80,11 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/index', function () {
         return view('admin.index');
     });
-    Route::get('/news', function () {
+    Route::get('/management/news', function () {
         return view('admin.news');
+    });
+    Route::get('/management/news/create', function () {
+        return view('admin.news_create');
     });
     Route::get('/payment/overview/car1', function () {
         return view('admin.payment_overview');

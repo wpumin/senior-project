@@ -55,7 +55,8 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            {{-- {{ url('admin/management/parent/edit') }} --}}
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +67,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -77,7 +78,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +89,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -99,7 +100,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -110,7 +111,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -121,7 +122,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -132,7 +133,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -143,7 +144,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -154,7 +155,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -165,7 +166,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -176,7 +177,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -187,7 +188,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -198,7 +199,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -209,7 +210,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -220,7 +221,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -231,7 +232,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -242,7 +243,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -253,7 +254,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -264,7 +265,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -275,7 +276,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -286,7 +287,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -297,7 +298,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -308,7 +309,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                     <tr>
@@ -319,7 +320,7 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            <a href="{{ url('admin/management/parent/edit') }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
                     </tr>
                 </tbody>

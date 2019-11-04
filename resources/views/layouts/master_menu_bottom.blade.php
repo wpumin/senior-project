@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="{{ URL::asset('css/internal/jquery.dataTables.min.css') }}">
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.css') }}">
+    <!-- Time Picker CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/timepicker/mdtimepicker.css') }}">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/datepicker/pignose.calendar.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
     <!-- Modernize js -->
@@ -221,7 +225,7 @@
                                             <i class="fas fa-check"></i>
                                         </div>
                                         <div class="media-body space-sm">
-                                            <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                            <div class="post-title">ส่งนักเรียนครบทุกคนแล้ว</div>
                                             <span>1 นาทีที่แล้ว</span>
                                         </div>
                                     </div>
@@ -239,7 +243,7 @@
                                             <i class="fas fa-check"></i>
                                         </div>
                                         <div class="media-body space-sm">
-                                            <div class="post-title">ส่งเด็กนักเรียนครบทุกคนแล้ว</div>
+                                            <div class="post-title">ส่งนักเรียนครบทุกคนแล้ว</div>
                                             <span>8 ชั่วโมงที่แล้ว</span>
                                         </div>
                                     </div>
@@ -388,6 +392,8 @@
 
     <script>
 
+        $('.sidebar-color').addClass('addHeight');
+
         function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -473,6 +479,10 @@
     <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script>
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+     <!-- Time Picker -->
+     <script src="{{ URL::asset('plugins/timepicker/mdtimepicker.js') }}"></script>
+    <!-- Date Picker -->
+    <script src="{{ URL::asset('plugins/datepicker/pignose.calendar.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
 
