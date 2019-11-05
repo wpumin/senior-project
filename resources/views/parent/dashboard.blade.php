@@ -207,7 +207,7 @@ function convertStringDes($input){
             type: 'areaspline'
         },
         title: {
-            text: 'เวลาขึ้น-ลงเฉลี่ย'
+            text: 'เวลาขึ้น-ลงเฉลี่ย (น้องคิด)'
         },
         subtitle: {
             text: 'เช้า: 7.25 น. | เย็น: 16.25 น.'
@@ -291,7 +291,7 @@ function convertStringDes($input){
             type: 'areaspline'
         },
         title: {
-            text: 'เวลาขึ้น-ลงเฉลี่ย'
+            text: 'เวลาขึ้น-ลงเฉลี่ย (น้องมาร์ช)'
         },
         subtitle: {
             text: 'เช้า: 7.24 น. | เย็น: 16.24 น.'
