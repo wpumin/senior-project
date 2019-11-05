@@ -21,6 +21,7 @@ class CreateReportsTable extends Migration
             $table->string('order_id');
             $table->string('title');
             $table->string('content');
+            $table->string('date')->nullable();
             $table->timestamps();
         });
     }

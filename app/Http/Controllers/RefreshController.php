@@ -123,12 +123,17 @@ class RefreshController extends Controller
             return $this->responseRequestError($errors);
         }
 
+        $day = date('d');
+        $month = date('m');
+        $year = date('Y') + 543;
+        $full = $day . '-' . $month . '-' . $year;
+
         $report = DB::table('reports')
             ->join('users', 'reports.user_id', '=', 'users.id')
             ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
             ->join('order_reports', 'reports.order_id', '=', 'order_reports.id')
             ->select('reports.*', 'type_reports.type_name','order_reports.name')
-            ->where('reports.user_id', $this->request->input('user_id'))
+            ->where('reports.user_id', $this->request->input('user_id'))    
             ->orderBy('reports.created_at', 'desc')
             ->get();
 
