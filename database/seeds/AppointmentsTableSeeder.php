@@ -14,7 +14,7 @@ class AppointmentsTableSeeder extends Seeder
     {
         DB::table('appointments')->insert([
             'user_id' => 1,
-            'period_time' => 'เช้า(ขาไป)',
+            'period_time_id' => '1',
             'date' => Carbon::now()->format('Y-m-d'),
             'content' => NULL,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -22,7 +22,7 @@ class AppointmentsTableSeeder extends Seeder
 
         DB::table('appointments')->insert([
             'user_id' => 2,
-            'period_time' => 'เย็น(ขากลับ)',
+            'period_time_id' => '2',
             'date' => Carbon::now()->format('Y-m-d'),
             'content' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')

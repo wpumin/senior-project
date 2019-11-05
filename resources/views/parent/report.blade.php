@@ -20,21 +20,22 @@
                 <form id="reportForm" class="new-added-form">
                     <div class="row">
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
-                            <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off">
+                            <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off" id="title">
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off">
+                            <select class="select2" required autocomplete="off" id="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
-                                <option value="1">พฤติกรรมคนขับ</option>
-                                <option value="2">ระบบการชำระเงิน</option>
-                                <option value="3">ระบบแจ้งเดินทางเอง</option>
-                                <option value="4">ระบบติดตามรถบัส</option>
-                                <option value="5">แดชบอร์ด</option>
-                                <option value="6">แก้ไขโปรไฟล์</option>
+                                <option value="1">บริการทั่วไป</option>
+                                <option value="2">พฤติกรรมคนขับ</option>
+                                <option value="3">ระบบการชำระเงิน</option>
+                                <option value="4">ระบบแจ้งเดินทางเอง</option>
+                                <option value="5">ระบบติดตามรถบัส</option>
+                                <option value="6">แดชบอร์ด</option>
+                                <option value="7">แก้ไขโปรไฟล์</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off">
+                            <select class="select2" required autocomplete="off" id="order_id">
                                 <option value="">ระดับความสำคัญ</option>
                                 <option value="1">เล็กน้อย</option>
                                 <option value="2">ปานกลาง</option>
@@ -42,10 +43,10 @@
                             </select>
                         </div>
                         <div class="col-12 form-group">
-                            <textarea class="textarea form-control" name="message" id="form-message" cols="10" rows="15" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                            <textarea class="textarea form-control" name="message" id="content" cols="10" rows="15" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                         </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
-                            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal">ยืนยัน</button>
+                            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
                         </div>
                     </div>
                 </form>
@@ -63,8 +64,8 @@
                 <form class="mg-b-10 mb-5 mb-lg-0" id="reportForm">
                     <div class="row gutters-8 new-added-form">
                         <div class="col-lg-5 col-12 form-group">
-                            <input type="text" placeholder="ค้นหาวันที่" class="form-control air-datepicker" data-position="bottom right" required autocomplete="off">
-                            <i class="far fa-calendar-alt"></i>
+                            <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
+                            <i class="far fa-calendar-alt" style="right: 22px !important;"></i>
                         </div>
                         <div class="col-lg-5 col-12 form-group">
                             <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
@@ -74,42 +75,8 @@
                         </div>
                     </div>
                 </form>
-                <div class="notice-board-wrap">
-                    <div class="notice-list">
-                        <div class="post-date bg-special-orange">13/06/2562 | พฤติกรรมคนขับ</div>
-                        <h5 class="mb-2">หัวข้อ: คนขับรถขับรถเร็ว น่าหวาดเสียว</h5>
-                        <p class="notice-title">รบกวนเจ้าของช่วยอบรมการขับรถของคนขับรถคันสีแดงๆ สายบ้านไร่ด้วยครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date bg-orange-peel">07/06/2562 | ระบบการชำระเงิน</div>
-                        <h5 class="mb-2">หัวข้อ: สถานะการจ่ายเงิน</h5>
-                        <p class="notice-title">ผมกดยืนยันการชำระเงินไป 2 วันแลัว ตอนนี้ยังไม่มีการตรวจสอบสลิปอีกหรอครับ ยังไงรบกวนด้วยนะครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date bg-orange-peel">04/06/2562 | ระบบแจ้งเดินทางเอง</div>
-                        <h5 class="mb-2">หัวข้อ: ระบบไม่อัพเดตข้อมูลที่กรอกในฟอร์ม</h5>
-                        <p class="notice-title">ผมกดปุ่ม ยืนยัน เพื่อยืนยันการเดินทางเองของลูกผมแต่ว่าระบบไม่ยอมอัพเดตรายการให้ผมฝั่งขวาของหน้าเว็บให้ผมอะครับ ยังไงรบกวนตรวจสอบหน่อยนะครับ ผมรบกวนเพิ่มรายการกลับบ้านเองให้น้องคิดวันที่ 22 เดือนนี้ด้วยนะครับ ตอนเช้าไปโรงเรียนเอง</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date bg-orange-peel">02/06/2562 | ระบบติดตามรถบัส</div>
-                        <h5 class="mb-2">หัวข้อ: รถในแผนที่ไม่ขยับ</h5>
-                        <p class="notice-title">ผมเปิดดู Google Map แล้วรถไม่ขยับเลยครับ ไม่ทราบว่าผมต้องทำยังไงรบกวนติดต่อกลับมาที่ 0898115155 ด้วยนะครับขอบคุณครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date bg-orange-peel">20/06/2562 | แดชบอร์ด</div>
-                        <h5 class="mb-2">หัวข้อ: พยากรณ์สภาพอากาศอุณหภูมิสูงสุด ต่ำสุดเท่ากันทุกวัน</h5>
-                        <p class="notice-title">ไม่มั่นใจว่าใช่บัคไหมครับอุณหภูมิสูงสุดและต่ำสุดของวันที่พยากรณ์ล่วงหน้าเท่ากันหมดทุกวันเลย</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date bg-orange-peel">20/06/2562 | โปรไฟล์</div>
-                        <h5 class="mb-2">หัวข้อ: แจ้งแก้ไขโปรไฟล์</h5>
-                        <p class="notice-title">โปรไฟล์ของผมผิดยังไงรบกวนแก้ชื่อจาก ภูมินทร์ เป็นภูมินท์ ด้วยนะครับ</p>
-                    </div>
-                    <div class="notice-list">
-                        <div class="post-date bg-special-orange">20/06/2562 | พฤติกรรมคนขับ</div>
-                        <h5 class="mb-2">หัวข้อ: คนขับโกงเงินค่ารถเด็กครับ</h5>
-                        <p class="notice-title">คนขับรถคัน โกญจนาท โกงเงินค่ารถลูกผมครับ ลูกผมจ่ายแล้วแต่บอกว่ายังไม่ได้จ่าย ฝากจัดการให้ผมหน่อยครับ ขอบคุณครับ</p>
-                    </div>
+                <div class="notice-board-wrap" id="report">
+                    {{-- ข้อมูลในระบบ Report จะส่งเข้ามาในส่วนนี้ --}}
                 </div>
             </div>
         </div>
@@ -118,8 +85,8 @@
 
 <!-- Modal: Success -->
 <div class="wrap-modal">
-    <div class="modal fade" id="successReport" tabindex="-1" role="dialog" aria-labelledby="successReport" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="successReport" tabindex="-1" role="dialog" aria-labelledby="successReport" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -127,7 +94,7 @@
                 <b>การร้องเรียนสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการร้องเรียนของท่านแล้ว</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -136,8 +103,8 @@
 
 <!-- Modal: Failed -->
 <div class="wrap-modal">
-    <div class="modal fade" id="failReport" tabindex="-1" role="dialog" aria-labelledby="failReport" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="failReport" tabindex="-1" role="dialog" aria-labelledby="failReport" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _error">
             </div>
@@ -154,8 +121,8 @@
 
 <!-- Modal: Server Error -->
 <div class="wrap-modal">
-    <div class="modal fade" id="errorReport" tabindex="-1" role="dialog" aria-labelledby="errorReport" aria-hidden="true" style="max-width: 450px">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="errorReport" tabindex="-1" role="dialog" aria-labelledby="errorReport" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
@@ -163,7 +130,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>ขณะนี้เซิร์ฟเวอร์มีปัญหา กรุณาแจ้งเรื่องใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/appointment')}}"><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -175,6 +142,23 @@
 
 @section('script')
 <script>
+    
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+                return "";
+    }
 
     $(document).ready(function(){	
 
@@ -191,31 +175,119 @@
         });
     });
 
+    $.ajax({
+                url: '/tasks/refresh/report',
+                type: 'POST',
+                data: {
+                    user_id : getCookie('user_id')
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status == 'success') {
+
+                        for (var i = 0; i < response.data['report'].length; i++) {
+                            if (response.data['report'][i]['order_id'] == '1') {
+                                status = '<div class="post-date badge-green">';
+                                } else if (response.data['report'][i]['order_id'] == '2') {
+                                status = '<div class="post-date badge-orange">';
+                                } else if (response.data['report'][i]['order_id'] == '3') {
+                                status = '<div class="post-date badge-red">';
+                                } 
+
+                            $('#report').append(
+                                '<div class="notice-list">' +
+                                status+ response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['date'] + ' | '+ response.data['report'][i]['type_name'] + '</div>' +
+                                '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
+                                '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
+                                 +
+                                '</div>'
+                            );
+                        }
+                    }
+                },
+                error: function(err) {
+
+                }
+            })
+
+            
     function submitForm(){
+        var user_id = getCookie('user_id');  
+        var type_id = $('#type_id').val();
+        var order_id = $('#order_id').val();
+        var title = $('#title').val();
+        var content = $('#content').val();
+
+        var d = new Date();
+        var today = d.getDate() +'/'+(d.getMonth()+1)+'/'+(d.getFullYear()+543)
+
         $.ajax({
             type: "POST",
-            url: "",
+            url: "http://localhost:8000/report",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             cache:false,
-            data: $('form#reportForm').serialize(),
+            data: {
+                user_id: user_id,
+                type_id: type_id,
+                order_id: order_id,
+                title: title,
+                content: content,
+
+            },
             success: function(result){
-                
                 // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successReport").modal('show');
+                    $.ajax({
+                        url: '/tasks/refresh/report',
+                        type: 'POST',
+                        data: {
+                            user_id : getCookie('user_id')
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            if (response.status == 'success') {
+
+                            $('table tbody').html('');
+                            for (var i = 0; i < response.data['report'].length; i++) {
+
+                                if (response.data['report'][i]['order_id'] == '1') {
+                                status = '<div class="post-date badge-green">';
+                                } else if (response.data['report'][i]['order_id'] == '2') {
+                                status = '<div class="post-date badge-orange">';
+                                } else if (response.data['report'][i]['order_id'] == '3') {
+                                status = '<div class="post-date badge-red">';
+                                } 
+
+                                $('#report').append(
+                                    '<div class="notice-list">' +
+                                    status + response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['date'] + ' | '+ response.data['report'][i]['type_name'] + '</div>' +
+                                    '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
+                                    '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
+                                    +
+                                    '</div>'
+                                    );
+                                }
+                            }
+                        },
+                    error: function(err) {
+
+                    }
+                    })
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-                if (result.status == 'error') {
-                    $(".wrap-modal > #failReport").modal('show');
+                if (result.status == 'field_required') {
+                    $(".wrap-modal > #failAppointment").modal('show');
+                    window.location.reload(true);
                 }
                 
             },
             error: function(){
                 // เซิร์ฟเวอร์มีปัญหา
-                $(".wrap-modal > #errorReport").modal('show');
+                $(".wrap-modal > #errorAppointment").modal('show');
             }
         });
     }

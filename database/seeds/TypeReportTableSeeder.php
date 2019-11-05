@@ -12,32 +12,37 @@ class TypeReportTableSeeder extends Seeder
     public function run()
     {
         DB::table('type_reports')->insert([
-            'name' => 'พฤติกรรมคนขับ',
+            'type_name' => 'บริการทั่วไป',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('type_reports')->insert([
-            'name' => 'ระบบการเงิน',
+            'type_name' => 'พฤติกรรมคนขับ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('type_reports')->insert([
-            'name' => 'ระบบแจ้งเดินทางเอง',
+            'type_name' => 'ระบบการชำระเงิน',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('type_reports')->insert([
-            'name' => 'ระบบติดตามรถบัส',
+            'type_name' => 'ระบบแจ้งเดินทางเอง',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('type_reports')->insert([
-            'name' => 'แดชบอร์ด',
+            'type_name' => 'ระบบติดตามรถบัส',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('type_reports')->insert([
-            'name' => 'แก้ไขโปรไฟล์',
+            'type_name' => 'แดชบอร์ด',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('type_reports')->insert([
+            'type_name' => 'แก้ไขโปรไฟล์',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

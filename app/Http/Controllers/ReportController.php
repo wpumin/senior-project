@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Report;
+use App\Type_report;
+use App\Order_report;
 use LogicException;
 use Validator;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
@@ -22,22 +25,33 @@ class ReportController extends Controller
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'type_id' => 'required',
+                'order_id' => 'required',
                 'title' => 'required',
-                'content' => 'required'
-            ]);
+                'content' => 'required',
+                ]);
+
             if ($validate->fails()) {
-                throw new LogicException($validate->errors());
+                $errors = $validate->errors();
+                return $this->responseRequestError('field_required');
             }
+            $day = date('d');
+            $month = date('m');
+            $year = date('Y') + 543;
+            $full = $day . '-' . $month . '-' . $year;            // dd($this->request->input('type_id'));
+
+            // dd($full);
 
             DB::beginTransaction();
             $res['data'] = Report::create([
                 'user_id' => $this->request->input('user_id'),
                 'type_id' => $this->request->input('type_id'),
+                'order_id' => $this->request->input('order_id'),
                 'title' => $this->request->input('title'),
-                'content' => $this->request->input('content')
+                'content' => $this->request->input('content'),
+                'date' => $full
             ]);
             DB::commit();
-            return $this->responseRequestSuccess('Success!');
+            return $this->responseRequestSuccess($res['data']);
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }

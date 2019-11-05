@@ -22,25 +22,25 @@ class ReceiveOTPController extends Controller
     public function receiveOTP(Request $request)
     {
         try {
-        $validate = Validator::make($request->all(), [
+            $validate = Validator::make($request->all(), [
 
-            'ref' => 'required',
-            'otp' => 'required'
-        ]);
+                'ref' => 'required',
+                'otp' => 'required'
+            ]);
 
-        if ($validate->fails()) {
-            throw new LogicException($validate->errors()->first()); 
-        }
-
-        $userOTP = Otp::where('otp', $request->otp)->where('ref', decrypt($request->ref))->first();
-
-        if ($userOTP) {
-
-            return $this->responseRequestSuccess('success');
-        } else {
-            return $this->responseRequestError('error');
+            if ($validate->fails()) {
+                throw new LogicException($validate->errors()->first());
             }
-        }catch (DecryptException $e) {
+
+            $userOTP = Otp::where('otp', $request->otp)->where('ref', decrypt($request->ref))->first();
+
+            if ($userOTP) {
+
+                return $this->responseRequestSuccess('success');
+            } else {
+                return $this->responseRequestError('error');
+            }
+        } catch (DecryptException $e) {
             return 'ไม่พบข้อมูล';
         }
     }

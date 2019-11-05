@@ -11,7 +11,7 @@
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
-                    {{-- <h3 class="text-center my-3"> เข้าสู่ระบบ </h3> --}}
+                    <h1 class="text-center my-3 d-none"> เข้าสู่ระบบ </h1>
                     <form id="loginForm">
                             @csrf
                         <div class="mt-4">
@@ -47,13 +47,33 @@
                 <b>เข้าสู่ระบบไม่สำเร็จ</b>
                 <p>ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal: System error-->
+<div class="wrap-modal">
+    <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ระบบเกิดข้อผิดพลาด</b>
+                <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
     function setCookie(cname, cvalue, exdays) {
@@ -99,7 +119,7 @@
 
     }
 
-    $('#delete-spinner').click(function() {
+    $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
@@ -114,17 +134,15 @@
     });
 
     function submitForm(){
-
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/login",
+            url: "/login",
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){
-
                 // login สำเร็จ
                 if(result.status == 'success') {
                     setCookie('Authorization', result.data['token'], 30);
@@ -134,19 +152,18 @@
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
                     setCookie('image', result.data['image'], 30);
+                    setCookie('user_id', result.data['id'], 30);
+                    setCookie('car_id', result.data['car_id'], 30);
 
                     if (result.data['role'] == '1') {
-
                         //Page User
-                        // $(location).attr('href', '/driver/index');
+                        $(location).attr('href', '/parent/index');
                     }else  if (result.data['role'] == '2') {
-
                         //Page Driver
                         $(location).attr('href', '/driver/index');
                     }else  if (result.data['role'] == '3') {
-
                         //Page Admin
-
+                        $(location).attr('href', '/admin/index');
                     }
 
 
@@ -163,7 +180,7 @@
                 }
             },
             error: function(result){
-                // $(".wrap-modal > #errorLogin").modal('show');
+                $(".wrap-modal > #systemError").modal('show');
             }
         });
     }

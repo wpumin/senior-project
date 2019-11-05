@@ -482,7 +482,9 @@ $(document).ready(function() {
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
     myMarker = new google.maps.Marker({
-      position: myLatlng
+      position: myLatlng,
+      draggable: false,
+      animation: google.maps.Animation.DROP
     });
     myMarker.setMap(map);
   }
@@ -529,4 +531,110 @@ $(document).ready(function(){
   });
 });
 
+  /*-------------------------------------
+                 Date Picker
+      -------------------------------------*/
 
+$(document).ready(function(){
+    $('#timepicker').mdtimepicker(); //Initializes the time picker
+      $('input.calendar').pignoseCalendar({
+          format: 'DD/MM/YYYY', // date format string.
+          disabledWeekdays: [0, 6], // SUN (0), SAT (6)
+          click: function(event, context) { 
+            /**
+             * @params this Element
+             * @params event MouseEvent
+             * @params context PignoseCalendarContext
+             * @returns void
+             */
+    
+             // This is clicked button Element.
+             var $this = $(this);
+    2
+             // You can access event parameter.
+             event.preventDefault();
+    
+             // You can get target element in `context` variable, This element is same `$(this)`.
+             var $element = context.element;
+    
+             // You can also get calendar element, It is calendar view DOM.
+             var $calendar = context.calenda;
+
+             //convert year
+             var date = $element[0].value;
+             var temp1 = date.substring(0, 6);
+             var temp2 = date.substring(6, 10);
+             var yearConvert = temp2;
+             if(yearConvert < 2100) {
+                yearConvert = parseInt(temp2) + 543;
+             }
+            
+             var newDate = temp1.concat(yearConvert);
+            //  console.log(newDate);
+             $('input.calendar').val(newDate);
+        }
+    });
+});
+
+// setting feature is support from `v1.4.14` version.
+$('.calendar').pignoseCalendar('setting', {
+  // date format follows moment sheet.
+  // Check below link.
+  // https://momentjs.com/docs/#/parsing/string-format/
+  format: 'YYYY-MM-DD',
+  // Starting day of week. (0 is Sunday[default], 6 is Saturday
+  // and all day of week is in consecutive order.
+  // In this example, We will start from Saturday.
+  week: 6,
+  language: 'th', // Default Language
+  languages: {
+      // You will set `custom` language.
+      'th': {
+      // Weeks sun ~ sat.
+      weeks: [
+          'จ.',
+          'อ.',
+          'พ.',
+          'พฤ.',
+          'ศ.',
+          'ส.',
+          'อา.'
+      ],
+      // Month long names January ~ December
+      monthsLong: [
+          'มกราคม',
+          'กุมภาพันธ์',
+          'มีนาคม',
+          'เมษายน',
+          'พฤษภาคม',
+          'มิถุนายน',
+          'กรกฎาคม',
+          'สิงหาคม',
+          'กันยายน',
+          'ตุลาคม',
+          'พฤศจิกายน',
+          'ธันวาคม'
+      ],
+      // Month short names Jan ~ Dec
+      months: [
+          'ม.ค.',
+          'ก.พ.',
+          'มี.ค.',
+          'เม.ย.',
+          'พ.ค.',
+          'มิ.ย.',
+          'ก.ค.',
+          'ส.ค.',
+          'ก.ย.',
+          'ต.ค.',
+          'พ.ย.',
+          'ธ.ค.'
+      ],
+      // Other control words
+      controls: {
+          ok: 'ok',
+          cancel: 'cancel'
+      }
+      }
+  }
+});

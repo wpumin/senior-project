@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="heading mt-md-5 text-left d-none d-md-block">
+<div class="heading text-left d-none d-md-block">
     <h3>โปรไฟล์</h3>
 </div>
 <div class="d-md-none text-center">
@@ -101,16 +101,16 @@
                                 <td class="font-medium text-dark-medium">ลูก</td>
                             </tr>
                             <tr>
-                                <td>ไลน์ไอดี:</td>
-                                <td class="font-medium text-dark-medium">mild27</td>
-                            </tr>
-                            <tr>
                                 <td>เบอร์โทร:</td>
                                 <td class="font-medium text-dark-medium">090-978-5703</td>
                             </tr>
                             <tr>
                                 <td>โรงเรียน:</td>
                                 <td class="font-medium text-dark-medium">ทัพหลวง</td>
+                            </tr>
+                            <tr>
+                                <td>รถ:</td>
+                                <td class="font-medium text-dark-medium">โกญจนาท (คันที่ 2)</td>
                             </tr>
                             <tr>
                                 <td>สถานะ:</td>
@@ -163,16 +163,16 @@
                                 <td class="font-medium text-dark-medium">ลูก</td>
                             </tr>
                             <tr>
-                                <td>ไลน์ไอดี:</td>
-                                <td class="font-medium text-dark-medium">dviver100</td>
-                            </tr>
-                            <tr>
                                 <td>เบอร์โทร:</td>
                                 <td class="font-medium text-dark-medium">090-978-5703</td>
                             </tr>
                             <tr>
                                 <td>โรงเรียน:</td>
                                 <td class="font-medium text-dark-medium">ทัพหลวง</td>
+                            </tr>
+                            <tr>
+                                <td>รถ:</td>
+                                <td class="font-medium text-dark-medium">สินาท (คันที่ 1)</td>
                             </tr>
                             <tr>
                                 <td>สถานะ:</td>
@@ -224,16 +224,16 @@
                                 <td class="font-medium text-dark-medium">หลาน</td>
                             </tr>
                             <tr>
-                                <td>ไลน์ไอดี:</td>
-                                <td class="font-medium text-dark-medium">Kiddd</td>
-                            </tr>
-                            <tr>
                                 <td>เบอร์โทร:</td>
                                 <td class="font-medium text-dark-medium">090-978-5703</td>
                             </tr>
                             <tr>
                                 <td>โรงเรียน:</td>
                                 <td class="font-medium text-dark-medium">ทัพหลวง</td>
+                            </tr>
+                            <tr>
+                                <td>รถ:</td>
+                                <td class="font-medium text-dark-medium">โกญจนาท (คันที่ 2)</td>
                             </tr>
                             <tr>
                                 <td>สถานะ:</td>
@@ -265,5 +265,5 @@
 @endsection
 
 @section('script')
-
+    
 @endsection

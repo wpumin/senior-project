@@ -10,7 +10,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณากรอกอีเมลของท่าน <span class="spinner-border"> </span></p>
-                    
+                    <h1 class="text-center my-3 d-none"> ลืมรหัสผ่าน </h1>
                     <form class="" id="checkEmail">
                         <div class="mt-4">
                             <input type="email" id="email" name="email" class="input-box" placeholder="อีเมล" required autofocus>
@@ -60,7 +60,27 @@
                 <b>อีเมลไม่ถูกต้อง</b>
                 <p>ไม่พบอีเมลดังกล่าวในระบบ</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal: System error-->
+<div class="wrap-modal">
+    <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ระบบเกิดข้อผิดพลาด</b>
+                <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -80,48 +100,50 @@
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
-    $('#delete-spinner').click(function() {
-        $('.spinner-border').css('display','none');   
+    $('.delete-spinner').click(function() {
+        $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
         $("#checkEmail").submit(function(event){
-            $('.spinner-border').css('display','inline-block');   
+            $('.spinner-border').css('display','inline-block');
             submitForm();
             return false;
         });
     });
 
     function submitForm(){
-        var email = $('#email').val();
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8000/forgotpassword",
-            cache:false,
-            data: {
-                email: email
-            },
-            success: function(result){
-                
-                // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
-                if (result.status == 'success') {
-                    setCookie('ref', result.data['ref'], 30);
-                    setCookie('email', result.data['email'], 30);
-                    window.location.replace('http://localhost:8000/confirm-otp');
-                    // $(".wrap-modal > #sendOTP").modal('show');
-                }
 
-                // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
-                if (result.status == 'error') {
-                    $(".wrap-modal > #errorEmail").modal('show');
-                }
- 
-            },
-            error: function(){
-                // $(".wrap-modal > #errorEmail").modal('show');
+    var email = $('#email').val()
+
+    const data = {
+        email: $('#email').val()
+    }
+
+    $.post('https://bear-bus.com/pass_forgot',data , function(result, status) {
+
+        if (result['status'] == 'success') {
+
+            $.get('https://bear-bus.com/mail/mail.php?email='+email+'&ref='+result['data']['ref']+'&otp='+result['data']['otp'], function(result, status) {
+
+            });
+
+
+                setCookie('ref', result['data']['ref'], 30);
+                setCookie('email', result['data']['email'], 30);
+
+                $(location).attr('href', '/confirm-otp');
+                // window.location.replace('https://bear-bus.com/confirm-otp');
+                // $(".wrap-modal > #sendOTP").modal('show');
             }
-        });
+
+            // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
+            if (result.status == 'error') {
+                $(".wrap-modal > #errorEmail").modal('show');
+            }
+    });
+
 
 
     }

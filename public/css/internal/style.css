@@ -1229,6 +1229,11 @@ table tbody tr td a:hover {
     }
 }
 
+/* select2 overwrite */      
+.select2{
+   width: 100%;
+}
+
 /*=============== 3.3 Select 2 ==================*/
 .select2-container .select2-selection--single {
     /* background-color: #f0f1f3; */
@@ -1796,6 +1801,7 @@ ul {
 
 .navbar.navbar-expand-md.header-menu-one.bg-light {
     padding-right: 0;
+    z-index: 19;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1857,6 +1863,10 @@ ul {
     align-items: center;
     height: inherit;
     /* padding: 0.5rem 0rem .5rem 1.5rem; */
+}
+
+.mobile-nav-bar div{
+    margin-left: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -2286,7 +2296,8 @@ ul {
     right: -15px;
     height: 25px;
     width: 25px;
-    line-height: 21px;
+    /* line-height: 21px; */
+    line-height: 20px;
     color: #ffffff;
     font-size: 11px;
     background-color: #ff3131;
@@ -2300,7 +2311,8 @@ ul {
 
 @media only screen and (max-width: 767px) {
     .header-main-menu .navbar-nav .header-notification .navbar-nav-link span {
-        top: 47%;
+        /* top: 47%; */
+        top: 22%;
         right: 0;
         transform: translateY(-50%);
     }
@@ -2531,6 +2543,10 @@ ul {
 }
 
 /*=============== 5.5 Sidebar Menu ==================*/
+.sidebar-main{
+    height: inherit;
+}
+
 .sidebar-menu-one {
     width: 26rem;
     position: fixed;
@@ -2538,7 +2554,13 @@ ul {
     bottom: 0;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    z-index: 10;
+    z-index: 4;
+}
+
+@media only screen and (min-width: 1200px){
+    .sidebar-color {
+        min-height: calc(100vh - 7rem);
+    }
 }
 
 .sidebar-menu-one .sidebar-menu-content {
@@ -2628,7 +2650,7 @@ ul {
 }
 
 .sidebar-menu-one .sidebar-menu-content .nav-sidebar-menu .sidebar-nav-item>.nav-link:after {
-    content: "\f113";
+    content: "\f11b";
     font-family: Flaticon;
     font-size: 10px;
     font-weight: 700;
@@ -5488,6 +5510,10 @@ ul {
     font-weight: 300;
 }
 
+.text-theme{
+    color: #353535;
+}
+
 .text-light {
     color: #ffffff !important;
 }
@@ -5615,6 +5641,38 @@ ul {
     overflow: hidden;
 }
 
+.modal-dialog{
+    margin: 0 auto;
+}
+
+/* modal-dialog1: 350 550 */
+.modal-dialog1{
+    max-width: 550px;
+}
+
+@media only screen and (max-width: 567px){
+    .modal-dialog1{
+        max-width: 350px !important;
+    }
+}
+
+/* modal-dialog2: 350 450 */
+.modal-dialog2{
+    max-width: 450px;
+}
+
+@media only screen and (max-width: 567px){
+    .modal-dialog2{
+        max-width: 350px !important;
+    }
+}
+
+/* modal-dialog3: 350 */
+.modal-dialog3{
+    max-width: 350px;
+}
+
+
 .modal button {
     outline: none !important;
 }
@@ -5701,6 +5759,7 @@ ul {
 
 .owl-item .item {
     background-size: cover;
+    background-position: center;
     border-radius: 15px !important;
     object-fit: contain;
 }
@@ -6572,6 +6631,35 @@ ul {
     max-width: 12rem;
 }
 
+.btn.btn-secondary{
+    background-color: #F46F21;
+    border-color: rgb(255, 146, 57) !important;
+    padding: 0.625rem 2rem !important;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    border-radius: 15rem;
+    margin: 0 0.25rem;
+    min-width: 10rem;
+    max-width: 12rem;
+}
+
+.btn.btn-secondary:hover, .btn.btn-secondary:active {
+    background-color: rgb(235, 96, 16) !important;
+    border-color: rgb(255, 136, 39) !important;
+    padding: 0.625rem 2rem !important;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    border-radius: 15rem;
+    margin: 0 0.25rem;
+    min-width: 10rem;
+    max-width: 12rem;
+}
+
+.btn:focus.btn-secondary{
+    box-shadow: 0 0 0 0.2rem rgba(255, 136, 39, 0.7) !important;
+}
+
+
 /* text-area */
 textarea.form-control{
     padding: 11px 15px !important;
@@ -6649,7 +6737,7 @@ textarea.form-control{
     position: relative;
     width: 100%;
     height: 400px;
-    border-radius: 0 0 6px 6px;
+    /* border-radius: 0 0 6px 6px; */
 }
 
 .ldroute_menu{
@@ -6691,7 +6779,7 @@ textarea.form-control{
 }
 
 .border-customtlr5{
-    border-radius: 5px 5px 0 0 !important;
+    /* border-radius: 5px 5px 0 0 !important; */
 }
 
 /* custom scrollbar */
@@ -6737,4 +6825,142 @@ textarea.form-control{
 
 .highcharts-credits{
     display: none;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+/* toggle-result */
+.toggle-result{
+    position: absolute; 
+    top: 17px;
+    right: 26px;
+    z-index: 3; 
+}
+
+/* 100vh - 7rem */
+.addHeight{
+    min-height: calc(100vh - 7rem);
+}
+
+@media only screen and (max-width: 567px){
+    .bank-icon img{
+        width: 80px;
+    }
+}
+@media only screen and (min-width: 567px){
+    .bank-icon img{
+        width: 70px;
+    }
+}
+.bank-icon{
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+@media only screen and (max-width: 1440px){
+    .datePicker-custom{
+        right: 2rem !important;
+    }
+}
+
+.hr-adduser{
+    width: 100%; 
+    border-bottom: 1px solid #f0f1f3;
+}
+
+/* hide information openlayers */
+.ol-attribution{
+    display: none;
+}
+
+.ol-zoom-in, .ol-zoom-out, .ol-zoom-in:focus, .ol-zoom-out:focus{
+    outline: none;
+}
+
+/* google maps */
+.gm-style-mtc{
+    display: none !important;
+}
+
+/* student profile */
+.student-heading{
+    justify-content: space-between !important;
+}
+
+.search_latitude, .search_longitude{
+    cursor: not-allowed;
+}
+
+/*  upload profile image */
+.uploader {
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    min-height: 200px;
+    background: #f3f3f3;
+    border: 2px dashed #e8e8e8;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: none;
+}
+
+.uploader span{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    outline: none !important;
+    border-radius: 50%;
+}
+
+.filePhoto{
+    border: none;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.uploader img{
+    border: 5px solid white;
+    color: transparent !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* border: none; */
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px){
+    .custom-nav{    
+        width: 50% !important;
+    }
+}
+
+.custom-nav{
+    width: 25%;
+    text-align: center;
+}
+
+.calendar, #timepicker{
+    cursor: pointer !important;
+}
+
+.hc-nav{
+    
 }

@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
             'last_name' => 'Ketsin',
             'relationship' => 'Dad',
             'address' => 'ตำบลบ้านไร่',
-            'email' => 'dvver@gmail.com',
+            'email' => 'dviver100@gmail.com',
             'mobile' => '0648763436',
             'image' => 'images/Students/เจนจ๋า_earn.jpg',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')

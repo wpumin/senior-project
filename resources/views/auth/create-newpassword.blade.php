@@ -10,7 +10,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
                     <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
                     <p class="text-center my-3"> กรุณายืนยันรหัสผ่านใหม่  <span class="spinner-border"> </span></p>
-                    
+                    <h1 class="text-center my-3 d-none"> สร้างรหัสผ่านใหม่ </h1>
                     <form action="#" class="" id="changePassword">
                         <div class="mt-4">
                             <input type="password" name="password" id="password" class="input-box" placeholder="รหัสผ่านใหม่" required autofocus>
@@ -33,7 +33,7 @@
 </div>
 
 <!-- Modal: Success-->
-<div class="wrap-modal">    
+<div class="wrap-modal">
     <div class="modal fade" id="successNewPassword" tabindex="-1" role="dialog" aria-labelledby="successNewPassword" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -43,7 +43,7 @@
                 {{-- <b>เปลี่ยนรหัสผ่านสำเร็จ</b> --}}
                 <p>เปลี่ยนรหัสผ่านสำเร็จ</p>
                 <div class="modal-button text-center mt-3">
-                    <a href="http://localhost:8000"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href="/"><button type="button" class="btn btn-primary">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <b>รหัสผ่านไม่ตรงกัน</b>
                 <p>กรุณากรอกรหัสผ่านทั้งสองให้ตรงกัน</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -81,14 +81,33 @@
                 <b>รหัสผ่านต้องมีตัวอักขระ 8 ตัว ขึ้นไป</b>
                 <p>กรุณากรอกรหัสผ่านให้ถูกต้อง</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-primary" id="delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
+<!-- Modal: System error-->
+<div class="wrap-modal">
+    <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>ระบบเกิดข้อผิดพลาด</b>
+                <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
 
@@ -118,14 +137,14 @@
         }
         return "";
     }
-    $('#delete-spinner').click(function() {
-        $('.spinner-border').css('display','none');   
+    $('.delete-spinner').click(function() {
+        $('.spinner-border').css('display','none');
         $('.input-box').val('');
     });
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
         $("#changePassword").submit(function(event){
-            $('.spinner-border').css('display','inline-block');   
+            $('.spinner-border').css('display','inline-block');
             submitForm();
             return false;
         });
@@ -137,8 +156,7 @@
         var cfpassword = $('#cfpassword').val();
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/newpassword",
-            cache:false,
+            url: "https://bear-bus.com/newpassword",
             data: {
                 email: email,
                 password: password,
@@ -148,9 +166,10 @@
                 // เปลี่ยนรหัสผ่านสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successNewPassword").modal('show');
-                    setTimeout(function(){
-                        $(location).attr('href', 'login');
-                    },3000);
+                    
+                    // setTimeout(function(){
+                    //     $(location).attr('href', 'login');
+                    // },3000);
                 }
 
                 // รหัสผ่านไม่ตรงกัน
@@ -164,7 +183,7 @@
 
             },
             error: function(){
-                // $(".wrap-modal > #errorNewPassword").modal('show');
+                $(".wrap-modal > #systemError").modal('show');
             }
         });
     }
