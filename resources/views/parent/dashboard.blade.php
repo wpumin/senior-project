@@ -83,7 +83,30 @@ function convertStringDes($input){
 
 <div class="card ui-tab-card">
     <div class="card-body" style="padding: 15px;">
-        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <div class="border-nav-tab">
+            <ul class="nav nav-tabs d-none d-lg-flex" role="tablist">
+                <li class="nav-item custom-nav w-50">
+                    <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">น้องคิด</a>
+                </li>
+                <li class="nav-item custom-nav w-50">
+                    <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-selected="false">น้องมาร์ช</a>
+                </li>
+            </ul>
+            <div class="form-group d-block d-lg-none">
+                <select class="form-control" id="select-box">
+                    <option value="1">น้องคิด</option>
+                    <option value="2">น้องมาร์ช</option>
+                </select>
+            </div>
+        </div>
+        <div class="tab-content pt-lg-4">
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <div id="tab1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel">
+                <div id="tab2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -162,8 +185,24 @@ function convertStringDes($input){
 
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
+<script>
+
+    $('#select-box').change(function () {
+        dropdown = $(this).val();
+        //first hide all tabs again when a new option is selected
+        $('.tab-pane').hide();
+        //   $('.tab-pane.fade').fadeOut();
+        //   console.log(dropdown);
+        //then show the tab content of whatever option value was selected
+        $('#tab' + dropdown).show();
+        $('#tab' + dropdown).css('opacity','1');                                        
+    });
+
+</script>
+
+{{-- คนแรก --}}
 <script type="text/javascript">
-    Highcharts.chart('container', {
+    Highcharts.chart('tab1', {
         chart: {
             type: 'areaspline'
         },
@@ -239,6 +278,90 @@ function convertStringDes($input){
                     symbol: 'cicle'
                 },
                 data: [7.27, 7.29, 7.21, 7.20, 7.12, 7.34, 7.36, 7.45, 7.23, 7.13, 7.23, 7.34, 7.54, 7.52]
+
+            }
+        ]
+    });
+</script>
+
+{{-- คนที่ 2 --}}
+<script type="text/javascript">
+    Highcharts.chart('tab2', {
+        chart: {
+            type: 'areaspline'
+        },
+        title: {
+            text: 'เวลาขึ้น-ลงเฉลี่ย'
+        },
+        subtitle: {
+            text: 'เช้า: 7.24 น. | เย็น: 16.24 น.'
+        },
+        xAxis: {
+            categories: [
+                '01/10/2562',
+                '02/10/2562',
+                '03/10/2562',
+                '04/10/2562',
+                '05/10/2562',
+                '06/10/2562',
+                '07/10/2562',
+                '08/10/2562',
+                '09/10/2562',
+                '10/10/2562',
+                '11/10/2562',
+                '12/10/2562',
+                '13/10/2562',
+                '14/10/2562'
+            ]
+        },
+        yAxis: {
+            title: {
+                text: 'เวลา'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value + ' น.';
+                }
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true,
+            valueSuffix: ' น.',
+            valueDecimals: 2,
+            animation: true
+        },
+        plotOptions: {
+            spline: {
+                marker: {
+                    radius: 4,
+                    // lineColor: '#666666',
+                    lineWidth: 1
+                }
+            }
+        },
+        series: [
+            {
+                areaspline: {
+                    fillOpacity: 1
+                },
+                color: "#f6cb43",
+                name: 'เย็น',
+                marker: {
+                    symbol: 'circle'
+                },
+                data: [16.22, 16.13, 16.24, 16.35, 16.32, 16.25, 16.07, 16.25, 16.11, 16.12, 16.27, 16.13, 16.45 ,16.02]
+            },
+            {
+                areaspline: {
+                    fillOpacity: 1
+                },
+                color: "#fb7a2e",
+                name: 'เช้า',
+                marker: {
+                    symbol: 'cicle'
+                },
+                data: [7.27, 7.30, 7.22, 7.21, 7.13, 7.33, 7.35, 7.45, 7.22, 7.12, 7.22, 7.34, 7.55, 7.53]
 
             }
         ]
