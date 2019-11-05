@@ -94,7 +94,7 @@
                 <b>การร้องเรียนสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการร้องเรียนของท่านแล้ว</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/report')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>ขณะนี้เซิร์ฟเวอร์มีปัญหา กรุณาแจ้งเรื่องใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/report')}}"><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -142,6 +142,8 @@
 
 @section('script')
 <script>
+    
+
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -194,7 +196,7 @@
 
                             $('#report').append(
                                 '<div class="notice-list">' +
-                                status+ response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['created_at'] + ' - '+ response.data['report'][i]['type_name'] + '</div>' +
+                                status+ response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['date'] + ' | '+ response.data['report'][i]['type_name'] + '</div>' +
                                 '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
                                 '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
                                  +
@@ -208,12 +210,16 @@
                 }
             })
 
+            
     function submitForm(){
         var user_id = getCookie('user_id');  
         var type_id = $('#type_id').val();
         var order_id = $('#order_id').val();
         var title = $('#title').val();
         var content = $('#content').val();
+
+        var d = new Date();
+        var today = d.getDate() +'/'+(d.getMonth()+1)+'/'+(d.getFullYear()+543)
 
         $.ajax({
             type: "POST",
@@ -244,6 +250,7 @@
                         success: function(response) {
                             if (response.status == 'success') {
 
+                            $('table tbody').html('');
                             for (var i = 0; i < response.data['report'].length; i++) {
 
                                 if (response.data['report'][i]['order_id'] == '1') {
@@ -256,7 +263,7 @@
 
                                 $('#report').append(
                                     '<div class="notice-list">' +
-                                    status + response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['created_at'] + ' - '+ response.data['report'][i]['type_name'] + '</div>' +
+                                    status + response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['date'] + ' | '+ response.data['report'][i]['type_name'] + '</div>' +
                                     '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
                                     '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
                                     +
