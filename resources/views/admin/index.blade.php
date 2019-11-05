@@ -94,7 +94,7 @@
                     </select>
                 </div>
                 <div class="col-xl-2 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker">
+                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar">
                     <i class="far fa-calendar-alt" style="right: 22px;"></i>
                 </div>
                 <div class="col-xl-1 col-lg-2 col-12 form-group">

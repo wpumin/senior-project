@@ -1194,7 +1194,11 @@ define('methods/init',['../manager/index', '../component/classNames', '../compon
 
       local.renderer = function () {
         local.calendar.appendTo($parent.empty());
-        local.calendar.find('.' + classNames.top + '-year').text(local.dateManager.year + 543);
+        if(local.dateManager.year < 2100){
+          local.calendar.find('.' + classNames.top + '-year').text(local.dateManager.year + 543);
+        }else{
+          local.calendar.find('.' + classNames.top + '-year').text(local.dateManager.year);
+        }
         local.calendar.find('.' + classNames.top + '-month').text(context.settings.monthsLong[local.dateManager.month - 1]);
         local.calendar.find(helper.format('.{0}-prev .{0}-value', classNames.top)).text(context.settings.months[local.dateManager.prevMonth - 1].toUpperCase());
         local.calendar.find(helper.format('.{0}-next .{0}-value', classNames.top)).text(context.settings.months[local.dateManager.nextMonth - 1].toUpperCase());

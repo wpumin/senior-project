@@ -540,13 +540,38 @@ $(document).ready(function(){
       $('input.calendar').pignoseCalendar({
           format: 'DD/MM/YYYY', // date format string.
           disabledWeekdays: [0, 6], // SUN (0), SAT (6)
-          select: function(date, obj) {
-            var full_d=date[0].format('YYYY-MM-DD');
-            var prev=date[0];
-            var curnt=date[1];
-            var full_date=new Date(full_d);
-            console.log(full_d);
+          click: function(event, context) { 
+            /**
+             * @params this Element
+             * @params event MouseEvent
+             * @params context PignoseCalendarContext
+             * @returns void
+             */
+    
+             // This is clicked button Element.
+             var $this = $(this);
+    2
+             // You can access event parameter.
+             event.preventDefault();
+    
+             // You can get target element in `context` variable, This element is same `$(this)`.
+             var $element = context.element;
+    
+             // You can also get calendar element, It is calendar view DOM.
+             var $calendar = context.calenda;
 
+             //convert year
+             var date = $element[0].value;
+             var temp1 = date.substring(0, 6);
+             var temp2 = date.substring(6, 10);
+             var yearConvert = temp2;
+             if(yearConvert < 2100) {
+                yearConvert = parseInt(temp2) + 543;
+             }
+            
+             var newDate = temp1.concat(yearConvert);
+            //  console.log(newDate);
+             $('input.calendar').val(newDate);
         }
     });
 });
