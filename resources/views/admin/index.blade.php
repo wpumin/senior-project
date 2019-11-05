@@ -11,45 +11,21 @@
     <h3>อัพเดตข่าวสาร</h3>
 </div>
 <div class="owl-carousel owl-theme d-md-none">
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/true.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/seat_bus.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/brick.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/route.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/route2.jpg")}})"></div></a>
 </div>
 <!-- ไอแพดขึ้นไป -->
 <div class="owl-carousel owl-theme d-none d-md-block">
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
-    <a href="#">
-        <div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div>
-    </a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/true.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/seat_bus.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/brick.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/route.jpg")}})"></div></a>
+    <a href="{{ url('admin/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/route2.jpg")}})"></div></a>
 </div>
 <!-- Owl-Carousel Area End Here-->
 

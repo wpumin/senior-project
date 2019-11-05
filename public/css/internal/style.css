@@ -5759,6 +5759,7 @@ ul {
 
 .owl-item .item {
     background-size: cover;
+    background-position: center;
     border-radius: 15px !important;
     object-fit: contain;
 }

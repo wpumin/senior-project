@@ -28,10 +28,10 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="select2" required>
-                        <option value="">ประเภทข่าว</option>
-                        <option value="1">ประชาสัมพันธ์</option>
-                        <option value="2">ประกาศ</option>
-                        <option value="3">บทความ</option>
+                        <option value="">ผู้ที่สามารถเห็นได้</option>
+                        <option value="1">ผู้ปกครอง</option>
+                        <option value="2">คนขับรถ</option>
+                        <option value="3">แอดมิน</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">

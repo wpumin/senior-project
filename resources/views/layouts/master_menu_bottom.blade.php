@@ -74,7 +74,11 @@
         <div class="navbar navbar-expand-md header-menu-one bg-light" id="navbar">
             <div class="nav-bar-header-one">
                 <div class="header-logo">
-                    <a href="index">
+                    <?php if($_COOKIE['role'] == '1') { ?> 
+                        <a href="{{ url('parent/index') }}">
+                    <?php }else{ ?>
+                         <a href="{{ url('driver/index') }}">
+                    <?php } ?>
                         <img class="logo-header" src="{{ URL::asset('images/internal/logo_temp.png') }}" alt="logo">
                     </a>
                     <div class="d-md-none mobile-nav-bar justify-content-between">

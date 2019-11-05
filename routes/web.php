@@ -29,11 +29,6 @@ Route::get('/create-newpassword', function () {
     return view('auth.create-newpassword');
 });
 
-// index
-// Route::get('/driver/index', function () {
-//     return view('driver.index');
-// });
-
 // parent
 Route::group(array('prefix' => 'parent'), function () {
     Route::get('/index', function () {
@@ -57,6 +52,9 @@ Route::group(array('prefix' => 'parent'), function () {
     Route::get('/dashboard', function () {
         return view('parent.dashboard');
     });
+    Route::get('/news/detail', function () {
+        return view('news.news_detail');
+    });
 });
 
 // driver
@@ -72,6 +70,9 @@ Route::group(array('prefix' => 'driver'), function () {
     });
     Route::get('/profile', function () {
         return view('driver.profile');
+    });
+    Route::get('/news/detail', function () {
+        return view('news.news_detail');
     });
 });
 
@@ -118,6 +119,9 @@ Route::group(array('prefix' => 'admin'), function () {
     });
     Route::get('/profile', function () {
         return view('admin.profile');
+    });
+    Route::get('/news/detail', function () {
+        return view('news.news_detail_admin');
     });
 });
 
