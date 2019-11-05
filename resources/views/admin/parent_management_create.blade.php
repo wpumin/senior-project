@@ -64,7 +64,7 @@
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input required type="email" placeholder="ยืนยันอีเมล" class="form-control">
                 </div>
-                <div class="col-xl-12 col-lg-6 col-12 form-group">
+                <div class="col-xl-12 col-12 form-group">
                     <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
@@ -134,7 +134,7 @@
                                 <option value="2">คันที่ 2: โกญจนาท</option>
                             </select>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-12 form-group text-right">
+                        <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
                             <button type="button" name="remove" id="add" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"><span class="flaticon-plus"></span></span> เพิ่มบุตรหลาน</button>
                         </div>
                     </div>
@@ -353,7 +353,7 @@
                                 '<option value="2">คันที่ 2: โกญจนาท</option>' +
                             '</select>' +
                         '</div>' +
-                        '<div class="col-xl-3 col-lg-3 col-12 form-group text-right">' +
+                        '<div class="col-xl-3 col-lg-6 col-12 form-group text-right">' +
                             '<button type="button" name="remove" id="' + i + '" class="btn_remove btn-fill-lg bg-red w-100" style="margin-bottom: 2.3rem;"><span class="flaticon-minus"></span></span> ลบบุตรหลาน</button>' +
                         '</div>' +
                     '</div>' +

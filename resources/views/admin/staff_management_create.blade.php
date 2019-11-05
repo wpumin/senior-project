@@ -61,7 +61,7 @@
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input required type="email" placeholder="ยืนยันอีเมล" class="form-control">
                 </div>
-                <div class="col-xl-12 col-lg-6 col-12 form-group">
+                <div class="col-xl-12 col-lg-12 col-12 form-group">
                     <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">

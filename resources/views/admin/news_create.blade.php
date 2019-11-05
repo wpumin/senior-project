@@ -50,7 +50,7 @@
                     <input required type="text" placeholder="เวลาเผยแพร่" class="form-control" id="timepicker">
                     <i class="far fa-clock"></i>
                 </div>
-                <div class="col-xl-12 col-lg-6 col-12 form-group">
+                <div class="col-xl-12 col-12 form-group">
                     <textarea required class="textarea form-control" name="address" placeholder="รายละเอียดข่าว" rows="15"></textarea>
                 </div>
                 <div class="col-12 form-group mg-t-8 text-right">

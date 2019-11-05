@@ -19,17 +19,17 @@
         </div>
         <form class="mb-5 mb-lg-0 new-added-form">
             <div class="row gutters-8">
-                <div class="col-lg-4 col-12 form-group">
+                <div class="col-xl-4 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อหัวข้อ" class="form-control">
                 </div>
-                <div class="col-lg-3 col-12 form-group">
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยผู้บันทึก" class="form-control">
                 </div>
-                <div class="col-lg-3 col-12 form-group">
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <input type="text" placeholder="ค้นหาด้วยเวลาบันทึกล่าสุด" class="form-control air-datepicker calendar">
                         <i class="far fa-calendar-alt" style="right: 22px;"></i>
                     </div>
-                <div class="col-lg-2 col-12 form-group">
+                <div class="col-xl-2 col-lg-6 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>

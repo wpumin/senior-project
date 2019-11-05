@@ -47,7 +47,7 @@
 </div>
 <div class="card ui-tab-card">
     <div class="card-body" style="padding: 15px; position: relative;">
-        <span class="toggle-result flaticon-compass text-theme"></span>
+        <span class="toggle-result flaticon-info-1 text-theme"></span>
         <div id="map" style=""></div>
         <div id="result" class="custom-scrollbar" style="display: none;"></div>
     </div>

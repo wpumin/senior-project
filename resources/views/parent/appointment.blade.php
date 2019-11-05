@@ -71,10 +71,10 @@
                 </div>
                 <form class="mg-b-10">
                     <div class="row mb-5 mb-lg-0 new-added-form">
-                        <div class="col-lg-4 col-12 form-group">
+                        <div class="col-lg-4 col-12 form-group pr-lg-0">
                             <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control">
                         </div>
-                        <div class="col-lg-3 col-12 form-group">
+                        <div class="col-lg-3 col-12 form-group pr-lg-0">
                             <select class="select2" autocomplete="off">
                                 <option value="">ค้นหาช่วงเวลา</option>
                                 <option value="1">เช้า (ขาไป)</option>
@@ -85,7 +85,7 @@
                             <input type="text" placeholder="ค้นหาวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
-                        <div class="col-lg-2 col-12 form-group">
+                        <div class="col-lg-2 col-12 form-group pl-lg-0">
                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
 </div>
 <div class="card ui-tab-card">
     <div class="card-body" style="padding: 15px; position: relative;">
-        <span class="toggle-result flaticon-compass text-theme"></span>
+        <span class="toggle-result flaticon-info-1 text-theme"></span>
         <div id="map" style=""></div>
         <div id="result" class="custom-scrollbar" style="display: none;"></div>
     </div>
@@ -20,7 +20,7 @@
 <div class="card ui-tab-card pb-0">
     <div class="card-body p-4 p-md-5">
         <div class="border-nav-tab">
-            <ul class="nav nav-tabs d-none d-md-flex" role="tablist">
+            <ul class="nav nav-tabs d-none d-lg-flex" role="tablist">
                 <li class="nav-item custom-nav">
                     <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">ขึ้นรถ (เช้า)</a>
                 </li>
@@ -34,7 +34,7 @@
                     <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-selected="false">ลงรถ (เย็น)</a>
                 </li>
             </ul>
-            <div class="form-group  d-block d-md-none">
+            <div class="form-group d-block d-lg-none">
                 <select class="form-control" id="select-box">
                     <option value="1">ขึ้นรถ (เช้า)</option>
                     <option value="2">ลงรถ (เช้า)</option>
@@ -42,7 +42,7 @@
                     <option value="4">ลงรถ (เย็น)</option>
                 </select>
             </div>
-            <div class="tab-content pt-2 pt-md-5">
+            <div class="tab-content pt-2 pt-lg-5">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                     <div class="table-responsive">
                         <table class="table bs-table table-striped table-bordered text-nowrap">

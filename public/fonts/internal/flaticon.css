@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 02/11/2019 09:24
+  	Creation date: 05/11/2019 08:11
   	*/
 
 @font-face {
@@ -87,3 +87,8 @@
 .flaticon-minus-1:before { content: "\f136"; }
 .flaticon-photo:before { content: "\f137"; font-size: 30px; color: #bababa}
 .flaticon-new:before { content: "\f138"; }
+.flaticon-world:before { content: "\f139"; font-size: 33px;}
+.flaticon-info-1:before { content: "\f13a"; font-size: 33px;}
+.flaticon-question:before { content: "\f13b"; font-size: 33px;}
+.flaticon-question-2:before { content: "\f13c"; font-size: 33px;}
+.flaticon-info-3:before { content: "\f13d"; font-size: 33px;}
