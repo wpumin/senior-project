@@ -75,7 +75,7 @@ class RegisterStudentController extends Controller
             $student->card_id = $this->request->input('card_id');
             $student->first_name = $this->request->input('first_name');
             $student->last_name = $this->request->input('last_name');
-            $student->fullname_s = $this->request->input('fullname') . '.' . $this->request->input('last_name');
+            $student->fullname_s = $this->request->input('fullname') . ' ' . $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
             $student->mobile = $this->request->input('mobile');
             $student->address = $this->request->input('address');

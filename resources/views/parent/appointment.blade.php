@@ -17,7 +17,6 @@
                 <div class="heading-layout1">
                     <div class="item-title pt-md-3">
                         <h3>ฟอร์มการแจ้ง</h3>
-                        <h3 id = "name"></h3>
                     </div>
                 </div>
                 <form id="appointmentForm" class="new-added-form">
@@ -26,17 +25,6 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
                             <select class="select2" required autocomplete="off" id="student_id">
                                 {{-- <option value="">เด็กนักเรียน</option> --}}
-
-                                {{-- @foreach($students as $student)
-                                    <option value="{{$student->id}}">{{$student->nickname}}</option>
-                                @endforeach --}}
-
-                                {{-- <option value="1">อชิตะ ลิลิตสัจจะ (รร. ทับหลวง)</option>
-                                <option value="2">มาชิตะ ลิลิตสัจจะ (รร. บ้านไร่)</option>
-                                <option value="3">หมิวหมิว ปี2</option>
-                                <option value="4">เอิร์น ปี1</option>
-                                <option value="5">เจนจ๋า</option> --}}
-
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
@@ -229,12 +217,11 @@
 
     function submitForm(){
         
-        var user_id = document.getElementById("name").innerHTML = getCookie('user_id');  
+        var user_id =  getCookie('user_id');  
         var student_id = $('#student_id').val();
         var period_time_id = $('#period_time_id').val();
         var date = $('#date').val();
         var content = $('#content').val();
-        
         $.ajax({
             type: "POST",
             url: "/appointment",
@@ -265,8 +252,8 @@
                 success: function(response) {
                     if (response.status == 'success') {
 
-                        // $('table tbody').html('');
-                        let modalUser = document.getElementById("name").innerHTML = name;
+                        $('table tbody').html('');
+                        // let modalUser = document.getElementById("name").innerHTML = name;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {
                             $('table tbody').append(
@@ -321,11 +308,7 @@
                     if (response.status == 'success') {
 
                         $('table tbody').html('');
-                        let modalUser = document.getElementById("name").innerHTML = name;
-                        // let modalStudent = document.getElementById("student_id").innerHTML = student_id;
-                        // let modalPeriodTime = document.getElementById("period_time_id").innerHTML = period_time_id;
-                        // let modalDate = document.getElementById("date").innerHTML = date;
-                        // let modalContent = document.getElementById("content").innerHTML = content;
+                        // let modalUser = document.getElementById("name").innerHTML = name;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {
                             $('table tbody').append(
@@ -352,17 +335,6 @@
 
                 }
             })
-
-            
-
-    $(document).ready(function(){	
-
-        $("#showForm").submit(function(event){ 
-            getData();
-            return false;
-        });
-
-    });
 
 
 </script>

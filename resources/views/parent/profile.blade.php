@@ -20,7 +20,8 @@
         </div>
         <div class="single-info-details">
             <div class="item-img">
-                <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile">
+                {{-- <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile"> --}}
+                <img src="" id="pic_user" alt="Parent">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">
@@ -36,7 +37,7 @@
                         <tbody>
                             <tr>
                                 <td>ความสัมพันธ์:</td>
-                                <td class="font-medium text-dark-medium">ผู้ปกครอง</td>
+                                <td class="font-medium text-dark-medium" id="role_user"></td>
                             </tr>
                             <tr>
                                 <td>ไลน์ไอดี:</td>
@@ -265,5 +266,59 @@
 @endsection
 
 @section('script')
-    
+
+<script>
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        var fullname_u = document.getElementById("fullname").innerHTML = getCookie('fullname_u');
+        var relationship = document.getElementById("role").innerHTML = getCookie('role_name');
+        var first_name = document.getElementById("f_name").innerHTML = getCookie('f_name');
+        var last_name = document.getElementById("l_name").innerHTML = getCookie('l_name');
+        if(getCookie('image') != ""){
+            var image = document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+        }else{
+            var image2 = document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+        }
+
+        console.log(fullname_u)
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/register/user",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            cache:false,
+            data: {
+                image: image,
+                image2: image2,
+                fullname_u: fullname_u,
+                relationship: relationship,
+                first_name:first_name,
+                last_name: last_name,
+
+            },
+            success: function(result){
+                alert("success")
+            },
+            error: function(){
+                // เซิร์ฟเวอร์มีปัญหา
+            }
+        });
+        </script>
 @endsection
