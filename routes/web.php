@@ -11,11 +11,17 @@
 |
 */
 
+// about (external page)
+Route::get('/about', function () {
+    return view('service.index');
+});
+
+// block url
+
 // login
 Route::get('/', function () {
     return view('auth.login');
 });
-
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');

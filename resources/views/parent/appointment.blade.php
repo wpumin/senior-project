@@ -64,13 +64,13 @@
                         </div>
                         <div class="col-lg-3 col-12 form-group pr-lg-0">
                             <select class="select2" autocomplete="off">
-                                <option value="">ค้นหาช่วงเวลา</option>
+                                <option value="">ค้นหาด้วยช่วงเวลา</option>
                                 <option value="1">เช้า (ขาไป)</option>
                                 <option value="2">เย็น (ขากลับ)</option>
                             </select>
                         </div>
                         <div class="col-lg-3 col-12 form-group">
-                            <input type="text" placeholder="ค้นหาวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
+                            <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-lg-2 col-12 form-group pl-lg-0">
