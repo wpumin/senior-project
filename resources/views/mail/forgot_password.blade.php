@@ -11,8 +11,8 @@
     <div class="container">
         <p class="text">รหัส OTP ของคุณคือ</p>
         {{-- <a href="{{ $url_reset_password }}" class="btn btn-primary">เปลี่ยนรหัสผ่านชั่วคราว</a> --}}
-        <p>Ref: {{ $ref }}</p>
-        <p>OTP: {{ $otp }}</p>
+        <p>Ref: <b>{{ $ref }}</b></p>
+        <p>OTP: <b>{{ $otp }}</b></p>
     </div>
 </body>
 </html>

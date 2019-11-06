@@ -35,7 +35,7 @@
                 </li>
             </ul>
             <div class="form-group d-block d-lg-none">
-                <select class="form-control" id="select-box">
+                <select class="form-control select2" id="select-box">
                     <option value="1">ขึ้นรถ (เช้า)</option>
                     <option value="2">ลงรถ (เช้า)</option>
                     <option value="3">ขึ้นรถ (เย็น)</option>

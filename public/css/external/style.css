@@ -174,17 +174,24 @@ div[class*="-box"], div[class*="-image"] {
 .underline {
   text-decoration: underline !important; }
 
+a.submit-box{
+  border: 0;
+  outline: 0;
+  padding: 1rem 3.575rem;
+  border-radius: 2.5rem;
+  box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.16); }
+
 input {
   border: 0;
   outline: 0;
   padding: 1rem 2rem;
   border-radius: 2.5rem;
   box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.16); }
-  input.submit-box {
+  input.submit-box, a.submit-box {
     background: #353535;
     color: #FFF;
     transition: .3s ease-in-out; }
-    input.submit-box:hover {
+    input.submit-box:hover, a.submit-box:hover {
       transition: .3s ease-in-out;
       background: rgba(53, 53, 53, 0.4);
       color: #FFF; }
