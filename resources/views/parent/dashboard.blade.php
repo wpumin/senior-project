@@ -93,7 +93,7 @@ function convertStringDes($input){
                 </li>
             </ul>
             <div class="form-group d-block d-lg-none">
-                <select class="form-control" id="select-box">
+                <select class="form-control select2" id="select-box">
                     <option value="1">น้องคิด</option>
                     <option value="2">น้องมาร์ช</option>
                 </select>

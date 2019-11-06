@@ -265,7 +265,7 @@
                 success: function(response) {
                     if (response.status == 'success') {
 
-                        // $('table tbody').html('');
+                        $('table tbody').html('');
                         let modalUser = document.getElementById("name").innerHTML = name;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {

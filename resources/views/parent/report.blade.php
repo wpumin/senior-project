@@ -223,7 +223,7 @@
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/report",
+            url: "/report",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -250,7 +250,7 @@
                         success: function(response) {
                             if (response.status == 'success') {
 
-                            $('table tbody').html('');
+                            $('#report').html('');
                             for (var i = 0; i < response.data['report'].length; i++) {
 
                                 if (response.data['report'][i]['order_id'] == '1') {
