@@ -21,7 +21,7 @@
         <div class="single-info-details">
             <div class="item-img">
                 {{-- <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile"> --}}
-                <img src="" id="pic_user" alt="Parent">
+                <img src="" id="photo_user" alt="Parent">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">
@@ -286,7 +286,7 @@
         }
 
         var fullname_u = document.getElementById("fullname").innerHTML = getCookie('fullname_u');
-        var relationship = document.getElementById("role").innerHTML = getCookie('role_name');
+        var relationship = document.getElementById("role_user").innerHTML = getCookie('role_name');
         var first_name = document.getElementById("f_name").innerHTML = getCookie('f_name');
         var last_name = document.getElementById("l_name").innerHTML = getCookie('l_name');
         if(getCookie('image') != ""){
