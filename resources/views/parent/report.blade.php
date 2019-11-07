@@ -34,14 +34,14 @@
                                 <option value="7">แก้ไขโปรไฟล์</option>
                             </select>
                         </div>
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
+                        {{-- <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="order_id">
                                 <option value="">ระดับความสำคัญ</option>
                                 <option value="1">เล็กน้อย</option>
                                 <option value="2">ปานกลาง</option>
                                 <option value="3">เร่งด่วน</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="col-12 form-group">
                             <textarea class="textarea form-control" name="message" id="content" cols="10" rows="15" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                         </div>
@@ -186,17 +186,20 @@
                     if (response.status == 'success') {
 
                         for (var i = 0; i < response.data['report'].length; i++) {
-                            if (response.data['report'][i]['order_id'] == '1') {
-                                status = '<div class="post-date badge-green">';
-                                } else if (response.data['report'][i]['order_id'] == '2') {
-                                status = '<div class="post-date badge-orange">';
-                                } else if (response.data['report'][i]['order_id'] == '3') {
-                                status = '<div class="post-date badge-red">';
-                                } 
+                            // if (response.data['report'][i]['order_id'] == '1') {
+                            //     status = '<div class="post-date badge-green">';
+                            //     } else if (response.data['report'][i]['order_id'] == '2') {
+                            //     status = '<div class="post-date badge-orange">';
+                            //     } else if (response.data['report'][i]['order_id'] == '3') {
+                            //     status = '<div class="post-date badge-red">';
+                            //     } 
+                            var tempTime = response.data['report'][i]['created_at'];
+                            var time = tempTime.split(" ");
+                            var time2 = time[1].substring(0,5);
 
                             $('#report').append(
                                 '<div class="notice-list">' +
-                                status+ response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['date'] + ' | '+ response.data['report'][i]['type_name'] + '</div>' +
+                                '<div class="post-date badge-orange">' + response.data['report'][i]['type_name'] + ' | ' + response.data['report'][i]['date'] + ' - '+ time2 + ' น.</div>' +
                                 '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
                                 '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
                                  +

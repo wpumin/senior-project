@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content-login">
-    <div class="container-fluid">
+    <div class="container-fluid" style="position: relative;">
         <div class="row">
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
@@ -33,6 +33,11 @@
                 </div>
             </div>
         </div>
+        <a href="{{ url('/about') }}">
+            <div class="information-index">
+                ?
+            </div>
+        </a>
     </div>
 </div>
 

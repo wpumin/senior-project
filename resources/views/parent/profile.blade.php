@@ -20,8 +20,8 @@
         </div>
         <div class="single-info-details">
             <div class="item-img">
-                {{-- <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile"> --}}
-                <img src="" id="pic_user" alt="Parent">
+                <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile">
+                {{-- <img src="" id="pic_user" alt="Parent"> --}}
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">

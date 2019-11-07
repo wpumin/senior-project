@@ -318,7 +318,7 @@
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['date'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ'+ '</td>' +
+                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>' +
                                 '</td>' +
                                 '</tr>'
                             );

@@ -16,7 +16,7 @@
                     <div class="bank-icon">
                         {{-- <i class="fab fa-facebook-f"></i> --}}
                         {{-- <img src="{{}}" alt=""> --}}
-                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="" style="width: 30px;">
                     </div>
                     <div class="media-body space-sm">
                         <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -32,7 +32,7 @@
                 <div class="media media-none--lg">
                         <div class="bank-icon">
                             {{-- <i class="fab fa-twitter"></i> --}}
-                            <img src="{{ URL::asset('images/bank/scb.png') }}" alt="">
+                            <img src="{{ URL::asset('images/bank/scb.png') }}" alt="" style="width: 30px;">
                         </div>
                         <div class="media-body space-sm">
                             <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -48,7 +48,7 @@
                 <div class="media media-none--lg">
                     <div class="bank-icon">
                         {{-- <i class="fab fa-google-plus-g"></i> --}}
-                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="" style="width: 30px;">
                     </div>
                     <div class="media-body space-sm">
                         <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -64,7 +64,7 @@
                 <div class="media media-none--lg">
                     <div class="bank-icon">
                         {{-- <i class="fab fa-linkedin-in"></i> --}}
-                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="" style="width: 30px;">
                     </div>
                     <div class="media-body space-sm">
                         <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -189,7 +189,7 @@
                         <td>จ่า</td>
                         <td>ก.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -199,7 +199,7 @@
                         <td>จ๋าย</td>
                         <td>มิ.ย. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -209,7 +209,7 @@
                         <td>จ่า</td>
                         <td>มิ.ย. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -219,7 +219,7 @@
                         <td>จ๋าย</td>
                         <td>พ.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -229,7 +229,7 @@
                         <td>จ่า</td>
                         <td>พ.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -239,7 +239,7 @@
                         <td>จ๋าย</td>
                         <td>เม.ย. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -249,7 +249,7 @@
                         <td>จ่า</td>
                         <td>เม.ย. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -259,7 +259,7 @@
                         <td>จ๋าย</td>
                         <td>มี.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -269,7 +269,7 @@
                         <td>จ่า</td>
                         <td>มี.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -279,7 +279,7 @@
                         <td>จ๋าย</td>
                         <td>ก.พ. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -289,7 +289,7 @@
                         <td>จ่า</td>
                         <td>ก.พ. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -299,7 +299,7 @@
                         <td>จ๋าย</td>
                         <td>ม.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -309,7 +309,7 @@
                         <td>จ่า</td>
                         <td>ม.ค. 2562</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -319,7 +319,7 @@
                         <td>จ๋าย</td>
                         <td>ธ.ค. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -329,7 +329,7 @@
                         <td>จ่า</td>
                         <td>ธ.ค. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -339,7 +339,7 @@
                         <td>จ๋าย</td>
                         <td>พ.ย. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -349,7 +349,7 @@
                         <td>จ่า</td>
                         <td>พ.ย. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -359,7 +359,7 @@
                         <td>จ๋าย</td>
                         <td>ต.ค. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -369,7 +369,7 @@
                         <td>จ่า</td>
                         <td>ต.ค. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -379,7 +379,7 @@
                         <td>จ๋าย</td>
                         <td>ก.ย. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -389,7 +389,7 @@
                         <td>จ่า</td>
                         <td>ก.ย. 2561</td>
                         <td>900</td>
-                        <td class="badge badge-pill badge-light-gray d-block mg-t-8">ชำระแล้ว</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
                     </tr>
@@ -452,7 +452,7 @@
                 </div>
                 <div class="modal-footer text-left d-block px-0 pt-4 pb-0"">
                     <p class="mb-2 w-100 text-red" style="line-height: 1"> โปรดชำระเงินภายในวันที่ 31 ตุลาคม 2562</p>
-                    <p class="mb-2 small w-100 text-light-gray" style="line-height: 1"> สามารถชำระได้ 2 ช่องทาง คือ โอนเงิน และ QR code</p>
+                    <p class="mb-2 small w-100 text-green" style="line-height: 1"> สามารถชำระได้ 2 ช่องทาง คือ โอนเงิน และ QR code</p>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@
 
 // about (external page)
 Route::get('/about', function () {
-    return view('service.index');
+    return view('public.index');
 });
 
 // block url

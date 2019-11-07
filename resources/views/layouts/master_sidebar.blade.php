@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="navbar-item dropdown header-notification">
+                            {{-- <li class="navbar-item dropdown header-notification">
                                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                     aria-expanded="false">
                                     <i class="far fa-bell"></i>
@@ -180,7 +180,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="navbar-item dropdown header-language">
                                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
