@@ -19,10 +19,12 @@ class CreateStudentsTable extends Migration
             $table->string('card_id')->nullable();
             $table->string('car_id')->nullable();
             $table->string('school_id')->nullable();
+            $table->string('gender')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('fullname_s')->nullable();
             $table->string('nickname');
+            $table->string('relationship')->nullable();
             $table->string('mobile')->nullable();
             $table->string('address')->nullable();
             $table->string('lattitude')->nullable();

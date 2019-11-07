@@ -8,7 +8,7 @@ class Car extends Model
 {
     protected $table = 'cars';
     protected $fillable = [
-        'name', 'name_driver'
+        'name', 'name_driver' 
 
 
     ];
