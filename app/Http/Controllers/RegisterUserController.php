@@ -26,6 +26,7 @@ class RegisterUserController extends Controller
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'first_name' => 'required',
         'last_name' => 'required',
+        'fullname_u' => 'required',
         'relationship' => 'required',
         'mobile' => 'required',
         'line_id' => 'required',
@@ -88,6 +89,7 @@ class RegisterUserController extends Controller
         // 'image' => $this->request->input('image'),
         $user->first_name = $this->request->input('first_name');
         $user->last_name = $this->request->input('last_name');
+        $user->fullname_u = 'คุณ'.$this->request->input('first_name') . ' ' . $this->request->input('last_name');
         $user->relationship = $this->request->input('relationship');
         $user->mobile = $this->request->input('mobile');
         $user->line_id = $this->request->input('line_id');

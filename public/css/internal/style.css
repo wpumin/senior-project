@@ -5964,7 +5964,7 @@ ul {
     width: 100%;
     position: relative;
     color: white;
-    background-color: #ffae01;
+    background-color: #353535;
     padding: 1.65rem 0;
     z-index: 2;
 }
@@ -5990,7 +5990,7 @@ ul {
     position: absolute;
     bottom: -1px;
     left: 0;
-    border-bottom: 5px #ffef15 solid;
+    border-bottom: 6px #ffae01 solid;
     height: 5px;
     width: 50%;
 }
@@ -6000,7 +6000,7 @@ ul {
     position: absolute;
     bottom: -1px;
     right: 0;
-    border-bottom: 5px #ffef15 solid;
+    border-bottom: 6px #ffae01 solid;
     height: 5px;
     width: 50%;
 }

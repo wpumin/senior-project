@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="navbar-item dropdown header-notification">
+                        {{-- <li class="navbar-item dropdown header-notification">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
                                 <i class="far fa-bell"></i>
@@ -171,8 +171,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                            <li class="navbar-item dropdown header-language">
+                        </li> --}}
+                        <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -450,6 +450,13 @@
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
+        document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
+        document.getElementById("relationship").innerHTML = getCookie('relationship');
+        document.getElementById("line_id").innerHTML = getCookie('line_id');
+        document.getElementById("mobile").innerHTML = getCookie('mobile');
+        document.getElementById("username").innerHTML = getCookie('username');
+        document.getElementById("email").innerHTML = getCookie('email');
+        document.getElementById("address").innerHTML = getCookie('address');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

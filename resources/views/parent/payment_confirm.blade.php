@@ -13,9 +13,18 @@
         <form action="" class="new-added-form pt-5 pt-md-4" id="paymentConfirm">
             @csrf
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="หมายเลขรายการ" class="form-control" required autocomplete="off">
+                 <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <select class="select2" required autocomplete="off">
+                        <option value="">หมายเลขรายการ</option>
+                        <option value="1">987</option>
+                        <option value="2">986</option>
+                        <option value="3">885</option>
+                        <option value="4">ทั้งหมด</option>
+                    </select>
                 </div>
+                {{-- <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <input type="text" placeholder="หมายเลขรายการ" class="form-control" required autocomplete="off">
+                </div> --}}
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="เวลา" class="form-control" id="timepicker" required autocomplete="off">
                     <i class="far fa-clock"></i>
@@ -34,7 +43,7 @@
                     </select>
                 </div>
                 <div class="col-12 form-group mb-0">
-                    <label for="">ใบเสร็จชำระเงิน <span class="small text-red">(อัพโหลดได้ไม่เกิน 3 ไฟล์)</span></label>
+                    <label for="">ใบเสร็จชำระเงิน <span class="small text-red">(อัพโหลดได้เพียง 1 ไฟล์)</span></label>
                     <div class="dropzone text-center">
                     </div>
                     <div class="text-center text-lg-left mt-3">

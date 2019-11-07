@@ -36,7 +36,7 @@
                 <div class="social-like"><span class="flaticon-exclamation"></span> ทัศนวิสัยไม่ดี</div>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="เกิดอุบัติเหตุ">
         <div class="card dashboard-card-seven pb-0 pointer">
             <div class="social-media bg-special-orange hover-linked">
@@ -87,7 +87,7 @@
         </div>
     </div>
 </div>
-<!-- Success Broadcast End Here -->   
+<!-- Success Broadcast End Here -->
 
 <!-- Modal: System error-->
 <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
@@ -106,7 +106,7 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->   
+<!-- System error End Here -->
 
 @endsection
 
@@ -122,22 +122,36 @@
                 // jQuery(".navbar-expand-md").css("position", "fixed");
                 // jQuery(".navbar-expand-md").css("width", "100%");
                 // jQuery(".navbar-expand-md").css("z-index", "99");
-            }  
+            }
         });
 
+        var txtBroadcast
         // dynamic text in modal
         $('.btn-broadcast').click(function(){
-            var txtBroadcast = $(this).data('display');
+            txtBroadcast = $(this).data('display');
             console.log(txtBroadcast);
             $("#data-display").text( txtBroadcast );
         });
 
         // ajax
         $('#confirmBroadcast').click(function(){
+            var code_lub
+
+            if (txtBroadcast == 'รถจอดพักเทศบาลบ้านไร่') {
+                code_lub = 'bus_stop.php'
+            }else if (txtBroadcast == 'รถเสีย') {
+                code_lub = 'broken_car.php'
+            }else if (txtBroadcast == 'การจราจรติดขัด') {
+                code_lub = 'traffic.php'
+            }else if (txtBroadcast == 'ทัศนวิสัยไม่ดี') {
+                code_lub = 'vision.php'
+            }else if (txtBroadcast == 'เกิดอุบัติเหตุ') {
+                code_lub = 'accident.php'
+            }
 
             $.ajax({
-                type: "POST",
-                url: "",
+                type: "GET",
+                url: "https://bear-bus.com/broadcast/" + code_lub,
                 // url: "http://localhost:8000/delete-appointment",
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -151,7 +165,7 @@
                         $('#confirmBroadcast').modal('hide');
                         $(".wrap-modal > #successBroadcast").modal('show');
                     }
-                    
+
                 },
                 error: function(result){
                     $('#confirmBroadcast').modal('hide');

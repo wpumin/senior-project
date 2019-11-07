@@ -143,6 +143,33 @@ class RefreshController extends Controller
         return $this->responseRequestSuccess($data);
     }
 
+    public function pf_student()
+    {
+        // validator
+        $validator = Validator::make($this->request->all(), [
+            'user_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->responseRequestError($errors);
+        }
+
+        
+        $student = DB::table('students')
+            ->join('users', 'students.user_id', '=', 'users.id')
+            ->join('schools', 'students.school_id', '=', 'schools.id')
+            ->join('cars', 'students.car_id', '=', 'cars.id')
+            ->select('students.*', 'schools.name_school', 'cars.name','cars.name_driver')
+            ->where('students.user_id', $this->request->input('user_id'))    
+            ->get();
+
+        $data['student'] = $student;
+
+
+        return $this->responseRequestSuccess($data);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง

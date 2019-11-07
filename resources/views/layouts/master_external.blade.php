@@ -26,7 +26,7 @@
             <!-- WOW -->
             <link rel="stylesheet" href="{{ URL::asset('plugins/wow/animate.css') }}">
             <!-- // TODO: Must to do everytime when you want to update stylesheet on server -->
-            <link rel="stylesheet" href="{{ URL::asset('css/external/style.css?v=1.0.0.2') }}" >
+            <link rel="stylesheet" href="{{ URL::asset('css/external/style.css?v=1.0.0.3') }}" >
 
             <!-- // ! Javascript -->
             <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>

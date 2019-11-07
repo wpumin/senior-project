@@ -28,7 +28,7 @@ class ReportController extends Controller
                 'order_id' => 'required',
                 'title' => 'required',
                 'content' => 'required',
-                ]);
+            ]);
 
             if ($validate->fails()) {
                 $errors = $validate->errors();
@@ -37,9 +37,14 @@ class ReportController extends Controller
             $day = date('d');
             $month = date('m');
             $year = date('Y') + 543;
-            $full = $day . '-' . $month . '-' . $year;            // dd($this->request->input('type_id'));
 
-            // dd($full);
+
+            $name_month = ["ว่าง", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+
+            // $word = 'บิล ของเดือน "' . $name_month[$month] . '" เข้าแล้ว.';
+            // dd(strval($word));
+
+            $full = $day . '-' . $month . '-' . $year;
 
             DB::beginTransaction();
             $res['data'] = Report::create([

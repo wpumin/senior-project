@@ -304,7 +304,7 @@ var Dropzone = function (_Emitter) {
         /**
          * Can be used to limit the maximum number of files that will be handled by this Dropzone
          */
-        maxFiles: 3,
+        maxFiles: 1,
 
         /**
          * An optional object to send additional headers to the server. Eg:

@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content-login">
-    <div class="container-fluid">
+    <div class="container-fluid" style="position: relative;">
         <div class="row">
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
@@ -33,6 +33,11 @@
                 </div>
             </div>
         </div>
+        <a href="{{ url('/about') }}">
+            <div class="information-index">
+                ?
+            </div>
+        </a>
     </div>
 </div>
 
@@ -151,6 +156,14 @@
                     setCookie('role_name', result.data['role_name'], 30);
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
+                    setCookie('fullname_u', result.data['fullname_u'], 30);
+                    setCookie('relationship', result.data['relationship'], 30);
+                    setCookie('line_id', result.data['line_id'], 30);
+                    setCookie('mobile', result.data['mobile'], 30);
+                    setCookie('username', result.data['username'], 30);
+                    setCookie('email', result.data['email'], 30);
+                    setCookie('address', result.data['address'], 30);
+
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
                     setCookie('car_id', result.data['car_id'], 30);
