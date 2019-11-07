@@ -27,10 +27,12 @@ class RegisterStudentController extends Controller
                 'school_id' => 'required',
                 'car_id' => 'required',
                 'card_id' => 'required',
+                'gender' => 'required',
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'fullname' => 'required',
+                'fullname_s' => 'required',
                 'nickname' => 'required',
+                'relationship' => 'required',
                 'address' => 'required',
                 'lattitude' => 'required',
                 'longtitude' => 'required',
@@ -73,10 +75,12 @@ class RegisterStudentController extends Controller
             $student->school_id = $this->request->input('school_id');
             $student->car_id = $this->request->input('car_id');
             $student->card_id = $this->request->input('card_id');
+            $student->gender = $this->request->input('gender');
             $student->first_name = $this->request->input('first_name');
             $student->last_name = $this->request->input('last_name');
-            $student->fullname_s = $this->request->input('fullname') . ' ' . $this->request->input('last_name');
+            $student->fullname_s = $this->request->input('gender').$this->request->input('first_name') . ' ' . $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
+            $student->relationship = $this->request->input('relationship');
             $student->mobile = $this->request->input('mobile');
             $student->address = $this->request->input('address');
             $student->lattitude = $this->request->input('lattitude');

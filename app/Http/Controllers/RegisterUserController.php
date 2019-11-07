@@ -89,7 +89,7 @@ class RegisterUserController extends Controller
         // 'image' => $this->request->input('image'),
         $user->first_name = $this->request->input('first_name');
         $user->last_name = $this->request->input('last_name');
-        $user->fullname_u = $this->request->input('first_name') . ' ' . $this->request->input('last_name');
+        $user->fullname_u = 'คุณ'.$this->request->input('first_name') . ' ' . $this->request->input('last_name');
         $user->relationship = $this->request->input('relationship');
         $user->mobile = $this->request->input('mobile');
         $user->line_id = $this->request->input('line_id');
