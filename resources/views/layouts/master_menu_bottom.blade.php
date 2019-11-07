@@ -450,6 +450,13 @@
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
+        document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
+        document.getElementById("relationship").innerHTML = getCookie('relationship');
+        document.getElementById("line_id").innerHTML = getCookie('line_id');
+        document.getElementById("mobile").innerHTML = getCookie('mobile');
+        document.getElementById("username").innerHTML = getCookie('username');
+        document.getElementById("email").innerHTML = getCookie('email');
+        document.getElementById("address").innerHTML = getCookie('address');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

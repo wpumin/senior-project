@@ -21,11 +21,11 @@
         <div class="single-info-details">
             <div class="item-img">
                 {{-- <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile"> --}}
-                <img src="" id="photo_user" alt="Parent">
+                <img src="" id="pic_user" alt="Parent" class="parent-profile">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">
-                    <h3 class="text-dark-medium font-medium text-center text-md-left">คุณ ภูมินท์ วงษ์ศิริ</h3>
+                    <h3 class="text-dark-medium font-medium text-center text-md-left" id="fullname_u">คุณ ภูมินท์ วงษ์ศิริ</h3>
                     {{-- <div class="header-elements">
                         <ul>
                             <li><a href="#"><i class="far fa-edit"></i></a></li>
@@ -37,27 +37,27 @@
                         <tbody>
                             <tr>
                                 <td>ความสัมพันธ์:</td>
-                                <td class="font-medium text-dark-medium" id="role_user"></td>
+                                <td class="font-medium text-dark-medium" id="relationship"></td>
                             </tr>
                             <tr>
                                 <td>ไลน์ไอดี:</td>
-                                <td class="font-medium text-dark-medium">nonstop27</td>
+                                <td class="font-medium text-dark-medium" id="line_id"></td>
                             </tr>
                             <tr>
                                 <td>เบอร์โทร:</td>
-                                <td class="font-medium text-dark-medium">089-811-5155</td>
+                                <td class="font-medium text-dark-medium" id="mobile"></td>
                             </tr>
                             <tr>
                                 <td>ชื่อผู้ใช้:</td>
-                                <td class="font-medium text-dark-medium">nonstop</td>
+                                <td class="font-medium text-dark-medium" id="username"></td>
                             </tr>
                             <tr>
                                 <td>อีเมล:</td>
-                                <td class="font-medium text-dark-medium">pumin.wongsiri@gmail.com</td>
+                                <td class="font-medium text-dark-medium" id="email"></td>
                             </tr>
                             <tr>
                                 <td>ที่อยู่:</td>
-                                <td class="font-medium text-dark-medium">49 ซอยเทอดไท 15 ถนนเทอดไท บางยี่เรือ ธนบุรี กทม. 10600</td>
+                                <td class="font-medium text-dark-medium" id="address"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -285,21 +285,47 @@
             return "";
         }
 
-        var fullname_u = document.getElementById("fullname").innerHTML = getCookie('fullname_u');
-        var relationship = document.getElementById("role_user").innerHTML = getCookie('role_name');
-        var first_name = document.getElementById("f_name").innerHTML = getCookie('f_name');
-        var last_name = document.getElementById("l_name").innerHTML = getCookie('l_name');
-        if(getCookie('image') != ""){
-            var image = document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
-        }else{
-            var image2 = document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+        function deleteAllCookies() {
+
+        var res = document.cookie;
+        var multiple = res.split(";");
+
+
+        for (var i = 0; i < multiple.length; i++) {
+
+            var key = multiple[i].split("=");
+            document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
 
-        console.log(fullname_u)
+        for (var i = 0; i < multiple.length; i++) {
+
+            var key = multiple[i].split("=");
+            document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
+        }
+
+        }
+
+        document.getElementById("name").innerHTML = getCookie('name');
+        document.getElementById("role").innerHTML = getCookie('role_name');
+        document.getElementById("f_name").innerHTML = getCookie('f_name');
+        document.getElementById("l_name").innerHTML = getCookie('l_name');
+        if(getCookie('image') != ""){
+            document.getElementById("pic_user").src = '{{URL::asset('')}}'+getCookie('image');
+        }else{
+            document.getElementById("pic_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+        }
+        document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
+        document.getElementById("relationship").innerHTML = getCookie('relationship');
+        document.getElementById("line_id").innerHTML = getCookie('line_id');
+        document.getElementById("mobile").innerHTML = getCookie('mobile');
+        document.getElementById("username").innerHTML = getCookie('username');
+        document.getElementById("email").innerHTML = getCookie('email');
+        document.getElementById("address").innerHTML = getCookie('address');
+
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/register/user",
+            url: "http://localhost:8000/register/student",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
