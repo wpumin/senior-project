@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="th">
-    
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -74,7 +74,7 @@
         <div class="navbar navbar-expand-md header-menu-one bg-light" id="navbar">
             <div class="nav-bar-header-one">
                 <div class="header-logo">
-                    <?php if($_COOKIE['role'] == '1') { ?> 
+                    <?php if($_COOKIE['role'] == '1') { ?>
                         <a href="{{ url('parent/index') }}">
                     <?php }else{ ?>
                          <a href="{{ url('driver/index') }}">
@@ -450,13 +450,13 @@
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
-        document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
-        document.getElementById("relationship").innerHTML = getCookie('relationship');
-        document.getElementById("line_id").innerHTML = getCookie('line_id');
-        document.getElementById("mobile").innerHTML = getCookie('mobile');
-        document.getElementById("username").innerHTML = getCookie('username');
-        document.getElementById("email").innerHTML = getCookie('email');
-        document.getElementById("address").innerHTML = getCookie('address');
+        // document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
+        // document.getElementById("relationship").innerHTML = getCookie('relationship');
+        // document.getElementById("line_id").innerHTML = getCookie('line_id');
+        // document.getElementById("mobile").innerHTML = getCookie('mobile');
+        // document.getElementById("username").innerHTML = getCookie('username');
+        // document.getElementById("email").innerHTML = getCookie('email');
+        // document.getElementById("address").innerHTML = getCookie('address');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

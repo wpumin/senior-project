@@ -33,22 +33,22 @@ class NewPasswordController extends Controller
                 return $this->responseRequestError('pass_too_short');
             }
 
-            // if ($user = User::where('email', $this->decrypt($this->request->email))->first()) {
+            if ($user = User::where('email', $this->request->email)->first()) {
 
-            //     if ($this->request->password == $this->request->confirm_password) {
+                if ($this->request->password == $this->request->confirm_password) {
 
-            //         $user->password = Hash::make($this->request->password);
-            //         if ($user->save()) {
+                    $user->password = Hash::make($this->request->password);
+                    if ($user->save()) {
 
-            return $this->responseRequestSuccess('Success!');
-            //         }
-            //     } else {
+                        return $this->responseRequestSuccess('Success!');
+                    }
+                } else {
 
-            //         return $this->responseRequestError('pass_not_same');
-            //     }
-            // } else {
-            //     return $this->responseRequestError('error');
-            // }
+                    return $this->responseRequestError('pass_not_same');
+                }
+            } else {
+                return $this->responseRequestError('error');
+            }
         } catch (DecryptException $e) {
             return 'ไม่พบข้อมูล';
         }

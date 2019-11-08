@@ -25,7 +25,6 @@ class ReportController extends Controller
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'type_id' => 'required',
-                'order_id' => 'required',
                 'title' => 'required',
                 'content' => 'required',
             ]);
@@ -50,7 +49,6 @@ class ReportController extends Controller
             $res['data'] = Report::create([
                 'user_id' => $this->request->input('user_id'),
                 'type_id' => $this->request->input('type_id'),
-                'order_id' => $this->request->input('order_id'),
                 'title' => $this->request->input('title'),
                 'content' => $this->request->input('content'),
                 'date' => $full
