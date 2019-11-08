@@ -158,245 +158,246 @@
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
+                        <th>รหัส</th>
+                        <th>สถานะ</th>
                         <th>ชื่อเล่น</th>
                         <th>โรงเรียน</th>
                         <th>ผู้ปกครอง</th>
                         <th>ติดต่อ</th>
-                        <th>รหัส</th>
                         <th>จำนวนเงิน</th>
-                        <th>สถานะ</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>987</td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>987</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                     </tr>
                     <tr>
                         <td>2</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                     </tr>
                     <tr>
                         <td>3</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>4</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>5</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>6</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>7</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>8</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>9</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>10</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>11</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                     </tr>
                     <tr>
                         <td>12</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>                    
                     <tr>
                         <td>13</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>14</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>15</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>16</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
                     </tr>
                     <tr>
                         <td>17</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>18</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>19</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>20</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>21</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
                     </tr>
                     <tr>
                         <td>22</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                     <tr>
                         <td>23</td>
+                        <td>986</td>
+                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                         <td>จ๋า</td>
                         <td>ทัพหลวง</td>
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
-                        <td>986</td>
+
                         <td>900.00</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
                     </tr>
                 </tbody>
             </table>

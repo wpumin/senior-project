@@ -83,11 +83,11 @@
                             <thead>
                                 <tr class="bg-special-orange">
                                     <th>ลำดับ</th>
-                                    <th>ชื่อ-สกุล นักเรียน</th>
+                                    {{-- <th>ชื่อ-สกุล นักเรียน</th> --}}
+                                    <th>สถานะ</th>
                                     <th>ชื่อเล่น</th>
                                     <th>วันที่</th>
                                     <th>ช่วงเวลา</th>
-                                    <th>สถานะ</th>
                                 </tr>
                             </thead>
                             <tbody id="showForm">
@@ -259,11 +259,11 @@
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
+                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ'+ '</td>' +
+                                // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['date'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ'+ '</td>' +
                                 '</td>' +
                                 '</tr>'
                             );
@@ -314,11 +314,11 @@
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
+                                    '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>' +
+                                // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['date'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>' +
                                 '</td>' +
                                 '</tr>'
                             );
