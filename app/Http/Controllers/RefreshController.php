@@ -89,7 +89,7 @@ class RefreshController extends Controller
         // validator
         $validator = Validator::make($this->request->all(), [
             'user_id' => 'required',
-            
+
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
@@ -116,7 +116,7 @@ class RefreshController extends Controller
         // validator
         $validator = Validator::make($this->request->all(), [
             'user_id' => 'required',
-            
+
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
@@ -132,14 +132,11 @@ class RefreshController extends Controller
             ->join('users', 'reports.user_id', '=', 'users.id')
             ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
             ->select('reports.*', 'type_reports.type_name')
-            ->where('reports.user_id', $this->request->input('user_id'))    
+            ->where('reports.user_id', $this->request->input('user_id'))
             ->orderBy('reports.created_at', 'desc')
             ->get();
 
-        $data['report'] = $report;
-
-
-        return $this->responseRequestSuccess($data);
+        return $this->responseRequestSuccess($report);
     }
 
     public function pf_student()
@@ -147,20 +144,20 @@ class RefreshController extends Controller
         // validator
         $validator = Validator::make($this->request->all(), [
             'user_id' => 'required',
-            
+
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
             return $this->responseRequestError($errors);
         }
 
-        
+
         $student = DB::table('students')
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
-            ->select('students.*', 'schools.name_school', 'cars.name','cars.name_driver')
-            ->where('students.user_id', $this->request->input('user_id'))    
+            ->select('students.*', 'schools.name_school', 'cars.name', 'cars.name_driver')
+            ->where('students.user_id', $this->request->input('user_id'))
             ->get();
 
         $data['student'] = $student;
