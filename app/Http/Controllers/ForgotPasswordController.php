@@ -73,7 +73,7 @@ class ForgotPasswordController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $userOTP = Otp::where('otp', $this->request->otp)->where('ref', $this->decrypt($this->request->ref))->first();
+        $userOTP = Otp::where('otp', $this->request->input('otp'))->where('ref', $this->request->input('ref'))->first();
 
         if ($userOTP) {
             return $this->responseRequestSuccess('success');
