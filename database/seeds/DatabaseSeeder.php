@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             TypeReportTableSeeder::class,
             RolesTableSeeder::class,
             ProvincesTableSeeder::class,
-            OrderReportTableSeeder::class,
             PeriodTimeTableSeeder::class
         ]);
     }
