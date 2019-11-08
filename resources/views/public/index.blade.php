@@ -25,6 +25,20 @@
     <link rel="stylesheet" href="{{ URL::asset('css/public/swiper.min.css') }}">
     <!-- Style .css-->
     <link id="color" rel="stylesheet" href="{{ URL::asset('css/public/color1.css') }}" media="screen">
+    <script type="text/javascript">
+      // Initialize the service worker
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/swe.js', {
+              scope: '.' 
+          }).then(function (registration) {
+              // Registration was successful
+              // console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
+          }, function (err) {
+              // registration failed :(
+              // console.log('Bear Bus: ServiceWorker registration failed: ', err);
+          });
+      }
+  </script>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="75">
     <!-- loader-->
@@ -37,7 +51,7 @@
     <!-- loader end-->
     <!-- Nav start-->
     <nav class="navbar navbar-expand-lg theme-nav fixed-top">
-      <div class="container"><a class="navbar-brand" href="index.html"><img src="{{ URL::asset('images/public/logo.png')}}" alt="logo"></a>
+      <div class="container"><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ URL::asset('images/public/logo.png')}}" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="fa fa-align-justify " aria-hidden="true"></i></span></button>
         <div class="collapse navbar-collapse" id="mainmenu">
           <ul class="navbar-nav ml-auto" id="mymenu">
@@ -732,7 +746,7 @@
                       <h3>โกญจนาท เกษศิลป์</h3>
                       <h4 class="m-0 text-muted">Developer & System Analysis</h4>
                       <h5>Laravel, JavaScript, Aduino </h5>
-                      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,</p>
+                      <p>พัฒนาเว็บไซต์ Bear Bus ให้มีความสะดวกและง่ายต่อการใช้งาน มุ่งเน้นไปที่ความปลอดภัยของเด็กนักเรียน ทำให้ผู้ปกครองไว้วางใจในระบบของเรา รวมถึงการนำ Arduino IOT มาใช้ในระบบ ทำให้ระบบของเรานั้นมีประโยชน์มากขึ้น เช่น การตรวจสอบสถานะของเด็กนักเรียนจากการใช้ RFID Card และ ติดตามตำแหน่งของรถ (GPS) สำหรับผู้ปกครอง</p>
                     </div>
                   </div>
                 </div>
@@ -771,7 +785,7 @@
                         <h3>อชิตะ ลิลิตสัจจะ</h3>
                         <h4 class="m-0 text-muted">Developer & Tester</h4>
                         <h5>Laravel, JavaScript </h5>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,</p>
+                        <p>มุ่งเน้นพัฒนาตัวระบบของเว็บไซต์ Bear Bus ให้สะดวกต่อการใช้งานของผู้ปกครองและมีข้อผิดพลาดน้อยที่สุด พร้อมพัฒนาระบบต่าง ๆ ให้เป็นประโยชน์กับตัวผู้ปกครองและเด็กนักเรียนเอง เช่น ระบบติดตามเด็กนักเรียนได้ว่าได้ขึ้นรถแล้วหรือไม่, ระบบการแจ้งชำระเงิน, ระบบการแจ้งเดินทางไป-กลับเอง และระบบร้องเรียนข้อผิดพลาด เป็นต้น</p>
                       </div>
                     </div>
                   </div>
