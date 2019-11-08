@@ -159,11 +159,11 @@
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
                         <th>รหัส</th>
+                        <th>เวลาแจ้ง</th>
+                        <th>บัญชี</th>
                         <th>ชื่อเล่น</th>
                         <th>โรงเรียน</th>
                         <th>จำนวนเงิน</th>
-                        <th>เวลาแจ้ง</th>
-                        <th>บัญชี</th>
                         <th>จัดการ</th>
                     </tr>
                 </thead>
@@ -171,221 +171,221 @@
                     <tr>
                         <td>1</td>
                         <td>987</td>
+                        <td>26/10/2562 16:52:23</td>
+                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>900.00</td>
-                        <td>26/10/2562 16:52:23</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>876</td>
+                        <td>26/10/2562 16:51:12</td>
+                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>900.00</td>
-                        <td>26/10/2562 16:51:12</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>900.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>11</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>12</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>13</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>14</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>15</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>16</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>17</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>18</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>19</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>20</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>21</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                     <tr>
                         <td>22</td>
                         <td>875</td>
+                        <td>26/10/2562 16:50:02</td>
+                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td>จ๋าย</td>
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                     </tr>
                 </tbody>
