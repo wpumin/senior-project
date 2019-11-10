@@ -40,7 +40,7 @@
     <!-- Date Picker CSS -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/datepicker/pignose.calendar.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.3') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>

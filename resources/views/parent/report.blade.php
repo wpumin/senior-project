@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="heading mt-md-5 text-left">
+<div class="heading text-left">
     <h3>ร้องเรียน / แนะนำการบริการ</h3>
 </div>
 

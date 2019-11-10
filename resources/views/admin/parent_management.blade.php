@@ -19,13 +19,13 @@
         </div>
         <form class="mb-5 mb-lg-0 new-added-form">
             <div class="row gutters-8">
-                <div class="col-3-xxxl col-lg-3 col-12 form-group">
+                <div class="col-4-xxxl col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อผู้ใช้งาน" class="form-control">
                 </div>
                 <div class="col-4-xxxl col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control">
                 </div>
-                <div class="col-4-xxxl col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยเบอร์โทร" class="form-control">
                 </div>
                 <div class="col-1-xxxl col-lg-3 col-12 form-group">

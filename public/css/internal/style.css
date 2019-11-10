@@ -1882,6 +1882,16 @@ ul {
     }
 }
 
+@media only screen and (min-width: 768px){
+    .navbar{
+        position: fixed;
+        width: 100%;
+    }
+    .dashboard-content-one, .sidebar-main{
+        margin-top: 70px;
+    }
+}
+
 .nav-bar-header-one .toggle-button .item-link {
     padding: 26px 15px;
     display: block;
