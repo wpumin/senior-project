@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             PaymentStatusTableSeeder::class,
             TypeReportTableSeeder::class,
             RolesTableSeeder::class,
-            ProvincesTableSeeder::class,
+            DistrictTableSeeder::class,
             PeriodTimeTableSeeder::class
         ]);
     }
