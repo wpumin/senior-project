@@ -246,11 +246,11 @@
                               '</td>' + 
                               '</tr>' +
 
-                             '<tr>' + 
-                             '<td>ความสัมพันธ์:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                             '</td>' +
-                             '</tr>' +
+                            //  '<tr>' + 
+                            //  '<td>ความสัมพันธ์:</td>' + 
+                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
+                            //  '</td>' +
+                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 

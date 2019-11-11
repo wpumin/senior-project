@@ -6,7 +6,7 @@
 
 
 
-<div class="heading mt-md-5 text-left">
+<div class="heading text-left">
     <h3>แจ้งเดินทางเอง</h3>
 </div>
 
