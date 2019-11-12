@@ -17,6 +17,7 @@ class CreatePaymentInformsTable extends Migration
             $table->bigIncrements('id');
             $table->string('tran_key')->nullable();
             $table->string('user_id')->nullable();
+            $table->string('student_id');
             $table->string('timepicker')->nullable();
             $table->string('date')->nullable();
             $table->string('content')->nullable();
