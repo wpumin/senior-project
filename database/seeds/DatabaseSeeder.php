@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
             DistrictTableSeeder::class,
             PeriodTimeTableSeeder::class,
-            BankTableSeeder::class
+            BankTableSeeder::class,
+            RelationshipTableSeeder::class
+
         ]);
     }
 }

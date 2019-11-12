@@ -151,30 +151,38 @@
                 // login สำเร็จ
                 if(result.status == 'success') {
                     setCookie('Authorization', result.data['token'], 30);
-                    setCookie('name', result.data['first_name'], 30);
-                    setCookie('role', result.data['role'], 30);
+                    // setCookie('name', result.data['first_name'], 30);
+                    // setCookie('role', result.data['role'], 30);
+                    // setCookie('role_name', result.data['role_name'], 30);
+                    setCookie('role_id', result.data['role_id'], 30);
                     setCookie('role_name', result.data['role_name'], 30);
+                    setCookie('relationship_id', result.data['relationship_id'], 30);
+                    setCookie('relationship_name', result.data['relationship_name'], 30);
+                    setCookie('car_id', result.data['car_id'], 30);
+                    setCookie('car_name', result.data['car_name'], 30);
+                    setCookie('prefix', result.data['prefix'], 30);
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
-                    setCookie('fullname_u', result.data['fullname_u'], 30);
-                    setCookie('relationship', result.data['relationship'], 30);
+                    // setCookie('fullname_u', result.data['fullname_u'], 30);
+                    // setCookie('relationship', result.data['relationship'], 30);
                     setCookie('line_id', result.data['line_id'], 30);
-                    setCookie('mobile', result.data['mobile'], 30);
+                    setCookie('phone', result.data['phone'], 30);
                     setCookie('username', result.data['username'], 30);
                     setCookie('email', result.data['email'], 30);
                     setCookie('address', result.data['address'], 30);
+                    setCookie('datetime', result.data['datetime'], 30);
 
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
-                    setCookie('car_id', result.data['car_id'], 30);
+                    
 
-                    if (result.data['role'] == '1') {
+                    if (result.data['role_id'] == '1') {
                         //Page User
                         $(location).attr('href', '/parent/index');
-                    }else  if (result.data['role'] == '2') {
+                    }else  if (result.data['role_id'] == '2') {
                         //Page Driver
                         $(location).attr('href', '/driver/index');
-                    }else  if (result.data['role'] == '3') {
+                    }else  if (result.data['role_id'] == '3') {
                         //Page Admin
                         $(location).attr('href', '/admin/index');
                     }

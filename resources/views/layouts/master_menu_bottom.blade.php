@@ -74,7 +74,7 @@
         <div class="navbar navbar-expand-md header-menu-one bg-light" id="navbar">
             <div class="nav-bar-header-one">
                 <div class="header-logo">
-                    <?php if($_COOKIE['role'] == '1') { ?>
+                    <?php if($_COOKIE['role_id'] == '1') { ?>
                         <a href="{{ url('parent/index') }}">
                     <?php }else{ ?>
                          <a href="{{ url('driver/index') }}">
@@ -104,14 +104,14 @@
                     {{-- don't remove --}}
                 </ul>
                 <?php
-                    if($_COOKIE['role'] == '1') {
+                    if($_COOKIE['role_id'] == '1') {
                 ?>
                     <ul class="navbar-nav">
                         <li class="navbar-item dropdown header-admin">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                                 <div class="admin-title">
                                     <h5 class="item-title" id="name"></h5>
-                                    <span id="role"></span>
+                                    <span id="role_name"></span>
                                 </div>
                                 <div class="admin-img">
                                     <img src="" id="photo_user" alt="Parent">
@@ -119,7 +119,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="item-header">
-                                    <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></h6>
+                                    <h6 class="item-title"><span id="prefix"></span><span id="f_name"></span> <span id="l_name"></h6>
                                 </div>
                                 <div class="item-content">
                                     <ul class="settings-list">
@@ -185,15 +185,15 @@
                     }
                 ?>
                 <?php
-                    if($_COOKIE['role'] == '2') {
+                    if($_COOKIE['role_id'] == '2') {
                 ?>
                     <ul class="navbar-nav">
                         <li class="navbar-item dropdown header-admin">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
                                 <div class="admin-title">
-                                    <h5 class="item-title" id="name">ชื่อ</h5>
-                                    <span id="role">คนขับรถ</span>
+                                    <h5 class="item-title" id="name"></h5>
+                                    <span id="role_name"></span>
                                 </div>
                                 <div class="admin-img">
                                     <img src="" id="photo_user" alt="Driver">
@@ -201,7 +201,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="item-header">
-                                    <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></span></h6>
+                                    <h6 class="item-title"><span id="prefix"></span><span id="f_name"></span> <span id="l_name"></span></h6>
                                 </div>
                                 <div class="item-content">
                                     <ul class="settings-list">
@@ -269,7 +269,7 @@
             </div>
         </div>
         <?php
-            if($_COOKIE['role'] == '1') {
+            if($_COOKIE['role_id'] == '1') {
 
         ?>
         {{-- สำหรับผู้ปกครอง --}}
@@ -293,7 +293,7 @@
             <div class="mobile-sidebar-header d-md-none">
             </div>
                     <?php
-                        if($_COOKIE['role'] == '1') {
+                        if($_COOKIE['role_id'] == '1') {
                     ?>
                         <div class="sidebar-menu-content">
                             <ul class="nav nav-sidebar-menu sidebar-toggle-view">
@@ -326,7 +326,7 @@
                         }
                     ?>
                     <?php
-                        if($_COOKIE['role'] == '2') {
+                        if($_COOKIE['role_id'] == '2') {
                     ?>
                         <div class="sidebar-menu-content">
                             <ul class="nav nav-sidebar-menu sidebar-toggle-view">
@@ -360,7 +360,7 @@
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
                             <?php
-                            if($_COOKIE['role'] == '1') {
+                            if($_COOKIE['role_id'] == '1') {
 
                             ?>
                                 <div class="mobile-nav-bar justify-content-between">
@@ -374,7 +374,7 @@
                                 }
                             ?>
                             <?php
-                                if($_COOKIE['role'] == '2') {
+                                if($_COOKIE['role_id'] == '2') {
                             ?>
                                 <div class="d-md-none mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
@@ -440,9 +440,9 @@
             }
 
         }
-
-        document.getElementById("name").innerHTML = getCookie('name');
-        document.getElementById("role").innerHTML = getCookie('role_name');
+        document.getElementById("name").innerHTML = getCookie('f_name');
+        document.getElementById("role_name").innerHTML = getCookie('role_name');
+        document.getElementById("prefix").innerHTML = getCookie('prefix');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
         if(getCookie('image') != ""){
