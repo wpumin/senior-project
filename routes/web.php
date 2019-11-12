@@ -99,12 +99,12 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/payment/overview/car2', function () {
         return view('admin.payment_overview');
     });
-    Route::get('/payment/confirm/car1', function () {
-        return view('admin.payment_confirm');
-    });
-    Route::get('/payment/confirm/car2', function () {
-        return view('admin.payment_confirm');
-    });
+    // Route::get('/payment/confirm/car1', function () {
+    //     return view('admin.payment_confirm');
+    // });
+    // Route::get('/payment/confirm/car2', function () {
+    //     return view('admin.payment_confirm');
+    // });
     Route::get('/management/parent', function () {
         return view('admin.parent_management');
     });
@@ -161,3 +161,5 @@ Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
 
 // Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');
+Route::get('admin/payment/confirm/car1', 'PaymentController@index');
+Route::get('admin/payment/confirm/car2', 'PaymentController@index');

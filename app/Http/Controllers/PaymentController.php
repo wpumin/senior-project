@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Payment_inform;
+use App\Payment_log;
 use LogicException;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +14,17 @@ class PaymentController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
+    }
+
+    public function index()
+    {
+        $data = Payment_log::get();
+
+        // dd($data);
+
+        return view('admin.payment_confirm', [
+            'datas' => $data
+        ]);
     }
 
     public function addPayment()
