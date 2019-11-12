@@ -603,7 +603,7 @@
                     <p>ติดตามรถรับส่งนักเรียนได้ด้วย GPS</p>
                   </li>
                   <li class="timeline">
-                    <h4 class="sub-title">กราฟเฉลี่ยเวลาขึ้นลงรถ</h4>
+                    <h4 class="sub-title">กราฟเฉลี่ยเวลาขึ้น-ลงรถ</h4>
                     <p>เพื่อให้ผู้ปกครองได้ติดตามและเพื่อการตัดสินใจ</p>
                   </li>
                   <li class="timeline">
@@ -766,7 +766,7 @@
                       <h3>ภูมินท์ วงษ์ศิริ</h3>
                       <h4 class="m-0 text-muted">Developer & Designer</h4>
                       <h5>HTML, CSS, JavaScript </h5>
-                      <p>มุ่งพัฒนาให้เว็บไซต์ Bear Bus เป็นเว็บไซต์ที่ไม่ว่าใครก็ตามที่มีสมาร์ทโฟน แท็บเลต หรือ คอมพิวเตอร์ ก็สามารถใช้งานเว็บไซต์เพื่อดำเนินการเกี่ยวกับรถรับส่งนักเรียนได้อย่างสะดวกสบาย เช่น ติดตามสถานะของรถรับส่งนักเรียน แจ้งชำระแพ็คเกจ ตรวจสอบประวัติการขึ้นรถ ได้รับ Notification ผ่านเว็บแอปฯ อีกทั้งในการพัฒนายังทำให้เว็บไซต์สามารถรองรับการทำงานได้แบบ Progressive Web Application ได้</p>
+                      <p>มุ่งพัฒนาให้เว็บไซต์ Bear Bus เป็นเว็บไซต์ที่ไม่ว่าใครก็ตามที่มีสมาร์ทโฟน แท็บเลต หรือ คอมพิวเตอร์ ก็สามารถใช้งานเว็บไซต์เพื่อดำเนินการเกี่ยวกับรถรับส่งนักเรียนได้อย่างสะดวกสบาย เช่น ติดตามสถานะของรถรับส่งนักเรียน แจ้งชำระแพ็คเกจ ตรวจสอบประวัติการขึ้นรถ ได้รับ Notification ผ่านเว็บแอปฯ อีกทั้งในการพัฒนายังทำให้เว็บไซต์สามารถรองรับการทำงานได้แบบ Progressive Web Application</p>
                     </div>
                   </div>
                 </div>
@@ -785,7 +785,7 @@
                         <h3>อชิตะ ลิลิตสัจจะ</h3>
                         <h4 class="m-0 text-muted">Developer & Tester</h4>
                         <h5>Laravel, JavaScript </h5>
-                        <p>มุ่งเน้นพัฒนาตัวระบบของเว็บไซต์ Bear Bus ให้สะดวกต่อการใช้งานของผู้ปกครองและมีข้อผิดพลาดน้อยที่สุด พร้อมพัฒนาระบบต่าง ๆ ให้เป็นประโยชน์กับตัวผู้ปกครองและเด็กนักเรียนเอง เช่น ระบบติดตามเด็กนักเรียนได้ว่าได้ขึ้นรถแล้วหรือไม่, ระบบการแจ้งชำระเงิน, ระบบการแจ้งเดินทางไป-กลับเอง และระบบร้องเรียนข้อผิดพลาด เป็นต้น</p>
+                        <p>มุ่งเน้นพัฒนาตัวระบบของเว็บไซต์ Bear Bus ให้สะดวกต่อการใช้งานของผู้ปกครองและมีข้อผิดพลาดน้อยที่สุด พร้อมพัฒนาระบบต่าง ๆ ให้เป็นประโยชน์กับผู้ปกครองและเด็กนักเรียนเอง เช่น ระบบติดตามเด็กนักเรียนได้ว่าได้ขึ้น-รถแล้วหรือไม่, ระบบการแจ้งชำระเงิน, ระบบการแจ้งเดินทางไป-กลับเอง และระบบร้องเรียนข้อผิดพลาด เป็นต้น</p>
                       </div>
                     </div>
                   </div>
@@ -1022,13 +1022,13 @@
                   </h5>
                 </div>
                 <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                  <div class="card-body">เว็บไซต์อำนวยความสะดวกในการให้บริการรถรับส่งนักเรียนของเราไม่จำเป็นต้องติดตั้งให้เสียเวลาเหมือนแอปพลิเคชัน เพียงกดปุ่ม "add to home screen" เมื่อคุณอยู่หน้าเว็บไซต์ของเรา (https://bear-bus.com) เพียงเคุณี้คุณจะสามารถใช้งานเว็บไซต์ Bear Bus ได้เสมือนใช้งานแอปฯ และ ได้รับแจ้งเตือน (Notification) เมื่อเรามีสิ่งใหม่ ๆ ที่ต้องการบอกคุณ</div>
+                  <div class="card-body">เว็บไซต์อำนวยความสะดวกในการให้บริการรถรับส่งนักเรียนของเราไม่จำเป็นต้องติดตั้งให้เสียเวลาเหมือนแอปพลิเคชัน เพียงกดปุ่ม "add to home screen" เมื่อคุณอยู่หน้าเว็บไซต์ของเรา (https://bear-bus.com) เพียงเท่านี้คุณจะสามารถใช้งานเว็บไซต์ Bear Bus ได้เสมือนใช้งานแอปฯ และ ได้รับแจ้งเตือน (Notification) เมื่อเรามีสิ่งใหม่ ๆ ที่ต้องการบอกคุณ</div>
                 </div>
               </div>
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <button class="faq-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">04 เสียค่าใช้บริการไหมหากกด "add to home screen" แล้ว ?<i class="fa fa-angle-down pull-right"></i></button>
+                    <button class="faq-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">04 เสียค่าใช้บริการไหมหากกด "add to home screen" ?<i class="fa fa-angle-down pull-right"></i></button>
                   </h5>
                 </div>
                 <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -1093,7 +1093,7 @@
                 <div class="contact-circle"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 <div class="contact-text">
                   <h3>อีเมล</h3>
-                  <p><a href="mailto:bearbusc@bear-bus.com" style="color: #826d58;">bearbusc@bear-bus.com</a></p>
+                  <p><a href="mailto:dviver100@gmail.com" style="color: #826d58;">dviver100@gmail.com</a></p>
                 </div>
               </li>
             </ul>
@@ -1112,7 +1112,7 @@
               <ul>
                 <li><a href="https://www.facebook.com/BearBusTH/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="mailto:bearbusc@bear-bus.com"><i class="fa fa-envelope-o aria-hidden="true"></i></a></li>
+                <li><a href="mailto:dviver100@gmail.com"><i class="fa fa-envelope-o aria-hidden="true"></i></a></li>
               </ul>
             </div>
           </div>

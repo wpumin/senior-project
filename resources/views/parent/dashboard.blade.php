@@ -375,14 +375,11 @@ function convertStringDes($input){
     });
 
     setInterval(function(){
-
         $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
             // console.log(result['data']['lat']);
-
             map = new longdo.Map({
             placeholder: document.getElementById('map')
             });
-
             var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
                 {
                     title: 'รถรับส่งนักเรียน',
@@ -399,10 +396,7 @@ function convertStringDes($input){
                 // marker.move(marker);
                 // map.location(longdo.LocationMode.Geolocation);
                 map.Overlays.add(marker);
-
         });
-
-
     }, 25000);
 
     // long do map
@@ -466,10 +460,20 @@ function convertStringDes($input){
                 detail: 'ตำบลเขาตะพาบ'
             }
         ));
+        // ทุ่งนามงาม
+        map.Route.add(new longdo.Marker({ lat: 15.313869, lon: 99.719501  },
+            {
+                title: 'จุดรับส่งที่ 6',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
+                detail: 'ตำบลทุ่งนางาม'
+            }
+        ));
         // โรงเรียนหนองฉางวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.382140, lon: 99.851870 },
             {
-                title: 'จุดรับส่งที่ 6',
+                title: 'จุดรับส่งที่ 7',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -479,7 +483,7 @@ function convertStringDes($input){
         // โรงเรียนธรรมานุวัตรวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.390607, lon: 99.833714 },
             {
-                title: 'จุดรับส่งที่ 7',
+                title: 'จุดรับส่งที่ 8',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -489,7 +493,7 @@ function convertStringDes($input){
         // โรงเรียนวัดหนองขุนชาติ
         map.Route.add(new longdo.Marker({ lat: 15.388589, lon: 99.835618 },
             {
-                title: 'จุดรับส่งที่ 8',
+                title: 'จุดรับส่งที่ 9',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
