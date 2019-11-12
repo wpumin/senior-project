@@ -25,7 +25,7 @@
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">
-                    <h3 class="text-dark-medium font-medium text-center text-md-left" id="fullname_u">คุณ ภูมินท์ วงษ์ศิริ</h3>
+                    <h3 class="text-dark-medium font-medium text-center text-md-left"><span id="prefix1"></span><span id="f_name1"></span> <span id="l_name1"></span></h3>
                     {{-- <div class="header-elements">
                         <ul>
                             <li><a href="#"><i class="far fa-edit"></i></a></li>
@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td>เบอร์โทร:</td>
-                                <td class="font-medium text-dark-medium" id="mobile"></td>
+                                <td class="font-medium text-dark-medium" id="phone"></td>
                             </tr>
                             <tr>
                                 <td>ชื่อผู้ใช้:</td>
@@ -187,19 +187,18 @@
 
         }
 
-        document.getElementById("name").innerHTML = getCookie('name');
-        document.getElementById("role").innerHTML = getCookie('role_name');
-        document.getElementById("f_name").innerHTML = getCookie('f_name');
-        document.getElementById("l_name").innerHTML = getCookie('l_name');
+        // document.getElementById("pf_name").innerHTML = getCookie('f_name');
+        document.getElementById("prefix1").innerHTML = getCookie('prefix');
+        document.getElementById("f_name1").innerHTML = getCookie('f_name');
+        document.getElementById("l_name1").innerHTML = getCookie('l_name');
         if(getCookie('image') != ""){
             document.getElementById("pic_user").src = '{{URL::asset('')}}'+getCookie('image');
         }else{
             document.getElementById("pic_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
-        document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
-        document.getElementById("relationship").innerHTML = getCookie('relationship');
+        document.getElementById("relationship").innerHTML = getCookie('relationship_name');
         document.getElementById("line_id").innerHTML = getCookie('line_id');
-        document.getElementById("mobile").innerHTML = getCookie('mobile');
+        document.getElementById("phone").innerHTML = getCookie('phone');
         document.getElementById("username").innerHTML = getCookie('username');
         document.getElementById("email").innerHTML = getCookie('email');
         document.getElementById("address").innerHTML = getCookie('address');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Role;
+use App\Relationship;
 use Carbon\Carbon;
 use App\User;
 use Firebase\JWT\JWT;
@@ -39,7 +40,8 @@ class LoginController extends Controller
 
         if ($user) {
 
-            $role = Role::where('id', $user->role)->first();
+            $role = Role::where('id', $user->role_id)->first();
+            $relationship = Relationship::where('id', $user->relationship_id)->first();
             if (Hash::check($this->request->input('password'), $user->password)) {
                 $token = $this->jwt($user);
                 $user->token = $token;
@@ -47,7 +49,7 @@ class LoginController extends Controller
                 $user->save();
 
                 $user->role_name = $role['name'];
-
+                $user->relationship_name = $relationship['name'];
                 return $this->responseRequestSuccess($user);
             } else {
                 return $this->responseRequestError('incorrect_password');

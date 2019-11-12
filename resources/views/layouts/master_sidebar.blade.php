@@ -116,7 +116,7 @@
                     {{-- don't remove --}}
                 </ul>
                     <?php
-                        if($_COOKIE['role'] == '3') {
+                        if($_COOKIE['role_id'] == '3') {
                     ?>
                         <ul class="navbar-nav">
                             <li class="navbar-item dropdown header-admin">
@@ -124,15 +124,15 @@
                                     aria-expanded="false">
                                     <div class="admin-title">
                                         <h5 class="item-title" id="name"></h5>
-                                        <span id="role"></span>
+                                        <span id="role_name"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" src="" alt="admin avatar">
+                                        <img id="photo_user" alt="admin avatar">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="item-header">
-                                        <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></span></h6>
+                                        <h6 class="item-title"><span id="prefix"></span><span id="f_name"></span> <span id="l_name"></span></h6>
                                     </div>
                                     <div class="item-content">
                                         <ul class="settings-list">
@@ -207,7 +207,7 @@
                <div class="mobile-sidebar-header d-md-none">
                </div>
                 <?php
-                    if($_COOKIE['role'] == '3') {
+                    if($_COOKIE['role_id'] == '3') {
                 ?>
                     <div class="sidebar-menu-content">
                         <ul class="nav nav-sidebar-menu sidebar-toggle-view">
@@ -338,13 +338,13 @@
 
         }
 
-        document.getElementById("name").innerHTML = getCookie('name');
-        document.getElementById("role").innerHTML = getCookie('role_name');
+        document.getElementById("name").innerHTML = getCookie('f_name');
+        document.getElementById("role_name").innerHTML = getCookie('role_name');
+        document.getElementById("prefix").innerHTML = getCookie('prefix');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
-        var elem = document.getElementById('photo_user');
         if(getCookie('image') != ""){
-                document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+            document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
