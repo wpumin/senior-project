@@ -10,11 +10,11 @@
 </div>
 <div class="card height-auto pb-0 pt-5 mt-5 pt-md-0 mt-md-0">
     <div class="card-body">
-        <form action="" class="new-added-form pt-5 pt-md-4" id="paymentConfirm">
+        <form action="" class="new-added-form pt-5 pt-md-4" id="paymentConfirm" enctype="multipart/form-data">
             @csrf
             <div class="row">
                  <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required autocomplete="off">
+                    <select class="select2" required autocomplete="off" id="tran_key">
                         <option value="">หมายเลขรายการ</option>
                         <option value="1">987</option>
                         <option value="2">986</option>
@@ -30,7 +30,7 @@
                     <i class="far fa-clock"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
+                    <input type="text" id="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                     <i class="far fa-calendar-alt"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
@@ -44,14 +44,14 @@
                 </div>
                 <div class="col-12 form-group mb-0">
                     <label for="">ใบเสร็จชำระเงิน <span class="small text-red">(อัพโหลดได้เพียง 1 ไฟล์)</span></label>
-                    <div class="dropzone text-center">
+                    <div class="dropzone text-center" id="bill_image">
                     </div>
                     <div class="text-center text-lg-left mt-3">
                         <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
                     </div>
                 </div>
                 <div class="col-12 form-group mt-5">
-                    <textarea class="textarea form-control" name="message" id="form-message" cols="10" rows="10" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                    <textarea class="textarea form-control" name="message" id="content" cols="10" rows="10" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                 </div>
                 <div class="col-12 form-group mg-t-8 text-center text-md-right">
                     <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal">ยืนยัน</button>
@@ -111,7 +111,7 @@
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>ขณะนี้เซิร์ฟเวอร์มีปัญหา กรุณาแจ้งเรื่องใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/index')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -123,6 +123,22 @@
 
 @section('script')
 <script>
+
+function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+                return "";
+    }
 
     $(document).ready(function(){	
 
@@ -139,34 +155,75 @@
         });
     });
 
-    function submitForm(){
-        $.ajax({
-            type: "POST",
-            url: "",
-            // url: "http://localhost:8000/parent/confirm-payment",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            cache:false,
-            data: $('form#paymentConfirm').serialize(),
-            success: function(result){
-                
-                // ส่งฟอร์มสำเร็จ
-                if (result.status == 'success') {
-                    $(".wrap-modal > #successConfirm").modal('show');
-                }
 
-                // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-                if (result.status == 'error') {
-                    $(".wrap-modal > #failConfirm").modal('show');
-                }
+    function submitForm(){
+        // e.preventDefault();
+        // var bill_image = $('.dz-image img').attr("src");
+        var bill_image = $('.dz-image img').attr("src");
+        // var bill_image = document.getElementByClassName('#bill_image').attr("src");
+        // console.log(bill_image);
+        var tran_key = $('#tran_key').val();
+        var user_id =  getCookie('user_id');  
+        var timepicker = $('#timepicker').val();
+        var date = $('#date').val();
+        var content = $('#content').val();
+
+        var formData = {
+            // 'bill_image' : bill_image,
+            'tran_key' : tran_key,
+            'user_id' : user_id,
+            'timepicker' : timepicker,
+            'date' : date,
+            'content' : content
+        }
+
+        console.log(formData);
+
+        $.post("/bill",formData,function(data){
+            console.log(data);  // ทดสอบแสดงค่า  ดูผ่านหน้า console
+            /*การใช้งาน console log เพื่อ debug javascript ใน chrome firefox และ ie 
+            http://www.ninenik.com/content.php?arti_id=692 via @ninenik                 
+*/      });
+
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/bill",
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     },
+        //     // cache:false,
+        //     data: {
+        //         bill_image: bill_image,
+        //         tran_key: tran_key,
+        //         user_id: user_id,
+        //         timepicker: timepicker,
+        //         date: date,
+        //         content: content,
+        //     },
+        //     success: function(result){
                 
-            },
-            error: function(){
-                // เซิร์ฟเวอร์มีปัญหา
-                $(".wrap-modal > #errorConfirm").modal('show');
-            }
-        });
+        //         // ส่งฟอร์มสำเร็จ
+        //         if (result.status == 'success') {
+        //             $(".wrap-modal > #successConfirm").modal('show');
+        //             $(location).attr('href', '/parent/payment/confirm');
+        //         }
+
+        //         // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+        //         if (result.status == 'error') {
+        //             $(".wrap-modal > #failConfirm").modal('show');
+        //         }
+                
+        //     },
+        //     error: function(){
+        //         // alert(bill_image)
+        //         console.log(formData);
+        //         // console.log(timepicker);
+        //         // console.log(date);
+        //         // console.log(bill_image);
+        //         // เซิร์ฟเวอร์มีปัญหา
+        //         $(".wrap-modal > #errorConfirm").modal('show');
+        //     }
+        // });
     }
     
 </script>

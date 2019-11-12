@@ -35,10 +35,10 @@ class PaymentController extends Controller
             $validate = Validator::make($this->request->all(), [
                 'tran_key' => 'required',
                 'user_id' => 'required',
-                'time' => 'required',
+                'timepicker' => 'required',
                 'date' => 'required',
-                'content' => 'required',
-                'bill_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'content' => '',
+                'bill_image' => ''
             ]);
             if ($validate->fails()) {
                 throw new LogicException($validate->errors());
@@ -46,7 +46,7 @@ class PaymentController extends Controller
 
             $payment = Payment_inform::create($this->request->all());
             $word_date = explode("/", $this->request->input('date'));
-            $word_time = explode(":", $this->request->input('time'));
+            $word_time = explode(":", $this->request->input('timepicker'));
 
             $date = '';
             $time = '';
@@ -59,10 +59,12 @@ class PaymentController extends Controller
             }
             $result = $date . '_' . $time;
 
+            // dd($this->request->input('timepicker'));
+
             DB::beginTransaction();
             if ($this->request->file('bill_image')) {
                 $image_filename = $this->request->file('bill_image')->getClientOriginalName();
-                $image_name = $this->request->input('first_name') . '_' . $result . '_' . $image_filename;
+                $image_name = $this->request->input('tran_key') . '_' . $result . '_' . $image_filename;
                 $public_path = 'images/Payments/';
                 $destination = base_path() . "/public/" . $public_path;
                 $this->request->file('bill_image')->move($destination, $image_name);

@@ -1,6 +1,6 @@
 @extends('layouts.master_menu_bottom')
 
-@section('title','แจ้งเดินทางเอง')
+@section('title','ร้องเรียน/แนะนำการบริการ')
 
 @section('content')
 
