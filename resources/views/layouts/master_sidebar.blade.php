@@ -56,8 +56,12 @@
 <?php
     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     $current_page = (explode("/",$current_url));
-    $menu_active = $current_page[2];
-    // echo $menu_active;
+    if(!empty($current_page[3]))
+    {
+        $menu_active = $current_page[2];
+    }else{
+        $menu_active = "";
+    }
     if(!empty($current_page[3]))
     {
         $menu_active2 = $current_page[3];

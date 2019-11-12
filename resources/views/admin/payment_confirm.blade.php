@@ -6,8 +6,13 @@
 <?php
     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     $current_page = (explode("/",$current_url));
-    $menu_active = $current_page[2];
     // echo $menu_active;
+    if(!empty($current_page[2]))
+    {
+        $menu_active = $current_page[2];
+    }else{
+        $menu_active = "";
+    }
     if(!empty($current_page[3]))
     {
         $menu_active2 = $current_page[3];
@@ -168,7 +173,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <?php $count=1;
+                        if($menu_active3 == "car1"){
+                            $temp_car = 1;
+                        }else{
+                            $temp_car = 2;
+                        }
+                    ?>
+                    @foreach($datas as $key=>$data)
+                        @if($data->car_id == $temp_car)
+                            <tr>
+                                <td>
+                                <?php print $count ?>
+                                </td>
+                                <td>{{ $data->tran_key }}</td>
+                                <td>26/10/2562 16:52:23</td>
+                                <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                <td>{{ $data->user_id }}</td>
+                                <td>{{ $data->user_id }}</td>
+                                <td>{{ $data->price }}</td>
+                                <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
+                            </tr>
+                            <?php $count++ ?>
+                        @endif
+                        
+                    @endforeach
+                    {{-- <tr>
                         <td>1</td>
                         <td>987</td>
                         <td>26/10/2562 16:52:23</td>
@@ -387,7 +417,7 @@
                         <td>ทัพหลวง</td>
                         <td>650.00</td>
                         <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>

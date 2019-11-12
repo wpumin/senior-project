@@ -22,7 +22,7 @@ class PaymentController extends Controller
 
         // dd($data);
 
-        return view('admin.test', [
+        return view('admin.payment_confirm', [
             'datas' => $data
         ]);
     }
