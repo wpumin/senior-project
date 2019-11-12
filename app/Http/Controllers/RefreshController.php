@@ -102,7 +102,7 @@ class RefreshController extends Controller
             ->join('students', 'appointments.student_id', '=', 'students.id')
             ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
             ->where('appointments.user_id', $this->request->input('user_id'))
-            ->orderBy('appointments.date', 'desc')
+            ->orderBy('appointments.created_at', 'desc')
             ->get();
 
         $data['appointment'] = $appointment;
