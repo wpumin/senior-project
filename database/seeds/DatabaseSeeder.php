@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             TypeReportTableSeeder::class,
             RolesTableSeeder::class,
             DistrictTableSeeder::class,
-            PeriodTimeTableSeeder::class
+            PeriodTimeTableSeeder::class,
+            BankTableSeeder::class
         ]);
     }
 }
