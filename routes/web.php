@@ -161,3 +161,4 @@ Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
 
 // Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');
+Route::get('getdata', 'PaymentController@index');
