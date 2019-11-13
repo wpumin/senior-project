@@ -43,8 +43,9 @@ class AppointmentController extends Controller
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'student_id' => 'required',
+                'app_status_id' => '',
                 'period_time_id' => 'required',
-                'date' => 'required',
+                'appointment_at' => 'required',
                 'content' => ''
             ]);
             if ($validate->fails()) {
@@ -58,8 +59,9 @@ class AppointmentController extends Controller
             $res['App_log'] = Appointment::create([
                 'user_id' => $this->request->input('user_id'),
                 'student_id' => $this->request->input('student_id'),
+                'app_status_id' => 1,
                 'period_time_id' => $this->request->input('period_time_id'),
-                'date' => $this->request->input('date'),
+                'appointment_at' => $this->request->input('appointment_at'),
                 'content' => $this->request->input('content'),
             ]);
 

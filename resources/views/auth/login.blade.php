@@ -170,7 +170,7 @@
                     setCookie('username', result.data['username'], 30);
                     setCookie('email', result.data['email'], 30);
                     setCookie('address', result.data['address'], 30);
-                    setCookie('datetime', result.data['datetime'], 30);
+                    // setCookie('datetime', result.data['datetime'], 30);
 
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);

@@ -19,7 +19,6 @@ class User extends Model
         'line_id', 
         'email', 
         'address', 
-        'datetime',
         'username', 
         'token', 
 

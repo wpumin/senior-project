@@ -99,8 +99,9 @@ class RefreshController extends Controller
         $appointment = DB::table('appointments')
             ->join('users', 'appointments.user_id', '=', 'users.id')
             ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
+            ->join('app_statuses', 'appointments.app_status_id', '=', 'app_statuses.id')
             ->join('students', 'appointments.student_id', '=', 'students.id')
-            ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
+            ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name', 'app_statuses.app_status_name')
             ->where('appointments.user_id', $this->request->input('user_id'))
             ->orderBy('appointments.created_at', 'desc')
             ->get();

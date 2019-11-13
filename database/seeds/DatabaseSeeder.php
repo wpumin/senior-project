@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             DistrictTableSeeder::class,
             PeriodTimeTableSeeder::class,
             BankTableSeeder::class,
-            RelationshipTableSeeder::class
-
+            RelationshipTableSeeder::class,
+            AppStatusTableSeeder::class
         ]);
     }
 }
