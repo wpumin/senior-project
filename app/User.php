@@ -8,8 +8,8 @@ class User extends Model
 {
     protected $table = 'users';
     protected $fillable = [
-        'image', 'first_name', 'last_name','fullname_u', 'relationship', 'mobile', 'line_id', 'email', 'address', 'username', 'token', 'car_id'
-
+        'role_id', 'relationship_id', 'car_id', 'image', 'prefix', 'first_name', 'last_name', 'fullname_u', 'phone', 'line_id', 'email', 'address', 'datetime', 'username', 'token'
+            
 
     ];
 
