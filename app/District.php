@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Province extends Model
+class District extends Model
 {
-    protected $table = 'provinces';
+    protected $table = 'districts';
     protected $fillable = [
         'name', 'status'
 
@@ -16,4 +16,3 @@ class Province extends Model
     protected $guarded = ['id'];
     protected $dates = ['created_at', 'updated_at'];
 }
-

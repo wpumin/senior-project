@@ -187,8 +187,16 @@
                                 <?php print $count ?>
                                 </td>
                                 <td>{{ $data->tran_key }}</td>
-                                <td>26/10/2562 16:52:23</td>
-                                <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                <td>{{ $data->created_at }}</td>
+                                @if($data->bank_id == 1)
+                                    <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
+                                @elseif($data->bank_id == 2)
+                                    <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                @elseif($data->bank_id == 3)
+                                    <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
+                                @elseif($data->bank_id == 4)
+                                    <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
+                                @endif
                                 <td>{{ $data->user_id }}</td>
                                 <td>{{ $data->user_id }}</td>
                                 <td>{{ $data->price }}</td>

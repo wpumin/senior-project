@@ -22,8 +22,6 @@ class UsersTableSeeder extends Seeder
             'prefix' => 'นาย',
             'first_name' => 'อชิตะ',
             'last_name' => 'ลิลิตสัจจะ',
-            // 'fullname_u' => 'อชิตะ.ลิลิตสัจจะ',
-            // 'relationship' => 'พ่อ',
             'line_id' => 'kiddd',
             'address' => 'ซอย หมู่บ้านสินทวีท่าข้าม 2 แขวง ท่าข้าม เขตบางขุนเทียน กรุงเทพมหานคร 10150',
             'email' => 'ashita11479@gmail.com',

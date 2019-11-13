@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bear Bus</title>
+    <title>เกี่ยวกับ - Bear Bus</title>
+
+    <!-- Manifest -->
+    <meta name="theme-color" content="#f1f1f1">
+    <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
+    <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
+
     <meta charset="utf-8">
     <meta name="description" content="Bear Bus Apps Template by Dev-Banrai">
     <meta name="keywords" content="Bear Bus Apps Template by Dev-Banrai">
     <meta name="author" content="App">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- favicon-->
     <link rel="shortcut icon" href="{{ URL::asset('images/public/favicon.png') }}">
@@ -265,7 +273,7 @@
           </div>
           <div class="col-lg-4 text-center">
             <div class="process-box">
-                <svg width="62px" height="62px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+                <svg width="62px" height="62px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
                 <g>
                   <g>
                     <path d="M442.881,378.052c-10.825-9.896-17.034-23.927-17.034-38.495v-99.558c0-5.522-4.477-10-10-10s-10,4.478-10,10v99.558
@@ -336,7 +344,7 @@
                 </svg>
               <h3>การแจ้งเตือน</h3>
               <p>คุณจะได้รับแจ้งเตือน เมื่อมีสิ่งใหม่ ๆ ที่เราอยากบอกคุณ แม้ว่าคุณจะไม่ได้เปิดเว็บไซต์หรือบราวเซอร์</p>
-              <svg class="bg-icon" width="55px" height="55px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+              <svg class="bg-icon" width="55px" height="55px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
                 <g>
                   <g>
                     <path d="M442.881,378.052c-10.825-9.896-17.034-23.927-17.034-38.495v-99.558c0-5.522-4.477-10-10-10s-10,4.478-10,10v99.558
@@ -409,7 +417,7 @@
           </div>
           <div class="col-lg-4 text-center">
             <div class="process-box">
-                <svg width="60px" height="60px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <svg width="60px" height="60px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
              <g>
                <g>
@@ -492,7 +500,7 @@
              </svg>             
               <h3>ติดตามรถด้วย GPS</h3>
               <p>อุ่นใจเมื่อคุณเปิดเว็บไซต์ของเราเพื่อติดตามตำแหน่งของรถรับส่งนักเรียนบนแผนที่</p>
-              <svg class="bg-icon" width="50px" height="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+              <svg class="bg-icon" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
               <g>
                 <g>
                   <path d="M264.65,2.93C262.79,1.07,260.21,0,257.58,0s-5.21,1.069-7.07,2.93c-1.86,1.861-2.93,4.44-2.93,7.07s1.07,5.21,2.93,7.069
@@ -1061,7 +1069,7 @@
                 <input class="form-control" id="exampleInputEmail12" required="" name="login[email]" type="email" placeholder="อีเมล">
               </div>
               <div class="form-group">
-                <label>ข้อความ</label><i class="fa fa-commenting-o"></i>
+                <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
                 <textarea class="form-control" id="message" name="message" cols="30" rows="10" placeholder="ข้อความ"></textarea>
               </div>
               <div class="form-group mb-0">
@@ -1110,9 +1118,9 @@
           <div class="col-md-12 text-center">
             <div class="social-footer">
               <ul>
-                <li><a href="https://www.facebook.com/BearBusTH/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="mailto:dviver100@gmail.com"><i class="fa fa-envelope-o aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/BearBusTH/" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true" title="instagram"></i></a></li>
+                <li><a href="mailto:dviver100@gmail.com" title="email"><i class="fa fa-envelope-o aria-hidden="true"></i></a></li>
               </ul>
             </div>
           </div>
