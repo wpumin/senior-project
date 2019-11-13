@@ -4471,12 +4471,22 @@ ul {
     color: white;
 }
 
+.badge-kbank {
+    background-color: #00a950 !important;
+    color: white;
+}
+
 .bg-kbank:hover {
     background: #019245 !important;
 }
 
 .bg-ktb {
     background: #00a3e3;
+    color: white;
+}
+
+.badge-ktb {
+    background-color: #00a3e3 !important;
     color: white;
 }
 
@@ -4489,12 +4499,22 @@ ul {
     color: white;
 }
 
+.badge-scb {
+    background-color: #482782 !important;
+    color: white;
+}
+
 .bg-scb:hover {
     background: #391577 !important;
 }
 
 .bg-krungsri {
     background: #f7cd00;
+    color: white;
+}
+
+.badge-krungsri {
+    background-color: #f7cd00 !important;
     color: white;
 }
 
