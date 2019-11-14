@@ -23,6 +23,7 @@ class CreatePaymentInformsTable extends Migration
             $table->string('content')->nullable();
             $table->string('bill_image')->nullable();
             $table->string('bank_id')->nullable();
+            $table->string('pm_status_id');
             $table->timestamps();
         });
     }

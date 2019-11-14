@@ -19,7 +19,7 @@ class CreatePaymentLogsTable extends Migration
             $table->string('month');
             $table->string('year');
             $table->string('student_id');
-            $table->string('status_id');
+            $table->string('pm_status_id');
             // $table->string('car_id')->nullable();
             // $table->string('price')->nullable();
             // $table->string('qr_code')->nullable();
