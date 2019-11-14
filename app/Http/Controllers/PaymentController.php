@@ -26,7 +26,7 @@ class PaymentController extends Controller
         $data['info'] = [];
         $count = 0;
 
-        // dd($data['info']);
+        // dd($inform);
 
         foreach ($inform as $d) {
 
@@ -38,23 +38,25 @@ class PaymentController extends Controller
 
             $data['info'][$count++] = [
                 'id' => $d->id,
+                'student_id' => $d->student_id,
                 'tran_key' => $d->tran_key,
                 'date' => $d->date . ' ' . $d->timepicker,
                 'bank_id' => $d->bank_id,
                 'nickname' => $stu->nickname,
                 'school' => $school->name_school,
                 'price' => $district->price,
-                'bill_image' => $d->bill_image
+                'bill_image' => $d->bill_image,
+                'car_id' => $stu->car_id
             ];
 
             // dd($data['info']);
             // var_dump($data['info']);
         }
 
-        dd($data['info']);
+        // dd($data['info']);
 
         return view('admin.payment_confirm', [
-            'datas' => $data
+            'datas' => $data['info']
         ]);
     }
 
