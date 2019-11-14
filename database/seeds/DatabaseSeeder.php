@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersTableSeeder::class,
             StudentsTableSeeder::class,
-            StatusesTableSeeder::class,
+            StdStatusesTableSeeder::class,
             SchoolsTableSeeder::class,
             CarsTableSeeder::class,
             AppointmentsTableSeeder::class,
@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             DistrictTableSeeder::class,
             PeriodTimeTableSeeder::class,
             BankTableSeeder::class,
-            RelationshipTableSeeder::class
-
+            RelationshipTableSeeder::class,
+            AppStatusTableSeeder::class
         ]);
     }
 }

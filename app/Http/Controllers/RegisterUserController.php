@@ -30,13 +30,10 @@ class RegisterUserController extends Controller
         'prefix' => 'required',
         'first_name' => 'required',
         'last_name' => 'required',
-        // 'fullname_u' => 'required',
-        // 'relationship' => 'required',
         'phone' => 'required',
         'line_id' => 'required',
         'email' => 'required',
         'address' => 'required',
-        'datetime' => 'required',
         'username' => 'required',
         'password' => 'required'
         ]);
@@ -98,13 +95,10 @@ class RegisterUserController extends Controller
         $user->prefix = $this->request->input('prefix');
         $user->first_name = $this->request->input('first_name');
         $user->last_name = $this->request->input('last_name');
-        // $user->fullname_u = 'คุณ'.$this->request->input('first_name') . ' ' . $this->request->input('last_name');
-        // $user->relationship = $this->request->input('relationship');
         $user->phone = $this->request->input('phone');
         $user->line_id = $this->request->input('line_id');
         $user->email = $this->request->input('email');
         $user->address = $this->request->input('address');
-        $user->datetime = $this->request->input('datetime');
         $user->username = $this->request->input('username');
         $user->password = Hash::make($this->request->password);
  

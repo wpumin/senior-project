@@ -215,13 +215,13 @@
                         
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
-                            if (response.data['student'][i]['status'] == '1') {
+                            if (response.data['student'][i]['std_status_id'] == '1') {
                                 status = '<td class="font-medium text-dark-medium">ยังไม่ขึ้นรถ</td>';
-                                } else if (response.data['student'][i]['status'] == '2') {
+                                } else if (response.data['student'][i]['std_status_id'] == '2') {
                                 status = '<td class="font-medium text-dark-medium">ขึ้นรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '3') {
+                                } else if (response.data['student'][i]['std_status_id'] == '3') {
                                 status = '<td class="font-medium text-dark-medium">ลงรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '4') {
+                                } else if (response.data['student'][i]['std_status_id'] == '4') {
                                 status = '<td class="font-medium text-dark-medium">แจ้งเดินทางเอง</td>';
                                 } 
 
@@ -230,10 +230,12 @@
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
                             '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
-                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image_stu']+' alt="parent" class="parent-profile">' + '</div>' + 
+                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
                              '<div class="item-content">' + '<div class="header-inline item-header">' +
-                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' + response.data['student'][i]['fullname_s'] + '</h3>' + '</div>' +
+                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' 
+                             + response.data['student'][i]['prefix'] + response.data['student'][i]['first_name'] + ' ' + response.data['student'][i]['last_name']
+                             + '</h3>' + '</div>' +
 
                              '<div class="info-table table-responsive">' + 
                              '<table class="table text-nowrap">' + 
@@ -253,7 +255,7 @@
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['mobile'] +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
                              '</td>' +
                              '</tr>' +
 
@@ -331,10 +333,12 @@
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
                             '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
-                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image_stu']+' alt="parent" class="parent-profile">' + '</div>' + 
+                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
                              '<div class="item-content">' + '<div class="header-inline item-header">' +
-                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' + response.data['student'][i]['fullname_s'] + '</h3>' + '</div>' +
+                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' 
+                             + response.data['student'][i]['prefix'] + response.data['student'][i]['first_name'] + ' ' + response.data['student'][i]['last_name']
+                             + '</h3>' + '</div>' +
 
                              '<div class="info-table table-responsive">' + 
                              '<table class="table text-nowrap">' + 
@@ -346,21 +350,21 @@
                               '</td>' + 
                               '</tr>' +
 
-                             '<tr>' + 
-                             '<td>ความสัมพันธ์:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                             '</td>' +
-                             '</tr>' +
+                            //  '<tr>' + 
+                            //  '<td>ความสัมพันธ์:</td>' + 
+                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
+                            //  '</td>' +
+                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['mobile'] +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
                              '</td>' +
                              '</tr>' +
 
                              '<tr>' + 
                              '<td>โรงเรียน:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] + 
                              '</td>' +
                              '</tr>' +
 

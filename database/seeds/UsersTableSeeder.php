@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ashita11479@gmail.com',
             'phone' => '0898911553',
             'image' => 'images/Users/ashita.jpg',
-            'datetime' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('users')->insert([
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'dviver100@gmail.com',
             'phone' => '0648763436',
             'image' => 'images/Users/blon.jpg',
-            'datetime' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('users')->insert([
@@ -61,7 +61,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'pumin.wongsiri@gmail.com',
             'phone' => '0898115155',
             'image' => 'images/Users/pumin.jpg',
-            'datetime' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

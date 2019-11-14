@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class StatusesTableSeeder extends Seeder
+class StdStatusesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,22 +12,22 @@ class StatusesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('statuses')->insert([
+        DB::table('std_statuses')->insert([
             'name' => 'ยังไม่ขึ้นรถ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('statuses')->insert([
+        DB::table('std_statuses')->insert([
             'name' => 'ขึ้นรถแล้ว',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('statuses')->insert([
+        DB::table('std_statuses')->insert([
             'name' => 'ลงรถแล้ว',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('statuses')->insert([
+        DB::table('std_statuses')->insert([
             'name' => 'แจ้งเดินทางเอง',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

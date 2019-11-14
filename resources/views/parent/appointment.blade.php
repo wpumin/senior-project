@@ -35,7 +35,7 @@
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <input type="text" id="date"placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
+                            <input type="text" id="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-12 form-group">
@@ -70,8 +70,8 @@
                             </select>
                         </div>
                         <div class="col-lg-3 col-12 form-group">
-                            <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
-                            <i class="far fa-calendar-alt"></i>
+                            <input type="text"id="appointment_at" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
+                            <i class="far fa-calendar-alt"></i> 
                         </div>
                         <div class="col-lg-2 col-12 form-group pl-lg-0">
                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
@@ -220,7 +220,8 @@
         var user_id =  getCookie('user_id');  
         var student_id = $('#student_id').val();
         var period_time_id = $('#period_time_id').val();
-        var date = $('#date').val();
+        var app_status_id = $('#app_status_id').val();
+        var appointment_at = $('#appointment_at').val();
         var content = $('#content').val();
         $.ajax({
             type: "POST",
@@ -233,7 +234,8 @@
                 user_id: user_id,
                 student_id: student_id,
                 period_time_id: period_time_id,
-                date: date,
+                app_status_id: app_status_id,
+                appointment_at: appointment_at,
                 content: content,
             },
             
@@ -256,23 +258,22 @@
                         // let modalUser = document.getElementById("name").innerHTML = name;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {
+                            if (response.data['appointment'][i]['app_status_id'] == '1') {
+                                            status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
+                                            } else if (response.data['appointment'][i]['app_status_id'] == '2') {
+                                            status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
+                                            }
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ'+ '</td>' +
+                                status + '</td>' +
                                 // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['date'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['name'] + '</td>' +
                                 '</td>' +
                                 '</tr>'
                             );
-                            let student = response.data['appointment'][i]['fullname_s'];
-                            let nickname = response.data['appointment'][i]['nickname'];
-                            let date = response.data['appointment'][i]['date'];
-                            let period = response.data['appointment'][i]['name'];
-
-                           
                         }
                     }
                 },
@@ -311,23 +312,22 @@
                         // let modalUser = document.getElementById("name").innerHTML = name;
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {
+                            if (response.data['appointment'][i]['app_status_id'] == '1') {
+                                            status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
+                                            } else if (response.data['appointment'][i]['app_status_id'] == '2') {
+                                            status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
+                                            }
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                    '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>' +
+                                status + '</td>' +
                                 // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['date'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['name'] + '</td>' +
                                 '</td>' +
                                 '</tr>'
                             );
-                            let student = response.data['appointment'][i]['fullname_s'];
-                            let nickname = response.data['appointment'][i]['nickname'];
-                            let date = response.data['appointment'][i]['date'];
-                            let period = response.data['appointment'][i]['name'];
-
-                           
                         }
                     }
                 },

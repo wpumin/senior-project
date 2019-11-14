@@ -25,10 +25,10 @@ class RefreshController extends Controller
     public function run()
     {
 
-        $no = Student::where('status', 1)->where('car_id', $this->request->car_id)->count();
-        $up = Student::where('status', 2)->where('car_id', $this->request->car_id)->count();
-        $down = Student::where('status', 3)->where('car_id', $this->request->car_id)->count();
-        $self = Student::where('status', 4)->where('car_id', $this->request->car_id)->count();
+        $no = Student::where('std_status_id', 1)->where('car_id', $this->request->car_id)->count();
+        $up = Student::where('std_status_id', 2)->where('car_id', $this->request->car_id)->count();
+        $down = Student::where('std_status_id', 3)->where('car_id', $this->request->car_id)->count();
+        $self = Student::where('std_status_id', 4)->where('car_id', $this->request->car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -41,10 +41,10 @@ class RefreshController extends Controller
     public function runAdmin()
     {
 
-        $no = Student::where('status', 1)->where('car_id', '1')->count();
-        $up = Student::where('status', 2)->where('car_id', '1')->count();
-        $down = Student::where('status', 3)->where('car_id', '1')->count();
-        $self = Student::where('status', 4)->where('car_id', '1')->count();
+        $no = Student::where('std_status_id', 1)->where('car_id', '1')->count();
+        $up = Student::where('std_status_id', 2)->where('car_id', '1')->count();
+        $down = Student::where('std_status_id', 3)->where('car_id', '1')->count();
+        $self = Student::where('std_status_id', 4)->where('car_id', '1')->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -57,10 +57,10 @@ class RefreshController extends Controller
     public function refresh()
     {
 
-        $no = Student::where('status', 1)->where('car_id', $this->request->car_id)->count();
-        $up = Student::where('status', 2)->where('car_id', $this->request->car_id)->count();
-        $down = Student::where('status', 3)->where('car_id', $this->request->car_id)->count();
-        $self = Student::where('status', 4)->where('car_id', $this->request->car_id)->count();
+        $no = Student::where('std_status_id', 1)->where('car_id', $this->request->car_id)->count();
+        $up = Student::where('std_status_id', 2)->where('car_id', $this->request->car_id)->count();
+        $down = Student::where('std_status_id', 3)->where('car_id', $this->request->car_id)->count();
+        $self = Student::where('std_status_id', 4)->where('car_id', $this->request->car_id)->count();
 
         $data['no'] = $no;
         $data['up'] = $up;
@@ -99,8 +99,9 @@ class RefreshController extends Controller
         $appointment = DB::table('appointments')
             ->join('users', 'appointments.user_id', '=', 'users.id')
             ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
+            ->join('app_statuses', 'appointments.app_status_id', '=', 'app_statuses.id')
             ->join('students', 'appointments.student_id', '=', 'students.id')
-            ->select('appointments.*', 'students.fullname_s', 'students.nickname', 'period_times.name')
+            ->select('appointments.*', 'students.nickname', 'period_times.name', 'app_statuses.app_status_name')
             ->where('appointments.user_id', $this->request->input('user_id'))
             ->orderBy('appointments.created_at', 'desc')
             ->get();
@@ -156,6 +157,7 @@ class RefreshController extends Controller
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
+            ->join('std_statuses', 'students.std_status_id', '=', 'std_statuses.id')
             ->select('students.*', 'schools.name_school', 'cars.name', 'cars.name_driver')
             ->where('students.user_id', $this->request->input('user_id'))
             ->get();

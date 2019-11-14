@@ -24,19 +24,18 @@ class RegisterStudentController extends Controller
 
             $validator = Validator::make($this->request->all(), [
                 'user_id' => 'required',
+                'std_status_id' => 'required',
                 'school_id' => 'required',
                 'car_id' => 'required',
+                'district_id' => 'required',
                 'card_id' => 'required',
-                'gender' => 'required',
+                'prefix' => 'required',
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'fullname_s' => 'required',
                 'nickname' => 'required',
-                'relationship' => 'required',
-                'address' => 'required',
+                'phone' => 'required',
                 'lattitude' => 'required',
                 'longtitude' => 'required',
-                'price' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
@@ -47,16 +46,16 @@ class RegisterStudentController extends Controller
             }
 
 
-            //validator mobile
-            $validator_mobile = Validator::make($this->request->all(), [
-                'mobile' => 'required|digits_between:9,10',
+            //validator_phone
+            $validator_phone = Validator::make($this->request->all(), [
+                'phone' => 'required|digits_between:9,10',
             ]);
 
 
-            //validator mobile
-            if ($validator_mobile->fails()) {
-                $errors_ph = $validator_mobile->errors();
-                return $this->responseRequestError('not_rule_mobile', $errors_ph);
+            //validator_phone
+            if ($validator_phone->fails()) {
+                $errors_ph = $validator_phone->errors();
+                return $this->responseRequestError('not_rule_phone', $errors_ph);
             }
             $student = new Student();
             DB::beginTransaction();
@@ -67,25 +66,23 @@ class RegisterStudentController extends Controller
                 $public_path = 'images/Students/';
                 $destination = base_path() . "/public/" . $public_path;
                 $this->request->file('image')->move($destination, $image_name);
-                $student->image_stu = $public_path . $image_name;
+                $student->image= $public_path . $image_name;
             }
 
             // 'image' => $this->request->input('image'),
             $student->user_id = $this->request->input('user_id');
+            $student->std_status_id = $this->request->input('std_status_id');
             $student->school_id = $this->request->input('school_id');
             $student->car_id = $this->request->input('car_id');
+            $student->district_id = $this->request->input('district_id');
             $student->card_id = $this->request->input('card_id');
-            $student->gender = $this->request->input('gender');
+            $student->prefix = $this->request->input('prefix');
             $student->first_name = $this->request->input('first_name');
             $student->last_name = $this->request->input('last_name');
-            $student->fullname_s = $this->request->input('gender').$this->request->input('first_name') . ' ' . $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
-            $student->relationship = $this->request->input('relationship');
-            $student->mobile = $this->request->input('mobile');
-            $student->address = $this->request->input('address');
+            $student->phone = $this->request->input('phone');
             $student->lattitude = $this->request->input('lattitude');
             $student->longtitude = $this->request->input('longtitude');
-            $student->price = $this->request->input('price');
 
 
             $student->save();
