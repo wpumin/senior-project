@@ -8,9 +8,7 @@ class District extends Model
 {
     protected $table = 'districts';
     protected $fillable = [
-        'name', 'status'
-
-
+        'name', 'status','price','qr_code'
     ];
 
     protected $guarded = ['id'];

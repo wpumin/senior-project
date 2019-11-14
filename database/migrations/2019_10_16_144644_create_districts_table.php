@@ -17,6 +17,8 @@ class CreateDistrictsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('status');
+            $table->string('price')->nullable();
+            $table->string('qr_code')->nullable();
             $table->timestamp('created_at');
         });
     }
