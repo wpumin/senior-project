@@ -18,7 +18,6 @@ class CreatePaymentLogsTable extends Migration
             $table->string('tran_key');
             $table->string('month');
             $table->string('year');
-            $table->string('user_id');
             $table->string('student_id');
             $table->string('status_id');
             $table->string('car_id')->nullable();
