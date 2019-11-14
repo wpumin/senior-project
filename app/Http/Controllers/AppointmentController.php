@@ -66,7 +66,7 @@ class AppointmentController extends Controller
             ]);
 
             $student = Student::where('id', $this->request->input('student_id'))->first();
-            $student->status = 4;
+            $student->std_status_id = 4;
             $student->save();
 
             DB::commit();
