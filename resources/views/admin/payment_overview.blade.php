@@ -136,7 +136,7 @@
                         <option value="6">900.00</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
@@ -145,8 +145,8 @@
                         <option value="3">แพรว</option>
                     </select>
                 </div>
-                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยรหัส" class="form-control">
+                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
@@ -159,7 +159,7 @@
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
                         <th>ชื่อเล่น</th>
-                        <th>รหัส</th>
+                        <th>หมายเลขรายการ</th>
                         <th>สถานะ</th>
                         <th>โรงเรียน</th>
                         <th>ผู้ปกครอง</th>

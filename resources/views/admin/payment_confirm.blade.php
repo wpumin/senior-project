@@ -141,7 +141,7 @@
                         <option value="6">900.00</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
@@ -150,8 +150,8 @@
                         <option value="3">แพรว</option>
                     </select>
                 </div>
-                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยรหัส" class="form-control">
+                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
@@ -163,7 +163,7 @@
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
-                        <th>รหัส</th>
+                        <th>หมายเลขรายการ</th>
                         <th>เวลาแจ้ง</th>
                         <th>บัญชี</th>
                         <th>ชื่อเล่น</th>
@@ -196,7 +196,7 @@
                                     <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
                                 @elseif($data->bank_id == 4)
                                     <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
-                                @endif
+                                @endif  
                                 <td>{{ $data->user_id }}</td>
                                 <td>{{ $data->user_id }}</td>
                                 <td>{{ $data->price }}</td>
@@ -443,7 +443,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4 text-center">
-                        <h3 class="mb-2 text-special-orange text-right py-2">รหัส: 987</h3>
+                        <h3 class="mb-2 text-special-orange text-right py-2">หมายเลขรายการ: 987</h3>
                         <table>
                             <tbody class="text-left">
                                 <tr>

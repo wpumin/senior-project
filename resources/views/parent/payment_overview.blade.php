@@ -405,7 +405,7 @@
     <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="text-light mb-0">รายละเอียดรหัส: 987</p>
+                <p class="text-light mb-0">รายละเอียดหมายเลขรายการ: 987</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="text-light" aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
