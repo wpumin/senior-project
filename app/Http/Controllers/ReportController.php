@@ -33,17 +33,17 @@ class ReportController extends Controller
                 $errors = $validate->errors();
                 return $this->responseRequestError('field_required');
             }
-            $day = date('d');
-            $month = date('m');
-            $year = date('Y') + 543;
+            // $day = date('d');
+            // $month = date('m');
+            // $year = date('Y') + 543;
 
 
-            $name_month = ["ว่าง", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+            // $name_month = ["ว่าง", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
 
-            // $word = 'บิล ของเดือน "' . $name_month[$month] . '" เข้าแล้ว.';
-            // dd(strval($word));
+            // // $word = 'บิล ของเดือน "' . $name_month[$month] . '" เข้าแล้ว.';
+            // // dd(strval($word));
 
-            $full = $day . '-' . $month . '-' . $year;
+            // $full = $day . '-' . $month . '-' . $year;
 
             DB::beginTransaction();
             $res['data'] = Report::create([
@@ -51,7 +51,7 @@ class ReportController extends Controller
                 'type_id' => $this->request->input('type_id'),
                 'title' => $this->request->input('title'),
                 'content' => $this->request->input('content'),
-                'date' => $full
+                // 'date' => $full
             ]);
             DB::commit();
             return $this->responseRequestSuccess($res['data']);

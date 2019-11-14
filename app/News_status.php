@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Report extends Model
+class News_status extends Model
 {
-    protected $table = 'reports';
+   
+    protected $table = 'news_statuses';
     protected $fillable = [
-        'user_id', 'type_id', 'title', 'content'
-
+        'name'
     ];
 
     protected $guarded = ['id'];

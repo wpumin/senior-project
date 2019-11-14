@@ -26,7 +26,10 @@ class DatabaseSeeder extends Seeder
             PeriodTimeTableSeeder::class,
             BankTableSeeder::class,
             RelationshipTableSeeder::class,
-            AppStatusTableSeeder::class
+            AppStatusTableSeeder::class,
+            MarkTableSeeder::class,
+            NewsTableSeeder::class,
+            NewStatusesTableSeeder::class,
         ]);
     }
 }

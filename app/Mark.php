@@ -4,11 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Report extends Model
+class Mark extends Model
 {
-    protected $table = 'reports';
+    protected $table = 'marks';
     protected $fillable = [
-        'user_id', 'type_id', 'title', 'content'
+        'student_id', 
+        'date_am_1', 
+        'date_am_2',
+        'date_pm_1', 
+        'date_pm_2', 
 
     ];
 

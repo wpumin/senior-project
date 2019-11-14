@@ -268,7 +268,7 @@
 
                                         $('#report').append(
                                             '<div class="notice-list">' +
-                                            '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['date'] + ' - '+ time2 + ' น.</div>' +
+                                            '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + ' - '+ time2 + ' น.</div>' +
                                             '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
                                             '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
                                             +
