@@ -200,7 +200,7 @@
 
                             $('#report').append(
                                 '<div class="notice-list">' +
-                                '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['date'] + ' - '+ time2 + ' น.</div>' +
+                                '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
                                 '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
                                 '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
                                  +
@@ -250,7 +250,7 @@
                             },
                             success: function(response) {
 
-                                console.log(response['data']);
+                                // console.log(response['data']);
                                 if (response['status'] == 'success') {
 
                                     $('#report').html('');
@@ -268,12 +268,15 @@
 
                                         $('#report').append(
                                             '<div class="notice-list">' +
-                                            '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + ' - '+ time2 + ' น.</div>' +
+                                            '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
                                             '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
                                             '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
                                             +
                                             '</div>'
                                         );
+                                    $('#type_id').val("");
+                                    $('#title').val("");
+                                    $('#content').val("");
                                     }
                                 }
                             },

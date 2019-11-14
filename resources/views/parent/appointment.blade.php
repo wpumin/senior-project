@@ -274,6 +274,10 @@
                                 '</td>' +
                                 '</tr>'
                             );
+                            $('#student_id').val("");
+                            $('#period_time_id').val("");
+                            $('#appointment_at').val("");
+                            // $('#content').val("");
                         }
                     }
                 },
