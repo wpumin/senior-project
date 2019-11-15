@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
 use Illuminate\Http\Request;
 use App\Payment_inform;
 use App\Payment_log;
+use App\School;
+use App\Student;
 use LogicException;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +21,42 @@ class PaymentController extends Controller
 
     public function index()
     {
-        $data = Payment_log::get();
+        $inform = Payment_inform::get();
 
-        // dd($data);
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($inform);
+
+        foreach ($inform as $d) {
+
+            $stu = Student::where('id', $d->student_id)->first();
+            $school = School::where('id', $stu->school_id)->first();
+            $district = District::where('id', $stu->district_id)->first();
+
+            $id = $d->id;
+
+            $data['info'][$count++] = [
+                'id' => $d->id,
+                'student_id' => $d->student_id,
+                'tran_key' => $d->tran_key,
+                'date' => $d->date . ' ' . $d->timepicker,
+                'bank_id' => $d->bank_id,
+                'nickname' => $stu->nickname,
+                'school' => $school->name_school,
+                'price' => $district->price,
+                'bill_image' => $d->bill_image,
+                'car_id' => $stu->car_id
+            ];
+
+            // dd($data['info']);
+            // var_dump($data['info']);
+        }
+
+        // dd($data['info']);
 
         return view('admin.payment_confirm', [
-            'datas' => $data
+            'datas' => $data['info']
         ]);
     }
 

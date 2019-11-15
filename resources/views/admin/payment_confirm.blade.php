@@ -180,26 +180,28 @@
                             $temp_car = 2;
                         }
                     ?>
+
                     @foreach($datas as $key=>$data)
-                        @if($data->car_id == $temp_car)
+
+                        @if($data['car_id'] == $temp_car)
                             <tr>
                                 <td>
                                 <?php print $count ?>
                                 </td>
-                                <td>{{ $data->tran_key }}</td>
-                                <td>{{ $data->created_at }}</td>
-                                @if($data->bank_id == 1)
+                                <td>{{ $data['tran_key'] }}</td>
+                                <td>{{ $data['date'] }}</td>
+                                @if($data['bank_id'] == 1)
                                     <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
-                                @elseif($data->bank_id == 2)
+                                @elseif($data['bank_id'] == 2)
                                     <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                                @elseif($data->bank_id == 3)
+                                @elseif($data['bank_id'] == 3)
                                     <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
-                                @elseif($data->bank_id == 4)
+                                @elseif($data['bank_id'] == 4)
                                     <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
-                                @endif  
-                                <td>{{ $data->user_id }}</td>
-                                <td>{{ $data->user_id }}</td>
-                                <td>{{ $data->price }}</td>
+                                @endif
+                                <td>{{ $data['nickname'] }}</td>
+                                <td>{{ $data['school'] }}</td>
+                                <td>{{ $data['price'] }}</td>
                                 <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
                             </tr>
                             <?php $count++ ?>
