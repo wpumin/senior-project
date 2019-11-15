@@ -34,11 +34,13 @@ class PaymentController extends Controller
 
             $validate = Validator::make($this->request->all(), [
                 'tran_key' => 'required',
-                'user_id' => 'required',
+                'student_id' => 'required',
                 'timepicker' => 'required',
                 'date' => 'required',
                 'content' => '',
-                'bill_image' => ''
+                'bill_image' => '',
+                'bank_id' => 'required',
+                'pm_status_id' => 'required'
             ]);
             if ($validate->fails()) {
                 throw new LogicException($validate->errors());
@@ -64,6 +66,7 @@ class PaymentController extends Controller
             DB::beginTransaction();
             if ($this->request->file('bill_image')) {
                 $image_filename = $this->request->file('bill_image')->getClientOriginalName();
+                // $image_filename = base64_encode(file_get_contents($request->file('bill_image')));
                 $image_name = $this->request->input('tran_key') . '_' . $result . '_' . $image_filename;
                 $public_path = 'images/Payments/';
                 $destination = base_path() . "/public/" . $public_path;

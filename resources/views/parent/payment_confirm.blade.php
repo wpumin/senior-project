@@ -177,7 +177,8 @@ function getCookie(cname) {
             'content' : content
         }
 
-        console.log(formData);
+        alert(bill_image);
+        // console.log(formData);
 
         $.post("/bill",formData,function(data){
             console.log(data);  // ทดสอบแสดงค่า  ดูผ่านหน้า console
@@ -185,45 +186,45 @@ function getCookie(cname) {
             http://www.ninenik.com/content.php?arti_id=692 via @ninenik                 
 */      });
 
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/bill",
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     },
-        //     // cache:false,
-        //     data: {
-        //         bill_image: bill_image,
-        //         tran_key: tran_key,
-        //         user_id: user_id,
-        //         timepicker: timepicker,
-        //         date: date,
-        //         content: content,
-        //     },
-        //     success: function(result){
+        $.ajax({
+            type: "POST",
+            url: "/bill",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            // cache:false,
+            data: {
+                bill_image: bill_image,
+                tran_key: tran_key,
+                user_id: user_id,
+                timepicker: timepicker,
+                date: date,
+                content: content,
+            },
+            success: function(result){
                 
-        //         // ส่งฟอร์มสำเร็จ
-        //         if (result.status == 'success') {
-        //             $(".wrap-modal > #successConfirm").modal('show');
-        //             $(location).attr('href', '/parent/payment/confirm');
-        //         }
+                // ส่งฟอร์มสำเร็จ
+                if (result.status == 'success') {
+                    $(".wrap-modal > #successConfirm").modal('show');
+                    $(location).attr('href', '/parent/payment/confirm');
+                }
 
-        //         // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-        //         if (result.status == 'error') {
-        //             $(".wrap-modal > #failConfirm").modal('show');
-        //         }
+                // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+                if (result.status == 'error') {
+                    $(".wrap-modal > #failConfirm").modal('show');
+                }
                 
-        //     },
-        //     error: function(){
-        //         // alert(bill_image)
-        //         console.log(formData);
-        //         // console.log(timepicker);
-        //         // console.log(date);
-        //         // console.log(bill_image);
-        //         // เซิร์ฟเวอร์มีปัญหา
-        //         $(".wrap-modal > #errorConfirm").modal('show');
-        //     }
-        // });
+            },
+            error: function(){
+                // alert(bill_image)
+                console.log(formData);
+                // console.log(timepicker);
+                // console.log(date);
+                // console.log(bill_image);
+                // เซิร์ฟเวอร์มีปัญหา
+                $(".wrap-modal > #errorConfirm").modal('show');
+            }
+        });
     }
     
 </script>
