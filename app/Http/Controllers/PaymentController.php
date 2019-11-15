@@ -30,23 +30,35 @@ class PaymentController extends Controller
 
         foreach ($inform as $d) {
 
-            $stu = Student::where('id', $d->student_id)->first();
-            $school = School::where('id', $stu->school_id)->first();
-            $district = District::where('id', $stu->district_id)->first();
+            $std = Student::where('id', $d->student_id)->first();
+            $parent = Student::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
+            $school = School::where('id', $std->school_id)->first();
+            $district = District::where('id', $std->district_id)->first();
 
             $id = $d->id;
 
             $data['info'][$count++] = [
+
                 'id' => $d->id,
                 'student_id' => $d->student_id,
                 'tran_key' => $d->tran_key,
                 'date' => $d->date . ' ' . $d->timepicker,
                 'bank_id' => $d->bank_id,
-                'nickname' => $stu->nickname,
-                'school' => $school->name_school,
-                'price' => $district->price,
                 'bill_image' => $d->bill_image,
-                'car_id' => $stu->car_id
+
+                'std_prefix' => $std->prefix,
+                'std_first_name' => $std->first_name,
+                'std_last_name' => $std->last_name,
+                'nickname' => $std->nickname,
+                'car_id' => $std->car_id,
+                'parent_prefix' => $parent->prefix,
+                'parent_first_name' => $parent->first_name,
+                'parent_last_name' => $parent->last_name,
+                'parent_phone'=> $parent->phone,
+
+                'school' => $school->name_school,
+
+                'price' => $district->price,
             ];
 
             // dd($data['info']);

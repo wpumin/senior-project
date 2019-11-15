@@ -51,8 +51,12 @@
                     </div>
                 </div>
                 <div class="col-12 form-group mt-5">
-                    <textarea class="textarea form-control" name="message" id="content" cols="10" rows="10" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                    <input type="text" id="price" placeholder="จำนวนเงิน" class="form-control" required autocomplete="off">
+                    <i style="top: 10px; font-style: normal;">฿</i>
                 </div>
+                {{-- <div class="col-12 form-group mt-5">
+                    <textarea class="textarea form-control" name="message" id="content" cols="10" rows="10" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                </div> --}}
                 <div class="col-12 form-group mg-t-8 text-center text-md-right">
                     <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal">ยืนยัน</button>
                 </div>
