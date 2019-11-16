@@ -21,7 +21,7 @@
                             <input type="password" name="password" id="password" class="input-box" placeholder="รหัสผ่าน" required>
                         </div>
                         <div class="forgot-password text-right">
-                                <span class="spinner-border"></span> <a href="forgot-password">ลืมรหัสผ่าน?</a>
+                            <span class="spinner-border"></span> <a href="forgot-password">ลืมรหัสผ่าน?</a>
                         </div>
                         <div class="mt-5">
                             <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
@@ -48,7 +48,7 @@
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
-            <div class="modal-body my-4 text-center">
+            <div class="modal-body my-3 text-center">
                 <b>เข้าสู่ระบบไม่สำเร็จ</b>
                 <p>ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง</p>
                 <div class="modal-button text-center mt-3">
@@ -67,7 +67,7 @@
             <div class="modal-content">
             <div class="modal-header _success">
             </div>
-            <div class="modal-body my-4 text-center">
+            <div class="modal-body my-3 text-center">
                 <b>ระบบเกิดข้อผิดพลาด</b>
                 <p>กรุณาทำรายการใหม่ภายหลัง</p>
                 <div class="modal-button text-center mt-3">

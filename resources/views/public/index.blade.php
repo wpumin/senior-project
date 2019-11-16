@@ -1058,22 +1058,22 @@
             <div class="section-title">
               <h2>ติดต่อ</h2>
             </div>
-            <form class="auth-form">
+            <form class="auth-form" id="mailForm">
               @csrf
               <div class="form-group">
                 <label for="exampleInputName1">ชื่อ - สกุล</label><i class="fa fa-user"></i>
-                <input class="form-control" id="exampleInputName1" required="" name="login[name]" type="text" placeholder="ชื่อ - สกุล">
+                <input class="form-control" id="exampleInputName" required="" name="login[name]" type="text" placeholder="ชื่อ - สกุล">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail12">อีเมล</label><i class="fa fa-envelope-o"></i>
-                <input class="form-control" id="exampleInputEmail12" required="" name="login[email]" type="email" placeholder="อีเมล">
+                <input class="form-control" id="exampleInputEmail" required="" name="login[email]" type="email" placeholder="อีเมล">
               </div>
               <div class="form-group">
                 <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
                 <textarea class="form-control" id="message" name="message" cols="30" rows="10" placeholder="ข้อความ"></textarea>
               </div>
               <div class="form-group mb-0">
-                <button class="btn-theme" type="submit">ส่งข้อความถึงเรา</button>
+                <button class="btn-theme" type="submit">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
               </div>
             </form>
           </div>
@@ -1131,6 +1131,63 @@
       </div>
     </footer>
     <!-- end copy right section-->
+
+    <!-- Modal: System error-->
+    <div class="wrap-modal">
+      <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+              <div class="modal-header _success">
+              </div>
+              <div class="modal-body my-4 text-center">
+                  <b>ระบบเกิดข้อผิดพลาด</b>
+                  <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                  <div class="modal-button text-center mt-3">
+                      <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                      <!-- data-dismiss="modal" -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Modal: System error-->
+    <div class="wrap-modal">
+      <div class="modal fade" id="errorSending" tabindex="-1" role="dialog" aria-labelledby="errorSending" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+              <div class="modal-header _success">
+              </div>
+              <div class="modal-body my-4 text-center">
+                  <b>การส่งอีเมลไม่สำเร็จ</b>
+                  <p>กรุณากรอกข้อมูลให้ครบถ้วน</p>
+                  <div class="modal-button text-center mt-3">
+                      <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                      <!-- data-dismiss="modal" -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Modal: Success-->
+    <div class="wrap-modal">
+      <div class="modal fade" id="successSending" tabindex="-1" role="dialog" aria-labelledby="successSending" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+              <div class="modal-header _success">
+              </div>
+              <div class="modal-body my-4 text-center">
+                  <b>การส่งอีเมลสำเร็จ</b>
+                  <p>เราจะติดต่อคุณกลับภายใน 24 ชั่วโมง</p>
+                  <div class="modal-button text-center mt-3">
+                      <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                      <!-- data-dismiss="modal" -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     <!-- Tap to top-->
     <div class="tap-top">
       <div><i class="fa fa-angle-up" aria-hidden="true"></i></div>
@@ -1158,5 +1215,55 @@
           $(this).toggleClass('fa-align-justify');
         });
     </script> --}}
+    <script>
+
+      $('.delete-spinner').click(function() {
+          $('.spinner-border').css('display','none');
+          $('.input-box').val('');
+      });
+
+      $(document).ready(function(){
+
+      $("#mailForm").submit(function(event){
+          $('.spinner-border').css('display','inline-block');
+            submitForm();
+            return false;
+        });
+      });
+
+      function submitForm(){
+          $.ajax({
+              type: "POST",
+              url: "/email",
+              headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              cache:false,
+              data: $('form#mailForm').serialize(),
+              success: function(result){
+                  //  ส่งอีเมลสำเร็จ
+                  if(result.status == 'success') {
+                      setInterval(function(){
+                          $('#successSending').modal('show');
+                      }, 3000);
+                      $(location).attr('href', '/about');
+                  }
+
+                  // ส่งอีเมลไม่สำเร็จ
+                  if (result.status == 'error') {
+                      $('#errorSending').modal('show');
+                      $('#exampleInputName').val("");
+                      $('#exampleInputEmail').val("");
+                      $('#message').val("");
+                  }
+
+              },
+              error: function(result){
+                  $(".wrap-modal > #systemError").modal('show');
+              }
+          });
+      }
+
+    </script>
   </body>
 </html>
