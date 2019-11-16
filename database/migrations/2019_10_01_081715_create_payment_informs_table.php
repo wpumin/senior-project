@@ -21,7 +21,7 @@ class CreatePaymentInformsTable extends Migration
             $table->string('timepicker')->nullable();
             $table->string('date')->nullable();
             $table->string('content')->nullable();
-            $table->string('bill_image');
+            // $table->string('bill_image');
             $table->string('bank_id')->nullable();
             $table->string('pm_status_id');
             $table->timestamps();

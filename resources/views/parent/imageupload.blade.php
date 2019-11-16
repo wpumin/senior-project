@@ -19,7 +19,7 @@
     </form>
 
 
-    <form class="new-added-form pt-5 pt-md-4" id="paymentConfirm" enctype="multipart/form-data">
+    <form class="new-added-form pt-5 pt-md-4" id="paymentConfirm">
         @csrf
         <div class="row">
              <div class="col-xl-3 col-lg-6 col-12 form-group">
@@ -43,7 +43,7 @@
                 <i class="far fa-calendar-alt"></i>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <select class="select2" required autocomplete="off">
+                <select class="select2" required autocomplete="off" id="bank">
                     <option value="">กรุณาเลือกบัญชีที่ท่านชำระเงิน</option>
                     <option value="1">บัญชีกสิกรไทย 002-2-85496-8</option>
                     <option value="2">บัญชีไทยพาณีชย์ 002-2-85496-8</option>
@@ -208,7 +208,7 @@
                 $("#paymentConfirm").submit(function(event){
                     $('#btn-submit').prop('disabled',true);
                     $('#btn-submit').css('cursor','not-allowed');
-                    // submitForm();
+                    submitForm();
                     return false;
                 });
 
@@ -219,76 +219,82 @@
             });
 
 
-        //     function submitForm(){
-        //         // e.preventDefault();
-        //         // var bill_image = $('.dz-image img').attr("src");
-        //         var bill_image = $('.dz-image img').attr("src");
-        //         // var bill_image = document.getElementByClassName('#bill_image').attr("src");
-        //         // console.log(bill_image);
-        //         var tran_key = $('#tran_key').val();
-        //         var user_id =  getCookie('user_id');
-        //         var timepicker = $('#timepicker').val();
-        //         var date = $('#date').val();
-        //         var content = $('#content').val();
+            function submitForm(){
+                // e.preventDefault();
+                // var bill_image = $('.dz-image img').attr("src");
+                // var bill_image = $('.dz-image img').attr("src");
+                // var bill_image = document.getElementByClassName('#bill_image').attr("src");
+                // console.log(bill_image);
+                var tran_key = $('#tran_key').val();
+                // var user_id =  getCookie('user_id');
+                var timepicker = $('#timepicker').val();
+                var date = $('#date').val();
+                var content = $('#content').val();
+                var bank_id = $('#bank').val();
 
-        //         var formData = {
-        //             // 'bill_image' : bill_image,
-        //             'tran_key' : tran_key,
-        //             'user_id' : user_id,
-        //             'timepicker' : timepicker,
-        //             'date' : date,
-        //             'content' : content
-        //         }
+                var formData = {
+                    // 'bill_image' : bill_image,
+                    'tran_key' : tran_key,
+                    // 'user_id' : user_id,
+                    'timepicker' : timepicker,
+                    'date' : date,
+                    'content' : content,
+                    'bank_id' : bank_id,
+                }
 
-        //         alert(bill_image);
-        //         // console.log(formData);
+                console.log(formData);
+                alert(formData['tran_key']);
 
-        //         $.post("/bill",formData,function(data){
-        //             console.log(data);  // ทดสอบแสดงค่า  ดูผ่านหน้า console
-        //             /*การใช้งาน console log เพื่อ debug javascript ใน chrome firefox และ ie
-        //             http://www.ninenik.com/content.php?arti_id=692 via @ninenik
-        // */      });
 
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "/bill",
-        //             headers: {
-        //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //             },
-        //             // cache:false,
-        //             data: {
-        //                 bill_image: bill_image,
-        //                 tran_key: tran_key,
-        //                 user_id: user_id,
-        //                 timepicker: timepicker,
-        //                 date: date,
-        //                 content: content,
-        //             },
-        //             success: function(result){
 
-        //                 // ส่งฟอร์มสำเร็จ
-        //                 if (result.status == 'success') {
-        //                     $(".wrap-modal > #successConfirm").modal('show');
-        //                     $(location).attr('href', '/parent/payment/confirm');
-        //                 }
+                $.post("/bill",formData,function(data){
+                    console.log(data);  // ทดสอบแสดงค่า  ดูผ่านหน้า console
+                    $(".wrap-modal > #successConfirm").modal('show');
+                    $(location).attr('href', '/image/upload');
+                    /*การใช้งาน console log เพื่อ debug javascript ใน chrome firefox และ ie
+                    http://www.ninenik.com/content.php?arti_id=692 via @ninenik
+        */      });
 
-        //                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-        //                 if (result.status == 'error') {
-        //                     $(".wrap-modal > #failConfirm").modal('show');
-        //                 }
+                // $.ajax({
+                //     type: "POST",
+                //     url: "/bill",
+                //     headers: {
+                //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //     },
+                //     // cache:false,
+                //     data: {
+                //         // bill_image: bill_image,
+                //         tran_key: tran_key,
+                //         // user_id: user_id,
+                //         timepicker: timepicker,
+                //         date: date,
+                //         content: content,
+                //     },
+                //     success: function(result){
 
-        //             },
-        //             error: function(){
-        //                 // alert(bill_image)
-        //                 console.log(formData);
-        //                 // console.log(timepicker);
-        //                 // console.log(date);
-        //                 // console.log(bill_image);
-        //                 // เซิร์ฟเวอร์มีปัญหา
-        //                 $(".wrap-modal > #errorConfirm").modal('show');
-        //             }
-        //         });
-        //     }
+                //         // ส่งฟอร์มสำเร็จ
+                //         if (result.status == 'success') {
+                //             $(".wrap-modal > #successConfirm").modal('show');
+                //             $(location).attr('href', '/parent/payment/confirm');
+                //         }
+
+                //         // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+                //         if (result.status == 'error') {
+                //             $(".wrap-modal > #failConfirm").modal('show');
+                //         }
+
+                //     },
+                //     error: function(){
+                //         // alert(bill_image)
+                //         console.log(formData);
+                //         // console.log(timepicker);
+                //         // console.log(date);
+                //         // console.log(bill_image);
+                //         // เซิร์ฟเวอร์มีปัญหา
+                //         $(".wrap-modal > #errorConfirm").modal('show');
+                //     }
+                // });
+            }
 
         </script>
 
