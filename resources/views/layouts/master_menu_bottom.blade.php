@@ -440,7 +440,7 @@
             }
 
         }
-        
+
         document.getElementById("name").innerHTML = getCookie('f_name');
         document.getElementById("role_name").innerHTML = getCookie('role_name');
         document.getElementById("prefix").innerHTML = getCookie('prefix');
@@ -488,7 +488,7 @@
     <!-- HighChart Js -->
     <script src="{{ URL::asset('js/internal/highcharts.js') }}"></script>
     <!-- Dropzone Js -->
-    <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script>
+    {{-- <script src="{{ URL::asset('plugins/dropzone/dropzone.js') }}"></script> --}}
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
      <!-- Time Picker -->
@@ -497,6 +497,11 @@
     <script src="{{ URL::asset('plugins/datepicker/pignose.calendar.js') }}"></script>
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
+
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 
     <script>
         $('.fixed-bottom').css('bottom',-40);

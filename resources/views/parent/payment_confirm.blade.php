@@ -10,7 +10,8 @@
 </div>
 <div class="card height-auto pb-0 pt-5 mt-5 pt-md-0 mt-md-0">
     <div class="card-body">
-        <form action="" class="new-added-form pt-5 pt-md-4" id="paymentConfirm" enctype="multipart/form-data">
+
+        <form class="new-added-form pt-5 pt-md-4" id="paymentConfirm" enctype="multipart/form-data">
             @csrf
             <div class="row">
                  <div class="col-xl-3 col-lg-6 col-12 form-group">
@@ -126,6 +127,29 @@
 @endsection
 
 @section('script')
+
+<script type="text/javascript">
+    Dropzone.options.dropzone =
+     {
+        maxFilesize: 12,
+        renameFile: function(file) {
+            var dt = new Date();
+            var time = dt.getTime();
+           return time+file.name;
+        },
+        acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        addRemoveLinks: true,
+        timeout: 5000,
+        success: function(file, response)
+        {
+            console.log(response);
+        },
+        error: function(file, response)
+        {
+           return false;
+        }
+};
+</script>
 <script>
 
 function getCookie(cname) {
@@ -144,12 +168,12 @@ function getCookie(cname) {
                 return "";
     }
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
 
-        $("#paymentConfirm").submit(function(event){ 
+        $("#paymentConfirm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
-            submitForm();
+            // submitForm();
             return false;
         });
 
@@ -160,77 +184,77 @@ function getCookie(cname) {
     });
 
 
-    function submitForm(){
-        // e.preventDefault();
-        // var bill_image = $('.dz-image img').attr("src");
-        var bill_image = $('.dz-image img').attr("src");
-        // var bill_image = document.getElementByClassName('#bill_image').attr("src");
-        // console.log(bill_image);
-        var tran_key = $('#tran_key').val();
-        var user_id =  getCookie('user_id');  
-        var timepicker = $('#timepicker').val();
-        var date = $('#date').val();
-        var content = $('#content').val();
+//     function submitForm(){
+//         // e.preventDefault();
+//         // var bill_image = $('.dz-image img').attr("src");
+//         var bill_image = $('.dz-image img').attr("src");
+//         // var bill_image = document.getElementByClassName('#bill_image').attr("src");
+//         // console.log(bill_image);
+//         var tran_key = $('#tran_key').val();
+//         var user_id =  getCookie('user_id');
+//         var timepicker = $('#timepicker').val();
+//         var date = $('#date').val();
+//         var content = $('#content').val();
 
-        var formData = {
-            // 'bill_image' : bill_image,
-            'tran_key' : tran_key,
-            'user_id' : user_id,
-            'timepicker' : timepicker,
-            'date' : date,
-            'content' : content
-        }
+//         var formData = {
+//             // 'bill_image' : bill_image,
+//             'tran_key' : tran_key,
+//             'user_id' : user_id,
+//             'timepicker' : timepicker,
+//             'date' : date,
+//             'content' : content
+//         }
 
-        alert(bill_image);
-        // console.log(formData);
+//         alert(bill_image);
+//         // console.log(formData);
 
-        $.post("/bill",formData,function(data){
-            console.log(data);  // ทดสอบแสดงค่า  ดูผ่านหน้า console
-            /*การใช้งาน console log เพื่อ debug javascript ใน chrome firefox และ ie 
-            http://www.ninenik.com/content.php?arti_id=692 via @ninenik                 
-*/      });
+//         $.post("/bill",formData,function(data){
+//             console.log(data);  // ทดสอบแสดงค่า  ดูผ่านหน้า console
+//             /*การใช้งาน console log เพื่อ debug javascript ใน chrome firefox และ ie
+//             http://www.ninenik.com/content.php?arti_id=692 via @ninenik
+// */      });
 
-        $.ajax({
-            type: "POST",
-            url: "/bill",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            // cache:false,
-            data: {
-                bill_image: bill_image,
-                tran_key: tran_key,
-                user_id: user_id,
-                timepicker: timepicker,
-                date: date,
-                content: content,
-            },
-            success: function(result){
-                
-                // ส่งฟอร์มสำเร็จ
-                if (result.status == 'success') {
-                    $(".wrap-modal > #successConfirm").modal('show');
-                    $(location).attr('href', '/parent/payment/confirm');
-                }
+//         $.ajax({
+//             type: "POST",
+//             url: "/bill",
+//             headers: {
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//             },
+//             // cache:false,
+//             data: {
+//                 bill_image: bill_image,
+//                 tran_key: tran_key,
+//                 user_id: user_id,
+//                 timepicker: timepicker,
+//                 date: date,
+//                 content: content,
+//             },
+//             success: function(result){
 
-                // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-                if (result.status == 'error') {
-                    $(".wrap-modal > #failConfirm").modal('show');
-                }
-                
-            },
-            error: function(){
-                // alert(bill_image)
-                console.log(formData);
-                // console.log(timepicker);
-                // console.log(date);
-                // console.log(bill_image);
-                // เซิร์ฟเวอร์มีปัญหา
-                $(".wrap-modal > #errorConfirm").modal('show');
-            }
-        });
-    }
-    
+//                 // ส่งฟอร์มสำเร็จ
+//                 if (result.status == 'success') {
+//                     $(".wrap-modal > #successConfirm").modal('show');
+//                     $(location).attr('href', '/parent/payment/confirm');
+//                 }
+
+//                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+//                 if (result.status == 'error') {
+//                     $(".wrap-modal > #failConfirm").modal('show');
+//                 }
+
+//             },
+//             error: function(){
+//                 // alert(bill_image)
+//                 console.log(formData);
+//                 // console.log(timepicker);
+//                 // console.log(date);
+//                 // console.log(bill_image);
+//                 // เซิร์ฟเวอร์มีปัญหา
+//                 $(".wrap-modal > #errorConfirm").modal('show');
+//             }
+//         });
+//     }
+
 </script>
-    
+
 @endsection

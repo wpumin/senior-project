@@ -8,6 +8,7 @@ use App\Payment_inform;
 use App\Payment_log;
 use App\School;
 use App\Student;
+use App\User;
 use LogicException;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,7 @@ class PaymentController extends Controller
         foreach ($inform as $d) {
 
             $std = Student::where('id', $d->student_id)->first();
-            $parent = Student::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
+            $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
             $school = School::where('id', $std->school_id)->first();
             $district = District::where('id', $std->district_id)->first();
 
@@ -54,7 +55,7 @@ class PaymentController extends Controller
                 'parent_prefix' => $parent->prefix,
                 'parent_first_name' => $parent->first_name,
                 'parent_last_name' => $parent->last_name,
-                'parent_phone'=> $parent->phone,
+                'parent_phone' => $parent->phone,
 
                 'school' => $school->name_school,
 

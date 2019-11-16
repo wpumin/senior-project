@@ -163,3 +163,7 @@ Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');
 Route::get('admin/payment/confirm/car1', 'PaymentController@index');
 Route::get('admin/payment/confirm/car2', 'PaymentController@index');
+
+Route::get('image/upload', 'ImageUploadController@fileCreate');
+Route::post('image/upload/store', 'ImageUploadController@fileStore');
+Route::post('image/delete', 'ImageUploadController@fileDestroy');

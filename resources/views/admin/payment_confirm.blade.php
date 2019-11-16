@@ -200,7 +200,7 @@
                                 <td>{{ $data['nickname'] }}</td>
                                 <td>{{ $data['school'] }}</td>
                                 <td>{{ $data['price'] }}</td>
-                                <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
+                            <td><a href="#" data-toggle="modal" data-target="#confirmModal-{{ $data['tran_key'] }}"><span class="flaticon-bill"></a></td>
                             </tr>
                             <?php $count++ ?>
                         @endif
@@ -211,9 +211,10 @@
     </div>
 </div>
 <!-- Payment Table Area End Here -->
+@foreach($datas as $key=>$data)
 
 <!-- Confirm Modal -->
-<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="confirmModal-{{ $data['tran_key'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -222,7 +223,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4 text-center">
-                        <h3 class="mb-2 text-special-orange text-right py-2">หมายเลขรายการ: 987</h3>
+                        <h3 class="mb-2 text-special-orange text-right py-2">หมายเลขรายการ: {{ $data['tran_key'] }}</h3>
                         <table>
                             <tbody class="text-left">
                                 <tr>
@@ -239,7 +240,15 @@
                                 </tr>
                                 <tr>
                                     <td>โอนเข้าบัญชี: </td>
-                                    <td>{{ $data['bank_id'] }}</td>
+                                    @if($data['bank_id'] == 1)
+                                    <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
+                                @elseif($data['bank_id'] == 2)
+                                    <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                @elseif($data['bank_id'] == 3)
+                                    <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
+                                @elseif($data['bank_id'] == 4)
+                                    <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
+                                @endif
                                 </tr>
                             </tbody>
                         </table>
@@ -260,6 +269,7 @@
     </div>
 </div>
 <!-- Confirm Modal End Here -->
+@endforeach
 
 <!-- Modal: System error-->
 <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
