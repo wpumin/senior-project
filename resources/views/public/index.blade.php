@@ -869,6 +869,23 @@
               </div>
               <div class="item">
                 <div class="package-box">
+                  <h3>ตำบลทุ่งนางาม</h3>
+                  <div class="price-box"><span>฿</span>
+                    <h2>650</h2>
+                    <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
+                  </div>
+                  <div class="price-plan text-center">
+                    <ul>
+                      <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
+                      <li>เช้า: 07:28 น.</li>
+                      <li>เย็น: 16:02 น.</li>
+                    </ul>
+                    <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="package-box">
                   <h3>ตำบลการุ้ง</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>650</h2>

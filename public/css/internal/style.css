@@ -6994,3 +6994,9 @@ textarea.form-control{
 .hc-nav{
     
 }
+
+.ldmap_placeholder .ldmap_frame .ldmap_geomlabel {
+    padding: 3px 5px 3px 5px !important;
+    background: rgb(255, 127, 53) !important;
+    color: white !important;    
+}
