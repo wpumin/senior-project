@@ -187,7 +187,7 @@
                                 <?php print $count ?>
                                 </td>
                                 <td>{{ $data['tran_key'] }}</td>
-                                <td>{{ $data['date'] }} น.</td>
+                                <td>{{ $data['date'] }} </td>
                                 @if($data['bank_id'] == 1)
                                     <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
                                 @elseif($data['bank_id'] == 2)

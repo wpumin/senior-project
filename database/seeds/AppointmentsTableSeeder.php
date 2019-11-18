@@ -14,6 +14,7 @@ class AppointmentsTableSeeder extends Seeder
     {
         DB::table('appointments')->insert([
             'user_id' => 1,
+            'student_id' => 1,
             'app_status_id' => 1,
             'period_time_id' => 1,
             'appointment_at' => 12/01/61,
@@ -22,7 +23,8 @@ class AppointmentsTableSeeder extends Seeder
         ]);
 
         DB::table('appointments')->insert([
-            'user_id' => 2,
+            'user_id' => 4,
+            'student_id' => 115,
             'app_status_id' => 2,
             'period_time_id' => 2,
             'appointment_at' => 12/01/61,

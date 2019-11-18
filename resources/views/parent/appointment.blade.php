@@ -79,11 +79,10 @@
                     </div>
                 </form>
                 <div class="table-responsive student-profile-table">
-                        <table class="table display data-table text-nowrap" id="showForm">
+                        <table class="table display data-table text-nowrap">
                             <thead>
                                 <tr class="bg-special-orange">
                                     <th>ลำดับ</th>
-                                    {{-- <th>ชื่อ-สกุล นักเรียน</th> --}}
                                     <th>สถานะ</th>
                                     <th>ชื่อเล่น</th>
                                     <th>วันที่</th>
@@ -198,6 +197,46 @@
     
       });
        
+      $.ajax({
+                url: '/tasks/refresh/appointment',
+                type: 'POST',
+                data: {
+                    user_id : getCookie('user_id')
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status == 'success') {
+
+                        $('table tbody').html('');
+                        // let modalUser = document.getElementById("name").innerHTML = name;
+
+                        for (var i = 0; i < response.data['appointment'].length; i++) {
+                            if (response.data['appointment'][i]['app_status_id'] == '1') {
+                                status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
+                            } else if (response.data['appointment'][i]['app_status_id'] == '2') {
+                                status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
+                            }
+                            
+                            $('table tbody').append(
+                                '<tr>' +
+                                '<td>' + (i + 1) + '</td>' +
+                                status + '</td>' +
+                                // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
+                                '<td>' + response.data['appointment'][i]['name'] + '</td>' +
+                                '</td>' +
+                                '</tr>'
+                            );
+                        }
+                    }
+                },
+                error: function(err) {
+
+                }
+            })
+
+            
 
     $(document).ready(function(){	
 
@@ -274,10 +313,6 @@
                                 '</td>' +
                                 '</tr>'
                             );
-                            $('#student_id').val("");
-                            $('#period_time_id').val("");
-                            $('#appointment_at').val("");
-                            // $('#content').val("");
                         }
                     }
                 },
@@ -300,46 +335,6 @@
             }
         });
     }
-
-    
-    $.ajax({
-                url: '/tasks/refresh/appointment',
-                type: 'POST',
-                data: {
-                    user_id : getCookie('user_id')
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status == 'success') {
-
-                        $('table tbody').html('');
-                        // let modalUser = document.getElementById("name").innerHTML = name;
-
-                        for (var i = 0; i < response.data['appointment'].length; i++) {
-                            if (response.data['appointment'][i]['app_status_id'] == '1') {
-                                            status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
-                                            } else if (response.data['appointment'][i]['app_status_id'] == '2') {
-                                            status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
-                                            }
-                            $('table tbody').append(
-                                '<tr>' +
-                                '<td>' + (i + 1) + '</td>' +
-                                status + '</td>' +
-                                // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                                '</td>' +
-                                '</tr>'
-                            );
-                        }
-                    }
-                },
-                error: function(err) {
-
-                }
-            })
-
 
 </script>
 

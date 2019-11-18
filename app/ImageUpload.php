@@ -8,7 +8,7 @@ class ImageUpload extends Model
 {
     protected $table = 'image_uploads';
     protected $fillable = [
-        'filename'
+        'filename','tran_key'
 
     ];
 
