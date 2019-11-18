@@ -111,6 +111,7 @@
         map.location({ lat: 15.263551, lon: 99.672852 }, true);
         map.zoomRange({ min:9, max: 16});
         map.Route.label(longdo.RouteLabel.Time);
+        map.Route.line('road', { lineColor: '#ffbf29' });
 
 
         map.Route.placeholder(document.getElementById('result'));
