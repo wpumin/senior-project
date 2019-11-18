@@ -240,14 +240,14 @@
                                 </tr>
                                 <tr>
                                     <td>โอนเข้าบัญชี: </td>
-                                    @if($data['bank_id'] == 1)
-                                    <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
+                                @if($data['bank_id'] == 1)
+                                    <td>กสิกรไทย</td>
                                 @elseif($data['bank_id'] == 2)
-                                    <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                    <td>ไทยพาณิชย์</td>
                                 @elseif($data['bank_id'] == 3)
-                                    <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
+                                    <td>กรุงไทย</td>
                                 @elseif($data['bank_id'] == 4)
-                                    <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
+                                    <td>กรุงศรี</td>
                                 @endif
                                 </tr>
                             </tbody>
@@ -255,8 +255,8 @@
                         <hr>
                         <h6 class="mb-2 text-special-orange text-center py-2">หลักฐานการโอนเงิน (โปรดแสกน)</h6>
                         <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="bill image">
-                        <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน 4,000.00 บาท</h6>
-                        <p class="text-center mb-2 small">จ่ายเมื่อ 4/10/2562 08:03</p>
+                        <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน {{ $data['price'] }} บาท</h6>
+                        <p class="text-center mb-2 small">จ่ายเมื่อ {{ $data['date'] }}</p>
                         <hr>
                         <div class="mt-2">
                             <button type="button" class="btn btn-secondary" id="confirmPayment">ยืนยัน</button>
