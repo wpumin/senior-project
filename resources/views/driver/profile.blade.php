@@ -20,7 +20,7 @@
         </div>
         <div class="single-info-details">
             <div class="item-img">
-                <img src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="parent" class="parent-profile">
+                <img src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="parent profile" class="parent-profile">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">

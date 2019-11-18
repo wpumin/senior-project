@@ -21,7 +21,7 @@
         <div class="single-info-details">
             <div class="item-img">
                 {{-- <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile"> --}}
-                <img src="" id="pic_user" alt="Parent" class="parent-profile">
+                <img src="" id="pic_user" alt="parent profile" class="parent-profile">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">

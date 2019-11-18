@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
-                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
+                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="logo">
                     <h1 class="text-center my-3 d-none"> เข้าสู่ระบบ </h1>
                     <form id="loginForm">
                             @csrf

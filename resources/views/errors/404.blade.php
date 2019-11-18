@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
-                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
+                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="logo">
                     <p class="text-center my-3"> อุ๊ปส์, ไม่พบหน้าดังกล่าว <span class="spinner-border"> </span></p>
                     <h1 class="text-center my-3 d-none"> 404 page</h1>
                     <div class="my-3">

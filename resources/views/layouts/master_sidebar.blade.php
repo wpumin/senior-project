@@ -127,7 +127,7 @@
                                         <span id="role_name"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" alt="admin avatar">
+                                        <img id="photo_user" alt="admin profile">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">

@@ -43,7 +43,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="kasikornthai">
                     </div>
                 </div>
                 <div class="col-6">
@@ -60,7 +60,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/scb.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/scb.png') }}" alt="scb">
                     </div>
                 </div>
                 <div class="col-6">
@@ -77,7 +77,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="ktb">
                     </div>
                 </div>
                 <div class="col-6">
@@ -94,7 +94,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="krungsri">
                     </div>
                 </div>
                 <div class="col-6">
@@ -254,7 +254,7 @@
                         </table>
                         <hr>
                         <h6 class="mb-2 text-special-orange text-center py-2">หลักฐานการโอนเงิน (โปรดแสกน)</h6>
-                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="">
+                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="bill image">
                         <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน 4,000.00 บาท</h6>
                         <p class="text-center mb-2 small">จ่ายเมื่อ 4/10/2562 08:03</p>
                         <hr>

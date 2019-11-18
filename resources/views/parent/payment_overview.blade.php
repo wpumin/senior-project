@@ -16,7 +16,7 @@
                     <div class="bank-icon">
                         {{-- <i class="fab fa-facebook-f"></i> --}}
                         {{-- <img src="{{}}" alt=""> --}}
-                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="" style="width: 30px;">
+                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="kasikornthai" style="width: 30px;">
                     </div>
                     <div class="media-body space-sm">
                         <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -32,7 +32,7 @@
                 <div class="media media-none--lg">
                         <div class="bank-icon">
                             {{-- <i class="fab fa-twitter"></i> --}}
-                            <img src="{{ URL::asset('images/bank/scb.png') }}" alt="" style="width: 30px;">
+                            <img src="{{ URL::asset('images/bank/scb.png') }}" alt="scb" style="width: 30px;">
                         </div>
                         <div class="media-body space-sm">
                             <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -48,7 +48,7 @@
                 <div class="media media-none--lg">
                     <div class="bank-icon">
                         {{-- <i class="fab fa-google-plus-g"></i> --}}
-                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="" style="width: 30px;">
+                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="ktb" style="width: 30px;">
                     </div>
                     <div class="media-body space-sm">
                         <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -64,7 +64,7 @@
                 <div class="media media-none--lg">
                     <div class="bank-icon">
                         {{-- <i class="fab fa-linkedin-in"></i> --}}
-                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="" style="width: 30px;">
+                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="krungsri" style="width: 30px;">
                     </div>
                     <div class="media-body space-sm">
                         <h6 class="item-title">ชื่อบัญชี: นายภูมินท์ วงษ์ศิริ</h6>
@@ -472,14 +472,14 @@
                     <div class="col-md-12 modal_body_content px-4 text-center">
                         <h2 class="mb-2 text-special-orange text-center pt-4">สแกนเพื่อชำระเงิน</h2>
                         <p class="text-center">กรุณาเปิดแอปพลิเคชันธนาคารและสแกน QR code เพื่อชำระเงิน</p>
-                        <img class="w-50 text-center" src="{{ URL::asset('images/qrcode_pay/350.png') }}" alt="">
+                        <img class="w-50 text-center" src="{{ URL::asset('images/qrcode_pay/350.png') }}" alt="qr code">
                         <p class="text-center text-special-orange">สแกน QR Code เข้าบัญชี</p>
                         <p class="text-center">ชื่อ: นายภูมินท์ วงษ์ศิริ <br> เลขที่บัญชี: 002-2-85496-8 </p>
                     </div>
                 </div>
             </div>
             <div class="modal-footer text-center">
-                <p class="mb-2 small w-100"> <img class="logo-payment" src="{{ URL::asset('images/logo-bear-bus-icon-orange.png') }}" alt=""> Accepts all banks | รับเงินได้จากทุกธนาคาร</p>
+                <p class="mb-2 small w-100"> <img class="logo-payment" src="{{ URL::asset('images/logo-bear-bus-icon-orange.png') }}" alt="logo"> Accepts all banks | รับเงินได้จากทุกธนาคาร</p>
             </div>
         </div>
     </div>

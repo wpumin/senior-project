@@ -26,7 +26,7 @@
                                 <span class='button'>เลือกไฟล์</span>
                                 <span class='label' data-js-label>ยังไม่ได้เลือกไฟล์</label>
                             </div>
-                            <img id="blah" src="https://atasouthport.com/wp-content/uploads/2017/04/default-image.jpg" alt="bill image" class="my-3 text-center news-image w-100"/>
+                            <img id="blah" src="https://atasouthport.com/wp-content/uploads/2017/04/default-image.jpg" alt="news image" class="my-3 text-center news-image w-100"/>
                         </div>
                         <div class="text-center text-lg-left mt-3">
                             <span class="text-red small">ไฟล์ต้องเป็นสกุลไฟล์ .jpg, jpeg และ .png เท่านั้น<span>

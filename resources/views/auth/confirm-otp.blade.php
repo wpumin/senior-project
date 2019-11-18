@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="d-flex flex-column justify-content-center align-items-center login-form animated fadeInUp">
-                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="">
+                    <img class="logo text-center" src="{{ url("images/login/logo-white.png") }}" alt="logo">
                     <p class="text-center my-3"> กรุณายืนยันรหัส OTP 6 หลัก <span class="spinner-border"> </span></p>
                     <h1 class="text-center my-3 d-none"> ยืนยันรหัส OTP </h1>
                     <form class="" id="checkOTP">

@@ -218,7 +218,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <img class="w-100" id="imgProfile" src="" alt="">
+                        <img class="w-100" id="imgProfile" src="" alt="student profile">
                     </div>
                 </div>
             </div>

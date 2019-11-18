@@ -114,7 +114,7 @@
                                     <span id="role_name"></span>
                                 </div>
                                 <div class="admin-img">
-                                    <img src="" id="photo_user" alt="Parent">
+                                    <img src="" id="photo_user" alt="parent profile">
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">

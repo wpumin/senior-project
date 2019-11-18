@@ -245,7 +245,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <img class="w-100" id="imgProfile" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}" alt="">
+                    <img class="w-100" id="imgProfile" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}" alt="student profile">
                 </div>
             </div>
         </div>

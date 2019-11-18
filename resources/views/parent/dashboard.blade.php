@@ -119,7 +119,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> วันนี้ </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast1" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast1" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -131,7 +131,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+1 days"))); echo " " . date("d", strtotime("+1 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast2" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast2" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -143,7 +143,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+2 days"))); echo " " . date("d", strtotime("+2 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast3" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast3" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -155,7 +155,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+3 days"))); echo " " . date("d", strtotime("+3 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast4" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast4" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -167,7 +167,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+4 days"))); echo " " . date("d", strtotime("+4 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast5" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast5" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
