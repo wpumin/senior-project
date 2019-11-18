@@ -19,8 +19,6 @@
             @csrf
             <div class="row">
                 <div class="col-lg-12 col-12 form-group">
-                    {{-- <div class="dropzone text-center mt-4">
-                    </div> --}}
                      <div class="uploader" >
                         <span class='flaticon-photo'></span>
                         <img src="" alt="Profile Image" class="text-center" id="image0"/>

@@ -378,7 +378,7 @@
     <!-- HighChart Js -->
     <script src="{{ URL::asset('js/internal/highcharts.js') }}"></script>
     <!-- Dropzone Js -->
-    <script src="{{ URL::asset('plugins/dropzone/dropzone_admin.js') }}"></script>
+    {{-- <script src="{{ URL::asset('plugins/dropzone/dropzone_admin.js') }}"></script> --}}
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Time Picker -->

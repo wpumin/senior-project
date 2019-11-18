@@ -18,14 +18,20 @@
                 <div class="col-12 form-group">
                     <input required type="text" placeholder="หัวข้อข่าวสาร" class="form-control">
                 </div>
-                <div class="col-lg-12 col-12 form-group">
-                    <label for="dropzone">ภาพหน้าปก <span class="small text-red">(อัพโหลดได้เพียง 1 ไฟล์)</span> </label>
-                    <div class="dropzone text-center mt-4">
+                <div class="col-12 form-group mb-0">
+                        <label for="">ภาพหน้าปก</label>
+                        <div class="text-center">
+                            <div class='file-input px-0 mb-3'>
+                                <input type='file' class="text-center" id="imgInp">
+                                <span class='button'>เลือกไฟล์</span>
+                                <span class='label' data-js-label>ยังไม่ได้เลือกไฟล์</label>
+                            </div>
+                            <img id="blah" src="https://atasouthport.com/wp-content/uploads/2017/04/default-image.jpg" alt="bill image" class="my-3 text-center news-image w-100"/>
+                        </div>
+                        <div class="text-center text-lg-left mt-3">
+                            <span class="text-red small">ไฟล์ต้องเป็นสกุลไฟล์ .jpg, jpeg และ .png เท่านั้น<span>
+                        </div>
                     </div>
-                    <div class="text-center text-md-left mt-3">
-                        <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
-                    </div>
-                </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="select2" required>
                         <option value="">ผู้ที่สามารถเห็นได้</option>

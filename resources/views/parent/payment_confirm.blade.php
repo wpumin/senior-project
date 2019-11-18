@@ -44,11 +44,17 @@
                     </select>
                 </div>
                 <div class="col-12 form-group mb-0">
-                    <label for="">ใบเสร็จชำระเงิน <span class="small text-red">(อัพโหลดได้เพียง 1 ไฟล์)</span></label>
-                    <div class="dropzone text-center" id="bill_image">
+                    <label for="">ใบเสร็จชำระเงิน</label>
+                    <div class="text-center">
+                        <div class='file-input px-0 mb-3'>
+                            <input type='file' class="text-center" id="imgInp">
+                            <span class='button'>เลือกไฟล์</span>
+                            <span class='label' data-js-label>ยังไม่ได้เลือกไฟล์</label>
+                        </div>
+                        <img id="blah" src="https://atasouthport.com/wp-content/uploads/2017/04/default-image.jpg" alt="bill image" class="my-3 text-center bill-image"/>
                     </div>
                     <div class="text-center text-lg-left mt-3">
-                        <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
+                        <span class="text-red small">ไฟล์ต้องเป็นสกุลไฟล์ .jpg, jpeg และ .png เท่านั้น<span>
                     </div>
                 </div>
                 <div class="col-12 form-group mt-5">
@@ -127,29 +133,6 @@
 @endsection
 
 @section('script')
-
-<script type="text/javascript">
-    Dropzone.options.dropzone =
-     {
-        maxFilesize: 12,
-        renameFile: function(file) {
-            var dt = new Date();
-            var time = dt.getTime();
-           return time+file.name;
-        },
-        acceptedFiles: ".jpeg,.jpg,.png,.gif",
-        addRemoveLinks: true,
-        timeout: 5000,
-        success: function(file, response)
-        {
-            console.log(response);
-        },
-        error: function(file, response)
-        {
-           return false;
-        }
-};
-</script>
 <script>
 
 function getCookie(cname) {

@@ -2,6 +2,7 @@ const VERSION =  new Date().getTime()
 const CACHE_KEY = `bearbus-cache-external-v${VERSION}`
 const assetsToCache = [
   // ! general 
+  '/manifest.json',
   // images
   '/images/bearbus72.png',
   '/images/bearbus96.png',
