@@ -10,7 +10,7 @@
 <div class="card ui-tab-card">
     <div class="card-body" style="padding: 15px; position: relative;">
         <span class="toggle-result flaticon-info-1 text-theme"></span>
-        <div id="map" style=""></div>
+        <iframe id="map" type="text/html" frameborder="0" height="245" width="100%" src="https://bear-bus.com/map"></iframe>
         <div id="result" class="custom-scrollbar" style="display: none;"></div>
     </div>
 </div>
@@ -978,37 +978,13 @@ $('#select-box').change(function () {
 
     // hide scrollup
     $(document).ready(function(){
+        $("#map").attr("src","https://bear-bus.com/map"); 
         $('#scrollUp').css('z-index','-1');
     });
 
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
     });
-
-    setInterval(function(){
-        $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
-            // console.log(result['data']['lat']);
-            map = new longdo.Map({
-            placeholder: document.getElementById('map')
-            });
-            var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
-                {
-                    title: 'รถรับส่งนักเรียน',
-                    icon: {
-                        url: 'https://bear-bus.com/images/internal/bearbus.png'
-                    },
-                    detail: 'ตำแหน่งปัจจุบัน',
-                    // visibleRange: { min: 7, max: 9 },
-                    draggable: false,
-                    weight: longdo.OverlayWeight.Top,
-                });
-                init();
-
-                // marker.move(marker);
-                // map.location(longdo.LocationMode.Geolocation);
-                map.Overlays.add(marker);
-        });
-    }, 25000);
 
     // long do map
     function init() {
