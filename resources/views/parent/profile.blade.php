@@ -21,11 +21,11 @@
         <div class="single-info-details">
             <div class="item-img">
                 {{-- <img src="{{ URL::asset('images/internal/figure/parent.jpg') }}" alt="parent" class="parent-profile"> --}}
-                <img src="" id="pic_user" alt="Parent" class="parent-profile">
+                <img src="" id="pic_user" alt="parent profile" class="parent-profile">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">
-                    <h3 class="text-dark-medium font-medium text-center text-md-left" id="fullname_u">คุณ ภูมินท์ วงษ์ศิริ</h3>
+                    <h3 class="text-dark-medium font-medium text-center text-md-left"><span id="prefix1"></span><span id="f_name1"></span> <span id="l_name1"></span></h3>
                     {{-- <div class="header-elements">
                         <ul>
                             <li><a href="#"><i class="far fa-edit"></i></a></li>
@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td>เบอร์โทร:</td>
-                                <td class="font-medium text-dark-medium" id="mobile"></td>
+                                <td class="font-medium text-dark-medium" id="phone"></td>
                             </tr>
                             <tr>
                                 <td>ชื่อผู้ใช้:</td>
@@ -187,19 +187,18 @@
 
         }
 
-        document.getElementById("name").innerHTML = getCookie('name');
-        document.getElementById("role").innerHTML = getCookie('role_name');
-        document.getElementById("f_name").innerHTML = getCookie('f_name');
-        document.getElementById("l_name").innerHTML = getCookie('l_name');
+        // document.getElementById("pf_name").innerHTML = getCookie('f_name');
+        document.getElementById("prefix1").innerHTML = getCookie('prefix');
+        document.getElementById("f_name1").innerHTML = getCookie('f_name');
+        document.getElementById("l_name1").innerHTML = getCookie('l_name');
         if(getCookie('image') != ""){
             document.getElementById("pic_user").src = '{{URL::asset('')}}'+getCookie('image');
         }else{
             document.getElementById("pic_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
-        document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
-        document.getElementById("relationship").innerHTML = getCookie('relationship');
+        document.getElementById("relationship").innerHTML = getCookie('relationship_name');
         document.getElementById("line_id").innerHTML = getCookie('line_id');
-        document.getElementById("mobile").innerHTML = getCookie('mobile');
+        document.getElementById("phone").innerHTML = getCookie('phone');
         document.getElementById("username").innerHTML = getCookie('username');
         document.getElementById("email").innerHTML = getCookie('email');
         document.getElementById("address").innerHTML = getCookie('address');
@@ -216,13 +215,13 @@
                         
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
-                            if (response.data['student'][i]['status'] == '1') {
+                            if (response.data['student'][i]['std_status_id'] == '1') {
                                 status = '<td class="font-medium text-dark-medium">ยังไม่ขึ้นรถ</td>';
-                                } else if (response.data['student'][i]['status'] == '2') {
+                                } else if (response.data['student'][i]['std_status_id'] == '2') {
                                 status = '<td class="font-medium text-dark-medium">ขึ้นรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '3') {
+                                } else if (response.data['student'][i]['std_status_id'] == '3') {
                                 status = '<td class="font-medium text-dark-medium">ลงรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '4') {
+                                } else if (response.data['student'][i]['std_status_id'] == '4') {
                                 status = '<td class="font-medium text-dark-medium">แจ้งเดินทางเอง</td>';
                                 } 
 
@@ -231,10 +230,12 @@
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
                             '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
-                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image_stu']+' alt="parent" class="parent-profile">' + '</div>' + 
+                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
                              '<div class="item-content">' + '<div class="header-inline item-header">' +
-                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' + response.data['student'][i]['fullname_s'] + '</h3>' + '</div>' +
+                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' 
+                             + response.data['student'][i]['prefix'] + response.data['student'][i]['first_name'] + ' ' + response.data['student'][i]['last_name']
+                             + '</h3>' + '</div>' +
 
                              '<div class="info-table table-responsive">' + 
                              '<table class="table text-nowrap">' + 
@@ -246,15 +247,15 @@
                               '</td>' + 
                               '</tr>' +
 
-                             '<tr>' + 
-                             '<td>ความสัมพันธ์:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                             '</td>' +
-                             '</tr>' +
+                            //  '<tr>' + 
+                            //  '<td>ความสัมพันธ์:</td>' + 
+                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
+                            //  '</td>' +
+                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['mobile'] +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
                              '</td>' +
                              '</tr>' +
 
@@ -332,10 +333,12 @@
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
                             '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
-                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image_stu']+' alt="parent" class="parent-profile">' + '</div>' + 
+                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
                              '<div class="item-content">' + '<div class="header-inline item-header">' +
-                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' + response.data['student'][i]['fullname_s'] + '</h3>' + '</div>' +
+                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' 
+                             + response.data['student'][i]['prefix'] + response.data['student'][i]['first_name'] + ' ' + response.data['student'][i]['last_name']
+                             + '</h3>' + '</div>' +
 
                              '<div class="info-table table-responsive">' + 
                              '<table class="table text-nowrap">' + 
@@ -347,21 +350,21 @@
                               '</td>' + 
                               '</tr>' +
 
-                             '<tr>' + 
-                             '<td>ความสัมพันธ์:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                             '</td>' +
-                             '</tr>' +
+                            //  '<tr>' + 
+                            //  '<td>ความสัมพันธ์:</td>' + 
+                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
+                            //  '</td>' +
+                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['mobile'] +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
                              '</td>' +
                              '</tr>' +
 
                              '<tr>' + 
                              '<td>โรงเรียน:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] + 
                              '</td>' +
                              '</tr>' +
 

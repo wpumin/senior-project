@@ -35,6 +35,8 @@ class VerifyCsrfToken extends Middleware
         '/tasks/refresh/appointment',
         '/tasks/refresh/appointment/student',
         '/tasks/refresh/report',
+        'image/upload/store',
+        'image/delete',
 
     ];
 }

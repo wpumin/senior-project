@@ -19,8 +19,6 @@
             @csrf
             <div class="row">
                 <div class="col-lg-12 col-12 form-group">
-                    {{-- <div class="dropzone text-center mt-4">
-                    </div> --}}
                      <div class="uploader" >
                         <span class='flaticon-photo'></span>
                         <img src="" alt="Profile Image" class="text-center" id="image0"/>
@@ -161,7 +159,7 @@
                         <option value="">ตำบล</option>
                         <option value="1">บ้านไร่ - ฿900 </option>
                         <option value="2">หูช้าง - ฿700 </option>
-                        <option value="3">หนองย่าง - ฿650</option>
+                        <option value="3">หนองหย่าง - ฿650</option>
                         <option value="4">การุ้ง - ฿650</option>
                         <option value="5">คลองโป่ง - ฿600</option>
                         <option value="6">วังหิน - ฿500</option>

@@ -72,7 +72,7 @@ function convertStringDes($input){
 <div class="card ui-tab-card">
     <div class="card-body" style="padding: 15px; position: relative;">
         <span class="toggle-result flaticon-info-1 text-theme"></span>
-        <div id="map" style=""></div>
+        <iframe id="map" type="text/html" frameborder="0" height="245" width="100%" src="https://bear-bus.com/map"></iframe>
         <div id="result" class="custom-scrollbar" style="display: none;"></div>
     </div>
 </div>
@@ -119,7 +119,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> วันนี้ </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast1" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast1" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -131,7 +131,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+1 days"))); echo " " . date("d", strtotime("+1 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast2" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast2" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -143,7 +143,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+2 days"))); echo " " . date("d", strtotime("+2 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast3" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast3" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -155,7 +155,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+3 days"))); echo " " . date("d", strtotime("+3 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast4" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast4" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -167,7 +167,7 @@ function convertStringDes($input){
     <div class="item text-center">
         <h4> <?php convertStringDay(date("l", strtotime("+4 days"))); echo " " . date("d", strtotime("+4 days")) ?> </h4>
         <div class="thumbnail-item__img">
-            <img src="" alt="" id="weather-forecast5" class="icon-weather">
+            <img src="" alt="weather icon" id="weather-forecast5" class="icon-weather">
         </div>
         <div class="thumbnail-item__detail text-center">
             <div class="detail">
@@ -369,41 +369,37 @@ function convertStringDes($input){
 </script>
 
 <script>
-    
+    $(document).ready(function () {
+        $("#map").attr("src","https://bear-bus.com/map"); 
+    });
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
     });
 
-    setInterval(function(){
+    // setInterval(function(){
+    //     $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
+    //         // console.log(result['data']['lat']);
+    //         map = new longdo.Map({
+    //         placeholder: document.getElementById('map')
+    //         });
+    //         var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
+    //             {
+    //                 title: 'รถรับส่งนักเรียน',
+    //                 icon: {
+    //                     url: 'https://bear-bus.com/images/internal/bearbus.png'
+    //                 },
+    //                 detail: 'ตำแหน่งปัจจุบัน',
+    //                 // visibleRange: { min: 7, max: 9 },
+    //                 draggable: false,
+    //                 weight: longdo.OverlayWeight.Top,
+    //             });
+    //             init();
 
-        $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
-            // console.log(result['data']['lat']);
-
-            map = new longdo.Map({
-            placeholder: document.getElementById('map')
-            });
-
-            var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
-                {
-                    title: 'รถรับส่งนักเรียน',
-                    icon: {
-                        url: 'https://bear-bus.com/images/internal/bearbus.png'
-                    },
-                    detail: 'ตำแหน่งปัจจุบัน',
-                    // visibleRange: { min: 7, max: 9 },
-                    draggable: false,
-                    weight: longdo.OverlayWeight.Top,
-                });
-                init();
-
-                // marker.move(marker);
-                // map.location(longdo.LocationMode.Geolocation);
-                map.Overlays.add(marker);
-
-        });
-
-
-    }, 25000);
+    //             // marker.move(marker);
+    //             // map.location(longdo.LocationMode.Geolocation);
+    //             map.Overlays.add(marker);
+    //     });
+    // }, 25000);
 
     // long do map
     function init() {
@@ -414,6 +410,8 @@ function convertStringDes($input){
 
         map.location({ lat: 15.263551, lon: 99.672852 }, true);
         map.zoomRange({ min:9, max: 16});
+        map.Route.label(longdo.RouteLabel.Time);
+        map.Route.line('road', { lineColor: '#ffbf29' });
 
 
         map.Route.placeholder(document.getElementById('result'));
@@ -466,10 +464,20 @@ function convertStringDes($input){
                 detail: 'ตำบลเขาตะพาบ'
             }
         ));
+        // ทุ่งนามงาม
+        map.Route.add(new longdo.Marker({ lat: 15.313869, lon: 99.719501  },
+            {
+                title: 'จุดรับส่งที่ 6',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
+                detail: 'ตำบลทุ่งนางาม'
+            }
+        ));
         // โรงเรียนหนองฉางวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.382140, lon: 99.851870 },
             {
-                title: 'จุดรับส่งที่ 6',
+                title: 'จุดรับส่งที่ 7',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -479,7 +487,7 @@ function convertStringDes($input){
         // โรงเรียนธรรมานุวัตรวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.390607, lon: 99.833714 },
             {
-                title: 'จุดรับส่งที่ 7',
+                title: 'จุดรับส่งที่ 8',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -489,7 +497,7 @@ function convertStringDes($input){
         // โรงเรียนวัดหนองขุนชาติ
         map.Route.add(new longdo.Marker({ lat: 15.388589, lon: 99.835618 },
             {
-                title: 'จุดรับส่งที่ 8',
+                title: 'จุดรับส่งที่ 9',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -500,6 +508,7 @@ function convertStringDes($input){
 
         $('#map').find('.ldmap_placeholder').addClass('border-customtlr5');
     }
+
 
     // Open API Weather
     // ************************************* API Weather ***************************************************************

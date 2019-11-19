@@ -14,17 +14,17 @@ class SchoolsTableSeeder extends Seeder
     public function run()
     {
         DB::table('schools')->insert([
-            'name_school' => 'โรงเรียนหนองฉางวิทยา',
+            'name_school' => 'หนองฉางวิทยา',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('schools')->insert([
-            'name_school' => 'โรงเรียนวัดหนองขุนชาติ',
+            'name_school' => 'วัดหนองขุนชาติ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('schools')->insert([
-            'name_school' => 'โรงเรียนอุทัยธรรมานุวัตรวิทยา',
+            'name_school' => 'อุทัยธรรมานุวัตรวิทยา',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

@@ -21,7 +21,7 @@
                 <div class="col-lg-12 col-12 form-group">
                         <div class="uploader" onclick="$('#staffImage').click()">
                                 <span class='flaticon-photo'></span>
-                                <img src="" alt="Profile Image" class="text-center" id="image1"/>
+                                <img src="" alt="staff profile" class="text-center" id="image1"/>
                                 <input type="file" name="userprofile_picture" id="staffImage" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
                             </div>
                     <div class="text-center mt-3">

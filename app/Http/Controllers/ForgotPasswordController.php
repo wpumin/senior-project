@@ -36,17 +36,9 @@ class ForgotPasswordController extends Controller
 
         if ($user) {
 
-            $template_html = 'mail.forgot_password';
-
             // Create OTP
             $genREF = $this->strRandom_ref();
             $genOTP = $this->strRandom_otp();
-
-            $template_data = [
-
-                'ref' => $genREF,
-                'otp' => $genOTP
-            ];
 
             $otp = new Otp();
             $otp->email = $this->request->input('email');
@@ -55,19 +47,10 @@ class ForgotPasswordController extends Controller
 
             if ($otp->save()) {
 
-                Mail::to($user->email)->send(new Sendmail('ลืมรหัสผ่าน === Forgot', $genREF, $genOTP));
-
-                // Mail::send($template_html, $template_data, function ($msg) use ($user) {
-                //     // dd($user->email);
-                //     $msg->subject('ลืมรหัสผ่าน === Forgot');
-                //     $msg->to([$user->email]);
-                //     $msg->from('dviver100@gmail.com', 'Bear-Bus');
-                // });
-
                 $info = [
-                    'email' => $this->encrypt($user->email),
-                    'username' => $this->encrypt($user->username),
-                    'ref' => $this->encrypt($otp->ref)
+                    'email' => $this->request->input('email'),
+                    'ref' => $otp->ref,
+                    'otp' => $otp->otp,
                 ];
 
                 return $this->responseRequestSuccess($info);
@@ -75,8 +58,6 @@ class ForgotPasswordController extends Controller
         } else {
             return $this->responseRequestError('error');
         }
-
-        return $this->responseRequestSuccess($otp->save());
     }
     public function receiveOTP()
     {
@@ -92,7 +73,7 @@ class ForgotPasswordController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $userOTP = Otp::where('otp', $this->request->otp)->where('ref', $this->decrypt($this->request->ref))->first();
+        $userOTP = Otp::where('otp', $this->request->input('otp'))->where('ref', $this->request->input('ref'))->first();
 
         if ($userOTP) {
             return $this->responseRequestSuccess('success');

@@ -18,10 +18,8 @@ class CreateReportsTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('type_id');
-            $table->string('order_id');
             $table->string('title');
             $table->string('content');
-            $table->string('date')->nullable();
             $table->timestamps();
         });
     }

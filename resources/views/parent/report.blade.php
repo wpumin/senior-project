@@ -1,10 +1,10 @@
 @extends('layouts.master_menu_bottom')
 
-@section('title','แจ้งเดินทางเอง')
+@section('title','ร้องเรียน/แนะนำการบริการ')
 
 @section('content')
 
-<div class="heading mt-md-5 text-left">
+<div class="heading text-left">
     <h3>ร้องเรียน / แนะนำการบริการ</h3>
 </div>
 
@@ -142,7 +142,7 @@
 
 @section('script')
 <script>
-    
+
 
     function getCookie(cname) {
         var name = cname + "=";
@@ -160,9 +160,9 @@
                 return "";
     }
 
-    $(document).ready(function(){	
+    $(document).ready(function(){
 
-        $("#reportForm").submit(function(event){ 
+        $("#reportForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
             submitForm();
@@ -181,27 +181,28 @@
                 data: {
                     user_id : getCookie('user_id')
                 },
-                dataType: 'json',
                 success: function(response) {
-                    if (response.status == 'success') {
 
-                        for (var i = 0; i < response.data['report'].length; i++) {
+                    // console.log(response['data'].length);
+                    if (response['status'] == 'success') {
+
+                        for (var i = 0; i < response['data'].length; i++) {
                             // if (response.data['report'][i]['order_id'] == '1') {
                             //     status = '<div class="post-date badge-green">';
                             //     } else if (response.data['report'][i]['order_id'] == '2') {
                             //     status = '<div class="post-date badge-orange">';
                             //     } else if (response.data['report'][i]['order_id'] == '3') {
                             //     status = '<div class="post-date badge-red">';
-                            //     } 
-                            var tempTime = response.data['report'][i]['created_at'];
+                            //     }
+                            var tempTime = response['data'][i]['created_at'];
                             var time = tempTime.split(" ");
                             var time2 = time[1].substring(0,5);
 
                             $('#report').append(
                                 '<div class="notice-list">' +
-                                '<div class="post-date badge-orange">' + response.data['report'][i]['type_name'] + ' | ' + response.data['report'][i]['date'] + ' - '+ time2 + ' น.</div>' +
-                                '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
-                                '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
+                                '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
+                                '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
+                                '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
                                  +
                                 '</div>'
                             );
@@ -213,11 +214,10 @@
                 }
             })
 
-            
+
     function submitForm(){
-        var user_id = getCookie('user_id');  
+        var user_id = getCookie('user_id');
         var type_id = $('#type_id').val();
-        var order_id = $('#order_id').val();
         var title = $('#title').val();
         var content = $('#content').val();
 
@@ -230,11 +230,9 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            cache:false,
             data: {
                 user_id: user_id,
                 type_id: type_id,
-                order_id: order_id,
                 title: title,
                 content: content,
 
@@ -243,42 +241,49 @@
                 // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
                     $(".wrap-modal > #successReport").modal('show');
+
                     $.ajax({
-                        url: '/tasks/refresh/report',
-                        type: 'POST',
-                        data: {
-                            user_id : getCookie('user_id')
-                        },
-                        dataType: 'json',
-                        success: function(response) {
-                            if (response.status == 'success') {
+                            url: '/tasks/refresh/report',
+                            type: 'POST',
+                            data: {
+                                user_id : getCookie('user_id')
+                            },
+                            success: function(response) {
 
-                            $('#report').html('');
-                            for (var i = 0; i < response.data['report'].length; i++) {
+                                // console.log(response['data']);
+                                if (response['status'] == 'success') {
 
-                                if (response.data['report'][i]['order_id'] == '1') {
-                                status = '<div class="post-date badge-green">';
-                                } else if (response.data['report'][i]['order_id'] == '2') {
-                                status = '<div class="post-date badge-orange">';
-                                } else if (response.data['report'][i]['order_id'] == '3') {
-                                status = '<div class="post-date badge-red">';
-                                } 
+                                    $('#report').html('');
+                                    for (var i = 0; i < response['data'].length; i++) {
+                                        // if (response.data['report'][i]['order_id'] == '1') {
+                                        //     status = '<div class="post-date badge-green">';
+                                        //     } else if (response.data['report'][i]['order_id'] == '2') {
+                                        //     status = '<div class="post-date badge-orange">';
+                                        //     } else if (response.data['report'][i]['order_id'] == '3') {
+                                        //     status = '<div class="post-date badge-red">';
+                                        //     }
+                                        var tempTime = response['data'][i]['created_at'];
+                                        var time = tempTime.split(" ");
+                                        var time2 = time[1].substring(0,5);
 
-                                $('#report').append(
-                                    '<div class="notice-list">' +
-                                    status + response.data['report'][i]['name'] + ' | ' + response.data['report'][i]['date'] + ' | '+ response.data['report'][i]['type_name'] + '</div>' +
-                                    '<h5 class="mb-2">หัวข้อ: ' + response.data['report'][i]['title'] + '</h5>' +
-                                    '<p class="notice-title">' + response.data['report'][i]['content'] + '</p>'
-                                    +
-                                    '</div>'
-                                    );
+                                        $('#report').append(
+                                            '<div class="notice-list">' +
+                                            '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
+                                            '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
+                                            '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
+                                            +
+                                            '</div>'
+                                        );
+                                    $('#type_id').val("");
+                                    $('#title').val("");
+                                    $('#content').val("");
+                                    }
                                 }
-                            }
-                        },
-                    error: function(err) {
+                            },
+                            error: function(err) {
 
-                    }
-                    })
+                            }
+                        })
                 }
 
                 // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
@@ -286,7 +291,7 @@
                     $(".wrap-modal > #failAppointment").modal('show');
                     window.location.reload(true);
                 }
-                
+
             },
             error: function(){
                 // เซิร์ฟเวอร์มีปัญหา
@@ -294,6 +299,6 @@
             }
         });
     }
-    
+
 </script>
 @endsection

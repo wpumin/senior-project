@@ -16,11 +16,14 @@ class CreatePaymentInformsTable extends Migration
         Schema::create('payment_informs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tran_key')->nullable();
-            $table->string('user_id')->nullable();
-            $table->string('time')->nullable();
+            // $table->string('user_id')->nullable();
+            $table->string('student_id');
+            $table->string('timepicker')->nullable();
             $table->string('date')->nullable();
             $table->string('content')->nullable();
-            $table->string('bill_image')->nullable();
+            // $table->string('bill_image');
+            $table->string('bank_id')->nullable();
+            $table->string('pm_status_id');
             $table->timestamps();
         });
     }

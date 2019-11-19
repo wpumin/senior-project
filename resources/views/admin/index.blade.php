@@ -46,18 +46,10 @@
         </div>
         <form class="mb-5 mb-lg-0 new-added-form">
             <div class="row gutters-8">
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                <div class="col-xl-4 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
-                        <option value="">ค้นหาด้วยระดับความสำคัญ</option>
-                        <option value="1">เล็กน้อย</option>
-                        <option value="2">ปานกลาง</option>
-                        <option value="3">เร่งด่วน</option>
-                    </select>
-                </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยประเภท</option>
                         <option value="1">บริการทวั่ไป</option>
@@ -69,11 +61,11 @@
                         <option value="7">แก้ไขโปรไฟล์</option>
                     </select>
                 </div>
-                <div class="col-2-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar">
                     <i class="far fa-calendar-alt" style="right: 22px;"></i>
                 </div>
-                <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
+                <div class="col-xl-2 col-lg-6 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
@@ -86,7 +78,6 @@
                         <th>หัวข้อ</th>
                         <th>ประเภท</th>
                         <th>เวลาที่แจ้ง</th>
-                        <th>ระดับความสำคัญ</th>
                         <th>รายละเอียด</th>
                     </tr>
                 </thead>
@@ -96,7 +87,6 @@
                         <td class="text-left">แจ้งพฤติกรรมคนขับรถคันที่ 2 แย่มากเลยค่ะ</td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>26/10/2562 17:02:23</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เล็กน้อย</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -104,7 +94,6 @@
                         <td class="text-left">ระบบจ่ายเงินไม่เสถียร</td>
                         <td>ระบบการเงิน</td>
                         <td>26/10/2562 16:52:23</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -112,7 +101,6 @@
                         <td class="text-left">อยากให้ดูแลเด็กให้ทั่วถึงด้วยค่ะ</td>
                         <td>บริการทั่วไป</td>
                         <td>26/10/2562 16:50:12</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เล็กน้อย</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -120,7 +108,6 @@
                         <td class="text-left">ฝากถึงเจ้าของรถ เรื่องพัดลมบนรถด้วยครับ</td>
                         <td>บริการทั่วไป</td>
                         <td>25/10/2562 09:43:51</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เล็กน้อย</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -128,7 +115,6 @@
                         <td class="text-left">อยากให้คนขับรถขับรถช้าลงกว่านี้</td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>25/10/2562 07:43:51</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -136,7 +122,6 @@
                         <td class="text-left">GPS ไม่ค่อยเสถียรเลยครับ</td>
                         <td>ระบบติดตามรถบัส</td>
                         <td>24/10/2562 16:42:11</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -144,7 +129,6 @@
                         <td class="text-left">ลูกชอบบ่นว่าถึงโรงเรียนสาย</td>
                         <td>บริการทั่วไป</td>
                         <td>24/10/2562 11:24:33</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -152,7 +136,6 @@
                         <td class="text-left">อยากให้คนขับพูดจาดีๆกับเด็กๆ </td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>24/10/2562 09:40:43</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -160,7 +143,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -168,7 +150,6 @@
                         <td class="text-left">แจ้งพฤติกรรมคนขับรถคันที่ 2 แย่มากเลยค่ะ</td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>26/10/2562 17:02:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -176,7 +157,6 @@
                         <td class="text-left">ระบบจ่ายเงินไม่เสถียร</td>
                         <td>ระบบการเงิน</td>
                         <td>26/10/2562 16:52:23</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -184,7 +164,6 @@
                         <td class="text-left">อยากให้ดูแลเด็กให้ทั่วถึงด้วยค่ะ</td>
                         <td>บริการทั่วไป</td>
                         <td>26/10/2562 16:50:12</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -192,7 +171,6 @@
                         <td class="text-left">ฝากถึงเจ้าของรถ เรื่องพัดลมบนรถด้วยครับ</td>
                         <td>บริการทั่วไป</td>
                         <td>25/10/2562 09:43:51</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -200,7 +178,6 @@
                         <td class="text-left">อยากให้คนขับรถขับรถช้าลงกว่านี้</td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>25/10/2562 07:43:51</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -208,7 +185,6 @@
                         <td class="text-left">GPS ไม่ค่อยเสถียรเลยครับ</td>
                         <td>ระบบติดตามรถบัส</td>
                         <td>24/10/2562 16:42:11</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -216,7 +192,6 @@
                         <td class="text-left">ลูกชอบบ่นว่าถึงโรงเรียนสาย</td>
                         <td>บริการทั่วไป</td>
                         <td>24/10/2562 11:24:33</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -224,7 +199,6 @@
                         <td class="text-left">อยากให้คนขับพูดจาดีๆกับเด็กๆ </td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>24/10/2562 09:40:43</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -232,7 +206,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -240,7 +213,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -248,7 +220,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">เร่งด่วน</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -256,7 +227,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -264,7 +234,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -272,7 +241,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เล็กน้อย</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -280,7 +248,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">ปานกลาง</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                     <tr>
@@ -288,7 +255,6 @@
                         <td class="text-left">โปรไฟล์ผมผิดคะ รบกวนด้วย </td>
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เล็กน้อย</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
                     </tr>
                 </tbody>

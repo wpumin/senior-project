@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bear Bus</title>
+    <title>เกี่ยวกับ - Bear Bus</title>
+
+    <!-- Manifest -->
+    <meta name="theme-color" content="#f1f1f1">
+    <link rel="icon" href="{{ URL::asset('images/bearbus.png') }}">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="{{ URL::asset('images/bearbus.png') }}">
+    <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
+
     <meta charset="utf-8">
     <meta name="description" content="Bear Bus Apps Template by Dev-Banrai">
     <meta name="keywords" content="Bear Bus Apps Template by Dev-Banrai">
     <meta name="author" content="App">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- favicon-->
     <link rel="shortcut icon" href="{{ URL::asset('images/public/favicon.png') }}">
@@ -25,6 +33,20 @@
     <link rel="stylesheet" href="{{ URL::asset('css/public/swiper.min.css') }}">
     <!-- Style .css-->
     <link id="color" rel="stylesheet" href="{{ URL::asset('css/public/color1.css') }}" media="screen">
+    <script type="text/javascript">
+      // Initialize the service worker
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/swe.js', {
+              scope: '.' 
+          }).then(function (registration) {
+              // Registration was successful
+              // console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
+          }, function (err) {
+              // registration failed :(
+              // console.log('Bear Bus: ServiceWorker registration failed: ', err);
+          });
+      }
+  </script>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="75">
     <!-- loader-->
@@ -37,7 +59,7 @@
     <!-- loader end-->
     <!-- Nav start-->
     <nav class="navbar navbar-expand-lg theme-nav fixed-top">
-      <div class="container"><a class="navbar-brand" href="index.html"><img src="{{ URL::asset('images/public/logo.png')}}" alt="logo"></a>
+      <div class="container"><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ URL::asset('images/public/logo.png')}}" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="fa fa-align-justify " aria-hidden="true"></i></span></button>
         <div class="collapse navbar-collapse" id="mainmenu">
           <ul class="navbar-nav ml-auto" id="mymenu">
@@ -251,7 +273,7 @@
           </div>
           <div class="col-lg-4 text-center">
             <div class="process-box">
-                <svg width="62px" height="62px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+                <svg width="62px" height="62px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
                 <g>
                   <g>
                     <path d="M442.881,378.052c-10.825-9.896-17.034-23.927-17.034-38.495v-99.558c0-5.522-4.477-10-10-10s-10,4.478-10,10v99.558
@@ -322,7 +344,7 @@
                 </svg>
               <h3>การแจ้งเตือน</h3>
               <p>คุณจะได้รับแจ้งเตือน เมื่อมีสิ่งใหม่ ๆ ที่เราอยากบอกคุณ แม้ว่าคุณจะไม่ได้เปิดเว็บไซต์หรือบราวเซอร์</p>
-              <svg class="bg-icon" width="55px" height="55px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+              <svg class="bg-icon" width="55px" height="55px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
                 <g>
                   <g>
                     <path d="M442.881,378.052c-10.825-9.896-17.034-23.927-17.034-38.495v-99.558c0-5.522-4.477-10-10-10s-10,4.478-10,10v99.558
@@ -395,7 +417,7 @@
           </div>
           <div class="col-lg-4 text-center">
             <div class="process-box">
-                <svg width="60px" height="60px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <svg width="60px" height="60px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
              <g>
                <g>
@@ -478,7 +500,7 @@
              </svg>             
               <h3>ติดตามรถด้วย GPS</h3>
               <p>อุ่นใจเมื่อคุณเปิดเว็บไซต์ของเราเพื่อติดตามตำแหน่งของรถรับส่งนักเรียนบนแผนที่</p>
-              <svg class="bg-icon" width="50px" height="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+              <svg class="bg-icon" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
               <g>
                 <g>
                   <path d="M264.65,2.93C262.79,1.07,260.21,0,257.58,0s-5.21,1.069-7.07,2.93c-1.86,1.861-2.93,4.44-2.93,7.07s1.07,5.21,2.93,7.069
@@ -589,7 +611,7 @@
                     <p>ติดตามรถรับส่งนักเรียนได้ด้วย GPS</p>
                   </li>
                   <li class="timeline">
-                    <h4 class="sub-title">กราฟเฉลี่ยเวลาขึ้นลงรถ</h4>
+                    <h4 class="sub-title">กราฟเฉลี่ยเวลาขึ้น-ลงรถ</h4>
                     <p>เพื่อให้ผู้ปกครองได้ติดตามและเพื่อการตัดสินใจ</p>
                   </li>
                   <li class="timeline">
@@ -732,7 +754,7 @@
                       <h3>โกญจนาท เกษศิลป์</h3>
                       <h4 class="m-0 text-muted">Developer & System Analysis</h4>
                       <h5>Laravel, JavaScript, Aduino </h5>
-                      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,</p>
+                      <p>พัฒนาเว็บไซต์ Bear Bus ให้มีความสะดวกและง่ายต่อการใช้งาน มุ่งเน้นไปที่ความปลอดภัยของเด็กนักเรียน ทำให้ผู้ปกครองไว้วางใจในระบบของเรา รวมถึงการนำ Arduino IOT มาใช้ในระบบ ทำให้ระบบของเรานั้นมีประโยชน์มากขึ้น เช่น การตรวจสอบสถานะของเด็กนักเรียนจากการใช้ RFID Card และ ติดตามตำแหน่งของรถ (GPS) สำหรับผู้ปกครอง</p>
                     </div>
                   </div>
                 </div>
@@ -752,7 +774,7 @@
                       <h3>ภูมินท์ วงษ์ศิริ</h3>
                       <h4 class="m-0 text-muted">Developer & Designer</h4>
                       <h5>HTML, CSS, JavaScript </h5>
-                      <p>มุ่งพัฒนาให้เว็บไซต์ Bear Bus เป็นเว็บไซต์ที่ไม่ว่าใครก็ตามที่มีสมาร์ทโฟน แท็บเลต หรือ คอมพิวเตอร์ ก็สามารถใช้งานเว็บไซต์เพื่อดำเนินการเกี่ยวกับรถรับส่งนักเรียนได้อย่างสะดวกสบาย เช่น ติดตามสถานะของรถรับส่งนักเรียน แจ้งชำระแพ็คเกจ ตรวจสอบประวัติการขึ้นรถ ได้รับ Notification ผ่านเว็บแอปฯ อีกทั้งในการพัฒนายังทำให้เว็บไซต์สามารถรองรับการทำงานได้แบบ Progressive Web Application ได้</p>
+                      <p>มุ่งพัฒนาให้เว็บไซต์ Bear Bus เป็นเว็บไซต์ที่ไม่ว่าใครก็ตามที่มีสมาร์ทโฟน แท็บเลต หรือ คอมพิวเตอร์ ก็สามารถใช้งานเว็บไซต์เพื่อดำเนินการเกี่ยวกับรถรับส่งนักเรียนได้อย่างสะดวกสบาย เช่น ติดตามสถานะของรถรับส่งนักเรียน แจ้งชำระแพ็คเกจ ตรวจสอบประวัติการขึ้นรถ ได้รับ Notification ผ่านเว็บแอปฯ อีกทั้งในการพัฒนายังทำให้เว็บไซต์สามารถรองรับการทำงานได้แบบ Progressive Web Application</p>
                     </div>
                   </div>
                 </div>
@@ -771,7 +793,7 @@
                         <h3>อชิตะ ลิลิตสัจจะ</h3>
                         <h4 class="m-0 text-muted">Developer & Tester</h4>
                         <h5>Laravel, JavaScript </h5>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,</p>
+                        <p>มุ่งเน้นพัฒนาตัวระบบของเว็บไซต์ Bear Bus ให้สะดวกต่อการใช้งานของผู้ปกครองและมีข้อผิดพลาดน้อยที่สุด พร้อมพัฒนาระบบต่าง ๆ ให้เป็นประโยชน์กับผู้ปกครองและเด็กนักเรียนเอง เช่น ระบบติดตามเด็กนักเรียนได้ว่าได้ขึ้น-รถแล้วหรือไม่, ระบบการแจ้งชำระเงิน, ระบบการแจ้งเดินทางไป-กลับเอง และระบบร้องเรียนข้อผิดพลาด เป็นต้น</p>
                       </div>
                     </div>
                   </div>
@@ -840,6 +862,23 @@
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
                       <li>เช้า: 07:20 น.</li>
                       <li>เย็น: 16:12 น.</li>
+                    </ul>
+                    <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="package-box">
+                  <h3>ตำบลทุ่งนางาม</h3>
+                  <div class="price-box"><span>฿</span>
+                    <h2>650</h2>
+                    <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
+                  </div>
+                  <div class="price-plan text-center">
+                    <ul>
+                      <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
+                      <li>เช้า: 07:28 น.</li>
+                      <li>เย็น: 16:02 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -988,7 +1027,7 @@
                   </h5>
                 </div>
                 <div class="collapse show" id="collapsezero" aria-labelledby="headingzero" data-parent="#accordionExample">
-                  <div class="card-body">หากท่านสนใจใช้บริการรถรับส่งนักเรียนของเรา โปรดเลือกแพ็คเกจที่ท่านสนใจในหัวข้อ "แพ็คเกจ" และกด "สั่งซื้อ" เพื่อติดต่อเราและใช้งานเว็บไซต์ของเราได้อย่างเต็มรูปแบบ</div>
+                  <div class="card-body">หากคุณไม่มีชื่อผู้ใช้งานหรือรหัสผ่านและสนใจที่จะใช้บริการรถรับส่งนักเรียนของเรา โปรดเลือกแพ็คเกจที่คุณสนใจในหัวข้อ "แพ็คเกจ" และกด "สั่งซื้อ" เพื่อติดต่อเราและใช้งานเว็บไซต์ของเราได้อย่างเต็มรูปแบบ</div>
                 </div>
               </div>
               <div class="card mb-3">
@@ -998,7 +1037,7 @@
                   </h5>
                 </div>
                 <div class="collapse" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
-                  <div class="card-body">หากในหัวข้อ "แพ็คเกจ" ไม่มีตำบลของท่านโปรดติดต่อเราที่เบอร์ 0648763436</div>
+                  <div class="card-body">หากในหัวข้อ "แพ็คเกจ" ไม่มีตำบลที่คุณสนใจโปรดติดต่อเราที่เบอร์ <a href="tel:0648763436" style="color: #826d58;">0648763436</a></div>
                 </div>
               </div>
               <div class="card mb-3">
@@ -1008,13 +1047,13 @@
                   </h5>
                 </div>
                 <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                  <div class="card-body">เว็บไซต์อำนวยความสะดวกในการให้บริการรถรับส่งนักเรียนของเราไม่จำเป็นต้องติดตั้งให้เสียเวลาเหมือนแอปพลิเคชัน เพียงกดปุ่ม "add to home screen" เมื่อท่านอยู่หน้าเว็บไซต์ของเรา (https://bear-bus.com) เพียงเท่านี้ท่านจะสามารถใช้งานเว็บไซต์ Bear Bus ได้เสมือนใช้งานแอปฯ และ ได้รับแจ้งเตือน (Notification) เมื่อเรามีสิ่งใหม่ ๆ ที่ต้องการบอกคุณ</div>
+                  <div class="card-body">เว็บไซต์อำนวยความสะดวกในการให้บริการรถรับส่งนักเรียนของเราไม่จำเป็นต้องติดตั้งให้เสียเวลาเหมือนแอปพลิเคชัน เพียงกดปุ่ม "add to home screen" เมื่อคุณอยู่หน้าเว็บไซต์ของเรา (https://bear-bus.com) เพียงเท่านี้คุณจะสามารถใช้งานเว็บไซต์ Bear Bus ได้เสมือนใช้งานแอปฯ และ ได้รับแจ้งเตือน (Notification) เมื่อเรามีสิ่งใหม่ ๆ ที่ต้องการบอกคุณ</div>
                 </div>
               </div>
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <button class="faq-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">04 เสียค่าใช้บริการไหมหากกด "add to home screen" แล้ว ?<i class="fa fa-angle-down pull-right"></i></button>
+                    <button class="faq-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">04 เสียค่าใช้บริการไหมหากกด "add to home screen" ?<i class="fa fa-angle-down pull-right"></i></button>
                   </h5>
                 </div>
                 <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -1036,22 +1075,22 @@
             <div class="section-title">
               <h2>ติดต่อ</h2>
             </div>
-            <form class="auth-form">
+            <form class="auth-form" id="mailForm">
               @csrf
               <div class="form-group">
                 <label for="exampleInputName1">ชื่อ - สกุล</label><i class="fa fa-user"></i>
-                <input class="form-control" id="exampleInputName1" required="" name="login[name]" type="text" placeholder="ชื่อ - สกุล">
+                <input class="form-control" id="exampleInputName" required="" name="login[name]" type="text" placeholder="ชื่อ - สกุล">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail12">อีเมล</label><i class="fa fa-envelope-o"></i>
-                <input class="form-control" id="exampleInputEmail12" required="" name="login[email]" type="email" placeholder="อีเมล">
+                <input class="form-control" id="exampleInputEmail" required="" name="login[email]" type="email" placeholder="อีเมล">
               </div>
               <div class="form-group">
-                <label>ข้อความ</label><i class="fa fa-commenting-o"></i>
+                <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
                 <textarea class="form-control" id="message" name="message" cols="30" rows="10" placeholder="ข้อความ"></textarea>
               </div>
               <div class="form-group mb-0">
-                <button class="btn-theme" type="submit">ส่งข้อความถึงเรา</button>
+                <button class="btn-theme" type="submit">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
               </div>
             </form>
           </div>
@@ -1079,7 +1118,7 @@
                 <div class="contact-circle"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 <div class="contact-text">
                   <h3>อีเมล</h3>
-                  <p><a href="mailto:bearbusc@bear-bus.com" style="color: #826d58;">bearbusc@bear-bus.com</a></p>
+                  <p><a href="mailto:dviver100@gmail.com" style="color: #826d58;">dviver100@gmail.com</a></p>
                 </div>
               </li>
             </ul>
@@ -1096,9 +1135,9 @@
           <div class="col-md-12 text-center">
             <div class="social-footer">
               <ul>
-                <li><a href="https://www.facebook.com/BearBusTH/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="mailto:bearbusc@bear-bus.com"><i class="fa fa-envelope-o aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/BearBusTH/" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true" title="instagram"></i></a></li>
+                <li><a href="mailto:dviver100@gmail.com" title="email"><i class="fa fa-envelope-o aria-hidden="true"></i></a></li>
               </ul>
             </div>
           </div>
@@ -1109,6 +1148,63 @@
       </div>
     </footer>
     <!-- end copy right section-->
+
+    <!-- Modal: System error-->
+    <div class="wrap-modal">
+      <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+              <div class="modal-header _success">
+              </div>
+              <div class="modal-body my-4 text-center">
+                  <b>ระบบเกิดข้อผิดพลาด</b>
+                  <p>กรุณาทำรายการใหม่ภายหลัง</p>
+                  <div class="modal-button text-center mt-3">
+                      <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                      <!-- data-dismiss="modal" -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Modal: System error-->
+    <div class="wrap-modal">
+      <div class="modal fade" id="errorSending" tabindex="-1" role="dialog" aria-labelledby="errorSending" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+              <div class="modal-header _success">
+              </div>
+              <div class="modal-body my-4 text-center">
+                  <b>การส่งอีเมลไม่สำเร็จ</b>
+                  <p>กรุณากรอกข้อมูลให้ครบถ้วน</p>
+                  <div class="modal-button text-center mt-3">
+                      <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                      <!-- data-dismiss="modal" -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Modal: Success-->
+    <div class="wrap-modal">
+      <div class="modal fade" id="successSending" tabindex="-1" role="dialog" aria-labelledby="successSending" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+              <div class="modal-header _success">
+              </div>
+              <div class="modal-body my-4 text-center">
+                  <b>การส่งอีเมลสำเร็จ</b>
+                  <p>เราจะติดต่อคุณกลับภายใน 24 ชั่วโมง</p>
+                  <div class="modal-button text-center mt-3">
+                      <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                      <!-- data-dismiss="modal" -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     <!-- Tap to top-->
     <div class="tap-top">
       <div><i class="fa fa-angle-up" aria-hidden="true"></i></div>
@@ -1136,5 +1232,55 @@
           $(this).toggleClass('fa-align-justify');
         });
     </script> --}}
+    <script>
+
+      $('.delete-spinner').click(function() {
+          $('.spinner-border').css('display','none');
+          $('.input-box').val('');
+      });
+
+      $(document).ready(function(){
+
+      $("#mailForm").submit(function(event){
+          $('.spinner-border').css('display','inline-block');
+            submitForm();
+            return false;
+        });
+      });
+
+      function submitForm(){
+          $.ajax({
+              type: "POST",
+              url: "/email",
+              headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              cache:false,
+              data: $('form#mailForm').serialize(),
+              success: function(result){
+                  //  ส่งอีเมลสำเร็จ
+                  if(result.status == 'success') {
+                      setInterval(function(){
+                          $('#successSending').modal('show');
+                      }, 3000);
+                      $(location).attr('href', '/about');
+                  }
+
+                  // ส่งอีเมลไม่สำเร็จ
+                  if (result.status == 'error') {
+                      $('#errorSending').modal('show');
+                      $('#exampleInputName').val("");
+                      $('#exampleInputEmail').val("");
+                      $('#message').val("");
+                  }
+
+              },
+              error: function(result){
+                  $(".wrap-modal > #systemError").modal('show');
+              }
+          });
+      }
+
+    </script>
   </body>
 </html>

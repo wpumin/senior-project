@@ -40,7 +40,7 @@
     <!-- Date Picker CSS -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/datepicker/pignose.calendar.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.2') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/internal/style.css?v=1.0.0.3') }}">
     <!-- Modernize js -->
     <script src="{{ URL::asset('js/internal/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ URL::asset('js/external/jquery-3.4.1.min.js') }}"></script>
@@ -56,8 +56,12 @@
 <?php
     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     $current_page = (explode("/",$current_url));
-    $menu_active = $current_page[2];
-    // echo $menu_active;
+    if(!empty($current_page[3]))
+    {
+        $menu_active = $current_page[2];
+    }else{
+        $menu_active = "";
+    }
     if(!empty($current_page[3]))
     {
         $menu_active2 = $current_page[3];
@@ -112,7 +116,7 @@
                     {{-- don't remove --}}
                 </ul>
                     <?php
-                        if($_COOKIE['role'] == '3') {
+                        if($_COOKIE['role_id'] == '3') {
                     ?>
                         <ul class="navbar-nav">
                             <li class="navbar-item dropdown header-admin">
@@ -120,15 +124,15 @@
                                     aria-expanded="false">
                                     <div class="admin-title">
                                         <h5 class="item-title" id="name"></h5>
-                                        <span id="role"></span>
+                                        <span id="role_name"></span>
                                     </div>
                                     <div class="admin-img">
-                                        <img id="photo_user" src="" alt="admin avatar">
+                                        <img id="photo_user" alt="admin profile">
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="item-header">
-                                        <h6 class="item-title">คุณ <span id="f_name"></span> <span id="l_name"></span></h6>
+                                        <h6 class="item-title"><span id="prefix"></span><span id="f_name"></span> <span id="l_name"></span></h6>
                                     </div>
                                     <div class="item-content">
                                         <ul class="settings-list">
@@ -203,7 +207,7 @@
                <div class="mobile-sidebar-header d-md-none">
                </div>
                 <?php
-                    if($_COOKIE['role'] == '3') {
+                    if($_COOKIE['role_id'] == '3') {
                 ?>
                     <div class="sidebar-menu-content">
                         <ul class="nav nav-sidebar-menu sidebar-toggle-view">
@@ -334,13 +338,13 @@
 
         }
 
-        document.getElementById("name").innerHTML = getCookie('name');
-        document.getElementById("role").innerHTML = getCookie('role_name');
+        document.getElementById("name").innerHTML = getCookie('f_name');
+        document.getElementById("role_name").innerHTML = getCookie('role_name');
+        document.getElementById("prefix").innerHTML = getCookie('prefix');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
-        var elem = document.getElementById('photo_user');
         if(getCookie('image') != ""){
-                document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
+            document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
@@ -374,7 +378,7 @@
     <!-- HighChart Js -->
     <script src="{{ URL::asset('js/internal/highcharts.js') }}"></script>
     <!-- Dropzone Js -->
-    <script src="{{ URL::asset('plugins/dropzone/dropzone_admin.js') }}"></script>
+    {{-- <script src="{{ URL::asset('plugins/dropzone/dropzone_admin.js') }}"></script> --}}
     <!-- Owl-Carousel -->
     <script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Time Picker -->

@@ -17,8 +17,9 @@ class CreateAppointmentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('student_id')->nullable();
+            $table->string('app_status_id');
             $table->string('period_time_id');
-            $table->string('date');
+            $table->string('appointment_at');
             $table->string('content')->nullable();
             $table->timestamps();
         });

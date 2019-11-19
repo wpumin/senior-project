@@ -1882,6 +1882,16 @@ ul {
     }
 }
 
+@media only screen and (min-width: 768px){
+    .navbar{
+        position: fixed;
+        width: 100%;
+    }
+    .dashboard-content-one, .sidebar-main{
+        margin-top: 70px;
+    }
+}
+
 .nav-bar-header-one .toggle-button .item-link {
     padding: 26px 15px;
     display: block;
@@ -4461,12 +4471,22 @@ ul {
     color: white;
 }
 
+.badge-kbank {
+    background-color: #00a950 !important;
+    color: white;
+}
+
 .bg-kbank:hover {
     background: #019245 !important;
 }
 
 .bg-ktb {
     background: #00a3e3;
+    color: white;
+}
+
+.badge-ktb {
+    background-color: #00a3e3 !important;
     color: white;
 }
 
@@ -4479,12 +4499,22 @@ ul {
     color: white;
 }
 
+.badge-scb {
+    background-color: #482782 !important;
+    color: white;
+}
+
 .bg-scb:hover {
     background: #391577 !important;
 }
 
 .bg-krungsri {
     background: #f7cd00;
+    color: white;
+}
+
+.badge-krungsri {
+    background-color: #f7cd00 !important;
     color: white;
 }
 
@@ -6964,3 +6994,65 @@ textarea.form-control{
 .hc-nav{
     
 }
+
+.ldmap_placeholder .ldmap_frame .ldmap_geomlabel {
+    padding: 3px 5px 3px 5px !important;
+    background: rgb(255, 127, 53) !important;
+    color: white !important;    
+}
+
+.bill-image{
+    height: 250px;
+    border-radius: 10px;
+}
+
+.news-image{
+    min-height: 300px;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.news-image-show{
+    min-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.file-input > [type='file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
+  }
+  
+  .file-input > .button {
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+    cursor: pointer;
+    background: rgb(255, 127, 53);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+  
+  .file-input:hover > .button {
+    background: rgb(255, 107, 22);
+    color: white;
+  }
+  
+  .file-input > .label {
+    color: #333;
+    /* white-space: nowrap; */
+    opacity: .3;
+  }
+  
+  .file-input.-chosen > .label {
+    opacity: 1;
+  }
+  

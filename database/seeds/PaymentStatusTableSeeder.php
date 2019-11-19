@@ -13,17 +13,17 @@ class PaymentStatusTableSeeder extends Seeder
     public function run()
     {
         DB::table('payment_statuses')->insert([
-            'name' => 'ยังไม่จ่าย',
+            'name' => 'ค้างชำระ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('payment_statuses')->insert([
-            'name' => 'จ่ายแล้ว',
+            'name' => 'ชำระแล้ว',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('payment_statuses')->insert([
-            'name' => 'รอตรวจสอบ',
+            'name' => 'รอการตรวจสอบ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

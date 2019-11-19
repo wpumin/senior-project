@@ -6,8 +6,13 @@
 <?php
     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     $current_page = (explode("/",$current_url));
-    $menu_active = $current_page[2];
     // echo $menu_active;
+    if(!empty($current_page[2]))
+    {
+        $menu_active = $current_page[2];
+    }else{
+        $menu_active = "";
+    }
     if(!empty($current_page[3]))
     {
         $menu_active2 = $current_page[3];
@@ -38,7 +43,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/kbank.png') }}" alt="kasikornthai">
                     </div>
                 </div>
                 <div class="col-6">
@@ -55,7 +60,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/scb.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/scb.png') }}" alt="scb">
                     </div>
                 </div>
                 <div class="col-6">
@@ -72,7 +77,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/ktb.png') }}" alt="ktb">
                     </div>
                 </div>
                 <div class="col-6">
@@ -89,7 +94,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="item-icon bank-icon">
-                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="">
+                        <img src="{{ URL::asset('images/bank/krungsri.png') }}" alt="krungsri">
                     </div>
                 </div>
                 <div class="col-6">
@@ -136,7 +141,7 @@
                         <option value="6">900.00</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
@@ -145,8 +150,8 @@
                         <option value="3">แพรว</option>
                     </select>
                 </div>
-                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยรหัส" class="form-control">
+                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
@@ -158,245 +163,58 @@
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
-                        <th>รหัส</th>
+                        <th>หมายเลขรายการ</th>
+                        <th>เวลาแจ้ง</th>
+                        <th>บัญชี</th>
                         <th>ชื่อเล่น</th>
                         <th>โรงเรียน</th>
                         <th>จำนวนเงิน</th>
-                        <th>เวลาแจ้ง</th>
-                        <th>บัญชี</th>
                         <th>จัดการ</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>987</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>900.00</td>
-                        <td>26/10/2562 16:52:23</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>876</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>900.00</td>
-                        <td>26/10/2562 16:51:12</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>900.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>16</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>17</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>18</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-kbank d-block mg-t-8">กสิกรไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-krungsri d-block mg-t-8">กรุงศรี</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>21</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
-                    <tr>
-                        <td>22</td>
-                        <td>875</td>
-                        <td>จ๋าย</td>
-                        <td>ทัพหลวง</td>
-                        <td>650.00</td>
-                        <td>26/10/2562 16:50:02</td>
-                        <td class="badge badge-pill bg-ktb d-block mg-t-8">กรุงไทย</td>
-                        <td><a href="#" data-toggle="modal" data-target="#confirmModal"><span class="flaticon-bill"></a></td>
-                    </tr>
+                    <?php $count=1;
+                        if($menu_active3 == "car1"){
+                            $temp_car = 1;
+                        }else{
+                            $temp_car = 2;
+                        }
+                    ?>
+                    @foreach($datas as $key=>$data)
+                        @if($data['car_id'] == $temp_car)
+                            <tr>
+                                <td>
+                                <?php print $count ?>
+                                </td>
+                                <td>{{ $data['tran_key'] }}</td>
+                                <td>{{ $data['date'] }} </td>
+                                @if($data['bank_id'] == 1)
+                                    <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
+                                @elseif($data['bank_id'] == 2)
+                                    <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                @elseif($data['bank_id'] == 3)
+                                    <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
+                                @elseif($data['bank_id'] == 4)
+                                    <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
+                                @endif
+                                <td>{{ $data['nickname'] }}</td>
+                                <td>{{ $data['school'] }}</td>
+                                <td>{{ $data['price'] }}</td>
+                            <td><a href="#" data-toggle="modal" data-target="#confirmModal-{{ $data['tran_key'] }}"><span class="flaticon-bill"></a></td>
+                            </tr>
+                            <?php $count++ ?>
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 <!-- Payment Table Area End Here -->
+@foreach($datas as $key=>$data)
 
 <!-- Confirm Modal -->
-<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="confirmModal-{{ $data['tran_key'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -405,32 +223,40 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4 text-center">
-                        <h3 class="mb-2 text-special-orange text-right py-2">รหัส: 987</h3>
+                        <h3 class="mb-2 text-special-orange text-right py-2">หมายเลขรายการ: {{ $data['tran_key'] }}</h3>
                         <table>
                             <tbody class="text-left">
                                 <tr>
                                     <td style="width: 40%">นักเรียน: </td>
-                                    <td> ด.ช. สมเกียรติ เรียนดี</td>
+                                    <td> {{ $data['std_prefix'] }} {{ $data['std_first_name'] }} {{ $data['std_last_name'] }}</td>
                                 </tr>
                                 <tr>
-                                    <td>ผู้ปกตรอง: </td>
-                                    <td>นาย ธนงศักดิ์ เรียนดี</td>
+                                    <td>ผู้ปกครอง: </td>
+                                    <td>{{ $data['parent_prefix'] }} {{ $data['parent_first_name'] }} {{ $data['parent_last_name'] }}</td>
                                 </tr>
                                 <tr>
                                     <td>ติดต่อ: </td>
-                                    <td>089-811-5155</td>
+                                    <td>{{ $data['parent_phone'] }}</td>
                                 </tr>
                                 <tr>
                                     <td>โอนเข้าบัญชี: </td>
+                                @if($data['bank_id'] == 1)
+                                    <td>กสิกรไทย</td>
+                                @elseif($data['bank_id'] == 2)
+                                    <td>ไทยพาณิชย์</td>
+                                @elseif($data['bank_id'] == 3)
                                     <td>กรุงไทย</td>
+                                @elseif($data['bank_id'] == 4)
+                                    <td>กรุงศรี</td>
+                                @endif
                                 </tr>
                             </tbody>
                         </table>
                         <hr>
                         <h6 class="mb-2 text-special-orange text-center py-2">หลักฐานการโอนเงิน (โปรดแสกน)</h6>
-                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="">
-                        <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน 4,000.00 บาท</h6>
-                        <p class="text-center mb-2 small">จ่ายเมื่อ 4/10/2562 08:03</p>
+                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="bill image">
+                        <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน {{ $data['price'] }} บาท</h6>
+                        <p class="text-center mb-2 small">จ่ายเมื่อ {{ $data['date'] }}</p>
                         <hr>
                         <div class="mt-2">
                             <button type="button" class="btn btn-secondary" id="confirmPayment">ยืนยัน</button>
@@ -443,6 +269,7 @@
     </div>
 </div>
 <!-- Confirm Modal End Here -->
+@endforeach
 
 <!-- Modal: System error-->
 <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
@@ -461,7 +288,7 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->   
+<!-- System error End Here -->
 
 @endsection
 

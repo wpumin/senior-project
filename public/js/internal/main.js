@@ -539,7 +539,7 @@ $(document).ready(function(){
     $('#timepicker').mdtimepicker(); //Initializes the time picker
       $('input.calendar').pignoseCalendar({
           format: 'DD/MM/YYYY', // date format string.
-          disabledWeekdays: [0, 6], // SUN (0), SAT (6)
+          // disabledWeekdays: [0, 6], // SUN (0), SAT (6)
           click: function(event, context) { 
             /**
              * @params this Element
@@ -637,4 +637,44 @@ $('.calendar').pignoseCalendar('setting', {
       }
       }
   }
+});
+
+  /*-------------------------------------
+                 Upload Image
+      -------------------------------------*/
+
+var inputs = document.querySelectorAll('.file-input')
+
+for (var i = 0, len = inputs.length; i < len; i++) {
+customInput(inputs[i])
+}
+
+function customInput (el) {
+const fileInput = el.querySelector('[type="file"]')
+const label = el.querySelector('[data-js-label]')
+
+fileInput.onchange =
+fileInput.onmouseout = function () {
+    if (!fileInput.value) return
+    
+    var value = fileInput.value.replace(/^.*[\\\/]/, '')
+    el.className += ' -chosen'
+    label.innerText = value
+}
+}
+
+function readURL(input) {
+if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+    $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+}
+}
+
+$("#imgInp").change(function() {
+readURL(this);
 });
