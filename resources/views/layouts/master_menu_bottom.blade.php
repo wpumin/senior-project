@@ -315,7 +315,7 @@
                                     <a href="<?php echo "/parent/appointment/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{url('parent/report')}}" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
+                                    <a href="<?php echo "/parent/report/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>

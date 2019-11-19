@@ -48,9 +48,8 @@ Route::group(array('prefix' => 'parent'), function () {
     });
     Route::get('/appointment/{id}', 'AppointmentController@list');
 
-    Route::get('/report', function () {
-        return view('parent.report');
-    });
+    Route::get('/report/{id}', 'RefreshController@report');
+
     Route::get('/profile', function () {
         return view('parent.profile');
     });
@@ -151,7 +150,7 @@ Route::post('/tasks/refresh/student', 'RefreshController@student');
 Route::get('tasks/refresh/order', 'RefreshController@order_report');
 
 Route::post('tasks/refresh/pf_student', 'RefreshController@pf_student');
-Route::post('tasks/refresh/report', 'RefreshController@report');
+// Route::get('tasks/refresh/report/{id}', 'RefreshController@report');
 Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
 Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list_stu');
 

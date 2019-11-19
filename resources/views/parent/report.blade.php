@@ -77,6 +77,19 @@
                 </form>
                 <div class="notice-board-wrap" id="report">
                     {{-- ข้อมูลในระบบ Report จะส่งเข้ามาในส่วนนี้ --}}
+
+                    <?php $count=1; ?>
+
+                    @foreach($data as $key => $info)
+                    <div class="notice-list">
+                    <div class="post-date badge-orange">{{ $info['type_name'] }} | {{ $info['created_at'] }}</div>
+                    <h5 class="mb-2">หัวข้อ: {{ $info['title'] }}</h5>
+                    <p class="notice-title">{{ $info['content'] }}</p>
+
+                    </div>
+
+                    <?php $count++ ?>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -175,44 +188,44 @@
         });
     });
 
-    $.ajax({
-                url: '/tasks/refresh/report',
-                type: 'POST',
-                data: {
-                    user_id : getCookie('user_id')
-                },
-                success: function(response) {
+    // $.ajax({
+    //             url: '/tasks/refresh/report',
+    //             type: 'POST',
+    //             data: {
+    //                 user_id : getCookie('user_id')
+    //             },
+    //             success: function(response) {
 
-                    // console.log(response['data'].length);
-                    if (response['status'] == 'success') {
+    //                 // console.log(response['data'].length);
+    //                 if (response['status'] == 'success') {
 
-                        for (var i = 0; i < response['data'].length; i++) {
-                            // if (response.data['report'][i]['order_id'] == '1') {
-                            //     status = '<div class="post-date badge-green">';
-                            //     } else if (response.data['report'][i]['order_id'] == '2') {
-                            //     status = '<div class="post-date badge-orange">';
-                            //     } else if (response.data['report'][i]['order_id'] == '3') {
-                            //     status = '<div class="post-date badge-red">';
-                            //     }
-                            var tempTime = response['data'][i]['created_at'];
-                            var time = tempTime.split(" ");
-                            var time2 = time[1].substring(0,5);
+    //                     for (var i = 0; i < response['data'].length; i++) {
+    //                         // if (response.data['report'][i]['order_id'] == '1') {
+    //                         //     status = '<div class="post-date badge-green">';
+    //                         //     } else if (response.data['report'][i]['order_id'] == '2') {
+    //                         //     status = '<div class="post-date badge-orange">';
+    //                         //     } else if (response.data['report'][i]['order_id'] == '3') {
+    //                         //     status = '<div class="post-date badge-red">';
+    //                         //     }
+    //                         var tempTime = response['data'][i]['created_at'];
+    //                         var time = tempTime.split(" ");
+    //                         var time2 = time[1].substring(0,5);
 
-                            $('#report').append(
-                                '<div class="notice-list">' +
-                                '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
-                                '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
-                                '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
-                                 +
-                                '</div>'
-                            );
-                        }
-                    }
-                },
-                error: function(err) {
+    //                         $('#report').append(
+    //                             '<div class="notice-list">' +
+    //                             '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
+    //                             '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
+    //                             '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
+    //                              +
+    //                             '</div>'
+    //                         );
+    //                     }
+    //                 }
+    //             },
+    //             error: function(err) {
 
-                }
-            })
+    //             }
+    //         })
 
 
     function submitForm(){
