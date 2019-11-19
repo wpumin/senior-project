@@ -135,7 +135,7 @@
                 <b>การแจ้งการเดินทางเองสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการเดินทางเองของท่านแล้ว กรุณาตรวจสอบสถานะภายใน 24 ชั่วโมง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href="javascript:history.go(0)"><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
