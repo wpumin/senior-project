@@ -61,6 +61,13 @@ class AppointmentController extends Controller
         // return $this->responseRequestSuccess($students);
     }
 
+    public function list_stu()
+    {
+        $students = Student::where('user_id', $this->request->user_id)->get();
+
+        return $this->responseRequestSuccess($students);
+    }
+
     public function createAppointment()
     {
 
@@ -68,7 +75,6 @@ class AppointmentController extends Controller
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'student_id' => 'required',
-                'app_status_id' => '',
                 'period_time_id' => 'required',
                 'appointment_at' => 'required',
                 'content' => ''

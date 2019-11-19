@@ -153,7 +153,7 @@ Route::get('tasks/refresh/order', 'RefreshController@order_report');
 Route::post('tasks/refresh/pf_student', 'RefreshController@pf_student');
 Route::post('tasks/refresh/report', 'RefreshController@report');
 Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
-Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
+Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list_stu');
 
 
 // Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
