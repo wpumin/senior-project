@@ -10,6 +10,7 @@ use App\Report;
 use App\Period_time;
 use App\Payment_log;
 use App\Order_report;
+use App\Relationship;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -34,6 +35,8 @@ class RefreshController extends Controller
         $data['up'] = $up;
         $data['down'] = $down;
         $data['self'] = $self;
+
+
 
         return view('driver.index', $data);
     }
@@ -67,6 +70,7 @@ class RefreshController extends Controller
         $data['down'] = $down;
         $data['self'] = $self;
 
+
         return $this->responseRequestSuccess($data);
     }
 
@@ -77,13 +81,47 @@ class RefreshController extends Controller
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
+            ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
             ->get();
         $data['student'] = $users;
 
-        return $this->responseRequestSuccess($data);
+        $data['student_info'] = [];
+        $count = 0;
+
+        foreach ($data['student'] as $stu) {
+            // dd($stu);
+
+            $user_id = User::where('id', $stu->user_id)->first();
+            $full_name = $user_id->first_name . ' ' . $user_id->last_name;
+
+            $relationship_id = Relationship::where('id', $stu->relationship_id)->first();
+
+            // dd($full_name);
+
+            $data['student_info'][$count++] = [
+                'id' => $stu->id,
+                'nickname' => $stu->nickname,
+                'fullname_s' => $stu->first_name . '' . $stu->last_name,
+                'first_name' => $stu->first_name,
+                'last_name' => $stu->last_name,
+                'std_status_id' => $stu->std_status_id,
+                'image' => $stu->image,
+                'name_school' => $stu->name_school,
+                'user_name' => $full_name,
+                'relationship' => $relationship_id->name,
+                'phone' => $stu->phone,
+                //เหลือจุดรับส่ง
+                'lattitude' => $stu->lattitude,
+                'longtitude' => $stu->longtitude,
+
+            ];
+        }
+
+        // dd($data['student_info']);
+
+        return $this->responseRequestSuccess($data['student_info']);
     }
-  
+
     public function appointments()
     {
         $appointment = DB::table('appointments')
