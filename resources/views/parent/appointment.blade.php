@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-lg-3 col-12 form-group">
                             <input type="text"id="appointment_at" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
-                            <i class="far fa-calendar-alt"></i> 
+                            <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-lg-2 col-12 form-group pl-lg-0">
                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
@@ -90,6 +90,21 @@
                                 </tr>
                             </thead>
                             <tbody id="showForm">
+                                    <?php $count=1; ?>
+
+                                @foreach($data as $key => $info)
+
+                                <tr>
+                                <td><?php print $count ?></td>
+                                <td>{{ $info['app_status_id'] }}</td>
+                                <td>{{ $info['student_id'] }}</td>
+                                <td>{{ $info['appointment_at'] }}</td>
+                                <td>{{ $info['period_time_id'] }}</td>
+                                </td>
+                                </tr>
+
+                                <?php $count++ ?>
+                                @endforeach
                                  {{-- <tr>
                                     <td>...</td>
                                     <td>...</td>
@@ -183,64 +198,64 @@
                 return "";
     }
 
-    $.post( "/tasks/refresh/appointment/student",{user_id : getCookie('user_id')} , function( result ) {
-        //alert(result['data']['appointment']['student_id']);
+    // $.post( "/tasks/refresh/appointment/student",{user_id : getCookie('user_id')} , function( result ) {
+    //     //alert(result['data']['appointment']['student_id']);
 
-        var student_id = document.getElementById('student_id');
-        $(student_id).empty();
-        $(student_id).append('<option>'+ 'เด็กนักเรียน' + '</option>');
+    //     var student_id = document.getElementById('student_id');
+    //     $(student_id).empty();
+    //     $(student_id).append('<option>'+ 'เด็กนักเรียน' + '</option>');
 
-          for (var i = 0; i < result['data'].length; i++) {
-                {{-- console.log(result['data'][i]['nickname']); --}}
-              $(student_id).append('<option value=' + result['data'][i]['id'] + '>' + result['data'][i]['nickname'] + '</option>');
-          }
-    
-      });
-       
-      $.ajax({
-                url: '/tasks/refresh/appointment',
-                type: 'POST',
-                data: {
-                    user_id : getCookie('user_id')
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status == 'success') {
+    //       for (var i = 0; i < result['data'].length; i++) {
+    //             {{-- console.log(result['data'][i]['nickname']); --}}
+    //           $(student_id).append('<option value=' + result['data'][i]['id'] + '>' + result['data'][i]['nickname'] + '</option>');
+    //       }
 
-                        $('table tbody').html('');
-                        // let modalUser = document.getElementById("name").innerHTML = name;
+    //   });
 
-                        for (var i = 0; i < response.data['appointment'].length; i++) {
-                            if (response.data['appointment'][i]['app_status_id'] == '1') {
-                                status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
-                            } else if (response.data['appointment'][i]['app_status_id'] == '2') {
-                                status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
-                            }
-                            
-                            $('table tbody').append(
-                                '<tr>' +
-                                '<td>' + (i + 1) + '</td>' +
-                                status + '</td>' +
-                                // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
-                                '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                                '</td>' +
-                                '</tr>'
-                            );
-                        }
-                    }
-                },
-                error: function(err) {
+    //   $.ajax({
+    //             url: '/tasks/refresh/appointment',
+    //             type: 'POST',
+    //             data: {
+    //                 user_id : getCookie('user_id')
+    //             },
+    //             dataType: 'json',
+    //             success: function(response) {
+    //                 if (response.status == 'success') {
 
-                }
-            })
+    //                     $('table tbody').html('');
+    //                     // let modalUser = document.getElementById("name").innerHTML = name;
 
-            
+    //                     for (var i = 0; i < response.data['appointment'].length; i++) {
+    //                         if (response.data['appointment'][i]['app_status_id'] == '1') {
+    //                             status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
+    //                         } else if (response.data['appointment'][i]['app_status_id'] == '2') {
+    //                             status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
+    //                         }
 
-    $(document).ready(function(){	
+    //                         $('table tbody').append(
+    //                             '<tr>' +
+    //                             '<td>' + (i + 1) + '</td>' +
+    //                             status + '</td>' +
+    //                             // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
+    //                             '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
+    //                             '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
+    //                             '<td>' + response.data['appointment'][i]['name'] + '</td>' +
+    //                             '</td>' +
+    //                             '</tr>'
+    //                         );
+    //                     }
+    //                 }
+    //             },
+    //             error: function(err) {
 
-        $("#appointmentForm").submit(function(event){ 
+    //             }
+    //         })
+
+
+
+    $(document).ready(function(){
+
+        $("#appointmentForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
             submitForm();
@@ -255,8 +270,8 @@
     });
 
     function submitForm(){
-        
-        var user_id =  getCookie('user_id');  
+
+        var user_id =  getCookie('user_id');
         var student_id = $('#student_id').val();
         var period_time_id = $('#period_time_id').val();
         var app_status_id = $('#app_status_id').val();
@@ -277,7 +292,7 @@
                 appointment_at: appointment_at,
                 content: content,
             },
-            
+
             success: function(result){
                 // ส่งฟอร์มสำเร็จ
                 if (result.status == 'success') {
@@ -327,7 +342,7 @@
                     $(".wrap-modal > #failAppointment").modal('show');
                     window.location.reload(true);
                 }
-                
+
             },
             error: function(){
                 // เซิร์ฟเวอร์มีปัญหา
