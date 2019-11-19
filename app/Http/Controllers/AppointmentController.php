@@ -45,7 +45,7 @@ class AppointmentController extends Controller
             $period_time = Period_time::where('id', $app->period_time_id)->first();
 
             $data['info'][$count++] = [
-                'app_status_id' => $status->app_status_name,
+                'app_status_id' => $status->id,
                 'student_id' => $student->nickname,
                 'appointment_at' => $app->appointment_at,
                 'period_time_id' => $period_time->name

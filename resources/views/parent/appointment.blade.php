@@ -95,12 +95,15 @@
                                 @foreach($data as $key => $info)
 
                                 <tr>
-                                <td><?php print $count ?></td>
-                                <td>{{ $info['app_status_id'] }}</td>
-                                <td>{{ $info['student_id'] }}</td>
-                                <td>{{ $info['appointment_at'] }}</td>
-                                <td>{{ $info['period_time_id'] }}</td>
-                                </td>
+                                    <td><?php print $count ?></td>
+                                        @if($info['app_status_id'] == 1)
+                                            <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                                        @elseif($info['app_status_id'] == 2)
+                                            <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>
+                                        @endif
+                                    <td>{{ $info['student_id'] }}</td>
+                                    <td>{{ $info['appointment_at'] }}</td>
+                                    <td>{{ $info['period_time_id'] }}</td>
                                 </tr>
 
                                 <?php $count++ ?>
@@ -313,14 +316,14 @@
 
                         for (var i = 0; i < response.data['appointment'].length; i++) {
                             if (response.data['appointment'][i]['app_status_id'] == '1') {
-                                            status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ';
+                                            status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>';
                                             } else if (response.data['appointment'][i]['app_status_id'] == '2') {
-                                            status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว';
+                                            status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>';
                                             }
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                status + '</td>' +
+                                status +
                                 // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
                                 '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
