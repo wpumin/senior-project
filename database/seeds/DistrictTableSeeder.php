@@ -21,7 +21,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล หูช้าง',
+            'name' => 'ตำบลหูช้าง',
             'status' => '1',
             'price' => 700,
             'qr_code' => 'images/qrcode_pay/700.png',
@@ -29,7 +29,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล หนองหย่าง',
+            'name' => 'ตำบลหนองหย่าง',
             'status' => '1',
             'price' => 650,
             'qr_code' => 'images/qrcode_pay/650.png',
@@ -37,7 +37,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล เมืองการุ้ง',
+            'name' => 'ตำบลเมืองการุ้ง',
             'status' => '1',
             'price' => 650,
             'qr_code' => 'images/qrcode_pay/650.png',
@@ -45,7 +45,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล บ้านคลองโป่ง',
+            'name' => 'ตำบลบ้านคลองโป่ง',
             'status' => '1',
             'price' => 600,
             'qr_code' => 'images/qrcode_pay/600.png',
@@ -53,7 +53,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล วังหิน',
+            'name' => 'ตำบลวังหิน',
             'status' => '1',
             'price' => 500,
             'qr_code' => 'images/qrcode_pay/500.png',
@@ -61,7 +61,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล เขาตะพาบ',
+            'name' => 'ตำบลเขาตะพาบ',
             'status' => '1',
             'price' => 350,
             'qr_code' => 'images/qrcode_pay/350.png',
@@ -69,7 +69,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบล ทุ่งนางาม',
+            'name' => 'ตำบลทุ่งนางาม',
             'status' => '1',
             'price' => 350,
             'qr_code' => 'images/qrcode_pay/350.png',

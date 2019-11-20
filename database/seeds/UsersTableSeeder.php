@@ -63,5 +63,23 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/pumin.jpg',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
+        // user สำหรับทดสอบตอนพรีรอบแรก 
+        DB::table('users')->insert([
+            'role_id' => '4',
+            'relationship_id' => '3',
+            'car_id' => '1',
+            'username' => 'parent',
+            'password' => Hash::make('12341234'),
+            'prefix' => 'นาย',
+            'first_name' => 'กฤตภาส',
+            'last_name' => 'แสงวิกุลกิจ',
+            'line_id' => 'moss1150',
+            'address' => 'ถนนอินทรพิทักษ์ แขวง บางยี่เรือ เขตธนบุรี กรุงเทพมหานคร 10600',
+            'email' => 'moss1150@gmail.com',
+            'phone' => '0898111234',
+            'image' => 'images/Users/pumin.jpg',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }
