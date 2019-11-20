@@ -107,7 +107,7 @@
                 <b>การร้องเรียนสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการร้องเรียนของท่านแล้ว</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal" id="reloadPage">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                 <b>การร้องเรียนไม่สำเร็จ</b>
                 <p>กรุณากรอกข้อมูลให้ครบถ้วน</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal" id="reloadPage">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -254,13 +254,25 @@
             if (result['status'] == 'success') {
                 // console.log('true');
                 $(".wrap-modal > #successReport").modal('show');
-                window.location.reload();
+                setInterval(function(){
+                    window.location.reload();
+                }, 3000);
+                $('#reloadPage').click(function(){
+                    window.location.reload();
+                });
+                // window.location.reload();
             }
 
             //ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
                 if (result['status'] == 'field_required') {
                     $(".wrap-modal > #failAppointment").modal('show');
-                    window.location.reload(true);
+                setInterval(function(){
+                    window.location.reload();
+                }, 3000);
+                $('#reloadPage').click(function(){
+                    window.location.reload();
+                });
+                    // window.location.reload(true);
                 }
         });
 
