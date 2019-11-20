@@ -296,9 +296,9 @@
         // console.log(data);
 
         $.post( "/appointment",data , function( result ) {
-            console.log(result);
+            // console.log(result);
             if (result['status'] == 'success') {
-                console.log('true');
+                // console.log('true');
                 $(".wrap-modal > #successAppointment").modal('show');
                 window.location.reload();
             }

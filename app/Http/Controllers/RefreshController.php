@@ -212,7 +212,7 @@ class RefreshController extends Controller
             'data' => $data['info']
         ]);
 
-        return $this->responseRequestSuccess($report);
+        // return $this->responseRequestSuccess($report);
     }
 
     public function pf_student()

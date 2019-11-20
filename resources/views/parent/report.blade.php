@@ -188,6 +188,8 @@
         });
     });
 
+
+
     // $.ajax({
     //             url: '/tasks/refresh/report',
     //             type: 'POST',
@@ -229,88 +231,113 @@
 
 
     function submitForm(){
+
         var user_id = getCookie('user_id');
         var type_id = $('#type_id').val();
         var title = $('#title').val();
         var content = $('#content').val();
 
         var d = new Date();
-        var today = d.getDate() +'/'+(d.getMonth()+1)+'/'+(d.getFullYear()+543)
+        var today = d.getDate() +'/'+(d.getMonth()+1)+'/'+(d.getFullYear()+543);
 
-        $.ajax({
-            type: "POST",
-            url: "/report",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: {
-                user_id: user_id,
-                type_id: type_id,
-                title: title,
-                content: content,
+        var data = {
+            'user_id' : getCookie('user_id'),
+            'type_id' : $('#type_id').val(),
+            'title' : $('#title').val(),
+            'content' : $('#content').val()
+        };
 
-            },
-            success: function(result){
-                // ส่งฟอร์มสำเร็จ
-                if (result.status == 'success') {
-                    $(".wrap-modal > #successReport").modal('show');
+        // console.log(data);
 
-                    $.ajax({
-                            url: '/tasks/refresh/report',
-                            type: 'POST',
-                            data: {
-                                user_id : getCookie('user_id')
-                            },
-                            success: function(response) {
+        $.post( "/report",data , function( result ) {
+            // console.log(result);
+            if (result['status'] == 'success') {
+                // console.log('true');
+                $(".wrap-modal > #successReport").modal('show');
+                window.location.reload();
+            }
 
-                                // console.log(response['data']);
-                                if (response['status'] == 'success') {
-
-                                    $('#report').html('');
-                                    for (var i = 0; i < response['data'].length; i++) {
-                                        // if (response.data['report'][i]['order_id'] == '1') {
-                                        //     status = '<div class="post-date badge-green">';
-                                        //     } else if (response.data['report'][i]['order_id'] == '2') {
-                                        //     status = '<div class="post-date badge-orange">';
-                                        //     } else if (response.data['report'][i]['order_id'] == '3') {
-                                        //     status = '<div class="post-date badge-red">';
-                                        //     }
-                                        var tempTime = response['data'][i]['created_at'];
-                                        var time = tempTime.split(" ");
-                                        var time2 = time[1].substring(0,5);
-
-                                        $('#report').append(
-                                            '<div class="notice-list">' +
-                                            '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
-                                            '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
-                                            '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
-                                            +
-                                            '</div>'
-                                        );
-                                    $('#type_id').val("");
-                                    $('#title').val("");
-                                    $('#content').val("");
-                                    }
-                                }
-                            },
-                            error: function(err) {
-
-                            }
-                        })
-                }
-
-                // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
-                if (result.status == 'field_required') {
+            //ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+                if (result['status'] == 'field_required') {
                     $(".wrap-modal > #failAppointment").modal('show');
                     window.location.reload(true);
                 }
-
-            },
-            error: function(){
-                // เซิร์ฟเวอร์มีปัญหา
-                $(".wrap-modal > #errorAppointment").modal('show');
-            }
         });
+
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/report",
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     },
+        //     data: {
+        //         user_id: user_id,
+        //         type_id: type_id,
+        //         title: title,
+        //         content: content,
+
+        //     },
+        //     success: function(result){
+        //         // ส่งฟอร์มสำเร็จ
+        //         if (result.status == 'success') {
+        //             $(".wrap-modal > #successReport").modal('show');
+
+        //             $.ajax({
+        //                     url: '/tasks/refresh/report',
+        //                     type: 'POST',
+        //                     data: {
+        //                         user_id : getCookie('user_id')
+        //                     },
+        //                     success: function(response) {
+
+        //                         // console.log(response['data']);
+        //                         if (response['status'] == 'success') {
+
+        //                             $('#report').html('');
+        //                             for (var i = 0; i < response['data'].length; i++) {
+        //                                 // if (response.data['report'][i]['order_id'] == '1') {
+        //                                 //     status = '<div class="post-date badge-green">';
+        //                                 //     } else if (response.data['report'][i]['order_id'] == '2') {
+        //                                 //     status = '<div class="post-date badge-orange">';
+        //                                 //     } else if (response.data['report'][i]['order_id'] == '3') {
+        //                                 //     status = '<div class="post-date badge-red">';
+        //                                 //     }
+        //                                 var tempTime = response['data'][i]['created_at'];
+        //                                 var time = tempTime.split(" ");
+        //                                 var time2 = time[1].substring(0,5);
+
+        //                                 $('#report').append(
+        //                                     '<div class="notice-list">' +
+        //                                     '<div class="post-date badge-orange">' + response['data'][i]['type_name'] + ' | ' + response['data'][i]['created_at'] + '</div>' +
+        //                                     '<h5 class="mb-2">หัวข้อ: ' + response['data'][i]['title'] + '</h5>' +
+        //                                     '<p class="notice-title">' + response['data'][i]['content'] + '</p>'
+        //                                     +
+        //                                     '</div>'
+        //                                 );
+        //                             $('#type_id').val("");
+        //                             $('#title').val("");
+        //                             $('#content').val("");
+        //                             }
+        //                         }
+        //                     },
+        //                     error: function(err) {
+
+        //                     }
+        //                 })
+        //         }
+
+        //         // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+        //         if (result.status == 'field_required') {
+        //             $(".wrap-modal > #failAppointment").modal('show');
+        //             window.location.reload(true);
+        //         }
+
+        //     },
+        //     error: function(){
+        //         // เซิร์ฟเวอร์มีปัญหา
+        //         $(".wrap-modal > #errorAppointment").modal('show');
+        //     }
+        // });
     }
 
 </script>
