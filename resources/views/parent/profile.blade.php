@@ -228,7 +228,7 @@
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
-                            '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
+                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3>#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
                             '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
@@ -281,7 +281,8 @@
 
                 '</div>'+
             '</div>'+
-        '</div>'
+        '</div>' + 
+        '<hr class="mt-md-5">'
                         );
                         $('#mapp').html('');
 
@@ -293,8 +294,9 @@
             '</div>'+
         '</div>'+
         '<div class="w-100 maps">'+
-            '<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
-        '</div>'
+                '<iframe src="https://maps.google.com/maps?q=15.131025,99.768982&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
+                //  คิวรี่เปลี่ยนเป็นเก็บ lat long ที่ ผปค cmo'<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
+        '</div>'    
                         );
                     }
                 }
@@ -331,7 +333,7 @@
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
-                            '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
+                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3>#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
                             '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
@@ -384,7 +386,8 @@
 
                 '</div>'+
             '</div>'+
-        '</div>'
+        '</div>' +
+        '<hr class="mt-md-5">'
         
 
 
