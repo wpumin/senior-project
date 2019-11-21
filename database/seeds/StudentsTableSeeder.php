@@ -12,7 +12,7 @@ class StudentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('students')->insert([
-            'user_id' => 1,
+            'user_id' => 4,
             'std_status_id' => 1,
             'car_id' => 1,
             'school_id' => 1,
@@ -61,7 +61,7 @@ class StudentsTableSeeder extends Seeder
             'car_id' => 2,
             'std_status_id' => 1,
             'image' => 'images/Students/เจนจ๋า_earn.jpg',
-            'user_id' => 1,
+            'user_id' => 4,
             'school_id' => 1
 
         ]);
@@ -85,7 +85,7 @@ class StudentsTableSeeder extends Seeder
             'car_id' => 2,
             'std_status_id' => 1,
             'image' => 'images/Students/เจนจ๋า_earn.jpg',
-            'user_id' => 1,
+            'user_id' => 4,
             'school_id' => 1
 
         ]);
