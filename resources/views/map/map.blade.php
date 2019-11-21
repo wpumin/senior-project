@@ -76,8 +76,9 @@
 
 <body onload="init();">
 
-    <div id="map" style=""></div>
-
+    <div id="map" style="padding-bottom: 15px; background-color: white !important;"></div>
+    <div id="result" class="custom-scrollbar"></div>
+ 
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>
     <!-- Plugins js -->
     <script src="{{ URL::asset('js/internal/plugins.js') }}"></script>
@@ -122,6 +123,7 @@
     <script>
 
         $('.toggle-result').click(function(){
+            $('iframe').height(800);
             $('#result').slideToggle();
         });
 

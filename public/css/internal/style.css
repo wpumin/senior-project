@@ -7056,3 +7056,11 @@ textarea.form-control{
     opacity: 1;
   }
   
+.maptgogle{
+    height: 490px !important;
+    transition: 0.3s all;
+}
+.customHeight{
+    height: 900px !important;
+    transition: 0.3s all;
+}

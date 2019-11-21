@@ -45,12 +45,12 @@
 <div class="heading text-left">
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
-<div class="card ui-tab-card">
-    <div class="card-body" style="padding: 15px; position: relative;">
+<div class="card ui-tab-card maptoggle" style="height: 490px; transition: 0.3s all;">
+    <div class="card-body" style="padding: 15px; position: relative;"> 
         <span class="toggle-result flaticon-info-1 text-theme"></span>
         {{-- <div id="map" style=""></div> --}}
-        <iframe id="map" type="text/html" frameborder="0" height="245" width="100%" src="https://bear-bus.com/map"></iframe>
-        <div id="result" class="custom-scrollbar" style="display: none;"></div>
+        <iframe type="text/html" frameborder="0" height="100%" width="100%" src="https://bear-bus.com/map" style="min-height: 435px; max-height: 900px" scrolling="no"></iframe>
+        {{-- <div id="result" class="custom-scrollbar" style="display: none;"></div> --}}
     </div>
 </div>
 
@@ -66,6 +66,7 @@
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script>
+
     $('.sidebar-color').addClass('addHeight');
 
     // hide scrollup
@@ -76,6 +77,8 @@
 
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
+        // console.log('asdasdasdasdasdasd');
+        $('.maptoggle').toggleClass('customHeight');
     });
 
     // setInterval(function(){
