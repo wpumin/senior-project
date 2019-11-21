@@ -216,14 +216,14 @@
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
                             if (response.data['student'][i]['std_status_id'] == '1') {
-                                status = '<td class="font-medium text-dark-medium">ยังไม่ขึ้นรถ</td>';
-                                } else if (response.data['student'][i]['std_status_id'] == '2') {
-                                status = '<td class="font-medium text-dark-medium">ขึ้นรถแล้ว</td>';
-                                } else if (response.data['student'][i]['std_status_id'] == '3') {
-                                status = '<td class="font-medium text-dark-medium">ลงรถแล้ว</td>';
-                                } else if (response.data['student'][i]['std_status_id'] == '4') {
-                                status = '<td class="font-medium text-dark-medium">แจ้งเดินทางเอง</td>';
-                                } 
+                                status = '<td class="font-medium text-red text-dark-medium"><span class="flaticon-bench"></span> ยังไม่ขึ้นรถ</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '2') {
+                                status = '<td class="font-medium text-orange texttext-dark-medium"><span class="flaticon-bus"></span> ขึ้นรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '3') {
+                                status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '4') {
+                                status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> แจ้งเดินทางเอง</td>';
+                            } 
 
 
                         $('#showForm').append(
@@ -320,15 +320,15 @@
                         
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
-                            if (response.data['student'][i]['status'] == '1') {
-                                status = '<td class="font-medium text-dark-medium">ยังไม่ขึ้นรถ</td>';
-                                } else if (response.data['student'][i]['status'] == '2') {
-                                status = '<td class="font-medium text-dark-medium">ขึ้นรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '3') {
-                                status = '<td class="font-medium text-dark-medium">ลงรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '4') {
-                                status = '<td class="font-medium text-dark-medium">แจ้งเดินทางเอง</td>';
-                                } 
+                            if (response.data['student'][i]['std_status_id'] == '1') {
+                                status = '<td class="font-medium text-red text-dark-medium"><span class="flaticon-bench"></span> ยังไม่ขึ้นรถ</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '2') {
+                                status = '<td class="font-medium text-orange texttext-dark-medium"><span class="flaticon-bus"></span> ขึ้นรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '3') {
+                                status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '4') {
+                                status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> แจ้งเดินทางเอง</td>';
+                            } 
 
 
                         $('#showForm').append(
