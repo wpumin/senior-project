@@ -66,7 +66,7 @@ class UsersTableSeeder extends Seeder
 
         // user สำหรับทดสอบตอนพรีรอบแรก 
         DB::table('users')->insert([
-            'role_id' => '4',
+            'role_id' => '1',
             'relationship_id' => '3',
             'car_id' => '1',
             'username' => 'parent',
