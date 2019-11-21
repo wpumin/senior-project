@@ -149,6 +149,7 @@
                     // marker.move(marker);
                     // map.location(longdo.LocationMode.Geolocation);
                     map.Overlays.add(marker);
+                    // marker.move({ lon: result['data']['long'], lat: result['data']['lat'] }, true);
             });
         }, 25000);
 
@@ -166,13 +167,14 @@
 
 
             map.Route.placeholder(document.getElementById('result'));
-            map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
+            // บ้านไร่
+            map.Route.add(new longdo.Marker({ lat: 15.083067, lon: 99.519687 },
                 {
                     title: 'จุดรับส่งที่ 1',
                     icon: {
                         url: 'https://bear-bus.com/images/internal/busstop.png',
                     },
-                    detail: 'เทศบาลตำบลบ้านไร่'
+                    detail: 'เทศบาลตำบลบ้านไร่',
                 }
             ));
             // หูช้าง

@@ -120,7 +120,7 @@
 
 
         map.Route.placeholder(document.getElementById('result'));
-        map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
+        map.Route.add(new longdo.Marker({ lat: 15.083067, lon: 99.519687 },
             {
                 title: 'จุดรับส่งที่ 1',
                 icon: {
