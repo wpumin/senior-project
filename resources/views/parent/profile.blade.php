@@ -76,64 +76,12 @@
 {{-- ข้อมูลบุตรหลาน --}}
 <div class="card height-auto">
     <div class="card-body">
+
         <div id="showForm">
-        {{-- <div class="heading-layout1">
-            <div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">
-                <h3>ข้อมูลบุตรหลาน</h3>
-                <h3>#1</h3>
-            </div>
-        </div>
-        <div class="single-info-details">
-            <div class="item-img">
-                <img src="{{ URL::asset('images/internal/figure/studen10.png') }}" alt="parent" class="parent-profile">
-            </div>
-            <div class="item-content">
-                <div class="header-inline item-header">
-                    <h3 class="text-dark-medium font-medium text-center text-md-left">นางสาว ลภัสลัล จิรเวชสุนทรกุล</h3>
-                </div>
-                <div class="info-table table-responsive">
-                    <table class="table text-nowrap">
-                        <tbody>
-                             <tr>
-                                <td>ชื่อเล่น:</td>
-                                <td class="font-medium text-dark-medium">มายด์</td>
-                            </tr>
-                            <tr>
-                                <td>ความสัมพันธ์:</td>
-                                <td class="font-medium text-dark-medium">ลูก</td>
-                            </tr>
-                            <tr>
-                                <td>เบอร์โทร:</td>
-                                <td class="font-medium text-dark-medium">090-978-5703</td>
-                            </tr>
-                            <tr>
-                                <td>โรงเรียน:</td>
-                                <td class="font-medium text-dark-medium">ทัพหลวง</td>
-                            </tr>
-                            <tr>
-                                <td>รถ:</td>
-                                <td class="font-medium text-dark-medium">โกญจนาท (คันที่ 2)</td>
-                            </tr>
-                            <tr>
-                                <td>สถานะ:</td>
-                                <td class="font-medium text-dark-medium">ขึ้นรถแล้ว (เช้า)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> --}}
         </div>
         <div id="mapp">
-        {{-- <div class="heading-layout1 pt-3">
-            <div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">
-                <h3> <i class="flaticon-address"></i> จุดรับส่ง</h3>
-            </div>
         </div>
-        <div class="w-100 maps">
-            <iframe src="https://maps.google.com/maps?q=13.649467,100.495541&hl=es;z=14&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div> --}}
-    </div>
+
     </div>
 </div>
 
@@ -247,12 +195,6 @@
                               '</td>' + 
                               '</tr>' +
 
-                            //  '<tr>' + 
-                            //  '<td>ความสัมพันธ์:</td>' + 
-                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                            //  '</td>' +
-                            //  '</tr>' +
-
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
@@ -351,12 +293,6 @@
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['nickname'] +
                               '</td>' + 
                               '</tr>' +
-
-                            //  '<tr>' + 
-                            //  '<td>ความสัมพันธ์:</td>' + 
-                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                            //  '</td>' +
-                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
