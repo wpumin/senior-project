@@ -83,13 +83,27 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+
+                            <?php $count=1; ?>
+
+                            @foreach($data as $key => $info)
+
+                            <td><?php print $count ?></td>
+                            <td class="text-left">{{ $info['title'] }}</td>
+                            <td>{{ $info['type'] }}</td>
+                            <td>{{ $info['date'] }}</td>
+                    <td><a href="#" data-toggle="modal" data-target="#reportModal-{{ $info['id'] }}"><span class="flaticon-invoice"></a></td>
+
+                            <?php $count++ ?>
+
+                        {{-- <td>1</td>
                         <td class="text-left">แจ้งพฤติกรรมคนขับรถคันที่ 2 แย่มากเลยค่ะ</td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>26/10/2562 17:02:23</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td> --}}
                     </tr>
-                    <tr>
+                    @endforeach
+                    {{-- <tr>
                         <td>2</td>
                         <td class="text-left">ระบบจ่ายเงินไม่เสถียร</td>
                         <td>ระบบการเงิน</td>
@@ -256,7 +270,7 @@
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -264,8 +278,9 @@
 </div>
 <!-- Report Table Area End Here -->
 
+@foreach($data as $key => $info)
 <!-- Report Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="reportModal-{{ $info['id'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog1 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -278,28 +293,25 @@
                         <tbody>
                             <tr>
                                 <td style="width: 30%;">หัวข้อ:</td>
-                                <td>คนขับรถโกญจนาท ขับรถเร็วครับ</td>
+                                <td>{{ $info['title'] }}</td>
                             </tr>
                             <tr>
                                 <td>ประเภท:</td>
-                                <td>พฤติกรรมคนขับ</td>
+                                <td>{{ $info['type'] }}</td>
                             </tr>
                             <tr>
                                 <td>เวลาแจ้ง:</td>
-                                <td>24/10/2562 06:54:23</td>
+                                <td>{{ $info['date'] }}</td>
                             </tr>
                         </tbody>
                     </table>
                     <p class="my-4">
                         รายละเอียด: <br>
-                        รถรับส่งนักเรียน (โกญจนาท เกษศิลป์) ขับเร็ว
-                        มากครับ วันก่อนผมเจอเส้นโรงเรียนบ้านไร่วิทยา
-                        ยังไงรบกวนช่วยอบรมคนขับด้วยนะครับ เป็นห่วง
-                        บุตรหลานจริง ๆ
+                        {{ $info['content'] }}
                     </p>
                     <p class="text-right mb-2">
-                        นาย สมัคร ลิลิตสัจจะ <br>
-                        087-234-2721
+                            {{ $info['name'] }} <br>
+                            {{ $info['phone'] }}
                     </p>
                     </div>
                 </div>
@@ -308,5 +320,6 @@
     </div>
 </div>
 <!-- Report Modal End Here -->
+@endforeach
 
 @endsection

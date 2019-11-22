@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Report;
 use App\Type_report;
 use App\Order_report;
+use App\User;
 use LogicException;
 use Validator;
 use Carbon\Carbon;
@@ -58,6 +59,44 @@ class ReportController extends Controller
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
+    }
+
+    public function list_report()
+    {
+
+        $reports = Report::get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($reports);
+
+        foreach ($reports as $d) {
+
+            $type = Type_report::where('id', $d->id)->first();
+            $user = User::where('id', $d->user_id)->first();
+
+            $data['info'][$count++] = [
+
+                'id' => $d->id,
+                'title' => $d->title,
+                'type' => $type->type_name,
+                'date' => $d->created_at,
+                'content' => $d->content,
+                'name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
+                'phone' => $user->phone,
+
+
+            ];
+        }
+
+
+        // dd($data['info']);
+
+
+        return view('admin.index', [
+            'data' => $data['info']
+        ]);
     }
     /*
     |--------------------------------------------------------------------------

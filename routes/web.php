@@ -80,9 +80,9 @@ Route::group(array('prefix' => 'driver'), function () {
 
 // driver
 Route::group(array('prefix' => 'admin'), function () {
-    Route::get('/index', function () {
-        return view('admin.index');
-    });
+
+    Route::get('/index', 'ReportController@list_report');
+
     Route::get('/management/news', function () {
         return view('admin.news');
     });
