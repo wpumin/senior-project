@@ -27,6 +27,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'ashita11479@gmail.com',
             'phone' => '0898911553',
             'image' => 'images/Users/ashita.jpg',
+            'lattitude' => '15.147868',
+            'longtitude' => '99.672083',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
@@ -44,6 +46,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'dviver100@gmail.com',
             'phone' => '0648763436',
             'image' => 'images/Users/blon.jpg',
+            'lattitude' => '15.147868',
+            'longtitude' => '99.672083',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
@@ -60,7 +64,9 @@ class UsersTableSeeder extends Seeder
             'address' => 'ถนนอินทรพิทักษ์ แขวง บางยี่เรือ เขตธนบุรี กรุงเทพมหานคร 10600',
             'email' => 'pumin.wongsiri@gmail.com',
             'phone' => '0898115155',
-            'image' => 'images/Users/pumin.jpg',
+            'image' => 'images/Users/nonstop.jpg',
+            'lattitude' => '15.147868',
+            'longtitude' => '99.672083',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
@@ -79,6 +85,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'moss1150@gmail.com',
             'phone' => '0898111234',
             'image' => 'images/Users/pumin.jpg',
+            'lattitude' => '15.147868',
+            'longtitude' => '99.672083',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

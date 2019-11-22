@@ -236,7 +236,7 @@
             '</div>'+
         '</div>'+
         '<div class="w-100 maps">'+
-                '<iframe src="https://maps.google.com/maps?q=15.131025,99.768982&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
+            '<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
                 //  คิวรี่เปลี่ยนเป็นเก็บ lat long ที่ ผปค cmo'<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
         '</div>'    
                         );
