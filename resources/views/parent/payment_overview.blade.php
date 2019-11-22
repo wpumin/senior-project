@@ -154,7 +154,12 @@
                         <td>{{ $info['month'] }}  {{ $info['year'] }}</td>
                                 <td>{{ $info['price'] }}</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal-{{ $info['tran_key'] }}"><span class="flaticon-invoice"></span></a> </td>
-                                <td> <a href="#" data-toggle="modal" data-target="#qrModal-{{ $info['tran_key'] }}"><span class="flaticon-qr-code"></span></a> </td>
+                        @if ($info['status']  == '2' || $info['status']  == '3')
+                        <td> <a href="#"></a> - </td>
+                        @else
+                        <td> <a href="#" data-toggle="modal" data-target="#qrModal-{{ $info['tran_key'] }}"><span class="flaticon-qr-code"></span></a> </td>
+                        @endif
+
                         </tr>
 
                         <?php $count++ ?>
