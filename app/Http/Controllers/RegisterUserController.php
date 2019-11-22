@@ -35,7 +35,9 @@ class RegisterUserController extends Controller
         'email' => 'required',
         'address' => 'required',
         'username' => 'required',
-        'password' => 'required'
+        'password' => 'required',
+        'lattitude' => 'required',
+        'longtitude' => 'required',
         ]);
    
     //validator mobile
@@ -101,7 +103,8 @@ class RegisterUserController extends Controller
         $user->address = $this->request->input('address');
         $user->username = $this->request->input('username');
         $user->password = Hash::make($this->request->password);
- 
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
 
     $user->save();
 

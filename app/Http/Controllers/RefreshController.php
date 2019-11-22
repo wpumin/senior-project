@@ -81,16 +81,14 @@ class RefreshController extends Controller
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
+            ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school' , 'users.lattitude' , 'users.longtitude')->where('cars.id', $this->request->car_id)
             ->get();
         $data['student'] = $users;
-
         $data['student_info'] = [];
         $count = 0;
 
         foreach ($data['student'] as $stu) {
             // dd($stu);
-
             $user_id = User::where('id', $stu->user_id)->first();
             $full_name = $user_id->first_name . ' ' . $user_id->last_name;
 
@@ -110,11 +108,10 @@ class RefreshController extends Controller
                 'user_name' => $full_name,
                 'relationship' => $relationship_id->name,
                 'phone' => $stu->phone,
-                //เหลือจุดรับส่ง
-                'lattitude' => $stu->lattitude,
-                'longtitude' => $stu->longtitude,
-
+                'lattitude' => $user_id->lattitude,
+                'longtitude' => $user_id->longtitude,
             ];
+            
         }
 
         // dd($data['student_info']);
@@ -233,7 +230,7 @@ class RefreshController extends Controller
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('std_statuses', 'students.std_status_id', '=', 'std_statuses.id')
-            ->select('students.*', 'schools.name_school', 'cars.name', 'cars.name_driver')
+            ->select('students.*', 'schools.name_school', 'cars.name', 'cars.name_driver', 'users.lattitude' , 'users.longtitude')
             ->where('students.user_id', $this->request->input('user_id'))
             ->get();
 
