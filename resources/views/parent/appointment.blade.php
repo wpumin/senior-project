@@ -300,7 +300,7 @@
             if (result['status'] == 'success') {
                 // console.log('true');
                 $(".wrap-modal > #successAppointment").modal('show');
-                setInterval(function(){
+                setInterval(function(){ 
                     window.location.reload();
                 }, 3000);
                 $('#reloadPage').click(function(){

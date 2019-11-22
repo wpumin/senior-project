@@ -304,7 +304,7 @@
                                     <a href="#" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การชำระเงิน</span></a>
                                     <ul class="nav sub-group-menu <?php if(!empty($menu_active2 == "overview" || $menu_active2=="confirm")) echo "sub-group-active"; else echo "";?>">
                                         <li class="nav-item">
-                                            <a href="{{url('parent/payment/overview')}}" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
+                                            <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{url('parent/payment/confirm')}}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>

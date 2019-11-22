@@ -129,11 +129,37 @@
                         <th>เดือน</th>
                         <th>จำนวนเงิน (บาท)</th>
                         <th>รายละเอียด </th>
-                        <th>สร้าง QR</th>  
+                        <th>สร้าง QR</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+
+                        <?php $count=1; ?>
+
+                        @foreach($data as $key => $info)
+
+                        <tr>
+                                <td><?php print $count ?></td>
+                                <td>{{ $info['tran_key'] }}</td>
+
+                                @if ($info['status']  == '1')
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
+                                @elseif ( $info['status']  == '2')
+                                <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
+                                @elseif ( $info['status']  == '3')
+                                <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
+                                @endif
+                                {{-- <td class="badge badge-pill badge-red d-block mg-t-8">{{ $info['status'] }}</td> --}}
+                                <td>{{ $info['name'] }}</td>
+                        <td>{{ $info['month'] }}  {{ $info['year'] }}</td>
+                                <td>{{ $info['price'] }}</td>
+                        <td> <a href="#" data-toggle="modal" data-target="#invoiceModal-{{ $info['tran_key'] }}"><span class="flaticon-invoice"></span></a> </td>
+                                <td> <a href="#" data-toggle="modal" data-target="#qrModal-{{ $info['tran_key'] }}"><span class="flaticon-qr-code"></span></a> </td>
+                        </tr>
+
+                        <?php $count++ ?>
+                        @endforeach
+                    {{-- <tr>
                         <td>1</td>
                         <td>001</td>
                         <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
@@ -142,8 +168,8 @@
                         <td>900</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
-                    </tr>
-                    <tr>
+                    </tr> --}}
+                    {{-- <tr>
                         <td>2</td>
                         <td>002</td>
                         <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
@@ -392,7 +418,7 @@
                         <td>900</td>
                         <td> <a href="#" data-toggle="modal" data-target="#invoiceModal"><span class="flaticon-invoice"></span></a> </td>
                         <td> <a href="#" data-toggle="modal" data-target="#qrModal"><span class="flaticon-qr-code"></span></a> </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -400,12 +426,14 @@
 </div>
 <!-- Bill and QR Table Area End Here -->
 
+
+@foreach($data as $key => $info)
 <!-- Invoice Modal -->
-<div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="invoiceModal-{{ $info['tran_key'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="text-light mb-0">รายละเอียดหมายเลขรายการ: 987</p>
+                <p class="text-light mb-0">รายละเอียดหมายเลขรายการ: {{ $info['tran_key'] }}</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="text-light" aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -415,35 +443,35 @@
                         <tbody>
                             <tr>
                                 <td style="width: 40%;">ชื่อ:</td>
-                                <td>ด.ช. อชิตะ ลิลิตสัจจะ</td>
+                                <td>{{ $info['fullname'] }}</td>
                             </tr>
                             <tr>
                                 <td>ชื่อเล่น:</td>
-                                <td>คิด</td>
+                                <td>{{ $info['name'] }}</td>
                             </tr>
                             <tr>
                                 <td>โรงเรียน:</td>
-                                <td>โรงเรียนทัพหลวง</td>
+                                <td>โรงเรียน{{ $info['school'] }}</td>
                             </tr>
                             <tr>
                                 <td>รถ:</td>
-                                <td>โกญจนาท (คันที่ 2)</td>
+                                <td>({{ $info['car_id'] }})</td>
                             </tr>
                             <tr>
                                 <td>คนขับ:</td>
-                                <td>นายเริงศักดิ์ คำโสภา</td>
+                                <td>{{ $info['car_name'] }}</td>
                             </tr>
                             <tr>
                                 <td>เดือน:</td>
-                                <td>กันยายน</td>
+                                <td>{{ $info['month'] }}</td>
                             </tr>
                             <tr>
                                 <td>ปี:</td>
-                                <td>2562</td>
+                                <td>{{ $info['year'] }}</td>
                             </tr>
                             <tr>
                                 <td>ราคา:</td>
-                                <td>900.00 บาท</td>
+                                <td>{{ $info['price'] }} บาท</td>
                             </tr>
                         </tbody>
                     </table>
@@ -451,7 +479,7 @@
                     </div>
                 </div>
                 <div class="modal-footer text-left d-block px-0 pt-4 pb-0"">
-                    <p class="mb-2 w-100 text-red" style="line-height: 1"> โปรดชำระเงินภายในวันที่ 31 ตุลาคม 2562</p>
+                    <p class="mb-2 w-100 text-red" style="line-height: 1"> โปรดชำระเงินภายในวันที่ 3 ของทุกเดือน</p>
                     <p class="mb-2 small w-100" style="line-height: 1"> สามารถชำระได้ 2 ช่องทาง คือ โอนเงิน และ QR code</p>
                 </div>
             </div>
@@ -459,9 +487,12 @@
     </div>
 </div>
 <!-- Invoice Modal End Here -->
+@endforeach
 
+
+@foreach($data as $key => $info)
 <!-- QR Modal -->
-<div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="qrModal-{{ $info['tran_key'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -472,7 +503,7 @@
                     <div class="col-md-12 modal_body_content px-4 text-center">
                         <h2 class="mb-2 text-special-orange text-center pt-4">สแกนเพื่อชำระเงิน</h2>
                         <p class="text-center">กรุณาเปิดแอปพลิเคชันธนาคารและสแกน QR code เพื่อชำระเงิน</p>
-                        <img class="w-50 text-center" src="{{ URL::asset('images/qrcode_pay/350.png') }}" alt="qr code">
+                        <img class="w-50 text-center" src="{{asset($info['qrcode'])}}" alt="qr code">
                         <p class="text-center text-special-orange">สแกน QR Code เข้าบัญชี</p>
                         <p class="text-center">ชื่อ: นายภูมินท์ วงษ์ศิริ <br> เลขที่บัญชี: 002-2-85496-8 </p>
                     </div>
@@ -485,6 +516,7 @@
     </div>
 </div>
 <!-- QR Modal End Here -->
+@endforeach
 
 <script src="//maps.googleapis.com/maps/api/js"></script>
 

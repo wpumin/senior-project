@@ -40,9 +40,8 @@ Route::group(array('prefix' => 'parent'), function () {
     Route::get('/index', function () {
         return view('parent.index');
     });
-    Route::get('/payment/overview', function () {
-        return view('parent.payment_overview');
-    });
+    Route::get('/payment/overview/{id}', 'PaymentController@overview');
+
     Route::get('/payment/confirm', function () {
         return view('parent.payment_confirm');
     });

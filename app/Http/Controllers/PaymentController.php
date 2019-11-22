@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use App\District;
 use Illuminate\Http\Request;
 use App\Payment_inform;
 use App\Payment_log;
+use App\Payment_status;
 use App\School;
 use App\Student;
 use App\User;
@@ -140,6 +142,58 @@ class PaymentController extends Controller
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
+    }
+
+    public function overview($id)
+    {
+
+        $students = Student::where('user_id', $id)->get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($students);
+
+        foreach ($students as $d) {
+
+            $bill = Payment_log::where('student_id', $d->id)->get();
+
+            // dd($bill);
+
+            foreach ($bill as $b) {
+
+                // $status_bill = Payment_status::where('id', $b->pm_status_id)->first();
+                // dd($b);
+                $district = District::where('id', $d->district_id)->first();
+                $school = School::where('id', $d->school_id)->first();
+                $car = Car::where('id', $d->car_id)->first();
+
+                $data['info'][$count++] = [
+
+                    'tran_key' => $b->tran_key,
+                    'status' => $b->pm_status_id,
+                    'fullname' => $d->prefix . ' ' . $d->first_name . ' ' . $d->last_name,
+                    'name' => $d->nickname,
+                    'school' => $school->name_school,
+                    'car_id' =>  $car->name,
+                    'car_name' => $car->name_driver,
+                    'month' => $b->month,
+                    'year' => $b->year,
+                    'price' => $district->price,
+                    'qrcode' => $b->qr_code
+
+                ];
+            }
+        }
+
+
+        // dd($data['info']);
+
+
+
+        return view('parent.payment_overview', [
+            'data' => $data['info']
+        ]);
     }
 
     /*
