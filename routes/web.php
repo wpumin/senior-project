@@ -42,9 +42,8 @@ Route::group(array('prefix' => 'parent'), function () {
     });
     Route::get('/payment/overview/{id}', 'PaymentController@overview');
 
-    Route::get('/payment/confirm', function () {
-        return view('parent.payment_confirm');
-    });
+    Route::get('/payment/confirm/{id}', 'PaymentController@parent_list');
+
     Route::get('/appointment/{id}', 'AppointmentController@list');
 
     Route::get('/report/{id}', 'RefreshController@report');

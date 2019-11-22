@@ -307,7 +307,7 @@
                                             <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{url('parent/payment/confirm')}}" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
+                                            <a href="<?php echo "/parent/payment/confirm/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
                                         </li>
                                     </ul>
                                 </li>
