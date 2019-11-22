@@ -22,17 +22,6 @@ class AppointmentController extends Controller
 
     public function list($id)
     {
-        // $validate = Validator::make($this->request->all(), [
-        //     'user_id' => 'required',
-
-        // ]);
-
-        // if ($validate->fails()) {
-        //     // throw new LogicException($validate->errors());
-        //     $errors = $validate->errors();
-        //     return $this->responseRequestError('field_required');
-        // }
-        // dd($id);
         $Appointments = Appointment::where('user_id', $id)->get();
 
         $data['info'] = [];
@@ -52,13 +41,10 @@ class AppointmentController extends Controller
             ];
         }
 
-        // dd($students);
-
         return view('parent.appointment', [
             'data' => $data['info']
         ]);
 
-        // return $this->responseRequestSuccess($students);
     }
 
     public function list_stu()

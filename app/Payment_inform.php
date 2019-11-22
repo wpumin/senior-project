@@ -8,7 +8,13 @@ class Payment_inform extends Model
 {
     protected $table = 'payment_informs';
     protected $fillable = [
-        'tran_key', 'student_id', 'timepicker', 'date', 'content', 'bill_image', 'bank_id', 'pm_status_id'
+        'payment_log_id',
+         'timepicker', 
+         'date', 
+         'bank_id',
+         'pm_status_id',
+         'imgInp',
+         'price'
 
 
     ];

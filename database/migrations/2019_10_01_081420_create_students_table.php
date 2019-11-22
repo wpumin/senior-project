@@ -26,8 +26,8 @@ class CreateStudentsTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('nickname');
             $table->string('phone')->nullable();
-            $table->string('lattitude')->nullable();
-            $table->string('longtitude')->nullable();
+            // $table->string('lattitude')->nullable();
+            // $table->string('longtitude')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

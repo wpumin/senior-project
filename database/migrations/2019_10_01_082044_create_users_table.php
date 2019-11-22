@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('username');
             $table->string('password');
+            $table->string('lattitude')->nullable();
+            $table->string('longtitude')->nullable();
             $table->string('token')->nullable();
             $table->timestamp('last_login_date')->nullable();
             $table->timestamps();

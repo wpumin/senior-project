@@ -21,6 +21,8 @@ class User extends Model
         'address', 
         'username', 
         'token', 
+        'lattitude', 
+        'longtitude', 
 
 
     ];
