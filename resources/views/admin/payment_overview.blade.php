@@ -44,7 +44,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">ค้างชำระ</div>
-                        <div class="item-number"><span class="counter" id="up" data-num="7">7</span></div>
+                    <div class="item-number"><span class="counter" id="up" data-num="{{ $no_1 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">รอการยืนยัน</div>
-                        <div class="item-number"><span class="counter" id="down" data-num="10">10</span></div>
+                    <div class="item-number"><span class="counter" id="down" data-num="{{ $no_3 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">ชำระแล้ว</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="40">40</span></div>
+                    <div class="item-number"><span class="counter" id="self" data-num="{{ $no_2 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -153,6 +153,7 @@
                 </div>
             </div>
         </form>
+
         <div class="table-responsive student-profile-table">
             <table class="table display data-table text-nowrap">
                 <thead>
@@ -168,7 +169,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+
+                        <?php $count=1; ?>
+
+                        @foreach($data as $key => $info)
+
+                        <tr>
+                                <td><?php print $count ?></td>
+                                <td>{{ $info['nickname'] }}</td>
+                                <td>{{ $info['tran_key'] }}</td>
+                                @if ($info['status_bill']  == '1')
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
+                                @elseif ( $info['status_bill']  == '2')
+                                <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
+                                @elseif ( $info['status_bill']  == '3')
+                                <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
+                                @endif
+                                {{-- <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td> --}}
+                                <td>{{ $info['school'] }}</td>
+                                <td>{{ $info['parent_name'] }}</td>
+                                <td>{{ $info['phone'] }}</td>
+                                <td>{{ $info['price'] }}.00</td>
+                            </tr>
+
+                        <?php $count++ ?>
+                        @endforeach
+                    {{-- <tr>
                         <td>1</td>
                         <td>จ๋าย</td>
                         <td>987</td>
@@ -177,8 +203,8 @@
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
                         <td>900.00</td>
-                    </tr>
-                    <tr>
+                    </tr> --}}
+                    {{-- <tr>
                         <td>2</td>
                         <td>จ๋า</td>
                         <td>986</td>
@@ -287,7 +313,7 @@
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
                         <td>900.00</td>
-                    </tr>                    
+                    </tr>
                     <tr>
                         <td>13</td>
                         <td>จ๋า</td>
@@ -398,7 +424,7 @@
                         <td>089-811-5155</td>
 
                         <td>900.00</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>

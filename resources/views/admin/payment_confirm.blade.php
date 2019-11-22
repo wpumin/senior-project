@@ -49,7 +49,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">กสิกรไทย</div>
-                        <div class="item-number"><span class="counter" id="up" data-num="7">7</span></div>
+                    <div class="item-number"><span class="counter" id="up" data-num="{{ $bank_1 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">ไทยพาณิชย์</div>
-                        <div class="item-number"><span class="counter" id="down" data-num="10">10</span></div>
+                        <div class="item-number"><span class="counter" id="down" data-num="{{ $bank_2 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">กรุงไทย</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="40">40</span></div>
+                        <div class="item-number"><span class="counter" id="self" data-num="{{ $bank_3 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">กรุงศรี</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="8">8</span></div>
+                        <div class="item-number"><span class="counter" id="self" data-num="{{ $bank_4 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -220,7 +220,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="text-light" aria-hidden="true">&times;</span></button>
             </div>
-            <div class="modal-body">    
+            <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4 text-center">
                         <h3 class="mb-2 text-special-orange text-right py-2">หมายเลขรายการ: {{ $data['tran_key'] }}</h3>
@@ -254,7 +254,7 @@
                         </table>
                         <hr>
                         <h6 class="mb-2 text-special-orange text-center py-2">หลักฐานการโอนเงิน (โปรดแสกน)</h6>
-                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="bill image">
+                        <img class="w-50 text-center" src="{{asset($data['bill_image'])}}" alt="bill image">
                         <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน {{ $data['price'] }} บาท</h6>
                         <p class="text-center mb-2 small">จ่ายเมื่อ {{ $data['date'] }}</p>
                         <hr>

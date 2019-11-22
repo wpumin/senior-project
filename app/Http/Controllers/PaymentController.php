@@ -22,47 +22,77 @@ class PaymentController extends Controller
         $this->request = $request;
     }
 
-    public function index()
+    public function index($car)
     {
         $inform = Payment_inform::get();
 
         $data['info'] = [];
         $count = 0;
 
+        if ($car == 'car1') {
+            $car_num = 1;
+        } else {
+            $car_num = 2;
+        }
+
         // dd($inform);
+        $bank_1 = 0;
+        $bank_2 = 0;
+        $bank_3 = 0;
+        $bank_4 = 0;
 
         foreach ($inform as $d) {
 
-            $std = Student::where('id', $d->student_id)->first();
-            $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
-            $school = School::where('id', $std->school_id)->first();
-            $district = District::where('id', $std->district_id)->first();
+            $log = Payment_log::where('id', $d->payment_log_id)->first();
+            $std = Student::where('id', $log->student_id)->first();
 
-            $id = $d->id;
+            // dd($d);
 
-            $data['info'][$count++] = [
+            if ($std->car_id == $car_num) {
 
-                'id' => $d->id,
-                'student_id' => $d->student_id,
-                'tran_key' => $d->tran_key,
-                'date' => $d->date . ' ' . $d->timepicker,
-                'bank_id' => $d->bank_id,
-                'bill_image' => $d->bill_image,
+                $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
+                $school = School::where('id', $std->school_id)->first();
+                $district = District::where('id', $std->district_id)->first();
 
-                'std_prefix' => $std->prefix,
-                'std_first_name' => $std->first_name,
-                'std_last_name' => $std->last_name,
-                'nickname' => $std->nickname,
-                'car_id' => $std->car_id,
-                'parent_prefix' => $parent->prefix,
-                'parent_first_name' => $parent->first_name,
-                'parent_last_name' => $parent->last_name,
-                'parent_phone' => $parent->phone,
 
-                'school' => $school->name_school,
 
-                'price' => $district->price,
-            ];
+                if ($d->bank_id == '1') {
+
+                    $bank_1++;
+                } else if ($d->bank_id == '2') {
+                    $bank_2++;
+                } else if ($d->bank_id == '3') {
+                    $bank_3++;
+                } else if ($d->bank_id == '4') {
+                    $bank_4++;
+                }
+
+                $data['info'][$count++] = [
+
+                    'id' => $d->id,
+                    'student_id' => $std->id,
+                    'tran_key' => $log->tran_key,
+                    'date' => $d->date . ' ' . $d->timepicker,
+                    'bank_id' => $d->bank_id,
+                    'bill_image' => $d->imgInp,
+
+                    'std_prefix' => $std->prefix,
+                    'std_first_name' => $std->first_name,
+                    'std_last_name' => $std->last_name,
+                    'nickname' => $std->nickname,
+                    'car_id' => $std->car_id,
+                    'parent_prefix' => $parent->prefix,
+                    'parent_first_name' => $parent->first_name,
+                    'parent_last_name' => $parent->last_name,
+                    'parent_phone' => $parent->phone,
+
+                    'school' => $school->name_school,
+
+                    'price' => $district->price,
+                ];
+            }
+
+
 
             // dd($data['info']);
             // var_dump($data['info']);
@@ -71,7 +101,11 @@ class PaymentController extends Controller
         // dd($data['info']);
 
         return view('admin.payment_confirm', [
-            'datas' => $data['info']
+            'datas' => $data['info'],
+            'bank_1' => $bank_1,
+            'bank_2' => $bank_2,
+            'bank_3' => $bank_3,
+            'bank_4' => $bank_4,
         ]);
     }
 
@@ -235,6 +269,79 @@ class PaymentController extends Controller
 
         return view('parent.payment_confirm', [
             'data' => $data['info']
+        ]);
+    }
+
+    public function admin_list($car)
+    {
+
+        if ($car == 'car1') {
+            $car_num = 1;
+        } else {
+            $car_num = 2;
+        }
+
+        $bill = Payment_log::get();
+
+        $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+
+        // dd($status_1);
+
+        // $students = Student::where('user_id', $id)->get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        $status_1 = 0; //ค้างชำระ
+        $status_2 = 0; //ชำระ
+        $status_3 = 0; //รอการยืนยัน
+
+
+        foreach ($bill as $b) {
+
+            $stu = Student::where('id', $b->student_id)->first();
+
+
+            if ($stu->car_id == $car_num) {
+
+                $district = District::where('id', $stu->district_id)->first();
+                $school = School::where('id', $stu->school_id)->first();
+                $user = User::where('id', $stu->user_id)->first();
+
+                if ($b->pm_status_id == '1') {
+                    $status_1++;
+                } else if ($b->pm_status_id == '2') {
+                    $status_2++;
+                } else if ($b->pm_status_id == '3') {
+                    $status_3++;
+                }
+
+                if ($b->month == ($month_sub[date('m') - 1])) {
+
+
+                    $data['info'][$count++] = [
+
+                        'nickname' => $stu->nickname,
+                        'tran_key' => $b->tran_key,
+                        'status_bill' => $b->pm_status_id,
+                        'school' => $school->name_school,
+                        'parent_name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
+                        'phone' => $user->phone,
+                        'price' => $district->price,
+
+                    ];
+                }
+            }
+        }
+
+        // dd($data['info']);
+
+
+        return view('admin.payment_overview', [
+            'data' => $data['info'],
+            'no_1' => $status_1,
+            'no_2' => $status_2,
+            'no_3' => $status_3,
         ]);
     }
 
