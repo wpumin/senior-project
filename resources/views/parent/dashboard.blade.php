@@ -90,16 +90,21 @@ function convertStringDes($input){
                     <?php $ro=1; ?>
 
                     @foreach($datas as $key => $data)
-                        @if ($ro == 1)
-                            <li class="nav-item custom-nav w-50">
-                                <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
-                            </li>
-                        @else
-                            <li class="nav-item custom-nav w-50">
-                                <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
-                            </li>
-                        @endif
-                        <?php $ro++ ?>
+
+                    {{-- @if ($ro == 1) --}}
+                        <li class="nav-item custom-nav w-50">
+                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                        </li>
+                        {{-- @else --}}
+                        {{-- <li class="nav-item custom-nav w-50">
+                            <a class="nav-link" data-toggle="tab" href="#tab" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                        </li>
+
+                    @endif --}}
+
+
+
+                    <?php $ro++ ?>
                     @endforeach
                 {{-- <li class="nav-item custom-nav w-50">
                     <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">น้องคิด</a>
@@ -251,20 +256,9 @@ function convertStringDes($input){
         //then show the tab content of whatever option value was selected
         $('#tab' + dropdown).show();
         $('#tab' + dropdown).css('opacity','1');
-    });
 
-</script>
 
-{{-- คนแรก --}}
-<script type="text/javascript">
-
-// console.log(getCookie('user_id'));
-
-    // $.post( "parent/dashboard/info",{ user_id: getCookie('user_id')  } , function( data ) {
-    // console.log(data);
-    // });
-
-    $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
+        $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
     .done(function( result ) {
         // console.log(result['data']);
 
@@ -374,88 +368,123 @@ function convertStringDes($input){
 
         }
     });
+    });
+
+</script>
+
+{{-- คนแรก --}}
+<script type="text/javascript">
+
+$.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
+    .done(function( result ) {
+        // console.log(result['data']);
+
+        for(let i=0; i<result['data'].length; i++){
+
+            var day = [];
+            var nigth = [];
+            var date = [];
+
+            var sum_day = 0;
+            var sum_night = 0;
+
+            // var avg_day =0 ;
+            // var avg_night = 0;
+
+            // console.log(i);
+
+            // console.log(result['data'][0][0]);
+            // console.log(result['data'][1][0]);
+            // console.log(result['data'][2][0]);
+
+            for(let j=0; j<result['data'][1][0].length; j++){
+
+                sum_day += parseFloat(result['data'][i][1][j]);
+                sum_night += parseFloat(result['data'][i][2][j]);
+
+                // date.push(parseFloat(result['data'][i][0][j]));
+                // console.log(result['data'][i][0][j]);
+                day.push(parseFloat(result['data'][i][1][j]));
+                nigth.push(parseFloat(result['data'][i][2][j]));
+            }
+
+            // console.log((sum_day/result['data'][1][0].length).toFixed(2));
+            // console.log((sum_night/result['data'][1][0].length).toFixed(2));
 
 
-    // Highcharts.chart('tab1', {
-    //     chart: {
-    //         type: 'areaspline'
-    //     },
-    //     title: {
-    //         text: 'เวลาขึ้น-ลงเฉลี่ย (น้องคิด)'
-    //     },
-    //     subtitle: {
-    //         text: 'เช้า: 7.25 น. | เย็น: 16.21 น.'
-    //     },
-    //     xAxis: {
-    //         categories: [
-    //             '01/10/2562',
-    //             '02/10/2562',
-    //             '03/10/2562',
-    //             '04/10/2562',
-    //             '05/10/2562',
-    //             '06/10/2562',
-    //             '07/10/2562',
-    //             '08/10/2562',
-    //             '09/10/2562',
-    //             '10/10/2562',
-    //             '11/10/2562',
-    //             '12/10/2562',
-    //             '13/10/2562',
-    //             '14/10/2562'
-    //         ]
-    //     },
-    //     yAxis: {
-    //         title: {
-    //             text: 'เวลา'
-    //         },
-    //         labels: {
-    //             formatter: function () {
-    //                 return this.value + ' น.';
-    //             }
-    //         }
-    //     },
-    //     tooltip: {
-    //         crosshairs: true,
-    //         shared: true,
-    //         valueSuffix: ' น.',
-    //         valueDecimals: 2,
-    //         animation: true
-    //     },
-    //     plotOptions: {
-    //         spline: {
-    //             marker: {
-    //                 radius: 4,
-    //                 // lineColor: '#666666',
-    //                 lineWidth: 1
-    //             }
-    //         }
-    //     },
-    //     series: [
-    //         {
-    //             areaspline: {
-    //                 fillOpacity: 1
-    //             },
-    //             color: "#f6cb43",
-    //             name: 'เย็น',
-    //             marker: {
-    //                 symbol: 'circle'
-    //             },
-    //             data: [16.23, 16.12, 16.25, 16.34, 16.32, 16.26, 16.07, 16.27, 16.12, 16.11, 16.28, 16.12, 16.45 ,16.00]
-    //         },
-    //         {
-    //             areaspline: {
-    //                 fillOpacity: 1
-    //             },
-    //             color: "#fb7a2e",
-    //             name: 'เช้า',
-    //             marker: {
-    //                 symbol: 'cicle'
-    //             },
-    //             data: [7.27, 7.29, 7.21, 7.20, 7.12, 7.34, 7.36, 7.45, 7.23, 7.13, 7.23, 7.34, 7.54, 7.52]
+            // console.log('tab'+(i+1));
+            // // console.log(date);
+            // console.log(day);
+            // console.log(nigth);
 
-    //         }
-    //     ]
-    // });
+            Highcharts.chart('tab'+(i+1), {
+                chart: {
+                    type: 'areaspline'
+                },
+                title: {
+                    text: 'เวลาขึ้น-ลงเฉลี่ย (น้อง'+result['data'][i][3]+')'
+                },
+                subtitle: {
+                    text: 'เช้า: '+(sum_day/result['data'][1][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][1][0].length).toFixed(2)+' น.'
+                },
+                xAxis: {
+                    categories: result['data'][i][0]
+                },
+                yAxis: {
+                    title: {
+                        text: 'เวลา'
+                    },
+                    labels: {
+                        formatter: function () {
+                            return this.value + ' น.';
+                        }
+                    }
+                },
+                tooltip: {
+                    crosshairs: true,
+                    shared: true,
+                    valueSuffix: ' น.',
+                    valueDecimals: 2,
+                    animation: true
+                },
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            radius: 4,
+                            // lineColor: '#666666',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                series: [
+                    {
+                        areaspline: {
+                            fillOpacity: 1
+                        },
+                        color: "#f6cb43",
+                        name: 'เย็น',
+                        marker: {
+                            symbol: 'circle'
+                        },
+                        data: nigth
+                    },
+                    {
+                        areaspline: {
+                            fillOpacity: 1
+                        },
+                        color: "#fb7a2e",
+                        name: 'เช้า',
+                        marker: {
+                            symbol: 'cicle'
+                        },
+                        data: day
+
+                    }
+                ]
+            });
+
+        }
+    });
 </script>
 
 {{-- คนที่ 2 --}}
