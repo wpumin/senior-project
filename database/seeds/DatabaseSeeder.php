@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             NewsTableSeeder::class,
             NewStatusesTableSeeder::class,
             PaymentInformTableSeeder::class,
-            PaymentLogTableSeeder::class,
+            // PaymentLogTableSeeder::class,
             GetOnTableSeeder::class,
         ]);
     }
