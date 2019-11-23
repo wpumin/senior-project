@@ -37,6 +37,7 @@ Route::get('/create-newpassword', function () {
 
 // parent
 Route::group(array('prefix' => 'parent'), function () {
+
     Route::get('/index', function () {
         return view('parent.index');
     });
@@ -51,9 +52,10 @@ Route::group(array('prefix' => 'parent'), function () {
     Route::get('/profile', function () {
         return view('parent.profile');
     });
-    Route::get('/dashboard', function () {
-        return view('parent.dashboard');
-    });
+    Route::get('/dashboard/{id}', 'ParentController@list_student');
+
+    Route::post('/dashboard/info', 'ParentController@ajax_list_student');
+
     Route::get('/news/detail', function () {
         return view('news.news_detail');
     });

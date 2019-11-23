@@ -46,7 +46,7 @@
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
 <div class="card ui-tab-card maptoggle" style="height: 490px; transition: 0.3s all;">
-    <div class="card-body" style="padding: 15px; position: relative;"> 
+    <div class="card-body" style="padding: 15px; position: relative;">
         <span class="toggle-result flaticon-info-1 text-theme"></span>
         {{-- <div id="map" style=""></div> --}}
         <iframe type="text/html" frameborder="0" height="100%" width="100%" src="https://bear-bus.com/map" style="min-height: 435px; max-height: 900px" scrolling="no"></iframe>
@@ -55,7 +55,7 @@
 </div>
 
 <div class="text-center">
-    <a href="{{ url('parent/dashboard') }}"><button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow seeall">ดูทั้งหมด <i class="flaticon-keyboard-right-arrow-button ml-0"></i> </button></a>
+    <a href="<?php echo "/parent/dashboard/".$_COOKIE['user_id']; ?>"><button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow seeall">ดูทั้งหมด <i class="flaticon-keyboard-right-arrow-button ml-0"></i> </button></a>
 </div>
 
 
@@ -71,7 +71,7 @@
 
     // hide scrollup
     $(document).ready(function(){
-        $("#map").attr("src","https://bear-bus.com/map"); 
+        $("#map").attr("src","https://bear-bus.com/map");
         $('#scrollUp').css('z-index','-1');
     });
 
