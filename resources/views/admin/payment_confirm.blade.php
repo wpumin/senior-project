@@ -112,7 +112,7 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือนตุลาคม 2562</h3>
+                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: {{$month_now}} {{$year_now}}</h3>
             </div>
             {{-- <div class="dropdown-refresh">
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>

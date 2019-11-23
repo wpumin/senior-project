@@ -47,7 +47,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+
+                        <?php $count=1;?>
+
+                        @foreach($datas as $key=>$data)
+
+                        <tr>
+                                <td><?php print $count ?></td>
+                                <td>{{ $data['username'] }}</td>
+                                <td>{{ $data['first_name'] }}</td>
+                                <td>{{ $data['last_name'] }}</td>
+                                <td>{{ $data['phone'] }}</td>
+                                <td>{{ $data['date'] }}</td>
+                                <td>
+                                    {{-- {{ url('admin/management/parent/edit') }} --}}
+                                    <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                                </td>
+                            </tr>
+                            <?php $count++ ?>
+
+                    @endforeach
+                    {{-- <tr>
                         <td>1</td>
                         <td>tanongsak12</td>
                         <td>ธนงศักดิ์</td>
@@ -55,11 +75,11 @@
                         <td>089-811-5155</td>
                         <td>26/10/2562 17:02:23</td>
                         <td>
-                            {{-- {{ url('admin/management/parent/edit') }} --}}
+                            {{ url('admin/management/parent/edit') }} //ต้องปิดด้วย
                             <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
-                    </tr>
-                    <tr>
+                    </tr> --}}
+                    {{-- <tr>
                         <td>2</td>
                         <td>tanongsak12</td>
                         <td>ธนงศักดิ์</td>
@@ -322,7 +342,7 @@
                         <td>
                             <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                         </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -368,7 +388,7 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->  
+<!-- System error End Here -->
 
 @endsection
 
@@ -393,7 +413,7 @@
                         // ลบชื่อผู้ใช้นั้น
                         $('#deleteUser').modal('hide');
                     }
-                    
+
                 },
                 error: function(result){
                     $('#deleteUser').modal('hide');

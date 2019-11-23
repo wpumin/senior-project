@@ -94,15 +94,13 @@ Route::group(array('prefix' => 'admin'), function () {
     // Route::get('/payment/overview/car2', function () {
     //     return view('admin.payment_overview');
     // });
-    Route::get('/management/parent', function () {
-        return view('admin.parent_management');
-    });
+    Route::get('/management/parent', 'RegisterUserController@list_user');
+
     Route::get('/management/parent/create', function () {
         return view('admin.parent_management_create');
     });
-    Route::get('/management/staff', function () {
-        return view('admin.staff_management');
-    });
+    Route::get('/management/staff', 'RegisterUserController@list_staff');
+
     Route::get('/management/staff/create', function () {
         return view('admin.staff_management_create');
     });

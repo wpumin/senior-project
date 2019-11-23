@@ -41,6 +41,12 @@ class PaymentController extends Controller
         $bank_3 = 0;
         $bank_4 = 0;
 
+        $month_sub = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+        $month_now = $month_sub[date('m') - 1];
+        $year_now = date('Y') + 543;
+
+        // dd($year_now);
+
         foreach ($inform as $d) {
 
             $log = Payment_log::where('id', $d->payment_log_id)->first();
@@ -106,6 +112,8 @@ class PaymentController extends Controller
             'bank_2' => $bank_2,
             'bank_3' => $bank_3,
             'bank_4' => $bank_4,
+            'month_now' => $month_now,
+            'year_now' => $year_now
         ]);
     }
 
