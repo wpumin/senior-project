@@ -90,21 +90,16 @@ function convertStringDes($input){
                     <?php $ro=1; ?>
 
                     @foreach($datas as $key => $data)
-
-                    @if ($ro == 1)
-                        <li class="nav-item custom-nav w-50">
-                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
-                        </li>
+                        @if ($ro == 1)
+                            <li class="nav-item custom-nav w-50">
+                                <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                            </li>
                         @else
-                        <li class="nav-item custom-nav w-50">
-                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
-                        </li>
-
-                    @endif
-
-
-
-                    <?php $ro++ ?>
+                            <li class="nav-item custom-nav w-50">
+                                <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                            </li>
+                        @endif
+                        <?php $ro++ ?>
                     @endforeach
                 {{-- <li class="nav-item custom-nav w-50">
                     <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">น้องคิด</a>
