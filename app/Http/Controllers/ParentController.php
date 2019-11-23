@@ -109,7 +109,7 @@ class ParentController extends Controller
 
             // dd($s);
 
-            $info = DB::table('check_in')->where('card_id', $s->card_id)->limit(14)->get();
+            $info = DB::table('check_in')->where('card_id', $s->card_id)->orderBy('id', 'DESC')->limit(14)->get();
             // dd($info);
 
             // if ($info) {
