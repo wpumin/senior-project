@@ -70,7 +70,7 @@ function convertStringDes($input){
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
 <div class="card ui-tab-card maptoggle" style="height: 490px; transition: 0.3s all;">
-    <div class="card-body" style="padding: 15px; position: relative;"> 
+    <div class="card-body" style="padding: 15px; position: relative;">
         <span class="toggle-result flaticon-info-1 text-theme"></span>
         {{-- <div id="map" style=""></div> --}}
         <iframe type="text/html" frameborder="0" height="100%" width="100%" src="https://bear-bus.com/map" style="min-height: 435px; max-height: 900px" scrolling="no"></iframe>
@@ -92,6 +92,7 @@ function convertStringDes($input){
                 <li class="nav-item custom-nav w-50">
                     <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-selected="false">น้องมาร์ช</a>
                 </li>
+
             </ul>
             <div class="form-group d-block d-lg-none">
                 <select class="form-control select2" id="select-box">
@@ -196,7 +197,7 @@ function convertStringDes($input){
         //   console.log(dropdown);
         //then show the tab content of whatever option value was selected
         $('#tab' + dropdown).show();
-        $('#tab' + dropdown).css('opacity','1');                                        
+        $('#tab' + dropdown).css('opacity','1');
     });
 
 </script>
@@ -211,7 +212,7 @@ function convertStringDes($input){
             text: 'เวลาขึ้น-ลงเฉลี่ย (น้องคิด)'
         },
         subtitle: {
-            text: 'เช้า: 7.25 น. | เย็น: 16.25 น.'
+            text: 'เช้า: 7.25 น. | เย็น: 16.21 น.'
         },
         xAxis: {
             categories: [
@@ -371,7 +372,7 @@ function convertStringDes($input){
 
 <script>
     $(document).ready(function () {
-        $("#map").attr("src","https://bear-bus.com/map"); 
+        $("#map").attr("src","https://bear-bus.com/map");
     });
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
