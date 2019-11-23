@@ -93,12 +93,12 @@ function convertStringDes($input){
 
                     @if ($ro == 1)
                         <li class="nav-item custom-nav w-50">
-                            <a class="nav-link active" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="true">{{ $data['nickname'] }}</a>
+                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
                         </li>
                         @else
                         <li class="nav-item custom-nav w-50">
-                                <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
-                            </li>
+                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                        </li>
 
                     @endif
 
@@ -117,6 +117,7 @@ function convertStringDes($input){
             <div class="form-group d-block d-lg-none">
                 <select class="form-control select2" id="select-box">
                         <?php $count=1; ?>
+                        <option value="">เลือกบุตรหลานของท่าน</option>
 
                         @foreach($datas as $key => $data)
 
@@ -136,7 +137,7 @@ function convertStringDes($input){
                 @foreach($datas as $key => $data)
 
                 <div class="tab-pane fade show active" id="tab<?php print $tab ?>" role="tabpanel">
-                        <div id="tab1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <div id="tab1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 </div>
 
                 <?php $tab++ ?>
