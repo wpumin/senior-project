@@ -20,11 +20,11 @@
         </div>
         <div class="single-info-details">
             <div class="item-img">
-                <img src="{{ URL::asset('images/internal/figure/driver.jpg') }}" alt="parent profile" class="parent-profile">
+                    <img src="" id="pic_user" alt="parent profile" class="parent-profile">
             </div>
             <div class="item-content">
                 <div class="header-inline item-header">
-                    <h3 class="text-dark-medium font-medium text-center text-md-left">คุณ โกญจนาท เกษศิลป์</h3>
+                    <h3 class="text-dark-medium font-medium text-center text-md-left"><span id="prefix1"></span><span id="f_name1"></span> <span id="l_name1"></span></h3>
                     {{-- <div class="header-elements">
                         <ul>
                             <li><a href="#"><i class="far fa-edit"></i></a></li>
@@ -34,29 +34,29 @@
                 <div class="info-table table-responsive">
                     <table class="table text-nowrap">
                         <tbody>
-                           <tr>
+                           {{-- <tr>
                                 <td>ชื่อเล่น:</td>
-                                <td class="font-medium text-dark-medium">บาลาล้อน</td>
-                            </tr>
+                                <td class="font-medium text-dark-medium" id="nickname"></td>
+                            </tr> --}}
                             <tr>
                                 <td>คันรถ:</td>
-                                <td class="font-medium text-dark-medium">2 (โกญจนาท เกษศิลป์)</td>
+                                <td class="font-medium text-dark-medium"><span id="car_id"></span> (<span id="f_name2"></span> <span id="l_name2"></span>)</td>
                             </tr>
                             <tr>
                                 <td>ไลน์ไอดี:</td>
-                                <td class="font-medium text-dark-medium">dviver100</td>
+                                <td class="font-medium text-dark-medium"><span id="line_id"></span></td>
                             </tr>
                             <tr>
                                 <td>เบอร์โทร:</td>
-                                <td class="font-medium text-dark-medium">089-811-5155</td>
+                                <td class="font-medium text-dark-medium"><span id="phone"></span></td>
                             </tr>
                             <tr>
                                 <td>ชื่อผู้ใช้:</td>
-                                <td class="font-medium text-dark-medium">balalon</td>
+                                <td class="font-medium text-dark-medium"><span id="username"></span></td>
                             </tr>
                             <tr>
                                 <td>ที่อยู่:</td>
-                                <td class="font-medium text-dark-medium">49 ซอยเทอดไท 15 ถนนเทอดไท บางยี่เรือ ธนบุรี กทม. 10600</td>
+                                <td class="font-medium text-dark-medium"><span id="address"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -77,6 +77,56 @@
 
 @section('script')
     <script>
+         function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function deleteAllCookies() {
+
+        var res = document.cookie;
+        var multiple = res.split(";");
+
+
+        for (var i = 0; i < multiple.length; i++) {
+
+            var key = multiple[i].split("=");
+            document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        for (var i = 0; i < multiple.length; i++) {
+
+            var key = multiple[i].split("=");
+            document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
+        }
+        }
+
+        document.getElementById("prefix1").innerHTML = getCookie('prefix');
+        document.getElementById("f_name1").innerHTML = getCookie('f_name');
+        document.getElementById("l_name1").innerHTML = getCookie('l_name');
+        document.getElementById("f_name2").innerHTML = getCookie('f_name');
+        document.getElementById("l_name2").innerHTML = getCookie('l_name');
+        if(getCookie('image') != ""){
+            document.getElementById("pic_user").src = '{{URL::asset('')}}'+getCookie('image');
+        }else{
+            document.getElementById("pic_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
+        }
+        document.getElementById("car_id").innerHTML = getCookie('car_id');
+        document.getElementById("line_id").innerHTML = getCookie('line_id');
+        document.getElementById("phone").innerHTML = getCookie('phone');
+        document.getElementById("username").innerHTML = getCookie('username');
+        document.getElementById("address").innerHTML = getCookie('address');
         // don't remove use only this page
         jQuery(document).ready(function(){
             if (jQuery(window).width() > 567) {
