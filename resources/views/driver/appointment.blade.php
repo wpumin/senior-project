@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>วันที่ 31/09/2562</h3>
+            <h3>วันที่ {{ $date_ }}</h3>
             </div>
             {{-- <div class="dropdown-refresh">
                 <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
@@ -50,20 +50,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>มอส</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
-                        <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}"></a></td>
-                        <td>ทัพหลวง</td>
-                        <td>สมปอง ทองเหลือง</td>
-                        <td>แม่</td>
-                        <td>090-978-5703</td>
-                        <td>
-                            <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
-                        </td>
-                    </tr>
-                    <tr>
+
+                        <?php $count=1; ?>
+
+                        @foreach($datas as $key => $info)
+                        <tr>
+                                <td><?php print $count ?></td>
+                                <td>{{ $info['nickname'] }}</td>
+
+                                @if($info['app_status'] == 1)
+                                    <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                                @elseif($info['app_status'] == 2)
+                                    <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>
+                                @endif
+
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{asset($info['photo_stu'])}}"></a></td>
+
+                                <td>{{ $info['school'] }}</td>
+                                <td>{{ $info['parent_name'] }}</td>
+                                <td>{{ $info['relationship'] }}</td>
+                                <td>{{ $info['phone'] }}</td>
+
+                                @if($info['app_status'] == 1)
+                                <td>
+                                        <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran-{{ $info['no'] }}"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran-{{ $info['no'] }}"><span class="flaticon-correct-1"></span></a></div>
+                                </td>
+                                @elseif($info['app_status'] == 2)
+                                    <td>-</td>
+                                @endif
+
+                        </tr>
+
+                        <?php $count++ ?>
+                        @endforeach
+
+                    {{-- <tr>
                         <td>2</td>
                         <td>มอส</td>
                         <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
@@ -179,7 +200,7 @@
                         <td>
                             <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran"><span class="flaticon-correct-1"></span></a></div>
                         </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -187,9 +208,10 @@
 </div>
 <!-- Log Table Area End Here -->
 
+@foreach($datas as $key => $info)
 <!-- Delete Modal -->
 <div class="wrap-modal">
-    <div class="modal fade" id="deleteTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
+<div class="modal fade" id="deleteTran-{{ $info['no'] }}" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
         <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
@@ -198,7 +220,8 @@
                 <b>ยกเลิกการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['user_id']."/del/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    {{-- <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->
                 </div>
@@ -207,10 +230,12 @@
     </div>
 </div>
 <!-- Delete Modal End Here -->
+@endforeach
 
+@foreach($datas as $key => $info)
 <!-- Accept Modal -->
 <div class="wrap-modal">
-    <div class="modal fade" id="acceptTran" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
+    <div class="modal fade" id="acceptTran-{{ $info['no'] }}" tabindex="-1" role="dialog" aria-labelledby="deleteTran" aria-hidden="true">
         <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header _success">
@@ -219,7 +244,8 @@
                 <b>ยืนยันการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <button type="button" class="btn btn-secondary" id="confirmAccept">ยืนยัน</button>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['user_id']."/accept/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    {{-- <button type="button" class="btn btn-secondary" id="confirmAccept">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->
                 </div>
@@ -228,6 +254,7 @@
     </div>
 </div>
 <!-- Accept Modal End Here -->
+@endforeach
 
 <!-- Picture Modal-->
 <div class="modal fade" id="studentProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -270,15 +297,32 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->   
+<!-- System error End Here -->
 
 @endsection
 
 
 @section('script')
+
     <script>
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
         $('.sidebar-color').addClass('addHeight');
-        
+
         $('#confirmDelete').click(function(){
 
             $.ajax({
@@ -295,7 +339,7 @@
                     if(result.status == 'success') {
                         // ลบข้อมูลแบบ ajax
                     }
-                    
+
                 },
                 error: function(result){
                     $('#deleteTran').modal('hide');
@@ -303,6 +347,8 @@
                 }
             });
         });
+
+
 
         $('#confirmAccept').click(function(){
 
@@ -320,7 +366,7 @@
                     if(result.status == 'success') {
                         // ยืนยันการนัดหมายแบบ ajax
                     }
-                    
+
                 },
                 error: function(result){
                     $('#acceptTran').modal('hide');

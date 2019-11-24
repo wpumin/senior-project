@@ -66,9 +66,13 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/index', function () {
         return view('driver.index');
     });
-    Route::get('/appointment', function () {
-        return view('driver.appointment');
-    });
+
+    Route::get('/appointment/{car}', 'DriverController@list_student');
+
+    Route::get('/appointment/{car}/del/{id}', 'DriverController@del_app');
+
+    Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
+
     Route::get('/broadcast', function () {
         return view('driver.broadcast');
     });

@@ -334,7 +334,7 @@
                                     <a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
+                                    <a href="<?php echo "/driver/appointment/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
