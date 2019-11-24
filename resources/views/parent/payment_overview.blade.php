@@ -91,26 +91,26 @@
         <form class="mg-b-20">
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" autocomplete="off">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" autocomplete="off" id="myInputName" onkeyup="myFunction()">
                 </div>
                 <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" autocomplete="off">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" autocomplete="off" id="myInpNumber" onkeyup="myFunction()">
                 </div>
                 <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <select class="select2" autocomplete="off">
+                    <select class="select2" autocomplete="off" id="myInputMonth" onchange="myFunction()">
                         <option value="">ค้นหาด้วยรอบการชำระเงิน (12 เดือนย้อนหลัง) *</option>
-                        <option value="1">ต.ค. 2562</option>
-                        <option value="2">ก.ย. 2562</option>
-                        <option value="3">ส.ค. 2562</option>
-                        <option value="3">ก.ค. 2562</option>
-                        <option value="3">มิ.ย. 2562</option>
-                        <option value="3">พ.ค. 2562</option>
-                        <option value="3">เม.ย. 2562</option>
-                        <option value="3">มี.ค. 2562</option>
-                        <option value="3">ก.พ. 2562</option>
-                        <option value="3">ม.ค. 2562</option>
-                        <option value="3">ธ.ค. 2561</option>
-                        <option value="3">พ.ย. 2561</option>
+                        <option value="ต.ค.">ต.ค.</option>
+                        <option value="ก.ย.">ก.ย.</option>
+                        <option value="ส.ค.">ส.ค.</option>
+                        <option value="ก.ค.">ก.ค.</option>
+                        <option value="มิ.ย.">มิ.ย.</option>
+                        <option value="พ.ค.">พ.ค.</option>
+                        <option value="เม.ย.">เม.ย.</option>
+                        <option value="มี.ค.">มี.ค.</option>
+                        <option value="ก.พ.">ก.พ.</option>
+                        <option value="ม.ค.">ม.ค.</option>
+                        <option value="ธ.ค.">ธ.ค.</option>
+                        <option value="พ.ย.">พ.ย.</option>
                     </select>
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
@@ -119,7 +119,7 @@
             </div>
         </form>
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -524,5 +524,53 @@
 @endforeach
 
 <script src="//maps.googleapis.com/maps/api/js"></script>
+
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("myInputName");
+      var input_num = document.getElementById("myInpNumber");
+      var input_month = document.getElementById("myInputMonth");
+
+
+      filter = input.value;
+      filter_num = input_num.value;
+      filter_month = input_month.value;
+
+      table = document.getElementById("myTable");
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_num = tr[i].getElementsByTagName("td")[1]; //choose table that search.
+        td = tr[i].getElementsByTagName("td")[3]; //choose table that search.
+        td_month = tr[i].getElementsByTagName("td")[4]; //choose table that search.
+        // console.log(td);
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          txtValue_num = td_num.textContent || td_num.innerText;
+          txtValue_month = td_month.textContent || td_month.innerText;
+
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_num);
+        //   console.log('Total: '+txtValue_month);
+
+          if (txtValue.indexOf(filter) > -1 && txtValue_num.indexOf(filter_num) > -1 && txtValue_month.indexOf(filter_month) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
 
 @endsection
