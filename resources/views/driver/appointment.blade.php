@@ -18,24 +18,24 @@
                 <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
             </div> --}}
         </div>
-        <form class="mg-b-20">
+        {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
                 <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control" id="search_school">
                 </div>
                 <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control" id="search_phone">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -374,6 +374,54 @@
                 }
             });
         });
+
+        // ---------  Search ----------//
+
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("search_nickname");
+      var input_periodtime = document.getElementById("search_school");
+      var input_month = document.getElementById("search_phone");
+
+
+      filter = input.value;
+      filter_input_periodtime = input_periodtime.value;
+      filter_month = input_month.value;
+
+      table = document.getElementById("myTable");
+      console.log('Filter: '+filter);
+      console.log('Filter: '+filter_num);
+      console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
+        td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
+        // console.log(td);
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+          txtValue_date = td_date.textContent || td_date.innerText;
+
+          console.log('Total: '+txtValue);
+          console.log('Total: '+txtValue_period_time);
+          console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
     </script>
 @endsection
 
