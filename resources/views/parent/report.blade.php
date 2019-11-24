@@ -61,31 +61,31 @@
                         <h3>ประวัติการแจ้งร้องเรียน</h3>
                     </div>
                 </div>
-                <form class="mg-b-10 mb-5 mb-lg-0" id="reportForm">
+                {{-- <form class="mg-b-10 mb-5 mb-lg-0" id="reportForm"> --}}
                     <div class="row gutters-8 new-added-form">
                         <div class="col-lg-5 col-12 form-group">
-                            <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
+                            <input type="text" placeholder="ค้นหาด้วยวันที่" id="datetime" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt" style="right: 22px !important;"></i>
                         </div>
                         <div class="col-lg-5 col-12 form-group">
-                            <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
+                            <input type="text" placeholder="ค้นหาด้วยหัวข้อ" id="title_search" class="form-control">
                         </div>
                         <div class="col-lg-2 col-12 form-group">
-                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                            <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                         </div>
                     </div>
-                </form>
+                {{-- </form> --}}
                 <div class="notice-board-wrap" id="report">
                     {{-- ข้อมูลในระบบ Report จะส่งเข้ามาในส่วนนี้ --}}
 
                     <?php $count=1; ?>
 
                     @foreach($data as $key => $info)
-                    <div class="notice-list">
-                    <div class="post-date badge-orange">{{ $info['type_name'] }} | {{ $info['created_at'] }}</div>
-                    <h5 class="mb-2">หัวข้อ: {{ $info['title'] }}</h5>
-                    <p class="notice-title">{{ $info['content'] }}</p>
 
+                    <div class="notice-list">
+                    <div class="post-date badge-orange filterDiv-1">{{ $info['type_name'] }} | {{ $info['created_at'] }}</div>
+                    <h5 class="mb-2 filterDiv">หัวข้อ: {{ $info['title'] }}</h5>
+                    <p class="notice-title filterDiv-2">{{ $info['content'] }}</p>
                     </div>
 
                     <?php $count++ ?>
@@ -154,6 +154,73 @@
 @endsection
 
 @section('script')
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("datetime");
+      var input_title = document.getElementById("title_search");
+
+    //   var x = document.getElementsByClassName("filterDiv");
+    //   console.log(x[0]);
+    //   var input_month = document.getElementById("myInputMonth");
+
+
+      filter = input.value;
+      filter_num = input_title.value;
+    //   filter_month = input_month.value;
+
+      table = document.getElementById("report");
+
+      console.log('Filter: '+filter);
+      console.log('Filter: '+filter_num);
+    // //   console.log('Filter: '+filter_month);
+    //   tr = table.getElementsByTagName("tr");
+
+      var x = table.getElementsByClassName("filterDiv");
+      var y = table.getElementsByClassName("filterDiv-1");
+      var z = table.getElementsByClassName("filterDiv-2"); //content
+
+    //   console.log(x);
+    //   console.log(y);
+    //   console.log(z);
+    //   console.log(x.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < x.length; i++) {
+
+        td_num = x[i]; //choose table that search.
+        td_y = y[i]; //date
+        td_z = z[i];
+        // td = tr[i].getElementsByTagName("td")[3]; //choose table that search.
+        // td_month = tr[i].getElementsByTagName("td")[4]; //choose table that search.
+        // console.log(td_num);
+        // console.log(td_y);
+        // console.log(td_z);
+
+        if (td_num) {
+          txtValue = td_num.textContent || td_num.innerText;
+          txtValue_date = td_y.textContent || td_y.innerText;
+        //   txtValue_month = td_month.textContent || td_month.innerText;
+
+          console.log('Total: '+txtValue);
+          console.log('Total: '+txtValue_date);
+        //   console.log('Total: '+txtValue_month);
+
+          if (txtValue.indexOf(filter_num) > -1 || txtValue_date.match('/'+filter+'/g')) {
+            x[i].style.display = "";
+            y[i].style.display = "";
+            z[i].style.display = "";
+          } else {
+            x[i].style.display = "none";
+            y[i].style.display = "none";
+            z[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
 <script>
 
 
