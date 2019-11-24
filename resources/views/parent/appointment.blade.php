@@ -57,7 +57,7 @@
                         <h3>ประวัติการแจ้งเดินทางเอง</h3>
                     </div>
                 </div>
-                <form class="mg-b-10">
+                {{-- <form class="mg-b-10"> --}}
                     <div class="row mb-5 mb-lg-0 new-added-form">
                         <div class="col-lg-4 col-12 form-group pr-lg-0">
                             <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control" id="myInputName" >
@@ -78,7 +78,7 @@
                             {{-- right here --}}
                         </div>
                     </div>
-                </form>
+                {{-- </form> --}}
                 <div class="table-responsive student-profile-table">
                         <table class="table display data-table text-nowrap" id="myTable">
                             <thead>
