@@ -60,26 +60,27 @@
                 <form class="mg-b-10">
                     <div class="row mb-5 mb-lg-0 new-added-form">
                         <div class="col-lg-4 col-12 form-group pr-lg-0">
-                            <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control">
+                            <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control" id="myInputName" >
                         </div>
                         <div class="col-lg-3 col-12 form-group pr-lg-0">
-                            <select class="select2" autocomplete="off">
+                            <select class="select2" autocomplete="off" id="myInputPeriodTime">
                                 <option value="">ค้นหาด้วยช่วงเวลา</option>
-                                <option value="1">เช้า (ขาไป)</option>
-                                <option value="2">เย็น (ขากลับ)</option>
+                                <option value="ช่วงเช้า">เช้า (ขาไป)</option>
+                                <option value="ช่วงเย็น">เย็น (ขากลับ)</option>
                             </select>
                         </div>
                         <div class="col-lg-3 col-12 form-group">
-                            <input type="text"id="appointment_at" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
+                            <input type="text" id="appointment_at" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-lg-2 col-12 form-group pl-lg-0">
-                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                            <button onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                            {{-- right here --}}
                         </div>
                     </div>
                 </form>
                 <div class="table-responsive student-profile-table">
-                        <table class="table display data-table text-nowrap">
+                        <table class="table display data-table text-nowrap" id="myTable">
                             <thead>
                                 <tr class="bg-special-orange">
                                     <th>ลำดับ</th>
@@ -232,7 +233,53 @@
 
     });
 
+    // ---------  Search ----------//
 
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("myInputName");
+      var input_periodtime = document.getElementById("myInputPeriodTime");
+      var input_month = document.getElementById("appointment_at");
+
+
+      filter = input.value;
+      filter_input_periodtime = input_periodtime.value;
+      filter_month = input_month.value;
+
+      table = document.getElementById("myTable");
+      console.log('Filter: '+filter);
+      console.log('Filter: '+filter_num);
+      console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[2]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
+        td_date = tr[i].getElementsByTagName("td")[3]; //choose table that search. (Date)
+        // console.log(td);
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+          txtValue_date = td_date.textContent || td_date.innerText;
+
+          console.log('Total: '+txtValue);
+          console.log('Total: '+txtValue_period_time);
+          console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
 
     // $.ajax({
     //             url: '/tasks/refresh/appointment',
