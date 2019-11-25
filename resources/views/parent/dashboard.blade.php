@@ -135,12 +135,10 @@ function convertStringDes($input){
                 <?php $tab=1; ?>
 
                 @foreach($datas as $key => $data)
-
-                <div class="tab-pane fade show active" id="tab<?php print $tab ?>" role="tabpanel">
-                    <div id="tab1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                </div>
-
-                <?php $tab++ ?>
+                    <div class="tab-pane fade show active" id="tab<?php print $tab ?>" role="tabpanel">
+                        <div style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    </div>
+                    <?php $tab++ ?>
                 @endforeach
             {{-- <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                 <div id="tab1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -256,118 +254,131 @@ function convertStringDes($input){
         //then show the tab content of whatever option value was selected
         $('#tab' + dropdown).show();
         $('#tab' + dropdown).css('opacity','1');
+        
 
 
         $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
-    .done(function( result ) {
-        // console.log(result['data']);
+        .done(function( result ) {
+            // console.log(result['data']);
 
-        for(let i=0; i<result['data'].length; i++){
+            for(let i=0; i<result['data'].length; i++){
 
-            var day = [];
-            var nigth = [];
-            var date = [];
+                var day = [];
+                var nigth = [];
+                var date = [];
 
-            var sum_day = 0;
-            var sum_night = 0;
+                var sum_day = 0;
+                var sum_night = 0;
 
-            // var avg_day =0 ;
-            // var avg_night = 0;
+                // var avg_day =0 ;
+                // var avg_night = 0;
 
-            // console.log(i);
+                // console.log(i);
 
-            // console.log(result['data'][0][0]);
-            // console.log(result['data'][1][0]);
-            // console.log(result['data'][2][0]);
+                // console.log(result['data'][0][0]);
+                // console.log(result['data'][1][0]);
+                // console.log(result['data'][2][0]);
 
-            for(let j=0; j<result['data'][1][0].length; j++){
+                for(let j=0; j<result['data'][1][0].length; j++){
 
-                sum_day += parseFloat(result['data'][i][1][j]);
-                sum_night += parseFloat(result['data'][i][2][j]);
+                    sum_day += parseFloat(result['data'][i][1][j]);
+                    sum_night += parseFloat(result['data'][i][2][j]);
 
-                // date.push(parseFloat(result['data'][i][0][j]));
-                // console.log(result['data'][i][0][j]);
-                day.push(parseFloat(result['data'][i][1][j]));
-                nigth.push(parseFloat(result['data'][i][2][j]));
-            }
+                    // date.push(parseFloat(result['data'][i][0][j]));
+                    // console.log(result['data'][i][0][j]);
+                    day.push(parseFloat(result['data'][i][1][j]));
+                    nigth.push(parseFloat(result['data'][i][2][j]));
+                }
 
-            // console.log((sum_day/result['data'][1][0].length).toFixed(2));
-            // console.log((sum_night/result['data'][1][0].length).toFixed(2));
+                // console.log((sum_day/result['data'][1][0].length).toFixed(2));
+                // console.log((sum_night/result['data'][1][0].length).toFixed(2));
 
 
-            // console.log('tab'+(i+1));
-            // // console.log(date);
-            // console.log(day);
-            // console.log(nigth);
+                // console.log('tab'+(i+1));
+                // // console.log(date);
+                // console.log(day);
+                // console.log(nigth);
 
-            Highcharts.chart('tab'+(i+1), {
-                chart: {
-                    type: 'areaspline'
-                },
-                title: {
-                    text: 'เวลาขึ้น-ลงเฉลี่ย (น้อง'+result['data'][i][3]+')'
-                },
-                subtitle: {
-                    text: 'เช้า: '+(sum_day/result['data'][1][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][1][0].length).toFixed(2)+' น.'
-                },
-                xAxis: {
-                    categories: result['data'][i][0]
-                },
-                yAxis: {
+                Highcharts.chart('tab'+(i+1), {
+                    chart: {
+                        type: 'areaspline'
+                    },
                     title: {
-                        text: 'เวลา'
+                        text: 'เวลาขึ้น-ลงเฉลี่ย (น้อง'+result['data'][i][3]+')'
                     },
-                    labels: {
-                        formatter: function () {
-                            return this.value + ' น.';
-                        }
-                    }
-                },
-                tooltip: {
-                    crosshairs: true,
-                    shared: true,
-                    valueSuffix: ' น.',
-                    valueDecimals: 2,
-                    animation: true
-                },
-                plotOptions: {
-                    spline: {
-                        marker: {
-                            radius: 4,
-                            // lineColor: '#666666',
-                            lineWidth: 1
-                        }
-                    }
-                },
-                series: [
-                    {
-                        areaspline: {
-                            fillOpacity: 1
-                        },
-                        color: "#f6cb43",
-                        name: 'เย็น',
-                        marker: {
-                            symbol: 'circle'
-                        },
-                        data: nigth
+                    subtitle: {
+                        text: 'เช้า: '+(sum_day/result['data'][1][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][1][0].length).toFixed(2)+' น.'
                     },
-                    {
-                        areaspline: {
-                            fillOpacity: 1
+                    xAxis: {
+                        categories: result['data'][i][0]
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'เวลา'
                         },
-                        color: "#fb7a2e",
-                        name: 'เช้า',
-                        marker: {
-                            symbol: 'cicle'
+                        labels: {
+                            formatter: function () {
+                                return this.value + ' น.';
+                            }
+                        }
+                    },
+                    tooltip: {
+                        crosshairs: true,
+                        shared: true,
+                        valueSuffix: ' น.',
+                        valueDecimals: 2,
+                        animation: true
+                    },
+                    plotOptions: {
+                        spline: {
+                            marker: {
+                                radius: 4,
+                                // lineColor: '#666666',
+                                lineWidth: 1
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            areaspline: {
+                                fillOpacity: 1
+                            },
+                            color: "#f6cb43",
+                            name: 'เย็น',
+                            marker: {
+                                symbol: 'circle'
+                            },
+                            data: nigth
                         },
-                        data: day
+                        {
+                            areaspline: {
+                                fillOpacity: 1
+                            },
+                            color: "#fb7a2e",
+                            name: 'เช้า',
+                            marker: {
+                                symbol: 'cicle'
+                            },
+                            data: day
 
-                    }
-                ]
-            });
+                        }
+                    ]
+                });
 
-        }
+            }
+        });
     });
+
+    $('.nav-link').click(function () {
+        var idNav = $(this).attr('href');
+        // console.log(idNav);
+        //first hide all tabs again when a new option is selected
+        $('.tab-pane').hide();
+        //   $('.tab-pane.fade').fadeOut();
+        //   console.log(dropdown);
+        //then show the tab content of whatever option value was selected
+        $(idNav).show();
+        $(idNav).css('opacity','1');
     });
 
 </script>
