@@ -64,7 +64,7 @@
                                     <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>
                                 @endif
 
-                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" src="{{asset($info['photo_stu'])}}"></a></td>
+                                <td class="text-center student-profile"><a href="#" data-target="#studentProfile-{{ $info['no'] }}" data-toggle="modal"><img class="myImg-{{ $info['no'] }}" src="{{asset($info['photo_stu'])}}"></a></td>
 
                                 <td>{{ $info['school'] }}</td>
                                 <td>{{ $info['parent_name'] }}</td>
@@ -256,29 +256,32 @@
 <!-- Accept Modal End Here -->
 @endforeach
 
+@foreach($datas as $key => $info)
 <!-- Picture Modal-->
-<div class="modal fade" id="studentProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="studentProfile-{{ $info['no'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog2 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
-            </div>
-            <div class="modal-body">
-            <div class="row">
-                <div class="col-md-12 modal_body_content px-4">
-                <h2 class="mb-2 text-special-orange" id="nickname" >มอส</h2>
-                <p>กฤตภาส แสงวิกุลกิจ | โรงเรียนคลองบ้านโป่ง</p>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <img class="w-100" id="imgProfile" src="{{ URL::asset('images/internal/figure/nongmos.jpg') }}" alt="student profile">
+                <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 modal_body_content px-4">
+                    <h2 class="mb-2 text-special-orange" id="nickname" >{{ $info['nickname'] }}</h2>
+                    <p>{{ $info['fullname'] }} | {{ $info['school'] }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="w-100" id="imgProfile-{{ $info['no'] }}" src="{{asset($info['photo_stu'])}}" alt="student profile">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Picture Modal End Here -->
+@endforeach
 
 <!-- Modal: System error-->
 <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">

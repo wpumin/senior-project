@@ -61,6 +61,7 @@ class DriverController extends Controller
                 $data['info'][$count++] = [
                     'no' => $appointment->id,
                     'nickname' => $s->nickname,
+                    'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
                     'app_status' => $appointment->app_status_id,
                     'photo_stu' => $s->image,
                     'school' => $school->name_school,
@@ -114,6 +115,7 @@ class DriverController extends Controller
 
                 $data['info'][$count++] = [
                     'no' => $appointment->id,
+                    'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
                     'nickname' => $s->nickname,
                     'app_status' => $appointment->app_status_id,
                     'photo_stu' => $s->image,
@@ -170,6 +172,7 @@ class DriverController extends Controller
 
                 $data['info'][$count++] = [
                     'no' => $appointment->id,
+                    'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
                     'nickname' => $s->nickname,
                     'app_status' => $appointment->app_status_id,
                     'photo_stu' => $s->image,
