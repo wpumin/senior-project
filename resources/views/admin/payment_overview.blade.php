@@ -113,7 +113,7 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mb-5 mb-lg-0 new-added-form">
+        {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
@@ -137,25 +137,26 @@
                     </select>
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                        <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
+                    {{-- <select class="form-control select2" autocomplete="off" id="search_nickname">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
                         <option value="2">จ่า</option>
                         <option value="3">สกาย</option>
                         <option value="3">แพรว</option>
-                    </select>
+                    </select> --}}
                 </div>
                 <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" id="search_key">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
 
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -437,5 +438,54 @@
 
 @section('script')
 
+<script>
+
+function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("search_nickname");
+      var input_periodtime = document.getElementById("search_key");
+    //   var input_month = document.getElementById("search_phone");
+
+
+      filter = input.value;
+      filter_input_periodtime = input_periodtime.value;
+    //   filter_month = input_month.value;
+
+      table = document.getElementById("myTable");
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
+        // td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
+        // console.log(td);
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+        //   txtValue_date = td_date.textContent || td_date.innerText;
+
+          console.log('Total: '+txtValue);
+          console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+</script>
 
 @endsection
