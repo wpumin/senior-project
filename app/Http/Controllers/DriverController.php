@@ -51,6 +51,7 @@ class DriverController extends Controller
 
             $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
 
+
             if ($appointment) {
                 $app_status = App_status::where('id', $appointment->app_status_id)->first();
                 $school = School::where('id', $s->school_id)->first();
