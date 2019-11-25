@@ -107,6 +107,10 @@ Route::group(array('prefix' => 'admin'), function () {
     // });
     Route::get('/management/parent', 'RegisterUserController@list_user');
 
+    Route::get('/management/parent/edit/{id}', 'RegisterUserController@edit_user');
+
+    Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
+
     Route::get('/management/parent/create', function () {
         return view('admin.parent_management_create');
     });

@@ -264,7 +264,7 @@
                         <p class="text-center mb-2 small">จ่ายเมื่อ {{ $data['date'] }}</p>
                         <hr>
                         <div class="mt-2">
-                                <a class="btn btn-secondary" href="<?php echo "/admin/confirm/".$_COOKIE['car_id']."/"; ?>{{ $data['tran_key'] }}">ยืนยัน</a>
+                            <a class="btn btn-secondary" href="<?php echo "/admin/confirm/".$_COOKIE['car_id']."/"; ?>{{ $data['tran_key'] }}">ยืนยัน</a>
                             {{-- <button type="button" class="btn btn-secondary" id="confirmPayment">ยืนยัน</button> --}}
                             <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                         </div>

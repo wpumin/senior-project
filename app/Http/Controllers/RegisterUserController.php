@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Relationship;
 use App\Role;
+use App\School;
+use App\Student;
 use App\User;
 use LogicException;
 use Illuminate\Http\Request;
@@ -131,6 +134,110 @@ class RegisterUserController extends Controller
 
                 $data['info'][$count++] = [
 
+                    'no' => $u->id,
+                    'username' => $u->username,
+                    'first_name' => $u->first_name,
+                    'last_name' => $u->last_name,
+                    'phone' => $u->phone,
+                    'date' => $u->created_at,
+
+
+                ];
+            }
+        }
+
+        // dd($data['info']);
+
+        return view('admin.parent_management', [
+            'datas' => $data['info'],
+
+        ]);
+    }
+
+    public function edit_user($id)
+    {
+
+        $user = User::where('id', $id)->first();
+
+        $data['info'] = [];
+        $count = 0;
+
+        $students = Student::where('user_id', $user->id)->get();
+
+        // dd($user->role_id);
+
+        if ($user->role_id == '1') {
+
+            $relation = Relationship::where('id', $user->relationship_id)->first();
+        }
+
+
+        foreach ($students as $u) {
+            // dd($u);
+
+
+            if ($u) {
+
+                $school = School::where('id', $u->school_id)->first();
+
+                $data['info'][$count++] = [
+
+                    'no' => $u->id,
+                    'image' => $u->image,
+                    'prefix' => $u->prefix,
+                    'first_name' => $u->first_name,
+                    'last_name' => $u->last_name,
+                    'nickname' => $u->nickname,
+                    'phone' => $u->phone,
+                    'school' => $school->name_school,
+                    'car_id' => $u->car_id
+
+
+
+                ];
+            }
+        }
+
+        // dd($data['info']);
+
+        return view('admin.parent_management_edit', [
+            'datas' => $data['info'],
+            'no' => $user->id,
+            'prefix' => $user->prefix,
+            'image' => $user->image,
+            'relation' => $relation->name,
+            'username' => $user->username,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'phone' => $user->phone,
+            'line_id' => $user->line_id,
+            'email' => $user->email,
+            'address' => $user->address,
+            'date' => $user->created_at,
+            'lat' => $user->lattitude,
+            'long' => $user->longtitude,
+
+        ]);
+    }
+
+    public function del_user($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->delete();
+
+        $data['info'] = [];
+        $count = 0;
+
+        $users = User::get();
+        // dd($users);
+
+        foreach ($users as $u) {
+
+            if ($u->role_id == '1') {
+
+                $data['info'][$count++] = [
+
+                    'no' => $u->id,
                     'username' => $u->username,
                     'first_name' => $u->first_name,
                     'last_name' => $u->last_name,

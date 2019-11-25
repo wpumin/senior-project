@@ -61,7 +61,8 @@
                                 <td>{{ $data['date'] }}</td>
                                 <td>
                                     {{-- {{ url('admin/management/parent/edit') }} --}}
-                                    <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                                    <a href="<?php echo "/admin/management/parent/edit/"; ?>{{ $data['no'] }}"><span class="flaticon-edit"></span></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteUser-{{ $data['no'] }}"><span class="flaticon-bin"></span></a>
                                 </td>
                             </tr>
                             <?php $count++ ?>
@@ -350,9 +351,10 @@
 </div>
 <!-- Parent Table Area End Here -->
 
+@foreach($datas as $key=>$data)
 <!-- Accept Modal -->
 <div class="wrap-modal">
-    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteUser" aria-hidden="true">
+    <div class="modal fade" id="deleteUser-{{ $data['no'] }}" tabindex="-1" role="dialog" aria-labelledby="deleteUser" aria-hidden="true">
         <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header _success">
@@ -360,7 +362,8 @@
                 <div class="modal-body my-4 text-center">
                     <b>ยืนยันการลบผู้ใช้งานใช่หรือไม่</b>
                     <div class="modal-button text-center mt-3">
-                        <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button>
+                        <a class="btn btn-secondary" id="confirmDelete" href="<?php echo "/admin/management/parent/del/"; ?>{{ $data['no'] }}">ยืนยัน</a>
+                        {{-- <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button> --}}
                         <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                         <!-- data-dismiss="modal" -->
                     </div>
@@ -370,6 +373,7 @@
     </div>
 </div>
 <!-- Accept Modal End Here -->
+@endforeach
 
 <!-- Modal: System error-->
 <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
@@ -396,30 +400,9 @@
     <script>
 
         // ajax
-        $('#confirmDelete').click(function(){
+        // $('#confirmDelete').click(function(){
 
-            $.ajax({
-                type: "POST",
-                url: "",
-                // url: "http://localhost:8000/delete-user",
-                headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                cache:false,
-                success: function(result){
-
-                    // ยืนยันลำเร็จ
-                    if(result.status == 'success') {
-                        // ลบชื่อผู้ใช้นั้น
-                        $('#deleteUser').modal('hide');
-                    }
-
-                },
-                error: function(result){
-                    $('#deleteUser').modal('hide');
-                    $(".wrap-modal > #systemError").modal('show');
-                }
-            });
-        });
+        //     window.location.href = "/admin/management/parent";
+        // });
     </script>
 @endsection
