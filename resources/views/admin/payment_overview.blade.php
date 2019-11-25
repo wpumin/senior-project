@@ -95,7 +95,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">รายได้ปัจจุบัน</div>
-                        <div class="item-number"><span>฿</span><span class="counter" id="self" data-num="32400">32400</span></div>
+                    <div class="item-number"><span>฿</span><span class="counter" id="self" data-num="{{ $income }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือนตุลาคม 2562</h3>
+                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือน{{$display_month}} {{$display_year}}</h3>
             </div>
             {{-- <div class="dropdown-refresh">
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
@@ -432,49 +432,10 @@
 </div>
 <!-- Payment Table Area End Here -->
 
-<!-- Report Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog1 modal-md modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 modal_body_content px-4">
-                    <table class="detail">
-                        <tbody>
-                            <tr>
-                                <td style="width: 30%;">หัวข้อ:</td>
-                                <td>คนขับรถโกญจนาท ขับรถเร็วครับ</td>
-                            </tr>
-                            <tr>
-                                <td>ประเภท:</td>
-                                <td>พฤติกรรมคนขับ</td>
-                            </tr>
-                            <tr>
-                                <td>เวลาแจ้ง:</td>
-                                <td>24/10/2562 06:54:23</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="my-4">
-                        รายละเอียด: <br>
-                        รถรับส่งนักเรียน (โกญจนาท เกษศิลป์) ขับเร็ว
-                        มากครับ วันก่อนผมเจอเส้นโรงเรียนบ้านไร่วิทยา
-                        ยังไงรบกวนช่วยอบรมคนขับด้วยนะครับ เป็นห่วง
-                        บุตรหลานจริง ๆ
-                    </p>
-                    <p class="text-right mb-2">
-                        นาย สมัคร ลิลิตสัจจะ <br>
-                        087-234-2721
-                    </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Report Modal End Here -->
+
+@endsection
+
+@section('script')
+
 
 @endsection

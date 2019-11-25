@@ -35,7 +35,6 @@ class PaymentController extends Controller
             $car_num = 2;
         }
 
-        // dd($inform);
         $bank_1 = 0;
         $bank_2 = 0;
         $bank_3 = 0;
@@ -45,14 +44,12 @@ class PaymentController extends Controller
         $month_now = $month_sub[date('m') - 1];
         $year_now = date('Y') + 543;
 
-        // dd($year_now);
 
         foreach ($inform as $d) {
 
             $log = Payment_log::where('id', $d->payment_log_id)->first();
             $std = Student::where('id', $log->student_id)->first();
 
-            // dd($d);
 
             if ($std->car_id == $car_num) {
 
@@ -97,14 +94,8 @@ class PaymentController extends Controller
                     'price' => $district->price,
                 ];
             }
-
-
-
-            // dd($data['info']);
-            // var_dump($data['info']);
         }
 
-        // dd($data['info']);
 
         return view('admin.payment_confirm', [
             'datas' => $data['info'],
@@ -124,11 +115,9 @@ class PaymentController extends Controller
 
             $validate = Validator::make($this->request->all(), [
                 'tran_key' => 'required',
-                // 'student_id' => 'required',
                 'timepicker' => 'required',
                 'date' => 'required',
                 'content' => '',
-                // 'bill_image' => '',
                 'bank_id' => 'required',
                 // 'pm_status_id' => 'required' defalut : 1
             ]);
@@ -151,32 +140,6 @@ class PaymentController extends Controller
             $payment->content = $this->request->input('content');
             $payment->bank_id = $this->request->input('bank_id');
             $payment->pm_status_id = 1;
-            // $word_date = explode("/", $this->request->input('date'));
-            // $word_time = explode(":", $this->request->input('timepicker'));
-
-            // $date = '';
-            // $time = '';
-
-            // foreach ($word_time as $key) {
-            //     $time .= $key;
-            // }
-            // foreach ($word_date as $key) {
-            //     $date .= $key;
-            // }
-            // $result = $date . '_' . $time;
-
-            // dd($this->request->input('timepicker'));
-
-
-            // if ($this->request->file('bill_image')) {
-            //     $image_filename = $this->request->file('bill_image')->getClientOriginalName();
-            //     // $image_filename = base64_encode(file_get_contents($request->file('bill_image')));
-            //     $image_name = $this->request->input('tran_key') . '_' . $result . '_' . $image_filename;
-            //     $public_path = 'images/Payments/';
-            //     $destination = base_path() . "/public/" . $public_path;
-            //     $this->request->file('bill_image')->move($destination, $image_name);
-            //     $payment->bill_image = $public_path . $image_name;
-            // }
             $payment->save();
 
             DB::commit();
@@ -194,18 +157,12 @@ class PaymentController extends Controller
         $data['info'] = [];
         $count = 0;
 
-        // dd($students);
-
         foreach ($students as $d) {
 
             $bill = Payment_log::where('student_id', $d->id)->get();
 
-            // dd($bill);
-
             foreach ($bill as $b) {
 
-                // $status_bill = Payment_status::where('id', $b->pm_status_id)->first();
-                // dd($b);
                 $district = District::where('id', $d->district_id)->first();
                 $school = School::where('id', $d->school_id)->first();
                 $car = Car::where('id', $d->car_id)->first();
@@ -229,10 +186,6 @@ class PaymentController extends Controller
         }
 
 
-        // dd($data['info']);
-
-
-
         return view('parent.payment_overview', [
             'data' => $data['info']
         ]);
@@ -246,18 +199,12 @@ class PaymentController extends Controller
         $data['info'] = [];
         $count = 0;
 
-        // dd($students);
-
         foreach ($students as $d) {
 
             $bill = Payment_log::where('student_id', $d->id)->get();
 
-            // dd($bill);
-
             foreach ($bill as $b) {
 
-                // $status_bill = Payment_status::where('id', $b->pm_status_id)->first();
-                // dd($b);
                 $district = District::where('id', $d->district_id)->first();
                 $school = School::where('id', $d->school_id)->first();
                 $car = Car::where('id', $d->car_id)->first();
@@ -269,10 +216,6 @@ class PaymentController extends Controller
                 ];
             }
         }
-
-
-        // dd($data['info']);
-
 
 
         return view('parent.payment_confirm', [
@@ -293,9 +236,11 @@ class PaymentController extends Controller
 
         $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
-        // dd($status_1);
+        $month_sub_full = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
 
-        // $students = Student::where('user_id', $id)->get();
+        $display_month = $month_sub_full[date('m') - 1];
+        $display_year = date('Y') + 543;
+
 
         $data['info'] = [];
         $count = 0;
@@ -303,6 +248,8 @@ class PaymentController extends Controller
         $status_1 = 0; //ค้างชำระ
         $status_2 = 0; //ชำระ
         $status_3 = 0; //รอการยืนยัน
+
+        $income = 0;
 
 
         foreach ($bill as $b) {
@@ -320,6 +267,7 @@ class PaymentController extends Controller
                     $status_1++;
                 } else if ($b->pm_status_id == '2') {
                     $status_2++;
+                    $income += $district->price;
                 } else if ($b->pm_status_id == '3') {
                     $status_3++;
                 }
@@ -350,6 +298,9 @@ class PaymentController extends Controller
             'no_1' => $status_1,
             'no_2' => $status_2,
             'no_3' => $status_3,
+            'income' => $income,
+            'display_month' => $display_month,
+            'display_year' => $display_year
         ]);
     }
 
