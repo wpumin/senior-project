@@ -391,9 +391,9 @@
       filter_month = input_month.value;
 
       table = document.getElementById("myTable");
-      console.log('Filter: '+filter);
-      console.log('Filter: '+filter_num);
-      console.log('Filter: '+filter_month);
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
 
     //   console.log(tr.length);
@@ -410,9 +410,9 @@
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
           txtValue_date = td_date.textContent || td_date.innerText;
 
-          console.log('Total: '+txtValue);
-          console.log('Total: '+txtValue_period_time);
-          console.log('Total: '+txtValue_date);
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
             tr[i].style.display = "";
