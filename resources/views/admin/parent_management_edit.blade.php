@@ -15,8 +15,8 @@
                 <h3>ข้อมูลผู้ปกครอง</h3>
             </div>
         </div>
-        <form id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
-            @csrf
+        {{-- <form id="addUserForm" class="mb-5 mb-lg-0 new-added-form"> --}}
+            {{-- @csrf --}}
             <div class="row">
                 <div class="col-lg-12 col-12 form-group">
                      <div class="uploader" >
@@ -75,6 +75,10 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input  type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control">
+                </div>
+                {{-- สร้าง function with parameter send pass ajax with data (User)  --}}
+                <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
+                        <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="" value="ยืนยัน">
                 </div>
             </div>
 
@@ -145,6 +149,13 @@
                                             {{-- <a href=" echo "/admin/management/parent/edit/"; ?>{{ $data['no'] }}" class="btn-fill-lg bg-blue-dark btn-hover-yellow">ยืนยัน</span></a> --}}
 
                                             {{-- <button type="button" name="remove" id="add" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"><span class="flaticon-plus"></span></span> เพิ่มบุตรหลาน</button> --}}
+
+
+                                            {{-- สร้าง function with parameter send pass ajax with data (Student)  --}}
+
+                                            <div class="col-12 form-group mg-t-8 text-right">
+                                                <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="" value="ยืนยัน">
+                                            </div>
                                         </div>
                                     </div>
                                     <hr class="mb-5 hr-adduser">
@@ -155,7 +166,7 @@
 
             @endforeach
 
-            <div class="row" id="student-profile">
+            {{-- <div class="row" id="student-profile">
                     <div class="col-lg-12 col-12 form-group mb-2">
                         <hr class="mb-5 hr-adduser">
                         <div class="heading-layout1">
@@ -218,7 +229,7 @@
                         </div>
                         <hr class="mb-5 hr-adduser">
                     </div>
-                </div>
+                </div> --}}
 
 
             <div class="row">
@@ -251,11 +262,11 @@
                 <div class="col-12 form-group">
                     <div type="button" class="map w-100" id="geomap" style="width:100%; height:25em;"></div>
                 </div>
-                <div class="col-12 form-group mg-t-8 text-right">
-                    <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="addUserBtn" value="ยืนยัน">
-                </div>
+                {{-- <div class="col-12 form-group mg-t-8 text-right">
+                    <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="" value="ยืนยัน">
+                </div> --}}
             </div>
-        </form>
+        {{-- </form> --}}
     </div>
 </div>
 <!-- Parent Table Area End Here -->
@@ -308,11 +319,11 @@
     <script>
 
         $(document).ready(function(){
-            $("#addUserBtn").submit(function(event){
+            // $("#addUserBtn").submit(function(event){
 
-                submitForm();
-                return false;
-            });
+            //     submitForm();
+            //     return false;
+            // });
         });
 
         function submitForm(){
