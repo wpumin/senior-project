@@ -473,13 +473,14 @@ function myFunction() {
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
         //   txtValue_date = td_date.textContent || td_date.innerText;
 
-          console.log('Total: '+txtValue);
-          console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
         //   console.log('Total: '+txtValue_date);
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1) {
             tr[i].style.display = "";
           } else {
+            // tr[1].innerHTML = "ไม่มีข้อมูล";
             tr[i].style.display = "none";
           }
         }
