@@ -34,9 +34,9 @@ class ReportController extends Controller
                 $errors = $validate->errors();
                 return $this->responseRequestError('field_required');
             }
-            // $day = date('d');
-            // $month = date('m');
-            // $year = date('Y') + 543;
+            $day = date('d');
+            $month = date('m');
+            $year = date('Y') + 543;
 
 
             // $name_month = ["ว่าง", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
@@ -44,7 +44,7 @@ class ReportController extends Controller
             // // $word = 'บิล ของเดือน "' . $name_month[$month] . '" เข้าแล้ว.';
             // // dd(strval($word));
 
-            // $full = $day . '-' . $month . '-' . $year;
+            $full = $day . '/' . $month . '/' . $year;
 
             DB::beginTransaction();
             $res['data'] = Report::create([
@@ -52,7 +52,7 @@ class ReportController extends Controller
                 'type_id' => $this->request->input('type_id'),
                 'title' => $this->request->input('title'),
                 'content' => $this->request->input('content'),
-                // 'date' => $full
+                'report_at' => $full
             ]);
             DB::commit();
             return $this->responseRequestSuccess($res['data']);
@@ -76,12 +76,14 @@ class ReportController extends Controller
             $type = Type_report::where('id', $d->id)->first();
             $user = User::where('id', $d->user_id)->first();
 
+            // dd($d);
+
             $data['info'][$count++] = [
 
                 'id' => $d->id,
                 'title' => $d->title,
                 'type' => $type->type_name,
-                'date' => $d->created_at,
+                'date' => $d->report_at,
                 'content' => $d->content,
                 'name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
                 'phone' => $user->phone,

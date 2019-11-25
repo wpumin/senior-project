@@ -20,6 +20,7 @@ class CreateReportsTable extends Migration
             $table->string('type_id');
             $table->string('title');
             $table->string('content');
+            $table->string('report_at')->nullable();
             $table->timestamps();
         });
     }

@@ -44,34 +44,34 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mb-5 mb-lg-0 new-added-form">
+        {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8">
                 <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control" id="search_title">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                    <select class="form-control select2" autocomplete="off" id="search_type">
                         <option value="">ค้นหาด้วยประเภท</option>
-                        <option value="1">บริการทวั่ไป</option>
-                        <option value="2">พฤติกรรมคนจับ</option>
-                        <option value="3">ระบบการชำระเงิน</option>
-                        <option value="4">ระบบการแจ้งเดินทางเอง</option>
-                        <option value="5">ระบบติดตามรถบัส</option>
-                        <option value="6">แดชบอร์ด</option>
-                        <option value="7">แก้ไขโปรไฟล์</option>
+                        <option value="บริการทั่วไป">บริการทั่วไป</option>
+                        <option value="พฤติกรรมคนขับ">พฤติกรรมคนขับ</option>
+                        <option value="ระบบการชำระเงิน">ระบบการชำระเงิน</option>
+                        <option value="ระบบการแจ้งเดินทางเอง">ระบบการแจ้งเดินทางเอง</option>
+                        <option value="ระบบติดตามรถบัส">ระบบติดตามรถบัส</option>
+                        <option value="แดชบอร์ด">แดชบอร์ด</option>
+                        <option value="แก้ไขโปรไฟล์">แก้ไขโปรไฟล์</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar">
+                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" id="search_date">
                     <i class="far fa-calendar-alt" style="right: 22px;"></i>
                 </div>
                 <div class="col-xl-2 col-lg-6 col-12 form-group pb-lg-5 pb-xl-0">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -322,4 +322,79 @@
 <!-- Report Modal End Here -->
 @endforeach
 
+@endsection
+
+@section('script')
+
+    <script>
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // ---------  Search ----------//
+
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      var title = document.getElementById("search_title");
+      var type = document.getElementById("search_type");
+      var input_date = document.getElementById("search_date");
+
+
+      filter_title = title.value;
+      filter_type = type.value;
+      filter_date = input_date.value;
+
+      table = document.getElementById("myTable");
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
+        td_date = tr[i].getElementsByTagName("td")[3]; //choose table that search. (Date)
+        // console.log(td);
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+          txtValue_date = td_date.textContent || td_date.innerText;
+
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter_title) > -1 && txtValue_period_time.indexOf(filter_type) > -1 && txtValue_date.indexOf(filter_date) > -1) {
+            tr[i].style.display = "";
+            $('#search_date').val("");
+          } else {
+            tr[i].style.display = "none";
+            $('#search_date').val("");
+
+          }
+        }
+
+
+      }
+    }
+    </script>
 @endsection
