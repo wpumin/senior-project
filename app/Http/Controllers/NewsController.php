@@ -55,6 +55,44 @@ class NewsController extends Controller
         ]);
     }
 
+    public function del_new($id)
+    {
+
+        $news = News::where('id', $id)->first();
+        $news->delete();
+
+        $news = News::get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($users);
+
+        foreach ($news as $n) {
+
+            $user = User::where('id', $n->user_id)->first();
+
+            $data['info'][$count++] = [
+
+                'id' => $n->id,
+                'title' => $n->title,
+                'created_at' => $n->news_at,
+                'name' => $user->username,
+                'status' => $n->news_statuses_id
+
+
+
+            ];
+        }
+
+        // dd($data['info']);
+
+        return view('admin.news', [
+            'datas' => $data['info'],
+
+        ]);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง

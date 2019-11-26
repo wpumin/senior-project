@@ -178,7 +178,8 @@
                 <div class="modal-body my-4 text-center">
                     <b>ยืนยันการลบข่าวสารนี้ใช่หรือไม่</b>
                     <div class="modal-button text-center mt-3">
-                        <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button>
+                            <a class="btn btn-secondary" id="confirmDelete" href="<?php echo "/admin/management/news/del/"; ?>{{ $info['id'] }}">ยืนยัน</a>
+                        {{-- <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button> --}}
                         <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                         <!-- data-dismiss="modal" -->
                     </div>
