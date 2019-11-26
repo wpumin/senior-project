@@ -189,8 +189,7 @@
                 ?>
                     <ul class="navbar-nav">
                         <li class="navbar-item dropdown header-admin">
-                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                                 <div class="admin-title">
                                     <h5 class="item-title" id="name"></h5>
                                     <span id="role_name"></span>
@@ -275,10 +274,10 @@
         {{-- สำหรับผู้ปกครอง --}}
         <div class="submenu-mobile <?php if($menu_active2 == "overview" || $menu_active2 == "confirm")  echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
             <div class="left <?php if($menu_active2=="overview") echo "active"; else "" ?>">
-                <a href="{{ url('parent/payment/overview') }}">ชำระเงิน</a>
+                <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>">ชำระเงิน</a>
             </div>
             <div class="right <?php if($menu_active2=="confirm") echo "active"; else "" ?>">
-                <a href="{{ url('parent/payment/confirm') }}">แจ้งชำระเงิน</a>
+                <a href="<?php echo "/parent/payment/confirm/".$_COOKIE['user_id']; ?>">แจ้งชำระเงิน</a>
             </div>
         </div>
         <?php
@@ -365,7 +364,7 @@
                             ?>
                                 <div class="mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="{{ url('parent/payment/overview') }}" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
                                     <div><a href="<?php echo "/parent/appointment/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
                                     <div><a href="<?php echo "/parent/report/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
                                     <div><a href="{{ url('parent/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
@@ -378,7 +377,7 @@
                             ?>
                                 <div class="d-md-none mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="{{ url('driver/appointment') }}" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/driver/appointment/".$_COOKIE['car_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
                                     <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
                                     <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
                                 </div>

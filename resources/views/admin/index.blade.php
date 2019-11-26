@@ -45,7 +45,7 @@
                 </div> --}}
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
-            <div class="row gutters-8 new-added-form">
+            <div class="row gutters-8 new-added-form mb-5 mb-md-0">
                 <div class="col-xl-4 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control" id="search_title">
                 </div>
