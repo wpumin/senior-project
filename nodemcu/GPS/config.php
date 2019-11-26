@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_array($result)) {
 
     if ($row['status'] == 1) {
 
-        $sql_update = "UPDATE provinces SET status = 2 WHERE id = '$now'";
+        $sql_update = "UPDATE districts SET status = 2 WHERE id = '$now'";
         mysqli_query($con, $sql_update);
 
         $text = 'ถึง ' . $row['name'] . ' แล้ว';
