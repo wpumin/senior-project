@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\News;
+use App\News_status;
 use App\Role;
 use App\Relationship;
 use Carbon\Carbon;
@@ -89,6 +90,35 @@ class NewsController extends Controller
 
         return view('admin.news', [
             'datas' => $data['info'],
+
+        ]);
+    }
+
+    public function edit_new($id)
+    {
+
+        $news = News::where('id', $id)->first();
+
+        $role = Role::where('id', $news['role_id'])->first();
+
+        $status = News_status::where('id', $news['news_statuses_id'])->first();
+
+        $data['info'] = [];
+        $count = 0;
+
+
+        return view('admin.news_edit', [
+            // 'datas' => $data['info'],
+            'title' => $news['title'],
+            'image' => $news['image'],
+            'role_id' => $news['role_id'],
+            'role_name' => $role->name,
+            'status_id' => $news['news_statuses_id'],
+            'status_name' => $status->name,
+            'release_date' => $news['release_date'],
+            'release_time' => $news['release_time'],
+            'content' => $news['content']
+
 
         ]);
     }

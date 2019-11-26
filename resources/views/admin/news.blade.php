@@ -63,7 +63,8 @@
                                 @endif
                                 <td>
                                     {{-- {{ url('admin/management/parent/edit') }} --}}
-                                    <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews-{{ $info['id'] }}"><span class="flaticon-bin"></span></a>
+                                    <a href="<?php echo "/admin/management/news/edit/"; ?>{{ $info['id'] }}"><span class="flaticon-edit"></span></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteNews-{{ $info['id'] }}"><span class="flaticon-bin"></span></a>
                                 </td>
                             </tr>
 
