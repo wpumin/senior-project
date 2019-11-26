@@ -89,9 +89,8 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/index', 'ReportController@list_report');
 
-    Route::get('/management/news', function () {
-        return view('admin.news');
-    });
+    Route::get('/management/news', 'NewsController@index');
+
     Route::get('/management/news/create', function () {
         return view('admin.news_create');
     });

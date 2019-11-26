@@ -21,7 +21,8 @@ class NewsTableSeeder extends Seeder
             'image' => 'images\Users\moss2.jpg',
             'release_date' => '11/14/62',
             'release_time' => '11:45',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'news_at' => '26/11/2562',
+            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }
