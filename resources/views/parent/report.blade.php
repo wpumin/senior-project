@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 {{-- <form class="mg-b-10 mb-5 mb-lg-0" id="reportForm"> --}}
-                    <div class="row gutters-8 new-added-form">
+                    <div class="row gutters-8 new-added-form  mb-5 mb-md-0">
                         <div class="col-lg-5 col-12 form-group">
                             <input type="text" placeholder="ค้นหาด้วยวันที่" id="datetime" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt" style="right: 22px !important;"></i>

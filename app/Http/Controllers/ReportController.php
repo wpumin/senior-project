@@ -73,10 +73,8 @@ class ReportController extends Controller
 
         foreach ($reports as $d) {
 
-            $type = Type_report::where('id', $d->id)->first();
+            $type = Type_report::where('id', $d->type_id)->first();
             $user = User::where('id', $d->user_id)->first();
-
-            // dd($d);
 
             $data['info'][$count++] = [
 
@@ -91,10 +89,6 @@ class ReportController extends Controller
 
             ];
         }
-
-
-        // dd($data['info']);
-
 
         return view('admin.index', [
             'data' => $data['info']
