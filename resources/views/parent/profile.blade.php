@@ -176,7 +176,7 @@
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
-                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3>#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
+                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3 class="mt-4">#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
                             '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
@@ -275,7 +275,7 @@
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
-                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3>#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
+                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3 class="mt-4">#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
                             '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              

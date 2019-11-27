@@ -13,7 +13,7 @@
         <div class="card height-auto">
             <div class="card-body">
                 <div class="heading-layout1">
-                    <div class="item-title pt-md-3">
+                    <div class="item-title pt-4">
                         <h3>ฟอร์มการแจ้ง</h3>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
     <div class="col-8-xxxl col-12">
         <div class="card height-auto pb-0">
             <div class="card-body">
-                <div class="heading-layout1 pt-md-3">
+                <div class="heading-layout1 pt-4">
                     <div class="item-title">
                         <h3>ประวัติการแจ้งร้องเรียน</h3>
                     </div>
@@ -91,7 +91,7 @@
 
 
                     <div class="notice-list">
-                    <div class="post-date badge-orange filterDiv-1">{{ $info['type_name'] }} | <?php echo $date_day; ?>/<?php echo $date_month; ?>/<?php echo $date_year; ?> - <?php echo $date_substrtime; ?></div>
+                    <div class="post-date badge-orange filterDiv-1">{{ $info['type_name'] }} | <?php echo $date_day; ?>/<?php echo $date_month; ?>/<?php echo $date_year; ?> - <?php echo $date_substrtime; ?> น.</div>
                     <h5 class="mb-2 filterDiv">หัวข้อ: {{ $info['title'] }}</h5>
                     <p class="notice-title filterDiv-2">{{ $info['content'] }}</p>
                     </div>

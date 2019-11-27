@@ -15,7 +15,7 @@
         <div class="card height-auto">
             <div class="card-body">
                 <div class="heading-layout1">
-                    <div class="item-title pt-md-3">
+                    <div class="item-title pt-4">
                         <h3>ฟอร์มการแจ้ง</h3>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
         <div class="card height-auto pb-0">
             <div class="card-body">
                 <div class="heading-layout1">
-                    <div class="item-title pt-md-3">
+                    <div class="item-title pt-4">
                         <h3>ประวัติการแจ้งเดินทางเอง</h3>
                     </div>
                 </div>
