@@ -249,9 +249,9 @@
       filter_month = input_month.value;
 
       table = document.getElementById("myTable");
-      console.log('Filter: '+filter);
-      console.log('Filter: '+filter_num);
-      console.log('Filter: '+filter_month);
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
 
     //   console.log(tr.length);
@@ -268,14 +268,24 @@
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
           txtValue_date = td_date.textContent || td_date.innerText;
 
-          console.log('Total: '+txtValue);
-          console.log('Total: '+txtValue_period_time);
-          console.log('Total: '+txtValue_date);
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
             tr[i].style.display = "";
+            $('#myInputName').val("");
+            $('#myInputPeriodTime').val(null).trigger('change');
+            // $('#myInputPeriodTime').val();
+            $('#appointment_at').val("");
+            // myFunction();
           } else {
             tr[i].style.display = "none";
+            $('#myInputName').val(null);
+            $('#myInputPeriodTime').val(null).trigger('change');
+            // $('#myInputPeriodTime').val();
+            $('#appointment_at').val(null);
+
           }
         }
       }
@@ -334,7 +344,7 @@
             'user_id' : getCookie('user_id'),
             'student_id' : $('#student_id').val(),
             'period_time_id' : $('#period_time_id').val(),
-            'appointment_at' : $('#appointment_at').val(),
+            'appointment_at' : $('#date').val(),
             'content' : $('#content').val()
         };
 

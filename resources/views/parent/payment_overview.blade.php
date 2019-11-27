@@ -91,16 +91,16 @@
         {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" autocomplete="off" id="myInputName" onkeyup="myFunction()">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" autocomplete="off" id="myInputName" >
                 </div>
                 <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" autocomplete="off" id="myInpNumber" onkeyup="myFunction()">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" autocomplete="off" id="myInpNumber" >
                 </div>
                 <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <select class="select2" autocomplete="off" id="myInputMonth" onchange="myFunction()">
+                    <select class="select2" autocomplete="off" id="myInputMonth">
                         <option value="">ค้นหาด้วยรอบการชำระเงิน (12 เดือนย้อนหลัง) *</option>
-                        <option value="ต.ค.">ต.ค.</option>
-                        <option value="ก.ย.">ก.ย.</option>
+                        <option value="ม.ค.">ม.ค.</option>
+                        <option value="ก.พ.">ก.พ.</option>
                         <option value="ส.ค.">ส.ค.</option>
                         <option value="ก.ค.">ก.ค.</option>
                         <option value="มิ.ย.">มิ.ย.</option>
@@ -114,7 +114,7 @@
                     </select>
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
         {{-- </form> --}}
@@ -565,8 +565,16 @@
 
           if (txtValue.indexOf(filter) > -1 && txtValue_num.indexOf(filter_num) > -1 && txtValue_month.indexOf(filter_month) > -1) {
             tr[i].style.display = "";
+            $('#myInputName').val("");
+            $('#myInputMonth').val(null).trigger('change');
+            // $('#myInputPeriodTime').val();
+            $('#myInpNumber').val("");
           } else {
             tr[i].style.display = "none";
+            $('#myInputName').val("");
+            $('#myInputMonth').val(null).trigger('change');
+            // $('#myInputPeriodTime').val();
+            $('#myInpNumber').val("");
           }
         }
       }
