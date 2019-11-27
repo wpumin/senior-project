@@ -129,7 +129,7 @@
         // dynamic text in modal
         $('.btn-broadcast').click(function(){
             txtBroadcast = $(this).data('display');
-            console.log(txtBroadcast);
+            // console.log(txtBroadcast);
             $("#data-display").text( txtBroadcast );
         });
 

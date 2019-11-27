@@ -322,13 +322,13 @@
                 // console.log('true');
                 $(".wrap-modal > #successReport").modal('show');
                 setInterval(function(){
-                    var url = "https://bear-bus.com/parent/report/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
+                    var url = "/parent/report/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
                     // alert(url);
                     window.location.assign(url);
 
                 }, 3000);
                 $('#reloadPage').click(function(){
-                    var url = "https://bear-bus.com/parent/report/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
+                    var url = "/parent/report/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
                     // alert(url);
                     window.location.assign(url);
                 });

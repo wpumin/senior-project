@@ -354,7 +354,7 @@
                     $(".wrap-modal > #successAppointment").modal('show');
                     // window.location.reload(true);
                     // window.location = window.location.href+'?eraseCache=true';
-                    var url = "https://bear-bus.com/parent/appointment/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
+                    var url = "/parent/appointment/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
                     // alert(url);
                     window.location.assign(url);
 
