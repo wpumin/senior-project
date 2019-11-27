@@ -292,7 +292,7 @@
                     <table class="detail">
                         <tbody>
                             <tr>
-                                <td style="width: 30%;">หัวข้อ:</td>
+                                <td>หัวข้อ:</td>
                                 <td>{{ $info['title'] }}</td>
                             </tr>
                             <tr>
@@ -300,7 +300,7 @@
                                 <td>{{ $info['type'] }}</td>
                             </tr>
                             <tr>
-                                <td>เวลาแจ้ง:</td>
+                                <td style="min-width: 100px;">เวลาแจ้ง:</td>
                                 <td>{{ $info['date'] }}</td>
                             </tr>
                         </tbody>
