@@ -93,6 +93,8 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/news/edit/{id}', 'NewsController@edit_new');
 
+    Route::post('/management/news/update', 'NewsController@update_new');
+
     Route::get('/management/news/del/{id}', 'NewsController@del_new');
 
     Route::get('/management/news/create', function () {

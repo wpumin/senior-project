@@ -18,11 +18,11 @@ class CreateNewsTable extends Migration
             $table->string('user_id');
             $table->string('news_statuses_id');
             $table->string('role_id');
-            $table->string('title');
-            $table->string('content');
-            $table->string('image');
-            $table->string('release_date');
-            $table->string('release_time');
+            $table->string('title')->nullable();
+            $table->string('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('release_date')->nullable();
+            $table->string('release_time')->nullable();
             $table->string('news_at')->nullable();
             // $table->timestamps();
         });

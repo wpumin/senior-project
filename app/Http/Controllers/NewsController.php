@@ -106,11 +106,12 @@ class NewsController extends Controller
         $data['info'] = [];
         $count = 0;
 
-
+        // dd($news['user_id']);
         return view('admin.news_edit', [
-            // 'datas' => $data['info'],
+            'id' => $news['id'],
             'title' => $news['title'],
             'image' => $news['image'],
+            'id_user' => $news['user_id'],
             'role_id' => $news['role_id'],
             'role_name' => $role->name,
             'status_id' => $news['news_statuses_id'],
@@ -121,6 +122,92 @@ class NewsController extends Controller
 
 
         ]);
+    }
+
+    public function update_new()
+    {
+
+        $validator = Validator::make(
+            $this->request->all(),
+            [
+                'file' => '',
+                // 'id' => '',
+                // 'title' => '',
+                // 'user_id' => '',
+                // 'role_id' => '',
+                // 'status_id' => '',
+                // 'release_date' => '',
+                // 'release_time' => '',
+                // 'content' => '',
+                // ],
+                // [
+                //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+            ]
+        );
+        if ($validator->fails())
+            return array(
+                'fail' => true,
+                'errors' => $validator->errors()
+            );
+
+        // $id = $this->request->input('id');
+        // $news = News::find($id);
+        // $news->delete();
+
+        $day = date('d');
+        $month = date('m');
+        $year = date('Y') + 543;
+
+        $full = $day . '/' . $month . '/' . $year;
+
+        // $news_new = new News();
+
+        // DB::beginTransaction();
+
+        // $news_new->user_id = $this->request->input('user_id');
+        // $news_new->news_status_id = $this->request->input('status_id');
+        // $news_new->role_id = $this->request->input('role_id');
+        // $news_new->title = $this->request->input('title');
+        // $news_new->content = $this->request->input('content');
+        // $news_new->release_date = $this->request->input('release_date');
+        // $news_new->release_time = $this->request->input('release_time');
+        // $news_new->news_at = $full;
+
+        if ($this->request->file('file')) {
+            $image_filename = $this->request->file('file')->getClientOriginalName();
+            $image_name =  $image_filename;
+            $public_path = 'images/News/';
+            $destination = base_path() . "/public/" . $public_path;
+            $this->request->file('file')->move($destination, $image_name);
+            // $news_new->image = $public_path . $image_name;
+            // $news_new->save();
+            // // $news['image']->save();
+            // return $this->responseRequestSuccess('Success!');
+        }
+
+
+        // $res['App_log'] = News::create([
+        //     'image' => 'test',
+        //     'user_id' => '1',
+        //     'news_statuses_id' => '1',
+        //     'role_id' => '1',
+        //     'title' => '1',
+        //     'content' => '1',
+        //     'release_date' => '1',
+        //     'release_time' => '1',
+        //     'news_at' => '1'
+        // ]);
+        // return $full;
+        // DB::commit();
+
+        // $extension = $this->request->file('file')->getClientOriginalExtension();
+        // $dir = 'uploads/';
+        // $filename = uniqid() . '_' . time() . '.' . $extension;
+        // $this->request->file('file')->move($dir, $filename);
+        // $news->update($this->request->all());
+        // $id = $this->request->input('id');
+        // $news->update($this->request->all());
+        return $image_name;
     }
 
     /*
