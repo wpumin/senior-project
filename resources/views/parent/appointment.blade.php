@@ -287,6 +287,9 @@
             $('#appointment_at').val(null);
 
           }
+        }else{
+            console.log('ไม่มีข้อมูล');
+            // tr[0].style.display = "asdasd asda asd asda sd";
         }
       }
     }
