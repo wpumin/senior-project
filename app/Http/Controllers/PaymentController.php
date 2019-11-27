@@ -346,7 +346,7 @@ class PaymentController extends Controller
                 $log = Payment_log::where('id', $d->payment_log_id)->first();
                 $std = Student::where('id', $log->student_id)->first();
 
-                dd($d);
+                // dd($d);
 
                 if ($std->car_id == $car) {
 
