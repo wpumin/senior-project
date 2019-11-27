@@ -82,6 +82,7 @@ class ReportController extends Controller
                 'title' => $d->title,
                 'type' => $type->type_name,
                 'date' => $d->report_at,
+                'time' => $d->created_at,
                 'content' => $d->content,
                 'name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
                 'phone' => $user->phone,
