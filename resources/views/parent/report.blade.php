@@ -81,9 +81,17 @@
                     <?php $count=1; ?>
 
                     @foreach($data as $key => $info)
+                    <?php 
+                        $date = $info['created_at'];
+                        $date_day = substr($date,8,10-8);
+                        $date_month = substr($date,5,7-5);
+                        $date_year = (int)substr($date,0,4-0)+543;
+                        $date_substrtime = substr($date,11,16-11);
+                    ?>
+
 
                     <div class="notice-list">
-                    <div class="post-date badge-orange filterDiv-1">{{ $info['type_name'] }} | {{ $info['created_at'] }}</div>
+                    <div class="post-date badge-orange filterDiv-1">{{ $info['type_name'] }} | <?php echo $date_day; ?>/<?php echo $date_month; ?>/<?php echo $date_year; ?> - <?php echo $date_substrtime; ?></div>
                     <h5 class="mb-2 filterDiv">หัวข้อ: {{ $info['title'] }}</h5>
                     <p class="notice-title filterDiv-2">{{ $info['content'] }}</p>
                     </div>

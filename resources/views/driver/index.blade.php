@@ -230,9 +230,9 @@
 <!-- Picture Modal End Here -->
 
     {{-- free --}}
-    <script src="//maps.googleapis.com/maps/api/js"></script>
+    {{-- <script src="//maps.googleapis.com/maps/api/js"></script> --}}
     {{-- paid --}}
-    {{-- <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script> --}}
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script>
     <script>
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();

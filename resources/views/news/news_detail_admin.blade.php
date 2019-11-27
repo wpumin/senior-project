@@ -1,6 +1,6 @@
 @extends('layouts.master_sidebar')
 
-@section('title','ข่าวสาร - query หัวข้อข่าวตรงนี้')
+@section('title','query หัวข้อข่าวตรงนี้')
 
 @section('content')
 
