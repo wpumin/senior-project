@@ -275,7 +275,9 @@ class PaymentController extends Controller
                     $status_3++;
                 }
 
-                if ($b->month == ($month_sub[date('m') - 1])) {
+                // dd(date('m'));
+
+                if ($b->month == date('m')) {
 
 
                     $data['info'][$count++] = [
