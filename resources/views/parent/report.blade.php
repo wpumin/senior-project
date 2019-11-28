@@ -189,6 +189,7 @@
       var x = table.getElementsByClassName("filterDiv");
       var y = table.getElementsByClassName("filterDiv-1");
       var z = table.getElementsByClassName("filterDiv-2"); //content
+      var t = table.getElementsByClassName("notice-list");
 
     //   console.log(x);
     //   console.log(y);
@@ -198,6 +199,7 @@
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < x.length; i++) {
 
+        var sen = t[i];
         td_num = x[i]; //choose table that search.
         td_y = y[i]; //date
         td_z = z[i];
@@ -205,7 +207,7 @@
         // td_month = tr[i].getElementsByTagName("td")[4]; //choose table that search.
         // console.log(td_num);
         // console.log(td_y);
-        // console.log(td_z);
+        console.log(sen);
 
         if (td_num) {
           txtValue = td_num.textContent || td_num.innerText;
@@ -220,11 +222,13 @@
             x[i].style.display = "";
             y[i].style.display = "";
             z[i].style.display = "";
+            t[i].style.display = "";
             $('#title_search').val(null);
           } else {
             x[i].style.display = "none";
             y[i].style.display = "none";
             z[i].style.display = "none";
+            t[i].style.display = "none";
             $('#title_search').val(null);
           }
         }
