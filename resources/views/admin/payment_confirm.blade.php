@@ -119,7 +119,7 @@
                 </div> --}}
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
-            <div class="row gutters-8">
+            <div class="row gutters-8 mg-b-20">
                 <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>

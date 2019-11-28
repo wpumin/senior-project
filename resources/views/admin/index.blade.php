@@ -95,7 +95,7 @@
                             <td><?php print $count ?></td>
                             <td class="text-left">{{ $info['title'] }}</td>
                             <td>{{ $info['type'] }}</td>
-                            <td>{{ $info['date'] }} - <?php echo $time_substr; ?></td>
+                            <td>{{ $info['date'] }} - <?php echo $time_substr; ?> น.</td>
                             <td><a href="#" data-toggle="modal" data-target="#reportModal-{{ $info['id'] }}"><span class="flaticon-invoice"></a></td>
 
                             <?php $count++ ?>
@@ -309,7 +309,7 @@
                                     $time_substr = substr($time,11,16-11);
                                 ?>
                                 <td style="min-width: 100px;">เวลาแจ้ง:</td>
-                                <td>{{ $info['date'] }} - <?php echo $time_substr; ?></td>
+                                <td>{{ $info['date'] }} - <?php echo $time_substr; ?> น.</td>
                             </tr>
                         </tbody>
                     </table>

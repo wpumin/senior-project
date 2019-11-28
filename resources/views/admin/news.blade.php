@@ -18,7 +18,7 @@
             <a href="{{ url('admin/management/news/create') }}" style="color: #bcbcbc !important;" role="button" aria-expanded="true"> <i class="flaticon-new"></i> เพิ่มหัวข้อข่าว</a>
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
-            <div class="row gutters-8">
+            <div class="row gutters-8 new-added-form">
                 <div class="col-xl-4 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อหัวข้อ" class="form-control" id="search_title">
                 </div>
