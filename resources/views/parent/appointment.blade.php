@@ -38,9 +38,9 @@
                             <input type="text" id="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
-                        <div class="col-12 form-group">
+                        {{-- <div class="col-12 form-group">
                             <textarea class="textarea form-control" name="message" id="content" cols="10" rows="12" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
-                        </div>
+                        </div> --}}
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
                             <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
                         </div>
@@ -91,32 +91,33 @@
                                 </tr>
                             </thead>
                             <tbody id="showForm">
+                                {{-- <tr role="row" style="display: none;">
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                </tr>    --}}
                                 <?php $count=1; ?>
 
                                 @foreach($data as $key => $info)
 
-                                <tr>
-                                    <td><?php print $count ?></td>
-                                        @if($info['app_status_id'] == 1)
-                                            <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
-                                        @elseif($info['app_status_id'] == 2)
-                                            <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>
-                                        @endif
-                                    <td>{{ $info['student_id'] }}</td>
-                                    <td>{{ $info['appointment_at'] }}</td>
-                                    <td>{{ $info['period_time_id'] }}</td>
-                                </tr>
+                                    <tr>
+                                        <td><?php print $count ?></td>
+                                            @if($info['app_status_id'] == 1)
+                                                <td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>
+                                            @elseif($info['app_status_id'] == 2)
+                                                <td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>
+                                            @endif
+                                        <td>{{ $info['student_id'] }}</td>
+                                        <td>{{ $info['appointment_at'] }}</td>
+                                        <td>{{ $info['period_time_id'] }}</td>
+                                    </tr>
 
-                                <?php $count++ ?>
-                                @endforeach
-                                 {{-- <tr>
-                                    <td>...</td>
-                                    <td>...</td>
-                                    <td>...</td>
-                                    <td>...</td>
-                                    <td>...</td>
-                                    <td>...</td>
-                                </tr>                --}}
+                                    <?php $count++ ?>
+
+                                @endforeach         
+                                
                             </tbody>
                         </table>
                     </div>
@@ -249,12 +250,11 @@
       filter_month = input_month.value;
 
       table = document.getElementById("myTable");
-    //   console.log('Filter: '+filter);
-    //   console.log('Filter: '+filter_num);
-    //   console.log('Filter: '+filter_month);
+        //   console.log('Filter: '+filter);
+        //   console.log('Filter: '+filter_num);
+        //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
-
-    //   console.log(tr.length);
+        //   console.log(tr.length);
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
@@ -289,7 +289,18 @@
           }
         }else{
             console.log('ไม่มีข้อมูล');
-            // tr[0].style.display = "asdasd asda asd asda sd";
+
+            $('#myTable tbody tr').remove();
+            $('#myTable tbody').append(
+                '<tr role="row" style="display: contents !important;">' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td>ไม่มีข้อมูล</td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                '</tr>'
+            );
+
         }
       }
     }

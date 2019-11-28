@@ -43,7 +43,7 @@
                             </select>
                         </div> --}}
                         <div class="col-12 form-group">
-                            <textarea class="textarea form-control" name="message" id="content" cols="10" rows="15" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
+                            <textarea class="textarea form-control" name="message" id="content" cols="10" rows="15" placeholder="รายละเอียด" autocomplete="off"></textarea>
                         </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
                             <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
@@ -63,11 +63,11 @@
                 </div>
                 {{-- <form class="mg-b-10 mb-5 mb-lg-0" id="reportForm"> --}}
                     <div class="row gutters-8 new-added-form  mb-5 mb-md-0">
-                        <div class="col-lg-5 col-12 form-group">
+                        {{-- <div class="col-lg-5 col-12 form-group">
                             <input type="text" placeholder="ค้นหาด้วยวันที่" id="datetime" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt" style="right: 22px !important;"></i>
-                        </div>
-                        <div class="col-lg-5 col-12 form-group">
+                        </div> --}}
+                        <div class="col-lg-10 col-12 form-group">
                             <input type="text" placeholder="ค้นหาด้วยหัวข้อ" id="title_search" class="form-control">
                         </div>
                         <div class="col-lg-2 col-12 form-group">

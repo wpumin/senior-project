@@ -89,7 +89,7 @@
             </div>
         </div>
         {{-- <form class="mg-b-20"> --}}
-            <div class="row gutters-8">
+            <div class="row gutters-8 mg-b-20">
                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" autocomplete="off" id="myInputName" >
                 </div>
