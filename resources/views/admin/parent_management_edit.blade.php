@@ -1,12 +1,12 @@
 @extends('layouts.master_sidebar')
 
-@section('title','เพิ่มบัญชีผู้ปกครอง')
+@section('title','แก้ไขบัญชีผู้ปกครอง')
 
 @section('content')
 
 <!-- Parent Table Area Start Here -->
 <div class="heading text-left">
-    <h3>เพิ่มบัญชีผู้ปกครอง</h3>
+    <h3>แก้ไขบัญชีผู้ปกครอง</h3>
 </div>
 <div class="card height-auto pb-0">
     <div class="card-body pt-5">

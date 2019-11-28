@@ -207,7 +207,7 @@
         // td_month = tr[i].getElementsByTagName("td")[4]; //choose table that search.
         // console.log(td_num);
         // console.log(td_y);
-        console.log(sen);
+        // console.log(sen);
 
         if (td_num) {
           txtValue = td_num.textContent || td_num.innerText;

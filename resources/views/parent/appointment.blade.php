@@ -288,7 +288,7 @@
 
           }
         }else{
-            console.log('ไม่มีข้อมูล');
+            // console.log('ไม่มีข้อมูล');
 
             // $('#myTable tbody tr').remove();
             // $('#myTable tbody').append(

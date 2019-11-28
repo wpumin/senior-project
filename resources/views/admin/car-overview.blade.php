@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-6">
                     <div class="item-content">
-                        <div class="item-title">แจ้งเดินทางเอง</div>
+                        <div class="item-title">เดินทางเอง</div>
                         <div class="item-number"><span class="counter" id="self" data-num="{{$self}}"></span></div>
                     </div>
                 </div>
@@ -305,7 +305,7 @@
                             } else if (response['data'][i]['std_status_id'] == '3') {
                                 status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
                             } else {
-                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">เดินทางเอง</td>';
                             }
 
                             $('#showForm').append(

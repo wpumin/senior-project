@@ -170,7 +170,7 @@
                             } else if (response.data['student'][i]['std_status_id'] == '3') {
                                 status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
                             } else if (response.data['student'][i]['std_status_id'] == '4') {
-                                status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> แจ้งเดินทางเอง</td>';
+                                status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> เดินทางเอง</td>';
                             } 
 
 
