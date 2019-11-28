@@ -182,7 +182,7 @@
       table = document.getElementById("report");
 
     //   console.log('Filter: '+filter);
-      console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_num);
     // //   console.log('Filter: '+filter_month);
     //   tr = table.getElementsByTagName("tr");
 
