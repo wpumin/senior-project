@@ -290,16 +290,16 @@
         }else{
             console.log('ไม่มีข้อมูล');
 
-            $('#myTable tbody tr').remove();
-            $('#myTable tbody').append(
-                '<tr role="row" style="display: contents !important;">' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td>ไม่มีข้อมูล</td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                '</tr>'
-            );
+            // $('#myTable tbody tr').remove();
+            // $('#myTable tbody').append(
+            //     '<tr role="row" style="display: contents !important;">' +
+            //         '<td></td>' +
+            //         '<td></td>' +
+            //         '<td>ไม่มีข้อมูล</td>' +
+            //         '<td></td>' +
+            //         '<td></td>' +
+            //     '</tr>'
+            // );
 
         }
       }
