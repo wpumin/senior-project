@@ -81,7 +81,7 @@
                     <?php $count=1; ?>
 
                     @foreach($data as $key => $info)
-                    <?php 
+                    <?php
                         $date = $info['created_at'];
                         $date_day = substr($date,8,10-8);
                         $date_month = substr($date,5,7-5);
@@ -167,7 +167,7 @@
       // Declare variables
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
-      input = document.getElementById("datetime");
+    //   input = document.getElementById("datetime");
       var input_title = document.getElementById("title_search");
 
     //   var x = document.getElementsByClassName("filterDiv");
@@ -175,13 +175,13 @@
     //   var input_month = document.getElementById("myInputMonth");
 
 
-      filter = input.value;
+    //   filter = input.value;
       filter_num = input_title.value;
     //   filter_month = input_month.value;
 
       table = document.getElementById("report");
 
-      console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter);
       console.log('Filter: '+filter_num);
     // //   console.log('Filter: '+filter_month);
     //   tr = table.getElementsByTagName("tr");
@@ -209,21 +209,23 @@
 
         if (td_num) {
           txtValue = td_num.textContent || td_num.innerText;
-          txtValue_date = td_y.textContent || td_y.innerText;
+        //   txtValue_date = td_y.textContent || td_y.innerText;
         //   txtValue_month = td_month.textContent || td_month.innerText;
 
-          console.log('Total: '+txtValue);
-          console.log('Total: '+txtValue_date);
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_date);
         //   console.log('Total: '+txtValue_month);
 
-          if (txtValue.indexOf(filter_num) > -1 || txtValue_date.match('/'+filter+'/g')) {
+          if (txtValue.indexOf(filter_num) > -1) {
             x[i].style.display = "";
             y[i].style.display = "";
             z[i].style.display = "";
+            $('#title_search').val(null);
           } else {
             x[i].style.display = "none";
             y[i].style.display = "none";
             z[i].style.display = "none";
+            $('#title_search').val(null);
           }
         }
       }
