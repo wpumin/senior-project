@@ -419,8 +419,17 @@
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
             tr[i].style.display = "";
+
+            $('#search_nickname').val(null);
+            $('#search_school').val(null);
+            $('#search_phone').val(null);
+
           } else {
             tr[i].style.display = "none";
+
+            $('#search_nickname').val(null);
+            $('#search_school').val(null);
+            $('#search_phone').val(null);
           }
         }
       }
