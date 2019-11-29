@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             PaymentInformTableSeeder::class,
             // PaymentLogTableSeeder::class,
             GetOnTableSeeder::class,
+            CheckInTableSeeder::class,
         ]);
     }
 }
