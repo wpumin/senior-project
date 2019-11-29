@@ -25,6 +25,7 @@ class CreatePaymentLogsTable extends Migration
             $table->string('qr_code')->nullable();
             // $table->string('bank_id')->nullable();
             $table->string('created_at');
+            $table->string('updated_at');
             // $table->timestamps();
         });
     }
