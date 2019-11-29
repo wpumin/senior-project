@@ -479,9 +479,15 @@ function myFunction() {
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1) {
             tr[i].style.display = "";
+
+            $('#search_nickname').val(null);
+            $('#search_key').val(null);
           } else {
             // tr[1].innerHTML = "ไม่มีข้อมูล";
             tr[i].style.display = "none";
+
+            $('#search_nickname').val(null);
+            $('#search_key').val(null);
           }
         }
       }

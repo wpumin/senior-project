@@ -162,7 +162,7 @@ class PaymentController extends Controller
 
         foreach ($students as $d) {
 
-            $bill = Payment_log::where('student_id', $d->id)->get();
+            $bill = Payment_log::where('student_id', $d->id)->limit(10)->get();
             $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
             // dd($month_sub[11]);
