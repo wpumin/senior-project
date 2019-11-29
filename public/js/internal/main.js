@@ -585,20 +585,20 @@ $('.calendar').pignoseCalendar('setting', {
   // Starting day of week. (0 is Sunday[default], 6 is Saturday
   // and all day of week is in consecutive order.
   // In this example, We will start from Saturday.
-  week: 6,
+  week: 0-6,
   language: 'th', // Default Language
   languages: {
       // You will set `custom` language.
       'th': {
       // Weeks sun ~ sat.
       weeks: [
+          'อา.',
           'จ.',
           'อ.',
           'พ.',
           'พฤ.',
           'ศ.',
-          'ส.',
-          'อา.'
+          'ส.'
       ],
       // Month long names January ~ December
       monthsLong: [
