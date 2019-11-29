@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Relationship;
+use App\Role;
+use App\School;
+use App\Student;
 use App\User;
 use LogicException;
 use Illuminate\Http\Request;
@@ -19,97 +23,275 @@ class RegisterUserController extends Controller
     }
 
     public function register_user()
-    {   
+    {
         try {
 
-        $validator = Validator::make($this->request->all(), [
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'role_id' => 'required',
-        'relationship_id' => 'required',
-        'car_id' => 'required',
-        'prefix' => 'required',
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'phone' => 'required',
-        'line_id' => 'required',
-        'email' => 'required',
-        'address' => 'required',
-        'username' => 'required',
-        'password' => 'required'
-        ]);
-   
-    //validator mobile
-    $validator_phone = Validator::make($this->request->all(), [
-        'phone' => 'required|digits_between:9,10',
-    ]);
+            $validator = Validator::make($this->request->all(), [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'role_id' => 'required',
+                'relationship_id' => 'required',
+                'car_id' => 'required',
+                'prefix' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'phone' => 'required',
+                'line_id' => 'required',
+                'email' => 'required',
+                'address' => 'required',
+                'username' => 'required',
+                'password' => 'required',
+                'lattitude' => 'required',
+                'longtitude' => 'required',
+            ]);
 
-    //validator password
-    $validator_pass = Validator::make($this->request->all(), [
-        'password' => 'required|min:8|max:20',
-    ]);
+            //validator mobile
+            $validator_phone = Validator::make($this->request->all(), [
+                'phone' => 'required|digits_between:9,10',
+            ]);
 
-    //validator unique
-    $validator_unique = Validator::make($this->request->all(), [
-        'email' => 'required|email|unique:users',
-        'username' => 'required|unique:users',
-    ]);
+            //validator password
+            $validator_pass = Validator::make($this->request->all(), [
+                'password' => 'required|min:8|max:20',
+            ]);
 
-    if ($validator->fails()) {
-        $errors = $validator->errors();
-        return $this->responseRequestError('error', $errors);
-    }
+            //validator unique
+            $validator_unique = Validator::make($this->request->all(), [
+                'email' => 'required|email|unique:users',
+                'username' => 'required|unique:users',
+            ]);
 
-    if ($validator_unique->fails()) {
-        $errors_u = $validator_unique->errors();
-        return $this->responseRequestError('same_data', $errors_u);
-    }
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                return $this->responseRequestError('error', $errors);
+            }
 
-    //validator password
-    if ($validator_pass->fails()) {
-        $errors_p = $validator_pass->errors();
-        return $this->responseRequestError('not_rule_pass', $errors_p);
-    }
+            if ($validator_unique->fails()) {
+                $errors_u = $validator_unique->errors();
+                return $this->responseRequestError('same_data', $errors_u);
+            }
 
-    //validator mobile
-    if ($validator_phone->fails()) {
-        $errors_ph = $validator_mobile->errors();
-        return $this->responseRequestError('not_rule_mobile', $errors_ph);
-    }
-    $user = new User();
+            //validator password
+            if ($validator_pass->fails()) {
+                $errors_p = $validator_pass->errors();
+                return $this->responseRequestError('not_rule_pass', $errors_p);
+            }
 
-    DB::beginTransaction();
+            //validator mobile
+            if ($validator_phone->fails()) {
+                $errors_ph = $validator_phone->errors();
+                return $this->responseRequestError('not_rule_mobile', $errors_ph);
+            }
+            $user = new User();
 
-    if ($this->request->file('image')) {
-        $image_filename = $this->request->file('image')->getClientOriginalName();
-        $image_name = $this->request->input('first_name') . '_' . $image_filename;
-        $public_path = 'images/Users/';
-        $destination = base_path() . "/public/" . $public_path;
-        $this->request->file('image')->move($destination, $image_name);
-        $user->image = $public_path . $image_name;
-    }
-    
-        // 'image' => $this->request->input('image'),
-        $user->role_id = $this->request->input('role_id');
-        $user->relationship_id = $this->request->input('relationship_id');
-        $user->car_id = $this->request->input('car_id');
-        $user->prefix = $this->request->input('prefix');
-        $user->first_name = $this->request->input('first_name');
-        $user->last_name = $this->request->input('last_name');
-        $user->phone = $this->request->input('phone');
-        $user->line_id = $this->request->input('line_id');
-        $user->email = $this->request->input('email');
-        $user->address = $this->request->input('address');
-        $user->username = $this->request->input('username');
-        $user->password = Hash::make($this->request->password);
- 
+            DB::beginTransaction();
 
-    $user->save();
+            if ($this->request->file('image')) {
+                $image_filename = $this->request->file('image')->getClientOriginalName();
+                $image_name = $this->request->input('first_name') . '_' . $image_filename;
+                $public_path = 'images/Users/';
+                $destination = base_path() . "/public/" . $public_path;
+                $this->request->file('image')->move($destination, $image_name);
+                $user->image = $public_path . $image_name;
+            }
 
-    DB::commit();
-        return $this->responseRequestSuccess('Success!');
+            // 'image' => $this->request->input('image'),
+            $user->role_id = $this->request->input('role_id');
+            $user->relationship_id = $this->request->input('relationship_id');
+            $user->car_id = $this->request->input('car_id');
+            $user->prefix = $this->request->input('prefix');
+            $user->first_name = $this->request->input('first_name');
+            $user->last_name = $this->request->input('last_name');
+            $user->phone = $this->request->input('phone');
+            $user->line_id = $this->request->input('line_id');
+            $user->email = $this->request->input('email');
+            $user->address = $this->request->input('address');
+            $user->username = $this->request->input('username');
+            $user->password = Hash::make($this->request->password);
+            $user->lattitude = $this->request->input('lattitude');
+            $user->longtitude = $this->request->input('longtitude');
+
+            $user->save();
+
+            DB::commit();
+            return $this->responseRequestSuccess('Success!');
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
+    }
+
+    public function list_user()
+    {
+        $users = User::get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($users);
+
+        foreach ($users as $u) {
+
+            if ($u->role_id == '1') {
+
+                $data['info'][$count++] = [
+
+                    'no' => $u->id,
+                    'username' => $u->username,
+                    'first_name' => $u->first_name,
+                    'last_name' => $u->last_name,
+                    'phone' => $u->phone,
+                    'date' => $u->created_at,
+
+
+                ];
+            }
+        }
+
+        // dd($data['info']);
+
+        return view('admin.parent_management', [
+            'datas' => $data['info'],
+
+        ]);
+    }
+
+    public function edit_user($id)
+    {
+
+        $user = User::where('id', $id)->first();
+
+        $data['info'] = [];
+        $count = 0;
+
+        $students = Student::where('user_id', $user->id)->get();
+
+        // dd($user->role_id);
+
+        if ($user->role_id == '1') {
+
+            $relation = Relationship::where('id', $user->relationship_id)->first();
+        }
+
+
+        foreach ($students as $u) {
+            // dd($u);
+
+
+            if ($u) {
+
+                $school = School::where('id', $u->school_id)->first();
+
+                $data['info'][$count++] = [
+
+                    'no' => $u->id,
+                    'image' => $u->image,
+                    'prefix' => $u->prefix,
+                    'first_name' => $u->first_name,
+                    'last_name' => $u->last_name,
+                    'nickname' => $u->nickname,
+                    'phone' => $u->phone,
+                    'school' => $school->name_school,
+                    'car_id' => $u->car_id
+
+
+
+                ];
+            }
+        }
+
+        // dd($data['info']);
+
+        return view('admin.parent_management_edit', [
+            'datas' => $data['info'],
+            'no' => $user->id,
+            'prefix' => $user->prefix,
+            'image' => $user->image,
+            'relation' => $relation->name,
+            'username' => $user->username,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'phone' => $user->phone,
+            'line_id' => $user->line_id,
+            'email' => $user->email,
+            'address' => $user->address,
+            'date' => $user->created_at,
+            'lat' => $user->lattitude,
+            'long' => $user->longtitude,
+
+        ]);
+    }
+
+    public function del_user($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->delete();
+
+        $data['info'] = [];
+        $count = 0;
+
+        $users = User::get();
+        // dd($users);
+
+        foreach ($users as $u) {
+
+            if ($u->role_id == '1') {
+
+                $data['info'][$count++] = [
+
+                    'no' => $u->id,
+                    'username' => $u->username,
+                    'first_name' => $u->first_name,
+                    'last_name' => $u->last_name,
+                    'phone' => $u->phone,
+                    'date' => $u->created_at,
+
+
+                ];
+            }
+        }
+
+        // dd($data['info']);
+
+        return view('admin.parent_management', [
+            'datas' => $data['info'],
+
+        ]);
+    }
+
+    public function list_staff()
+    {
+        $users = User::get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($users);
+
+        foreach ($users as $u) {
+
+            if ($u->role_id != '1') {
+
+                $role = Role::where('id', $u->role_id)->first();
+
+                $data['info'][$count++] = [
+
+                    'username' => $u->username,
+                    'role' => $role->name,
+                    'first_name' => $u->first_name,
+                    'last_name' => $u->last_name,
+                    'phone' => $u->phone,
+                    'date' => $u->created_at,
+
+
+                ];
+            }
+        }
+
+        // dd($data['info']);
+
+        return view('admin.staff_management', [
+            'datas' => $data['info'],
+
+        ]);
     }
     /*
     |--------------------------------------------------------------------------

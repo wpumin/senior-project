@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\App_status;
 use Illuminate\Http\Request;
 use App\Appointment;
 use App\Period_time;
@@ -19,19 +20,36 @@ class AppointmentController extends Controller
         $this->request = $request;
     }
 
-    public function list()
+    public function list($id)
     {
-        $validate = Validator::make($this->request->all(), [
-            'user_id' => 'required',
-            
-        ]);
-        if ($validate->fails()) {
-            // throw new LogicException($validate->errors());
-            $errors = $validate->errors();
-            return $this->responseRequestError('field_required');
+        $Appointments = Appointment::where('user_id', $id)->get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        foreach ($Appointments as $app) {
+
+            $status = App_status::where('id', $app->app_status_id)->first();
+            $student = Student::where('id', $app->student_id)->first();
+            $period_time = Period_time::where('id', $app->period_time_id)->first();
+
+            $data['info'][$count++] = [
+                'app_status_id' => $status->id,
+                'student_id' => $student->nickname,
+                'appointment_at' => $app->appointment_at,
+                'period_time_id' => $period_time->name
+            ];
         }
-// dd($this->request->input('user_id'));
-        $students = Student::where('user_id', $this->request->input('user_id'))->get();
+
+        return view('parent.appointment', [
+            'data' => $data['info']
+        ]);
+
+    }
+
+    public function list_stu()
+    {
+        $students = Student::where('user_id', $this->request->user_id)->get();
 
         return $this->responseRequestSuccess($students);
     }
@@ -43,7 +61,6 @@ class AppointmentController extends Controller
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'student_id' => 'required',
-                'app_status_id' => '',
                 'period_time_id' => 'required',
                 'appointment_at' => 'required',
                 'content' => ''

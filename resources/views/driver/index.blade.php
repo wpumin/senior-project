@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-6">
                     <div class="item-content">
-                        <div class="item-title">แจ้งเดินทางเอง</div>
+                        <div class="item-title">เดินทางเอง</div>
                         <div class="item-number"><span class="counter" id="self" data-num="{{$self}}"></span></div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
 <!-- Student Table Area Start Here -->
 <div class="card height-auto pb-0">
     <div class="card-body">
-        <div class="heading-layout1">
+        <div class="heading-layout1 pt-4">
             <div class="item-title">
                 <h3>ข้อมูลนักเรียนประจำคันรถ</h3>
             </div>
@@ -167,6 +167,7 @@
                         <td>...</td>
                         <td>...</td>
                     </tr> --}}
+
                 </tbody>
             </table>
         </div>
@@ -185,8 +186,9 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4">
-                        <h2 class="mb-2 text-special-orange">กาย</h2>
-                        <p>ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p>
+                        {{-- <h2 class="mb-2 text-special-orange" id="stu_nickname">กาย</h2>
+                        <p><span id="stu_first"></span> <span id="stu_last"></span> | </span> <span id="stu_school"></p> --}}
+                        {{-- <p id="">ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p> --}}
                     </div>
                 </div>
                 <div class="row">
@@ -228,9 +230,9 @@
 <!-- Picture Modal End Here -->
 
     {{-- free --}}
-    <script src="//maps.googleapis.com/maps/api/js"></script>
+    {{-- <script src="//maps.googleapis.com/maps/api/js"></script> --}}
     {{-- paid --}}
-    {{-- <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script> --}}
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script>
     <script>
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
@@ -262,12 +264,14 @@
 
             $.ajax({
                 url: '/tasks/refresh',
-                type: 'GET',
+                type: 'POST',
                 data: {
                     car_id: car_id
                 },
                 dataType: 'json',
                 success: function(response) {
+
+                    // console.log(response);
 
                     if (response.status == 'success') {
                         document.getElementById("no").innerHTML = response.data['no'];
@@ -283,7 +287,7 @@
 
             $.ajax({
                 url: '/tasks/refresh/student',
-                type: 'GET',
+                type: 'POST',
                 data: {
                     car_id: getCookie('car_id')
                 },
@@ -300,32 +304,37 @@
                         let modalSurname = document.getElementById("surname");
                         let modalSchool = document.getElementById("school");
 
-                        // console.log(response.data['student'].length);
-                        for (var i = 0; i < response.data['student'].length; i++) {
+                        let stu_nickname = document.getElementById("stu_nickname");
+                        let stu_first = document.getElementById("stu_first");
+                        let stu_last = document.getElementById("stu_last");
+                        let stu_school = document.getElementById("stu_school");
 
-                            if (response.data['student'][i]['status'] == '1') {
+                        // console.log(response.data);
+                        for (var i = 0; i < response.data.length; i++) {
+
+                            if (response.data[i]['std_status_id'] == '1') {
                                 status = '<td class="badge badge-pill badge-red d-block mg-t-8">ยังไม่ขึ้นรถ</td>';
-                            } else if (response.data['student'][i]['status'] == '2') {
+                            } else if (response.data[i]['std_status_id'] == '2') {
                                 status = '<td class="badge badge-pill badge-orange d-block mg-t-8">ขึ้นรถแล้ว</td>';
-                            } else if (response.data['student'][i]['status'] == '3') {
+                            } else if (response.data[i]['std_status_id'] == '3') {
                                 status = '<td class="badge badge-pill badge-green d-block mg-t-8">ลงรถแล้ว</td>';
                             } else {
-                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">แจ้งเดินทางเอง</td>';
+                                status = '<td class="badge badge-pill badge-gray d-block mg-t-8">เดินทางเอง</td>';
                             }
 
                             $('table tbody').append(
                                 '<tr>' +
                                 '<td>' + (i + 1) + '</td>' +
-                                '<td>' + response.data['student'][i]['nickname'] + '</td>' +
+                                '<td>' + response.data[i]['nickname'] + '</td>' +
                                 status +
-                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc=' + response.data['student'][i]['name_school'] + ' name=' + response.data['student'][i]['fullname_s'] + ' src=https://bear-bus.com/' + response.data['student'][i]['image_stu'] + ' alt=' + response.data['student'][i]['nickname'] + '></a></td>' +
-                                '<td>' + response.data['student'][i]['name_school'] + '</td>' +
-                                '<td>' + response.data['student'][i]['fullname_u'] + '</td>' +
-                                '<td>' + response.data['student'][i]['relationship'] + '</td>' +
-                                '<td>' + response.data['student'][i]['mobile'] + '</td>' +
+                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc=' + response.data[i]['name_school'] + ' name=' + response.data[i]['fullname_s'] + ' src=https://bear-bus.com/' + response.data[i]['image'] + ' alt=' + response.data[i]['nickname'] + '></a></td>' +
+                                '<td>' + response.data[i]['name_school'] + '</td>' +
+                                '<td>' + response.data[i]['user_name'] + '</td>' +
+                                '<td>' + response.data[i]['relationship'] + '</td>' +
+                                '<td>' + response.data[i]['phone'] + '</td>' +
                                 '<td>' +
                                 '<div class="dropdown">' +
-                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data['student'][i]['lattitude'] + ' data-lng=' + response.data['student'][i]['longtitude'] + '>' +
+                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
                                 '<span class="flaticon-pin"></span>' +
                                 '</a>' +
                                 '</div>' +
@@ -334,11 +343,13 @@
                             );
 
 
+
+
                             let img = document.getElementsByClassName("myImg");
-                            let firstname = response.data['student'][i]['first_name'];
-                            let lastname = response.data['student'][i]['last_name'];
-                            let nickname = response.data['student'][i]['nickname'];
-                            let school = response.data['student'][i]['name_school'];
+                            let firstname = response.data[i]['first_name'];
+                            let lastname = response.data[i]['last_name'];
+                            let nickname = response.data[i]['nickname'];
+                            let school = response.data[i]['name_school'];
 
                             img[i].onclick = function() {
                                 // console.log(img[i]);

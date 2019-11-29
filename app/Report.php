@@ -8,7 +8,7 @@ class Report extends Model
 {
     protected $table = 'reports';
     protected $fillable = [
-        'user_id', 'type_id', 'title', 'content'
+        'user_id', 'type_id', 'title', 'content', 'report_at'
 
     ];
 

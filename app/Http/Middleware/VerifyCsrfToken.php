@@ -31,12 +31,16 @@ class VerifyCsrfToken extends Middleware
         '/newpassword',
         '/forgotpassword/againotp',
         'pass_forgot',
+        '/tasks/refresh',
+        '/tasks/refresh/student',
         'tasks/refresh/pf_student',
         '/tasks/refresh/appointment',
         '/tasks/refresh/appointment/student',
         '/tasks/refresh/report',
         'image/upload/store',
         'image/delete',
+        'parent/dashboard/info',
+        'admin/management/news/update'
 
     ];
 }

@@ -13,22 +13,22 @@ class BankTableSeeder extends Seeder
     public function run()
     {
         DB::table('banks')->insert([
-            'name' => 'ธนาคารกสิกรไทย',
+            'name' => 'กสิกรไทย',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('banks')->insert([
-            'name' => 'ธนาคารไทยพาณีชย์',
+            'name' => 'ไทยพาณีชย์',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('banks')->insert([
-            'name' => 'ธนาคารกรุงไทย',
+            'name' => 'กรุงไทย',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('banks')->insert([
-            'name' => 'ธนาคารกรุงศรี',
+            'name' => 'กรุงศรี',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

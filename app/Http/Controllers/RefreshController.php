@@ -10,6 +10,7 @@ use App\Report;
 use App\Period_time;
 use App\Payment_log;
 use App\Order_report;
+use App\Relationship;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -34,6 +35,8 @@ class RefreshController extends Controller
         $data['up'] = $up;
         $data['down'] = $down;
         $data['self'] = $self;
+
+
 
         return view('driver.index', $data);
     }
@@ -67,6 +70,7 @@ class RefreshController extends Controller
         $data['down'] = $down;
         $data['self'] = $self;
 
+
         return $this->responseRequestSuccess($data);
     }
 
@@ -77,13 +81,43 @@ class RefreshController extends Controller
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.mobile', 'users.fullname_u', 'users.relationship', 'cars.name', 'schools.name_school')->where('cars.id', $this->request->car_id)
+            ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school', 'users.lattitude', 'users.longtitude')->where('cars.id', $this->request->car_id)
             ->get();
         $data['student'] = $users;
+        $data['student_info'] = [];
+        $count = 0;
 
-        return $this->responseRequestSuccess($data);
+        foreach ($data['student'] as $stu) {
+            // dd($stu);
+            $user_id = User::where('id', $stu->user_id)->first();
+            $full_name = $user_id->first_name . ' ' . $user_id->last_name;
+
+            $relationship_id = Relationship::where('id', $stu->relationship_id)->first();
+
+            // dd($full_name);
+
+            $data['student_info'][$count++] = [
+                'id' => $stu->id,
+                'nickname' => $stu->nickname,
+                'fullname_s' => $stu->first_name . '' . $stu->last_name,
+                'first_name' => $stu->first_name,
+                'last_name' => $stu->last_name,
+                'std_status_id' => $stu->std_status_id,
+                'image' => $stu->image,
+                'name_school' => $stu->name_school,
+                'user_name' => $full_name,
+                'relationship' => $relationship_id->name,
+                'phone' => $stu->phone,
+                'lattitude' => $user_id->lattitude,
+                'longtitude' => $user_id->longtitude,
+            ];
+        }
+
+        // dd($data['student_info']);
+
+        return $this->responseRequestSuccess($data['student_info']);
     }
-  
+
     public function appointments()
     {
         $appointment = DB::table('appointments')
@@ -129,17 +163,9 @@ class RefreshController extends Controller
         return $this->responseRequestSuccess($data);
     }
 
-    public function report()
+    public function report($id)
     {
-        // validator
-        $validator = Validator::make($this->request->all(), [
-            'user_id' => 'required',
 
-        ]);
-        if ($validator->fails()) {
-            $errors = $validator->errors();
-            return $this->responseRequestError($errors);
-        }
 
         $day = date('d');
         $month = date('m');
@@ -150,11 +176,39 @@ class RefreshController extends Controller
             ->join('users', 'reports.user_id', '=', 'users.id')
             ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
             ->select('reports.*', 'type_reports.type_name')
-            ->where('reports.user_id', $this->request->input('user_id'))
+            ->where('reports.user_id', $id)
             ->orderBy('reports.created_at', 'desc')
             ->get();
 
-        return $this->responseRequestSuccess($report);
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($report);
+
+        foreach ($report as $d) {
+
+            // dd($d->type_name);
+
+
+
+            $data['info'][$count++] = [
+                'title' => $d->title,
+                'content' => $d->content,
+                'created_at' => $d->created_at,
+                'type_name' => $d->type_name
+            ];
+
+            // dd($data['info']);
+            // var_dump($data['info']);
+        }
+
+        // dd($data['info']);
+
+        return view('parent.report', [
+            'data' => $data['info']
+        ]);
+
+        // return $this->responseRequestSuccess($report);
     }
 
     public function pf_student()
@@ -175,7 +229,7 @@ class RefreshController extends Controller
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('std_statuses', 'students.std_status_id', '=', 'std_statuses.id')
-            ->select('students.*', 'schools.name_school', 'cars.name', 'cars.name_driver')
+            ->select('students.*', 'schools.name_school', 'cars.name', 'cars.name_driver', 'users.lattitude', 'users.longtitude')
             ->where('students.user_id', $this->request->input('user_id'))
             ->get();
 

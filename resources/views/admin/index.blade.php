@@ -44,34 +44,34 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mb-5 mb-lg-0 new-added-form">
-            <div class="row gutters-8">
+        {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
+            <div class="row gutters-8 new-added-form mb-5 mb-md-0">
                 <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยหัวข้อ" class="form-control" id="search_title">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                    <select class="form-control select2" autocomplete="off" id="search_type">
                         <option value="">ค้นหาด้วยประเภท</option>
-                        <option value="1">บริการทวั่ไป</option>
-                        <option value="2">พฤติกรรมคนจับ</option>
-                        <option value="3">ระบบการชำระเงิน</option>
-                        <option value="4">ระบบการแจ้งเดินทางเอง</option>
-                        <option value="5">ระบบติดตามรถบัส</option>
-                        <option value="6">แดชบอร์ด</option>
-                        <option value="7">แก้ไขโปรไฟล์</option>
+                        <option value="บริการทั่วไป">บริการทั่วไป</option>
+                        <option value="พฤติกรรมคนขับ">พฤติกรรมคนขับ</option>
+                        <option value="ระบบการชำระเงิน">ระบบการชำระเงิน</option>
+                        <option value="ระบบการแจ้งเดินทางเอง">ระบบการแจ้งเดินทางเอง</option>
+                        <option value="ระบบติดตามรถบัส">ระบบติดตามรถบัส</option>
+                        <option value="แดชบอร์ด">แดชบอร์ด</option>
+                        <option value="แก้ไขโปรไฟล์">แก้ไขโปรไฟล์</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar">
+                    <input type="text" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" id="search_date">
                     <i class="far fa-calendar-alt" style="right: 22px;"></i>
                 </div>
                 <div class="col-xl-2 col-lg-6 col-12 form-group pb-lg-5 pb-xl-0">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -83,13 +83,31 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+
+                            <?php $count=1; ?>
+
+                            @foreach($data as $key => $info)
+
+                            <?php
+                                $time = $info['time'];
+                                $time_substr = substr($time,11,16-11);
+                            ?>
+                            <td><?php print $count ?></td>
+                            <td class="text-left">{{ $info['title'] }}</td>
+                            <td>{{ $info['type'] }}</td>
+                            <td>{{ $info['date'] }} - <?php echo $time_substr; ?> น.</td>
+                            <td><a href="#" data-toggle="modal" data-target="#reportModal-{{ $info['id'] }}"><span class="flaticon-invoice"></a></td>
+
+                            <?php $count++ ?>
+
+                        {{-- <td>1</td>
                         <td class="text-left">แจ้งพฤติกรรมคนขับรถคันที่ 2 แย่มากเลยค่ะ</td>
                         <td>พฤติกรรมคนขับรถ</td>
                         <td>26/10/2562 17:02:23</td>
-                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td> --}}
                     </tr>
-                    <tr>
+                    @endforeach
+                    {{-- <tr>
                         <td>2</td>
                         <td class="text-left">ระบบจ่ายเงินไม่เสถียร</td>
                         <td>ระบบการเงิน</td>
@@ -256,7 +274,7 @@
                         <td>แก้ไขโปรไฟล์</td>
                         <td>23/10/2562 06:54:23</td>
                         <td><a href="#" data-toggle="modal" data-target="#reportModal"><span class="flaticon-invoice"></a></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -264,8 +282,9 @@
 </div>
 <!-- Report Table Area End Here -->
 
+@foreach($data as $key => $info)
 <!-- Report Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="reportModal-{{ $info['id'] }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog1 modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -277,29 +296,30 @@
                     <table class="detail">
                         <tbody>
                             <tr>
-                                <td style="width: 30%;">หัวข้อ:</td>
-                                <td>คนขับรถโกญจนาท ขับรถเร็วครับ</td>
+                                <td>หัวข้อ:</td>
+                                <td>{{ $info['title'] }}</td>
                             </tr>
                             <tr>
                                 <td>ประเภท:</td>
-                                <td>พฤติกรรมคนขับ</td>
+                                <td>{{ $info['type'] }}</td>
                             </tr>
                             <tr>
-                                <td>เวลาแจ้ง:</td>
-                                <td>24/10/2562 06:54:23</td>
+                                <?php
+                                    $time = $info['time'];
+                                    $time_substr = substr($time,11,16-11);
+                                ?>
+                                <td style="min-width: 100px;">เวลาแจ้ง:</td>
+                                <td>{{ $info['date'] }} - <?php echo $time_substr; ?> น.</td>
                             </tr>
                         </tbody>
                     </table>
                     <p class="my-4">
                         รายละเอียด: <br>
-                        รถรับส่งนักเรียน (โกญจนาท เกษศิลป์) ขับเร็ว
-                        มากครับ วันก่อนผมเจอเส้นโรงเรียนบ้านไร่วิทยา
-                        ยังไงรบกวนช่วยอบรมคนขับด้วยนะครับ เป็นห่วง
-                        บุตรหลานจริง ๆ
+                        {{ $info['content'] }}
                     </p>
                     <p class="text-right mb-2">
-                        นาย สมัคร ลิลิตสัจจะ <br>
-                        087-234-2721
+                            {{ $info['name'] }} <br>
+                            {{ $info['phone'] }}
                     </p>
                     </div>
                 </div>
@@ -308,5 +328,89 @@
     </div>
 </div>
 <!-- Report Modal End Here -->
+@endforeach
 
+@endsection
+
+@section('script')
+
+    <script>
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // ---------  Search ----------//
+
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      var title = document.getElementById("search_title");
+      var type = document.getElementById("search_type");
+      var input_date = document.getElementById("search_date");
+
+
+      filter_title = title.value;
+      filter_type = type.value;
+      filter_date = input_date.value;
+
+      table = document.getElementById("myTable");
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
+        td_date = tr[i].getElementsByTagName("td")[3]; //choose table that search. (Date)
+        // console.log(td);
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+          txtValue_date = td_date.textContent || td_date.innerText;
+
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter_title) > -1 && txtValue_period_time.indexOf(filter_type) > -1 && txtValue_date.indexOf(filter_date) > -1) {
+            tr[i].style.display = "";
+
+            $('#search_title').val(null);
+            $('#search_type').val(null).trigger('change');
+            // $('#search_type').val("");
+            $('#search_date').val(null);
+          } else {
+            tr[i].style.display = "none";
+
+            $('#search_title').val(null);
+            $('#search_type').val(null).trigger('change');
+            // $('#search_type').val("");
+            $('#search_date').val(null);
+
+          }
+        }
+
+
+      }
+    }
+    </script>
 @endsection

@@ -69,11 +69,12 @@ function convertStringDes($input){
 <div class="heading text-left">
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
-<div class="card ui-tab-card">
+<div class="card ui-tab-card maptoggle" style="height: 490px; transition: 0.3s all;">
     <div class="card-body" style="padding: 15px; position: relative;">
         <span class="toggle-result flaticon-info-1 text-theme"></span>
-        <iframe id="map" type="text/html" frameborder="0" height="245" width="100%" src="https://bear-bus.com/map"></iframe>
-        <div id="result" class="custom-scrollbar" style="display: none;"></div>
+        {{-- <div id="map" style=""></div> --}}
+        <iframe type="text/html" frameborder="0" height="100%" width="100%" src="https://bear-bus.com/map" style="min-height: 435px; max-height: 900px" scrolling="no"></iframe>
+        {{-- <div id="result" class="custom-scrollbar" style="display: none;"></div> --}}
     </div>
 </div>
 
@@ -85,27 +86,66 @@ function convertStringDes($input){
     <div class="card-body" style="padding: 15px;">
         <div class="border-nav-tab">
             <ul class="nav nav-tabs d-none d-lg-flex" role="tablist">
-                <li class="nav-item custom-nav w-50">
+
+                    <?php $ro=1; ?>
+
+                    @foreach($datas as $key => $data)
+
+                    {{-- @if ($ro == 1) --}}
+                        <li class="nav-item custom-nav w-50">
+                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                        </li>
+                        {{-- @else --}}
+                        {{-- <li class="nav-item custom-nav w-50">
+                            <a class="nav-link" data-toggle="tab" href="#tab" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                        </li>
+
+                    @endif --}}
+
+
+
+                    <?php $ro++ ?>
+                    @endforeach
+                {{-- <li class="nav-item custom-nav w-50">
                     <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">น้องคิด</a>
                 </li>
                 <li class="nav-item custom-nav w-50">
                     <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-selected="false">น้องมาร์ช</a>
-                </li>
+                </li> --}}
+
             </ul>
             <div class="form-group d-block d-lg-none">
                 <select class="form-control select2" id="select-box">
-                    <option value="1">น้องคิด</option>
-                    <option value="2">น้องมาร์ช</option>
+                        <?php $count=1; ?>
+                        <option value="">เลือกบุตรหลานของท่าน</option>
+
+                        @foreach($datas as $key => $data)
+
+                        <option value="<?php print $count ?>">{{ $data['nickname'] }}</option>
+
+                        <?php $count++ ?>
+                        @endforeach
+                    {{-- <option value="1">น้องคิด</option>
+                    <option value="2">น้องมาร์ช</option> --}}
                 </select>
             </div>
         </div>
         <div class="tab-content pt-lg-4">
-            <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+
+                <?php $tab=1; ?>
+
+                @foreach($datas as $key => $data)
+                    <div class="tab-pane fade show active" id="tab<?php print $tab ?>" role="tabpanel">
+                        <div style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    </div>
+                    <?php $tab++ ?>
+                @endforeach
+            {{-- <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                 <div id="tab1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
             </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel">
                 <div id="tab2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
@@ -186,6 +226,24 @@ function convertStringDes($input){
 <script src="https://api.longdo.com/map/?key=d9d5dac05ff94fa24f89363eb7fbe538"></script>
 
 <script>
+    function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+</script>
+
+<script>
 
     $('#select-box').change(function () {
         dropdown = $(this).val();
@@ -195,97 +253,261 @@ function convertStringDes($input){
         //   console.log(dropdown);
         //then show the tab content of whatever option value was selected
         $('#tab' + dropdown).show();
-        $('#tab' + dropdown).css('opacity','1');                                        
+        $('#tab' + dropdown).css('opacity','1');
+
+
+
+        $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
+        .done(function( result ) {
+            console.log(result['data']);
+
+            for(let i=0; i<result['data'].length; i++){
+
+                var day = [];
+                var nigth = [];
+                var date = [];
+
+                var sum_day = 0;
+                var sum_night = 0;
+
+                // var avg_day =0 ;
+                // var avg_night = 0;
+
+                // console.log(i);
+
+                console.log(result['data'][0][0]);
+                // console.log(result['data'][1][0]);
+                // console.log(result['data'][2][0]);
+
+                for(let j=0; j<result['data'][1][0].length; j++){
+
+                    sum_day += parseFloat(result['data'][i][1][j]);
+                    sum_night += parseFloat(result['data'][i][2][j]);
+
+                    // date.push(parseFloat(result['data'][i][0][j]));
+                    // console.log(result['data'][i][0][j]);
+                    day.push(parseFloat(result['data'][i][1][j]));
+                    nigth.push(parseFloat(result['data'][i][2][j]));
+                }
+
+                // console.log((sum_day/result['data'][1][0].length).toFixed(2));
+                // console.log((sum_night/result['data'][1][0].length).toFixed(2));
+
+
+                // console.log('tab'+(i+1));
+                // // console.log(date);
+                // console.log(day);
+                // console.log(nigth);
+
+                Highcharts.chart('tab'+(i+1), {
+                    chart: {
+                        type: 'areaspline'
+                    },
+                    title: {
+                        text: 'เวลาขึ้น-ลงเฉลี่ย (น้อง'+result['data'][i][3]+')'
+                    },
+                    subtitle: {
+                        text: 'เช้า: '+(sum_day/result['data'][1][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][1][0].length).toFixed(2)+' น.'
+                    },
+                    xAxis: {
+                        categories: result['data'][i][0]
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'เวลา'
+                        },
+                        labels: {
+                            formatter: function () {
+                                return this.value + ' น.';
+                            }
+                        }
+                    },
+                    tooltip: {
+                        crosshairs: true,
+                        shared: true,
+                        valueSuffix: ' น.',
+                        valueDecimals: 2,
+                        animation: true
+                    },
+                    plotOptions: {
+                        spline: {
+                            marker: {
+                                radius: 4,
+                                // lineColor: '#666666',
+                                lineWidth: 1
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            areaspline: {
+                                fillOpacity: 1
+                            },
+                            color: "#f6cb43",
+                            name: 'เย็น',
+                            marker: {
+                                symbol: 'circle'
+                            },
+                            data: nigth
+                        },
+                        {
+                            areaspline: {
+                                fillOpacity: 1
+                            },
+                            color: "#fb7a2e",
+                            name: 'เช้า',
+                            marker: {
+                                symbol: 'cicle'
+                            },
+                            data: day
+
+                        }
+                    ]
+                });
+
+            }
+        });
+    });
+
+    $('.nav-link').click(function () {
+        var idNav = $(this).attr('href');
+        // console.log(idNav);
+        //first hide all tabs again when a new option is selected
+        $('.tab-pane').hide();
+        //   $('.tab-pane.fade').fadeOut();
+        //   console.log(dropdown);
+        //then show the tab content of whatever option value was selected
+        $(idNav).show();
+        $(idNav).css('opacity','1');
     });
 
 </script>
 
 {{-- คนแรก --}}
 <script type="text/javascript">
-    Highcharts.chart('tab1', {
-        chart: {
-            type: 'areaspline'
-        },
-        title: {
-            text: 'เวลาขึ้น-ลงเฉลี่ย (น้องคิด)'
-        },
-        subtitle: {
-            text: 'เช้า: 7.25 น. | เย็น: 16.25 น.'
-        },
-        xAxis: {
-            categories: [
-                '01/10/2562',
-                '02/10/2562',
-                '03/10/2562',
-                '04/10/2562',
-                '05/10/2562',
-                '06/10/2562',
-                '07/10/2562',
-                '08/10/2562',
-                '09/10/2562',
-                '10/10/2562',
-                '11/10/2562',
-                '12/10/2562',
-                '13/10/2562',
-                '14/10/2562'
-            ]
-        },
-        yAxis: {
-            title: {
-                text: 'เวลา'
-            },
-            labels: {
-                formatter: function () {
-                    return this.value + ' น.';
-                }
-            }
-        },
-        tooltip: {
-            crosshairs: true,
-            shared: true,
-            valueSuffix: ' น.',
-            valueDecimals: 2,
-            animation: true
-        },
-        plotOptions: {
-            spline: {
-                marker: {
-                    radius: 4,
-                    // lineColor: '#666666',
-                    lineWidth: 1
-                }
-            }
-        },
-        series: [
-            {
-                areaspline: {
-                    fillOpacity: 1
-                },
-                color: "#f6cb43",
-                name: 'เย็น',
-                marker: {
-                    symbol: 'circle'
-                },
-                data: [16.23, 16.12, 16.25, 16.34, 16.32, 16.26, 16.07, 16.27, 16.12, 16.11, 16.28, 16.12, 16.45 ,16.00]
-            },
-            {
-                areaspline: {
-                    fillOpacity: 1
-                },
-                color: "#fb7a2e",
-                name: 'เช้า',
-                marker: {
-                    symbol: 'cicle'
-                },
-                data: [7.27, 7.29, 7.21, 7.20, 7.12, 7.34, 7.36, 7.45, 7.23, 7.13, 7.23, 7.34, 7.54, 7.52]
 
+$.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
+    .done(function( result ) {
+        // console.log(result['data']);
+
+        for(let i=0; i<result['data'].length; i++){
+
+            var day = [];
+            var nigth = [];
+            var date = [];
+
+            var sum_day = 0;
+            var sum_night = 0;
+
+            // var avg_day =0 ;
+            // var avg_night = 0;
+
+            // console.log('length -> ' + result['data'].length);
+            // console.log(result['data']);
+
+            // console.log('[0][0]'+result['data'][0][0]);
+            // console.log('[0][1]'+result['data'][0][1]);
+            // console.log('[0][2]'+result['data'][0][2]);
+
+            // console.log(result['data'][0][0].length);
+            // console.log('i -> ' + i);
+            // console.log('----------');
+
+            for(let j=0; j<result['data'][0][0].length; j++){ //0-?
+
+
+                // console.log('j -> ' + j);
+                // console.log(result['data'][i][1][j]);
+                sum_day += parseFloat(result['data'][i][1][j]);
+                sum_night += parseFloat(result['data'][i][2][j]);
+
+                // date.push(parseFloat(result['data'][i][0][j]));
+                // console.log(result['data'][i][0][j]);
+                day.push(parseFloat(result['data'][i][1][j]));
+                nigth.push(parseFloat(result['data'][i][2][j]));
             }
-        ]
+
+            // console.log((sum_day/result['data'][1][0].length).toFixed(2));
+            // console.log((sum_night/result['data'][1][0].length).toFixed(2));
+
+
+            // console.log('tab'+(i+1));
+            // // console.log(date);
+            // console.log(day);
+            // console.log(nigth);
+
+            Highcharts.chart('tab'+(i+1), {
+                chart: {
+                    type: 'areaspline'
+                },
+                title: {
+                    text: 'เวลาขึ้น-ลงเฉลี่ย (น้อง'+result['data'][i][3]+')'
+                },
+                subtitle: {
+                    text: 'เช้า: '+(sum_day/result['data'][i][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][i][0].length).toFixed(2)+' น.'
+                },
+                xAxis: {
+                    categories: result['data'][i][0]
+                },
+                yAxis: {
+                    title: {
+                        text: 'เวลา'
+                    },
+                    labels: {
+                        formatter: function () {
+                            return this.value + ' น.';
+                        }
+                    }
+                },
+                tooltip: {
+                    crosshairs: true,
+                    shared: true,
+                    valueSuffix: ' น.',
+                    valueDecimals: 2,
+                    animation: true
+                },
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            radius: 4,
+                            // lineColor: '#666666',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                series: [
+                    {
+                        areaspline: {
+                            fillOpacity: 1
+                        },
+                        color: "#f6cb43",
+                        name: 'เย็น',
+                        marker: {
+                            symbol: 'circle'
+                        },
+                        data: nigth
+                    },
+                    {
+                        areaspline: {
+                            fillOpacity: 1
+                        },
+                        color: "#fb7a2e",
+                        name: 'เช้า',
+                        marker: {
+                            symbol: 'cicle'
+                        },
+                        data: day
+
+                    }
+                ]
+            });
+
+        }
     });
 </script>
 
 {{-- คนที่ 2 --}}
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     Highcharts.chart('tab2', {
         chart: {
             type: 'areaspline'
@@ -366,14 +588,16 @@ function convertStringDes($input){
             }
         ]
     });
-</script>
+</script> --}}
 
 <script>
     $(document).ready(function () {
-        $("#map").attr("src","https://bear-bus.com/map"); 
+        $("#map").attr("src","https://bear-bus.com/map");
     });
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
+        // console.log('asdasdasdasdasdasd');
+        $('.maptoggle').toggleClass('customHeight');
     });
 
     // setInterval(function(){
@@ -415,7 +639,7 @@ function convertStringDes($input){
 
 
         map.Route.placeholder(document.getElementById('result'));
-        map.Route.add(new longdo.Marker({ lat: 15.083832, lon: 99.5170665 },
+        map.Route.add(new longdo.Marker({ lat: 15.083067, lon: 99.519687 },
             {
                 title: 'จุดรับส่งที่ 1',
                 icon: {

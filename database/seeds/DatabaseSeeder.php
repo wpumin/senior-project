@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -30,6 +31,9 @@ class DatabaseSeeder extends Seeder
             NewsTableSeeder::class,
             NewStatusesTableSeeder::class,
             PaymentInformTableSeeder::class,
+            // PaymentLogTableSeeder::class,
+            GetOnTableSeeder::class,
+            CheckInTableSeeder::class,
         ]);
     }
 }

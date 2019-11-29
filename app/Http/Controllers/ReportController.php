@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Report;
 use App\Type_report;
 use App\Order_report;
+use App\User;
 use LogicException;
 use Validator;
 use Carbon\Carbon;
@@ -33,9 +34,9 @@ class ReportController extends Controller
                 $errors = $validate->errors();
                 return $this->responseRequestError('field_required');
             }
-            // $day = date('d');
-            // $month = date('m');
-            // $year = date('Y') + 543;
+            $day = date('d');
+            $month = date('m');
+            $year = date('Y') + 543;
 
 
             // $name_month = ["ว่าง", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
@@ -43,7 +44,7 @@ class ReportController extends Controller
             // // $word = 'บิล ของเดือน "' . $name_month[$month] . '" เข้าแล้ว.';
             // // dd(strval($word));
 
-            // $full = $day . '-' . $month . '-' . $year;
+            $full = $day . '/' . $month . '/' . $year;
 
             DB::beginTransaction();
             $res['data'] = Report::create([
@@ -51,13 +52,48 @@ class ReportController extends Controller
                 'type_id' => $this->request->input('type_id'),
                 'title' => $this->request->input('title'),
                 'content' => $this->request->input('content'),
-                // 'date' => $full
+                'report_at' => $full
             ]);
             DB::commit();
             return $this->responseRequestSuccess($res['data']);
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
+    }
+
+    public function list_report()
+    {
+
+        $reports = Report::get();
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($reports);
+
+        foreach ($reports as $d) {
+
+            $type = Type_report::where('id', $d->type_id)->first();
+            $user = User::where('id', $d->user_id)->first();
+
+            $data['info'][$count++] = [
+
+                'id' => $d->id,
+                'title' => $d->title,
+                'type' => $type->type_name,
+                'date' => $d->report_at,
+                'time' => $d->created_at,
+                'content' => $d->content,
+                'name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
+                'phone' => $user->phone,
+
+
+            ];
+        }
+
+        return view('admin.index', [
+            'data' => $data['info']
+        ]);
     }
     /*
     |--------------------------------------------------------------------------

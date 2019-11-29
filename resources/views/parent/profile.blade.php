@@ -76,64 +76,12 @@
 {{-- ข้อมูลบุตรหลาน --}}
 <div class="card height-auto">
     <div class="card-body">
+
         <div id="showForm">
-        {{-- <div class="heading-layout1">
-            <div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">
-                <h3>ข้อมูลบุตรหลาน</h3>
-                <h3>#1</h3>
-            </div>
-        </div>
-        <div class="single-info-details">
-            <div class="item-img">
-                <img src="{{ URL::asset('images/internal/figure/studen10.png') }}" alt="parent" class="parent-profile">
-            </div>
-            <div class="item-content">
-                <div class="header-inline item-header">
-                    <h3 class="text-dark-medium font-medium text-center text-md-left">นางสาว ลภัสลัล จิรเวชสุนทรกุล</h3>
-                </div>
-                <div class="info-table table-responsive">
-                    <table class="table text-nowrap">
-                        <tbody>
-                             <tr>
-                                <td>ชื่อเล่น:</td>
-                                <td class="font-medium text-dark-medium">มายด์</td>
-                            </tr>
-                            <tr>
-                                <td>ความสัมพันธ์:</td>
-                                <td class="font-medium text-dark-medium">ลูก</td>
-                            </tr>
-                            <tr>
-                                <td>เบอร์โทร:</td>
-                                <td class="font-medium text-dark-medium">090-978-5703</td>
-                            </tr>
-                            <tr>
-                                <td>โรงเรียน:</td>
-                                <td class="font-medium text-dark-medium">ทัพหลวง</td>
-                            </tr>
-                            <tr>
-                                <td>รถ:</td>
-                                <td class="font-medium text-dark-medium">โกญจนาท (คันที่ 2)</td>
-                            </tr>
-                            <tr>
-                                <td>สถานะ:</td>
-                                <td class="font-medium text-dark-medium">ขึ้นรถแล้ว (เช้า)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> --}}
         </div>
         <div id="mapp">
-        {{-- <div class="heading-layout1 pt-3">
-            <div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">
-                <h3> <i class="flaticon-address"></i> จุดรับส่ง</h3>
-            </div>
         </div>
-        <div class="w-100 maps">
-            <iframe src="https://maps.google.com/maps?q=13.649467,100.495541&hl=es;z=14&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div> --}}
-    </div>
+
     </div>
 </div>
 
@@ -216,19 +164,19 @@
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
                             if (response.data['student'][i]['std_status_id'] == '1') {
-                                status = '<td class="font-medium text-dark-medium">ยังไม่ขึ้นรถ</td>';
-                                } else if (response.data['student'][i]['std_status_id'] == '2') {
-                                status = '<td class="font-medium text-dark-medium">ขึ้นรถแล้ว</td>';
-                                } else if (response.data['student'][i]['std_status_id'] == '3') {
-                                status = '<td class="font-medium text-dark-medium">ลงรถแล้ว</td>';
-                                } else if (response.data['student'][i]['std_status_id'] == '4') {
-                                status = '<td class="font-medium text-dark-medium">แจ้งเดินทางเอง</td>';
-                                } 
+                                status = '<td class="font-medium text-red text-dark-medium"><span class="flaticon-bench"></span> ยังไม่ขึ้นรถ</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '2') {
+                                status = '<td class="font-medium text-orange texttext-dark-medium"><span class="flaticon-bus"></span> ขึ้นรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '3') {
+                                status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '4') {
+                                status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> เดินทางเอง</td>';
+                            } 
 
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
-                            '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
+                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3 class="mt-4">#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
                             '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
@@ -246,12 +194,6 @@
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['nickname'] +
                               '</td>' + 
                               '</tr>' +
-
-                            //  '<tr>' + 
-                            //  '<td>ความสัมพันธ์:</td>' + 
-                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                            //  '</td>' +
-                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
@@ -281,7 +223,8 @@
 
                 '</div>'+
             '</div>'+
-        '</div>'
+        '</div>' + 
+        '<hr class="mt-md-5">'
                         );
                         $('#mapp').html('');
 
@@ -294,7 +237,8 @@
         '</div>'+
         '<div class="w-100 maps">'+
             '<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
-        '</div>'
+                //  คิวรี่เปลี่ยนเป็นเก็บ lat long ที่ ผปค cmo'<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
+        '</div>'    
                         );
                     }
                 }
@@ -318,20 +262,20 @@
                         
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
-                            if (response.data['student'][i]['status'] == '1') {
-                                status = '<td class="font-medium text-dark-medium">ยังไม่ขึ้นรถ</td>';
-                                } else if (response.data['student'][i]['status'] == '2') {
-                                status = '<td class="font-medium text-dark-medium">ขึ้นรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '3') {
-                                status = '<td class="font-medium text-dark-medium">ลงรถแล้ว</td>';
-                                } else if (response.data['student'][i]['status'] == '4') {
-                                status = '<td class="font-medium text-dark-medium">แจ้งเดินทางเอง</td>';
-                                } 
+                            if (response.data['student'][i]['std_status_id'] == '1') {
+                                status = '<td class="font-medium text-red text-dark-medium"><span class="flaticon-bench"></span> ยังไม่ขึ้นรถ</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '2') {
+                                status = '<td class="font-medium text-orange texttext-dark-medium"><span class="flaticon-bus"></span> ขึ้นรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '3') {
+                                status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
+                            } else if (response.data['student'][i]['std_status_id'] == '4') {
+                                status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> แจ้งเดินทางเอง</td>';
+                            } 
 
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
-                            '<h3>ข้อมูลบุตรหลาน</h3>' + '<h3>' + (i + 1) + '</h3>' + '</div>' + '</div>' +
+                            '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3 class="mt-4">#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
                             '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
                              
@@ -349,12 +293,6 @@
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['nickname'] +
                               '</td>' + 
                               '</tr>' +
-
-                            //  '<tr>' + 
-                            //  '<td>ความสัมพันธ์:</td>' + 
-                            //  '<td class="font-medium text-dark-medium">' + response.data['student'][i]['relationship'] +
-                            //  '</td>' +
-                            //  '</tr>' +
 
                              '<tr>' + 
                              '<td>เบอร์โทร:</td>' + 
@@ -384,7 +322,8 @@
 
                 '</div>'+
             '</div>'+
-        '</div>'
+        '</div>' +
+        '<hr class="mt-md-5">'
         
 
 

@@ -17,10 +17,12 @@
                  <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="select2" required autocomplete="off" id="tran_key">
                         <option value="">หมายเลขรายการ</option>
-                        <option value="1">987</option>
-                        <option value="2">986</option>
+                        @foreach($data as $key => $info)
+                        <option value="{{ $info['log_id'] }}">{{ $info['tran_key'] }}</option>
+                        {{-- <option value="2">986</option>
                         <option value="3">885</option>
-                        <option value="4">ทั้งหมด</option>
+                        <option value="4">ทั้งหมด</option> --}}
+                        @endforeach
                     </select>
                 </div>
                 {{-- <div class="col-xl-3 col-lg-6 col-12 form-group">

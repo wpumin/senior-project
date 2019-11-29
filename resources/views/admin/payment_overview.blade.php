@@ -44,7 +44,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">ค้างชำระ</div>
-                        <div class="item-number"><span class="counter" id="up" data-num="7">7</span></div>
+                    <div class="item-number"><span class="counter" id="up" data-num="{{ $no_1 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">รอการยืนยัน</div>
-                        <div class="item-number"><span class="counter" id="down" data-num="10">10</span></div>
+                    <div class="item-number"><span class="counter" id="down" data-num="{{ $no_3 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">ชำระแล้ว</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="40">40</span></div>
+                    <div class="item-number"><span class="counter" id="self" data-num="{{ $no_2 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">รายได้ปัจจุบัน</div>
-                        <div class="item-number"><span>฿</span><span class="counter" id="self" data-num="32400">32400</span></div>
+                    <div class="item-number"><span>฿</span><span class="counter" id="self" data-num="{{ $income }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -107,15 +107,15 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือนตุลาคม 2562</h3>
+                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือน{{$display_month}} {{$display_year}}</h3>
             </div>
             {{-- <div class="dropdown-refresh">
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mb-5 mb-lg-0 new-added-form">
-            <div class="row gutters-8">
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+        {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
+            <div class="row gutters-8 mg-b-20">
+                {{-- <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>
                         <option value="2">กันยายน 2562</option>
@@ -135,26 +135,28 @@
                         <option value="5">700.00</option>
                         <option value="6">900.00</option>
                     </select>
-                </div>
+                </div> --}}
                 <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                        <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
+                    {{-- <select class="form-control select2" autocomplete="off" id="search_nickname">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
                         <option value="2">จ่า</option>
                         <option value="3">สกาย</option>
                         <option value="3">แพรว</option>
-                    </select>
+                    </select> --}}
                 </div>
                 <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" id="search_key">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
+
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -168,7 +170,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+
+                        <?php $count=1; ?>
+
+                        @foreach($data as $key => $info)
+
+                        <tr>
+                                <td><?php print $count ?></td>
+                                <td>{{ $info['nickname'] }}</td>
+                                <td>{{ $info['tran_key'] }}</td>
+                                @if ($info['status_bill']  == '1')
+                                <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td>
+                                @elseif ( $info['status_bill']  == '2')
+                                <td class="badge badge-pill badge-green d-block mg-t-8">ชำระแล้ว</td>
+                                @elseif ( $info['status_bill']  == '3')
+                                <td class="badge badge-pill badge-orange d-block mg-t-8">รอการตรวจสอบ</td>
+                                @endif
+                                {{-- <td class="badge badge-pill badge-red d-block mg-t-8">ค้างชำระ</td> --}}
+                                <td>{{ $info['school'] }}</td>
+                                <td>{{ $info['parent_name'] }}</td>
+                                <td>{{ $info['phone'] }}</td>
+                                <td>{{ $info['price'] }}.00</td>
+                            </tr>
+
+                        <?php $count++ ?>
+                        @endforeach
+                    {{-- <tr>
                         <td>1</td>
                         <td>จ๋าย</td>
                         <td>987</td>
@@ -177,8 +204,8 @@
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
                         <td>900.00</td>
-                    </tr>
-                    <tr>
+                    </tr> --}}
+                    {{-- <tr>
                         <td>2</td>
                         <td>จ๋า</td>
                         <td>986</td>
@@ -287,7 +314,7 @@
                         <td>ภูมินท์ วงษ์ศิริ</td>
                         <td>089-811-5155</td>
                         <td>900.00</td>
-                    </tr>                    
+                    </tr>
                     <tr>
                         <td>13</td>
                         <td>จ๋า</td>
@@ -398,7 +425,7 @@
                         <td>089-811-5155</td>
 
                         <td>900.00</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -406,49 +433,66 @@
 </div>
 <!-- Payment Table Area End Here -->
 
-<!-- Report Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog1 modal-md modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 modal_body_content px-4">
-                    <table class="detail">
-                        <tbody>
-                            <tr>
-                                <td style="width: 30%;">หัวข้อ:</td>
-                                <td>คนขับรถโกญจนาท ขับรถเร็วครับ</td>
-                            </tr>
-                            <tr>
-                                <td>ประเภท:</td>
-                                <td>พฤติกรรมคนขับ</td>
-                            </tr>
-                            <tr>
-                                <td>เวลาแจ้ง:</td>
-                                <td>24/10/2562 06:54:23</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="my-4">
-                        รายละเอียด: <br>
-                        รถรับส่งนักเรียน (โกญจนาท เกษศิลป์) ขับเร็ว
-                        มากครับ วันก่อนผมเจอเส้นโรงเรียนบ้านไร่วิทยา
-                        ยังไงรบกวนช่วยอบรมคนขับด้วยนะครับ เป็นห่วง
-                        บุตรหลานจริง ๆ
-                    </p>
-                    <p class="text-right mb-2">
-                        นาย สมัคร ลิลิตสัจจะ <br>
-                        087-234-2721
-                    </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Report Modal End Here -->
+
+@endsection
+
+@section('script')
+
+<script>
+
+function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("search_nickname");
+      var input_periodtime = document.getElementById("search_key");
+    //   var input_month = document.getElementById("search_phone");
+
+
+      filter = input.value;
+      filter_input_periodtime = input_periodtime.value;
+    //   filter_month = input_month.value;
+
+      table = document.getElementById("myTable");
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_num);
+    //   console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
+        // td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
+        // console.log(td);
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+        //   txtValue_date = td_date.textContent || td_date.innerText;
+
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1) {
+            tr[i].style.display = "";
+
+            $('#search_nickname').val(null);
+            $('#search_key').val(null);
+          } else {
+            // tr[1].innerHTML = "ไม่มีข้อมูล";
+            tr[i].style.display = "none";
+
+            $('#search_nickname').val(null);
+            $('#search_key').val(null);
+          }
+        }
+      }
+    }
+
+</script>
 
 @endsection

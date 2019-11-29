@@ -34,8 +34,8 @@ class RegisterStudentController extends Controller
                 'last_name' => 'required',
                 'nickname' => 'required',
                 'phone' => 'required',
-                'lattitude' => 'required',
-                'longtitude' => 'required',
+                // 'lattitude' => 'required',
+                // 'longtitude' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
@@ -81,8 +81,8 @@ class RegisterStudentController extends Controller
             $student->last_name = $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
             $student->phone = $this->request->input('phone');
-            $student->lattitude = $this->request->input('lattitude');
-            $student->longtitude = $this->request->input('longtitude');
+            // $student->lattitude = $this->request->input('lattitude');
+            // $student->longtitude = $this->request->input('longtitude');
 
 
             $student->save();

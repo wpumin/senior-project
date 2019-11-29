@@ -49,7 +49,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">กสิกรไทย</div>
-                        <div class="item-number"><span class="counter" id="up" data-num="7">7</span></div>
+                    <div class="item-number"><span class="counter" id="up" data-num="{{ $bank_1 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">ไทยพาณิชย์</div>
-                        <div class="item-number"><span class="counter" id="down" data-num="10">10</span></div>
+                        <div class="item-number"><span class="counter" id="down" data-num="{{ $bank_2 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">กรุงไทย</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="40">40</span></div>
+                        <div class="item-number"><span class="counter" id="self" data-num="{{ $bank_3 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">กรุงศรี</div>
-                        <div class="item-number"><span class="counter" id="self" data-num="8">8</span></div>
+                        <div class="item-number"><span class="counter" id="self" data-num="{{ $bank_4 }}"></span></div>
                     </div>
                 </div>
             </div>
@@ -112,14 +112,14 @@
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือนตุลาคม 2562</h3>
+                <h3>ประจำคันรถที่ <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: {{$month_now}} {{$year_now}}</h3>
             </div>
             {{-- <div class="dropdown-refresh">
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mb-5 mb-lg-0 new-added-form">
-            <div class="row gutters-8">
+        {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
+            <div class="row gutters-8 mg-b-20">
                 <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>
@@ -142,24 +142,25 @@
                     </select>
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                        <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
+                    {{-- <select class="form-control select2" autocomplete="off">
                         <option value="">ค้นหาด้วยชื่อเล่น</option>
                         <option value="1">จ๋าย</option>
                         <option value="2">จ่า</option>
                         <option value="3">สกาย</option>
                         <option value="3">แพรว</option>
-                    </select>
+                    </select> --}}
                 </div>
                 <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control">
+                        <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" id="search_key">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button type="submit"onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -181,29 +182,33 @@
                         }
                     ?>
                     @foreach($datas as $key=>$data)
-                        @if($data['car_id'] == $temp_car)
+                        {{-- @if($data['car_id'] == $temp_car) --}}
+                            @if($data['status_bill'] == '1')
                             <tr>
-                                <td>
-                                <?php print $count ?>
-                                </td>
-                                <td>{{ $data['tran_key'] }}</td>
-                                <td>{{ $data['date'] }} </td>
-                                @if($data['bank_id'] == 1)
-                                    <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
-                                @elseif($data['bank_id'] == 2)
-                                    <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
-                                @elseif($data['bank_id'] == 3)
-                                    <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
-                                @elseif($data['bank_id'] == 4)
-                                    <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
-                                @endif
-                                <td>{{ $data['nickname'] }}</td>
-                                <td>{{ $data['school'] }}</td>
-                                <td>{{ $data['price'] }}</td>
-                            <td><a href="#" data-toggle="modal" data-target="#confirmModal-{{ $data['tran_key'] }}"><span class="flaticon-bill"></a></td>
-                            </tr>
-                            <?php $count++ ?>
-                        @endif
+                                    <td>
+                                    <?php print $count ?>
+                                    </td>
+                                    <td>{{ $data['tran_key'] }}</td>
+                                    <td>{{ $data['date'] }} </td>
+                                    @if($data['bank_id'] == 1)
+                                        <td class="badge badge-pill badge-kbank d-block mg-t-8">กสิกรไทย</td>
+                                    @elseif($data['bank_id'] == 2)
+                                        <td class="badge badge-pill badge-scb d-block mg-t-8">ไทยพาณิชย์</td>
+                                    @elseif($data['bank_id'] == 3)
+                                        <td class="badge badge-pill badge-ktb d-block mg-t-8">กรุงไทย</td>
+                                    @elseif($data['bank_id'] == 4)
+                                        <td class="badge badge-pill badge-krungsri d-block mg-t-8">กรุงศรี</td>
+                                    @endif
+                                    <td>{{ $data['nickname'] }}</td>
+                                    <td>{{ $data['school'] }}</td>
+                                    <td>{{ $data['price'] }}</td>
+                                <td><a href="#" data-toggle="modal" data-target="#confirmModal-{{ $data['tran_key'] }}"><span class="flaticon-bill"></a></td>
+                                </tr>
+                                <?php $count++ ?>
+
+                            @endif
+
+                        {{-- @endif --}}
                     @endforeach
                 </tbody>
             </table>
@@ -254,12 +259,13 @@
                         </table>
                         <hr>
                         <h6 class="mb-2 text-special-orange text-center py-2">หลักฐานการโอนเงิน (โปรดแสกน)</h6>
-                        <img class="w-50 text-center" src="{{ URL::asset('images/internal/bill/246407.jpg') }}" alt="bill image">
+                        <img class="w-50 text-center" src="{{asset($data['bill_image'])}}" alt="bill image">
                         <h6 class="mb-2 text-special-orange text-center pt-4 pb-0">เป็นเงิน {{ $data['price'] }} บาท</h6>
                         <p class="text-center mb-2 small">จ่ายเมื่อ {{ $data['date'] }}</p>
                         <hr>
                         <div class="mt-2">
-                            <button type="button" class="btn btn-secondary" id="confirmPayment">ยืนยัน</button>
+                            <a class="btn btn-secondary" href="<?php echo "/admin/confirm/".$_COOKIE['car_id']."/"; ?>{{ $data['tran_key'] }}">ยืนยัน</a>
+                            {{-- <button type="button" class="btn btn-secondary" id="confirmPayment">ยืนยัน</button> --}}
                             <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                         </div>
                     </div>
@@ -291,35 +297,60 @@
 <!-- System error End Here -->
 
 @endsection
-
 @section('script')
+
 <script>
 
-    // ajax
-    $('#confirmPayment').click(function(){
+function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
-        $.ajax({
-            type: "POST",
-            url: ","
-            // url: "http://localhost:8000/admin/confirm-payment",
-            headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            cache:false,
-            success: function(result){
+      input = document.getElementById("search_nickname");
+      var input_periodtime = document.getElementById("search_key");
+    //   var input_month = document.getElementById("search_phone");
 
-                // ยืนยันลำเร็จ
-                if(result.status == 'success') {
-                    // ลบออกจากตารางแจ้งชำระเงิน แล้วเปลี่ยนสถานะการรอการตรวจสอบเป็น ชำระแล้ว
-                    $('#confirmModal').modal('hide');
-                }
-            },
-            error: function(result){
-                $('#confirmModal').modal('hide');
-                $(".wrap-modal > #systemError").modal('show');
-            }
-        });
-    });
+
+      filter = input.value;
+      filter_input_periodtime = input_periodtime.value;
+    //   filter_month = input_month.value;
+
+      table = document.getElementById("myTable");
+    //   console.log('Filter: '+filter);
+    //   console.log('Filter: '+filter_input_periodtime);
+    //   console.log('Filter: '+filter_month);
+      tr = table.getElementsByTagName("tr");
+
+    //   console.log(tr.length);
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
+        // td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
+        // console.log(td_name);
+        if (td_name) {
+
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+        //   txtValue_date = td_date.textContent || td_date.innerText;
+
+        //   console.log('Total: '+txtValue);
+        //   console.log('Total: '+txtValue_period_time);
+        //   console.log('Total: '+txtValue_date);
+
+          if (txtValue.indexOf(filter_input_periodtime) > -1 && txtValue_period_time.indexOf(filter) > -1) {
+
+            tr[i].style.display = "";
+          } else {
+            // tr[1].innerHTML = "ไม่มีข้อมูล";
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
 
 </script>
+
+
 @endsection

@@ -37,27 +37,25 @@ Route::get('/create-newpassword', function () {
 
 // parent
 Route::group(array('prefix' => 'parent'), function () {
+
     Route::get('/index', function () {
         return view('parent.index');
     });
-    Route::get('/payment/overview', function () {
-        return view('parent.payment_overview');
-    });
-    Route::get('/payment/confirm', function () {
-        return view('parent.payment_confirm');
-    });
-    Route::get('/appointment', function () {
-        return view('parent.appointment');
-    });
-    Route::get('/report', function () {
-        return view('parent.report');
-    });
+    Route::get('/payment/overview/{id}', 'PaymentController@overview');
+
+    Route::get('/payment/confirm/{id}', 'PaymentController@parent_list');
+
+    Route::get('/appointment/{id}', 'AppointmentController@list');
+
+    Route::get('/report/{id}', 'RefreshController@report');
+
     Route::get('/profile', function () {
         return view('parent.profile');
     });
-    Route::get('/dashboard', function () {
-        return view('parent.dashboard');
-    });
+    Route::get('/dashboard/{id}', 'ParentController@list_student');
+
+    Route::post('/dashboard/info', 'ParentController@ajax_list_student');
+
     Route::get('/news/detail', function () {
         return view('news.news_detail');
     });
@@ -68,9 +66,13 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/index', function () {
         return view('driver.index');
     });
-    Route::get('/appointment', function () {
-        return view('driver.appointment');
-    });
+
+    Route::get('/appointment/{car}', 'DriverController@list_student');
+
+    Route::get('/appointment/{car}/del/{id}', 'DriverController@del_app');
+
+    Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
+
     Route::get('/broadcast', function () {
         return view('driver.broadcast');
     });
@@ -84,30 +86,41 @@ Route::group(array('prefix' => 'driver'), function () {
 
 // driver
 Route::group(array('prefix' => 'admin'), function () {
-    Route::get('/index', function () {
-        return view('admin.index');
-    });
-    Route::get('/management/news', function () {
-        return view('admin.news');
-    });
+
+    Route::get('/index', 'ReportController@list_report');
+
+    Route::get('/management/news', 'NewsController@index');
+
+    Route::get('/management/news/edit/{id}', 'NewsController@edit_new');
+
+    Route::post('/management/news/update', 'NewsController@update_new');
+
+    Route::get('/management/news/del/{id}', 'NewsController@del_new');
+
     Route::get('/management/news/create', function () {
         return view('admin.news_create');
     });
-    Route::get('/payment/overview/car1', function () {
-        return view('admin.payment_overview');
-    });
-    Route::get('/payment/overview/car2', function () {
-        return view('admin.payment_overview');
-    });
-    Route::get('/management/parent', function () {
-        return view('admin.parent_management');
-    });
+
+    Route::get('/payment/confirm/{car}', 'PaymentController@index');
+
+    Route::get('/payment/overview/{car}', 'PaymentController@admin_list');
+
+    Route::get('/confirm/{car}/{id}', 'PaymentController@confirm');
+
+    // Route::get('/payment/overview/car2', function () {
+    //     return view('admin.payment_overview');
+    // });
+    Route::get('/management/parent', 'RegisterUserController@list_user');
+
+    Route::get('/management/parent/edit/{id}', 'RegisterUserController@edit_user');
+
+    Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
+
     Route::get('/management/parent/create', function () {
         return view('admin.parent_management_create');
     });
-    Route::get('/management/staff', function () {
-        return view('admin.staff_management');
-    });
+    Route::get('/management/staff', 'RegisterUserController@list_staff');
+
     Route::get('/management/staff/create', function () {
         return view('admin.staff_management_create');
     });
@@ -146,20 +159,20 @@ Route::post('/bill', 'PaymentController@addPayment');
 Route::get('/driver/index', 'RefreshController@run');
 Route::get('/admin/car-overview/car1', 'RefreshController@runAdmin');
 Route::get('/admin/car-overview/car2', 'RefreshController@runAdmin');
-Route::get('/tasks/refresh', 'RefreshController@refresh');
-Route::get('/tasks/refresh/student', 'RefreshController@student');
+
+Route::post('/tasks/refresh', 'RefreshController@refresh');
+Route::post('/tasks/refresh/student', 'RefreshController@student');
 Route::get('tasks/refresh/order', 'RefreshController@order_report');
 
 Route::post('tasks/refresh/pf_student', 'RefreshController@pf_student');
-Route::post('tasks/refresh/report', 'RefreshController@report');
+// Route::get('tasks/refresh/report/{id}', 'RefreshController@report');
 Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
-Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list');
+Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list_stu');
 
 
 // Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');
-Route::get('admin/payment/confirm/car1', 'PaymentController@index');
-Route::get('admin/payment/confirm/car2', 'PaymentController@index');
+// Route::get('admin/payment/confirm/car2', 'PaymentController@index');
 
 // Route::get('image/upload', 'ImageUploadController@fileCreate');
 // Route::post('image/upload/store', 'ImageUploadController@fileStore');
