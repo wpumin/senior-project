@@ -257,7 +257,7 @@ function convertStringDes($input){
 
 
 
-        $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
+        $.post( "https://bear-bus.com/parent/dashboard/info", { user_id: getCookie('user_id')})
         .done(function( result ) {
             console.log(result['data']);
 
@@ -386,7 +386,7 @@ function convertStringDes($input){
 {{-- คนแรก --}}
 <script type="text/javascript">
 
-$.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
+$.post( "https://bear-bus.com/parent/dashboard/info", { user_id: getCookie('user_id')})
     .done(function( result ) {
         // console.log(result['data']);
 
