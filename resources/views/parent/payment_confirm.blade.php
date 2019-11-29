@@ -18,7 +18,7 @@
                     <select class="select2" required autocomplete="off" id="tran_key">
                         <option value="">หมายเลขรายการ</option>
                         @foreach($data as $key => $info)
-                        <option value="{{ $info['tran_key'] }}">{{ $info['tran_key'] }}</option>
+                        <option value="{{ $info['log_id'] }}">{{ $info['tran_key'] }}</option>
                         {{-- <option value="2">986</option>
                         <option value="3">885</option>
                         <option value="4">ทั้งหมด</option> --}}

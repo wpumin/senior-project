@@ -217,12 +217,12 @@ class PaymentController extends Controller
 
                 $data['info'][$count++] = [
 
+                    'log_id' => $b->id,
                     'tran_key' => $b->tran_key
 
                 ];
             }
         }
-
 
         return view('parent.payment_confirm', [
             'data' => $data['info']
