@@ -115,7 +115,7 @@
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8 mg-b-20">
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                {{-- <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>
                         <option value="2">กันยายน 2562</option>
@@ -135,7 +135,7 @@
                         <option value="5">700.00</option>
                         <option value="6">900.00</option>
                     </select>
-                </div>
+                </div> --}}
                 <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
                         <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                     {{-- <select class="form-control select2" autocomplete="off" id="search_nickname">
