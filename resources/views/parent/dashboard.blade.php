@@ -254,12 +254,12 @@ function convertStringDes($input){
         //then show the tab content of whatever option value was selected
         $('#tab' + dropdown).show();
         $('#tab' + dropdown).css('opacity','1');
-        
+
 
 
         $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('user_id')})
         .done(function( result ) {
-            // console.log(result['data']);
+            console.log(result['data']);
 
             for(let i=0; i<result['data'].length; i++){
 
@@ -275,7 +275,7 @@ function convertStringDes($input){
 
                 // console.log(i);
 
-                // console.log(result['data'][0][0]);
+                console.log(result['data'][0][0]);
                 // console.log(result['data'][1][0]);
                 // console.log(result['data'][2][0]);
 
@@ -402,14 +402,22 @@ $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('use
             // var avg_day =0 ;
             // var avg_night = 0;
 
-            // console.log(i);
+            // console.log('length -> ' + result['data'].length);
+            // console.log(result['data']);
 
-            // console.log(result['data'][0][0]);
-            // console.log(result['data'][1][0]);
-            // console.log(result['data'][2][0]);
+            // console.log('[0][0]'+result['data'][0][0]);
+            // console.log('[0][1]'+result['data'][0][1]);
+            // console.log('[0][2]'+result['data'][0][2]);
 
-            for(let j=0; j<result['data'][1][0].length; j++){
+            // console.log(result['data'][0][0].length);
+            // console.log('i -> ' + i);
+            // console.log('----------');
 
+            for(let j=0; j<result['data'][0][0].length; j++){ //0-?
+
+
+                // console.log('j -> ' + j);
+                // console.log(result['data'][i][1][j]);
                 sum_day += parseFloat(result['data'][i][1][j]);
                 sum_night += parseFloat(result['data'][i][2][j]);
 
@@ -436,7 +444,7 @@ $.post( "http://localhost:8000/parent/dashboard/info", { user_id: getCookie('use
                     text: 'เวลาขึ้น-ลงเฉลี่ย (น้อง'+result['data'][i][3]+')'
                 },
                 subtitle: {
-                    text: 'เช้า: '+(sum_day/result['data'][1][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][1][0].length).toFixed(2)+' น.'
+                    text: 'เช้า: '+(sum_day/result['data'][i][0].length).toFixed(2)+' น. | เย็น: '+(sum_night/result['data'][i][0].length).toFixed(2)+' น.'
                 },
                 xAxis: {
                     categories: result['data'][i][0]

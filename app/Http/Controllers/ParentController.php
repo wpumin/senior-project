@@ -119,7 +119,7 @@ class ParentController extends Controller
                 if ($i->get_on_id == '1' && $i->period_time == '1') {
                     array_push($date_check, $i->date_check);
                     array_push($day_check, $i->time_check);
-                } else {
+                } elseif ($i->get_on_id == '2' && $i->period_time == '2') {
                     array_push($down_check, $i->time_check);
                 }
             }
