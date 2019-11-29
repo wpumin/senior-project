@@ -88,7 +88,7 @@
 
                             @foreach($data as $key => $info)
 
-                            <?php 
+                            <?php
                                 $time = $info['time'];
                                 $time_substr = substr($time,11,16-11);
                             ?>
@@ -304,7 +304,7 @@
                                 <td>{{ $info['type'] }}</td>
                             </tr>
                             <tr>
-                                <?php 
+                                <?php
                                     $time = $info['time'];
                                     $time_substr = substr($time,11,16-11);
                                 ?>
@@ -393,10 +393,18 @@
 
           if (txtValue.indexOf(filter_title) > -1 && txtValue_period_time.indexOf(filter_type) > -1 && txtValue_date.indexOf(filter_date) > -1) {
             tr[i].style.display = "";
-            $('#search_date').val("");
+
+            $('#search_title').val(null);
+            $('#search_type').val(null).trigger('change');
+            // $('#search_type').val("");
+            $('#search_date').val(null);
           } else {
             tr[i].style.display = "none";
-            $('#search_date').val("");
+
+            $('#search_title').val(null);
+            $('#search_type').val(null).trigger('change');
+            // $('#search_type').val("");
+            $('#search_date').val(null);
 
           }
         }
