@@ -61,9 +61,8 @@ Route::group(array('prefix' => 'parent'), function () {
 // driver
 Route::group(array('prefix' => 'driver'), function () {
 
-    Route::get('/index', function () {
-        return view('driver.index');
-    });
+    Route::get('/index', 'RefreshController@run');
+    // Route::get('/index', 'DriverController@index');
 
     Route::get('/appointment/{car}', 'DriverController@list_student');
 
@@ -77,9 +76,8 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/profile', function () {
         return view('driver.profile');
     });
-    Route::get('/news/detail', function () {
-        return view('news.news_detail');
-    });
+
+    Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
 
 // driver
@@ -153,8 +151,6 @@ Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
 
-
-Route::get('/driver/index', 'RefreshController@run');
 Route::get('/admin/car-overview/car1', 'RefreshController@runAdmin');
 Route::get('/admin/car-overview/car2', 'RefreshController@runAdmin');
 
