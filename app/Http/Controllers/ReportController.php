@@ -92,7 +92,7 @@ class ReportController extends Controller
             ];
         }
 
-        $news = News::get();
+        $news = News::where('news_statuses_id', 1)->get();
 
         $data['info_news'] = [];
         $count_news = 0;
@@ -126,8 +126,9 @@ class ReportController extends Controller
 
     public function show_news($id)
     {
+        // dd($id);
         $news = News::where('id', $id)->first();
-        // dd($news[0]);
+        // dd($news);
         $d = date('d');
         $m = date('m');
         $y = date('Y') + 543;
@@ -150,9 +151,10 @@ class ReportController extends Controller
         // foreach ($news as $n) {
         // dd($n->release_time > $time_now);
         if ($news) {
-
+            // dd($news->release_date);
             if ($news->release_date >= $full) {
 
+                // dd($time_now);
                 if ($time_now > $news->release_time) {
 
                     $user = User::where('id', $news->user_id)->first();
@@ -170,8 +172,53 @@ class ReportController extends Controller
 
 
                     ];
+                } else {
+
+                    $data['info'][$count++] = [
+
+                        'id' => '',
+                        'image' => '',
+                        'title' => '',
+                        'content' => '',
+                        'release_date' => '',
+                        'name' => '',
+                        'status' => ''
+
+
+
+                    ];
                 }
+            } else {
+
+                $data['info'][$count++] = [
+
+                    'id' => '',
+                    'image' => '',
+                    'title' => '',
+                    'content' => '',
+                    'release_date' => '',
+                    'name' => '',
+                    'status' => ''
+
+
+
+                ];
             }
+        } else {
+
+            $data['info'][$count++] = [
+
+                'id' => '',
+                'image' => '',
+                'title' => '',
+                'content' => '',
+                'release_date' => '',
+                'name' => '',
+                'status' => ''
+
+
+
+            ];
         }
 
 
