@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
 use Illuminate\Http\Request;
 use App\Report;
 use App\Type_report;
@@ -91,8 +92,96 @@ class ReportController extends Controller
             ];
         }
 
+        $news = News::get();
+
+        $data['info_news'] = [];
+        $count_news = 0;
+
+        // dd($users);
+
+        foreach ($news as $n) {
+
+            $user = User::where('id', $n->user_id)->first();
+
+            $data['info_news'][$count_news++] = [
+
+                'id' => $n->id,
+                'image' => $n->image,
+                'title' => $n->title,
+                'content' => $n->content,
+                'release_date' => $n->release_date . ' ' . $n->release_time,
+                'name' => $n->username,
+                'status' => $n->news_statuses_id
+
+
+
+            ];
+        }
+
         return view('admin.index', [
-            'data' => $data['info']
+            'data' => $data['info'],
+            'datas' => $data['info_news']
+        ]);
+    }
+
+    public function show_news($id)
+    {
+        $news = News::where('id', $id)->first();
+        // dd($news[0]);
+        $d = date('d');
+        $m = date('m');
+        $y = date('Y') + 543;
+
+        // dd($d);
+
+        $full = $d . '/' . $m . '/' . $y;
+        $time_now = date('H:i');
+
+        // dd($full);
+        // dd($news[0]['release_time'] > $time_now);
+
+        // dd($news[0]['news_at'] > $full);
+
+        $data['info'] = [];
+        $count = 0;
+
+        // dd($news->news_at);
+
+        // foreach ($news as $n) {
+        // dd($n->release_time > $time_now);
+        if ($news) {
+
+            if ($news->release_date >= $full) {
+
+                if ($time_now > $news->release_time) {
+
+                    $user = User::where('id', $news->user_id)->first();
+
+                    $data['info'][$count++] = [
+
+                        'id' => $news->id,
+                        'image' => $news->image,
+                        'title' => $news->title,
+                        'content' => $news->content,
+                        'release_date' => $news->release_date . ' ' . $news->release_time,
+                        'name' => $user->username,
+                        'status' => $news->news_statuses_id
+
+
+
+                    ];
+                }
+            }
+        }
+
+
+        // }
+
+        // dd($data['info']);
+
+        return view('news.news_detail', [
+            'datas' => $data['info'],
+
         ]);
     }
     /*

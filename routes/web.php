@@ -129,9 +129,7 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('/profile', function () {
         return view('admin.profile');
     });
-    Route::get('/news/detail', function () {
-        return view('news.news_detail_admin');
-    });
+    Route::get('/news/detail/{id}', 'ReportController@show_news');
 });
 
 Route::get('/map', function () {
