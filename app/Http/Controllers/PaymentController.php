@@ -98,7 +98,6 @@ class PaymentController extends Controller
                 }
             }
         }
-        // dd($data['info']);
 
         return view('admin.payment_confirm', [
             'datas' => $data['info'],

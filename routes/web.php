@@ -38,9 +38,8 @@ Route::get('/create-newpassword', function () {
 // parent
 Route::group(array('prefix' => 'parent'), function () {
 
-    Route::get('/index', function () {
-        return view('parent.index');
-    });
+    Route::get('/index', 'ParentController@index');
+
     Route::get('/payment/overview/{id}', 'PaymentController@overview');
 
     Route::get('/payment/confirm/{id}', 'PaymentController@parent_list');
@@ -56,13 +55,12 @@ Route::group(array('prefix' => 'parent'), function () {
 
     Route::post('/dashboard/info', 'ParentController@ajax_list_student');
 
-    Route::get('/news/detail', function () {
-        return view('news.news_detail');
-    });
+    Route::get('/news/detail/{id}', 'ParentController@show_news');
 });
 
 // driver
 Route::group(array('prefix' => 'driver'), function () {
+
     Route::get('/index', function () {
         return view('driver.index');
     });
@@ -177,3 +175,5 @@ Route::get('firebase/getlocation', 'FirebaseController@get_location')->middlewar
 // Route::get('image/upload', 'ImageUploadController@fileCreate');
 // Route::post('image/upload/store', 'ImageUploadController@fileStore');
 // Route::post('image/delete', 'ImageUploadController@fileDestroy');
+
+Route::post('/ajax_upload/action', 'NewsController@action')->name('ajaxupload.action');
