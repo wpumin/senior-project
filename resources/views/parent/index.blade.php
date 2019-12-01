@@ -24,32 +24,15 @@
     <h3>อัพเดตข่าวสาร</h3>
 </div>
 <div class="owl-carousel owl-theme d-md-none">
-
-        @foreach($datas as $key => $info)
-
-<a href="<?php echo "/parent/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{URL::asset($info['image'])}})"></div></a>
-
+    @foreach($datas as $key => $info)
+        <a href="<?php echo "/parent/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{URL::asset($info['image'])}})"></div></a>
     @endforeach
-    {{-- <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/true.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/seat_bus.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/brick.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/route.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/route2.jpg")}})"></div></a> --}}
 </div>
 <!-- ไอแพดขึ้นไป -->
 <div class="owl-carousel owl-theme d-none d-md-block mb-md-5">
-        @foreach($datas as $key => $info)
-
-            <a href="<?php echo "/parent/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: url({{ URL::asset($info['image'])}})"></div></a>
-
-        @endforeach
-    {{-- <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/true.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/seat_bus.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/brick.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/route.jpg")}})"></div></a>
-    <a href="{{ url('parent/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/route2.jpg")}})"></div></a> --}}
+    @foreach($datas as $key => $info)
+        <a href="<?php echo "/parent/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: url({{ URL::asset($info['image'])}})"></div></a>
+    @endforeach
 </div>
 <!-- Owl-Carousel Area End Here-->
 
@@ -92,32 +75,6 @@
         $('.maptoggle').toggleClass('customHeight');
     });
 
-    // setInterval(function(){
-    //     $.getJSON('https://bear-bus.com/firebase/getlocation', function(result){
-    //         // console.log(result['data']['lat']);
-    //         map = new longdo.Map({
-    //         placeholder: document.getElementById('map')
-    //         });
-    //         var marker = new longdo.Marker({ lon: result['data']['long'], lat: result['data']['lat'] },
-    //             {
-    //                 title: 'รถรับส่งนักเรียน',
-    //                 icon: {
-    //                     url: 'https://bear-bus.com/images/internal/bearbus.png'
-    //                 },
-    //                 detail: 'ตำแหน่งปัจจุบัน',
-    //                 // visibleRange: { min: 7, max: 9 },
-    //                 draggable: false,
-    //                 weight: longdo.OverlayWeight.Top,
-    //             });
-    //             init();
-
-    //             // marker.move(marker);
-    //             // map.location(longdo.LocationMode.Geolocation);
-    //             map.Overlays.add(marker);
-    //     });
-    // }, 25000);
-
-    // long do map
     function init() {
 
         map = new longdo.Map({

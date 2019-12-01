@@ -6,7 +6,7 @@
 
 <!-- News Create Area Start Here -->
     <div class="heading text-left">
-        <h3>เพิ่มหัวข้อข่าว</h3>
+        <h3>เพิ่มข่าวสาร</h3>
     </div>
     @include('admin._form_news')
 <!-- News Create Area End Here -->
@@ -19,7 +19,7 @@
                 <div class="modal-header _success">
                 </div>
                 <div class="modal-body my-4 text-center">
-                    <b>เพิ่มหัวข้อข่าวสำเร็จ</b>
+                    <b>เพิ่มข่าวสารสำเร็จ</b>
                     <div class="modal-button text-center mt-3">
                         <button type="button" class="btn btn-secondary" id="confirmDelete">ตกลง</button>
                         <!-- data-dismiss="modal" -->

@@ -359,8 +359,7 @@
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
                             <?php
-                            if($_COOKIE['role_id'] == '1') {
-
+                                if($_COOKIE['role_id'] == '1') {
                             ?>
                                 <div class="mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>

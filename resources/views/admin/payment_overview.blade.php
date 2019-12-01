@@ -109,13 +109,10 @@
             <div class="item-title">
                 <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือน{{$display_month}} {{$display_year}}</h3>
             </div>
-            {{-- <div class="dropdown-refresh">
-                    <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
-                </div> --}}
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8 mg-b-20">
-                {{-- <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>
                         <option value="2">กันยายน 2562</option>
@@ -125,31 +122,13 @@
                         <option value="6">พฤษภาคม 2562</option>
                     </select>
                 </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
-                        <option value="">ค้นหาด้วยจำนวนเงิน</option>
-                        <option value="1">350.00</option>
-                        <option value="2">500.00</option>
-                        <option value="3">600.00</option>
-                        <option value="4">650.00</option>
-                        <option value="5">700.00</option>
-                        <option value="6">900.00</option>
-                    </select>
-                </div> --}}
-                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
-                    {{-- <select class="form-control select2" autocomplete="off" id="search_nickname">
-                        <option value="">ค้นหาด้วยชื่อเล่น</option>
-                        <option value="1">จ๋าย</option>
-                        <option value="2">จ่า</option>
-                        <option value="3">สกาย</option>
-                        <option value="3">แพรว</option>
-                    </select> --}}
+                <div class="col-4-xxxl col-xl-4 col-lg-6 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" id="search_key">
                 </div>
-                <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
+                <div class="col-2-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
