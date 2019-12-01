@@ -8,7 +8,7 @@
 <div class="heading text-left">
     <h3>เพิ่มหัวข้อข่าว</h3>
 </div>
-<div class="card height-auto pb-0">
+{{-- <div class="card height-auto pb-0">
     <div class="card-body pt-5">
         <div class="heading-layout1">
         </div>
@@ -70,7 +70,8 @@
             </div>
         </form>
     </div>
-</div>
+</div> --}}
+@include('admin._form_news')
 <!-- News Create Area End Here -->
 
 <!-- Success Modal -->
@@ -144,54 +145,6 @@
         $(document).ready(function(){
             $("#addNewsBtn").click(function(event){
                 event.preventDefault();
-                // var formElement = document.querySelector("form");
-
-                // var id = document.getElementById("news_id").value;
-                // var title = document.getElementById("title").value;
-                // var role_id = document.getElementById("role_id").value;
-                // var status_id = document.getElementById("status_id").value;
-                // var release_date = document.getElementById("release_date").value;
-                // var release_time = document.getElementById("release_time").value;
-                // var content = document.getElementById("content").value;
-
-                // // var id = document.getElementById("news_id").value;
-
-                // let myForm = document.getElementById('addUserForm');
-                // let formData = new FormData(myForm);
-
-                // formData.append('id', id); //0
-                // formData.append('title', myForm[1].value);
-                // formData.append('role_id', role_id);
-                // formData.append('files', myForm[3].files[0]);
-                // formData.append('status_id', status_id);
-                // formData.append('release_date', release_date);
-                // formData.append('release_time', release_time);
-                // formData.append('content', content);
-
-
-                // console.log(myForm.length);
-                // console.log(myForm);
-                // console.log(myForm[0]);
-                // console.log(myForm[1].value);
-                // console.log(myForm[2].value);
-                // console.log(myForm[3].files[0]);
-                // console.log(myForm[4].value);
-                // console.log(myForm[5].value);
-                // console.log(myForm[6].value);
-                // console.log(myForm[7].value);
-                // console.log(myForm[8].value);
-                // console.log('----------');
-
-                // console.log(formData.entries());
-                // // Display the key/value pairs
-                // for (var pair of formData.entries()) {
-                //     console.log('IN:'+pair[0]+ ', ' + pair[1]);
-                // }
-                // console.log('----------');
-                // let myForm = document.getElementById('addUserForm');
-                // var image_file = myForm[3].files[0];
-                // console.log(image_file);
-
                 submitForm();
                 return false;
             });
@@ -208,56 +161,14 @@
             var id = document.getElementById("news_id").value;
             var id_user = document.getElementById("id_user").value;
 
-
-            // let myForm = document.getElementById('addUserForm');
-            // let formData = new FormData(myForm);
-
-
-
             let myForm = document.getElementById('addUserForm');
-                var image_file = myForm[3].files[0];
-                console.log(image_file);
+            var image_file = myForm[3].files[0];
+            // console.log(image_file);
 
-
-            // var image_file = $('#imgInp').files[0];
 
             var formData_1 = new FormData();
             formData_1.append("file", image_file);
-            // formData_1.append('id', id); //0
-            // formData_1.append('title', myForm[1].value);
-            // formData_1.append('role_id', role_id);
-            // // formData.append('files', myForm[3].files[0]);
-            // formData_1.append('status_id', status_id);
-            // formData_1.append('release_date', release_date);
-            // formData_1.append('release_time', release_time);
-            // formData_1.append('content', content);
-            // formData_1.append('user_id', id_user);
-
-            // console.log(formData_1);
-
-            // var data = {
-
-            //     'id': id,
-            //     'title': title,
-            //     'role_id': role_id,
-            //     'status_id': status_id,
-            //     'release_date': release_date,
-            //     'release_time': release_time,
-            //     'content': content,
-            //     'file': files
-
-            // };
-
-
-            // console.log(title);
-            // console.log(role_id);
-            // console.log(status_id);
-            // console.log(release_date);
-            // console.log(release_time);
-            // console.log(content);
-            // console.log($('#imgInp')[0].files[0]);
-            // console.log(data);
-            console.log('----------');
+            // console.log('----------');
 
             $.ajax({
                 type: "POST",
