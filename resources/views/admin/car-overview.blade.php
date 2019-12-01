@@ -113,7 +113,7 @@
 <!-- Student Table Area Start Here -->
 <div class="card height-auto pb-0">
     <div class="card-body">
-        <div class="heading-layout1">
+        <div class="heading-layout1 pt-4">
             <div class="item-title">
             <h3>ข้อมูลนักเรียนประจำคันรถที่ <?php if(($menu_active == "car-overview") && !empty($menu_active2 == "car1")) echo "1"; else echo "2";?></h3>
             </div>
@@ -330,7 +330,7 @@
                                 '<td>' + response['data'][i]['phone'] + '</td>' +
                                 '<td>' +
                                 '<div class="dropdown">' +
-                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response['data'][i]['lattitude'] + ' data-lng=' + response['data'][i]['longtitude'] + '>' +
+                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
                                 '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
                                 '</a>' +
                                 '</div>' +

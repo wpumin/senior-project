@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
+    <!--admin -->
     <meta name="description" content="">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">

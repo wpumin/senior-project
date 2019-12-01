@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
+    <!-- parent and driver -->
     <meta name="description" content="">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,49 +130,6 @@
                                 </div>
                             </div>
                         </li>
-                        {{-- <li class="navbar-item dropdown header-notification">
-                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="far fa-bell"></i>
-                                <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                <span class="animated tada infinite">3</span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="item-header">
-                                    <h6 class="item-title">3 การแจ้งเตือน</h6>
-                                </div>
-                                <div class="item-content">
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">น้องคิด ได้ลงจากรถแล้ว</div>
-                                            <span>1 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">น้องมาร์ช ได้ลงจากรถแล้ว</div>
-                                            <span>1 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">น้องมาร์ช ได้ขึ้นรถแล้ว</div>
-                                            <span>8 ชั่วโมงที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> --}}
                         <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
@@ -210,49 +168,6 @@
                                 </div>
                             </div>
                         </li>
-                        {{-- <li class="navbar-item dropdown header-notification">
-                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="far fa-bell"></i>
-                                <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                <span class="animated tada infinite">3</span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="item-header">
-                                    <h6 class="item-title">3 การแจ้งเตือน</h6>
-                                </div>
-                                <div class="item-content">
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">ส่งนักเรียนครบทุกคนแล้ว</div>
-                                            <span>1 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
-                                            <span>1 ชั่วโมง 20 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">ส่งนักเรียนครบทุกคนแล้ว</div>
-                                            <span>8 ชั่วโมงที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> --}}
                         <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
@@ -282,7 +197,6 @@
         </div>
         <?php
             }
-
         ?>
         <!-- Header Menu Area End Here -->
         <!-- Page Area Start Here -->
@@ -359,8 +273,7 @@
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
                             <?php
-                            if($_COOKIE['role_id'] == '1') {
-
+                                if($_COOKIE['role_id'] == '1') {
                             ?>
                                 <div class="mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
@@ -450,13 +363,6 @@
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
-        // document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
-        // document.getElementById("relationship").innerHTML = getCookie('relationship');
-        // document.getElementById("line_id").innerHTML = getCookie('line_id');
-        // document.getElementById("mobile").innerHTML = getCookie('mobile');
-        // document.getElementById("username").innerHTML = getCookie('username');
-        // document.getElementById("email").innerHTML = getCookie('email');
-        // document.getElementById("address").innerHTML = getCookie('address');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

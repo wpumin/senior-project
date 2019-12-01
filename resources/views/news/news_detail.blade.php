@@ -1,4 +1,28 @@
-@extends('layouts.master_menu_bottom')
+<?php
+    $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    $current_page = (explode("/",$current_url));
+    if(!empty($current_page[1]))
+    {
+        $menu_active = $current_page[1];
+    }else{
+        $menu_active = "";
+    }
+    
+    // echo '<pre>'. $menu_active . '</pre>';
+    // echo '<pre>'. $menu_active2 . '</pre>';
+    // echo '<pre>'. $menu_active3 . '</pre>';
+?>
+
+@extends( ($menu_active==='admin') ? 'layouts.master_sidebar' : 'layouts.master_menu_bottom')
+
+
+{{-- @if($menu_active==='admin')
+    @extends('layouts.master_sidebar')
+@endif
+@if($menu_active==='driver' || $menu_active==='driver')
+    @extends('layouts.master_menu_bottom')
+@endif --}}
+
 @foreach($datas as $info)
 @section('title',$info['title'])
 
