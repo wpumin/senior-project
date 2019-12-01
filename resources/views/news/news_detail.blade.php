@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-12 px-0">
                     <div class="item-img w-100 text-center">
-                        <img src="{{ URL::asset($info['image']) }}" alt="news image" class="news-image-show w-100">
+                        <img src="{{ URL::asset($info['image']) }}" alt="news image" class="my-3 text-center news-image w-100">
                     </div>
                 </div>
                 <div class="col-12 px-0">
