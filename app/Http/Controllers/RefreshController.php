@@ -48,6 +48,7 @@ class RefreshController extends Controller
         $full = $d . '/' . $m . '/' . $y;
         $time_now = date('H:i');
 
+        $full_now = new DateTime($full);
         // dd($full);
         // dd($news[0]['release_time'] > $time_now);
 
@@ -61,9 +62,10 @@ class RefreshController extends Controller
         if ($news) {
 
             foreach ($news as $n) {
+                $release_date = new DateTime($n->release_date);
                 // dd($n->release_time > $time_now);
 
-                if ($n->release_date >= $full) {
+                if ($release_date >= $full_now) {
 
                     if ($time_now > $n->release_time) {
 

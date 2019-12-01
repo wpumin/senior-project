@@ -92,31 +92,50 @@ class ReportController extends Controller
             ];
         }
 
-        $news = News::where('news_statuses_id', 1)->get();
+        $news = News::get();
 
         $data['info_news'] = [];
         $count_news = 0;
 
-        // dd($users);
+        // dd($news);
+        if ($news) {
 
-        foreach ($news as $n) {
+            foreach ($news as $n) {
 
-            $user = User::where('id', $n->user_id)->first();
+                $user = User::where('id', $n->user_id)->first();
+
+                $data['info_news'][$count_news++] = [
+
+                    'id' => $n->id,
+                    'image' => $n->image,
+                    'title' => $n->title,
+                    'content' => $n->content,
+                    'release_date' => $n->release_date . ' ' . $n->release_time,
+                    'name' => $n->username,
+                    'status' => $n->news_statuses_id
+
+
+
+                ];
+            }
+        } else {
 
             $data['info_news'][$count_news++] = [
 
-                'id' => $n->id,
-                'image' => $n->image,
-                'title' => $n->title,
-                'content' => $n->content,
-                'release_date' => $n->release_date . ' ' . $n->release_time,
-                'name' => $n->username,
-                'status' => $n->news_statuses_id
+                'id' => '',
+                'image' => '',
+                'title' => '',
+                'content' => '',
+                'release_date' => '',
+                'name' => '',
+                'status' => ''
 
 
 
             ];
         }
+
+        // dd($data['info_news']);
 
         return view('admin.index', [
             'data' => $data['info'],
@@ -152,7 +171,7 @@ class ReportController extends Controller
         // dd($n->release_time > $time_now);
         if ($news) {
             // dd($news->release_date);
-            if ($news->release_date >= $full) {
+            if ($full >= $news->release_date) {
 
                 // dd($time_now);
                 if ($time_now > $news->release_time) {

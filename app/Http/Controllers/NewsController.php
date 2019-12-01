@@ -107,7 +107,8 @@ class NewsController extends Controller
         $count = 0;
 
         // dd($news['user_id']);
-        return view('admin.news_edit', [
+        return view('admin.news_test_form', [
+
             'id' => $news['id'],
             'title' => $news['title'],
             'image' => $news['image'],
@@ -124,6 +125,35 @@ class NewsController extends Controller
         ]);
     }
 
+    function action(Request $request)
+    {
+        // dd($request->all());
+        $validation = Validator::make($request->all(), [
+            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'newsid' => 'required',
+            // 'title' => 'required',
+        ]);
+        if ($validation->passes()) {
+            $image = $request->file('select_file');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $new_name);
+
+            return response()->json([
+                'news_id' => $request->input('newsid'),
+                'message'   => 'Image Upload Successfully',
+                'uploaded_image' => '<img src="/images/' . $new_name . '" class="img-thumbnail" width="300" />',
+                'class_name'  => 'alert-success'
+            ]);
+        } else {
+            return response()->json([
+                'news_id' => $request->input('news_id'),
+                'message'   => $validation->errors()->all(),
+                'uploaded_image' => '',
+                'class_name'  => 'alert-danger'
+            ]);
+        }
+    }
+
     public function update_new()
     {
 
@@ -131,8 +161,8 @@ class NewsController extends Controller
             $this->request->all(),
             [
                 'file' => '',
-                // 'id' => '',
-                // 'title' => '',
+                'id' => '',
+                'title' => '',
                 // 'user_id' => '',
                 // 'role_id' => '',
                 // 'status_id' => '',
@@ -150,8 +180,10 @@ class NewsController extends Controller
                 'errors' => $validator->errors()
             );
 
-        // $id = $this->request->input('id');
-        // $news = News::find($id);
+        $id = $this->request->input('id');
+        $news = News::find($id);
+
+        // var_dump($news['id']);
         // $news->delete();
 
         $day = date('d');
@@ -167,7 +199,7 @@ class NewsController extends Controller
         // $news_new->user_id = $this->request->input('user_id');
         // $news_new->news_status_id = $this->request->input('status_id');
         // $news_new->role_id = $this->request->input('role_id');
-        // $news_new->title = $this->request->input('title');
+        $news->title = $this->request->input('title');
         // $news_new->content = $this->request->input('content');
         // $news_new->release_date = $this->request->input('release_date');
         // $news_new->release_time = $this->request->input('release_time');
@@ -179,12 +211,12 @@ class NewsController extends Controller
             $public_path = 'images/News/';
             $destination = base_path() . "/public/" . $public_path;
             $this->request->file('file')->move($destination, $image_name);
-            // $news_new->image = $public_path . $image_name;
+            $news->image = $public_path . $image_name;
             // $news_new->save();
             // // $news['image']->save();
             // return $this->responseRequestSuccess('Success!');
         }
-
+        // $news->save();
 
         // $res['App_log'] = News::create([
         //     'image' => 'test',
@@ -207,7 +239,7 @@ class NewsController extends Controller
         // $news->update($this->request->all());
         // $id = $this->request->input('id');
         // $news->update($this->request->all());
-        return $image_name;
+        return var_dump($news);
     }
 
     /*

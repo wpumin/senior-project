@@ -89,9 +89,11 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/news/edit/{id}', 'NewsController@edit_new');
 
-    Route::post('/management/news/update', 'NewsController@update_new');
+    Route::put('/management/news/update', 'NewsController@update_new');
 
     Route::get('/management/news/del/{id}', 'NewsController@del_new');
+
+    Route::post('/management/news/create/new', 'NewssController@create_store');
 
     Route::get('/management/news/create', function () {
         return view('admin.news_create');
@@ -171,3 +173,5 @@ Route::get('firebase/getlocation', 'FirebaseController@get_location')->middlewar
 // Route::post('image/delete', 'ImageUploadController@fileDestroy');
 
 Route::post('/ajax_upload/action', 'NewsController@action')->name('ajaxupload.action');
+
+Route::resource('news', 'NewssController');

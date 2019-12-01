@@ -205,6 +205,7 @@ class DriverController extends Controller
         $full = $d . '/' . $m . '/' . $y;
         $time_now = date('H:i');
 
+
         // dd($full);
         // dd($news[0]['release_time'] > $time_now);
 
@@ -219,7 +220,7 @@ class DriverController extends Controller
         // dd($n->release_time > $time_now);
         if ($news) {
 
-            if ($news->release_date >= $full) {
+            if ($full >= $news->release_date) {
 
                 if ($time_now > $news->release_time) {
 
