@@ -40,6 +40,7 @@
                         <option value="1">ผู้ปกครอง</option>
                         <option value="2">คนขับรถ</option>
                         <option value="3">แอดมิน</option>
+                        <option value="4">ทั้งหมด</option>
                     </select>
                 </div>
                 <input type="hidden" class="form-control" id="id_user" value="{{ $id_user }}">
@@ -48,8 +49,7 @@
                         <option value="{{ $status_id }}" selected>{{ $status_name }}</option>
                         <option value="">สถานะ</option>
                         <option value="1">เผยแพร่</option>
-                        <option value="2">งดเผยแพร่ชั่วคราว</option>
-                        <option value="3">งดเผยแพร่</option>
+                        <option value="2">งดเผยแพร่</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
