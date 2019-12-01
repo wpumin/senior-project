@@ -8,7 +8,7 @@
 <div class="heading text-left">
     <h3>แก้ไขข่าวสาร</h3>
 </div>
-{{-- <div class="card height-auto pb-0">
+<div class="card height-auto pb-0">
     <div class="card-body pt-5">
         <div class="heading-layout1">
         </div>
@@ -18,7 +18,6 @@
                 <div class="col-12 form-group">
                 <input required type="text" placeholder="หัวข้อข่าวสาร" id="title" class="form-control" value="{{ $title }}">
                 <input type="hidden" class="form-control" id="news_id" value="{{ $id }}">
-
             </div>
                 <div class="col-12 form-group mb-0">
                         <label for="">ภาพหน้าปก</label>
@@ -70,8 +69,7 @@
             </div>
         </form>
     </div>
-</div> --}}
-@include('admin._form_news')
+</div>
 <!-- News Create Area End Here -->
 
 <!-- Success Modal -->
