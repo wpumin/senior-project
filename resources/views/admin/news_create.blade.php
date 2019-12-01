@@ -69,7 +69,7 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->  
+<!-- System error End Here -->
 
 @endsection
 
@@ -77,8 +77,8 @@
 
     {{-- form  --}}
     <script>
-        
-        
+
+
         $(document).ready(function(){
             $("#addNewsBtn").submit(function(event){
                 submitForm();

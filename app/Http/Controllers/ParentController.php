@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\News;
 use App\Student;
 use App\User;
+use DateTime;
 use Firebase\JWT\JWT;
 
 use Illuminate\Http\Request;
@@ -36,7 +37,8 @@ class ParentController extends Controller
         $full = $d . '/' . $m . '/' . $y;
         $time_now = date('H:i');
 
-        // dd($full);
+        $full_now = new DateTime($full);
+        // dd($date1);
         // dd($news[0]['release_time'] > $time_now);
 
         // dd($news[0]['news_at'] > $full);
@@ -46,19 +48,50 @@ class ParentController extends Controller
 
         // dd($users);
 
-        foreach ($news as $n) {
-            // dd($n->release_time > $time_now);
+        if ($news) {
 
-            if ($n->release_date >= $full) {
+            foreach ($news as $n) {
 
-                if ($time_now > $n->release_time) {
+                $release_date = new DateTime($n->release_date);
 
-                    $user = User::where('id', $n->user_id)->first();
+                // dd($full_now >= $release_date);
+
+                if ($full_now >= $release_date) {
+
+                    // dd($time_now > $n->release_time);
+                    if ($time_now > $n->release_time) {
+
+                        $data['info'][$count++] = [
+
+                            'id' => $n->id,
+                            'image' => $n->image,
+                            // 'created_at' => $n->news_at,
+                            // 'name' => $user->username,
+                            // 'status' => $n->news_statuses_id
+
+
+
+                        ];
+                    } else {
+
+                        $data['info'][$count++] = [
+
+                            'id' => null,
+                            'image' => null,
+                            // 'created_at' => $n->news_at,
+                            // 'name' => $user->username,
+                            // 'status' => $n->news_statuses_id
+
+
+
+                        ];
+                    }
+                } else {
 
                     $data['info'][$count++] = [
 
-                        'id' => $n->id,
-                        'image' => $n->image,
+                        'id' => null,
+                        'image' => null,
                         // 'created_at' => $n->news_at,
                         // 'name' => $user->username,
                         // 'status' => $n->news_statuses_id
@@ -68,7 +101,22 @@ class ParentController extends Controller
                     ];
                 }
             }
+        } else {
+
+            $data['info'][$count++] = [
+
+                'id' => null,
+                'image' => null,
+                // 'created_at' => $n->news_at,
+                // 'name' => $user->username,
+                // 'status' => $n->news_statuses_id
+
+
+
+            ];
         }
+
+
 
         // dd($data['info']);
 

@@ -246,6 +246,9 @@ class PaymentController extends Controller
         $display_month = $month_sub_full[date('m') - 1];
         $display_year = date('Y') + 543;
 
+        $month = date('m');
+        // dd($test);
+
 
         $data['info'] = [];
         $count = 0;
@@ -259,40 +262,43 @@ class PaymentController extends Controller
 
         foreach ($bill as $b) {
 
-            $stu = Student::where('id', $b->student_id)->first();
+            if ($b->month == $month) {
+
+                $stu = Student::where('id', $b->student_id)->first();
 
 
-            if ($stu->car_id == $car_num) {
+                if ($stu->car_id == $car_num) {
 
-                $district = District::where('id', $stu->district_id)->first();
-                $school = School::where('id', $stu->school_id)->first();
-                $user = User::where('id', $stu->user_id)->first();
+                    $district = District::where('id', $stu->district_id)->first();
+                    $school = School::where('id', $stu->school_id)->first();
+                    $user = User::where('id', $stu->user_id)->first();
 
-                if ($b->pm_status_id == '1') {
-                    $status_1++;
-                } else if ($b->pm_status_id == '2') {
-                    $status_2++;
-                    $income += $district->price;
-                } else if ($b->pm_status_id == '3') {
-                    $status_3++;
-                }
+                    if ($b->pm_status_id == '1') {
+                        $status_1++;
+                    } else if ($b->pm_status_id == '2') {
+                        $status_2++;
+                        $income += $district->price;
+                    } else if ($b->pm_status_id == '3') {
+                        $status_3++;
+                    }
 
-                // dd(date('m'));
+                    // dd(date('m'));
 
-                if ($b->month == date('m')) {
+                    if ($b->month == date('m')) {
 
 
-                    $data['info'][$count++] = [
+                        $data['info'][$count++] = [
 
-                        'nickname' => $stu->nickname,
-                        'tran_key' => $b->tran_key,
-                        'status_bill' => $b->pm_status_id,
-                        'school' => $school->name_school,
-                        'parent_name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
-                        'phone' => $user->phone,
-                        'price' => $district->price,
+                            'nickname' => $stu->nickname,
+                            'tran_key' => $b->tran_key,
+                            'status_bill' => $b->pm_status_id,
+                            'school' => $school->name_school,
+                            'parent_name' => $user->prefix . ' ' . $user->first_name . ' ' . $user->last_name,
+                            'phone' => $user->phone,
+                            'price' => $district->price,
 
-                    ];
+                        ];
+                    }
                 }
             }
         }

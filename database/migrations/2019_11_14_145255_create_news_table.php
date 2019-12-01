@@ -24,7 +24,8 @@ class CreateNewsTable extends Migration
             $table->string('release_date')->nullable();
             $table->string('release_time')->nullable();
             $table->string('news_at')->nullable();
-            // $table->timestamps();
+            $table->string('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
