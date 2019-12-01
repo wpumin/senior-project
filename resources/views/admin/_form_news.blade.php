@@ -8,7 +8,6 @@
                 <div class="col-12 form-group">
                 <input required type="text" placeholder="หัวข้อข่าวสาร" id="title" class="form-control" value="{{ $title }}">
                 <input type="hidden" class="form-control" id="news_id" value="{{ $id }}">
-
             </div>
                 <div class="col-12 form-group mb-0">
                         <label for="">ภาพหน้าปก</label>

@@ -113,7 +113,7 @@
 <!-- Student Table Area Start Here -->
 <div class="card height-auto pb-0">
     <div class="card-body">
-        <div class="heading-layout1">
+        <div class="heading-layout1 pt-4">
             <div class="item-title">
             <h3>ข้อมูลนักเรียนประจำคันรถที่ <?php if(($menu_active == "car-overview") && !empty($menu_active2 == "car1")) echo "1"; else echo "2";?></h3>
             </div>
