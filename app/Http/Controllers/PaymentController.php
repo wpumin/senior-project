@@ -35,6 +35,8 @@ class PaymentController extends Controller
             $car_num = 2;
         }
 
+        // dd($car_num);
+
         $bank_1 = 0;
         $bank_2 = 0;
         $bank_3 = 0;
@@ -47,10 +49,11 @@ class PaymentController extends Controller
 
         foreach ($inform as $d) {
 
-            if ($d->pm_status_id == '1') {
+            if ($d->pm_status_id == '1' || $d->pm_status_id == '3') {
 
                 $log = Payment_log::where('id', $d->payment_log_id)->first();
                 $std = Student::where('id', $log->student_id)->first();
+
 
                 if ($std->car_id == $car_num) {
 
@@ -95,6 +98,8 @@ class PaymentController extends Controller
 
                         'price' => $district->price,
                     ];
+
+                    // dd($data['info']);
                 }
             }
         }
