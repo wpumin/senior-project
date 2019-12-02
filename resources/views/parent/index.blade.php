@@ -25,13 +25,21 @@
 </div>
 <div class="owl-carousel owl-theme d-md-none">
     @foreach($datas as $key => $info)
+        @if ($info['id'] == null)
+
+        @else
         <a href="<?php echo "/parent/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{URL::asset($info['image'])}})"></div></a>
+        @endif
     @endforeach
 </div>
 <!-- ไอแพดขึ้นไป -->
 <div class="owl-carousel owl-theme d-none d-md-block mb-md-5">
     @foreach($datas as $key => $info)
+        @if ($info['id'] == null)
+
+        @else
         <a href="<?php echo "/parent/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: url({{ URL::asset($info['image'])}})"></div></a>
+        @endif
     @endforeach
 </div>
 <!-- Owl-Carousel Area End Here-->
