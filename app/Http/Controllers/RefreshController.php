@@ -58,19 +58,22 @@ class RefreshController extends Controller
         $data['info'] = [];
         $count = 0;
 
-        // dd($users);
+        // dd($news);
 
         if ($news) {
 
             foreach ($news as $n) {
+
                 $release_date = new DateTime($n->release_date);
-                // dd($n->release_time > $time_now);
+                // dd($release_date >= $full_now);
 
-                if ($release_date >= $full_now) {
+                if ($release_date <= $full_now) {
 
-                    if ($time_now > $n->release_time) {
+                    // dd($n->release_time <= $time_now);
 
-                        $user = User::where('id', $n->user_id)->first();
+                    if ($n->release_time <= $time_now) {
+
+                        // $user = User::where('id', $n->user_id)->first();
 
                         $data['info'][$count++] = [
 
@@ -87,8 +90,8 @@ class RefreshController extends Controller
 
                         $data['info'][$count++] = [
 
-                            'id' => '',
-                            'image' => '',
+                            'id' => null,
+                            'image' => null,
                             // 'created_at' => $n->news_at,
                             // 'name' => $user->username,
                             // 'status' => $n->news_statuses_id
@@ -101,8 +104,8 @@ class RefreshController extends Controller
 
                     $data['info'][$count++] = [
 
-                        'id' => '',
-                        'image' => '',
+                        'id' => null,
+                        'image' => null,
                         // 'created_at' => $n->news_at,
                         // 'name' => $user->username,
                         // 'status' => $n->news_statuses_id
@@ -116,8 +119,8 @@ class RefreshController extends Controller
 
             $data['info'][$count++] = [
 
-                'id' => '',
-                'image' => '',
+                'id' => null,
+                'image' => null,
                 // 'created_at' => $n->news_at,
                 // 'name' => $user->username,
                 // 'status' => $n->news_statuses_id

@@ -40,6 +40,8 @@ class DriverController extends Controller
 
         $full = $day . '/' . $month . '/' . $year;
 
+        // dd($full);
+
         foreach ($students as $s) {
 
             // ชื่อเล่น
