@@ -183,7 +183,7 @@
                     ?>
                     @foreach($datas as $key=>$data)
                         {{-- @if($data['car_id'] == $temp_car) --}}
-                            @if($data['status_bill'] == '1')
+                            @if($data['status_bill'] == '1' || $data['status_bill'] == '3')
                             <tr>
                                     <td>
                                     <?php print $count ?>
