@@ -135,6 +135,8 @@ Route::group(array('prefix' => 'admin'), function () {
     // Route::get('/profile', function () {
     //     return view('admin.profile');
     // });
+    Route::get('/profile', 'RefreshController@admin_profile');
+    
     Route::get('/news/detail/{id}', 'ReportController@show_news');
 });
 

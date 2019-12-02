@@ -390,7 +390,21 @@ class RefreshController extends Controller
         }
         return redirect('/');
     }
-    
+    public function admin_profile()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                return view('admin.profile');
+            }
+            \abort(404);
+        }
+        return redirect('/');
+    }
 
     /*
     |--------------------------------------------------------------------------
