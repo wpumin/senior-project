@@ -29,57 +29,68 @@ class DriverController extends Controller
 
     public function list_student($car)
     {
-        $students = Student::where('car_id', $car)->get();
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $data['info'] = [];
-        $count = 0;
+        if (isset($cookie)) {
 
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
+            if ($this->request->cookie('role_number') == '2') {
 
-        $full = $day . '/' . $month . '/' . $year;
+                $students = Student::where('car_id', $car)->get();
 
-        // dd($full);
+                $data['info'] = [];
+                $count = 0;
 
-        foreach ($students as $s) {
+                $day = date('d');
+                $month = date('m');
+                $year = date('Y') + 543;
 
-            // ชื่อเล่น
-            // สถานะ
-            // รูปเด็ก
-            // ชื่อโรงเรียน
-            // ชื่อ user
-            // ความสัมพันธ์
-            // เบอร์
+                $full = $day . '/' . $month . '/' . $year;
 
-            $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+                // dd($full);
+
+                foreach ($students as $s) {
+
+                    // ชื่อเล่น
+                    // สถานะ
+                    // รูปเด็ก
+                    // ชื่อโรงเรียน
+                    // ชื่อ user
+                    // ความสัมพันธ์
+                    // เบอร์
+
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
 
 
-            if ($appointment) {
-                $app_status = App_status::where('id', $appointment->app_status_id)->first();
-                $school = School::where('id', $s->school_id)->first();
-                $user = User::where('id', $appointment->user_id)->first();
-                $relation = Relationship::where('id', $user->relationship_id)->first();
+                    if ($appointment) {
+                        $app_status = App_status::where('id', $appointment->app_status_id)->first();
+                        $school = School::where('id', $s->school_id)->first();
+                        $user = User::where('id', $appointment->user_id)->first();
+                        $relation = Relationship::where('id', $user->relationship_id)->first();
 
-                $data['info'][$count++] = [
-                    'no' => $appointment->id,
-                    'nickname' => $s->nickname,
-                    'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                    'app_status' => $appointment->app_status_id,
-                    'photo_stu' => $s->image,
-                    'school' => $school->name_school,
-                    'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                    'relationship' => $relation->name,
-                    'phone' => $user->phone
+                        $data['info'][$count++] = [
+                            'no' => $appointment->id,
+                            'nickname' => $s->nickname,
+                            'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
+                            'app_status' => $appointment->app_status_id,
+                            'photo_stu' => $s->image,
+                            'school' => $school->name_school,
+                            'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
+                            'relationship' => $relation->name,
+                            'phone' => $user->phone
 
-                ];
+                        ];
+                    }
+                }
+
+                return view('driver.appointment', [
+                    'datas' => $data['info'],
+                    'date_' => $full
+                ]);
             }
+            \abort(404);
         }
-
-        return view('driver.appointment', [
-            'datas' => $data['info'],
-            'date_' => $full
-        ]);
+        return redirect('/');
     }
 
     public function del_app($car, $id)
