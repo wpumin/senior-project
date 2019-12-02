@@ -72,13 +72,11 @@ Route::group(array('prefix' => 'driver'), function () {
 
     Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
 
-    Route::get('/broadcast', function () {
-        return view('driver.broadcast');
-    });
-    Route::get('/profile', function () {
-        return view('driver.profile');
-    });
-
+    Route::get('/broadcast', 'DriverController@broadcast');
+    // Route::get('/profile', function () {
+    //     return view('driver.profile');
+    // });
+    Route::get('/profile', 'DriverController@profile');
     Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
 

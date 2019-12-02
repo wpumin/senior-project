@@ -229,6 +229,34 @@ class DriverController extends Controller
         return redirect('/');
     }
 
+    public function broadcast()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '2') {
+                return view ('driver.broadcast');
+            }
+            \abort(404);
+        }
+        return redirect('/');
+    }
+    public function profile()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '2') {
+                return view ('driver.profile');
+            }
+            \abort(404);
+        }
+        return redirect('/');
+    }
     public function show_news($id)
     {
         $news = News::where('id', $id)->where('role_id', 2)->where('news_statuses_id', 1)->first();
