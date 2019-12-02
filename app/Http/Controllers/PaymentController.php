@@ -158,47 +158,57 @@ class PaymentController extends Controller
 
     public function overview($id)
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $students = Student::where('user_id', $id)->get();
+        if (isset($cookie)) {
 
-        $data['info'] = [];
-        $count = 0;
+            if ($this->request->cookie('role_number') == '1') {
 
-        foreach ($students as $d) {
+                $students = Student::where('user_id', $id)->get();
 
-            $bill = Payment_log::where('student_id', $d->id)->limit(10)->get();
-            $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+                $data['info'] = [];
+                $count = 0;
 
-            // dd($month_sub[11]);
+                foreach ($students as $d) {
 
-            foreach ($bill as $b) {
+                    $bill = Payment_log::where('student_id', $d->id)->limit(10)->get();
+                    $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
-                $district = District::where('id', $d->district_id)->first();
-                $school = School::where('id', $d->school_id)->first();
-                $car = Car::where('id', $d->car_id)->first();
+                    // dd($month_sub[11]);
 
-                $data['info'][$count++] = [
+                    foreach ($bill as $b) {
 
-                    'tran_key' => $b->tran_key,
-                    'status' => $b->pm_status_id,
-                    'fullname' => $d->prefix . ' ' . $d->first_name . ' ' . $d->last_name,
-                    'name' => $d->nickname,
-                    'school' => $school->name_school,
-                    'car_id' =>  $car->name,
-                    'car_name' => $car->name_driver,
-                    'month' => $month_sub[($b->month) - 1],
-                    'year' => $b->year,
-                    'price' => $district->price,
-                    'qrcode' => $b->qr_code
+                        $district = District::where('id', $d->district_id)->first();
+                        $school = School::where('id', $d->school_id)->first();
+                        $car = Car::where('id', $d->car_id)->first();
 
-                ];
+                        $data['info'][$count++] = [
+
+                            'tran_key' => $b->tran_key,
+                            'status' => $b->pm_status_id,
+                            'fullname' => $d->prefix . ' ' . $d->first_name . ' ' . $d->last_name,
+                            'name' => $d->nickname,
+                            'school' => $school->name_school,
+                            'car_id' =>  $car->name,
+                            'car_name' => $car->name_driver,
+                            'month' => $month_sub[($b->month) - 1],
+                            'year' => $b->year,
+                            'price' => $district->price,
+                            'qrcode' => $b->qr_code
+
+                        ];
+                    }
+                }
+
+
+                return view('parent.payment_overview', [
+                    'data' => $data['info']
+                ]);
             }
+            \abort(404);
         }
-
-
-        return view('parent.payment_overview', [
-            'data' => $data['info']
-        ]);
+        return redirect('/');
     }
 
     public function parent_list($id)
