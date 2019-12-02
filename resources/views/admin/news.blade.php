@@ -186,10 +186,14 @@
 
                     if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_name) > -1 && txtValue_date.indexOf(filter_timing) > -1) {
                         tr[i].style.display = "";
-                        $('#search_timing').val("");
+                        $('#search_timing').val(null);
+                        $('#search_title').val(null);
+                        $('#search_name').val(null);
                     } else {
                         tr[i].style.display = "none";
-                        $('#search_timing').val("");
+                        $('#search_timing').val(null);
+                        $('#search_title').val(null);
+                        $('#search_name').val(null);
                     }
                 }
             }
