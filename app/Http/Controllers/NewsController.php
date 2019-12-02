@@ -36,15 +36,12 @@ class NewsController extends Controller
             $user = User::where('id', $n->user_id)->first();
 
             $data['info'][$count++] = [
-
                 'id' => $n->id,
                 'title' => $n->title,
-                'created_at' => $n->news_at,
+                'updated_at' => $n->news_at,
+                'time' => $n->updated_at,
                 'name' => $user->username,
                 'status' => $n->news_statuses_id
-
-
-
             ];
         }
 
@@ -74,15 +71,11 @@ class NewsController extends Controller
             $user = User::where('id', $n->user_id)->first();
 
             $data['info'][$count++] = [
-
                 'id' => $n->id,
                 'title' => $n->title,
                 'created_at' => $n->news_at,
                 'name' => $user->username,
                 'status' => $n->news_statuses_id
-
-
-
             ];
         }
 
@@ -107,8 +100,7 @@ class NewsController extends Controller
         $count = 0;
 
         // dd($news['user_id']);
-        return view('admin.news_test_form', [
-
+        return view('admin.news_edit', [
             'id' => $news['id'],
             'title' => $news['title'],
             'image' => $news['image'],
@@ -120,8 +112,6 @@ class NewsController extends Controller
             'release_date' => $news['release_date'],
             'release_time' => $news['release_time'],
             'content' => $news['content']
-
-
         ]);
     }
 

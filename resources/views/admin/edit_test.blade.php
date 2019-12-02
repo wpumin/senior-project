@@ -28,7 +28,6 @@
         </div>
         <div class='file-input px-0 mb-3'>
                 <input type="file" name="select_file" id="select_file" />
-                {{-- <input type='file' class="text-center" id="imgInp"> --}}
                 <span class='button'>เลือกไฟล์</span>
                 <span class='label' data-js-label>ยังไม่ได้เลือกไฟล์</label>
             </div>
@@ -36,7 +35,6 @@
             <input type="submit" value="Send" />
         </p>
     </form>
-   {{--  --}}
    <br />
    <span id="uploaded_image"></span>
   </div>
@@ -44,86 +42,50 @@
 </html>
 
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
+        (function ($) {
+            $.fn.serializeFormJSON = function () {
 
-    (function ($) {
-    $.fn.serializeFormJSON = function () {
+                var o = {};
+                var a = this.serializeArray();
+                $.each(a, function () {
+                    if (o[this.name]) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                });
+                return o;
+            };
+        })(jQuery);
 
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function () {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
+        $('form').submit(function (e) {
+            e.preventDefault();
+            var data = $(this).serializeFormJSON();
+            console.log(data);
+
+            $.ajax({
+                url:"{{ route('ajaxupload.action') }}",
+                method:"POST",
+                data:
+                data
+                ,
+                dataType:'JSON',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success:function(data)
+                {
+                    console.log(data.news_id);
+                    $('#message').css('display', 'block');
+                    $('#message').html(data.message);
+                    $('#message').addClass(data.class_name);
+                    $('#blah').html(data.uploaded_image);
                 }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
+            })
         });
-        return o;
-    };
-})(jQuery);
-
-$('form').submit(function (e) {
-    e.preventDefault();
-    var data = $(this).serializeFormJSON();
-    console.log(data);
-
-    $.ajax({
-   url:"{{ route('ajaxupload.action') }}",
-   method:"POST",
-   data:
-   data
-   ,
-   dataType:'JSON',
-   contentType: false,
-   cache: false,
-   processData: false,
-   success:function(data)
-   {
-       console.log(data.news_id);
-    $('#message').css('display', 'block');
-    $('#message').html(data.message);
-    $('#message').addClass(data.class_name);
-    $('#blah').html(data.uploaded_image);
-   }
-  })
-
-
-    /* Object
-        email: "value"
-        name: "value"
-        password: "value"
-     */
-});
-
-//  $('#upload_form').on('submit', function(event){
-//   event.preventDefault();
-
-//   var formData = $("form#upload_form").serializeObject();
-// console.log(formData);
-// //   alert(new FormData(this));
-//   $.ajax({
-//    url:"{{ route('ajaxupload.action') }}",
-//    method:"POST",
-//    data:
-//     new FormData(this)
-//    ,
-//    dataType:'JSON',
-//    contentType: false,
-//    cache: false,
-//    processData: false,
-//    success:function(data)
-//    {
-//        console.log(data.news_id);
-//     $('#message').css('display', 'block');
-//     $('#message').html(data.message);
-//     $('#message').addClass(data.class_name);
-//     $('#blah').html(data.uploaded_image);
-//    }
-//   })
-//  });
-
-});
+    });
 </script>

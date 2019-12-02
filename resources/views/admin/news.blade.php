@@ -47,120 +47,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <?php $count=1; ?>
-
-                        @foreach($datas as $key => $info)
+                    <?php $count=1; ?>
+                    @foreach($datas as $key => $info)
+                        <?php
+                            $time = $info['time'];
+                            $time_substr = substr($time,11,16-11);
+                        ?>
                         <tr>
-                                <td><?php print $count ?></td>
-                                <td class="text-left">{{ $info['title'] }}</td>
-                                <td>{{ $info['created_at'] }}</td>
-                                <td>{{ $info['name'] }}</td>
-                                @if( $info['status']  == 1)
+                            <td><?php print $count ?></td>
+                            <td class="text-left">{{ $info['title'] }}</td>
+                            <td>{{ $info['updated_at'] }} - <?php echo $time_substr; ?> น.</td>
+                            <td>{{ $info['name'] }}</td>
+                            @if( $info['status']  == 1)
                                 <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                                @else
-
-                                <td class="badge badge-pill badge-orange d-block mg-t-8">งดเผยแพร่ชั่วคราว</td>
-                                @endif
-                                <td>
-                                    {{-- {{ url('admin/management/parent/edit') }} --}}
-                                    <a href="<?php echo "/admin/management/news/edit/"; ?>{{ $info['id'] }}"><span class="flaticon-edit"></span></a>
-                                    <a href="#" data-toggle="modal" data-target="#deleteNews-{{ $info['id'] }}"><span class="flaticon-bin"></span></a>
-                                </td>
-                            </tr>
-
-                        <?php $count++ ?>
-                        @endforeach
-
-                    {{-- <tr>
-                        <td>2</td>
-                        <td class="text-left">โปรโมชันเพียงใช้เครือข่าย TRUE</td>
-                        <td>02/11/2562 15:42</td>
-                        <td>adblon</td>
-                        <td class="badge badge-pill badge-orange d-block mg-t-8">งดเผยแพร่ชั่วคราว</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td class="text-left">เปิดเทอมนี้ เพิ่มที่นั่งอีก</td>
-                        <td>02/11/2562 12:00</td>
-                        <td>adblon</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">งดเผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td class="text-left">ประกาศขึ้นราคาค่ารถ</td>
-                        <td>31/09/2562 10:00</td>
-                        <td>adblon</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td class="text-left">ประกาศเปลี่ยนเส้นทางการเดินรถ</td>
-                        <td>24/09/2562 09:00</td>
-                        <td>adbam</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td class="text-left">ประกาศเปลี่ยนเส้นทางการเดินรถ</td>
-                        <td>12/09/2562 16:30</td>
-                        <td>adbam</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td class="text-left">ประกาศเปลี่ยนเส้นทางการเดินรถ</td>
-                        <td>11/08/2562 12:30</td>
-                        <td>adbam</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td class="text-left">ประกาศเปลี่ยนเส้นทางการเดินรถ</td>
-                        <td>11/08/2562 12:00</td>
-                        <td>adbam</td>
-                        <td class="badge badge-pill badge-red d-block mg-t-8">งดเผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td class="text-left">ประกาศเปลี่ยนเส้นทางการเดินรถ</td>
-                        <td>05/07/2562 16:00</td>
-                        <td>adbam</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td class="text-left">ประกาศเปลี่ยนเส้นทางการเดินรถ</td>
-                        <td>04/07/2562 16:00</td>
-                        <td>adbam</td>
-                        <td class="badge badge-pill badge-green d-block mg-t-8">เผยแพร่</td>
-                        <td>
-                            <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteNews"><span class="flaticon-bin"></span></a>
-                        </td>
-                    </tr> --}}
+                            @else
+                                <td class="badge badge-pill badge-orange d-block mg-t-8">งดเผยแพร่</td>
+                            @endif
+                            <td>
+                                {{-- {{ url('admin/management/parent/edit') }} --}}
+                                <a href="<?php echo "/admin/management/news/edit/"; ?>{{ $info['id'] }}"><span class="flaticon-edit"></span></a>
+                                <a href="#" data-toggle="modal" data-target="#deleteNews-{{ $info['id'] }}"><span class="flaticon-bin"></span></a>
+                            </td>
+                        </tr>
+                    <?php $count++ ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -216,10 +126,6 @@
 @section('script')
     <script>
 
-$('body').on('change', '.calendar', function() {
-  console.log('aaa');
-});
-
         // ajax
         $('#confirmDelete').click(function(){
 
@@ -247,60 +153,46 @@ $('body').on('change', '.calendar', function() {
             });
         });
 
-
         // ---------  Search ----------//
 
-    function myFunction() {
-      // Declare variables
-      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+        function myFunction() {
+            // Declare variables
+            var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
-      input = document.getElementById("search_title");
-      var input_name = document.getElementById("search_name");
-      var input_timing = document.getElementById("search_timing");
+            input = document.getElementById("search_title");
+            var input_name = document.getElementById("search_name");
+            var input_timing = document.getElementById("search_timing");
 
 
-      filter = input.value;
-      filter_input_name = input_name.value;
-      filter_timing = input_timing.value;
+            filter = input.value;
+            filter_input_name = input_name.value;
+            filter_timing = input_timing.value;
 
-      table = document.getElementById("myTable");
-    //   console.log('Filter: '+filter);
-    //   console.log('Filter: '+filter_num);
-    //   console.log('Filter: '+filter_month);
-    //   console.log('----------');
+            table = document.getElementById("myTable");
 
-      tr = table.getElementsByTagName("tr");
+            tr = table.getElementsByTagName("tr");
 
-    //   console.log(tr.length);
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
 
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
+                td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+                td_period_time = tr[i].getElementsByTagName("td")[3]; //choose table that search. (PeriodTime)
+                td_date = tr[i].getElementsByTagName("td")[2]; //choose table that search. (Date)
 
-        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
-        td_period_time = tr[i].getElementsByTagName("td")[3]; //choose table that search. (PeriodTime)
-        td_date = tr[i].getElementsByTagName("td")[2]; //choose table that search. (Date)
-        // console.log(td_period_time);
-        // console.log('----------');
+                if (td_name) {
+                txtValue = td_name.textContent || td_name.innerText;
+                txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+                txtValue_date = td_date.textContent || td_date.innerText;
 
-        if (td_name) {
-          txtValue = td_name.textContent || td_name.innerText;
-          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
-          txtValue_date = td_date.textContent || td_date.innerText;
-
-        //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
-        //   console.log('Total: '+txtValue_date);
-        //   console.log('----------');
-
-          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_name) > -1 && txtValue_date.indexOf(filter_timing) > -1) {
-            tr[i].style.display = "";
-            $('#search_timing').val("");
-          } else {
-            tr[i].style.display = "none";
-            $('#search_timing').val("");
-          }
+                    if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_name) > -1 && txtValue_date.indexOf(filter_timing) > -1) {
+                        tr[i].style.display = "";
+                        $('#search_timing').val("");
+                    } else {
+                        tr[i].style.display = "none";
+                        $('#search_timing').val("");
+                    }
+                }
+            }
         }
-      }
-    }
     </script>
 @endsection
