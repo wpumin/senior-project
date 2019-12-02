@@ -15,7 +15,7 @@ class ContactController extends Controller_Make
 
         $full = $d . '/' . $m . '/' . $y;
 
-        $line_mes = "\n" . 'ชื่อผู้ติดต่อ:' . $request->input('exampleInputName') . "\n" . 'เบอร์โทร:' . $request->input('exampleInputEmail') . "\n" . 'ข้อความ:' . $request->input('message') . "\n" . 'Date:' . $full . ' ' . date('H:i');
+        $line_mes = "\n" . 'ชื่อผู้ติดต่อ: ' . $request->input('exampleInputName') . "\n" . 'เบอร์โทร: ' . $request->input('exampleInputEmail') . "\n" . 'ข้อความ: ' . $request->input('message') . "\n" . 'เมื่อ: ' . $full . ' ' . date('H:i') . ' น.';
 
         $line_api = 'https://notify-api.line.me/api/notify';
         $access_token = 'iH6S35EAqauC3c854d9Aegjw0lhSaH73lqpic5Q84Oa';
