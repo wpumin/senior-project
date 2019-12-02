@@ -11,11 +11,11 @@
 <div class="card height-auto pb-0 pt-5 mt-5 pt-md-0 mt-md-0">
     <div class="card-body">
 
-        <form class="new-added-form pt-5 pt-md-4" id="paymentConfirm" enctype="multipart/form-data">
-            @csrf
+        <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data">
+            {{-- @csrf --}}
             <div class="row">
                  <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required autocomplete="off" id="tran_key">
+                    <select class="select2" required autocomplete="off" id="payment_log_id" name="payment_log_id">
                         <option value="">หมายเลขรายการ</option>
                         @foreach($data as $key => $info)
                         <option value="{{ $info['log_id'] }}">{{ $info['tran_key'] }}</option>
@@ -29,15 +29,15 @@
                     <input type="text" placeholder="หมายเลขรายการ" class="form-control" required autocomplete="off">
                 </div> --}}
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="เวลา" class="form-control" id="timepicker" required autocomplete="off">
+                    <input type="text" placeholder="เวลา" class="form-control" id="timepicker" required autocomplete="off" name="timepicker">
                     <i class="far fa-clock"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" id="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
+                    <input type="text" id="date" name="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                     <i class="far fa-calendar-alt"></i>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required autocomplete="off">
+                    <select class="select2" required autocomplete="off" id="bank_id" name="bank_id">
                         <option value="">กรุณาเลือกบัญชีที่ท่านชำระเงิน</option>
                         <option value="1">บัญชีกสิกรไทย 002-2-85496-8</option>
                         <option value="2">บัญชีไทยพาณีชย์ 002-2-85496-8</option>
@@ -49,7 +49,7 @@
                     <label for="">ใบเสร็จชำระเงิน</label>
                     <div class="text-center">
                         <div class='file-input px-0 mb-3'>
-                            <input type='file' class="text-center" id="imgInp">
+                            <input type='file' class="text-center" id="imgInp" name="imgInp">
                             <span class='button'>เลือกไฟล์</span>
                             <span class='label' data-js-label>ยังไม่ได้เลือกไฟล์</label>
                         </div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-12 form-group mt-5">
-                    <input type="text" id="price" placeholder="จำนวนเงิน" class="form-control" required autocomplete="off">
+                    <input type="text" id="price" name="price" placeholder="จำนวนเงิน" class="form-control" required autocomplete="off">
                     <i style="top: 10px; font-style: normal;">฿</i>
                 </div>
                 {{-- <div class="col-12 form-group mt-5">

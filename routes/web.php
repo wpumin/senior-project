@@ -44,6 +44,8 @@ Route::group(array('prefix' => 'parent'), function () {
 
     Route::get('/payment/confirm/{id}', 'PaymentController@parent_list');
 
+    Route::post('/store', 'PaymentController@store');
+
     Route::get('/appointment/{id}', 'AppointmentController@list');
 
     Route::get('/report/{id}', 'RefreshController@report');
@@ -89,7 +91,7 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/news/edit/{id}', 'NewsController@edit_new');
 
-    Route::put('/management/news/update', 'NewsController@update_new');
+    // Route::put('/management/news/update', 'NewsController@update_new');
 
     Route::get('/management/news/del/{id}', 'NewsController@del_new');
 
