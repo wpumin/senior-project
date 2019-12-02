@@ -206,18 +206,28 @@ class PaymentController extends Controller
 
         foreach ($students as $d) {
 
-            $bill = Payment_log::where('student_id', $d->id)->get();
+            $bill = Payment_log::where('student_id', $d->id)->where('pm_status_id', 1)->get();
 
-            foreach ($bill as $b) {
+            if ($bill) {
 
-                $district = District::where('id', $d->district_id)->first();
-                $school = School::where('id', $d->school_id)->first();
-                $car = Car::where('id', $d->car_id)->first();
+                foreach ($bill as $b) {
 
+                    $district = District::where('id', $d->district_id)->first();
+                    $school = School::where('id', $d->school_id)->first();
+                    $car = Car::where('id', $d->car_id)->first();
+
+                    $data['info'][$count++] = [
+
+                        'log_id' => $b->id,
+                        'tran_key' => $b->tran_key
+
+                    ];
+                }
+            } else {
                 $data['info'][$count++] = [
 
-                    'log_id' => $b->id,
-                    'tran_key' => $b->tran_key
+                    'log_id' => null,
+                    'tran_key' => null
 
                 ];
             }
