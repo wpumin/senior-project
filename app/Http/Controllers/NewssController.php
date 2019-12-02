@@ -31,7 +31,7 @@ class NewssController extends Controller
 
         if (isset($cookie)) {
 
-            if ($this->request->cookie('role_number') == '1') {
+            if ($this->request->cookie('role_number') == '3') {
                 return view('admin._form_news');
             }
             \abort(404);
