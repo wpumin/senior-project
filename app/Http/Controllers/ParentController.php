@@ -139,54 +139,65 @@ class ParentController extends Controller
 
     public function show_news($id)
     {
-        $news = News::where('id', $id)->where('role_id', 1)->where('news_statuses_id', 1)->first();
-        // dd($news[0]);
-        $d = date('d');
-        $m = date('m');
-        $y = date('Y') + 543;
+        // $cookie = $this->request->cookie('role_number');
+        // // dd(isset($cookie));
 
-        // dd($d);
+        // if (isset($cookie)) {
 
-        $full = $d . '/' . $m . '/' . $y;
-        $time_now = date('H:i');
+        //     if ($this->request->cookie('role_number') == '1') {
 
-        // dd($full);
-        // dd($news[0]['release_time'] > $time_now);
+                $news = News::where('id', $id)->where('role_id', 1)->where('news_statuses_id', 1)->first();
+                // dd($news[0]);
+                $d = date('d');
+                $m = date('m');
+                $y = date('Y') + 543;
 
-        // dd($news[0]['news_at'] > $full);
+                // dd($d);
 
-        $data['info'] = [];
-        $count = 0;
+                $full = $d . '/' . $m . '/' . $y;
+                $time_now = date('H:i');
 
-        // dd($news->news_at);
+                // dd($full);
+                // dd($news[0]['release_time'] > $time_now);
 
-        // foreach ($news as $n) {
-        // dd($n->release_time > $time_now);
-        // dd($news);
-        if ($news) {
-            // dd($news->release_date <= $full);
-            if ($news->release_date <= $full) {
+                // dd($news[0]['news_at'] > $full);
 
-                // dd($news->release_time <= $time_now);
-                if ($news->release_time <= $time_now) {
+                $data['info'] = [];
+                $count = 0;
 
-                    $user = User::where('id', $news->user_id)->first();
+                // dd($news->news_at);
 
-                    $data['info'][$count++] = [
+                // foreach ($news as $n) {
+                // dd($n->release_time > $time_now);
+                // dd($news);
+                if ($news) {
+                    // dd($news->release_date <= $full);
+                    if ($news->release_date <= $full) {
 
-                        'id' => $news->id,
-                        'image' => $news->image,
-                        'title' => $news->title,
-                        'content' => $news->content,
-                        'release_date' => $news->release_date . ' ' . $news->release_time,
-                        'name' => $user->username,
-                        'status' => $news->news_statuses_id
+                        // dd($news->release_time <= $time_now);
+                        if ($news->release_time <= $time_now) {
+
+                            $user = User::where('id', $news->user_id)->first();
+
+                            $data['info'][$count++] = [
+
+                                'id' => $news->id,
+                                'image' => $news->image,
+                                'title' => $news->title,
+                                'content' => $news->content,
+                                'release_date' => $news->release_date . ' ' . $news->release_time,
+                                'name' => $user->username,
+                                'status' => $news->news_statuses_id
 
 
 
-                    ];
-                }
-            }
+                            ];
+                        }
+                    }
+            //     }
+            //     \abort(404);
+            // }
+            // return redirect('/');
         }
 
 

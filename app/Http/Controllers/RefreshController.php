@@ -27,78 +27,99 @@ class RefreshController extends Controller
 
     public function run()
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $no = Student::where('std_status_id', 1)->where('car_id', $this->request->car_id)->count();
-        $up = Student::where('std_status_id', 2)->where('car_id', $this->request->car_id)->count();
-        $down = Student::where('std_status_id', 3)->where('car_id', $this->request->car_id)->count();
-        $self = Student::where('std_status_id', 4)->where('car_id', $this->request->car_id)->count();
+        if (isset($cookie)) {
 
-        $data['no'] = $no;
-        $data['up'] = $up;
-        $data['down'] = $down;
-        $data['self'] = $self;
+            if ($this->request->cookie('role_number') == '2') {
 
-        $news = News::where('role_id', 2)->where('news_statuses_id', 1)->get();
-        // dd($news);
-        $d = date('d');
-        $m = date('m');
-        $y = date('Y') + 543;
+                $no = Student::where('std_status_id', 1)->where('car_id', $this->request->car_id)->count();
+                $up = Student::where('std_status_id', 2)->where('car_id', $this->request->car_id)->count();
+                $down = Student::where('std_status_id', 3)->where('car_id', $this->request->car_id)->count();
+                $self = Student::where('std_status_id', 4)->where('car_id', $this->request->car_id)->count();
 
-        // dd($d);
+                $data['no'] = $no;
+                $data['up'] = $up;
+                $data['down'] = $down;
+                $data['self'] = $self;
 
-        $full = $d . '/' . $m . '/' . $y;
-        $time_now = date('H:i');
+                $news = News::where('role_id', 2)->where('news_statuses_id', 1)->get();
+                // dd($news);
+                $d = date('d');
+                $m = date('m');
+                $y = date('Y') + 543;
 
-        $full_now = new DateTime($full);
-        // dd($full);
-        // dd($news[0]['release_time'] > $time_now);
+                // dd($d);
 
-        // dd($news[0]['news_at'] > $full);
+                $full = $d . '/' . $m . '/' . $y;
+                $time_now = date('H:i');
 
-        $data['info'] = [];
-        $count = 0;
+                $full_now = new DateTime($full);
+                // dd($full);
+                // dd($news[0]['release_time'] > $time_now);
 
-        // dd($news);
+                // dd($news[0]['news_at'] > $full);
 
-        if ($news) {
+                $data['info'] = [];
+                $count = 0;
 
-            foreach ($news as $n) {
+                // dd($news);
 
-                $release_date = new DateTime($n->release_date);
-                // dd($release_date >= $full_now);
+                if ($news) {
 
-                if ($release_date <= $full_now) {
+                    foreach ($news as $n) {
 
-                    // dd($n->release_time <= $time_now);
+                        $release_date = new DateTime($n->release_date);
+                        // dd($release_date >= $full_now);
 
-                    if ($n->release_time <= $time_now) {
+                        if ($release_date <= $full_now) {
 
-                        // $user = User::where('id', $n->user_id)->first();
+                            // dd($n->release_time <= $time_now);
 
-                        $data['info'][$count++] = [
+                            if ($n->release_time <= $time_now) {
 
-                            'id' => $n->id,
-                            'image' => $n->image,
-                            // 'created_at' => $n->news_at,
-                            // 'name' => $user->username,
-                            // 'status' => $n->news_statuses_id
+                                // $user = User::where('id', $n->user_id)->first();
 
+                                $data['info'][$count++] = [
 
-
-                        ];
-                    } else {
-
-                        $data['info'][$count++] = [
-
-                            'id' => null,
-                            'image' => null,
-                            // 'created_at' => $n->news_at,
-                            // 'name' => $user->username,
-                            // 'status' => $n->news_statuses_id
+                                    'id' => $n->id,
+                                    'image' => $n->image,
+                                    // 'created_at' => $n->news_at,
+                                    // 'name' => $user->username,
+                                    // 'status' => $n->news_statuses_id
 
 
 
-                        ];
+                                ];
+                            } else {
+
+                                $data['info'][$count++] = [
+
+                                    'id' => null,
+                                    'image' => null,
+                                    // 'created_at' => $n->news_at,
+                                    // 'name' => $user->username,
+                                    // 'status' => $n->news_statuses_id
+
+
+
+                                ];
+                            }
+                        } else {
+
+                            $data['info'][$count++] = [
+
+                                'id' => null,
+                                'image' => null,
+                                // 'created_at' => $n->news_at,
+                                // 'name' => $user->username,
+                                // 'status' => $n->news_statuses_id
+
+
+
+                            ];
+                        }
                     }
                 } else {
 
@@ -114,37 +135,23 @@ class RefreshController extends Controller
 
                     ];
                 }
+
+
+                // dd($data['info']);
+
+                return view('driver.index', [
+                    'datas' => $data['info'],
+                    'no' => $no,
+                    'up' => $up,
+                    'down' => $down,
+                    'self' => $self
+
+                ]);
             }
-        } else {
-
-            $data['info'][$count++] = [
-
-                'id' => null,
-                'image' => null,
-                // 'created_at' => $n->news_at,
-                // 'name' => $user->username,
-                // 'status' => $n->news_statuses_id
-
-
-
-            ];
+            \abort(404);
         }
-
-
-        // dd($data['info']);
-
-        return view('driver.index', [
-            'datas' => $data['info'],
-            'no' => $no,
-            'up' => $up,
-            'down' => $down,
-            'self' => $self
-
-        ]);
-
-
-
-        // return view('driver.index', $data);
+        return redirect('/');
+                // return view('driver.index', $data);
     }
 
     public function runAdmin()
