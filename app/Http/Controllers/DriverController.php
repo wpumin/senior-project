@@ -144,6 +144,10 @@ class DriverController extends Controller
         $appointment->app_status_id = 2;
         $appointment->save();
 
+        $student = Student::where('id', $appointment->student_id)->first();
+        $student->std_status_id = 4;
+        $student->save();
+
         $students = Student::where('car_id', $car)->get();
 
         $data['info'] = [];

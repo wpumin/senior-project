@@ -44,7 +44,6 @@ class AppointmentController extends Controller
         return view('parent.appointment', [
             'data' => $data['info']
         ]);
-
     }
 
     public function list_stu()
@@ -82,9 +81,9 @@ class AppointmentController extends Controller
                 'content' => $this->request->input('content'),
             ]);
 
-            $student = Student::where('id', $this->request->input('student_id'))->first();
-            $student->std_status_id = 4;
-            $student->save();
+            // $student = Student::where('id', $this->request->input('student_id'))->first();
+            // $student->std_status_id = 4;
+            // $student->save();
 
             DB::commit();
             return $this->responseRequestSuccess('success');
