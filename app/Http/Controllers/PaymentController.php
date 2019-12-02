@@ -213,44 +213,53 @@ class PaymentController extends Controller
 
     public function parent_list($id)
     {
+        $cookie = $this->request->cookie('role_number');
 
-        $students = Student::where('user_id', $id)->get();
+        if (isset($cookie)) {
 
-        $data['info'] = [];
-        $count = 0;
+            if ($this->request->cookie('role_number') == '1') {
 
-        foreach ($students as $d) {
+                $students = Student::where('user_id', $id)->get();
 
-            $bill = Payment_log::where('student_id', $d->id)->where('pm_status_id', 1)->get();
+                $data['info'] = [];
+                $count = 0;
 
-            if ($bill) {
+                foreach ($students as $d) {
 
-                foreach ($bill as $b) {
+                    $bill = Payment_log::where('student_id', $d->id)->where('pm_status_id', 1)->get();
 
-                    $district = District::where('id', $d->district_id)->first();
-                    $school = School::where('id', $d->school_id)->first();
-                    $car = Car::where('id', $d->car_id)->first();
+                    if ($bill) {
 
-                    $data['info'][$count++] = [
+                        foreach ($bill as $b) {
 
-                        'log_id' => $b->id,
-                        'tran_key' => $b->tran_key
+                            $district = District::where('id', $d->district_id)->first();
+                            $school = School::where('id', $d->school_id)->first();
+                            $car = Car::where('id', $d->car_id)->first();
 
-                    ];
+                            $data['info'][$count++] = [
+
+                                'log_id' => $b->id,
+                                'tran_key' => $b->tran_key
+
+                            ];
+                        }
+                    } else {
+                        $data['info'][$count++] = [
+
+                            'log_id' => null,
+                            'tran_key' => null
+
+                        ];
+                    }
                 }
-            } else {
-                $data['info'][$count++] = [
 
-                    'log_id' => null,
-                    'tran_key' => null
-
-                ];
+                return view('parent.payment_confirm', [
+                    'data' => $data['info']
+                ]);
             }
+            \abort(404);
         }
-
-        return view('parent.payment_confirm', [
-            'data' => $data['info']
-        ]);
+        return redirect('/');
     }
 
     public function store()
