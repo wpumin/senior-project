@@ -271,49 +271,58 @@ class RefreshController extends Controller
 
     public function report($id)
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '1') {
 
 
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
-        $full = $day . '-' . $month . '-' . $year;
+                $day = date('d');
+                $month = date('m');
+                $year = date('Y') + 543;
+                $full = $day . '-' . $month . '-' . $year;
 
-        $report = DB::table('reports')
-            ->join('users', 'reports.user_id', '=', 'users.id')
-            ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
-            ->select('reports.*', 'type_reports.type_name')
-            ->where('reports.user_id', $id)
-            ->orderBy('reports.created_at', 'desc')
-            ->get();
+                $report = DB::table('reports')
+                    ->join('users', 'reports.user_id', '=', 'users.id')
+                    ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
+                    ->select('reports.*', 'type_reports.type_name')
+                    ->where('reports.user_id', $id)
+                    ->orderBy('reports.created_at', 'desc')
+                    ->get();
 
-        $data['info'] = [];
-        $count = 0;
+                $data['info'] = [];
+                $count = 0;
 
-        // dd($report);
+                // dd($report);
 
-        foreach ($report as $d) {
+                foreach ($report as $d) {
 
-            // dd($d->type_name);
+                    // dd($d->type_name);
 
 
 
-            $data['info'][$count++] = [
-                'title' => $d->title,
-                'content' => $d->content,
-                'created_at' => $d->created_at,
-                'type_name' => $d->type_name
-            ];
+                    $data['info'][$count++] = [
+                        'title' => $d->title,
+                        'content' => $d->content,
+                        'created_at' => $d->created_at,
+                        'type_name' => $d->type_name
+                    ];
 
-            // dd($data['info']);
-            // var_dump($data['info']);
+                    // dd($data['info']);
+                    // var_dump($data['info']);
+                }
+
+                // dd($data['info']);
+
+                return view('parent.report', [
+                    'data' => $data['info']
+                ]);
+            }
+            \abort(404);
         }
-
-        // dd($data['info']);
-
-        return view('parent.report', [
-            'data' => $data['info']
-        ]);
-
+        return redirect('/');
         // return $this->responseRequestSuccess($report);
     }
 
