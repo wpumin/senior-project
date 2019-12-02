@@ -11,6 +11,7 @@
         <div class="col-12 form-group">
             <input required type="text" placeholder="หัวข้อข่าวสาร" id="title" class="form-control" name="title" value="{{ $title }}">
             <input type="hidden" class="form-control" id="news_id" value="{{ $id }}" name="news_id">
+            <input type="hidden" class="form-control" id="user_id" value="<?php echo $_COOKIE['user_id']; ?>" name="user_id">
         </div>
         <div class="col-12 form-group mb-0">
             <label for="">ภาพหน้าปก</label>

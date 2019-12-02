@@ -58,20 +58,17 @@ class NewssController extends Controller
                 'errors' => $validator->errors()
             );
 
-        // $news = News::find($request->get('news_id'));
-        $news = News::create($request->all());
-        // dd($request->get('status_id'));
+        $day = date('d');
+        $month = date('m');
+        $year = date('Y') + 543;
+
+        $full = $day . '/' . $month . '/' . $year;
 
         DB::beginTransaction();
 
-        // $news->user_id = $request->get('user_id');
-        // $news->news_statuses_id = $request->get('status_id');
-        // $news->role_id = $request->get('role_id');
-        // $news->title = $request->get('title');
-        // $news->content = $request->get('content');
-        // $news->release_date = $request->get('release_date');
-        // $news->release_time = $request->get('release_time');
-        // $news_new->news_at = $full;
+        $news = News::create($request->all());
+
+        $news->news_at = $full;
 
         if ($request->has('imgInp')) {
             $image_filename = $request->file('imgInp')->getClientOriginalName();
@@ -81,17 +78,13 @@ class NewssController extends Controller
             $request->file('imgInp')->move($destination, $image_name);
             $news->image = $public_path . $image_name;
             $news->save();
-            // // $news['image']->save();
-            // return $this->responseRequestSuccess('Success!');
-            // return $this->responseRequestSuccess($image_name);
-            // return $image_name;
         }
         $news->save();
 
         DB::commit();
 
 
-        return redirect('admin/index');
+        return redirect('admin/management/news');
         return $this->responseRequestSuccess('success');
         // return $image_name;
     }
@@ -103,6 +96,7 @@ class NewssController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     //update
     public function store(Request $request)
     {
@@ -134,18 +128,23 @@ class NewssController extends Controller
 
         $news = News::find($request->get('news_id'));
 
+        $day = date('d');
+        $month = date('m');
+        $year = date('Y') + 543;
+
+        $full = $day . '/' . $month . '/' . $year;
         // dd($request->all());
 
         DB::beginTransaction();
 
-        // $news->user_id = $request->get('user_id');
+        $news->user_id = $request->get('user_id');
         $news->news_statuses_id = $request->get('status_id');
         $news->role_id = $request->get('role_id');
         $news->title = $request->get('title');
         $news->content = $request->get('content');
         $news->release_date = $request->get('release_date');
         $news->release_time = $request->get('release_time');
-        // $news_new->news_at = $full;
+        $news->news_at = $full;
 
         if ($request->has('imgInp')) {
             $image_filename = $request->file('imgInp')->getClientOriginalName();
@@ -165,7 +164,7 @@ class NewssController extends Controller
         DB::commit();
 
 
-        return redirect('admin/index');
+        return redirect('admin/management/news');
         return $this->responseRequestSuccess('success');
         // return $image_name;
     }
