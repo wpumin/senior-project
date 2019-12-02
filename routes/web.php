@@ -113,9 +113,11 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
 
-    Route::get('/management/parent/create', function () {
-        return view('admin.parent_management_create');
-    });
+    // Route::get('/management/parent/create', function () {
+    //     return view('admin.parent_management_create');
+    // });
+    Route::get('/management/parent/create', 'RegisterUserController@create');
+    
     Route::get('/management/staff', 'RegisterUserController@list_staff');
 
     Route::get('/management/staff/create', function () {
