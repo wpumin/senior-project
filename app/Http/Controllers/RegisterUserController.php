@@ -307,39 +307,65 @@ class RegisterUserController extends Controller
 
     public function list_staff()
     {
-        $users = User::get();
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $data['info'] = [];
-        $count = 0;
+        if (isset($cookie)) {
 
-        // dd($users);
+            if ($this->request->cookie('role_number') == '3') {
 
-        foreach ($users as $u) {
+                $users = User::get();
 
-            if ($u->role_id != '1') {
+                $data['info'] = [];
+                $count = 0;
 
-                $role = Role::where('id', $u->role_id)->first();
+                // dd($users);
 
-                $data['info'][$count++] = [
+                foreach ($users as $u) {
 
-                    'username' => $u->username,
-                    'role' => $role->name,
-                    'first_name' => $u->first_name,
-                    'last_name' => $u->last_name,
-                    'phone' => $u->phone,
-                    'date' => $u->created_at,
+                    if ($u->role_id != '1') {
+
+                        $role = Role::where('id', $u->role_id)->first();
+
+                        $data['info'][$count++] = [
+
+                            'username' => $u->username,
+                            'role' => $role->name,
+                            'first_name' => $u->first_name,
+                            'last_name' => $u->last_name,
+                            'phone' => $u->phone,
+                            'date' => $u->created_at,
 
 
-                ];
+                        ];
+                    }
+                }
+
+                // dd($data['info']);
+
+                return view('admin.staff_management', [
+                    'datas' => $data['info'],
+
+                ]);
             }
+            \abort(404);
         }
+        return redirect('/');
+    }
+    public function staff()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        // dd($data['info']);
+        if (isset($cookie)) {
 
-        return view('admin.staff_management', [
-            'datas' => $data['info'],
+            if ($this->request->cookie('role_number') == '3') {
 
-        ]);
+                return view('admin.staff_management_create');
+            }
+            \abort(404);
+        }
+        return redirect('/');
     }
     /*
     |--------------------------------------------------------------------------

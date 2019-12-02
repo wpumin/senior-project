@@ -117,12 +117,13 @@ Route::group(array('prefix' => 'admin'), function () {
     //     return view('admin.parent_management_create');
     // });
     Route::get('/management/parent/create', 'RegisterUserController@create');
-    
+
     Route::get('/management/staff', 'RegisterUserController@list_staff');
 
-    Route::get('/management/staff/create', function () {
-        return view('admin.staff_management_create');
-    });
+    // Route::get('/management/staff/create', function () {
+    //     return view('admin.staff_management_create');
+    // });
+    Route::get('/management/staff/create', 'RegisterUserController@staff');
     Route::get('/dashboard/car1', function () {
         return view('admin.dashboard');
     });
