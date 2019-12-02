@@ -26,65 +26,87 @@ class ParentController extends Controller
 
     public function index()
     {
-        $news = News::where('role_id', 1)->where('news_statuses_id', 1)->get();
-        // dd($news[0]);
-        $d = date('d');
-        $m = date('m');
-        $y = date('Y') + 543;
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        // dd($d);
+        if (isset($cookie)) {
 
-        $full = $d . '/' . $m . '/' . $y;
-        $time_now = date('H:i');
+            if ($this->request->cookie('role_number') == '1') {
 
-        $full_now = new DateTime($full);
-        // dd($date1);
-        // dd($news[0]['release_time'] > $time_now);
+                $news = News::where('role_id', 1)->where('news_statuses_id', 1)->get();
+                // dd($news[0]);
+                $d = date('d');
+                $m = date('m');
+                $y = date('Y') + 543;
 
-        // dd($news[0]['news_at'] > $full);
+                // dd($d);
 
-        $data['info'] = [];
-        $count = 0;
+                $full = $d . '/' . $m . '/' . $y;
+                $time_now = date('H:i');
 
-        // dd($users);
+                $full_now = new DateTime($full);
+                // dd($date1);
+                // dd($news[0]['release_time'] > $time_now);
 
-        if ($news) {
+                // dd($news[0]['news_at'] > $full);
 
-            foreach ($news as $n) {
+                $data['info'] = [];
+                $count = 0;
 
-                $release_date = new DateTime($n->release_date);
+                // dd($users);
 
-                // dd($full_now >= $release_date);
+                if ($news) {
 
-                if ($full_now >= $release_date) {
+                    foreach ($news as $n) {
 
-                    // dd($time_now > $n->release_time);
-                    if ($time_now > $n->release_time) {
+                        $release_date = new DateTime($n->release_date);
 
-                        $data['info'][$count++] = [
+                        // dd($full_now >= $release_date);
 
-                            'id' => $n->id,
-                            'image' => $n->image,
-                            // 'created_at' => $n->news_at,
-                            // 'name' => $user->username,
-                            // 'status' => $n->news_statuses_id
+                        if ($full_now >= $release_date) {
 
+                            // dd($time_now > $n->release_time);
+                            if ($time_now > $n->release_time) {
 
+                                $data['info'][$count++] = [
 
-                        ];
-                    } else {
-
-                        $data['info'][$count++] = [
-
-                            'id' => null,
-                            'image' => null,
-                            // 'created_at' => $n->news_at,
-                            // 'name' => $user->username,
-                            // 'status' => $n->news_statuses_id
+                                    'id' => $n->id,
+                                    'image' => $n->image,
+                                    // 'created_at' => $n->news_at,
+                                    // 'name' => $user->username,
+                                    // 'status' => $n->news_statuses_id
 
 
 
-                        ];
+                                ];
+                            } else {
+
+                                $data['info'][$count++] = [
+
+                                    'id' => null,
+                                    'image' => null,
+                                    // 'created_at' => $n->news_at,
+                                    // 'name' => $user->username,
+                                    // 'status' => $n->news_statuses_id
+
+
+
+                                ];
+                            }
+                        } else {
+
+                            $data['info'][$count++] = [
+
+                                'id' => null,
+                                'image' => null,
+                                // 'created_at' => $n->news_at,
+                                // 'name' => $user->username,
+                                // 'status' => $n->news_statuses_id
+
+
+
+                            ];
+                        }
                     }
                 } else {
 
@@ -100,30 +122,19 @@ class ParentController extends Controller
 
                     ];
                 }
+
+
+
+                // dd($data['info']);
+
+                return view('parent.index', [
+                    'datas' => $data['info'],
+
+                ]);
             }
-        } else {
-
-            $data['info'][$count++] = [
-
-                'id' => null,
-                'image' => null,
-                // 'created_at' => $n->news_at,
-                // 'name' => $user->username,
-                // 'status' => $n->news_statuses_id
-
-
-
-            ];
+            \abort(404);
         }
-
-
-
-        // dd($data['info']);
-
-        return view('parent.index', [
-            'datas' => $data['info'],
-
-        ]);
+        return redirect('/');
     }
 
     public function show_news($id)

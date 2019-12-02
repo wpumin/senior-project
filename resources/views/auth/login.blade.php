@@ -104,6 +104,8 @@
         return "";
     }
 
+    setCookie('role_id', 0, 30);
+
     function deleteAllCookies() {
 
         var res = document.cookie;
@@ -174,7 +176,7 @@
 
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
-                    
+
 
                     if (result.data['role_id'] == '1') {
                         //Page User
