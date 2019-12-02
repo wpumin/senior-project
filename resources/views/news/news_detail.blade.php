@@ -24,7 +24,7 @@
 @endif --}}
 
 @foreach($datas as $info)
-    @section('title',$info['title']) 
+    @section('title',$info['title'])
 
     @section('content')
         <div class="heading text-left d-none d-md-block">
