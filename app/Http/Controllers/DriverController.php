@@ -95,118 +95,138 @@ class DriverController extends Controller
 
     public function del_app($car, $id)
     {
-        $appointment = Appointment::where('id', $id)->first();
-        $appointment->delete();
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $students = Student::where('car_id', $car)->get();
+        if (isset($cookie)) {
 
-        $data['info'] = [];
-        $count = 0;
+            if ($this->request->cookie('role_number') == '2') {
 
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
+                $appointment = Appointment::where('id', $id)->first();
+                $appointment->delete();
 
-        $full = $day . '/' . $month . '/' . $year;
+                $students = Student::where('car_id', $car)->get();
 
-        foreach ($students as $s) {
+                $data['info'] = [];
+                $count = 0;
 
-            // ชื่อเล่น
-            // สถานะ
-            // รูปเด็ก
-            // ชื่อโรงเรียน
-            // ชื่อ user
-            // ความสัมพันธ์
-            // เบอร์
+                $day = date('d');
+                $month = date('m');
+                $year = date('Y') + 543;
 
-            $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+                $full = $day . '/' . $month . '/' . $year;
 
-            if ($appointment) {
-                $app_status = App_status::where('id', $appointment->app_status_id)->first();
-                $school = School::where('id', $s->school_id)->first();
-                $user = User::where('id', $appointment->user_id)->first();
-                $relation = Relationship::where('id', $user->relationship_id)->first();
+                foreach ($students as $s) {
 
-                $data['info'][$count++] = [
-                    'no' => $appointment->id,
-                    'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                    'nickname' => $s->nickname,
-                    'app_status' => $appointment->app_status_id,
-                    'photo_stu' => $s->image,
-                    'school' => $school->name_school,
-                    'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                    'relationship' => $relation->name,
-                    'phone' => $user->phone
+                    // ชื่อเล่น
+                    // สถานะ
+                    // รูปเด็ก
+                    // ชื่อโรงเรียน
+                    // ชื่อ user
+                    // ความสัมพันธ์
+                    // เบอร์
 
-                ];
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+
+                    if ($appointment) {
+                        $app_status = App_status::where('id', $appointment->app_status_id)->first();
+                        $school = School::where('id', $s->school_id)->first();
+                        $user = User::where('id', $appointment->user_id)->first();
+                        $relation = Relationship::where('id', $user->relationship_id)->first();
+
+                        $data['info'][$count++] = [
+                            'no' => $appointment->id,
+                            'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
+                            'nickname' => $s->nickname,
+                            'app_status' => $appointment->app_status_id,
+                            'photo_stu' => $s->image,
+                            'school' => $school->name_school,
+                            'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
+                            'relationship' => $relation->name,
+                            'phone' => $user->phone
+
+                        ];
+                    }
+                }
+
+                return view('driver.appointment', [
+                    'datas' => $data['info'],
+                    'date_' => $full
+                ]);
             }
+            \abort(404);
         }
-
-        return view('driver.appointment', [
-            'datas' => $data['info'],
-            'date_' => $full
-        ]);
+        return redirect('/');
     }
 
     public function accept_app($car, $id)
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $appointment = Appointment::where('id', $id)->first();
-        $appointment->app_status_id = 2;
-        $appointment->save();
+        if (isset($cookie)) {
 
-        $student = Student::where('id', $appointment->student_id)->first();
-        $student->std_status_id = 4;
-        $student->save();
+            if ($this->request->cookie('role_number') == '2') {
+                $appointment = Appointment::where('id', $id)->first();
+                $appointment->app_status_id = 2;
+                $appointment->save();
 
-        $students = Student::where('car_id', $car)->get();
+                $student = Student::where('id', $appointment->student_id)->first();
+                $student->std_status_id = 4;
+                $student->save();
 
-        $data['info'] = [];
-        $count = 0;
+                $students = Student::where('car_id', $car)->get();
 
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
+                $data['info'] = [];
+                $count = 0;
 
-        $full = $day . '/' . $month . '/' . $year;
+                $day = date('d');
+                $month = date('m');
+                $year = date('Y') + 543;
 
-        foreach ($students as $s) {
+                $full = $day . '/' . $month . '/' . $year;
 
-            // ชื่อเล่น
-            // สถานะ
-            // รูปเด็ก
-            // ชื่อโรงเรียน
-            // ชื่อ user
-            // ความสัมพันธ์
-            // เบอร์
+                foreach ($students as $s) {
 
-            $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+                    // ชื่อเล่น
+                    // สถานะ
+                    // รูปเด็ก
+                    // ชื่อโรงเรียน
+                    // ชื่อ user
+                    // ความสัมพันธ์
+                    // เบอร์
 
-            if ($appointment) {
-                $app_status = App_status::where('id', $appointment->app_status_id)->first();
-                $school = School::where('id', $s->school_id)->first();
-                $user = User::where('id', $appointment->user_id)->first();
-                $relation = Relationship::where('id', $user->relationship_id)->first();
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
 
-                $data['info'][$count++] = [
-                    'no' => $appointment->id,
-                    'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                    'nickname' => $s->nickname,
-                    'app_status' => $appointment->app_status_id,
-                    'photo_stu' => $s->image,
-                    'school' => $school->name_school,
-                    'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                    'relationship' => $relation->name,
-                    'phone' => $user->phone
+                    if ($appointment) {
+                        $app_status = App_status::where('id', $appointment->app_status_id)->first();
+                        $school = School::where('id', $s->school_id)->first();
+                        $user = User::where('id', $appointment->user_id)->first();
+                        $relation = Relationship::where('id', $user->relationship_id)->first();
 
-                ];
+                        $data['info'][$count++] = [
+                            'no' => $appointment->id,
+                            'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
+                            'nickname' => $s->nickname,
+                            'app_status' => $appointment->app_status_id,
+                            'photo_stu' => $s->image,
+                            'school' => $school->name_school,
+                            'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
+                            'relationship' => $relation->name,
+                            'phone' => $user->phone
+
+                        ];
+                    }
+                }
+
+                return view('driver.appointment', [
+                    'datas' => $data['info'],
+                    'date_' => $full
+                ]);
             }
+            \abort(404);
         }
-
-        return view('driver.appointment', [
-            'datas' => $data['info'],
-            'date_' => $full
-        ]);
+        return redirect('/');
     }
 
     public function show_news($id)
