@@ -1082,8 +1082,8 @@
                 <input class="form-control" id="exampleInputName" required="" name="exampleInputName" type="text" placeholder="ชื่อ - สกุล">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail12">อีเมล</label><i class="fa fa-envelope-o"></i>
-                <input class="form-control" id="exampleInputEmail" required="" name="exampleInputEmail" type="email" placeholder="อีเมล">
+                <label for="exampleInputEmail12">เบอร์โทร</label><i class="fa fa-phone"></i>
+                <input class="form-control" id="exampleInputEmail" required="" name="exampleInputEmail" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="080-123-4567">
               </div>
               <div class="form-group">
                 <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
@@ -1241,21 +1241,17 @@
 
       $(document).ready(function(){
 
-      $("#mailForm").submit(function(event){
-          $('.spinner-border').css('display','inline-block');
-            // submitForm();
-            //disable the submit button
-            $("#send_noti").attr("disabled", true);
-            // return false;
-
-
-
+      setInterval(function(){
+        $("#mailForm").submit(function(event){
+            $('.spinner-border').css('display','inline-block');
+              // submitForm();
+              //disable the submit button
+              $('#successSending').modal('show');
+              $("#send_noti").attr("disabled", true);
+              $(location).attr('href', '/about'); 
+              // return false;
         });
-
-
-
-
-
+      }, 3000);
 
       });
 
