@@ -11,7 +11,7 @@
 <div class="card height-auto pb-0 pt-5 mt-5 pt-md-0 mt-md-0">
     <div class="card-body">
 
-        <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data" class="new-added-form pt-4">
             {{-- @csrf --}}
             <div class="row">
                  <div class="col-xl-3 col-lg-6 col-12 form-group">
