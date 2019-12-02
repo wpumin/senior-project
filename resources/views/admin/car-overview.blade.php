@@ -330,8 +330,11 @@
                                 '<td>' + response['data'][i]['phone'] + '</td>' +
                                 '<td>' +
                                 '<div class="dropdown">' +
+                                // '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
+                                // '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
+                                '<div class="dropdown">' +
                                 '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
-                                '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
+                                '<span class="flaticon-pin"></span>' +
                                 '</a>' +
                                 '</div>' +
                                 '</td>' +
