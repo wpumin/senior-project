@@ -264,68 +264,76 @@ class PaymentController extends Controller
 
     public function store()
     {
+        $cookie = $this->request->cookie('role_number');
 
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '1') {
         // dd($this->request->all());
 
-        $validator = Validator::make(
-            $this->request->all(),
-            [
-                'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                // 'fname' => 'required',
-                // 'lname' => 'required',
-                // 'user_id' => '',
-                // 'role_id' => '',
-                // 'status_id' => '',
-                // 'release_date' => '',
-                // 'release_time' => '',
-                // 'content' => '',
-                // ],
-                // [
-                //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
-            ]
-        );
+                $validator = Validator::make(
+                    $this->request->all(),
+                    [
+                        'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                        // 'fname' => 'required',
+                        // 'lname' => 'required',
+                        // 'user_id' => '',
+                        // 'role_id' => '',
+                        // 'status_id' => '',
+                        // 'release_date' => '',
+                        // 'release_time' => '',
+                        // 'content' => '',
+                        // ],
+                        // [
+                        //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+                    ]
+                );
 
-        if ($validator->fails())
-            return array(
-                'fail' => true,
-                'errors' => $validator->errors()
-            );
+                if ($validator->fails())
+                    return array(
+                        'fail' => true,
+                        'errors' => $validator->errors()
+                    );
 
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
+                $day = date('d');
+                $month = date('m');
+                $year = date('Y') + 543;
 
-        $full = $day . '/' . $month . '/' . $year;
+                $full = $day . '/' . $month . '/' . $year;
 
-        DB::beginTransaction();
+                DB::beginTransaction();
 
 
-        $bill = Payment_inform::create($this->request->all());
+                $bill = Payment_inform::create($this->request->all());
 
-        $bill->pm_status_id = 3;
-        // dd($bill);
-        if ($this->request->has('imgInp')) {
-            $image_filename = $this->request->file('imgInp')->getClientOriginalName();
-            $image_name =  $image_filename;
-            $public_path = 'images/Payments/';
-            $destination = base_path() . "/public/" . $public_path;
-            $this->request->file('imgInp')->move($destination, $image_name);
-            $bill->imgInp = $public_path . $image_name;
+                $bill->pm_status_id = 3;
+                // dd($bill);
+                if ($this->request->has('imgInp')) {
+                    $image_filename = $this->request->file('imgInp')->getClientOriginalName();
+                    $image_name =  $image_filename;
+                    $public_path = 'images/Payments/';
+                    $destination = base_path() . "/public/" . $public_path;
+                    $this->request->file('imgInp')->move($destination, $image_name);
+                    $bill->imgInp = $public_path . $image_name;
 
-            // dd($bill->image);
-            $bill->save();
+                    // dd($bill->image);
+                    $bill->save();
 
-            $log_bill = Payment_log::where('id', $this->request->input('payment_log_id'))->first();
-            $log_bill->pm_status_id = 3;
-            $log_bill->save();
+                    $log_bill = Payment_log::where('id', $this->request->input('payment_log_id'))->first();
+                    $log_bill->pm_status_id = 3;
+                    $log_bill->save();
+                }
+                // $bill->save();
+
+                DB::commit();
+
+
+                return redirect('parent/index');
+                return $this->responseRequestSuccess('success');
+            }
+            \abort(404);
         }
-        // $bill->save();
-
-        DB::commit();
-
-
-        return redirect('parent/index');
-        return $this->responseRequestSuccess('success');
+        return redirect('/');
     }
 
     public function admin_list($car)
