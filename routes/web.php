@@ -16,6 +16,8 @@ Route::get('/about', function () {
     return view('public.index');
 });
 
+Route::post('line/notify', 'ContactController@notify');
+
 // block url
 
 // login

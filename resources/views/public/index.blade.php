@@ -37,7 +37,7 @@
       // Initialize the service worker
       if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/swe.js', {
-              scope: '.' 
+              scope: '.'
           }).then(function (registration) {
               // Registration was successful
               // console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
@@ -497,7 +497,7 @@
              </g>
              <g>
              </g>
-             </svg>             
+             </svg>
               <h3>ติดตามรถด้วย GPS</h3>
               <p>อุ่นใจเมื่อคุณเปิดเว็บไซต์ของเราเพื่อติดตามตำแหน่งของรถรับส่งนักเรียนบนแผนที่</p>
               <svg class="bg-icon" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
@@ -579,7 +579,7 @@
               </g>
               <g>
               </g>
-           </svg>           
+           </svg>
             </div>
           </div>
         </div>
@@ -1075,22 +1075,22 @@
             <div class="section-title">
               <h2>ติดต่อ</h2>
             </div>
-            <form class="auth-form" id="mailForm">
-              @csrf
+            <form class="auth-form" id="mailForm" action="{{url('line/notify')}}" method="POST">
+              {{-- @csrf --}}
               <div class="form-group">
                 <label for="exampleInputName1">ชื่อ - สกุล</label><i class="fa fa-user"></i>
-                <input class="form-control" id="exampleInputName" required="" name="login[name]" type="text" placeholder="ชื่อ - สกุล">
+                <input class="form-control" id="exampleInputName" required="" name="exampleInputName" type="text" placeholder="ชื่อ - สกุล">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail12">อีเมล</label><i class="fa fa-envelope-o"></i>
-                <input class="form-control" id="exampleInputEmail" required="" name="login[email]" type="email" placeholder="อีเมล">
+                <input class="form-control" id="exampleInputEmail" required="" name="exampleInputEmail" type="email" placeholder="อีเมล">
               </div>
               <div class="form-group">
                 <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
                 <textarea class="form-control" id="message" name="message" cols="30" rows="10" placeholder="ข้อความ"></textarea>
               </div>
               <div class="form-group mb-0">
-                <button class="btn-theme" type="submit">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
+                <button class="btn-theme" type="submit" data-toggle="#successSending" id="send_noti">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
               </div>
             </form>
           </div>
@@ -1243,43 +1243,54 @@
 
       $("#mailForm").submit(function(event){
           $('.spinner-border').css('display','inline-block');
-            submitForm();
-            return false;
+            // submitForm();
+            //disable the submit button
+            $("#send_noti").attr("disabled", true);
+            // return false;
+
+
+
         });
+
+
+
+
+
+
       });
 
-      function submitForm(){
-          $.ajax({
-              type: "POST",
-              url: "/email",
-              headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              },
-              cache:false,
-              data: $('form#mailForm').serialize(),
-              success: function(result){
-                  //  ส่งอีเมลสำเร็จ
-                  if(result.status == 'success') {
-                      setInterval(function(){
-                          $('#successSending').modal('show');
-                      }, 3000);
-                      $(location).attr('href', '/about');
-                  }
+    //   function submitForm(){
+    //       $.ajax({
+    //           type: "POST",
+    //           url: "/email",
+    //           headers: {
+    //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //           },
+    //           cache:false,
+    //           data: $('form#mailForm').serialize(),
+    //           success: function(result){
+    //               //  ส่งอีเมลสำเร็จ
+    //               if(result.status == 'success') {
+    //                   setInterval(function(){
+    //                       $('#successSending').modal('show');
+    //                   }, 3000);
+    //                   $(location).attr('href', '/about');
+    //               }
 
-                  // ส่งอีเมลไม่สำเร็จ
-                  if (result.status == 'error') {
-                      $('#errorSending').modal('show');
-                      $('#exampleInputName').val("");
-                      $('#exampleInputEmail').val("");
-                      $('#message').val("");
-                  }
+    //               // ส่งอีเมลไม่สำเร็จ
+    //               if (result.status == 'error') {
+    //                   $('#errorSending').modal('show');
+    //                   $('#exampleInputName').val("");
+    //                   $('#exampleInputEmail').val("");
+    //                   $('#message').val("");
+    //               }
 
-              },
-              error: function(result){
-                  $(".wrap-modal > #systemError").modal('show');
-              }
-          });
-      }
+    //           },
+    //           error: function(result){
+    //               $(".wrap-modal > #systemError").modal('show');
+    //           }
+    //       });
+    //   }
 
     </script>
   </body>

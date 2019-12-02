@@ -44,7 +44,8 @@ class VerifyCsrfToken extends Middleware
         '/ajax_upload/action',
         'news',
         'admin/management/news/create/new',
-        'parent/store'
+        'parent/store',
+        'line/notify'
 
     ];
 }
