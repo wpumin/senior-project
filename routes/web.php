@@ -95,9 +95,8 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::post('/management/news/create/new', 'NewssController@create_store');
 
-    Route::get('/management/news/create', function () {
-        return view('admin._form_news');
-    });
+    Route::get('/management/news/create','NewssController@create');
+
 
     Route::get('/payment/confirm/{car}', 'PaymentController@index');
 

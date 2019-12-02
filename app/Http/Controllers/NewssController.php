@@ -26,7 +26,17 @@ class NewssController extends Controller
      */
     public function create()
     {
-        return view('admin._form_news');
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '1') {
+                return view('admin._form_news');
+            }
+            \abort(404);
+        }
+        return redirect('/');
     }
 
     //create
