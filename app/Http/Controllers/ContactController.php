@@ -23,8 +23,8 @@ class ContactController extends Controller_Make
         $str = $line_mes;    //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
         $image_thumbnail_url = '';  // ขนาดสูงสุด 240×240px JPEG
         $image_fullsize_url = '';  // ขนาดสูงสุด 1024×1024px JPEG
-        $sticker_package_id = 1;  // Package ID ของสติกเกอร์
-        $sticker_id = 410;    // ID ของสติกเกอร์
+        $sticker_package_id = 2;  // Package ID ของสติกเกอร์
+        $sticker_id = 34;    // ID ของสติกเกอร์
 
         $message_data = array(
             'message' => $str,
