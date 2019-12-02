@@ -157,52 +157,91 @@ class ReportController extends Controller
 
     public function show_news($id)
     {
-        // dd($id);
-        $news = News::where('id', $id)->first();
-        // dd($news);
-        $d = date('d');
-        $m = date('m');
-        $y = date('Y') + 543;
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        // dd($d);
+        if (isset($cookie)) {
 
-        $full = $d . '/' . $m . '/' . $y;
-        $time_now = date('H:i');
+            if ($this->request->cookie('role_number') == '3') {
 
-        // dd($full);
-        // dd($news[0]['release_time'] > $time_now);
+                // dd($id);
+                $news = News::where('id', $id)->first();
+                // dd($news);
+                $d = date('d');
+                $m = date('m');
+                $y = date('Y') + 543;
 
-        // dd($news[0]['news_at'] > $full);
+                // dd($d);
 
-        $data['info'] = [];
-        $count = 0;
+                $full = $d . '/' . $m . '/' . $y;
+                $time_now = date('H:i');
 
-        // dd($news->news_at);
+                // dd($full);
+                // dd($news[0]['release_time'] > $time_now);
 
-        // foreach ($news as $n) {
-        // dd($n->release_time > $time_now);
-        if ($news) {
-            // dd($news->release_date);
-            if ($full >= $news->release_date) {
+                // dd($news[0]['news_at'] > $full);
 
-                // dd($time_now);
-                if ($time_now > $news->release_time) {
+                $data['info'] = [];
+                $count = 0;
 
-                    $user = User::where('id', $news->user_id)->first();
+                // dd($news->news_at);
 
-                    $data['info'][$count++] = [
+                // foreach ($news as $n) {
+                // dd($n->release_time > $time_now);
+                if ($news) {
+                    // dd($news->release_date);
+                    if ($full >= $news->release_date) {
 
-                        'id' => $news->id,
-                        'image' => $news->image,
-                        'title' => $news->title,
-                        'content' => $news->content,
-                        'release_date' => $news->release_date . ' ' . $news->release_time,
-                        'name' => $user->username,
-                        'status' => $news->news_statuses_id
+                        // dd($time_now);
+                        if ($time_now > $news->release_time) {
+
+                            $user = User::where('id', $news->user_id)->first();
+
+                            $data['info'][$count++] = [
+
+                                'id' => $news->id,
+                                'image' => $news->image,
+                                'title' => $news->title,
+                                'content' => $news->content,
+                                'release_date' => $news->release_date . ' ' . $news->release_time,
+                                'name' => $user->username,
+                                'status' => $news->news_statuses_id
 
 
 
-                    ];
+                            ];
+                        } else {
+
+                            $data['info'][$count++] = [
+
+                                'id' => '',
+                                'image' => '',
+                                'title' => '',
+                                'content' => '',
+                                'release_date' => '',
+                                'name' => '',
+                                'status' => ''
+
+
+
+                            ];
+                        }
+                    } else {
+
+                        $data['info'][$count++] = [
+
+                            'id' => '',
+                            'image' => '',
+                            'title' => '',
+                            'content' => '',
+                            'release_date' => '',
+                            'name' => '',
+                            'status' => ''
+
+
+
+                        ];
+                    }
                 } else {
 
                     $data['info'][$count++] = [
@@ -219,48 +258,20 @@ class ReportController extends Controller
 
                     ];
                 }
-            } else {
-
-                $data['info'][$count++] = [
-
-                    'id' => '',
-                    'image' => '',
-                    'title' => '',
-                    'content' => '',
-                    'release_date' => '',
-                    'name' => '',
-                    'status' => ''
 
 
+                // }
 
-                ];
+                // dd($data['info']);
+
+                return view('news.news_detail', [
+                    'datas' => $data['info'],
+
+                ]);
             }
-        } else {
-
-            $data['info'][$count++] = [
-
-                'id' => '',
-                'image' => '',
-                'title' => '',
-                'content' => '',
-                'release_date' => '',
-                'name' => '',
-                'status' => ''
-
-
-
-            ];
+            \abort(404);
         }
-
-
-        // }
-
-        // dd($data['info']);
-
-        return view('news.news_detail', [
-            'datas' => $data['info'],
-
-        ]);
+        return redirect('/');
     }
     /*
     |--------------------------------------------------------------------------

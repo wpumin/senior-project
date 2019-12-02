@@ -139,12 +139,12 @@ class ParentController extends Controller
 
     public function show_news($id)
     {
-        // $cookie = $this->request->cookie('role_number');
-        // // dd(isset($cookie));
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        // if (isset($cookie)) {
+        if (isset($cookie)) {
 
-        //     if ($this->request->cookie('role_number') == '1') {
+            if ($this->request->cookie('role_number') == '1') {
 
                 $news = News::where('id', $id)->where('role_id', 1)->where('news_statuses_id', 1)->first();
                 // dd($news[0]);
@@ -194,21 +194,15 @@ class ParentController extends Controller
                             ];
                         }
                     }
-            //     }
-            //     \abort(404);
-            // }
-            // return redirect('/');
         }
 
-
-        // }
-
-        // dd($data['info']);
-
-        return view('news.news_detail', [
-            'datas' => $data['info'],
-
-        ]);
+                return view('news.news_detail', [
+                    'datas' => $data['info'],
+                ]);
+            }
+                \abort(404);
+        }
+            return redirect('/');
     }
 
     public function list_student($id)
