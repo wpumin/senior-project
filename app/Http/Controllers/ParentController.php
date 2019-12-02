@@ -151,11 +151,13 @@ class ParentController extends Controller
 
         // foreach ($news as $n) {
         // dd($n->release_time > $time_now);
+        // dd($news);
         if ($news) {
+            // dd($news->release_date <= $full);
+            if ($news->release_date <= $full) {
 
-            if ($news->release_date >= $full) {
-
-                if ($time_now > $news->release_time) {
+                // dd($news->release_time <= $time_now);
+                if ($news->release_time <= $time_now) {
 
                     $user = User::where('id', $news->user_id)->first();
 
