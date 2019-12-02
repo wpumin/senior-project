@@ -124,15 +124,17 @@ Route::group(array('prefix' => 'admin'), function () {
     //     return view('admin.staff_management_create');
     // });
     Route::get('/management/staff/create', 'RegisterUserController@staff');
-    Route::get('/dashboard/car1', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/dashboard/car2', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/profile', function () {
-        return view('admin.profile');
-    });
+    // Route::get('/dashboard/car1', function () {
+    //     return view('admin.dashboard');
+    // });
+    // Route::get('/dashboard/car2', function () {
+    //     return view('admin.dashboard');
+    // });
+    Route::get('/dashboard/car2', 'RefreshController@dashboard1');
+    Route::get('/dashboard/car2', 'RefreshController@dashboard2');
+    // Route::get('/profile', function () {
+    //     return view('admin.profile');
+    // });
     Route::get('/news/detail/{id}', 'ReportController@show_news');
 });
 

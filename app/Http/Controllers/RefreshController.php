@@ -360,6 +360,37 @@ class RefreshController extends Controller
 
         return $this->responseRequestSuccess($data);
     }
+    public function dashboard1()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                return view('admin.dashboard');
+            }
+            \abort(404);
+        }
+        return redirect('/');
+    }
+    public function dashboard2()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                return view('admin.dashboard');
+            }
+            \abort(404);
+        }
+        return redirect('/');
+    }
+    
 
     /*
     |--------------------------------------------------------------------------
