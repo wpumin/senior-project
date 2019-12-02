@@ -52,9 +52,7 @@ Route::group(array('prefix' => 'parent'), function () {
 
     Route::get('/report/{id}', 'RefreshController@report');
 
-    Route::get('/profile', function () {
-        return view('parent.profile');
-    });
+    Route::get('/profile', 'ParentController@profile');
     Route::get('/dashboard/{id}', 'ParentController@list_student');
 
     Route::post('/dashboard/info', 'ParentController@ajax_list_student');

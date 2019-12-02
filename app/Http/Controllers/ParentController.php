@@ -340,7 +340,21 @@ class ParentController extends Controller
         }
         return redirect('/');
     }
+    public function profile()
+    {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '1') {
+
+                return view('parent.profile');
+            }
+            \abort(404);
+        }
+        return redirect('/');
+    }
     protected function responseRequestSuccess($ret)
     {
         return response()->json(['status' => 'success', 'data' => $ret], 200)
