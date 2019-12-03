@@ -86,7 +86,7 @@
                 <b>แจ้งชำระเงินสำเร็จ</b>
                 <p>กรุณาตรวจสอบสถานะการชำระเงินของท่านภายใน 24 ชั่วโมง หลังการแจ้งชำระเงิน</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href="{{url('parent/index')}}"><button type="button" class="btn btn-primary">ตกลง</button></a>
+                    <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>"><button type="button" class="btn btn-primary">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
