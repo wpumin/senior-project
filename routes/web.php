@@ -131,7 +131,7 @@ Route::group(array('prefix' => 'admin'), function () {
     // Route::get('/dashboard/car2', function () {
     //     return view('admin.dashboard');
     // });
-    Route::get('/dashboard/car2', 'RefreshController@dashboard1');
+    Route::get('/dashboard/car1', 'RefreshController@dashboard1');
     Route::get('/dashboard/car2', 'RefreshController@dashboard2');
     // Route::get('/profile', function () {
     //     return view('admin.profile');
