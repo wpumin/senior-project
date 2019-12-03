@@ -23,96 +23,126 @@ class NewsController extends Controller
 
     public function index()
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $news = News::get();
+        if (isset($cookie)) {
 
-        $data['info'] = [];
-        $count = 0;
+            if ($this->request->cookie('role_number') == '3') {
 
-        // dd($users);
 
-        foreach ($news as $n) {
+                $news = News::get();
 
-            $user = User::where('id', $n->user_id)->first();
+                $data['info'] = [];
+                $count = 0;
 
-            $data['info'][$count++] = [
-                'id' => $n->id,
-                'title' => $n->title,
-                'updated_at' => $n->news_at,
-                'time' => $n->updated_at,
-                'name' => $user->username,
-                'status' => $n->news_statuses_id
-            ];
+                // dd($users);
+
+                foreach ($news as $n) {
+
+                    $user = User::where('id', $n->user_id)->first();
+
+                    $data['info'][$count++] = [
+                        'id' => $n->id,
+                        'title' => $n->title,
+                        'updated_at' => $n->news_at,
+                        'time' => $n->updated_at,
+                        'name' => $user->username,
+                        'status' => $n->news_statuses_id
+                    ];
+                }
+
+                // dd($data['info']);
+
+                return view('admin.news', [
+                    'datas' => $data['info'],
+
+                ]);
+            }
+            \abort(404);
         }
-
-        // dd($data['info']);
-
-        return view('admin.news', [
-            'datas' => $data['info'],
-
-        ]);
+        return redirect('/');
     }
 
     public function del_new($id)
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $news = News::where('id', $id)->first();
-        $news->delete();
+        if (isset($cookie)) {
 
-        $news = News::get();
+            if ($this->request->cookie('role_number') == '3') {
 
-        $data['info'] = [];
-        $count = 0;
+                $news = News::where('id', $id)->first();
+                $news->delete();
 
-        // dd($users);
+                $news = News::get();
 
-        foreach ($news as $n) {
+                $data['info'] = [];
+                $count = 0;
 
-            $user = User::where('id', $n->user_id)->first();
+                // dd($users);
 
-            $data['info'][$count++] = [
-                'id' => $n->id,
-                'title' => $n->title,
-                'created_at' => $n->news_at,
-                'name' => $user->username,
-                'status' => $n->news_statuses_id
-            ];
+                foreach ($news as $n) {
+
+                    $user = User::where('id', $n->user_id)->first();
+
+                    $data['info'][$count++] = [
+                        'id' => $n->id,
+                        'title' => $n->title,
+                        'created_at' => $n->news_at,
+                        'name' => $user->username,
+                        'status' => $n->news_statuses_id
+                    ];
+                }
+
+                // dd($data['info']);
+
+                return view('admin.news', [
+                    'datas' => $data['info'],
+
+                ]);
+            }
+            \abort(404);
         }
-
-        // dd($data['info']);
-
-        return view('admin.news', [
-            'datas' => $data['info'],
-
-        ]);
+        return redirect('/');
     }
 
     public function edit_new($id)
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
 
-        $news = News::where('id', $id)->first();
+        if (isset($cookie)) {
 
-        $role = Role::where('id', $news['role_id'])->first();
+            if ($this->request->cookie('role_number') == '3') {
+                $news = News::where('id', $id)->first();
 
-        $status = News_status::where('id', $news['news_statuses_id'])->first();
+                $role = Role::where('id', $news['role_id'])->first();
 
-        $data['info'] = [];
-        $count = 0;
+                $status = News_status::where('id', $news['news_statuses_id'])->first();
 
-        // dd($news['user_id']);
-        return view('admin.news_edit', [
-            'id' => $news['id'],
-            'title' => $news['title'],
-            'image' => $news['image'],
-            'id_user' => $news['user_id'],
-            'role_id' => $news['role_id'],
-            'role_name' => $role->name,
-            'status_id' => $news['news_statuses_id'],
-            'status_name' => $status->name,
-            'release_date' => $news['release_date'],
-            'release_time' => $news['release_time'],
-            'content' => $news['content']
-        ]);
+                $data['info'] = [];
+                $count = 0;
+
+                // dd($news['user_id']);
+                return view('admin.news_edit', [
+                    'id' => $news['id'],
+                    'title' => $news['title'],
+                    'image' => $news['image'],
+                    'id_user' => $news['user_id'],
+                    'role_id' => $news['role_id'],
+                    'role_name' => $role->name,
+                    'status_id' => $news['news_statuses_id'],
+                    'status_name' => $status->name,
+                    'release_date' => $news['release_date'],
+                    'release_time' => $news['release_time'],
+                    'content' => $news['content']
+                ]);
+            }
+            \abort(404);
+        }
+        return redirect('/');
     }
 
     function action(Request $request)

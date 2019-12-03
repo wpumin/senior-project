@@ -26,67 +26,86 @@ class NewssController extends Controller
      */
     public function create()
     {
-        return view('admin._form_news');
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '3') {
+                return view('admin._form_news');
+            }
+            \abort(404);
+        }
+        return redirect('/');
     }
 
     //create
     public function create_store(Request $request)
     {
+        $cookie = $this->request->cookie('role_number');
+        // dd(isset($cookie));
+
+        if (isset($cookie)) {
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                $validator = Validator::make(
+                    $request->all(),
+                    [
+                        'imgInp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                        // 'fname' => 'required',
+                        // 'lname' => 'required',
+                        // 'user_id' => '',
+                        // 'role_id' => '',
+                        // 'status_id' => '',
+                        // 'release_date' => '',
+                        // 'release_time' => '',
+                        // 'content' => '',
+                        // ],
+                        // [
+                        //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+                    ]
+                );
+
+                if ($validator->fails())
+                    return array(
+                        'fail' => true,
+                        'errors' => $validator->errors()
+                    );
+
+                $day = date('d');
+                $month = date('m');
+                $year = date('Y') + 543;
+
+                $full = $day . '/' . $month . '/' . $year;
+
+                DB::beginTransaction();
+
+                $news = News::create($request->all());
+
+                $news->news_at = $full;
+
+                if ($request->has('imgInp')) {
+                    $image_filename = $request->file('imgInp')->getClientOriginalName();
+                    $image_name =  $image_filename;
+                    $public_path = 'images/News/';
+                    $destination = base_path() . "/public/" . $public_path;
+                    $request->file('imgInp')->move($destination, $image_name);
+                    $news->image = $public_path . $image_name;
+                    $news->save();
+                }
+                $news->save();
+
+                DB::commit();
 
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'imgInp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-                // 'fname' => 'required',
-                // 'lname' => 'required',
-                // 'user_id' => '',
-                // 'role_id' => '',
-                // 'status_id' => '',
-                // 'release_date' => '',
-                // 'release_time' => '',
-                // 'content' => '',
-                // ],
-                // [
-                //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
-            ]
-        );
-
-        if ($validator->fails())
-            return array(
-                'fail' => true,
-                'errors' => $validator->errors()
-            );
-
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
-
-        $full = $day . '/' . $month . '/' . $year;
-
-        DB::beginTransaction();
-
-        $news = News::create($request->all());
-
-        $news->news_at = $full;
-
-        if ($request->has('imgInp')) {
-            $image_filename = $request->file('imgInp')->getClientOriginalName();
-            $image_name =  $image_filename;
-            $public_path = 'images/News/';
-            $destination = base_path() . "/public/" . $public_path;
-            $request->file('imgInp')->move($destination, $image_name);
-            $news->image = $public_path . $image_name;
-            $news->save();
+                return redirect('admin/management/news');
+                return $this->responseRequestSuccess('success');
+                // return $image_name;
+            }
+            \abort(404);
         }
-        $news->save();
-
-        DB::commit();
-
-
-        return redirect('admin/management/news');
-        return $this->responseRequestSuccess('success');
-        // return $image_name;
+        return redirect('/');
     }
 
 

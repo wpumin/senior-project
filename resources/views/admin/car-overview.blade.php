@@ -183,8 +183,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4">
-                        <h2 class="mb-2 text-special-orange">กาย</h2>
-                        <p>ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p>
+                        {{-- <h2 class="mb-2 text-special-orange">กาย</h2>
+                        <p>ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p> --}}
                     </div>
                 </div>
                 <div class="row">
@@ -329,7 +329,7 @@
                                 '<td>' + response['data'][i]['relationship'] + '</td>' +
                                 '<td>' + response['data'][i]['phone'] + '</td>' +
                                 '<td>' +
-                                '<div class="dropdown">' +
+                                // '<div class="dropdown">' +
                                 // '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
                                 // '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
                                 '<div class="dropdown">' +

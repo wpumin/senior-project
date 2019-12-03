@@ -308,6 +308,7 @@
 
     <script>
 
+
         $('.sidebar-color').addClass('addHeight');
 
         function setCookie(cname, cvalue, exdays) {
@@ -332,7 +333,7 @@
             }
             return "";
         }
-
+        // console.log(getCookie('role_id'));
         function deleteAllCookies() {
 
             var res = document.cookie;

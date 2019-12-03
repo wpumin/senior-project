@@ -22,29 +22,37 @@ class AppointmentController extends Controller
 
     public function list($id)
     {
-        $Appointments = Appointment::where('user_id', $id)->get();
+        $cookie = $this->request->cookie('role_number');
 
-        $data['info'] = [];
-        $count = 0;
+        if (isset($cookie)) {
 
-        foreach ($Appointments as $app) {
+            if ($this->request->cookie('role_number') == '1') {
+                $Appointments = Appointment::where('user_id', $id)->get();
 
-            $status = App_status::where('id', $app->app_status_id)->first();
-            $student = Student::where('id', $app->student_id)->first();
-            $period_time = Period_time::where('id', $app->period_time_id)->first();
+                $data['info'] = [];
+                $count = 0;
 
-            $data['info'][$count++] = [
-                'app_status_id' => $status->id,
-                'student_id' => $student->nickname,
-                'appointment_at' => $app->appointment_at,
-                'period_time_id' => $period_time->name
-            ];
+                foreach ($Appointments as $app) {
+
+                    $status = App_status::where('id', $app->app_status_id)->first();
+                    $student = Student::where('id', $app->student_id)->first();
+                    $period_time = Period_time::where('id', $app->period_time_id)->first();
+
+                    $data['info'][$count++] = [
+                        'app_status_id' => $status->id,
+                        'student_id' => $student->nickname,
+                        'appointment_at' => $app->appointment_at,
+                        'period_time_id' => $period_time->name
+                    ];
+                }
+
+                return view('parent.appointment', [
+                    'data' => $data['info']
+                ]);
+            }
+            \abort(404);
         }
-
-        return view('parent.appointment', [
-            'data' => $data['info']
-        ]);
-
+        return redirect('/');
     }
 
     public function list_stu()
@@ -82,9 +90,9 @@ class AppointmentController extends Controller
                 'content' => $this->request->input('content'),
             ]);
 
-            $student = Student::where('id', $this->request->input('student_id'))->first();
-            $student->std_status_id = 4;
-            $student->save();
+            // $student = Student::where('id', $this->request->input('student_id'))->first();
+            // $student->std_status_id = 4;
+            // $student->save();
 
             DB::commit();
             return $this->responseRequestSuccess('success');

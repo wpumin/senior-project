@@ -52,9 +52,7 @@ Route::group(array('prefix' => 'parent'), function () {
 
     Route::get('/report/{id}', 'RefreshController@report');
 
-    Route::get('/profile', function () {
-        return view('parent.profile');
-    });
+    Route::get('/profile', 'ParentController@profile');
     Route::get('/dashboard/{id}', 'ParentController@list_student');
 
     Route::post('/dashboard/info', 'ParentController@ajax_list_student');
@@ -74,13 +72,11 @@ Route::group(array('prefix' => 'driver'), function () {
 
     Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
 
-    Route::get('/broadcast', function () {
-        return view('driver.broadcast');
-    });
-    Route::get('/profile', function () {
-        return view('driver.profile');
-    });
-
+    Route::get('/broadcast', 'DriverController@broadcast');
+    // Route::get('/profile', function () {
+    //     return view('driver.profile');
+    // });
+    Route::get('/profile', 'DriverController@profile');
     Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
 
@@ -99,9 +95,8 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::post('/management/news/create/new', 'NewssController@create_store');
 
-    Route::get('/management/news/create', function () {
-        return view('admin._form_news');
-    });
+    Route::get('/management/news/create','NewssController@create');
+
 
     Route::get('/payment/confirm/{car}', 'PaymentController@index');
 
@@ -118,23 +113,30 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
 
-    Route::get('/management/parent/create', function () {
-        return view('admin.parent_management_create');
-    });
+    // Route::get('/management/parent/create', function () {
+    //     return view('admin.parent_management_create');
+    // });
+    Route::get('/management/parent/create', 'RegisterUserController@create');
+
     Route::get('/management/staff', 'RegisterUserController@list_staff');
 
-    Route::get('/management/staff/create', function () {
-        return view('admin.staff_management_create');
-    });
-    Route::get('/dashboard/car1', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/dashboard/car2', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/profile', function () {
-        return view('admin.profile');
-    });
+    // Route::get('/management/staff/create', function () {
+    //     return view('admin.staff_management_create');
+    // });
+    Route::get('/management/staff/create', 'RegisterUserController@staff');
+    // Route::get('/dashboard/car1', function () {
+    //     return view('admin.dashboard');
+    // });
+    // Route::get('/dashboard/car2', function () {
+    //     return view('admin.dashboard');
+    // });
+    Route::get('/dashboard/car2', 'RefreshController@dashboard1');
+    Route::get('/dashboard/car2', 'RefreshController@dashboard2');
+    // Route::get('/profile', function () {
+    //     return view('admin.profile');
+    // });
+    Route::get('/profile', 'RefreshController@admin_profile');
+    
     Route::get('/news/detail/{id}', 'ReportController@show_news');
 });
 

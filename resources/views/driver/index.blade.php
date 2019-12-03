@@ -259,7 +259,7 @@
             return "";
         }
 
-        // console.log(getCookie('car_id'));
+        // console.log(getCookie('role_id'));
         var car_id = getCookie('car_id');
 
         setInterval(function() {

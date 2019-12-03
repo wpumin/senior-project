@@ -28,7 +28,7 @@
 
     @section('content')
         <div class="heading text-left d-none d-md-block">
-            <h3>อัพตเดตข่าวสาร</h3>
+            <h3>อัพเดตข่าวสาร</h3>
         </div>
 
         <div class="card height-auto pb-0">
