@@ -68,7 +68,6 @@ class DriverController extends Controller
                         $school = School::where('id', $s->school_id)->first();
                         $user = User::where('id', $appointment->user_id)->first();
                         $relation = Relationship::where('id', $user->relationship_id)->first();
-                        $period = Period_time::where('id', $appointment->period_time_id)->first();
 
                         $data['info'][$count++] = [
                             'no' => $appointment->id,
@@ -76,7 +75,7 @@ class DriverController extends Controller
                             'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
                             'app_status' => $appointment->app_status_id,
                             'photo_stu' => $s->image,
-                            'period_time' => $period->name,
+                            'period_time' => $appointment->period_time_id,
                             'school' => $school->name_school,
                             'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
                             'relationship' => $relation->name,
