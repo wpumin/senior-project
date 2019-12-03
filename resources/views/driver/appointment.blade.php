@@ -54,7 +54,7 @@
                         <?php $count=1; ?>
 
                         @foreach($datas as $key => $info)
-                        <tr>
+                            <tr>
                                 <td><?php print $count ?></td>
                                 <td>{{ $info['nickname'] }}</td>
 
@@ -72,14 +72,16 @@
                                 <td>{{ $info['phone'] }}</td>
 
                                 @if($info['app_status'] == 1)
-                                <td>
+                                    <td>
                                         <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran-{{ $info['no'] }}"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran-{{ $info['no'] }}"><span class="flaticon-correct-1"></span></a></div>
-                                </td>
+                                    </td>
                                 @elseif($info['app_status'] == 2)
-                                    <td>-</td>
+                                    <td>
+                                        <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran-{{ $info['no'] }}"><span class="flaticon-close-2"></span></a></div>
+                                    </td>
                                 @endif
 
-                        </tr>
+                            </tr>
 
                         <?php $count++ ?>
                         @endforeach

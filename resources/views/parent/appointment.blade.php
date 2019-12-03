@@ -88,7 +88,7 @@
                                     <th>ชื่อเล่น</th>
                                     <th>วันที่</th>
                                     <th>ช่วงเวลา</th>
-                                </tr>
+                                 </tr>
                             </thead>
                             <tbody id="showForm">
                                 {{-- <tr role="row" style="display: none;">
