@@ -22,13 +22,14 @@ class ReportController extends Controller
 
     public function createReport()
     {
+        // dd($this->request->all());
         try {
 
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'type_id' => 'required',
                 'title' => 'required',
-                'content' => 'required',
+                'message' => 'required',
             ]);
 
             if ($validate->fails()) {
@@ -52,11 +53,13 @@ class ReportController extends Controller
                 'user_id' => $this->request->input('user_id'),
                 'type_id' => $this->request->input('type_id'),
                 'title' => $this->request->input('title'),
-                'content' => $this->request->input('content'),
+                'content' => $this->request->input('message'),
                 'report_at' => $full
             ]);
             DB::commit();
-            return $this->responseRequestSuccess($res['data']);
+
+            return redirect('parent/report/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
+            // return $this->responseRequestSuccess($res['data']);
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }

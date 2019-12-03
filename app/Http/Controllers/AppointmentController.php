@@ -73,13 +73,15 @@ class AppointmentController extends Controller
     public function createAppointment()
     {
 
+        // dd($this->request->all());
+
         try {
             $validate = Validator::make($this->request->all(), [
                 'user_id' => 'required',
                 'student_id' => 'required',
                 'period_time_id' => 'required',
                 'appointment_at' => 'required',
-                'content' => ''
+                // 'content' => ''
             ]);
             if ($validate->fails()) {
                 // throw new LogicException($validate->errors());
@@ -95,7 +97,7 @@ class AppointmentController extends Controller
                 'app_status_id' => 1,
                 'period_time_id' => $this->request->input('period_time_id'),
                 'appointment_at' => $this->request->input('appointment_at'),
-                'content' => $this->request->input('content'),
+                // 'content' => $this->request->input('content'),
             ]);
 
             // $student = Student::where('id', $this->request->input('student_id'))->first();
@@ -103,7 +105,8 @@ class AppointmentController extends Controller
             // $student->save();
 
             DB::commit();
-            return $this->responseRequestSuccess('success');
+            return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
+            // return $this->responseRequestSuccess('success');
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
