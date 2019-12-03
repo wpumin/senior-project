@@ -194,91 +194,97 @@ class ParentController extends Controller
                             ];
                         }
                     }
-        }
+                }
 
                 return view('news.news_detail', [
                     'datas' => $data['info'],
                 ]);
             }
-                \abort(404);
+            \abort(404);
         }
-            return redirect('/');
+        return redirect('/');
     }
 
-    public function list_student($id)
+    public function list_student($id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
+        $auth = User::where('id', $id)->where('token', $token)->first();
 
-        if (isset($cookie)) {
+        if ($auth) {
 
-            if ($this->request->cookie('role_number') == '1') {
-                $students = Student::where('user_id', $id)->get();
+            if (isset($cookie)) {
 
-
-                $data['info'] = [];
-                $data['check_in'][] = [];
-                $count = 0;
-
-                $date_check = [];
-                $day_check = [];
-                $down_check = [];
-
-                $check = 0;
+                if ($this->request->cookie('role_number') == '1') {
+                    $students = Student::where('user_id', $id)->get();
 
 
+                    $data['info'] = [];
+                    $data['check_in'][] = [];
+                    $count = 0;
 
-                foreach ($students as $s) {
-                    $num = 0;
-
-                    // dd($s);
-
-                    $info = DB::table('check_in')->where('card_id', $s->card_id)->get();
-
-                    // if ($info) {
-
-                    foreach ($info as $i) {
-
-                        if ($i->get_on_id == '1' && $i->period_time == '1') {
-                            array_push($date_check, $i->date_check);
-                            array_push($day_check, $i->time_check);
-                        } else {
-                            array_push($down_check, $i->time_check);
-                        }
-                    }
-
-                    // dd($list_c);
-
-                    $data['check_in'][$check][$num++] = $date_check;
-                    $data['check_in'][$check][$num++] = $day_check;
-                    $data['check_in'][$check][$num++] = $down_check;
-
-                    // }
                     $date_check = [];
                     $day_check = [];
                     $down_check = [];
 
-                    $check++;
+                    $check = 0;
 
 
-                    $data['info'][$count++] = [
 
-                        'nickname' => $s->nickname
+                    foreach ($students as $s) {
+                        $num = 0;
 
-                    ];
+                        // dd($s);
+
+                        $info = DB::table('check_in')->where('card_id', $s->card_id)->get();
+
+                        // if ($info) {
+
+                        foreach ($info as $i) {
+
+                            if ($i->get_on_id == '1' && $i->period_time == '1') {
+                                array_push($date_check, $i->date_check);
+                                array_push($day_check, $i->time_check);
+                            } else {
+                                array_push($down_check, $i->time_check);
+                            }
+                        }
+
+                        // dd($list_c);
+
+                        $data['check_in'][$check][$num++] = $date_check;
+                        $data['check_in'][$check][$num++] = $day_check;
+                        $data['check_in'][$check][$num++] = $down_check;
+
+                        // }
+                        $date_check = [];
+                        $day_check = [];
+                        $down_check = [];
+
+                        $check++;
+
+
+                        $data['info'][$count++] = [
+
+                            'nickname' => $s->nickname
+
+                        ];
+                    }
+
+                    // dd($data['check_in']);
+
+                    return view('parent.dashboard', [
+                        'datas' => $data['info']
+                    ]);
+
+                    return $this->responseRequestSuccess($data['check_in']);
                 }
-
-                // dd($data['check_in']);
-
-                return view('parent.dashboard', [
-                    'datas' => $data['info']
-                ]);
-
-                return $this->responseRequestSuccess($data['check_in']);
+                \abort(404);
             }
-            \abort(404);
+            return redirect('/');
         }
-        return redirect('/');
+
+        \abort(404);
     }
 
     public function ajax_list_student()

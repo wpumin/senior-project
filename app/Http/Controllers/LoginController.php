@@ -44,6 +44,7 @@ class LoginController extends Controller
             $relationship = Relationship::where('id', $user->relationship_id)->first();
             if (Hash::check($this->request->input('password'), $user->password)) {
                 $token = $this->jwt($user);
+                // dd($token);
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
                 $user->save();
