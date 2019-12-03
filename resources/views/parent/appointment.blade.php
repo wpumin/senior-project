@@ -19,23 +19,25 @@
                         <h3>ฟอร์มการแจ้ง</h3>
                     </div>
                 </div>
-                <form id="appointmentForm" class="new-added-form">
-                    @csrf
+                <form action="{{url('/appointment')}}" method="POST" id="appointmentForm" class="new-added-form">
+                    {{-- @csrf --}}
+                    <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
+                    <input type="hidden" id="token" name="token" value="<?php echo $_COOKIE['Authorization'] ?>">
                     <div class="row">
                         <div class="col-12-xxxl col-lg-4 col-12 form-group ">
-                            <select class="select2" required autocomplete="off" id="student_id">
+                            <select class="select2" required autocomplete="off" id="student_id" name="student_id">
                                 {{-- <option value="">เด็กนักเรียน</option> --}}
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off" id="period_time_id">
+                            <select class="select2" required autocomplete="off" id="period_time_id" name="period_time_id">
                                 <option value="">ช่วงเวลา</option>
                                 <option value="1">เช้า (ขาไป)</option>
                                 <option value="2">เย็น (ขากลับ)</option>
                             </select>
                         </div>
                         <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <input type="text" id="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
+                            <input type="text" id="appointment_at" name="appointment_at" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         {{-- <div class="col-12 form-group">
@@ -116,8 +118,8 @@
 
                                     <?php $count++ ?>
 
-                                @endforeach         
-                                
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -223,8 +225,9 @@
         $("#appointmentForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
-            submitForm();
-            return false;
+            $(".wrap-modal > #successAppointment").modal('show');
+            // submitForm();
+            // return false;
         });
 
         $('button.btn-primary').click(function(){

@@ -12,6 +12,8 @@
     <div class="card-body">
 
         <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data" class="new-added-form pt-4">
+            <input type="hidden" name="token" id="token" value="<?php echo $_COOKIE['Authorization'] ?>">
+            <input type="hidden" name="user_id" id="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
             {{-- @csrf --}}
             <div class="row">
                  <div class="col-xl-3 col-lg-6 col-12 form-group">
