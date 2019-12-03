@@ -168,79 +168,31 @@ class PaymentController extends Controller
         }
     }
 
-    public function overview($id)
+    public function overview($id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
+        $auth = User::where('id', $id)->where('token', $token)->first();
 
-        if (isset($cookie)) {
+        // dd($auth);
 
-            if ($this->request->cookie('role_number') == '1') {
+        if ($auth) {
 
-                $students = Student::where('user_id', $id)->get();
+            if (isset($cookie)) {
 
-                $data['info'] = [];
-                $count = 0;
+                if ($this->request->cookie('role_number') == '1') {
 
-                foreach ($students as $d) {
+                    $students = Student::where('user_id', $id)->get();
 
-                    $bill = Payment_log::where('student_id', $d->id)->limit(10)->get();
-                    $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+                    $data['info'] = [];
+                    $count = 0;
 
-                    // dd($month_sub[11]);
+                    foreach ($students as $d) {
 
-                    foreach ($bill as $b) {
+                        $bill = Payment_log::where('student_id', $d->id)->limit(10)->get();
+                        $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
-                        $district = District::where('id', $d->district_id)->first();
-                        $school = School::where('id', $d->school_id)->first();
-                        $car = Car::where('id', $d->car_id)->first();
-
-                        $data['info'][$count++] = [
-
-                            'tran_key' => $b->tran_key,
-                            'status' => $b->pm_status_id,
-                            'fullname' => $d->prefix . ' ' . $d->first_name . ' ' . $d->last_name,
-                            'name' => $d->nickname,
-                            'school' => $school->name_school,
-                            'car_id' =>  $car->name,
-                            'car_name' => $car->name_driver,
-                            'month' => $month_sub[($b->month) - 1],
-                            'year' => $b->year,
-                            'price' => $district->price,
-                            'qrcode' => $b->qr_code
-
-                        ];
-                    }
-                }
-
-
-                return view('parent.payment_overview', [
-                    'data' => $data['info']
-                ]);
-            }
-            \abort(404);
-        }
-        return redirect('/');
-    }
-
-    public function parent_list($id)
-    {
-        $cookie = $this->request->cookie('role_number');
-
-        if (isset($cookie)) {
-
-            if ($this->request->cookie('role_number') == '1') {
-
-                $students = Student::where('user_id', $id)->get();
-
-                $data['info'] = [];
-                $count = 0;
-
-                foreach ($students as $d) {
-
-                    $bill = Payment_log::where('student_id', $d->id)->where('pm_status_id', 1)->get();
-
-                    if ($bill) {
+                        // dd($month_sub[11]);
 
                         foreach ($bill as $b) {
 
@@ -250,28 +202,90 @@ class PaymentController extends Controller
 
                             $data['info'][$count++] = [
 
-                                'log_id' => $b->id,
-                                'tran_key' => $b->tran_key
+                                'tran_key' => $b->tran_key,
+                                'status' => $b->pm_status_id,
+                                'fullname' => $d->prefix . ' ' . $d->first_name . ' ' . $d->last_name,
+                                'name' => $d->nickname,
+                                'school' => $school->name_school,
+                                'car_id' =>  $car->name,
+                                'car_name' => $car->name_driver,
+                                'month' => $month_sub[($b->month) - 1],
+                                'year' => $b->year,
+                                'price' => $district->price,
+                                'qrcode' => $b->qr_code
 
                             ];
                         }
-                    } else {
-                        $data['info'][$count++] = [
-
-                            'log_id' => null,
-                            'tran_key' => null
-
-                        ];
                     }
-                }
 
-                return view('parent.payment_confirm', [
-                    'data' => $data['info']
-                ]);
+
+                    return view('parent.payment_overview', [
+                        'data' => $data['info']
+                    ]);
+                }
+                \abort(404);
             }
-            \abort(404);
+            return redirect('/');
         }
-        return redirect('/');
+        \abort(404);
+    }
+
+    public function parent_list($id, $token)
+    {
+        $cookie = $this->request->cookie('role_number');
+
+        $auth = User::where('id', $id)->where('token', $token)->first();
+
+        if ($auth) {
+
+            if (isset($cookie)) {
+
+                if ($this->request->cookie('role_number') == '1') {
+
+                    $students = Student::where('user_id', $id)->get();
+
+                    $data['info'] = [];
+                    $count = 0;
+
+                    foreach ($students as $d) {
+
+                        $bill = Payment_log::where('student_id', $d->id)->where('pm_status_id', 1)->get();
+
+                        if ($bill) {
+
+                            foreach ($bill as $b) {
+
+                                $district = District::where('id', $d->district_id)->first();
+                                $school = School::where('id', $d->school_id)->first();
+                                $car = Car::where('id', $d->car_id)->first();
+
+                                $data['info'][$count++] = [
+
+                                    'log_id' => $b->id,
+                                    'tran_key' => $b->tran_key
+
+                                ];
+                            }
+                        } else {
+                            $data['info'][$count++] = [
+
+                                'log_id' => null,
+                                'tran_key' => null
+
+                            ];
+                        }
+                    }
+
+                    return view('parent.payment_confirm', [
+                        'data' => $data['info']
+                    ]);
+                }
+                \abort(404);
+            }
+            return redirect('/');
+        }
+
+        \abort(404);
     }
 
     public function store()
@@ -281,7 +295,7 @@ class PaymentController extends Controller
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '1') {
-        // dd($this->request->all());
+                // dd($this->request->all());
 
                 $validator = Validator::make(
                     $this->request->all(),

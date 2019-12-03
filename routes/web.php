@@ -42,18 +42,19 @@ Route::group(array('prefix' => 'parent'), function () {
 
     Route::get('/index', 'ParentController@index');
 
-    Route::get('/payment/overview/{id}', 'PaymentController@overview');
+    Route::get('/payment/overview/{id}/{token}', 'PaymentController@overview');
 
-    Route::get('/payment/confirm/{id}', 'PaymentController@parent_list');
+    Route::get('/payment/confirm/{id}/{token}', 'PaymentController@parent_list');
 
     Route::post('/store', 'PaymentController@store');
 
-    Route::get('/appointment/{id}', 'AppointmentController@list');
+    Route::get('/appointment/{id}/{token}', 'AppointmentController@list');
 
-    Route::get('/report/{id}', 'RefreshController@report');
+    Route::get('/report/{id}/{token}', 'RefreshController@report');
 
     Route::get('/profile', 'ParentController@profile');
-    Route::get('/dashboard/{id}', 'ParentController@list_student');
+
+    Route::get('/dashboard/{id}/{token}', 'ParentController@list_student');
 
     Route::post('/dashboard/info', 'ParentController@ajax_list_student');
 
@@ -95,7 +96,7 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::post('/management/news/create/new', 'NewssController@create_store');
 
-    Route::get('/management/news/create','NewssController@create');
+    Route::get('/management/news/create', 'NewssController@create');
 
 
     Route::get('/payment/confirm/{car}', 'PaymentController@index');
@@ -136,7 +137,7 @@ Route::group(array('prefix' => 'admin'), function () {
     //     return view('admin.profile');
     // });
     Route::get('/profile', 'RefreshController@admin_profile');
-    
+
     Route::get('/news/detail/{id}', 'ReportController@show_news');
 });
 

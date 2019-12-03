@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Appointment;
 use App\Period_time;
 use App\Student;
+use App\User;
 use Carbon\Carbon;
 use LogicException;
 use Validator;
@@ -20,39 +21,46 @@ class AppointmentController extends Controller
         $this->request = $request;
     }
 
-    public function list($id)
+    public function list($id, $token)
     {
         $cookie = $this->request->cookie('role_number');
 
-        if (isset($cookie)) {
+        $auth = User::where('id', $id)->where('token', $token)->first();
 
-            if ($this->request->cookie('role_number') == '1') {
-                $Appointments = Appointment::where('user_id', $id)->get();
+        if ($auth) {
 
-                $data['info'] = [];
-                $count = 0;
+            if (isset($cookie)) {
 
-                foreach ($Appointments as $app) {
+                if ($this->request->cookie('role_number') == '1') {
+                    $Appointments = Appointment::where('user_id', $id)->get();
 
-                    $status = App_status::where('id', $app->app_status_id)->first();
-                    $student = Student::where('id', $app->student_id)->first();
-                    $period_time = Period_time::where('id', $app->period_time_id)->first();
+                    $data['info'] = [];
+                    $count = 0;
 
-                    $data['info'][$count++] = [
-                        'app_status_id' => $status->id,
-                        'student_id' => $student->nickname,
-                        'appointment_at' => $app->appointment_at,
-                        'period_time_id' => $period_time->name
-                    ];
+                    foreach ($Appointments as $app) {
+
+                        $status = App_status::where('id', $app->app_status_id)->first();
+                        $student = Student::where('id', $app->student_id)->first();
+                        $period_time = Period_time::where('id', $app->period_time_id)->first();
+
+                        $data['info'][$count++] = [
+                            'app_status_id' => $status->id,
+                            'student_id' => $student->nickname,
+                            'appointment_at' => $app->appointment_at,
+                            'period_time_id' => $period_time->name
+                        ];
+                    }
+
+                    return view('parent.appointment', [
+                        'data' => $data['info']
+                    ]);
                 }
-
-                return view('parent.appointment', [
-                    'data' => $data['info']
-                ]);
+                \abort(404);
             }
-            \abort(404);
+            return redirect('/');
         }
-        return redirect('/');
+
+        \abort(404);
     }
 
     public function list_stu()

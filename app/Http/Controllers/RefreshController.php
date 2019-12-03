@@ -151,7 +151,7 @@ class RefreshController extends Controller
             \abort(404);
         }
         return redirect('/');
-                // return view('driver.index', $data);
+        // return view('driver.index', $data);
     }
 
     public function runAdmin()
@@ -276,60 +276,68 @@ class RefreshController extends Controller
         return $this->responseRequestSuccess($data);
     }
 
-    public function report($id)
+    public function report($id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
+        $auth = User::where('id', $id)->where('token', $token)->first();
 
-        if (isset($cookie)) {
+        if ($auth) {
 
-            if ($this->request->cookie('role_number') == '1') {
+            if (isset($cookie)) {
 
-
-                $day = date('d');
-                $month = date('m');
-                $year = date('Y') + 543;
-                $full = $day . '-' . $month . '-' . $year;
-
-                $report = DB::table('reports')
-                    ->join('users', 'reports.user_id', '=', 'users.id')
-                    ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
-                    ->select('reports.*', 'type_reports.type_name')
-                    ->where('reports.user_id', $id)
-                    ->orderBy('reports.created_at', 'desc')
-                    ->get();
-
-                $data['info'] = [];
-                $count = 0;
-
-                // dd($report);
-
-                foreach ($report as $d) {
-
-                    // dd($d->type_name);
+                if ($this->request->cookie('role_number') == '1') {
 
 
+                    $day = date('d');
+                    $month = date('m');
+                    $year = date('Y') + 543;
+                    $full = $day . '-' . $month . '-' . $year;
 
-                    $data['info'][$count++] = [
-                        'title' => $d->title,
-                        'content' => $d->content,
-                        'created_at' => $d->created_at,
-                        'type_name' => $d->type_name
-                    ];
+                    $report = DB::table('reports')
+                        ->join('users', 'reports.user_id', '=', 'users.id')
+                        ->join('type_reports', 'reports.type_id', '=', 'type_reports.id')
+                        ->select('reports.*', 'type_reports.type_name')
+                        ->where('reports.user_id', $id)
+                        ->orderBy('reports.created_at', 'desc')
+                        ->get();
+
+                    $data['info'] = [];
+                    $count = 0;
+
+                    // dd($report);
+
+                    foreach ($report as $d) {
+
+                        // dd($d->type_name);
+
+
+
+                        $data['info'][$count++] = [
+                            'title' => $d->title,
+                            'content' => $d->content,
+                            'created_at' => $d->created_at,
+                            'type_name' => $d->type_name
+                        ];
+
+                        // dd($data['info']);
+                        // var_dump($data['info']);
+                    }
 
                     // dd($data['info']);
-                    // var_dump($data['info']);
+
+                    return view('parent.report', [
+                        'data' => $data['info']
+                    ]);
                 }
-
-                // dd($data['info']);
-
-                return view('parent.report', [
-                    'data' => $data['info']
-                ]);
+                \abort(404);
             }
-            \abort(404);
+            return redirect('/');
         }
-        return redirect('/');
+
+        \abort(404);
+
+
         // return $this->responseRequestSuccess($report);
     }
 
