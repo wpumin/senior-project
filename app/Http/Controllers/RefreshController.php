@@ -32,17 +32,21 @@ class RefreshController extends Controller
 
         if (isset($cookie)) {
 
+            // dd($this->request->cookie('role_number') == '2');
+
             if ($this->request->cookie('role_number') == '2') {
 
-                $no = Student::where('std_status_id', 1)->where('car_id', $this->request->car_id)->count();
-                $up = Student::where('std_status_id', 2)->where('car_id', $this->request->car_id)->count();
-                $down = Student::where('std_status_id', 3)->where('car_id', $this->request->car_id)->count();
-                $self = Student::where('std_status_id', 4)->where('car_id', $this->request->car_id)->count();
+                $no = Student::where('std_status_id', 1)->where('car_id', $this->request->cookie('car_num'))->count();
+                $up = Student::where('std_status_id', 2)->where('car_id', $this->request->cookie('car_num'))->count();
+                $down = Student::where('std_status_id', 3)->where('car_id', $this->request->cookie('car_num'))->count();
+                $self = Student::where('std_status_id', 4)->where('car_id', $this->request->cookie('car_num'))->count();
 
                 $data['no'] = $no;
                 $data['up'] = $up;
                 $data['down'] = $down;
                 $data['self'] = $self;
+
+                // dd($data);
 
                 $news = News::where('role_id', 2)->where('news_statuses_id', 1)->get();
                 // dd($news);
