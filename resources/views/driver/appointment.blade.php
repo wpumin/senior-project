@@ -43,6 +43,7 @@
                         <th>สถานะ</th>
                         <th>รูปเด็ก</th>
                         <th>โรงเรียน</th>
+                        <th>ช่วงเวลา</th>
                         <th>ชื่อผู้ปกครอง</th>
                         <th>ความสัมพันธ์</th>
                         <th>เบอร์ติดต่อ</th>
@@ -67,6 +68,14 @@
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile-{{ $info['no'] }}" data-toggle="modal"><img class="myImg-{{ $info['no'] }}" src="{{asset($info['photo_stu'])}}"></a></td>
 
                                 <td>{{ $info['school'] }}</td>
+
+                                @if($info['period_time'] == 1)
+                                    <td>ช่วงเช้า</td>
+                                @elseif($info['period_time'] == 2)
+                                    <td>ช่วงเย็น</td>
+                                @endif
+
+
                                 <td>{{ $info['parent_name'] }}</td>
                                 <td>{{ $info['relationship'] }}</td>
                                 <td>{{ $info['phone'] }}</td>
