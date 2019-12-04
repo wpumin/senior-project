@@ -147,57 +147,17 @@ class ParentController extends Controller
             if ($this->request->cookie('role_number') == '1') {
 
                 $news = News::where('id', $id)->where('role_id', 1)->where('news_statuses_id', 1)->first();
-                // dd($news[0]);
-                $d = date('d');
-                $m = date('m');
-                $y = date('Y') + 543;
+                $user = User::where('id', $news->user_id)->first();
 
-                // dd($d);
-
-                $full = $d . '/' . $m . '/' . $y;
-                $time_now = date('H:i');
-
-                // dd($full);
-                // dd($news[0]['release_time'] > $time_now);
-
-                // dd($news[0]['news_at'] > $full);
-
-                $data['info'] = [];
-                $count = 0;
-
-                // dd($news->news_at);
-
-                // foreach ($news as $n) {
-                // dd($n->release_time > $time_now);
-                // dd($news);
-                if ($news) {
-                    // dd($news->release_date <= $full);
-                    if ($news->release_date <= $full) {
-
-                        // dd($news->release_time <= $time_now);
-                        if ($news->release_time <= $time_now) {
-
-                            $user = User::where('id', $news->user_id)->first();
-
-                            $data['info'][$count++] = [
-
-                                'id' => $news->id,
-                                'image' => $news->image,
-                                'title' => $news->title,
-                                'content' => $news->content,
-                                'release_date' => $news->release_date . ' ' . $news->release_time,
-                                'name' => $user->username,
-                                'status' => $news->news_statuses_id
-
-
-
-                            ];
-                        }
-                    }
-                }
 
                 return view('news.news_detail', [
-                    'datas' => $data['info'],
+                    'id' => $news->id,
+                    'image' => $news->image,
+                    'title' => $news->title,
+                    'content' => $news->content,
+                    'release_date' => $news->release_date . ' ' . $news->release_time,
+                    'name' => $user->username,
+                    'status' => $news->news_statuses_id
                 ]);
             }
             \abort(404);

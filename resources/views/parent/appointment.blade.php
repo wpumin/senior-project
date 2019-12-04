@@ -23,22 +23,47 @@
                     {{-- @csrf --}}
                     <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
                     <input type="hidden" id="token" name="token" value="<?php echo $_COOKIE['Authorization'] ?>">
+
                     <div class="row">
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group ">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group " {{ $errors->has('student_id') ? 'has-error' : '' }}>
                             <select class="select2" required autocomplete="off" id="student_id" name="student_id">
-                                {{-- <option value="">เด็กนักเรียน</option> --}}
+
+                                <option value="">เด็กนักเรียน</option>
                             </select>
+                            @if ($errors->has('student_id'))
+
+                            <span class="help-block">
+                                {{$errors->first('student_id')}}
+                            </span>
+
+                            @endif
                         </div>
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off" id="period_time_id" name="period_time_id">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('period_time_id') ? 'has-error' : '' }}>
+                            <select class="select2" autocomplete="off" id="period_time_id" name="period_time_id">
                                 <option value="">ช่วงเวลา</option>
                                 <option value="1">เช้า (ขาไป)</option>
                                 <option value="2">เย็น (ขากลับ)</option>
                             </select>
+
+                            @if ($errors->has('period_time_id'))
+
+                            <span class="help-block">
+                                {{$errors->first('period_time_id')}}
+                            </span>
+
+                            @endif
                         </div>
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <input type="text" id="appointment_at" name="appointment_at" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('appointment_at') ? 'has-error' : '' }}>
+                            <input type="text" id="appointment_at" name="appointment_at" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
+
+                            @if ($errors->has('appointment_at'))
+
+                            <span class="help-block">
+                                {{$errors->first('appointment_at')}}
+                            </span>
+
+                            @endif
                         </div>
                         {{-- <div class="col-12 form-group">
                             <textarea class="textarea form-control" name="message" id="content" cols="10" rows="12" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
@@ -210,7 +235,7 @@
 
         var student_id = document.getElementById('student_id');
         $(student_id).empty();
-        $(student_id).append('<option>'+ 'เด็กนักเรียน' + '</option>');
+        // $(student_id).append('<option>'+ 'เด็กนักเรียน' + '</option>');
 
           for (var i = 0; i < result['data'].length; i++) {
                 {{-- console.log(result['data'][i]['nickname']); --}}
@@ -225,7 +250,7 @@
         $("#appointmentForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
-            $(".wrap-modal > #successAppointment").modal('show');
+            // $(".wrap-modal > #successAppointment").modal('show');
             // submitForm();
             // return false;
         });

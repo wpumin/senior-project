@@ -51,7 +51,7 @@ class LoginController extends Controller
 
                 $user->role_name = $role['name'];
                 $user->relationship_name = $relationship['name'];
-                // dd($user);
+                // dd($user->role_id);
                 if ($user->role_id == '2') {
 
                     return $this->responseRequestSuccess($user)

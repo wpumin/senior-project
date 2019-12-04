@@ -25,17 +25,30 @@ class ReportController extends Controller
         // dd($this->request->all());
         try {
 
-            $validate = Validator::make($this->request->all(), [
+            $this->validate($this->request, [
+
                 'user_id' => 'required',
                 'type_id' => 'required',
                 'title' => 'required',
                 'message' => 'required',
+
+            ], [
+                'title.required' => 'กรุณาใส่หัวข้อ',
+                'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
+                'message.required' => 'กรุณาใส่รายละเอียด'
             ]);
 
-            if ($validate->fails()) {
-                $errors = $validate->errors();
-                return $this->responseRequestError('field_required');
-            }
+            // $validate = Validator::make($this->request->all(), [
+            //     'user_id' => 'required',
+            //     'type_id' => 'required',
+            //     'title' => 'required',
+            //     'message' => 'required',
+            // ]);
+
+            // if ($validate->fails()) {
+            //     $errors = $validate->errors();
+            //     return $this->responseRequestError('field_required');
+            // }
             $day = date('d');
             $month = date('m');
             $year = date('Y') + 543;

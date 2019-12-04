@@ -32,6 +32,7 @@ class AppointmentController extends Controller
             if (isset($cookie)) {
 
                 if ($this->request->cookie('role_number') == '1') {
+
                     $Appointments = Appointment::where('user_id', $id)->get();
 
                     $data['info'] = [];
@@ -76,18 +77,30 @@ class AppointmentController extends Controller
         // dd($this->request->all());
 
         try {
-            $validate = Validator::make($this->request->all(), [
+
+            $this->validate($this->request, [
+
                 'user_id' => 'required',
                 'student_id' => 'required',
                 'period_time_id' => 'required',
                 'appointment_at' => 'required',
-                // 'content' => ''
+
+            ], [
+                'period_time_id.required' => 'กรุณาเลือกช่วงเวลา',
+                'appointment_at.required' => 'กรุณาเลือกวันที่'
             ]);
-            if ($validate->fails()) {
-                // throw new LogicException($validate->errors());
-                $errors = $validate->errors();
-                return $this->responseRequestError('field_required');
-            }
+            // $validate = Validator::make($this->request->all(), [
+            //     'user_id' => 'required',
+            //     'student_id' => 'required',
+            //     'period_time_id' => 'required',
+            //     'appointment_at' => 'required',
+            //     // 'content' => ''
+            // ]);
+            // if ($validate->fails()) {
+            //     // throw new LogicException($validate->errors());
+            //     $errors = $validate->errors();
+            //     return $this->responseRequestError('field_required');
+            // }
 
             DB::beginTransaction();
 

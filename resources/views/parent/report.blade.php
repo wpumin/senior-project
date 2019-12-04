@@ -21,11 +21,18 @@
                     <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
                     <input type="hidden" id="token" name="token" value="<?php echo $_COOKIE['Authorization'] ?>">
                     <div class="row">
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group ">
-                            <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off" id="title" name="title">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group " {{ $errors->has('title') ? 'has-error' : '' }}>
+                            <input type="text" placeholder="หัวข้อ" class="form-control" autocomplete="off" id="title" name="title">
+                            @if ($errors->has('title'))
+
+                            <span class="help-block">
+                                {{$errors->first('title')}}
+                            </span>
+
+                            @endif
                         </div>
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off" id="type_id" name="type_id">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('type_id') ? 'has-error' : '' }}>
+                            <select class="select2" autocomplete="off" id="type_id" name="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
                                 <option value="1">บริการทั่วไป</option>
                                 <option value="2">พฤติกรรมคนขับ</option>
@@ -35,6 +42,13 @@
                                 <option value="6">แดชบอร์ด</option>
                                 <option value="7">แก้ไขโปรไฟล์</option>
                             </select>
+                            @if ($errors->has('type_id'))
+
+                            <span class="help-block">
+                                {{$errors->first('type_id')}}
+                            </span>
+
+                            @endif
                         </div>
                         {{-- <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="order_id">
@@ -44,8 +58,15 @@
                                 <option value="3">เร่งด่วน</option>
                             </select>
                         </div> --}}
-                        <div class="col-12 form-group">
+                        <div class="col-12 form-group" {{ $errors->has('message') ? 'has-error' : '' }}>
                             <textarea class="textarea form-control" name="message" id="content" name="content" cols="10" rows="15" placeholder="รายละเอียด" autocomplete="off"></textarea>
+                            @if ($errors->has('message'))
+
+                            <span class="help-block">
+                                {{$errors->first('message')}}
+                            </span>
+
+                            @endif
                         </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
                             <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
@@ -261,7 +282,7 @@
         $("#reportForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
-            $(".wrap-modal > #successReport").modal('show');
+            // $(".wrap-modal > #successReport").modal('show');
             // submitForm();
             // return false;
         });
