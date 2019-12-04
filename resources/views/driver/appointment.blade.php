@@ -282,7 +282,7 @@
                 <b>ยืนยันการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/accept/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/accept/"; ?>{{ $info['no'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['Authorization'] }}">ยืนยัน</a>
                     {{-- <button type="button" class="btn btn-secondary" id="confirmAccept">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->

@@ -71,7 +71,7 @@ Route::group(array('prefix' => 'driver'), function () {
 
     Route::get('/appointment/{car}/del/{id}/{user_id}/{token}', 'DriverController@del_app');
 
-    Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
+    Route::get('/appointment/{car}/accept/{id}/{user_id}/{token}', 'DriverController@accept_app');
 
     Route::get('/broadcast', 'DriverController@broadcast');
     // Route::get('/profile', function () {

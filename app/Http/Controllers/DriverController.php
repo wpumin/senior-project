@@ -145,72 +145,40 @@ class DriverController extends Controller
         return redirect('/');
     }
 
-    public function accept_app($car, $id)
+    public function accept_app($car, $id, $user_id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
 
+
+
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '2') {
-                $appointment = Appointment::where('id', $id)->first();
-                $appointment->app_status_id = 2;
-                $appointment->save();
 
-                $student = Student::where('id', $appointment->student_id)->first();
-                $student->std_status_id = 4;
-                $student->save();
-
-                $students = Student::where('car_id', $car)->get();
-
-                $data['info'] = [];
-                $count = 0;
-
-                $day = date('d');
-                $month = date('m');
-                $year = date('Y') + 543;
-
-                $full = $day . '/' . $month . '/' . $year;
-
-                foreach ($students as $s) {
-
-                    // ชื่อเล่น
-                    // สถานะ
-                    // รูปเด็ก
-                    // ชื่อโรงเรียน
-                    // ชื่อ user
-                    // ความสัมพันธ์
-                    // เบอร์
-
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
-                    foreach ($appointment as $app) {
-
-                        if ($app) {
-                            $app_status = App_status::where('id', $app->app_status_id)->first();
-                            $school = School::where('id', $s->school_id)->first();
-                            $user = User::where('id', $app->user_id)->first();
-                            $relation = Relationship::where('id', $user->relationship_id)->first();
-
-                            $data['info'][$count++] = [
-                                'no' => $app->id,
-                                'nickname' => $s->nickname,
-                                'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                                'app_status' => $app->app_status_id,
-                                'photo_stu' => $s->image,
-                                'period_time' => $app->period_time_id,
-                                'school' => $school->name_school,
-                                'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                                'relationship' => $relation->name,
-                                'phone' => $user->phone
-                            ];
-                        }
-                    }
+                $driver = User::where('id', $user_id)->where('token', $token)->first();
+                // dd($driver);
+                if (!$driver) {
+                    return redirect('/driver/index');
                 }
 
-                return view('driver.appointment', [
-                    'datas' => $data['info'],
-                    'date_' => $full
-                ]);
+                $appointment = Appointment::where('id', $id)->first();
+                // dd($appointment->student_id);
+                $stu = Student::where('id', $appointment->student_id)->first();
+                // dd('stu' . $stu->car_id . ': ' . 'driver' . $driver->car_id);
+                if ($stu->car_id == $driver->car_id) {
+
+                    $appointment->app_status_id = 2;
+                    $appointment->save();
+
+                    $student = Student::where('id', $appointment->student_id)->first();
+                    $student->std_status_id = 4;
+                    $student->save();
+                } else {
+                    return redirect('/driver/index');
+                }
+
+                return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
             \abort(404);
         }
