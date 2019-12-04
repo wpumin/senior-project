@@ -112,7 +112,7 @@
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8 mg-b-20">
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                {{-- <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
                     <select class="form-control select2" autocomplete="off">
                         <option value="1">ตุลาคม 2562</option>
                         <option value="2">กันยายน 2562</option>
@@ -121,11 +121,11 @@
                         <option value="5">มิถุนายน 2562</option>
                         <option value="6">พฤษภาคม 2562</option>
                     </select>
-                </div>
-                <div class="col-4-xxxl col-xl-4 col-lg-6 col-12 form-group">
+                </div> --}}
+                <div class="col-5-xxxl col-xl-5 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
+                <div class="col-5-xxxl col-xl-5 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" id="search_key">
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
