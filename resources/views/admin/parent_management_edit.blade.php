@@ -177,7 +177,7 @@
                         <input id="lon" value="{{ $long }}" type="number" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" required readonly>
+                        <select class="select2" required readonly name="district_id">
                                 {{-- <option value="{{ $data['school'] }}" selected>{{ $data['school'] }}</option> --}}
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>
