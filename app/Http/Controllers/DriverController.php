@@ -61,8 +61,8 @@ class DriverController extends Controller
                     // เบอร์
 
                     $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->orderBy('appointments.created_at', 'asc')->get();
-                    foreach($appointment as $app) {
-                        
+                    foreach ($appointment as $app) {
+
                         if ($app) {
                             // $app_status = App_status::where('id', $app->app_status_id)->first();
                             $school = School::where('id', $s->school_id)->first();
@@ -130,8 +130,8 @@ class DriverController extends Controller
                     // เบอร์
 
                     $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
-                    foreach($appointment as $app) {
-                        
+                    foreach ($appointment as $app) {
+
                         if ($app) {
                             $app_status = App_status::where('id', $app->app_status_id)->first();
                             $school = School::where('id', $s->school_id)->first();
@@ -201,9 +201,9 @@ class DriverController extends Controller
                     // ความสัมพันธ์
                     // เบอร์
 
-                   $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
-                    foreach($appointment as $app) {
-                        
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
+                    foreach ($appointment as $app) {
+
                         if ($app) {
                             $app_status = App_status::where('id', $app->app_status_id)->first();
                             $school = School::where('id', $s->school_id)->first();
@@ -275,53 +275,6 @@ class DriverController extends Controller
 
                 $news = News::where('id', $id)->first();
                 $user = User::where('id', $news->user_id)->first();
-
-                // dd($news[0]);
-                // $d = date('d');
-                // $m = date('m');
-                // $y = date('Y') + 543;
-
-                // dd($d);
-
-                // $full = $d . '/' . $m . '/' . $y;
-                // $time_now = date('H:i');
-
-
-                // dd($full);
-                // dd($news[0]['release_time'] > $time_now);
-
-                // dd($news[0]['news_at'] > $full);
-
-                $data['info'] = [];
-                $count = 0;
-
-                // dd($news->news_at);
-
-                // foreach ($news as $n) {
-                // dd($n->release_time > $time_now);
-                // if ($news) {
-
-                // if ($news->release_date <= $full) {
-
-                //     if ($news->release_time < $time_now) {
-
-
-
-                // $data['info'] = [
-
-
-
-
-
-                // ];
-                //     }
-                // }
-                // }
-
-
-                // }
-
-                // dd($data['info']);
 
                 return view('news.news_detail', [
                     'id' => $news->id,

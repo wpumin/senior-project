@@ -299,29 +299,29 @@ class PaymentController extends Controller
             if ($this->request->cookie('role_number') == '1') {
                 // dd($this->request->all());
 
-                $validator = Validator::make(
-                    $this->request->all(),
-                    [
-                        'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                        // 'fname' => 'required',
-                        // 'lname' => 'required',
-                        // 'user_id' => '',
-                        // 'role_id' => '',
-                        // 'status_id' => '',
-                        // 'release_date' => '',
-                        // 'release_time' => '',
-                        // 'content' => '',
-                        // ],
-                        // [
-                        //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
-                    ]
-                );
+                $this->validate($this->request, [
 
-                if ($validator->fails())
-                    return array(
-                        'fail' => true,
-                        'errors' => $validator->errors()
-                    );
+                    'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                    'payment_log_id' => 'required',
+                    'timepicker' => 'required',
+                    'date' => 'required',
+                    'bank_id' => 'required',
+                    'price' => 'required',
+                    // 'release_date' => '',
+                    // 'release_time' => '',
+                    // 'content' => '',
+
+                ], [
+                    'payment_log_id.required' => 'กรุณาเลือกบิลที่จะชำระ',
+                    'timepicker.required' => 'กรุณาเลือกเวลาที่ชำระ (ตามใบเสร็จ)',
+                    'date.required' => 'กรุณาเลือกวันที่ชำระ (ตามใบเสร็จ)',
+                    'bank_id.required' => 'กรุณาเลือกธนาคารที่ชำระ',
+                    'imgInp.required' => 'กรุณา Upload ใบเสร็จที่ชำระเงิน',
+                    'price.required' => 'กรุณาใส่จำนวนเงินตามใบเสร็จที่ชำระเงิน',
+                    // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
+                    // 'message.required' => 'กรุณาใส่รายละเอียด'
+                ]);
+
 
                 $day = date('d');
                 $month = date('m');
