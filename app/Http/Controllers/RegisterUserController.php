@@ -209,7 +209,8 @@ class RegisterUserController extends Controller
                             'nickname' => $u->nickname,
                             'phone' => $u->phone,
                             'school' => $school->name_school,
-                            'car_id' => $u->car_id
+                            'car_id' => $u->car_id,
+
 
 
 
@@ -235,12 +236,20 @@ class RegisterUserController extends Controller
                     'date' => $user->created_at,
                     'lat' => $user->lattitude,
                     'long' => $user->longtitude,
+                    // 'district' => 
 
                 ]);
             }
             \abort(404);
         }
         return redirect('/');
+    }
+
+    public function update_user()
+    {
+
+
+        dd($this->request->all());
     }
 
     public function del_user($id)

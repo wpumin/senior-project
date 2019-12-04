@@ -112,6 +112,8 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/parent/edit/{id}', 'RegisterUserController@edit_user');
 
+    Route::post('/management/parent/update', 'RegisterUserController@update_user');
+
     Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
 
     // Route::get('/management/parent/create', function () {
