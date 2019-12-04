@@ -20,13 +20,20 @@
         </div>
         {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8 mg-b-20">
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
+                    <select class="select2" required autocomplete="off" id="period_time" name="period_time">
+                        <option value="">ค้นหาด้วยช่วงเวลา</option>
+                        <option value="1">ช่วงเช้า</option>
+                        <option value="2">ช่วงย็น</option>
+                    </select>
+                </div>
+                <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
-                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control" id="search_school">
                 </div>
-                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-xl-3 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control" id="search_phone">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
@@ -47,6 +54,7 @@
                         <th>ชื่อผู้ปกครอง</th>
                         <th>ความสัมพันธ์</th>
                         <th>เบอร์ติดต่อ</th>
+                        <th>เวลาที่แจ้ง</th>
                         <th>จัดการ</th>
                     </tr>
                 </thead>
@@ -55,6 +63,16 @@
                         <?php $count=1; ?>
 
                         @foreach($datas as $key => $info)
+
+                            <?php
+                                $created_at = $info['created_at'];
+                                $year_substr = substr($created_at,0,4-0);
+                                $month_substr = substr($created_at,5,7-5);
+                                $date_substr = substr($created_at,8,10-8);
+                                $time_substr = substr($created_at,11,16-11);
+                                $concat_created_at = '' . $date_substr . '/' . $month_substr . '/' . $year_substr . ' - ' . $time_substr . ' น.';
+                            ?>
+
                             <tr>
                                 <td><?php print $count ?></td>
                                 <td>{{ $info['nickname'] }}</td>
@@ -79,6 +97,7 @@
                                 <td>{{ $info['parent_name'] }}</td>
                                 <td>{{ $info['relationship'] }}</td>
                                 <td>{{ $info['phone'] }}</td>
+                                <td><?php echo $concat_created_at; ?></td>
 
                                 @if($info['app_status'] == 1)
                                     <td>
