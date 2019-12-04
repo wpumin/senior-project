@@ -11,7 +11,7 @@
 <div class="card height-auto pb-0 pt-5 mt-5 pt-md-0 mt-md-0">
     <div class="card-body">
 
-        <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data" class="new-added-form pt-4">
+        <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data" class="new-added-form pt-4" id="paymentConfirmForm">
             <input type="hidden" name="token" id="token" value="<?php echo $_COOKIE['Authorization'] ?>">
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
             {{-- @csrf --}}
@@ -181,7 +181,15 @@
 @section('script')
 <script>
 
-function getCookie(cname) {
+    $(document).ready(function(){
+        setInterval(function(){
+            $("#paymentConfirmForm").submit(function(event){
+                $('#successConfirm').modal('show');
+            });
+        }, 3000);
+    });
+
+    function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
         var ca = decodedCookie.split(';');

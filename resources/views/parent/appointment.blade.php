@@ -234,6 +234,15 @@
 @section('script')
 
 <script>
+
+    $(document).ready(function(){
+        setInterval(function(){
+            $("#appointmentForm").submit(function(event){
+                $('#successAppointment').modal('show');
+            });
+        }, 3000);
+    });
+
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);

@@ -1241,17 +1241,17 @@
 
       $(document).ready(function(){
 
-      setInterval(function(){
-        $("#mailForm").submit(function(event){
-            $('.spinner-border').css('display','inline-block');
-              // submitForm();
-              //disable the submit button
-              $('#successSending').modal('show');
-              $("#send_noti").attr("disabled", true);
-              $(location).attr('href', '/about'); 
-              // return false;
-        });
-      }, 3000);
+        setInterval(function(){
+          $("#mailForm").submit(function(event){
+              $('.spinner-border').css('display','inline-block');
+                // submitForm();
+                //disable the submit button
+                $('#successSending').modal('show');
+                $("#send_noti").attr("disabled", true);
+                $(location).attr('href', '/about'); 
+                // return false;
+          });
+        }, 3000);
 
       });
 

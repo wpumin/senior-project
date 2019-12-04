@@ -260,6 +260,14 @@
     </script>
 <script>
 
+    $(document).ready(function(){
+        setInterval(function(){
+            $("#reportForm").submit(function(event){
+                $('#successReport').modal('show');
+            });
+        }, 3000);
+    });
+
 
     function getCookie(cname) {
         var name = cname + "=";
