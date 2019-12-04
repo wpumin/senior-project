@@ -101,6 +101,20 @@ class AppointmentController extends Controller
             //     $errors = $validate->errors();
             //     return $this->responseRequestError('field_required');
             // }
+            $app = Appointment::where('student_id', $this->request->input('student_id'))->where('appointment_at', $this->request->input('appointment_at'))->where('period_time_id', $this->request->input('period_time_id'))->first();
+
+            if ($app) {
+
+                $this->validate($this->request, [
+
+                    'err' => 'required',
+
+
+                ], [
+                    'err.required' => 'ข้อมูลซ้ำ',
+
+                ]);
+            }
 
             DB::beginTransaction();
 
