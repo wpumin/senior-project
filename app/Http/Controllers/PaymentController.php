@@ -383,7 +383,7 @@ class PaymentController extends Controller
                     $car_num = 2;
                 }
 
-                $bill = Payment_log::get();
+                $bill = Payment_log::orderBy('payment_logs.pm_status_id', 'desc')->get();
 
                 $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
