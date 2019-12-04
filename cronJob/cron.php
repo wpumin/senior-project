@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
 }
 echo "Connected" . "<br>";
 
-$sql = "UPDATE students SET std_status_id=1";
+$sql = "UPDATE students SET status=1";
 $day = date('d');
 $month = date('m');
 $year = date('Y') + 543;

@@ -3,62 +3,20 @@
 
 
 $now = $_GET['tambon'];
+$text = 'ถึง ' . $now . ' แล้ว';
 
-$location[1] = 'เทศบาลตำบลบ้านไร่';
-$location[2] = 'ตำบลหูช้าง';
-$location[3] = 'ตำบลเมืองการุ้ง';
-$location[4] = 'ตำบลบ้านคลองโป่ง';
-$location[5] = 'ตำบลเขาตะพาบ';
-$location[6] = 'โรงเรียนหนองฉางวิทยา';
-$location[7] = 'โรงเรียนธรรมานุวัตรวิทยา';
-$location[8] = 'โรงเรียนวัดหนองขุนชาติ';
+$response = sendMessage($text);
+$return["allresponses"] = $response;
+$return = json_encode($return);
 
+$data = json_decode($response, true);
+print_r($data);
+$id = $data['id'];
+print_r($id);
 
-// $text = 'ถึง ' . $location[$now] . ' แล้ว';
-
-// var_dump($text);
-// die();
-
-$con = mysqli_connect("103.86.51.224", "bearbusc_test", "123123123", "bearbusc_test");
-
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-echo "Connected";
-
-$sql = "SELECT * FROM districts WHERE id = '$now'";
-$result = $con->query($sql);
-
-while ($row = mysqli_fetch_array($result)) {
-
-    if ($row['status'] == 1) {
-
-        $sql_update = "UPDATE districts SET status = 2 WHERE id = '$now'";
-        mysqli_query($con, $sql_update);
-
-        $text = 'ถึง ' . $row['name'] . ' แล้ว';
-
-
-        $response = sendMessage($text);
-        $return["allresponses"] = $response;
-        $return = json_encode($return);
-
-        $data = json_decode($response, true);
-        print_r($data);
-        $id = $data['id'];
-        print_r($id);
-
-        print("\n\nJSON received:\n");
-        print($return);
-        print("\n");
-    }
-}
-
-
-/** notification */
-
-
+print("\n\nJSON received:\n");
+print($return);
+print("\n");
 
 
 function sendMessage($text)
@@ -112,5 +70,3 @@ function sendMessage($text)
 
     return $response;
 }
-
-$con->close();

@@ -94,8 +94,8 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/news/del/{id}', 'NewsController@del_new');
 
+    // สำหรับสร้าง
     Route::post('/management/news/create/new', 'NewssController@create_store');
-
     Route::get('/management/news/create', 'NewssController@create');
 
 
