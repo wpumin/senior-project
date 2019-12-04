@@ -14,6 +14,11 @@ class NewssController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+    
     public function index()
     {
         return view('admin.news_test_form');
