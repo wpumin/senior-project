@@ -212,7 +212,8 @@ class PaymentController extends Controller
                                 'month' => $month_sub[($b->month) - 1],
                                 'year' => $b->year,
                                 'price' => $district->price,
-                                'qrcode' => $b->qr_code
+                                'qrcode' => $b->qr_code,
+                                'qrcode2' => $b->qr_code2,
 
                             ];
                         }

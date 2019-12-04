@@ -158,8 +158,8 @@ Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
 
-Route::get('/admin/car-overview/car1', 'RefreshController@runAdmin');
-Route::get('/admin/car-overview/car2', 'RefreshController@runAdmin');
+Route::get('/admin/car-overview/car1', 'RefreshController@runAdminOne');
+Route::get('/admin/car-overview/car2', 'RefreshController@runAdminTwo');
 
 Route::post('/tasks/refresh', 'RefreshController@refresh');
 Route::post('/tasks/refresh/student', 'RefreshController@student');

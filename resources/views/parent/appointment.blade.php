@@ -97,7 +97,7 @@
                             </select>
                         </div>
                         <div class="col-lg-3 col-12 form-group">
-                            <input type="text" id="appointment_at" placeholder="ค้นหาด้วยวันที่" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
+                            <input type="text" id="appointment_at" placeholder="ค้นหาด้วยวันที่นัด" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="col-lg-2 col-12 form-group pl-lg-0">

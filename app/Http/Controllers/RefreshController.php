@@ -158,13 +158,29 @@ class RefreshController extends Controller
         // return view('driver.index', $data);
     }
 
-    public function runAdmin()
+    public function runAdminOne()
     {
 
         $no = Student::where('std_status_id', 1)->where('car_id', '1')->count();
         $up = Student::where('std_status_id', 2)->where('car_id', '1')->count();
         $down = Student::where('std_status_id', 3)->where('car_id', '1')->count();
         $self = Student::where('std_status_id', 4)->where('car_id', '1')->count();
+
+        $data['no'] = $no;
+        $data['up'] = $up;
+        $data['down'] = $down;
+        $data['self'] = $self;
+
+        return view('admin.car-overview', $data);
+    }
+
+    public function runAdminTwo()
+    {
+
+        $no = Student::where('std_status_id', 1)->where('car_id', '2')->count();
+        $up = Student::where('std_status_id', 2)->where('car_id', '2')->count();
+        $down = Student::where('std_status_id', 3)->where('car_id', '2')->count();
+        $self = Student::where('std_status_id', 4)->where('car_id', '2')->count();
 
         $data['no'] = $no;
         $data['up'] = $up;

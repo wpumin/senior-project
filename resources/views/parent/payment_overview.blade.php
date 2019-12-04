@@ -506,10 +506,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4 text-center">
-                        <h2 class="mb-2 text-special-orange text-center pt-4">สแกนเพื่อชำระเงิน</h2>
+                        <h2 class="mb-2 text-special-orange text-center pt-4">สแกนชำระเงิน</h2>
                         <p class="text-center">กรุณาเปิดแอปพลิเคชันธนาคารและสแกน QR code เพื่อชำระเงิน</p>
                         <img class="w-50 text-center" src="{{asset($info['qrcode'])}}" alt="qr code">
-                        <p class="text-center text-special-orange">สแกน QR Code เข้าบัญชี</p>
+                        <a href="#" data-href='{{asset($info['qrcode2'])}}' download="qrcode.jpg" onclick='forceDownload(this)' class="text-special-orange d-block">กดเพื่อดาวน์โหลด QR code</a>
                         <p class="text-center">ชื่อ: นายภูมินท์ วงษ์ศิริ <br> เลขที่บัญชี: 002-2-85496-8 </p>
                     </div>
                 </div>
@@ -526,6 +526,27 @@
 <script src="//maps.googleapis.com/maps/api/js"></script>
 
 <script>
+    function forceDownload(link){
+        var url = link.getAttribute("data-href");
+        var fileName = link.getAttribute("download");
+        link.innerText = "กำลังดาวน์โหลด...";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.responseType = "blob";
+        xhr.onload = function(){
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL(this.response);
+            var tag = document.createElement('a');
+            tag.href = imageUrl;
+            tag.download = fileName;
+            document.body.appendChild(tag);
+            tag.click();
+            document.body.removeChild(tag);
+            link.innerText="กดเพื่อดาวน์โหลด QR code";
+        }
+        xhr.send();
+    }
+
     function myFunction() {
       // Declare variables
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
