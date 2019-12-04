@@ -51,9 +51,16 @@ class LoginController extends Controller
 
                 $user->role_name = $role['name'];
                 $user->relationship_name = $relationship['name'];
+                // dd($user);
+                if ($user->role_id == '2') {
 
-                return $this->responseRequestSuccess($user)
-                    ->withCookie(cookie('role_number', $user->role_id));
+                    return $this->responseRequestSuccess($user)
+                        ->withCookie(cookie('role_number', $user->role_id, 60))
+                        ->withCookie(cookie('car_num', $user->car_id, 60));
+                } else {
+                    return $this->responseRequestSuccess($user)
+                        ->withCookie(cookie('role_number', $user->role_id, 60));
+                }
             } else {
                 return $this->responseRequestError('incorrect_password');
             }

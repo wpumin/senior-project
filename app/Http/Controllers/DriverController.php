@@ -31,7 +31,7 @@ class DriverController extends Controller
     public function list_student($car)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+        // dd($this->request->cookie('role_number'));
 
         if (isset($cookie)) {
 
@@ -60,27 +60,28 @@ class DriverController extends Controller
                     // ความสัมพันธ์
                     // เบอร์
 
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
+                    foreach($appointment as $app) {
+                        
+                        if ($app) {
+                            // $app_status = App_status::where('id', $app->app_status_id)->first();
+                            $school = School::where('id', $s->school_id)->first();
+                            $user = User::where('id', $app->user_id)->first();
+                            $relation = Relationship::where('id', $user->relationship_id)->first();
 
-
-                    if ($appointment) {
-                        $app_status = App_status::where('id', $appointment->app_status_id)->first();
-                        $school = School::where('id', $s->school_id)->first();
-                        $user = User::where('id', $appointment->user_id)->first();
-                        $relation = Relationship::where('id', $user->relationship_id)->first();
-
-                        $data['info'][$count++] = [
-                            'no' => $appointment->id,
-                            'nickname' => $s->nickname,
-                            'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                            'app_status' => $appointment->app_status_id,
-                            'photo_stu' => $s->image,
-                            'period_time' => $appointment->period_time_id,
-                            'school' => $school->name_school,
-                            'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                            'relationship' => $relation->name,
-                            'phone' => $user->phone
-                        ];
+                            $data['info'][$count++] = [
+                                'no' => $app->id,
+                                'nickname' => $s->nickname,
+                                'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
+                                'app_status' => $app->app_status_id,
+                                'photo_stu' => $s->image,
+                                'period_time' => $app->period_time_id,
+                                'school' => $school->name_school,
+                                'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
+                                'relationship' => $relation->name,
+                                'phone' => $user->phone
+                            ];
+                        }
                     }
                 }
 
@@ -127,26 +128,28 @@ class DriverController extends Controller
                     // ความสัมพันธ์
                     // เบอร์
 
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
+                    foreach($appointment as $app) {
+                        
+                        if ($app) {
+                            $app_status = App_status::where('id', $app->app_status_id)->first();
+                            $school = School::where('id', $s->school_id)->first();
+                            $user = User::where('id', $app->user_id)->first();
+                            $relation = Relationship::where('id', $user->relationship_id)->first();
 
-                    if ($appointment) {
-                        $app_status = App_status::where('id', $appointment->app_status_id)->first();
-                        $school = School::where('id', $s->school_id)->first();
-                        $user = User::where('id', $appointment->user_id)->first();
-                        $relation = Relationship::where('id', $user->relationship_id)->first();
-
-                        $data['info'][$count++] = [
-                            'no' => $appointment->id,
-                            'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                            'nickname' => $s->nickname,
-                            'app_status' => $appointment->app_status_id,
-                            'photo_stu' => $s->image,
-                            'school' => $school->name_school,
-                            'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                            'relationship' => $relation->name,
-                            'phone' => $user->phone
-
-                        ];
+                            $data['info'][$count++] = [
+                                'no' => $app->id,
+                                'nickname' => $s->nickname,
+                                'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
+                                'app_status' => $app->app_status_id,
+                                'photo_stu' => $s->image,
+                                'period_time' => $app->period_time_id,
+                                'school' => $school->name_school,
+                                'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
+                                'relationship' => $relation->name,
+                                'phone' => $user->phone
+                            ];
+                        }
                     }
                 }
 
@@ -197,26 +200,28 @@ class DriverController extends Controller
                     // ความสัมพันธ์
                     // เบอร์
 
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->first();
+                   $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
+                    foreach($appointment as $app) {
+                        
+                        if ($app) {
+                            $app_status = App_status::where('id', $app->app_status_id)->first();
+                            $school = School::where('id', $s->school_id)->first();
+                            $user = User::where('id', $app->user_id)->first();
+                            $relation = Relationship::where('id', $user->relationship_id)->first();
 
-                    if ($appointment) {
-                        $app_status = App_status::where('id', $appointment->app_status_id)->first();
-                        $school = School::where('id', $s->school_id)->first();
-                        $user = User::where('id', $appointment->user_id)->first();
-                        $relation = Relationship::where('id', $user->relationship_id)->first();
-
-                        $data['info'][$count++] = [
-                            'no' => $appointment->id,
-                            'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                            'nickname' => $s->nickname,
-                            'app_status' => $appointment->app_status_id,
-                            'photo_stu' => $s->image,
-                            'school' => $school->name_school,
-                            'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                            'relationship' => $relation->name,
-                            'phone' => $user->phone
-
-                        ];
+                            $data['info'][$count++] = [
+                                'no' => $app->id,
+                                'nickname' => $s->nickname,
+                                'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
+                                'app_status' => $app->app_status_id,
+                                'photo_stu' => $s->image,
+                                'period_time' => $app->period_time_id,
+                                'school' => $school->name_school,
+                                'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
+                                'relationship' => $relation->name,
+                                'phone' => $user->phone
+                            ];
+                        }
                     }
                 }
 
@@ -268,15 +273,17 @@ class DriverController extends Controller
             if ($this->request->cookie('role_number') == '2') {
 
                 $news = News::where('id', $id)->first();
+                $user = User::where('id', $news->user_id)->first();
+
                 // dd($news[0]);
-                $d = date('d');
-                $m = date('m');
-                $y = date('Y') + 543;
+                // $d = date('d');
+                // $m = date('m');
+                // $y = date('Y') + 543;
 
                 // dd($d);
 
-                $full = $d . '/' . $m . '/' . $y;
-                $time_now = date('H:i');
+                // $full = $d . '/' . $m . '/' . $y;
+                // $time_now = date('H:i');
 
 
                 // dd($full);
@@ -293,27 +300,21 @@ class DriverController extends Controller
                 // dd($n->release_time > $time_now);
                 // if ($news) {
 
-                if ($news->release_date <= $full) {
+                // if ($news->release_date <= $full) {
 
-                    if ($news->release_time < $time_now) {
-
-                        $user = User::where('id', $news->user_id)->first();
-
-                        $data['info'][$count++] = [
-
-                            'id' => $news->id,
-                            'image' => $news->image,
-                            'title' => $news->title,
-                            'content' => $news->content,
-                            'release_date' => $news->release_date . ' ' . $news->release_time,
-                            'name' => $user->username,
-                            'status' => $news->news_statuses_id
+                //     if ($news->release_time < $time_now) {
 
 
 
-                        ];
-                    }
-                }
+                // $data['info'] = [
+
+
+
+
+
+                // ];
+                //     }
+                // }
                 // }
 
 
@@ -322,7 +323,13 @@ class DriverController extends Controller
                 // dd($data['info']);
 
                 return view('news.news_detail', [
-                    'datas' => $data['info'],
+                    'id' => $news->id,
+                    'image' => $news->image,
+                    'title' => $news->title,
+                    'content' => $news->content,
+                    'release_date' => $news->release_date . ' ' . $news->release_time,
+                    'name' => $user->username,
+                    'status' => $news->news_statuses_id
 
                 ]);
             }

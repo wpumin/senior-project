@@ -169,6 +169,7 @@ class ReportController extends Controller
 
                 // dd($id);
                 $news = News::where('id', $id)->first();
+                $user = User::where('id', $news->user_id)->first();
                 // dd($news);
                 $d = date('d');
                 $m = date('m');
@@ -191,76 +192,7 @@ class ReportController extends Controller
 
                 // foreach ($news as $n) {
                 // dd($n->release_time > $time_now);
-                if ($news) {
-                    // dd($news->release_date);
-                    if ($full >= $news->release_date) {
 
-                        // dd($time_now);
-                        if ($time_now > $news->release_time) {
-
-                            $user = User::where('id', $news->user_id)->first();
-
-                            $data['info'][$count++] = [
-
-                                'id' => $news->id,
-                                'image' => $news->image,
-                                'title' => $news->title,
-                                'content' => $news->content,
-                                'release_date' => $news->release_date . ' ' . $news->release_time,
-                                'name' => $user->username,
-                                'status' => $news->news_statuses_id
-
-
-
-                            ];
-                        } else {
-
-                            $data['info'][$count++] = [
-
-                                'id' => '',
-                                'image' => '',
-                                'title' => '',
-                                'content' => '',
-                                'release_date' => '',
-                                'name' => '',
-                                'status' => ''
-
-
-
-                            ];
-                        }
-                    } else {
-
-                        $data['info'][$count++] = [
-
-                            'id' => '',
-                            'image' => '',
-                            'title' => '',
-                            'content' => '',
-                            'release_date' => '',
-                            'name' => '',
-                            'status' => ''
-
-
-
-                        ];
-                    }
-                } else {
-
-                    $data['info'][$count++] = [
-
-                        'id' => '',
-                        'image' => '',
-                        'title' => '',
-                        'content' => '',
-                        'release_date' => '',
-                        'name' => '',
-                        'status' => ''
-
-
-
-                    ];
-                }
 
 
                 // }
@@ -268,7 +200,13 @@ class ReportController extends Controller
                 // dd($data['info']);
 
                 return view('news.news_detail', [
-                    'datas' => $data['info'],
+                    'id' => $news->id,
+                    'image' => $news->image,
+                    'title' => $news->title,
+                    'content' => $news->content,
+                    'release_date' => $news->release_date . ' ' . $news->release_time,
+                    'name' => $user->username,
+                    'status' => $news->news_statuses_id
 
                 ]);
             }
