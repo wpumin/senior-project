@@ -47,7 +47,8 @@ class AppointmentController extends Controller
                             'app_status_id' => $status->id,
                             'student_id' => $student->nickname,
                             'appointment_at' => $app->appointment_at,
-                            'period_time_id' => $period_time->name
+                            'period_time_id' => $period_time->name,
+                            'created_at' => $app->created_at
                         ];
                     }
 

@@ -20,13 +20,20 @@
         </div>
         {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8 mg-b-20">
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
+                    <select class="select2" required autocomplete="off" id="period_time" name="period_time">
+                        <option value="">ค้นหาด้วยช่วงเวลา</option>
+                        <option value="1">ช่วงเช้า</option>
+                        <option value="2">ช่วงย็น</option>
+                    </select>
+                </div>
+                <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
-                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control" id="search_school">
                 </div>
-                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-xl-3 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control" id="search_phone">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
