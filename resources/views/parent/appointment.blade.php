@@ -90,6 +90,7 @@
                                     <th>ชื่อเล่น</th>
                                     <th>วันที่</th>
                                     <th>ช่วงเวลา</th>
+                                    <th>วันที่แจ้ง</th>
                                  </tr>
                             </thead>
                             <tbody id="showForm">
@@ -104,6 +105,15 @@
 
                                 @foreach($data as $key => $info)
 
+                                    <?php
+                                        $created_at = $info['time'];
+                                        $year = substr($created_at,0,4);
+                                        $month = substr($created_at,5,7);
+                                        $date = substr($created_at,8,10);
+                                        $time = substr($created_at,11,16);
+                                        $concat_created_at = '' . $date . '/' . $month . '/' . $year . ' - ' . $time . ' น.';
+                                    ?>
+
                                     <tr>
                                         <td><?php print $count ?></td>
                                             @if($info['app_status_id'] == 1)
@@ -114,6 +124,7 @@
                                         <td>{{ $info['student_id'] }}</td>
                                         <td>{{ $info['appointment_at'] }}</td>
                                         <td>{{ $info['period_time_id'] }}</td>
+                                        <td><?php echo $concat_created_at; ?></td>
                                     </tr>
 
                                     <?php $count++ ?>
