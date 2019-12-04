@@ -236,7 +236,7 @@ class RegisterUserController extends Controller
                     'date' => $user->created_at,
                     'lat' => $user->lattitude,
                     'long' => $user->longtitude,
-                    // 'district' => 
+                    // 'district' =>
 
                 ]);
             }
@@ -312,6 +312,82 @@ class RegisterUserController extends Controller
             \abort(404);
         }
         return redirect('/');
+    }
+
+    public function store_user()
+    {
+        // dd($this->request->all());
+        // dd($this->request->input('prefix')[0]);
+
+        $user = new User();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('parentImage0')) {
+            $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
+            $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
+            $public_path = 'images/Users/';
+            $destination = base_path() . "/public/" . $public_path;
+            $this->request->file('parentImage0')->move($destination, $image_name);
+            $user->image = $public_path . $image_name;
+        }
+
+        // 'image' => $this->request->input('image'),
+        $user->role_id = 1;
+        $user->relationship_id = $this->request->input('parent_relation');
+        $user->car_id = null;
+        $user->prefix = $this->request->input('prefix_parent');
+        $user->first_name = $this->request->input('parent_fname');
+        $user->last_name = $this->request->input('parent_lname');
+        $user->phone = $this->request->input('parent_phone');
+        $user->line_id = $this->request->input('parent_line_id');
+        $user->email = $this->request->input('parent_email');
+        $user->address = $this->request->input('address');
+        $user->username = $this->request->input('parent_username');
+        $user->password = Hash::make($this->request->input('parent_password'));
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
+
+        $user->save();
+        DB::commit();
+
+        for ($i = 0; $i < count($this->request->input('prefix')); $i++) {
+
+            $student = new Student();
+            DB::beginTransaction();
+
+            if ($this->request->file('userprofile_picture')[$i]) {
+                $image_filename = $this->request->file('userprofile_picture')[$i]->getClientOriginalName();
+                $image_name = $this->request->input('first_name')[$i] . '_' . $image_filename;
+                $public_path = 'images/Students/';
+                $destination = base_path() . "/public/" . $public_path;
+                $this->request->file('userprofile_picture')[$i]->move($destination, $image_name);
+                $student->image = $public_path . $image_name;
+            }
+
+            // 'image' => $this->request->input('image'),
+            $student->user_id = $user->id;
+            $student->std_status_id = 1;
+            $student->school_id = $this->request->input('school')[$i];
+            $student->car_id = $this->request->input('car')[$i];
+            $student->district_id = $this->request->input('district_id')[$i];
+            $student->card_id = "xxxxxxxx";
+            $student->prefix = $this->request->input('prefix')[$i];
+            $student->first_name = $this->request->input('first_name')[$i];
+            $student->last_name = $this->request->input('last_name')[$i];
+            $student->nickname = $this->request->input('nickname')[$i];
+            $student->phone = "ไม่มีข้อมูล";
+            // $student->lattitude = $this->request->input('lattitude');
+            // $student->longtitude = $this->request->input('longtitude');
+
+
+            $student->save();
+
+            DB::commit();
+        }
+
+
+        return redirect('admin/management/parent');
     }
 
     public function list_staff()

@@ -15,35 +15,35 @@
                     <h3>ข้อมูลผู้ปกครอง</h3>
                 </div>
             </div>
-            <form id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
+            <form action="{{url('admin/management/parent/store')}}" method="POST" enctype="multipart/form-data" id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
                 @csrf
                 <div class="row">
                     <div class="col-lg-12 col-12 form-group">
                             <div class="uploader" >
                             <span class='flaticon-photo'></span>
                             <img src="" alt="Profile Image" class="text-center" id="image0"/>
-                            <input type="file" name="userprofile_picture"  id="parentImage0" data-id="0" class="filePhoto" onchange="readURL(this,this.getAttribute('data-id'))" />
+                            <input type="file" name="parentImage0"  id="parentImage0" data-id="0" class="filePhoto" onchange="readURL(this,this.getAttribute('data-id'))" />
                         </div>
                         <div class="text-center mt-3">
                             <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2" required>
+                        <select class="select2" required name="prefix_parent">
                             <option value="">คำนำหน้า</option>
-                            <option value="1">นาย</option>
-                            <option value="2">นาง</option>
-                            <option value="3">นางสาว</option>
+                            <option value="นาย">นาย</option>
+                            <option value="นาง">นาง</option>
+                            <option value="นางสาว">นางสาว</option>
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ชื่อ" class="form-control">
+                        <input required type="text" placeholder="ชื่อ" class="form-control" name="parent_fname">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="นามสกุล" class="form-control">
+                        <input required type="text" placeholder="นามสกุล" name="parent_lname" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2"required >
+                        <select class="select2"required name="parent_relation">
                             <option value="">ความสัมพันธ์</option>
                             <option value="1">พ่อ</option>
                             <option value="2">แม่</option>
@@ -51,28 +51,28 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="เบอร์โทร" class="form-control">
+                        <input required type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ไลน์ไอดี" class="form-control">
+                        <input required type="text" placeholder="ไลน์ไอดี"  name="parent_line_id" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="email" placeholder="อีเมล" class="form-control">
+                        <input required type="email" placeholder="อีเมล" class="form-control" name="parent_email">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="email" placeholder="ยืนยันอีเมล" class="form-control">
+                        <input required type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control">
                     </div>
                     <div class="col-xl-12 col-12 form-group">
                         <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control">
+                        <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="parent_username">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="password" placeholder="รหัสผ่าน" class="form-control">
+                        <input required type="password" placeholder="รหัสผ่าน" class="form-control" name="parent_password">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control">
+                        <input required type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="parent_password_confirm">
                     </div>
                 </div>
                 <div class="row" id="student-profile">
@@ -149,13 +149,13 @@
                         <input id="address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <input id="lat" value="" type="number" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
+                        <input id="lat" value="" type="number" name="lattitude" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <input id="lon" value="" type="number" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
+                        <input id="lon" value="" type="number" name="longtitude" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" required>
+                        <select class="select2" required name="district_id">
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>
                             <option value="2">หูช้าง - ฿700 </option>
@@ -275,7 +275,7 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->  
+<!-- System error End Here -->
 @endsection
 
 @section('script')
@@ -418,7 +418,7 @@
                 );
         });
         $(document).on('click', '.btn_remove', function(){
-            var button_id = $(this).attr("id"); 
+            var button_id = $(this).attr("id");
             $('#student-'+button_id+'').remove();
         });
     </script>
