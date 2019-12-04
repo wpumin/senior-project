@@ -88,7 +88,7 @@ class ReportController extends Controller
             // dd(!isset($cookie));
             if ($this->request->cookie('role_number') == '3') {
 
-                $reports = Report::get();
+                $reports = Report::orderBy('reports.report_at', 'desc')->orderBy('reports.created_at', 'desc')->get();
 
                 $data['info'] = [];
                 $count = 0;
