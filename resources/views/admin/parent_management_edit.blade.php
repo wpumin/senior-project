@@ -79,9 +79,9 @@
                         <input  type="password" placeholder="ยืนยันรหัสผ่าน" name="parent_password_confirm" class="form-control">
                     </div>
                     {{-- สร้าง function with parameter send pass ajax with data (User)  --}}
-                    {{-- <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
-                        <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="" value="ยืนยัน">
-                    </div> --}}
+                    <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
+                        <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100" id="" value="ยืนยัน">
+                    </div>
                 </div>
 
                 <?php $count=1;?>
@@ -148,11 +148,11 @@
                                     <option value="2">คันที่ 2</option>
                                 </select>
                             </div>
-                            {{-- <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
-                                <button type="button" name="remove" id="add" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"><span class="flaticon-plus"></span></span> เพิ่มบุตรหลาน</button>
-                            </div> --}}
+                            <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
+                                <button type="button" name="remove" id="edit" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"><span class="flaticon-edit" style="font-size: 1rem !important; line-height: 0.75;"></span></span> แก้ไข</button>
+                            </div>
                         </div>
-                        <hr class="mb-5 hr-adduser">
+                        {{-- <hr class="mb-5 hr-adduser"> --}}
                     </div>
                 </div>
 
@@ -160,6 +160,7 @@
 
                 @endforeach
 
+                <hr class="mb-5 hr-adduser">
                 <div class="row">
                     <div class="col-12 heading-layout1">
                         <div class="item-title">

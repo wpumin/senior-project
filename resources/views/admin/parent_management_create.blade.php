@@ -88,7 +88,7 @@
                             <div class="uploader" onclick="$('#studentImage1').click()">
                                 <span class='flaticon-photo'></span>
                                 <img src="" alt="Profile Image" class="text-center" id="image1"/>
-                                <input type="file" name="userprofile_picture" id="studentImage1" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
+                                <input type="file" name="userprofile_picture[]" id="studentImage1" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
                             </div>
                             <div class="text-center mt-3">
                                 <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
@@ -98,11 +98,11 @@
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
                                 <select class="select2" required name="prefix[]">
                                     <option value="">คำนำหน้า</option>
-                                    <option value="1">เด็กชาย</option>
-                                    <option value="1">เด็กหญิง</option>
-                                    <option value="1">นาย</option>
-                                    <option value="2">นาง</option>
-                                    <option value="3">นางสาว</option>
+                                    <option value="เด็กชาย">เด็กชาย</option>
+                                    <option value="เด็กหญิง">เด็กหญิง</option>
+                                    <option value="นาย">นาย</option>
+                                    <option value="นาง">นาง</option>
+                                    <option value="นางสาว">นางสาว</option>
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
@@ -365,7 +365,7 @@
                         '<div class="uploader" onclick="$("#studentImage'+ i + '").click()">' +
                             '<span class="flaticon-photo"></span>' +
                             '<img src="" alt="Profile Image" class="text-center" id="image'+ i +'"/>' +
-                            '<input type="file" name="userprofile_picture" id="studentImage'+ i +'"  data-id="'+i+'" class="filePhoto" onchange="readURL(this,this.getAttribute(\'data-id\'))" />' +
+                            '<input type="file" name="userprofile_picture[]" id="studentImage'+ i +'"  data-id="'+i+'" class="filePhoto" onchange="readURL(this,this.getAttribute(\'data-id\'))" />' +
                         '</div>' +
                         '<div class="text-center mt-3">' +
                             '<span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>' +
@@ -375,11 +375,11 @@
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
                             '<select class="select2" required name="prefix[]" id="student-prefix' + i + '">' +
                                 '<option value="">คำนำหน้า</option>' +
-                                '<option value="1">เด็กชาย</option>' +
-                                '<option value="1">เด็กหญิง</option>' +
-                                '<option value="1">นาย</option>' +
-                                '<option value="2">นาง</option>' +
-                                '<option value="3">นางสาว</option>' +
+                                '<option value="เด็กชาย">เด็กชาย</option>' +
+                                '<option value="เด็กหญิง">เด็กหญิง</option>' +
+                                '<option value="นาย">นาย</option>' +
+                                '<option value="นาง">นาง</option>' +
+                                '<option value="นางสาว">นางสาว</option>' +
                             '</select>' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
