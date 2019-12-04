@@ -23,8 +23,8 @@
                 <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
                     <select class="select2" required autocomplete="off" id="period_time" name="period_time">
                         <option value="">ค้นหาด้วยช่วงเวลา</option>
-                        <option value="1">ช่วงเช้า</option>
-                        <option value="2">ช่วงย็น</option>
+                        <option value="ช่วงเช้า">ช่วงเช้า</option>
+                        <option value="ช่วงย็น">ช่วงย็น</option>
                     </select>
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
@@ -415,13 +415,15 @@
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
       input = document.getElementById("search_nickname");
-      var input_periodtime = document.getElementById("search_school");
-      var input_month = document.getElementById("search_phone");
+      var input_school = document.getElementById("search_school");
+      var input_month = document.getElementById("search_phone"); //period_time
+      var input_period_time = document.getElementById("period_time");
 
 
       filter = input.value;
-      filter_input_periodtime = input_periodtime.value;
+      filter_input_school = input_school.value;
       filter_month = input_month.value;
+      filter_input_period_time = input_period_time.value;
 
       table = document.getElementById("myTable");
     //   console.log('Filter: '+filter);
@@ -435,24 +437,25 @@
       for (i = 0; i < tr.length; i++) {
 
         td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
-        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
-        td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
+        td_school = tr[i].getElementsByTagName("td")[4]; //choose table that search. (td_school)
+        td_period_time = tr[i].getElementsByTagName("td")[5]; //choose table that search. (Date)
         // console.log(td);
         if (td_name) {
           txtValue = td_name.textContent || td_name.innerText;
+          txtValue_school = td_school.textContent || td_school.innerText;
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
-          txtValue_date = td_date.textContent || td_date.innerText;
 
         //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
+          console.log('Total: '+txtValue_period_time);
         //   console.log('Total: '+txtValue_date);
 
-          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
+          if (txtValue.indexOf(filter) > -1 && txtValue_school.indexOf(filter_input_school) > -1 && txtValue_period_time.indexOf(filter_input_period_time) > -1) {
             tr[i].style.display = "";
 
             $('#search_nickname').val(null);
             $('#search_school').val(null);
             $('#search_phone').val(null);
+            $('#period_time').val(null).trigger('change');
 
           } else {
             tr[i].style.display = "none";
@@ -460,6 +463,7 @@
             $('#search_nickname').val(null);
             $('#search_school').val(null);
             $('#search_phone').val(null);
+            $('#period_time').val(null).trigger('change');
           }
         }
       }

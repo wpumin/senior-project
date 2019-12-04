@@ -323,11 +323,11 @@ class PaymentController extends Controller
                 ]);
 
 
-                $day = date('d');
-                $month = date('m');
-                $year = date('Y') + 543;
+                // $day = date('d');
+                // $month = date('m');
+                // $year = date('Y') + 543;
 
-                $full = $day . '/' . $month . '/' . $year;
+                // $full = $day . '/' . $month . '/' . $year;
 
                 DB::beginTransaction();
 
