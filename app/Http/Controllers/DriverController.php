@@ -79,7 +79,8 @@ class DriverController extends Controller
                                 'school' => $school->name_school,
                                 'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
                                 'relationship' => $relation->name,
-                                'phone' => $user->phone
+                                'phone' => $user->phone,
+                                'created_at' => $app->created_at
                             ];
                         }
                     }

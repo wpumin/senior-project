@@ -62,6 +62,16 @@
                         <?php $count=1; ?>
 
                         @foreach($datas as $key => $info)
+
+                            <?php
+                                $created_at = $info['created_at'];
+                                $year_substr = substr($created_at,0,4-0);
+                                $month_substr = substr($created_at,5,7-5);
+                                $date_substr = substr($created_at,8,10-8);
+                                $time_substr = substr($created_at,11,16-11);
+                                $concat_created_at = '' . $date_substr . '/' . $month_substr . '/' . $year_substr . ' - ' . $time_substr . ' น.';
+                            ?>
+
                             <tr>
                                 <td><?php print $count ?></td>
                                 <td>{{ $info['nickname'] }}</td>
@@ -86,6 +96,7 @@
                                 <td>{{ $info['parent_name'] }}</td>
                                 <td>{{ $info['relationship'] }}</td>
                                 <td>{{ $info['phone'] }}</td>
+                                <td><?php echo $concat_created_at; ?></td>
 
                                 @if($info['app_status'] == 1)
                                     <td>
