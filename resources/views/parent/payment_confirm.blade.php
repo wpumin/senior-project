@@ -85,9 +85,9 @@
                         </div>
                         <img id="blah" src="https://atasouthport.com/wp-content/uploads/2017/04/default-image.jpg" alt="bill image" class="my-3 text-center bill-image"/>
                     </div>
-                    <div class="text-center text-lg-left mt-3">
+                    {{-- <div class="text-center text-lg-left mt-3">
                         <span class="text-red small">ไฟล์ต้องเป็นสกุลไฟล์ .jpg, jpeg และ .png เท่านั้น<span>
-                    </div>
+                    </div> --}}
                     @if ($errors->has('imgInp'))
 
                     <span class="help-block">

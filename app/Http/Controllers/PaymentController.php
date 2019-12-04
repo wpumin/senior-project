@@ -312,12 +312,14 @@ class PaymentController extends Controller
                     // 'content' => '',
 
                 ], [
-                    'payment_log_id.required' => 'กรุณาเลือกบิลที่จะชำระ',
-                    'timepicker.required' => 'กรุณาเลือกเวลาที่ชำระ (ตามใบเสร็จ)',
-                    'date.required' => 'กรุณาเลือกวันที่ชำระ (ตามใบเสร็จ)',
-                    'bank_id.required' => 'กรุณาเลือกธนาคารที่ชำระ',
-                    'imgInp.required' => 'กรุณา Upload ใบเสร็จที่ชำระเงิน',
-                    'price.required' => 'กรุณาใส่จำนวนเงินตามใบเสร็จที่ชำระเงิน',
+                    'payment_log_id.required' => '* กรุณาเลือกรายการที่ต้องการชำระ',
+                    'timepicker.required' => '* กรุณากรอกเวลาที่ชำระตามใบเสร็จ',
+                    'date.required' => '* กรุณากรอกวันที่ชำระตามใบเสร็จ',
+                    'bank_id.required' => '* กรุณาเลือกธนาคารที่ชำระเงิน',
+                    'imgInp.required' => '* กรุณาเลือกไฟล์ใบเสร็จที่ชำระเงิน',
+                    'price.required' => '* กรุณากรอกจำนวนเงินตามใบเสร็จที่ชำระเงิน',
+                    'imgInp.image' => '* ไฟล์ต้องเป็นสกุลไฟล์ jpg, jpeg, png, gif เท่านั้น',
+
                     // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
                     // 'message.required' => 'กรุณาใส่รายละเอียด'
                 ]);
