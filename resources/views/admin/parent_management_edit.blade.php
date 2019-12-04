@@ -149,7 +149,7 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
-                                <button type="button" name="remove" id="edit" class="btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"><span class="flaticon-edit" style="font-size: 1rem !important; line-height: 0.75;"></span></span> แก้ไข</button>
+                            <a href="{{ url('admin/management/student/edit') }}" class="text-center text-white btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"> แก้ไข</a>
                             </div>
                         </div>
                         {{-- <hr class="mb-5 hr-adduser"> --}}
@@ -168,7 +168,7 @@
                         </div>
                     </div>
                     <div class="col-12 form-group">
-                    <input id="address" name="parent_address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง" value="{{ $address }}">
+                    <input id="address" name="parent_address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง" value="{{ $address }}" readonly>
                     </div>
                     <div class="col-lg-4 col-12 form-group">
                     <input id="lat" value="{{ $lat }}" type="number" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
@@ -177,7 +177,7 @@
                         <input id="lon" value="{{ $long }}" type="number" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" required>
+                        <select class="select2" required readonly>
                                 {{-- <option value="{{ $data['school'] }}" selected>{{ $data['school'] }}</option> --}}
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>
@@ -190,11 +190,11 @@
                         </select>
                     </div>
                     <div class="col-12 form-group">
-                        <div type="button" class="map w-100" id="geomap" style="width:100%; height:25em;"></div>
+                        <div class="map w-100" id="geomap" style="width:100%; height:25em;"></div>
                     </div>
-                    <div class="col-12 form-group mg-t-8 text-right">
+                    {{-- <div class="col-12 form-group mg-t-8 text-right">
                         <input type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="" value="ยืนยัน">
-                    </div>
+                    </div> --}}
                 </div>
             </form>
         </div>
@@ -477,7 +477,7 @@
             geocoder = new google.maps.Geocoder();
             marker = new google.maps.Marker({
                 map: map,
-                draggable: true,
+                draggable: false,
                 position: latlng,
                 animation: google.maps.Animation.DROP
             });
