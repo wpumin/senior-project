@@ -247,7 +247,7 @@
                                     <a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo "/driver/appointment/".$_COOKIE['car_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
+                                    <a href="<?php echo "/driver/appointment/".$_COOKIE['car_id'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['Authorization']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
@@ -290,7 +290,7 @@
                             ?>
                                 <div class="d-md-none mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="<?php echo "/driver/appointment/".$_COOKIE['car_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/driver/appointment/".$_COOKIE['car_id'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['Authorization']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
                                     <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
                                     <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
                                 </div>

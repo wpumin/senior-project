@@ -28,16 +28,19 @@ class DriverController extends Controller
         $this->request = $request;
     }
 
-    public function list_student($car)
+    public function list_student($car, $id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd($this->request->cookie('role_number'));
+        $driver = User::where('id', $id)->where('token', $token)->where('car_id', $car)->first();
 
-        if (isset($cookie)) {
+        if (!$driver) {
+            return redirect('/driver/index');
+        }
 
-            if ($this->request->cookie('role_number') == '2') {
+        if (isset($cookie)) { //check have cookie.
 
-                $students = Student::where('car_id', $car)->get();
+            if ($this->request->cookie('role_number') == '2') { //check role equal driver
 
                 $data['info'] = [];
                 $count = 0;
@@ -48,24 +51,32 @@ class DriverController extends Controller
 
                 $full = $day . '/' . $month . '/' . $year;
 
+                // ชื่อเล่น
+                // สถานะ
+                // รูปเด็ก
+                // ชื่อโรงเรียน
+                // ชื่อ user
+                // ความสัมพันธ์
+                // เบอร์
+
+                $appointment = Appointment::where('appointment_at', $full)->orderBy('appointments.created_at', 'asc')->get();
+
+                // dd(\count($appointment));
                 // dd($full);
 
-                foreach ($students as $s) {
+                if (\count($appointment) > 0) {
 
-                    // ชื่อเล่น
-                    // สถานะ
-                    // รูปเด็ก
-                    // ชื่อโรงเรียน
-                    // ชื่อ user
-                    // ความสัมพันธ์
-                    // เบอร์
+                    // dd($appointment);
 
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->orderBy('appointments.created_at', 'asc')->get();
                     foreach ($appointment as $app) {
 
-                        if ($app) {
-                            // $app_status = App_status::where('id', $app->app_status_id)->first();
+                        $s = Student::where('id', $app->student_id)->where('car_id', $car)->first();
+                        if ($s) {
+
+
                             $school = School::where('id', $s->school_id)->first();
+
+                            // dd($school);
                             $user = User::where('id', $app->user_id)->first();
                             $relation = Relationship::where('id', $user->relationship_id)->first();
 
@@ -84,8 +95,14 @@ class DriverController extends Controller
                             ];
                         }
                     }
+
+                    return view('driver.appointment', [
+                        'datas' => $data['info'],
+                        'date_' => $full
+                    ]);
                 }
 
+                // dd(\count($data['info']));
                 return view('driver.appointment', [
                     'datas' => $data['info'],
                     'date_' => $full
@@ -96,7 +113,7 @@ class DriverController extends Controller
         return redirect('/');
     }
 
-    public function del_app($car, $id)
+    public function del_app($car, $id, $user_id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
@@ -105,131 +122,63 @@ class DriverController extends Controller
 
             if ($this->request->cookie('role_number') == '2') {
 
-                $appointment = Appointment::where('id', $id)->first();
-                $appointment->delete();
-
-                $students = Student::where('car_id', $car)->get();
-
-                $data['info'] = [];
-                $count = 0;
-
-                $day = date('d');
-                $month = date('m');
-                $year = date('Y') + 543;
-
-                $full = $day . '/' . $month . '/' . $year;
-
-                foreach ($students as $s) {
-
-                    // ชื่อเล่น
-                    // สถานะ
-                    // รูปเด็ก
-                    // ชื่อโรงเรียน
-                    // ชื่อ user
-                    // ความสัมพันธ์
-                    // เบอร์
-
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
-                    foreach ($appointment as $app) {
-
-                        if ($app) {
-                            $app_status = App_status::where('id', $app->app_status_id)->first();
-                            $school = School::where('id', $s->school_id)->first();
-                            $user = User::where('id', $app->user_id)->first();
-                            $relation = Relationship::where('id', $user->relationship_id)->first();
-
-                            $data['info'][$count++] = [
-                                'no' => $app->id,
-                                'nickname' => $s->nickname,
-                                'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                                'app_status' => $app->app_status_id,
-                                'photo_stu' => $s->image,
-                                'period_time' => $app->period_time_id,
-                                'school' => $school->name_school,
-                                'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                                'relationship' => $relation->name,
-                                'phone' => $user->phone
-                            ];
-                        }
-                    }
+                $driver = User::where('id', $user_id)->where('token', $token)->first();
+                if (!$driver) {
+                    return redirect('/driver/index');
                 }
 
-                return view('driver.appointment', [
-                    'datas' => $data['info'],
-                    'date_' => $full
-                ]);
+                $appointment = Appointment::where('id', $id)->first();
+                // dd($appointment->student_id);
+                $stu = Student::where('id', $appointment->student_id)->first();
+
+                if ($stu->car_id == $driver->car_id) {
+
+                    $appointment->delete();
+                } else {
+                    return redirect('/driver/index');
+                }
+
+                return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
             \abort(404);
         }
         return redirect('/');
     }
 
-    public function accept_app($car, $id)
+    public function accept_app($car, $id, $user_id, $token)
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
 
+
+
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '2') {
-                $appointment = Appointment::where('id', $id)->first();
-                $appointment->app_status_id = 2;
-                $appointment->save();
 
-                $student = Student::where('id', $appointment->student_id)->first();
-                $student->std_status_id = 4;
-                $student->save();
-
-                $students = Student::where('car_id', $car)->get();
-
-                $data['info'] = [];
-                $count = 0;
-
-                $day = date('d');
-                $month = date('m');
-                $year = date('Y') + 543;
-
-                $full = $day . '/' . $month . '/' . $year;
-
-                foreach ($students as $s) {
-
-                    // ชื่อเล่น
-                    // สถานะ
-                    // รูปเด็ก
-                    // ชื่อโรงเรียน
-                    // ชื่อ user
-                    // ความสัมพันธ์
-                    // เบอร์
-
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
-                    foreach ($appointment as $app) {
-
-                        if ($app) {
-                            $app_status = App_status::where('id', $app->app_status_id)->first();
-                            $school = School::where('id', $s->school_id)->first();
-                            $user = User::where('id', $app->user_id)->first();
-                            $relation = Relationship::where('id', $user->relationship_id)->first();
-
-                            $data['info'][$count++] = [
-                                'no' => $app->id,
-                                'nickname' => $s->nickname,
-                                'fullname' => $s->prefix . $s->first_name . ' ' . $s->last_name,
-                                'app_status' => $app->app_status_id,
-                                'photo_stu' => $s->image,
-                                'period_time' => $app->period_time_id,
-                                'school' => $school->name_school,
-                                'parent_name' => $user->prefix . $user->first_name . ' ' . $user->last_name,
-                                'relationship' => $relation->name,
-                                'phone' => $user->phone
-                            ];
-                        }
-                    }
+                $driver = User::where('id', $user_id)->where('token', $token)->first();
+                // dd($driver);
+                if (!$driver) {
+                    return redirect('/driver/index');
                 }
 
-                return view('driver.appointment', [
-                    'datas' => $data['info'],
-                    'date_' => $full
-                ]);
+                $appointment = Appointment::where('id', $id)->first();
+                // dd($appointment->student_id);
+                $stu = Student::where('id', $appointment->student_id)->first();
+                // dd('stu' . $stu->car_id . ': ' . 'driver' . $driver->car_id);
+                if ($stu->car_id == $driver->car_id) {
+
+                    $appointment->app_status_id = 2;
+                    $appointment->save();
+
+                    $student = Student::where('id', $appointment->student_id)->first();
+                    $student->std_status_id = 4;
+                    $student->save();
+                } else {
+                    return redirect('/driver/index');
+                }
+
+                return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
             \abort(404);
         }

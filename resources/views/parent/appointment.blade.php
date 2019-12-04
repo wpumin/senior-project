@@ -68,6 +68,15 @@
                         {{-- <div class="col-12 form-group">
                             <textarea class="textarea form-control" name="message" id="content" cols="10" rows="12" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                         </div> --}}
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('err') ? 'has-error' : '' }}>
+                                @if ($errors->has('err'))
+
+                                <span class="help-block">
+                                    {{$errors->first('err')}}
+                                </span>
+
+                                @endif
+                            </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
                             <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
                         </div>

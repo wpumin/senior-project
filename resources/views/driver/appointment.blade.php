@@ -60,7 +60,12 @@
                 </thead>
                 <tbody>
 
-                        <?php $count=1; ?>
+                    {{-- @if ($datas->completed->count() > 0) --}}
+
+                        <?php $count=1;
+                        // dd(count($datas) > 0);
+                        if(count($datas) > 0 ) {
+                        ?>
 
                         @foreach($datas as $key => $info)
 
@@ -113,6 +118,9 @@
 
                         <?php $count++ ?>
                         @endforeach
+                        <?php } ?>
+                        {{-- @endif --}}
+
 
                     {{-- <tr>
                         <td>2</td>
@@ -250,7 +258,7 @@
                 <b>ยกเลิกการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/del/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/del/"; ?>{{ $info['no'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['Authorization'] }}">ยืนยัน</a>
                     {{-- <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->
@@ -274,7 +282,7 @@
                 <b>ยืนยันการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/accept/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/accept/"; ?>{{ $info['no'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['Authorization'] }}">ยืนยัน</a>
                     {{-- <button type="button" class="btn btn-secondary" id="confirmAccept">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->
