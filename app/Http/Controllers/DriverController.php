@@ -60,7 +60,7 @@ class DriverController extends Controller
                     // ความสัมพันธ์
                     // เบอร์
 
-                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->get();
+                    $appointment = Appointment::where('student_id', $s->id)->where('appointment_at', $full)->orderBy('appointments.created_at', 'asc')->get();
                     foreach($appointment as $app) {
                         
                         if ($app) {

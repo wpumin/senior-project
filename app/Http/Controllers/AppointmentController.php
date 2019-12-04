@@ -32,7 +32,7 @@ class AppointmentController extends Controller
             if (isset($cookie)) {
 
                 if ($this->request->cookie('role_number') == '1') {
-                    $Appointments = Appointment::where('user_id', $id)->orderBy('appointments.appointment_at', 'desc')->orderBy('appointments.app_status_id', 'desc')->get();
+                    $Appointments = Appointment::where('user_id', $id)->orderBy('appointments.created_at', 'desc')->orderBy('appointments.app_status_id', 'desc')->get();
 
                     $data['info'] = [];
                     $count = 0;
