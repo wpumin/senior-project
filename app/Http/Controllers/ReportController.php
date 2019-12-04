@@ -29,13 +29,16 @@ class ReportController extends Controller
 
                 'user_id' => 'required',
                 'type_id' => 'required',
-                'title' => 'required',
-                'message' => 'required',
+                'title' => 'required|max:120',
+                'message' => 'required|min:60|max:255',
 
             ], [
-                'title.required' => 'กรุณาใส่หัวข้อ',
-                'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
-                'message.required' => 'กรุณาใส่รายละเอียด'
+                'title.required' => '* กรุณาใส่หัวข้อ',
+                'title.max' => '* ความยาวของข้อความต้องไม่เกิน 100 อักขระ',
+                'type_id.required' => '* กรุณาเลือกประเภทการร้องเรียน',
+                'message.required' => '* กรุณาใส่รายละเอียด',
+                'message.min' => '* ความยาวข้อความต้องมีความยาวไม่ต่ำกว่า 50 อักขระ',
+                'message.max' => '* ความยาวข้อความต้องมีความยาวไม่เกิน 200 อักขระ'
             ]);
 
             // $validate = Validator::make($this->request->all(), [

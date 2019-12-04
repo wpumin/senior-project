@@ -86,8 +86,8 @@ class AppointmentController extends Controller
                 'appointment_at' => 'required',
 
             ], [
-                'period_time_id.required' => 'กรุณาเลือกช่วงเวลา',
-                'appointment_at.required' => 'กรุณาเลือกวันที่'
+                'period_time_id.required' => '* กรุณาเลือกช่วงเวลาที่ต้องการนัดหมาย',
+                'appointment_at.required' => '* กรุณาเลือกวันที่ที่ต้องการนัดหมาย'
             ]);
             // $validate = Validator::make($this->request->all(), [
             //     'user_id' => 'required',
