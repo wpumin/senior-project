@@ -16,8 +16,8 @@
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
             {{-- @csrf --}}
             <div class="row">
-                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required autocomplete="off" id="payment_log_id" name="payment_log_id">
+                 <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('payment_log_id') ? 'has-error' : '' }}>
+                    <select class="select2" autocomplete="off" id="payment_log_id" name="payment_log_id">
                         <option value="">หมายเลขรายการ</option>
                         @foreach($data as $key => $info)
                         <option value="{{ $info['log_id'] }}">{{ $info['tran_key'] }}</option>
@@ -26,28 +26,56 @@
                         <option value="4">ทั้งหมด</option> --}}
                         @endforeach
                     </select>
+                    @if ($errors->has('payment_log_id'))
+
+                    <span class="help-block">
+                        {{$errors->first('payment_log_id')}}
+                    </span>
+
+                    @endif
                 </div>
                 {{-- <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="หมายเลขรายการ" class="form-control" required autocomplete="off">
                 </div> --}}
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" placeholder="เวลา" class="form-control" id="timepicker" required autocomplete="off" name="timepicker">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('timepicker') ? 'has-error' : '' }}>
+                    <input type="text" placeholder="เวลา" class="form-control" id="timepicker" autocomplete="off" name="timepicker">
                     <i class="far fa-clock"></i>
+                    @if ($errors->has('timepicker'))
+
+                    <span class="help-block">
+                        {{$errors->first('timepicker')}}
+                    </span>
+
+                    @endif
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input type="text" id="date" name="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" required autocomplete="off">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('date') ? 'has-error' : '' }}>
+                    <input type="text" id="date" name="date" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                     <i class="far fa-calendar-alt"></i>
+                    @if ($errors->has('date'))
+
+                    <span class="help-block">
+                        {{$errors->first('date')}}
+                    </span>
+
+                    @endif
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required autocomplete="off" id="bank_id" name="bank_id">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('bank_id') ? 'has-error' : '' }}>
+                    <select class="select2" autocomplete="off" id="bank_id" name="bank_id">
                         <option value="">กรุณาเลือกบัญชีที่ท่านชำระเงิน</option>
                         <option value="1">บัญชีกสิกรไทย 002-2-85496-8</option>
                         <option value="2">บัญชีไทยพาณีชย์ 002-2-85496-8</option>
                         <option value="3">บัญชีกกรุงไทย 002-2-85496-8</option>
                         <option value="4">บัญชีกกรุงศรี 002-2-85496-8</option>
                     </select>
+                    @if ($errors->has('bank_id'))
+
+                    <span class="help-block">
+                        {{$errors->first('bank_id')}}
+                    </span>
+
+                    @endif
                 </div>
-                <div class="col-12 form-group mb-0">
+                <div class="col-12 form-group mb-0" {{ $errors->has('imgInp') ? 'has-error' : '' }}>
                     <label for="">ใบเสร็จชำระเงิน</label>
                     <div class="text-center">
                         <div class='file-input px-0 mb-3'>
@@ -60,10 +88,24 @@
                     <div class="text-center text-lg-left mt-3">
                         <span class="text-red small">ไฟล์ต้องเป็นสกุลไฟล์ .jpg, jpeg และ .png เท่านั้น<span>
                     </div>
+                    @if ($errors->has('imgInp'))
+
+                    <span class="help-block">
+                        {{$errors->first('imgInp')}}
+                    </span>
+
+                    @endif
                 </div>
-                <div class="col-12 form-group mt-5">
-                    <input type="text" id="price" name="price" placeholder="จำนวนเงิน" class="form-control" required autocomplete="off">
+                <div class="col-12 form-group mt-5" {{ $errors->has('price') ? 'has-error' : '' }}>
+                    <input type="text" id="price" name="price" placeholder="จำนวนเงิน" class="form-control" autocomplete="off">
                     <i style="top: 10px; font-style: normal;">฿</i>
+                    @if ($errors->has('price'))
+
+                    <span class="help-block">
+                        {{$errors->first('price')}}
+                    </span>
+
+                    @endif
                 </div>
                 {{-- <div class="col-12 form-group mt-5">
                     <textarea class="textarea form-control" name="message" id="content" cols="10" rows="10" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
