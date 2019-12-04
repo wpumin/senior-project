@@ -67,9 +67,9 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/index', 'RefreshController@run');
     // Route::get('/index', 'DriverController@index');
 
-    Route::get('/appointment/{car}', 'DriverController@list_student');
+    Route::get('/appointment/{car}/{id}/{token}', 'DriverController@list_student');
 
-    Route::get('/appointment/{car}/del/{id}', 'DriverController@del_app');
+    Route::get('/appointment/{car}/del/{id}/{user_id}/{token}', 'DriverController@del_app');
 
     Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
 

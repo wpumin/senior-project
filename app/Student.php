@@ -14,14 +14,14 @@ class Student extends Model
         'car_id',
         'district_id',
         'card_id',
-        'prefix', 
+        'prefix',
         'first_name',
-        'last_name', 
+        'last_name',
         'nickname',
-        'phone', 
-        // 'lattitude', 
-        // 'longtitude', 
-        'image' 
+        'phone',
+        // 'lattitude',
+        // 'longtitude',
+        'image'
     ];
 
     protected $guarded = ['id'];
