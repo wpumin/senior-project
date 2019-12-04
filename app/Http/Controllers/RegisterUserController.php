@@ -345,6 +345,7 @@ class RegisterUserController extends Controller
         $user->address = $this->request->input('address');
         $user->username = $this->request->input('parent_username');
         $user->password = Hash::make($this->request->input('parent_password'));
+        // $user->district_id = $this->request->input('district_id');
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
 

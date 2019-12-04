@@ -149,7 +149,8 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
-                            <a href="{{ url('admin/management/student/edit') }}" class="text-center text-white btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"> แก้ไข</a>
+
+                            <a href="<?php echo "/admin/management/student/edit/"; ?>{{ $data['no'] }}" class="text-center text-white btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"> แก้ไข</a>
                             </div>
                         </div>
                         {{-- <hr class="mb-5 hr-adduser"> --}}
