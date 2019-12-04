@@ -53,21 +53,21 @@ class ParentController extends Controller
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($users);
+
 
                 if ($news) {
 
                     foreach ($news as $n) {
+                        // dd(new DateTime($n->release_date));
+                        // $release_date = new DateTime($n->release_date);
 
-                        $release_date = new DateTime($n->release_date);
+                        // dd($full_now >= $n->release_date);
 
-                        // dd($full_now >= $release_date);
-
-                        if ($full_now >= $release_date) {
+                        if ($full_now >= $n->release_date) {
 
                             // dd($time_now > $n->release_time);
                             if ($time_now > $n->release_time) {
-
+                                // dd($n);
                                 $data['info'][$count++] = [
 
                                     'id' => $n->id,

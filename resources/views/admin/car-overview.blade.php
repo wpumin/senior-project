@@ -8,8 +8,14 @@
 <?php
     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     $current_page = (explode("/",$current_url));
-    $menu_active = $current_page[2];
+    // $menu_active = $current_page[2];
     // echo $menu_active;
+    if(!empty($current_page[2]))
+    {
+        $menu_active = $current_page[2];
+    }else{
+        $menu_active2 = "";
+    }
     if(!empty($current_page[3]))
     {
         $menu_active2 = $current_page[3];
@@ -223,13 +229,21 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var javaScriptVar = "<?php echo $menu_active2; ?>";
+</script>
 <!-- Picture Modal End Here -->
 
     {{-- free --}}
     {{-- <script src="//maps.googleapis.com/maps/api/js"></script> --}}
     {{-- paid --}}
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script>
+    
     <script>
+
+
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -253,8 +267,9 @@
             return "";
         }
 
-        // console.log(getCookie('car_id'));
-        var car_id = getCookie('car_id');
+        
+
+        // var car_id = getCookie('car_id');
 
         setInterval(function() {
 
@@ -262,7 +277,7 @@
                 url: '/tasks/refresh',
                 type: 'POST',
                 data: {
-                    car_id: car_id
+                    car_id: javaScriptVar[3]
                 },
                 dataType: 'json',
                 success: function(response) {
@@ -279,11 +294,14 @@
                 }
             })
 
+            
+            // console.log(car);
+
             $.ajax({
                 url: '/tasks/refresh/student',
                 type: 'POST',
                 data: {
-                    car_id: getCookie('car_id')
+                    car_id: javaScriptVar[3]
                 },
                 dataType: 'json',
                 success: function(response) {
@@ -368,4 +386,5 @@
             })
         }, 2000);
     </script>
+    
 @endsection
