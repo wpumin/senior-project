@@ -13,7 +13,7 @@ class DistrictTableSeeder extends Seeder
     public function run()
     {
         DB::table('districts')->insert([
-            'name' => 'เทศบาลตำบลบ้านไร่',
+            'name' => 'ตำบลบ้านไร่',
             'status' => '1',
             'price' => 900,
             'qr_code' => 'images/qrcode_pay/900.png',
@@ -29,7 +29,7 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบลหนองหย่าง',
+            'name' => 'ตำบลหนองฝาง',
             'status' => '1',
             'price' => 650,
             'qr_code' => 'images/qrcode_pay/650.png',
@@ -69,35 +69,12 @@ class DistrictTableSeeder extends Seeder
         ]);
 
         DB::table('districts')->insert([
-            'name' => 'ตำบลทุ่งนางาม',
+            'name' => 'ตำบลหนองฉาง',
             'status' => '1',
             'price' => 350,
             'qr_code' => 'images/qrcode_pay/350.png',
             'created_at' => Carbon::now()->format('Y-m-d')
         ]);
 
-        DB::table('districts')->insert([
-            'name' => 'โรงเรียนหนองฉางวิทยา',
-            'status' => '1',
-            'price' => null,
-            'qr_code' => null,
-            'created_at' => Carbon::now()->format('Y-m-d')
-        ]);
-
-        DB::table('districts')->insert([
-            'name' => 'โรงเรียนธรรมานุวัตรวิทยา',
-            'status' => '1',
-            'price' => null,
-            'qr_code' => null,
-            'created_at' => Carbon::now()->format('Y-m-d')
-        ]);
-
-        DB::table('districts')->insert([
-            'name' => 'โรงเรียนวัดหนองขุนชาติ',
-            'status' => '1',
-            'price' => null,
-            'qr_code' => null,
-            'created_at' => Carbon::now()->format('Y-m-d')
-        ]);
     }
 }
