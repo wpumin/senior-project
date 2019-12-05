@@ -57,7 +57,7 @@
 </div>
 
 <div class="text-center">
-    <a href="<?php echo "/parent/dashboard/".$_COOKIE['user_id']."/".$_COOKIE['Authorization']; ?>"><button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow seeall">ดูทั้งหมด <i class="flaticon-keyboard-right-arrow-button ml-0"></i> </button></a>
+    <a href="<?php echo "/parent/dashboard/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>"><button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow seeall">ดูทั้งหมด <i class="flaticon-keyboard-right-arrow-button ml-0"></i> </button></a>
 </div>
 
 

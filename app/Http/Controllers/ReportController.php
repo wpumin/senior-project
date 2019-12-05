@@ -58,7 +58,7 @@ class ReportController extends Controller
             ]);
             DB::commit();
 
-            return redirect('parent/report/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
+            return redirect('parent/report/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }

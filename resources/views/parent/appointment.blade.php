@@ -22,7 +22,7 @@
                 <form action="{{url('/appointment')}}" method="POST" id="appointmentForm" class="new-added-form">
                     {{-- @csrf --}}
                     <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
-                    <input type="hidden" id="token" name="token" value="<?php echo $_COOKIE['Authorization'] ?>">
+                    <input type="hidden" id="secure_code" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
 
                     <div class="row">
                         <div class="col-12-xxxl col-lg-4 col-12 form-group " {{ $errors->has('student_id') ? 'has-error' : '' }}>

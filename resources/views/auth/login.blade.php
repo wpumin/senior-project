@@ -152,7 +152,7 @@
             success: function(result){
                 // login สำเร็จ
                 if(result.status == 'success') {
-                    setCookie('Authorization', result.data['token'], 30);
+                    setCookie('secure_code', result.data['secure_code'], 30);
                     // setCookie('name', result.data['first_name'], 30);
                     // setCookie('role', result.data['role'], 30);
                     // setCookie('role_name', result.data['role_name'], 30);

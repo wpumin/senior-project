@@ -76,7 +76,7 @@ class RegisterStaffController extends Controller
         }
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
-        $staff->secure_code = $this->strRandom_ref();
+        $user->secure_code = $this->strRandom_ref();
 
         $user->save();
 

@@ -172,7 +172,7 @@ class PaymentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
-        $auth = User::where('id', $id)->where('token', $token)->first();
+        $auth = User::where('id', $id)->where('secure_code', $token)->first();
 
         // dd(isset($auth));
 
@@ -235,7 +235,7 @@ class PaymentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
 
-        $auth = User::where('id', $id)->where('token', $token)->first();
+        $auth = User::where('id', $id)->where('secure_code', $token)->first();
 
         if ($auth) {
 
@@ -347,7 +347,7 @@ class PaymentController extends Controller
                 DB::commit();
 
 
-                return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('token'));
+                return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('secure_code'));
                 // return $this->responseRequestSuccess('success');
             }
             \abort(404);

@@ -47,6 +47,8 @@ class LoginController extends Controller
                 // dd($token);
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
+                $user->secure_code = $this->strRandom_ref();
+
                 $user->save();
 
                 $user->role_name = $role['name'];

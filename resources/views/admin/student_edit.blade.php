@@ -17,7 +17,7 @@
             </div>
             <form action="{{url('admin/management/student/update')}}" method="POST" enctype="multipart/form-data" id="editStudentForm" class="mb-5 mb-lg-0 new-added-form">
                 <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
-                <input type="hidden" id="token" name="token" value="<?php echo $_COOKIE['Authorization'] ?>">
+                <input type="hidden" id="secure_code" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
                 {{-- @csrf --}}
 
                 @foreach($datas as $key=>$data)

@@ -32,7 +32,7 @@ class DriverController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
         // dd($this->request->cookie('role_number'));
-        $driver = User::where('id', $id)->where('token', $token)->where('car_id', $car)->first();
+        $driver = User::where('id', $id)->where('secure_code', $token)->where('car_id', $car)->first();
 
         if (!$driver) {
             return redirect('/driver/index');
@@ -122,7 +122,7 @@ class DriverController extends Controller
 
             if ($this->request->cookie('role_number') == '2') {
 
-                $driver = User::where('id', $user_id)->where('token', $token)->first();
+                $driver = User::where('id', $user_id)->where('secure_code', $token)->first();
                 if (!$driver) {
                     return redirect('/driver/index');
                 }
@@ -156,7 +156,7 @@ class DriverController extends Controller
 
             if ($this->request->cookie('role_number') == '2') {
 
-                $driver = User::where('id', $user_id)->where('token', $token)->first();
+                $driver = User::where('id', $user_id)->where('secure_code', $token)->first();
                 // dd($driver);
                 if (!$driver) {
                     return redirect('/driver/index');

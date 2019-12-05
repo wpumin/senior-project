@@ -304,7 +304,7 @@ class RefreshController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
-        $auth = User::where('id', $id)->where('token', $token)->first();
+        $auth = User::where('id', $id)->where('secure_code', $token)->first();
 
         if ($auth) {
 

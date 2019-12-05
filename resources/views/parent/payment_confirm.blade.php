@@ -12,7 +12,7 @@
     <div class="card-body">
 
         <form action="{{url('parent/store')}}" method="POST" enctype="multipart/form-data" class="new-added-form pt-4" id="paymentConfirmForm">
-            <input type="hidden" name="token" id="token" value="<?php echo $_COOKIE['Authorization'] ?>">
+            <input type="hidden" name="secure_code" id="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
             {{-- @csrf --}}
             <div class="row">

@@ -25,7 +25,7 @@ class AppointmentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
 
-        $auth = User::where('id', $id)->where('token', $token)->first();
+        $auth = User::where('id', $id)->where('secure_code', $token)->first();
 
         if ($auth) {
 
@@ -117,7 +117,7 @@ class AppointmentController extends Controller
 
 
             DB::commit();
-            return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
+            return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
