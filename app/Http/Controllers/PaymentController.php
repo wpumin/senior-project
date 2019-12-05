@@ -291,6 +291,7 @@ class PaymentController extends Controller
 
     public function store()
     {
+
         $cookie = $this->request->cookie('role_number');
 
         if (isset($cookie)) {
@@ -346,8 +347,8 @@ class PaymentController extends Controller
                 DB::commit();
 
 
-                return redirect('parent/payment/overview/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
-                return $this->responseRequestSuccess('success');
+                return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('token'));
+                // return $this->responseRequestSuccess('success');
             }
             \abort(404);
         }
