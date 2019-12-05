@@ -23,6 +23,7 @@ class User extends Model
         'token', 
         'lattitude', 
         'longtitude', 
+        'secure_code',
 
 
     ];
