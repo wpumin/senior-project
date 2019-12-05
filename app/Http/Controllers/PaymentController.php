@@ -307,7 +307,7 @@ class PaymentController extends Controller
                     'timepicker' => 'required',
                     'date' => 'required',
                     'bank_id' => 'required',
-                    'price' => 'required',
+                    'price' => 'required|numeric',
                     // 'release_date' => '',
                     // 'release_time' => '',
                     // 'content' => '',
@@ -319,6 +319,7 @@ class PaymentController extends Controller
                     'bank_id.required' => '* กรุณาเลือกธนาคารที่ชำระเงิน',
                     'imgInp.required' => '* กรุณาเลือกไฟล์ใบเสร็จที่ชำระเงิน',
                     'price.required' => '* กรุณากรอกจำนวนเงินตามใบเสร็จที่ชำระเงิน',
+                    'price.numeric' => '* กรุณากรอกเป็นตัวเลขเท่านั้น',
                     'imgInp.image' => '* ไฟล์ต้องเป็นสกุลไฟล์ jpg, jpeg, png, gif เท่านั้น',
 
                     // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',

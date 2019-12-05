@@ -18,18 +18,18 @@
             <a href="{{ url('admin/management/news/create') }}" style="color: #bcbcbc !important;" role="button" aria-expanded="true"> <i class="flaticon-new"></i> เพิ่มหัวข้อข่าว</a>
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
-            <div class="row gutters-8 new-added-form">
-                <div class="col-xl-4 col-lg-6 col-12 form-group">
+            <div class="row gutters-8 new-added-form mg-b-20">
+                <div class="col-xl-4 col-lg-6 col-12 form-group mb-xl-0">
                     <input type="text" placeholder="ค้นหาด้วยชื่อหัวข้อ" class="form-control" id="search_title">
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-xl-0">
                     <input type="text" placeholder="ค้นหาด้วยผู้บันทึก" class="form-control" id="search_name">
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="ค้นหาด้วยเวลาบันทึกล่าสุด" class="form-control air-datepicker calendar" id="search_timing">
-                        <i class="far fa-calendar-alt" style="right: 22px;"></i>
-                    </div>
-                <div class="col-xl-2 col-lg-6 col-12 form-group pb-lg-5 pb-xl-0">
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-xl-0">
+                    <input type="text" placeholder="ค้นหาด้วยเวลาบันทึกล่าสุด" class="form-control air-datepicker calendar" id="search_timing">
+                    <i class="far fa-calendar-alt" style="right: 22px;"></i>
+                </div>
+                <div class="col-xl-2 col-lg-6 col-12 form-group mb-xl-0">
                     <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
