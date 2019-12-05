@@ -221,7 +221,7 @@ class ParentController extends Controller
             return redirect('/');
         }
 
-        \abort(404);
+        \abort(419);
     }
 
     public function ajax_list_student()

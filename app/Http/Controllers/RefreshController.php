@@ -359,7 +359,7 @@ class RefreshController extends Controller
             return redirect('/');
         }
 
-        \abort(404);
+        \abort(419);
 
 
         // return $this->responseRequestSuccess($report);

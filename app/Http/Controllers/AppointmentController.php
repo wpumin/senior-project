@@ -61,7 +61,7 @@ class AppointmentController extends Controller
             return redirect('/');
         }
 
-        \abort(404);
+        \abort(419);
     }
 
     public function list_stu()

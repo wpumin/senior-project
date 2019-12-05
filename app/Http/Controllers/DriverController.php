@@ -35,7 +35,7 @@ class DriverController extends Controller
         $driver = User::where('id', $id)->where('secure_code', $token)->where('car_id', $car)->first();
 
         if (!$driver) {
-            return redirect('/driver/index');
+            \abort(419);
         }
 
         if (isset($cookie)) { //check have cookie.
@@ -124,7 +124,7 @@ class DriverController extends Controller
 
                 $driver = User::where('id', $user_id)->where('secure_code', $token)->first();
                 if (!$driver) {
-                    return redirect('/driver/index');
+                    \abort(419);
                 }
 
                 $appointment = Appointment::where('id', $id)->first();
@@ -159,7 +159,7 @@ class DriverController extends Controller
                 $driver = User::where('id', $user_id)->where('secure_code', $token)->first();
                 // dd($driver);
                 if (!$driver) {
-                    return redirect('/driver/index');
+                    \abort(419);
                 }
 
                 $appointment = Appointment::where('id', $id)->first();

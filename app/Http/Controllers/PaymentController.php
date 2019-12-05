@@ -176,7 +176,7 @@ class PaymentController extends Controller
 
         // dd(isset($auth));
 
-        if (isset($auth)) {
+        if ($auth) {
 
             if (isset($cookie)) {
 
@@ -228,7 +228,7 @@ class PaymentController extends Controller
             }
             return redirect('/');
         }
-        \abort(404);
+        \abort(419);
     }
 
     public function parent_list($id, $token)
@@ -286,7 +286,7 @@ class PaymentController extends Controller
             return redirect('/');
         }
 
-        \abort(404);
+        \abort(419);
     }
 
     public function store()
