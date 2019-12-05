@@ -101,25 +101,26 @@ class RegisterStudentController extends Controller
 
         // dd($student);
 
-        foreach ($student as $u) {
+        foreach ($student as $s) {
             // dd($u);
 
 
-            if ($u) {
+            if ($s) {
 
-                $school = School::where('id', $u->school_id)->first();
+                $school = School::where('id', $s->school_id)->first();
 
                 $data['info'][0] = [
 
-                    'no' => $u->id,
-                    'image' => $u->image,
-                    'prefix' => $u->prefix,
-                    'first_name' => $u->first_name,
-                    'last_name' => $u->last_name,
-                    'nickname' => $u->nickname,
-                    'phone' => $u->phone,
+                    'no' => $s->id,
+                    'image' => $s->image,
+                    'prefix' => $s->prefix,
+                    'first_name' => $s->first_name,
+                    'last_name' => $s->last_name,
+                    'nickname' => $s->nickname,
+                    'phone' => $s->phone,
+                    'school_id' => $s->school_id,
                     'school' => $school->name_school,
-                    'car_id' => $u->car_id,
+                    'car_id' => $s->car_id,
 
 
 
@@ -128,27 +129,42 @@ class RegisterStudentController extends Controller
             }
         }
 
-        // dd($data['info']);
         return view('admin.student_edit', [
+
             'datas' => $data['info'],
-            // 'no' => $user->id,
-            // 'prefix' => $user->prefix,
-            // 'image' => $user->image,
-            // 'relation' => $relation->name,
-            // 'username' => $user->username,
-            // 'first_name' => $user->first_name,
-            // 'last_name' => $user->last_name,
-            // 'phone' => $user->phone,
-            // 'line_id' => $user->line_id,
-            // 'email' => $user->email,
-            // 'address' => $user->address,
-            // 'date' => $user->created_at,
-            // 'lat' => $user->lattitude,
-            // 'long' => $user->longtitude,
-            // 'district' =>
 
         ]);
-        // return view('admin.student_edit', compact('student'));
+    }
+
+    public function update_student()
+    {
+        // dd($this->request->all());
+
+        $student = Student::where('id', $this->request->input('student_id'))->first();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('userprofile_picture')) {
+            $image_filename = $this->request->file('userprofile_picture')->getClientOriginalName();
+            $image_name = $this->request->input('first_name') . '_' . $image_filename;
+            $public_path = 'images/Students/';
+            $destination = base_path() . "/public/" . $public_path;
+            $this->request->file('userprofile_picture')->move($destination, $image_name);
+            $student->image = $public_path . $image_name;
+        }
+
+        $student->school_id = $this->request->input('school_id');
+        $student->car_id = $this->request->input('car_id');
+        $student->prefix = $this->request->input('prefix');
+        $student->first_name = $this->request->input('first_name');
+        $student->last_name = $this->request->input('last_name');
+        $student->nickname = $this->request->input('nickname');
+        $student->phone = $this->request->input('phone');
+        $student->save();
+
+        DB::commit();
+
+        return redirect('/admin/management/parent');
     }
 
 

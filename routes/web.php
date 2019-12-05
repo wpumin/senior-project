@@ -114,13 +114,15 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::post('/management/parent/store', 'RegisterUserController@store_user');
 
-    Route::get('/management/student/edit/{id}', 'RegisterStudentController@edit_student');
-
     Route::get('/management/parent/edit/{id}', 'RegisterUserController@edit_user');
 
     Route::post('/management/parent/update', 'RegisterUserController@update_user');
 
     Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
+
+    Route::get('/management/student/edit/{id}', 'RegisterStudentController@edit_student');
+
+    Route::post('/management/student/update', 'RegisterStudentController@update_student');
 
     // Route::get('/management/student/edit',  function () {
     //     return view('admin.student_edit');

@@ -72,10 +72,6 @@ class ParentController extends Controller
 
                                     'id' => $n->id,
                                     'image' => $n->image,
-                                    // 'created_at' => $n->news_at,
-                                    // 'name' => $user->username,
-                                    // 'status' => $n->news_statuses_id
-
 
 
                                 ];
@@ -85,11 +81,6 @@ class ParentController extends Controller
 
                                     'id' => null,
                                     'image' => null,
-                                    // 'created_at' => $n->news_at,
-                                    // 'name' => $user->username,
-                                    // 'status' => $n->news_statuses_id
-
-
 
                                 ];
                             }
@@ -99,11 +90,6 @@ class ParentController extends Controller
 
                                 'id' => null,
                                 'image' => null,
-                                // 'created_at' => $n->news_at,
-                                // 'name' => $user->username,
-                                // 'status' => $n->news_statuses_id
-
-
 
                             ];
                         }
@@ -114,18 +100,9 @@ class ParentController extends Controller
 
                         'id' => null,
                         'image' => null,
-                        // 'created_at' => $n->news_at,
-                        // 'name' => $user->username,
-                        // 'status' => $n->news_statuses_id
-
-
 
                     ];
                 }
-
-
-
-                // dd($data['info']);
 
                 return view('parent.index', [
                     'datas' => $data['info'],

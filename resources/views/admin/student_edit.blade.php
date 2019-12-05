@@ -21,7 +21,7 @@
                 {{-- @csrf --}}
 
                 @foreach($datas as $key=>$data)
-
+            <input type="hidden" id="student_id" name="student_id" value="{{ $data['no'] }}">
                 <div class="row" id="student-profile">
                     <div class="col-lg-12 col-12 form-group mb-2">
                         <div class="heading-layout1">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" required name="prefix[]">
+                                <select class="select2" required name="prefix">
                                         <option value="{{ $data['prefix'] }}" selected>{{ $data['prefix'] }}</option>
                                     <option value="">คำนำหน้า</option>
                                     <option value="เด็กชาย">เด็กชาย</option>
@@ -65,8 +65,8 @@
                                 <input required type="text" name="phone" value="{{ $data['phone'] }}" placeholder="เบอร์โทร" class="form-control">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" required name="school">
-                                        <option value="{{ $data['school'] }}" selected>{{ $data['school'] }}</option>
+                                <select class="select2" required name="school_id">
+                                        <option value="{{ $data['school_id'] }}" selected>{{ $data['school'] }}</option>
                                     <option value="">โรงเรียน</option>
                                     <option value="1">หนองฉางวิทยา</option>
                                     <option value="2">ธรรมานุวัตร</option>
@@ -74,7 +74,7 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2"required name="car">
+                                <select class="select2"required name="car_id">
                                         <option value="{{ $data['car_id'] }}" selected>คันที่ {{ $data['car_id'] }}</option>
                                     <option value="">ประจำคันรถ</option>
                                     <option value="1">คันที่ 1: สินาท</option>

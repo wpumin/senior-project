@@ -225,6 +225,7 @@ class RegisterUserController extends Controller
                     'no' => $user->id,
                     'prefix' => $user->prefix,
                     'image' => $user->image,
+                    'relationship_id' => $user->relationship_id,
                     'relation' => $relation->name,
                     'username' => $user->username,
                     'first_name' => $user->first_name,
@@ -247,9 +248,60 @@ class RegisterUserController extends Controller
 
     public function update_user()
     {
+        // dd($this->request->all());
+
+        $this->validate($this->request, [
+
+            'parent_password' => 'min:5|max:35',
+            'parent_password_confirm' => 'min:5|max:35|same:parent_password',
 
 
-        dd($this->request->all());
+        ], [
+
+            'parent_password' => '* กรุณาตั้งรหัสผ่านมากกว่า 5 ตัว',
+            'parent_password_confirm' => '* รหัสผ่านไม่ตรงกัน',
+
+            // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
+            // 'message.required' => 'กรุณาใส่รายละเอียด'
+        ]);
+
+        $user = User::where('id', $this->request->input('user_id_update'))->first();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('parentImage0')) {
+            $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
+            $image_name = $this->request->input('first_name') . '_' . $image_filename;
+            $public_path = 'images/Users/';
+            $destination = base_path() . "/public/" . $public_path;
+            $this->request->file('parentImage0')->move($destination, $image_name);
+            $user->image = $public_path . $image_name;
+        }
+
+        // 'image' => $this->request->input('image'),
+        // $user->role_id = $this->request->input('role_id');
+        $user->relationship_id = $this->request->input('parent_relation');
+        // $user->car_id = $this->request->input('car_id');
+        $user->prefix = $this->request->input('prefix_parent');
+        $user->first_name = $this->request->input('parent_fname');
+        $user->last_name = $this->request->input('parent_lname');
+        $user->phone = $this->request->input('parent_phone');
+        $user->line_id = $this->request->input('parent_line_id');
+        $user->email = $this->request->input('parent_email');
+        $user->address = $this->request->input('parent_address');
+        $user->username = $this->request->input('parent_username');
+
+        if ($this->request->input('parent_password') != null) {
+            $user->password = Hash::make($this->request->input('parent_password'));
+        }
+
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
+
+        $user->save();
+
+        DB::commit();
+        return redirect('admin/management/parent');
     }
 
     public function del_user($id)
