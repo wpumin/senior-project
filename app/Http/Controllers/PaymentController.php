@@ -293,12 +293,10 @@ class PaymentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
 
-        // dd($this->request->get('token'));
-
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '1') {
-                // dd($this->request->all());
+
 
                 $this->validate($this->request, [
 
@@ -308,9 +306,7 @@ class PaymentController extends Controller
                     'date' => 'required',
                     'bank_id' => 'required',
                     'price' => 'required',
-                    // 'release_date' => '',
-                    // 'release_time' => '',
-                    // 'content' => '',
+
 
                 ], [
                     'payment_log_id.required' => '* กรุณาเลือกรายการที่ต้องการชำระ',
@@ -321,16 +317,8 @@ class PaymentController extends Controller
                     'price.required' => '* กรุณากรอกจำนวนเงินตามใบเสร็จที่ชำระเงิน',
                     'imgInp.image' => '* ไฟล์ต้องเป็นสกุลไฟล์ jpg, jpeg, png, gif เท่านั้น',
 
-                    // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
-                    // 'message.required' => 'กรุณาใส่รายละเอียด'
                 ]);
 
-
-                // $day = date('d');
-                // $month = date('m');
-                // $year = date('Y') + 543;
-
-                // $full = $day . '/' . $month . '/' . $year;
 
                 DB::beginTransaction();
 
@@ -338,7 +326,7 @@ class PaymentController extends Controller
                 $bill = Payment_inform::create($this->request->all());
 
                 $bill->pm_status_id = 3;
-                // dd($bill);
+
                 if ($this->request->has('imgInp')) {
                     $image_filename = $this->request->file('imgInp')->getClientOriginalName();
                     $image_name =  $image_filename;
@@ -347,14 +335,13 @@ class PaymentController extends Controller
                     $this->request->file('imgInp')->move($destination, $image_name);
                     $bill->imgInp = $public_path . $image_name;
 
-                    // dd($bill->image);
                     $bill->save();
 
                     $log_bill = Payment_log::where('id', $this->request->input('payment_log_id'))->first();
                     $log_bill->pm_status_id = 3;
                     $log_bill->save();
                 }
-                // $bill->save();
+
 
                 DB::commit();
 
@@ -370,7 +357,7 @@ class PaymentController extends Controller
     public function admin_list($car)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 
@@ -393,7 +380,6 @@ class PaymentController extends Controller
                 $display_year = date('Y') + 543;
 
                 $month = date('m');
-                // dd($test);
 
 
                 $data['info'] = [];
@@ -428,8 +414,6 @@ class PaymentController extends Controller
                                 $status_3++;
                             }
 
-                            // dd(date('m'));
-
                             if ($b->month == date('m')) {
 
 
@@ -448,8 +432,6 @@ class PaymentController extends Controller
                         }
                     }
                 }
-
-                // dd($data['info']);
 
 
                 return view('admin.payment_overview', [
@@ -470,7 +452,7 @@ class PaymentController extends Controller
     public function confirm($car, $id)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 
@@ -512,15 +494,12 @@ class PaymentController extends Controller
                         $log = Payment_log::where('id', $d->payment_log_id)->first();
                         $std = Student::where('id', $log->student_id)->first();
 
-                        // dd($d);
-
                         if ($std->car_id == $car) {
 
                             $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
                             $school = School::where('id', $std->school_id)->first();
                             $district = District::where('id', $std->district_id)->first();
 
-                            // dd($parent);
 
                             if ($d->bank_id == '1') {
 
@@ -560,7 +539,6 @@ class PaymentController extends Controller
                         }
                     }
                 }
-                // dd($data['info']);
 
                 return view('admin.payment_confirm', [
                     'datas' => $data['info'],

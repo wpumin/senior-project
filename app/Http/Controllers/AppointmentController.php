@@ -74,8 +74,6 @@ class AppointmentController extends Controller
     public function createAppointment()
     {
 
-        // dd($this->request->all());
-
         try {
 
             $this->validate($this->request, [
@@ -89,18 +87,7 @@ class AppointmentController extends Controller
                 'period_time_id.required' => '* กรุณาเลือกช่วงเวลาที่ต้องการนัดหมาย',
                 'appointment_at.required' => '* กรุณาเลือกวันที่ที่ต้องการนัดหมาย'
             ]);
-            // $validate = Validator::make($this->request->all(), [
-            //     'user_id' => 'required',
-            //     'student_id' => 'required',
-            //     'period_time_id' => 'required',
-            //     'appointment_at' => 'required',
-            //     // 'content' => ''
-            // ]);
-            // if ($validate->fails()) {
-            //     // throw new LogicException($validate->errors());
-            //     $errors = $validate->errors();
-            //     return $this->responseRequestError('field_required');
-            // }
+
             $app = Appointment::where('student_id', $this->request->input('student_id'))->where('appointment_at', $this->request->input('appointment_at'))->where('period_time_id', $this->request->input('period_time_id'))->first();
 
             if ($app) {
@@ -124,16 +111,13 @@ class AppointmentController extends Controller
                 'app_status_id' => 1,
                 'period_time_id' => $this->request->input('period_time_id'),
                 'appointment_at' => $this->request->input('appointment_at'),
-                // 'content' => $this->request->input('content'),
+
             ]);
 
-            // $student = Student::where('id', $this->request->input('student_id'))->first();
-            // $student->std_status_id = 4;
-            // $student->save();
+
 
             DB::commit();
             return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
-            // return $this->responseRequestSuccess('success');
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }

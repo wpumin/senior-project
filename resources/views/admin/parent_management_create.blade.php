@@ -149,10 +149,10 @@
                         <input id="address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <input id="lat" value="" type="number" name="lattitude" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
+                        <input id="lat" value="" type="number" name="lattitude" required readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <input id="lon" value="" type="number" name="longtitude" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
+                        <input id="lon" value="" type="number" name="longtitude" required readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
                         <select class="select2" required name="district_id">

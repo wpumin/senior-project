@@ -178,12 +178,12 @@ class RegisterUserController extends Controller
 
                 $user = User::where('id', $id)->first();
 
+
                 $data['info'] = [];
                 $count = 0;
 
                 $students = Student::where('user_id', $user->id)->get();
 
-                // dd($user->role_id);
 
                 if ($user->role_id == '1') {
 
@@ -192,8 +192,6 @@ class RegisterUserController extends Controller
 
 
                 foreach ($students as $u) {
-                    // dd($u);
-
 
                     if ($u) {
 
@@ -211,14 +209,9 @@ class RegisterUserController extends Controller
                             'school' => $school->name_school,
                             'car_id' => $u->car_id,
 
-
-
-
                         ];
                     }
                 }
-
-                // dd($data['info']);
 
                 return view('admin.parent_management_edit', [
                     'datas' => $data['info'],
@@ -248,7 +241,6 @@ class RegisterUserController extends Controller
 
     public function update_user()
     {
-        // dd($this->request->all());
 
         $this->validate($this->request, [
 
@@ -261,8 +253,6 @@ class RegisterUserController extends Controller
             'parent_password' => '* กรุณาตั้งรหัสผ่านมากกว่า 5 ตัว',
             'parent_password_confirm' => '* รหัสผ่านไม่ตรงกัน',
 
-            // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
-            // 'message.required' => 'กรุณาใส่รายละเอียด'
         ]);
 
         $user = User::where('id', $this->request->input('user_id_update'))->first();
@@ -278,10 +268,7 @@ class RegisterUserController extends Controller
             $user->image = $public_path . $image_name;
         }
 
-        // 'image' => $this->request->input('image'),
-        // $user->role_id = $this->request->input('role_id');
         $user->relationship_id = $this->request->input('parent_relation');
-        // $user->car_id = $this->request->input('car_id');
         $user->prefix = $this->request->input('prefix_parent');
         $user->first_name = $this->request->input('parent_fname');
         $user->last_name = $this->request->input('parent_lname');
@@ -307,7 +294,7 @@ class RegisterUserController extends Controller
     public function del_user($id)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 
@@ -319,7 +306,7 @@ class RegisterUserController extends Controller
                 $count = 0;
 
                 $users = User::get();
-                // dd($users);
+
 
                 foreach ($users as $u) {
 
@@ -339,7 +326,7 @@ class RegisterUserController extends Controller
                     }
                 }
 
-                // dd($data['info']);
+
 
                 return view('admin.parent_management', [
                     'datas' => $data['info'],
@@ -353,7 +340,6 @@ class RegisterUserController extends Controller
     public function create()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -368,8 +354,6 @@ class RegisterUserController extends Controller
 
     public function store_user()
     {
-        // dd($this->request->all());
-        // dd($this->request->input('prefix')[0]);
 
         $user = new User();
 
@@ -384,7 +368,6 @@ class RegisterUserController extends Controller
             $user->image = $public_path . $image_name;
         }
 
-        // 'image' => $this->request->input('image'),
         $user->role_id = 1;
         $user->relationship_id = $this->request->input('parent_relation');
         $user->car_id = null;
@@ -418,7 +401,6 @@ class RegisterUserController extends Controller
                 $student->image = $public_path . $image_name;
             }
 
-            // 'image' => $this->request->input('image'),
             $student->user_id = $user->id;
             $student->std_status_id = 1;
             $student->school_id = $this->request->input('school')[$i];
@@ -430,8 +412,6 @@ class RegisterUserController extends Controller
             $student->last_name = $this->request->input('last_name')[$i];
             $student->nickname = $this->request->input('nickname')[$i];
             $student->phone = "ไม่มีข้อมูล";
-            // $student->lattitude = $this->request->input('lattitude');
-            // $student->longtitude = $this->request->input('longtitude');
 
 
             $student->save();
@@ -457,7 +437,7 @@ class RegisterUserController extends Controller
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($users);
+
 
                 foreach ($users as $u) {
 
@@ -479,7 +459,7 @@ class RegisterUserController extends Controller
                     }
                 }
 
-                // dd($data['info']);
+
 
                 return view('admin.staff_management', [
                     'datas' => $data['info'],
@@ -493,7 +473,7 @@ class RegisterUserController extends Controller
     public function staff()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 

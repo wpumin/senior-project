@@ -22,7 +22,7 @@ class ReportController extends Controller
 
     public function createReport()
     {
-        // dd($this->request->all());
+
         try {
 
             $this->validate($this->request, [
@@ -41,26 +41,10 @@ class ReportController extends Controller
                 'message.max' => '* ความยาวข้อความต้องมีความยาวไม่เกิน 200 อักขระ'
             ]);
 
-            // $validate = Validator::make($this->request->all(), [
-            //     'user_id' => 'required',
-            //     'type_id' => 'required',
-            //     'title' => 'required',
-            //     'message' => 'required',
-            // ]);
-
-            // if ($validate->fails()) {
-            //     $errors = $validate->errors();
-            //     return $this->responseRequestError('field_required');
-            // }
             $day = date('d');
             $month = date('m');
             $year = date('Y') + 543;
 
-
-            // $name_month = ["ว่าง", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
-
-            // // $word = 'บิล ของเดือน "' . $name_month[$month] . '" เข้าแล้ว.';
-            // // dd(strval($word));
 
             $full = $day . '/' . $month . '/' . $year;
 
@@ -75,7 +59,6 @@ class ReportController extends Controller
             DB::commit();
 
             return redirect('parent/report/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
-            // return $this->responseRequestSuccess($res['data']);
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
@@ -83,12 +66,12 @@ class ReportController extends Controller
 
     public function list_report()
     {
-        // dd($this->request->cookie('role_id'));
+
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
-            // dd(!isset($cookie));
+
             if ($this->request->cookie('role_number') == '3') {
 
                 $reports = Report::orderBy('reports.report_at', 'desc')->orderBy('reports.created_at', 'desc')->get();
@@ -96,7 +79,7 @@ class ReportController extends Controller
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($reports);
+
 
                 foreach ($reports as $d) {
 
@@ -123,7 +106,6 @@ class ReportController extends Controller
                 $data['info_news'] = [];
                 $count_news = 0;
 
-                // dd($news);
                 if ($news) {
 
                     foreach ($news as $n) {
@@ -161,7 +143,6 @@ class ReportController extends Controller
                     ];
                 }
 
-                // dd($data['info_news']);
 
                 return view('admin.index', [
                     'data' => $data['info'],
@@ -177,43 +158,25 @@ class ReportController extends Controller
     public function show_news($id)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '3') {
 
-                // dd($id);
                 $news = News::where('id', $id)->first();
                 $user = User::where('id', $news->user_id)->first();
-                // dd($news);
+
                 $d = date('d');
                 $m = date('m');
                 $y = date('Y') + 543;
 
-                // dd($d);
 
                 $full = $d . '/' . $m . '/' . $y;
                 $time_now = date('H:i');
 
-                // dd($full);
-                // dd($news[0]['release_time'] > $time_now);
-
-                // dd($news[0]['news_at'] > $full);
 
                 $data['info'] = [];
                 $count = 0;
-
-                // dd($news->news_at);
-
-                // foreach ($news as $n) {
-                // dd($n->release_time > $time_now);
-
-
-
-                // }
-
-                // dd($data['info']);
 
                 return view('news.news_detail', [
                     'id' => $news->id,
