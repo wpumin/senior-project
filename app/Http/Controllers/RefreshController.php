@@ -218,6 +218,7 @@ class RefreshController extends Controller
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
             ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school', 'users.lattitude', 'users.longtitude')->where('cars.id', $this->request->car_id)
+            ->orderBy('students.std_status_id', 'desc')
             ->get();
         $data['student'] = $users;
         $data['student_info'] = [];

@@ -92,6 +92,15 @@ class LoginController extends Controller
     }
     /*
     |--------------------------------------------------------------------------
+    | function สำหรับ Random String
+    |--------------------------------------------------------------------------
+     */
+    protected function strRandom_ref($length = 6)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
+    }
+    /*
+    |--------------------------------------------------------------------------
     | ตัวเข้ารหัส JWT
     |--------------------------------------------------------------------------
      */

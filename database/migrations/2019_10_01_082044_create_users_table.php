@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('username');
             $table->string('password');
+            $table->string('secure_code')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
             $table->string('token')->nullable();

@@ -18,6 +18,8 @@
             <form action="{{url('admin/management/parent/update')}}" method="POST" enctype="multipart/form-data" id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
                 <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
                 <input type="hidden" id="token" name="token" value="<?php echo $_COOKIE['Authorization'] ?>">
+
+            <input type="hidden" id="user_id_update" name="user_id_update" value="{{ $no }}">
                 {{-- @csrf --}}
                 <div class="row">
                     <div class="col-lg-12 col-12 form-group">
@@ -47,7 +49,7 @@
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <select class="select2"required name="parent_relation">
-                            <option value="{{ $relation }}" selected>{{ $relation }}</option>
+                            <option value="{{ $relationship_id }}" selected>{{ $relation }}</option>
                             <option value="">ความสัมพันธ์</option>
                             <option value="1">พ่อ</option>
                             <option value="2">แม่</option>
@@ -60,11 +62,25 @@
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <input required type="text" placeholder="ไลน์ไอดี" name="parent_line_id" class="form-control" value="{{ $line_id }}">
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_email') ? 'has-error' : '' }}>
                         <input required type="email" placeholder="อีเมล" name="parent_email" class="form-control" value="{{ $email }}">
+                        @if ($errors->has('parent_email'))
+
+                        <span class="help-block">
+                            {{$errors->first('parent_email')}}
+                        </span>
+
+                        @endif
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_email_confirm') ? 'has-error' : '' }}>
                         <input required type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control" value="{{ $email }}">
+                        @if ($errors->has('parent_email_confirm'))
+
+                        <span class="help-block">
+                            {{$errors->first('parent_email_confirm')}}
+                        </span>
+
+                        @endif
                     </div>
                     <div class="col-xl-12 col-12 form-group">
                         <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6" style="height: 156.4px;" >{{ $address }}</textarea>
@@ -72,11 +88,27 @@
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <input required type="text" placeholder="ชื่อผู้ใช้" name="parent_username" class="form-control" value="{{ $username }}">
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_password') ? 'has-error' : '' }}>
                         <input  type="password" placeholder="รหัสผ่าน" name="parent_password" class="form-control">
+                        @if ($errors->has('parent_password'))
+
+                    <span class="help-block">
+                        {{$errors->first('parent_password')}}
+                    </span>
+
+                    @endif
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input  type="password" placeholder="ยืนยันรหัสผ่าน" name="parent_password_confirm" class="form-control">
+                        <input  type="password" placeholder="ยืนยันรหัสผ่าน" name="parent_password_confirm" class="form-control" {{ $errors->has('parent_password_confirm') ? 'has-error' : '' }}>
+
+
+                        @if ($errors->has('parent_password_confirm'))
+
+                        <span class="help-block">
+                            {{$errors->first('parent_password_confirm')}}
+                        </span>
+
+                        @endif
                     </div>
                     {{-- สร้าง function with parameter send pass ajax with data (User)  --}}
                     <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
@@ -101,7 +133,7 @@
                             <div class="uploader" onclick="$('#studentImage1').click()">
                                 <span class='flaticon-photo'></span>
                                 <img src="{{asset($data['image'])}}" alt="Profile Image" class="text-center" id="image1"/>
-                                <input type="file" name="userprofile_picture[]" id="studentImage1" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
+                                {{-- <input readonly type="file" name="userprofile_picture[]" id="studentImage1" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" /> --}}
                             </div>
                             <div class="text-center mt-3">
                                 <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
@@ -109,47 +141,46 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" required name="prefix[]">
+                                <select class="select2" name="prefix[]">
                                     <option value="{{ $data['prefix'] }}" selected>{{ $data['prefix'] }}</option>
-                                    <option value="">คำนำหน้า</option>
+                                    {{-- <option value="">คำนำหน้า</option>
                                     <option value="เด็กชาย">เด็กชาย</option>
                                     <option value="เด็กหญิง">เด็กหญิง</option>
                                     <option value="นาย">นาย</option>
                                     <option value="นาง">นาง</option>
-                                    <option value="นางสาว">นางสาว</option>
+                                    <option value="นางสาว">นางสาว</option> --}}
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="first_name[]" placeholder="ชื่อ" class="form-control" value="{{ $data['first_name'] }}">
+                                <input readonly type="text" name="first_name[]" placeholder="ชื่อ" class="form-control" value="{{ $data['first_name'] }}">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="last_name[]" placeholder="นามสกุล" class="form-control" value="{{ $data['last_name'] }}">
+                                <input readonly type="text" name="last_name[]" placeholder="นามสกุล" class="form-control" value="{{ $data['last_name'] }}">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control" value="{{ $data['nickname'] }}">
+                                <input readonly type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control" value="{{ $data['nickname'] }}">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control" value="{{ $data['phone'] }}">
+                                <input readonly type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control" value="{{ $data['phone'] }}">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
                                 <select class="select2" required name="school[]">
                                         <option value="{{ $data['school'] }}" selected>{{ $data['school'] }}</option>
-                                    <option value="">โรงเรียน</option>
+                                    {{-- <option value="">โรงเรียน</option>
                                     <option value="1">หนองฉางวิทยา</option>
                                     <option value="2">ธรรมานุวัตร</option>
-                                    <option value="3">วัดหนองขุนชาติ</option>
+                                    <option value="3">วัดหนองขุนชาติ</option> --}}
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
                                 <select class="select2"required name="car[]">
                                         <option value="{{ $data['car_id'] }}" selected>คันที่ {{ $data['car_id'] }}</option>
-                                    <option value="">ประจำคันรถ</option>
-                                    <option value="1">คันที่ 1</option>
-                                    <option value="2">คันที่ 2</option>
+
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group text-right">
-                            <a href="{{ url('admin/management/student/edit') }}" class="text-center text-white btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"> แก้ไข</a>
+
+                            <a href="<?php echo "/admin/management/student/edit/"; ?>{{ $data['no'] }}" class="text-center text-white btn-fill-lg bg-blue-dark btn-hover-yellow w-100" style="margin-bottom: 2.3rem;"> แก้ไข</a>
                             </div>
                         </div>
                         {{-- <hr class="mb-5 hr-adduser"> --}}
@@ -177,7 +208,7 @@
                         <input id="lon" value="{{ $long }}" type="number" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" required readonly>
+                        <select class="select2" required readonly name="district_id">
                                 {{-- <option value="{{ $data['school'] }}" selected>{{ $data['school'] }}</option> --}}
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>

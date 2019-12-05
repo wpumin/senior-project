@@ -63,7 +63,7 @@
                                 <td>{{ $data['date'] }}</td>
                                 <td>
                                     {{-- {{ url('admin/management/staff/edit') }} --}}
-                                    <a href="#"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
+                                <a href="<?php echo "/admin/management/staff/edit/"; ?>{{ $data['id'] }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
                                 </td>
                             </tr>
                             <?php $count++ ?>

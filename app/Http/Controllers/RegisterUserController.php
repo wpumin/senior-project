@@ -8,6 +8,7 @@ use App\Role;
 use App\School;
 use App\Student;
 use App\User;
+use Exception;
 use LogicException;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -109,6 +110,7 @@ class RegisterUserController extends Controller
             $user->password = Hash::make($this->request->password);
             $user->lattitude = $this->request->input('lattitude');
             $user->longtitude = $this->request->input('longtitude');
+            $user->secure_code = $this->strRandom_ref();
 
             $user->save();
 
@@ -118,7 +120,6 @@ class RegisterUserController extends Controller
             return response()->json($this->formatResponse($e->getMessage()));
         }
     }
-
     public function list_user()
     {
         $cookie = $this->request->cookie('role_number');
@@ -178,12 +179,12 @@ class RegisterUserController extends Controller
 
                 $user = User::where('id', $id)->first();
 
+
                 $data['info'] = [];
                 $count = 0;
 
                 $students = Student::where('user_id', $user->id)->get();
 
-                // dd($user->role_id);
 
                 if ($user->role_id == '1') {
 
@@ -192,8 +193,6 @@ class RegisterUserController extends Controller
 
 
                 foreach ($students as $u) {
-                    // dd($u);
-
 
                     if ($u) {
 
@@ -211,20 +210,16 @@ class RegisterUserController extends Controller
                             'school' => $school->name_school,
                             'car_id' => $u->car_id,
 
-
-
-
                         ];
                     }
                 }
-
-                // dd($data['info']);
 
                 return view('admin.parent_management_edit', [
                     'datas' => $data['info'],
                     'no' => $user->id,
                     'prefix' => $user->prefix,
                     'image' => $user->image,
+                    'relationship_id' => $user->relationship_id,
                     'relation' => $relation->name,
                     'username' => $user->username,
                     'first_name' => $user->first_name,
@@ -236,7 +231,7 @@ class RegisterUserController extends Controller
                     'date' => $user->created_at,
                     'lat' => $user->lattitude,
                     'long' => $user->longtitude,
-                    // 'district' => 
+                    // 'district' =>
 
                 ]);
             }
@@ -248,14 +243,62 @@ class RegisterUserController extends Controller
     public function update_user()
     {
 
+        $this->validate($this->request, [
 
-        dd($this->request->all());
+            'parent_password' => 'min:5|max:35',
+            'parent_password_confirm' => 'min:5|max:35|same:parent_password',
+            'parent_email' => '',
+            'parent_email_confirm' => 'same:parent_email'
+
+
+        ], [
+
+            'parent_password' => '* กรุณาตั้งรหัสผ่านมากกว่า 5 ตัว',
+            'parent_password_confirm' => '* รหัสผ่านไม่ตรงกัน',
+
+        ]);
+
+        $user = User::where('id', $this->request->input('user_id_update'))->first();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('parentImage0')) {
+            $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
+            $image_name = $this->request->input('first_name') . '_' . $image_filename;
+            $public_path = 'images/Users/';
+            $destination = base_path() . "/public/" . $public_path;
+            $this->request->file('parentImage0')->move($destination, $image_name);
+            $user->image = $public_path . $image_name;
+        }
+
+        $user->relationship_id = $this->request->input('parent_relation');
+        $user->prefix = $this->request->input('prefix_parent');
+        $user->first_name = $this->request->input('parent_fname');
+        $user->last_name = $this->request->input('parent_lname');
+        $user->phone = $this->request->input('parent_phone');
+        $user->line_id = $this->request->input('parent_line_id');
+        $user->email = $this->request->input('parent_email');
+        $user->address = $this->request->input('parent_address');
+        $user->username = $this->request->input('parent_username');
+
+        if ($this->request->input('parent_password') != null) {
+            $user->password = Hash::make($this->request->input('parent_password'));
+        }
+
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
+        $user->secure_code = $this->strRandom_ref();
+
+        $user->save();
+
+        DB::commit();
+        return redirect('admin/management/parent');
     }
 
     public function del_user($id)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 
@@ -267,7 +310,7 @@ class RegisterUserController extends Controller
                 $count = 0;
 
                 $users = User::get();
-                // dd($users);
+
 
                 foreach ($users as $u) {
 
@@ -287,7 +330,7 @@ class RegisterUserController extends Controller
                     }
                 }
 
-                // dd($data['info']);
+
 
                 return view('admin.parent_management', [
                     'datas' => $data['info'],
@@ -301,7 +344,6 @@ class RegisterUserController extends Controller
     public function create()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -312,6 +354,78 @@ class RegisterUserController extends Controller
             \abort(404);
         }
         return redirect('/');
+    }
+
+    public function store_user()
+    {
+
+        $user = new User();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('parentImage0')) {
+            $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
+            $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
+            $public_path = 'images/Users/';
+            $destination = base_path() . "/public/" . $public_path;
+            $this->request->file('parentImage0')->move($destination, $image_name);
+            $user->image = $public_path . $image_name;
+        }
+
+        $user->role_id = 1;
+        $user->relationship_id = $this->request->input('parent_relation');
+        $user->car_id = null;
+        $user->prefix = $this->request->input('prefix_parent');
+        $user->first_name = $this->request->input('parent_fname');
+        $user->last_name = $this->request->input('parent_lname');
+        $user->phone = $this->request->input('parent_phone');
+        $user->line_id = $this->request->input('parent_line_id');
+        $user->email = $this->request->input('parent_email');
+        $user->address = $this->request->input('address');
+        $user->username = $this->request->input('parent_username');
+        $user->password = Hash::make($this->request->input('parent_password'));
+        // $user->district_id = $this->request->input('district_id');
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
+        $user->secure_code = $this->strRandom_ref();
+
+        $user->save();
+        DB::commit();
+
+        for ($i = 0; $i < count($this->request->input('prefix')); $i++) {
+
+            $student = new Student();
+            DB::beginTransaction();
+
+            if ($this->request->file('userprofile_picture')[$i]) {
+                $image_filename = $this->request->file('userprofile_picture')[$i]->getClientOriginalName();
+                $image_name = $this->request->input('first_name')[$i] . '_' . $image_filename;
+                $public_path = 'images/Students/';
+                $destination = base_path() . "/public/" . $public_path;
+                $this->request->file('userprofile_picture')[$i]->move($destination, $image_name);
+                $student->image = $public_path . $image_name;
+            }
+
+            $student->user_id = $user->id;
+            $student->std_status_id = 1;
+            $student->school_id = $this->request->input('school')[$i];
+            $student->car_id = $this->request->input('car')[$i];
+            $student->district_id = $this->request->input('district_id')[$i];
+            $student->card_id = "xxxxxxxx";
+            $student->prefix = $this->request->input('prefix')[$i];
+            $student->first_name = $this->request->input('first_name')[$i];
+            $student->last_name = $this->request->input('last_name')[$i];
+            $student->nickname = $this->request->input('nickname')[$i];
+            $student->phone = "ไม่มีข้อมูล";
+
+
+            $student->save();
+
+            DB::commit();
+        }
+
+
+        return redirect('admin/management/parent');
     }
 
     public function list_staff()
@@ -328,7 +442,7 @@ class RegisterUserController extends Controller
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($users);
+
 
                 foreach ($users as $u) {
 
@@ -338,6 +452,7 @@ class RegisterUserController extends Controller
 
                         $data['info'][$count++] = [
 
+                            'id' => $u->id,
                             'username' => $u->username,
                             'role' => $role->name,
                             'first_name' => $u->first_name,
@@ -350,7 +465,7 @@ class RegisterUserController extends Controller
                     }
                 }
 
-                // dd($data['info']);
+
 
                 return view('admin.staff_management', [
                     'datas' => $data['info'],
@@ -361,21 +476,7 @@ class RegisterUserController extends Controller
         }
         return redirect('/');
     }
-    public function staff()
-    {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
-        if (isset($cookie)) {
-
-            if ($this->request->cookie('role_number') == '3') {
-
-                return view('admin.staff_management_create');
-            }
-            \abort(404);
-        }
-        return redirect('/');
-    }
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง
@@ -397,5 +498,14 @@ class RegisterUserController extends Controller
         return response()->json(['status' => $status, 'data' => $ret, 'error' => $message], $statusCode)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ Random String
+    |--------------------------------------------------------------------------
+     */
+    protected function strRandom_ref($length = 6)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
     }
 }

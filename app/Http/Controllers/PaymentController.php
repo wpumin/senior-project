@@ -174,9 +174,9 @@ class PaymentController extends Controller
         // dd(isset($cookie));
         $auth = User::where('id', $id)->where('token', $token)->first();
 
-        // dd($auth);
+        // dd(isset($auth));
 
-        if ($auth) {
+        if (isset($auth)) {
 
             if (isset($cookie)) {
 
@@ -291,14 +291,13 @@ class PaymentController extends Controller
 
     public function store()
     {
-        $cookie = $this->request->cookie('role_number');
 
-        // dd($this->request->get('token'));
+        $cookie = $this->request->cookie('role_number');
 
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '1') {
-                // dd($this->request->all());
+
 
                 $this->validate($this->request, [
 
@@ -322,16 +321,8 @@ class PaymentController extends Controller
                     'price.numeric' => '* กรุณากรอกเป็นตัวเลขเท่านั้น',
                     'imgInp.image' => '* ไฟล์ต้องเป็นสกุลไฟล์ jpg, jpeg, png, gif เท่านั้น',
 
-                    // 'type_id.required' => 'กรุณาเลือกประเภทที่แจ้ง',
-                    // 'message.required' => 'กรุณาใส่รายละเอียด'
                 ]);
 
-
-                // $day = date('d');
-                // $month = date('m');
-                // $year = date('Y') + 543;
-
-                // $full = $day . '/' . $month . '/' . $year;
 
                 DB::beginTransaction();
 
@@ -339,7 +330,7 @@ class PaymentController extends Controller
                 $bill = Payment_inform::create($this->request->all());
 
                 $bill->pm_status_id = 3;
-                // dd($bill);
+
                 if ($this->request->has('imgInp')) {
                     $image_filename = $this->request->file('imgInp')->getClientOriginalName();
                     $image_name =  $image_filename;
@@ -348,20 +339,19 @@ class PaymentController extends Controller
                     $this->request->file('imgInp')->move($destination, $image_name);
                     $bill->imgInp = $public_path . $image_name;
 
-                    // dd($bill->image);
                     $bill->save();
 
                     $log_bill = Payment_log::where('id', $this->request->input('payment_log_id'))->first();
                     $log_bill->pm_status_id = 3;
                     $log_bill->save();
                 }
-                // $bill->save();
+
 
                 DB::commit();
 
 
-                return redirect('parent/payment/overview/' . $this->request->get('user_id') . '/' . $this->request->get('token'));
-                return $this->responseRequestSuccess('success');
+                return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('token'));
+                // return $this->responseRequestSuccess('success');
             }
             \abort(404);
         }
@@ -371,7 +361,7 @@ class PaymentController extends Controller
     public function admin_list($car)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 
@@ -394,7 +384,6 @@ class PaymentController extends Controller
                 $display_year = date('Y') + 543;
 
                 $month = date('m');
-                // dd($test);
 
 
                 $data['info'] = [];
@@ -429,8 +418,6 @@ class PaymentController extends Controller
                                 $status_3++;
                             }
 
-                            // dd(date('m'));
-
                             if ($b->month == date('m')) {
 
 
@@ -450,8 +437,6 @@ class PaymentController extends Controller
                     }
                 }
 
-                // dd($data['info']);
-
 
                 return view('admin.payment_overview', [
                     'data' => $data['info'],
@@ -468,10 +453,10 @@ class PaymentController extends Controller
         return redirect('/');
     }
 
-    public function confirm($car, $id)
+    public function confirm($car, $trankey)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+
 
         if (isset($cookie)) {
 
@@ -479,7 +464,7 @@ class PaymentController extends Controller
 
 
 
-                $bill_log = Payment_log::where('tran_key', $id)->first();
+                $bill_log = Payment_log::where('tran_key', $trankey)->first();
                 $bill_log->pm_status_id = 2;
                 $bill_log->save();
 
@@ -487,91 +472,9 @@ class PaymentController extends Controller
                 $bill_inform->pm_status_id = 2;
                 $bill_inform->save();
 
-                $inform = Payment_inform::get();
+                $stu = Student::where('id', $bill_log->student_id)->first();
 
-                $data['info'] = [];
-                $count = 0;
-
-
-                $bank_1 = 0;
-                $bank_2 = 0;
-                $bank_3 = 0;
-                $bank_4 = 0;
-
-                $month_sub = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
-                $month_now = $month_sub[date('m') - 1];
-                $year_now = date('Y') + 543;
-
-
-                foreach ($inform as $d) {
-
-
-
-                    if ($d->pm_status_id == '1') {
-
-
-                        $log = Payment_log::where('id', $d->payment_log_id)->first();
-                        $std = Student::where('id', $log->student_id)->first();
-
-                        // dd($d);
-
-                        if ($std->car_id == $car) {
-
-                            $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
-                            $school = School::where('id', $std->school_id)->first();
-                            $district = District::where('id', $std->district_id)->first();
-
-                            // dd($parent);
-
-                            if ($d->bank_id == '1') {
-
-                                $bank_1++;
-                            } else if ($d->bank_id == '2') {
-                                $bank_2++;
-                            } else if ($d->bank_id == '3') {
-                                $bank_3++;
-                            } else if ($d->bank_id == '4') {
-                                $bank_4++;
-                            }
-
-                            $data['info'][$count++] = [
-
-                                'id' => $d->payment_log_id,
-                                'status_bill' => $d->pm_status_id,
-                                'student_id' => $std->id,
-                                'tran_key' => $log->tran_key,
-                                'date' => $d->date . ' ' . $d->timepicker,
-                                'bank_id' => $d->bank_id,
-                                'bill_image' => $d->imgInp,
-
-                                'std_prefix' => $std->prefix,
-                                'std_first_name' => $std->first_name,
-                                'std_last_name' => $std->last_name,
-                                'nickname' => $std->nickname,
-                                'car_id' => $std->car_id,
-                                'parent_prefix' => $parent->prefix,
-                                'parent_first_name' => $parent->first_name,
-                                'parent_last_name' => $parent->last_name,
-                                'parent_phone' => $parent->phone,
-
-                                'school' => $school->name_school,
-
-                                'price' => $district->price,
-                            ];
-                        }
-                    }
-                }
-                // dd($data['info']);
-
-                return view('admin.payment_confirm', [
-                    'datas' => $data['info'],
-                    'bank_1' => $bank_1,
-                    'bank_2' => $bank_2,
-                    'bank_3' => $bank_3,
-                    'bank_4' => $bank_4,
-                    'month_now' => $month_now,
-                    'year_now' => $year_now
-                ]);
+                return redirect('/admin/payment/confirm/car' . $stu->car_id);
             }
             \abort(404);
         }
