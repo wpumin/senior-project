@@ -8,6 +8,7 @@ use App\Role;
 use App\School;
 use App\Student;
 use App\User;
+use Exception;
 use LogicException;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -246,6 +247,8 @@ class RegisterUserController extends Controller
 
             'parent_password' => 'min:5|max:35',
             'parent_password_confirm' => 'min:5|max:35|same:parent_password',
+            'parent_email' => '',
+            'parent_email_confirm' => 'same:parent_email'
 
 
         ], [
@@ -447,6 +450,7 @@ class RegisterUserController extends Controller
 
                         $data['info'][$count++] = [
 
+                            'id' => $u->id,
                             'username' => $u->username,
                             'role' => $role->name,
                             'first_name' => $u->first_name,
@@ -470,21 +474,7 @@ class RegisterUserController extends Controller
         }
         return redirect('/');
     }
-    public function staff()
-    {
-        $cookie = $this->request->cookie('role_number');
 
-
-        if (isset($cookie)) {
-
-            if ($this->request->cookie('role_number') == '3') {
-
-                return view('admin.staff_management_create');
-            }
-            \abort(404);
-        }
-        return redirect('/');
-    }
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง

@@ -49,6 +49,8 @@ class VerifyCsrfToken extends Middleware
         'admin/management/parent/update',
         'admin/management/parent/store',
         'admin/management/student/update',
+        '/admin/management/staff/store',
+        '/admin/management/staff/update'
 
     ];
 }

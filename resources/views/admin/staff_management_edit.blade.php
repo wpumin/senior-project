@@ -15,13 +15,14 @@
                 <h3>ข้อมูลพนักงาน</h3>
             </div>
         </div>
-        <form action="{{url('/admin/management/staff/store')}}" method="POST" enctype="multipart/form-data" id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
+        <form action="{{url('/admin/management/staff/update')}}" method="POST" enctype="multipart/form-data" id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
             {{-- @csrf --}}
+            <input type="hidden" name="staff_id" value="{{ $id }}">
             <div class="row">
                 <div class="col-lg-12 col-12 form-group">
                         <div class="uploader" onclick="$('#staffImage').click()">
                                 <span class='flaticon-photo'></span>
-                                <img src="" alt="staff profile" class="text-center" id="image1"/>
+                                <img src="{{asset($image)}}" alt="staff profile" class="text-center" id="image1"/>
                                 <input type="file" name="staffImage" id="staffImage" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
                             </div>
                     <div class="text-center mt-3">
@@ -30,6 +31,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="select2" required name="prefix">
+                            <option value="{{ $prefix }}" selected>{{ $prefix }}</option>
                         <option value="">คำนำหน้า</option>
                         <option value="นาย">นาย</option>
                         <option value="นาง">นาง</option>
@@ -37,44 +39,78 @@
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="ชื่อ" class="form-control" name="first_name">
+                <input required type="text" placeholder="ชื่อ" class="form-control" name="first_name" value="{{ $first_name }}">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="นามสกุล" class="form-control" name="last_name">
+                    <input required type="text" placeholder="นามสกุล" class="form-control" name="last_name" value="{{ $last_name }}">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="select2" required name="car_id">
+                            <option value="{{ $car_id }}" selected>คันที่ {{ $car_id }}</option>
                         <option value="">ประจำคันรถ</option>
                         <option value="1">คันที่ 1: สินาท</option>
                         <option value="2">คันที่ 2: โกญจนาท</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="เบอร์โทร" class="form-control" name="phone">
+                <input required type="text" placeholder="เบอร์โทร" class="form-control" name="phone" value="{{ $phone }}">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="ไลน์ไอดี" class="form-control" name="line_id">
+                    <input required type="text" placeholder="ไลน์ไอดี" class="form-control" name="line_id" value="{{ $line_id }}">
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="email" placeholder="อีเมล" class="form-control" name="email">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('email') ? 'has-error' : '' }}>
+                    <input required type="email" placeholder="อีเมล" class="form-control" name="email" value="{{ $email }}">
+
+                    @if ($errors->has('email'))
+
+                        <span class="help-block">
+                            {{$errors->first('email')}}
+                        </span>
+
+                        @endif
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="email" placeholder="ยืนยันอีเมล" class="form-control" name="cemail">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('cemail') ? 'has-error' : '' }}>
+                    <input required type="email" placeholder="ยืนยันอีเมล" class="form-control" name="cemail" value="{{ $email }}">
+
+                    @if ($errors->has('cemail'))
+
+                        <span class="help-block">
+                            {{$errors->first('cemail')}}
+                        </span>
+
+                        @endif
                 </div>
                 <div class="col-xl-12 col-lg-12 col-12 form-group">
-                    <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
+                    <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6">
+                            {{ $address }}
+                    </textarea>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="username">
+                    <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="username" value="{{ $username }}">
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="password" placeholder="รหัสผ่าน" class="form-control" name="password">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('password') ? 'has-error' : '' }}>
+                    <input  type="password" placeholder="รหัสผ่าน" class="form-control" name="password">
+                    @if ($errors->has('password'))
+
+                        <span class="help-block">
+                            {{$errors->first('password')}}
+                        </span>
+
+                        @endif
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="cpassword">
+                <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('cpassword') ? 'has-error' : '' }}>
+                    <input  type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="cpassword">
+                    @if ($errors->has('cpassword'))
+
+                        <span class="help-block">
+                            {{$errors->first('cpassword')}}
+                        </span>
+
+                        @endif
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <select class="select2" name="role_id">
+                            <option value="{{ $role_id }}" selected>{{ $role }}</option>
                         <option value="">บทบาท</option>
                         <option value="2">คนขับรถ</option>
                         <option value="3">แอดมิน</option>

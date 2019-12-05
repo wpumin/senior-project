@@ -449,7 +449,7 @@ class PaymentController extends Controller
         return redirect('/');
     }
 
-    public function confirm($car, $id)
+    public function confirm($car, $trankey)
     {
         $cookie = $this->request->cookie('role_number');
 
@@ -460,7 +460,7 @@ class PaymentController extends Controller
 
 
 
-                $bill_log = Payment_log::where('tran_key', $id)->first();
+                $bill_log = Payment_log::where('tran_key', $trankey)->first();
                 $bill_log->pm_status_id = 2;
                 $bill_log->save();
 
@@ -468,87 +468,9 @@ class PaymentController extends Controller
                 $bill_inform->pm_status_id = 2;
                 $bill_inform->save();
 
-                $inform = Payment_inform::get();
+                $stu = Student::where('id', $bill_log->student_id)->first();
 
-                $data['info'] = [];
-                $count = 0;
-
-
-                $bank_1 = 0;
-                $bank_2 = 0;
-                $bank_3 = 0;
-                $bank_4 = 0;
-
-                $month_sub = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
-                $month_now = $month_sub[date('m') - 1];
-                $year_now = date('Y') + 543;
-
-
-                foreach ($inform as $d) {
-
-
-
-                    if ($d->pm_status_id == '1') {
-
-
-                        $log = Payment_log::where('id', $d->payment_log_id)->first();
-                        $std = Student::where('id', $log->student_id)->first();
-
-                        if ($std->car_id == $car) {
-
-                            $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
-                            $school = School::where('id', $std->school_id)->first();
-                            $district = District::where('id', $std->district_id)->first();
-
-
-                            if ($d->bank_id == '1') {
-
-                                $bank_1++;
-                            } else if ($d->bank_id == '2') {
-                                $bank_2++;
-                            } else if ($d->bank_id == '3') {
-                                $bank_3++;
-                            } else if ($d->bank_id == '4') {
-                                $bank_4++;
-                            }
-
-                            $data['info'][$count++] = [
-
-                                'id' => $d->payment_log_id,
-                                'status_bill' => $d->pm_status_id,
-                                'student_id' => $std->id,
-                                'tran_key' => $log->tran_key,
-                                'date' => $d->date . ' ' . $d->timepicker,
-                                'bank_id' => $d->bank_id,
-                                'bill_image' => $d->imgInp,
-
-                                'std_prefix' => $std->prefix,
-                                'std_first_name' => $std->first_name,
-                                'std_last_name' => $std->last_name,
-                                'nickname' => $std->nickname,
-                                'car_id' => $std->car_id,
-                                'parent_prefix' => $parent->prefix,
-                                'parent_first_name' => $parent->first_name,
-                                'parent_last_name' => $parent->last_name,
-                                'parent_phone' => $parent->phone,
-
-                                'school' => $school->name_school,
-
-                                'price' => $district->price,
-                            ];
-                        }
-                    }
-                }
-
-                return view('admin.payment_confirm', [
-                    'datas' => $data['info'],
-                    'bank_1' => $bank_1,
-                    'bank_2' => $bank_2,
-                    'bank_3' => $bank_3,
-                    'bank_4' => $bank_4,
-                    'month_now' => $month_now,
-                    'year_now' => $year_now
-                ]);
+                return redirect('/admin/payment/confirm/car' . $stu->car_id);
             }
             \abort(404);
         }

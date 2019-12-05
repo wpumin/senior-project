@@ -33,7 +33,7 @@
 
 <!-- Payment Table Area Start Here -->
 <div class="heading text-left">
-    <h3>ภาพรวมการเงิน</h3>
+    <h3>ยืนยันการชำระเงิน</h3>
 </div>
 
 

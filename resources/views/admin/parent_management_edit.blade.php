@@ -62,11 +62,25 @@
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <input required type="text" placeholder="ไลน์ไอดี" name="parent_line_id" class="form-control" value="{{ $line_id }}">
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_email') ? 'has-error' : '' }}>
                         <input required type="email" placeholder="อีเมล" name="parent_email" class="form-control" value="{{ $email }}">
+                        @if ($errors->has('parent_email'))
+
+                        <span class="help-block">
+                            {{$errors->first('parent_email')}}
+                        </span>
+
+                        @endif
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                    <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_email_confirm') ? 'has-error' : '' }}>
                         <input required type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control" value="{{ $email }}">
+                        @if ($errors->has('parent_email_confirm'))
+
+                        <span class="help-block">
+                            {{$errors->first('parent_email_confirm')}}
+                        </span>
+
+                        @endif
                     </div>
                     <div class="col-xl-12 col-12 form-group">
                         <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6" style="height: 156.4px;" >{{ $address }}</textarea>

@@ -103,7 +103,7 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/payment/overview/{car}', 'PaymentController@admin_list');
 
-    Route::get('/confirm/{car}/{id}', 'PaymentController@confirm');
+    Route::get('/confirm/{car}/{trankey}', 'PaymentController@confirm');
 
     // Route::get('/payment/overview/car2', function () {
     //     return view('admin.payment_overview');
@@ -138,7 +138,13 @@ Route::group(array('prefix' => 'admin'), function () {
     // Route::get('/management/staff/create', function () {
     //     return view('admin.staff_management_create');
     // });
-    Route::get('/management/staff/create', 'RegisterUserController@staff');
+    Route::get('/management/staff/create', 'RegisterStaffController@staff');
+
+    Route::get('/management/staff/edit/{id}', 'RegisterStaffController@edit_staff');
+
+    Route::post('/management/staff/store', 'RegisterStaffController@store');
+
+    Route::post('/management/staff/update', 'RegisterStaffController@update_staff');
     // Route::get('/dashboard/car1', function () {
     //     return view('admin.dashboard');
     // });
