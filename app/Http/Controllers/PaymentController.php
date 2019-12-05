@@ -174,9 +174,9 @@ class PaymentController extends Controller
         // dd(isset($cookie));
         $auth = User::where('id', $id)->where('token', $token)->first();
 
-        // dd($auth);
+        // dd(isset($auth));
 
-        if ($auth) {
+        if (isset($auth)) {
 
             if (isset($cookie)) {
 

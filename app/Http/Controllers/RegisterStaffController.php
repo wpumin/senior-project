@@ -76,6 +76,7 @@ class RegisterStaffController extends Controller
         }
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
+        $staff->secure_code = $this->strRandom_ref();
 
         $user->save();
 
@@ -159,11 +160,22 @@ class RegisterStaffController extends Controller
         }
         $staff->lattitude = $this->request->input('lattitude');
         $staff->longtitude = $this->request->input('longtitude');
+        $staff->secure_code = $this->strRandom_ref();
 
         $staff->save();
 
         DB::commit();
 
         return redirect('/admin/management/staff');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ Random String
+    |--------------------------------------------------------------------------
+     */
+    protected function strRandom_ref($length = 6)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
     }
 }

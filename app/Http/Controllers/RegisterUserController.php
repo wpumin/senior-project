@@ -110,6 +110,7 @@ class RegisterUserController extends Controller
             $user->password = Hash::make($this->request->password);
             $user->lattitude = $this->request->input('lattitude');
             $user->longtitude = $this->request->input('longtitude');
+            $user->secure_code = $this->strRandom_ref();
 
             $user->save();
 
@@ -119,7 +120,6 @@ class RegisterUserController extends Controller
             return response()->json($this->formatResponse($e->getMessage()));
         }
     }
-
     public function list_user()
     {
         $cookie = $this->request->cookie('role_number');
@@ -287,6 +287,7 @@ class RegisterUserController extends Controller
 
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
+        $user->secure_code = $this->strRandom_ref();
 
         $user->save();
 
@@ -386,6 +387,7 @@ class RegisterUserController extends Controller
         // $user->district_id = $this->request->input('district_id');
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
+        $user->secure_code = $this->strRandom_ref();
 
         $user->save();
         DB::commit();
@@ -496,5 +498,14 @@ class RegisterUserController extends Controller
         return response()->json(['status' => $status, 'data' => $ret, 'error' => $message], $statusCode)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ Random String
+    |--------------------------------------------------------------------------
+     */
+    protected function strRandom_ref($length = 6)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
     }
 }
