@@ -36,7 +36,7 @@ class LoginController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $user = User::where('username', $this->request->input('username'))->first();
+        $user = User::where('username', $this->request->input('username'))->where('status', 0)->first();
 
         if ($user) {
 
@@ -48,7 +48,7 @@ class LoginController extends Controller
                 $user->token = $token;
                 $user->last_login_date = Carbon::now();
                 $user->secure_code = $this->strRandom_ref();
-
+                $user->status = 1;
                 $user->save();
 
                 $user->role_name = $role['name'];
@@ -67,6 +67,7 @@ class LoginController extends Controller
                 return $this->responseRequestError('incorrect_password');
             }
         } else {
+            \abort(419);
             return $this->responseRequestError('no_user');
         }
     }

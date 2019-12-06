@@ -24,7 +24,7 @@ class User extends Model
         'lattitude', 
         'longtitude', 
         'secure_code',
-
+        'status',
 
     ];
 
