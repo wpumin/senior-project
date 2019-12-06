@@ -694,7 +694,7 @@
               <div class="item">
                 <div class="team-box">
                   <div class="team-under-box">
-                    <div class="team-under-box-button text-white" data-id="1"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/1.jpg') }}" alt="1">
+                    <div class="team-under-box-button text-white" data-id="1"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/blon.jpg') }}" alt="1">
                     <div class="team-overlay">
                       <div class="social-icon">
                         <ul>
@@ -710,7 +710,7 @@
               <div class="item">
                 <div class="team-box">
                   <div class="team-under-box">
-                    <div class="team-under-box-button text-white" data-id="2"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/2.jpg') }}" alt="2">
+                    <div class="team-under-box-button text-white" data-id="2"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/top.jpg') }}" alt="2">
                     <div class="team-overlay">
                       <div class="social-icon">
                         <ul>
@@ -726,7 +726,7 @@
               <div class="item">
                 <div class="team-box">
                   <div class="team-under-box">
-                    <div class="team-under-box-button text-white" data-id="3"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/3.jpg') }}" alt="3">
+                    <div class="team-under-box-button text-white" data-id="3"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/kid.jpg') }}" alt="3">
                     <div class="team-overlay">
                       <div class="social-icon">
                         <ul>
@@ -745,7 +745,7 @@
             <div class="team-hover" id="1">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/1.jpg') }}" alt="1"></div>
+                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/blon.jpg') }}" alt="1"></div>
                 </div>
                 <div class="col-md-8">
                   <div class="d-flex-1">
@@ -765,7 +765,7 @@
             <div class="team-hover" id="2">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/2.jpg') }}" alt="2"></div>
+                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/top.jpg') }}" alt="2"></div>
                 </div>
                 <div class="col-md-8">
                   <div class="d-flex-1">
@@ -784,7 +784,7 @@
               <div class="team-hover" id="3">
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/3.jpg') }}" alt="3"></div>
+                    <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/kid.jpg') }}" alt="3"></div>
                   </div>
                   <div class="col-md-8">
                     <div class="d-flex-1">
