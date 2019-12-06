@@ -86,17 +86,19 @@ class LoginController extends Controller
             return $this->responseRequestError('no_user');
         }
     }
-    public function logout()
+    public function logout($id, $secure)
     {
 
-        $user = User::where('id', $this->request->input('user_id'))->where('secure_code', $this->request->input('token'))->first();
+        // dd($id . ' ' . $secure);
+
+        $user = User::where('id', $id)->where('secure_code', $secure)->first();
 
         if ($user) {
 
             $user->status = 0;
             $user->save();
 
-            return $this->responseRequestSuccess('success');
+            return redirect('/');
         }
 
         \abort(404);

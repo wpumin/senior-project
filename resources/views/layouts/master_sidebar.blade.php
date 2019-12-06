@@ -138,7 +138,7 @@
                                     <div class="item-content">
                                         <ul class="settings-list">
                                         <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                            <li><a href="#" id="logoutform"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                            <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -351,44 +351,6 @@
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
-
-
-        $(document).ready(function() {
-            $("#logoutform").click(function(event){
-
-            $.ajax({
-                type: "POST",
-                url: "/logout",
-                headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                cache:false,
-                data: {
-
-                    user_id: getCookie('user_id'),
-                    token: getCookie('secure_code')
-
-                },
-                success: function(result){
-
-                    if (result.status == 'success') {
-
-                        deleteAllCookies();
-                        $(location).attr('href', '/');
-                    }
-
-
-                },
-                error: function(result){
-                    $(".wrap-modal > #systemError").modal('show');
-                }
-                });
-
-
-            });
-        });
-
-
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>
