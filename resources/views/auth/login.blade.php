@@ -60,6 +60,25 @@
     </div>
 </div>
 
+<!-- Modal: Occupied-->
+<div class="wrap-modal">
+    <div class="modal fade" id="occupiedUser" tabindex="-1" role="dialog" aria-labelledby="occupiedUser" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-3 text-center">
+                <b>เข้าสู่ระบบไม่สำเร็จ</b>
+                <p>ชื่อผู้ใช้นี้ถูกใช้งานอยู่ในขณะนี้</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal: System error-->
 <div class="wrap-modal">
     <div class="modal fade" id="systemError" tabindex="-1" role="dialog" aria-labelledby="systemError" aria-hidden="true">
@@ -196,7 +215,7 @@
                 }
 
                 if (result.status == 'occupied') {
-                    //IN AREAR occupied
+                    $(".wrap-modal > #occupiedUser").modal('show');
                 }
 
                 // รหัสผ่านผิด
