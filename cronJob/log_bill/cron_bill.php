@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_array($result)) {
     $car_id = $row['car_id'];
     $price = $row['price'];
     $image_qr = 'images/qrcode_pay/' . $qr['price'] . '.png';
-    $image_qr_2 = 'images/qrcode_pay/' . $qr['price'] . 'download.jpg';
+    $image_qr_2 = 'images/qrcode_pay/' . $price . 'download.jpg';
 
     $sql_bill = "INSERT INTO payment_logs (tran_key, month, year, student_id, pm_status_id, qr_code, qr_code2, created_at)
 VALUES ('$tran_key', '$month', '$year', '$student_id', '1', '$image_qr', '$image_qr_2', '$full')";
