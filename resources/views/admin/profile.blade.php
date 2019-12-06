@@ -63,7 +63,7 @@
 {{-- ข้อมูลคนขับรถ end --}}
 
 <div class="mt-4 mt-md-5 text-center">
-    <a href="{{url('/logout/'.$_COOKIE['user_id']."/".$_COOKIE['secure_code'])}}" onclick="deleteAllCookies()">
+    <a href="#" id="logoutform">
         <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
     </a>
 </div>
@@ -72,6 +72,8 @@
 
 @section('script')
     <script>
+
+
          function getCookie(cname) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
@@ -131,6 +133,41 @@
                 // jQuery(".navbar-expand-md").css("width", "100%");
                 // jQuery(".navbar-expand-md").css("z-index", "99");
             }
+        });
+
+        $(document).ready(function() {
+            $("#logoutform").click(function(event){
+
+            $.ajax({
+                type: "POST",
+                url: "/logout",
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                cache:false,
+                data: {
+
+                    user_id: getCookie('user_id'),
+                    token: getCookie('secure_code')
+
+                },
+                success: function(result){
+
+                    if (result.status == 'success') {
+
+                        deleteAllCookies();
+                        $(location).attr('href', '/');
+                    }
+
+
+                },
+                error: function(result){
+                    $(".wrap-modal > #systemError").modal('show');
+                }
+                });
+
+
+            });
         });
     </script>
 @endsection
