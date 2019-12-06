@@ -68,7 +68,7 @@
 {{-- ข้อมูลคนขับรถ end --}}
 
 <div class="mt-4 mt-md-5 text-center">
-    <a href="/" onclick="deleteAllCookies()">
+    <a href="{{url('/logout/'.$_COOKIE['user_id']."/".$_COOKIE['secure_code'])}}" onclick="deleteAllCookies()">
         <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
     </a>
 </div>
@@ -135,7 +135,7 @@
                 // jQuery(".navbar-expand-md").css("position", "fixed");
                 // jQuery(".navbar-expand-md").css("width", "100%");
                 // jQuery(".navbar-expand-md").css("z-index", "99");
-            }  
+            }
         });
     </script>
 @endsection
