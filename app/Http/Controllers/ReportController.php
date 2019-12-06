@@ -57,7 +57,7 @@ class ReportController extends Controller
                 'report_at' => $full
             ]);
             DB::commit();
-
+            session()->flash('success', 'Create Article Complete');
             return redirect('parent/report/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));

@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function(){
+            $('#successReport').modal('show');
+    });
+    </script>
+@endif
+
 <div class="heading text-left">
     <h3>ร้องเรียน / แนะนำการบริการ</h3>
 </div>
@@ -138,7 +146,7 @@
                 <b>การร้องเรียนสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการร้องเรียนของท่านแล้ว</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal" id="reloadPage">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -260,13 +268,13 @@
     </script>
 <script>
 
-    $(document).ready(function(){
-        setInterval(function(){
-            $("#reportForm").submit(function(event){
-                $('#successReport').modal('show');
-            });
-        }, 3000);
-    });
+    // $(document).ready(function(){
+    //     setInterval(function(){
+    //         $("#reportForm").submit(function(event){
+    //             $('#successReport').modal('show');
+    //         });
+    //     }, 3000);
+    // });
 
 
     function getCookie(cname) {

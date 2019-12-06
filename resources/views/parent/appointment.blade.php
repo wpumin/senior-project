@@ -242,13 +242,13 @@
 
 <script>
 
-    $(document).ready(function(){
-        // setInterval(function(){
-        //     $("#appointmentForm").submit(function(event){
-        //         $('#successAppointment').modal('show');
-        //     });
-        // }, 3000);
-    });
+    // $(document).ready(function(){
+    //     // setInterval(function(){
+    //     //     $("#appointmentForm").submit(function(event){
+    //     //         $('#successAppointment').modal('show');
+    //     //     });
+    //     // }, 3000);
+    // });
 
     function getCookie(cname) {
         var name = cname + "=";
@@ -283,13 +283,11 @@
 
     $(document).ready(function(){
 
-        // $("#appointmentForm").click(function(event){
-        //     $('#btn-submit').prop('disabled',true);
-        //     $('#btn-submit').css('cursor','not-allowed');
-        //     // $(".wrap-modal > #successAppointment").modal('show');
-        //     // submitForm();
-        //     // return false;
-        // });
+        $("#appointmentForm").submit(function(event){
+            $('#btn-submit').prop('disabled',true);
+            $('#btn-submit').css('cursor','not-allowed');
+
+        });
 
         $('#btn-submit').click(function(){
             $('#btn-submit').prop('disabled',false);

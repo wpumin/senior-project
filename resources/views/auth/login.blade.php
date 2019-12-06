@@ -123,7 +123,30 @@
         return "";
     }
 
-    setCookie('role_id', 0, 30);
+
+
+    if (!getCookie('role_id')) {
+
+        setCookie('role_id', 0, 30);
+        console.log(getCookie('role_id'));
+
+    }
+
+    if (getCookie('role_id') == '1') {
+            //Page User
+            $(location).attr('href', '/parent/index');
+        }
+
+    if (getCookie('role_id') == '2') {
+            //Page Driver
+            $(location).attr('href', '/driver/index');
+    }
+
+
+    if (getCookie('role_id') == '3') {
+            //Page Admin
+            $(location).attr('href', '/admin/index');
+    }
 
     function deleteAllCookies() {
 
@@ -144,6 +167,7 @@
         }
 
     }
+
 
     $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');
