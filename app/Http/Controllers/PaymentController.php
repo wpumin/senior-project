@@ -55,6 +55,7 @@ class PaymentController extends Controller
                 $year_now = date('Y') + 543;
 
 
+
                 foreach ($inform as $d) {
 
                     if ($d->pm_status_id == '1' || $d->pm_status_id == '3') {
@@ -189,10 +190,9 @@ class PaymentController extends Controller
 
                     foreach ($students as $d) {
 
-                        $bill = Payment_log::where('student_id', $d->id)->limit(10)->get();
-                        $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+                        $bill = Payment_log::where('student_id', $d->id)->orderBy('id', 'desc')->limit(3)->get();
 
-                        // dd($month_sub[11]);
+                        $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
                         foreach ($bill as $b) {
 
@@ -228,7 +228,7 @@ class PaymentController extends Controller
             }
             return redirect('/');
         }
-        \abort(419);
+        \abort(404);
     }
 
     public function parent_list($id, $token)
@@ -374,7 +374,7 @@ class PaymentController extends Controller
                     $car_num = 2;
                 }
 
-                $bill = Payment_log::orderBy('payment_logs.pm_status_id', 'desc')->get();
+                $bill = Payment_log::orderBy('pm_status_id', 'desc')->get();
 
                 $month_sub = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
@@ -411,10 +411,14 @@ class PaymentController extends Controller
 
                             if ($b->pm_status_id == '1') {
                                 $status_1++;
-                            } else if ($b->pm_status_id == '2') {
+                            }
+
+                            if ($b->pm_status_id == '2') {
                                 $status_2++;
                                 $income += $district->price;
-                            } else if ($b->pm_status_id == '3') {
+                            }
+
+                            if ($b->pm_status_id == '3') {
                                 $status_3++;
                             }
 
