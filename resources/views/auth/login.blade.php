@@ -177,19 +177,26 @@
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
 
+                }
 
-                    if (result.data['role_id'] == '1') {
+                if (result.data['role_id'] == '1') {
                         //Page User
                         $(location).attr('href', '/parent/index');
-                    }else  if (result.data['role_id'] == '2') {
-                        //Page Driver
-                        $(location).attr('href', '/driver/index');
-                    }else  if (result.data['role_id'] == '3') {
-                        //Page Admin
-                        $(location).attr('href', '/admin/index');
                     }
 
+                if (result.data['role_id'] == '2') {
+                        //Page Driver
+                        $(location).attr('href', '/driver/index');
+                }
 
+
+                if (result.data['role_id'] == '3') {
+                        //Page Admin
+                        $(location).attr('href', '/admin/index');
+                }
+
+                if (result.status == 'occupied') {
+                    //IN AREAR occupied
                 }
 
                 // รหัสผ่านผิด

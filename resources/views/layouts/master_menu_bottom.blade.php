@@ -125,7 +125,7 @@
                                 <div class="item-content">
                                     <ul class="settings-list">
                                         <li><a href="{{ url('parent/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                        <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                        <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                                 <div class="item-content">
                                     <ul class="settings-list">
                                     <li><a href="{{ url('driver/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                        <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                        <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                     </ul>
                                 </div>
                             </div>

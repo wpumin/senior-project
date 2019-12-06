@@ -36,40 +36,70 @@ class LoginController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $user = User::where('username', $this->request->input('username'))->where('status', 0)->first();
+        $user = User::where('username', $this->request->input('username'));
+        // ->first()
+        $has = $user->first();
+
+        // dd(isset());
+
+        if ($has) {
+
+            $check = $user->where('status', 0)->first();
+
+            // dd($check);
+
+            if ($check) {
+
+                if (Hash::check($this->request->input('password'), $check->password)) {
+                    $token = $this->jwt($check);
+                    // dd($token);
+                    $check->token = $token;
+                    $check->last_login_date = Carbon::now();
+                    $check->secure_code = $this->strRandom_ref();
+                    $check->status = 1;
+                    $check->save();
+
+                    $role = Role::where('id', $check->role_id)->first();
+                    $relationship = Relationship::where('id', $check->relationship_id)->first();
+
+                    $check->role_name = $role['name'];
+                    $check->relationship_name = $relationship['name'];
+                    // dd($user->role_id);
+                    if ($check->role_id == '2') {
+
+                        return $this->responseRequestSuccess($check)
+                            ->withCookie(cookie('role_number', $check->role_id, 60))
+                            ->withCookie(cookie('car_num', $check->car_id, 60));
+                    } else {
+                        return $this->responseRequestSuccess($check)
+                            ->withCookie(cookie('role_number', $check->role_id, 60));
+                    }
+                } else {
+                    return $this->responseRequestError('incorrect_password');
+                }
+            } else {
+
+                return $this->responseRequestError('occupied');
+            }
+        } else {
+            // \abort(419);
+            return $this->responseRequestError('no_user');
+        }
+    }
+    public function logout($id, $token)
+    {
+
+        $user = User::where('id', $id)->where('secure_code', $token)->first();
 
         if ($user) {
 
-            $role = Role::where('id', $user->role_id)->first();
-            $relationship = Relationship::where('id', $user->relationship_id)->first();
-            if (Hash::check($this->request->input('password'), $user->password)) {
-                $token = $this->jwt($user);
-                // dd($token);
-                $user->token = $token;
-                $user->last_login_date = Carbon::now();
-                $user->secure_code = $this->strRandom_ref();
-                $user->status = 1;
-                $user->save();
+            $user->status = 0;
+            $user->save();
 
-                $user->role_name = $role['name'];
-                $user->relationship_name = $relationship['name'];
-                // dd($user->role_id);
-                if ($user->role_id == '2') {
-
-                    return $this->responseRequestSuccess($user)
-                        ->withCookie(cookie('role_number', $user->role_id, 60))
-                        ->withCookie(cookie('car_num', $user->car_id, 60));
-                } else {
-                    return $this->responseRequestSuccess($user)
-                        ->withCookie(cookie('role_number', $user->role_id, 60));
-                }
-            } else {
-                return $this->responseRequestError('incorrect_password');
-            }
-        } else {
-            \abort(419);
-            return $this->responseRequestError('no_user');
+            return redirect('/');
         }
+
+        \abort(404);
     }
     /*
     |--------------------------------------------------------------------------
