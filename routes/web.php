@@ -170,7 +170,7 @@ Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');
 Route::post('register/student', 'RegisterStudentController@register_student');
 Route::post('/login', 'LoginController@login')->name('login');
-Route::get('/logout/{id}/{token}', 'LoginController@logout');
+Route::post('/logout', 'LoginController@logout');
 Route::post('/pass_forgot', 'ForgotPasswordController@pass_forgot');
 Route::post('/forgotpassword/againotp', 'ForgotPasswordController@againOTP');
 Route::post('/newpassword', 'NewPasswordController@NewPassword');
