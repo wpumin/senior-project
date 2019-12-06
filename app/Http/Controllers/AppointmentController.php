@@ -88,6 +88,7 @@ class AppointmentController extends Controller
                 'appointment_at.required' => '* กรุณาเลือกวันที่ที่ต้องการนัดหมาย'
             ]);
 
+
             $app = Appointment::where('student_id', $this->request->input('student_id'))->where('appointment_at', $this->request->input('appointment_at'))->where('period_time_id', $this->request->input('period_time_id'))->first();
 
             if ($app) {
@@ -117,6 +118,9 @@ class AppointmentController extends Controller
 
 
             DB::commit();
+
+            session()->flash('success', 'Create Article Complete');
+
             return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));

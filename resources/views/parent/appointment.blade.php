@@ -4,6 +4,13 @@
 
 @section('content')
 
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function(){
+        $('#successAppointment').modal('show');
+    });
+    </script>
+@endif
 
 
 <div class="heading text-left">
@@ -184,7 +191,7 @@
                 <b>การแจ้งการเดินทางเองสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการเดินทางเองของท่านแล้ว กรุณาตรวจสอบสถานะภายใน 24 ชั่วโมง</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal" id="reloadPage">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                     <!-- data-dismiss="modal" -->
                 </div>
             </div>
@@ -203,7 +210,7 @@
                 <b>แจ้งเดินทางเองไม่สำเร็จ</b>
                 <p>กรุณากรอกข้อมูลให้ครบถ้วน</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal" id="reloadPage">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -236,11 +243,11 @@
 <script>
 
     $(document).ready(function(){
-        setInterval(function(){
-            $("#appointmentForm").submit(function(event){
-                $('#successAppointment').modal('show');
-            });
-        }, 3000);
+        // setInterval(function(){
+        //     $("#appointmentForm").submit(function(event){
+        //         $('#successAppointment').modal('show');
+        //     });
+        // }, 3000);
     });
 
     function getCookie(cname) {
@@ -276,12 +283,17 @@
 
     $(document).ready(function(){
 
-        $("#appointmentForm").submit(function(event){
-            $('#btn-submit').prop('disabled',true);
-            $('#btn-submit').css('cursor','not-allowed');
-            // $(".wrap-modal > #successAppointment").modal('show');
-            // submitForm();
-            // return false;
+        // $("#appointmentForm").click(function(event){
+        //     $('#btn-submit').prop('disabled',true);
+        //     $('#btn-submit').css('cursor','not-allowed');
+        //     // $(".wrap-modal > #successAppointment").modal('show');
+        //     // submitForm();
+        //     // return false;
+        // });
+
+        $('#btn-submit').click(function(){
+            $('#btn-submit').prop('disabled',false);
+            $('#btn-submit').css('cursor','pointer');
         });
 
         $('button.btn-primary').click(function(){
