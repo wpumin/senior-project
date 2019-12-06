@@ -96,69 +96,90 @@
 
 
         map.Route.placeholder(document.getElementById('result'));
-        map.Route.add(new longdo.Marker({ lat: 15.083067, lon: 99.519687 },
+        // เทศบาลตำบลบ้านไร่
+        map.Route.add(new longdo.Marker({ lat: 15.083335, lon: 99.519920 },
             {
-                title: 'จุดรับส่งที่ 1',
+                title: 'จุดแจ้งเตือนที่ 1',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
                 detail: 'เทศบาลตำบลบ้านไร่'
             }
         ));
-        // หูช้าง
-        map.Route.add(new longdo.Marker({ lat: 15.147868, lon: 99.672083  },
+        // ตำบลบ้านไร่
+        map.Route.add(new longdo.Marker({ lat: 15.084132, lon: 99.542818  },
             {
-                title: 'จุดรับส่งที่ 2',
+                title: 'จุดแจ้งเตือนที่ 2',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
-                detail: 'ตำบลหูช้าง'
+                detail: 'ตำบลบ้านไร่'
             }
         ));
-        // การุ้ง
-        map.Route.add(new longdo.Marker({ lat: 15.175955, lon: 99.696781 },
+        // ตำบลหูช้าง
+        map.Route.add(new longdo.Marker({ lat: 15.128309, lon: 99.644424 },
             {
-                title: 'จุดรับส่งที่ 3',
+                title: 'จุดแจ้งเตือนที่ 3',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
-                detail: 'ตำบลเมืองโบราณการุ้ง',
+                detail: 'ตำบลหูช้าง',
             }
         ));
-        // คลองโป่ง
-        map.Route.add(new longdo.Marker({ lat: 15.215208, lon: 99.690788 },
+        // ตำบลหนองฝาง
+        map.Route.add(new longdo.Marker({ lat: 15.155432, lon: 99.684063 },
             {
-                title: 'จุดรับส่งที่ 4',
+                title: 'จุดแจ้งเตือนที่ 4',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
-                detail: 'ตำบลบ้านคลองโป่ง'
+                detail: 'ตำบลหนองฝาง'
             }
         ));
-        // เขาตะพาบ
-        map.Route.add(new longdo.Marker({ lat: 15.260942, lon: 99.680222 },
+        // ตำบลเมืองการุ้ง
+        map.Route.add(new longdo.Marker({ lat: 15.179317, lon: 99.697472 },
             {
-                title: 'จุดรับส่งที่ 5',
+                title: 'จุดแจ้งเตือนที่ 5',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
+                detail: 'ตำบลเมืองการุ้ง'
+            }
+        ));
+        // ตำบลคลองโป่ง
+        map.Route.add(new longdo.Marker({ lat: 15.215815, lon: 99.690587  },
+            {
+                title: 'จุดแจ้งเตือนที่ 6',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
+                detail: 'ตำบลคลองโป่ง'
+            }
+        ));
+        // ตำบลวังหิน
+        map.Route.add(new longdo.Marker({ lat: 15.253373, lon: 99.679328 },
+            {
+                title: 'จุดแจ้งเตือนที่ 7',
+                icon: {
+                    url: 'https://bear-bus.com/images/internal/busstop.png',
+                },
+                detail: 'ตำบลวังหิน'
+            }
+        ));
+        // ตำบลเขาตะพาบ
+        map.Route.add(new longdo.Marker({ lat: 15.264788, lon: 99.680491 },
+            {
+                title: 'จุดแจ้งเตือนที่ 8',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
                 detail: 'ตำบลเขาตะพาบ'
             }
         ));
-        // ทุ่งนามงาม
-        map.Route.add(new longdo.Marker({ lat: 15.313869, lon: 99.719501  },
-            {
-                title: 'จุดรับส่งที่ 6',
-                icon: {
-                    url: 'https://bear-bus.com/images/internal/busstop.png',
-                },
-                detail: 'ตำบลทุ่งนางาม'
-            }
-        ));
         // โรงเรียนหนองฉางวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.382140, lon: 99.851870 },
             {
-                title: 'จุดรับส่งที่ 7',
+                title: 'โรงเรียนที่ 1,
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -168,7 +189,7 @@
         // โรงเรียนธรรมานุวัตรวิทยา
         map.Route.add(new longdo.Marker({ lat: 15.390607, lon: 99.833714 },
             {
-                title: 'จุดรับส่งที่ 8',
+                title: 'โรงเรียนที่ 2',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },
@@ -178,7 +199,7 @@
         // โรงเรียนวัดหนองขุนชาติ
         map.Route.add(new longdo.Marker({ lat: 15.388589, lon: 99.835618 },
             {
-                title: 'จุดรับส่งที่ 9',
+                title: 'โรงเรียนที่ 3',
                 icon: {
                     url: 'https://bear-bus.com/images/internal/busstop.png',
                 },

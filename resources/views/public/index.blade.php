@@ -818,7 +818,7 @@
             <div class="plan-slider owl-carousel owl-theme">
               <div class="item">
                 <div class="package-box">
-                  <h3>เทศบาลบ้านไร่</h3>
+                  <h3>ตำบลบ้านไร่</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>900</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -826,8 +826,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:02 น.</li>
-                      <li>เย็น: 16:30 น.</li>
+                      <li>เช้า: 06:30 น.</li>
+                      <li>เย็น: 17:45 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -843,8 +843,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:12 น.</li>
-                      <li>เย็น: 16:18 น.</li>
+                      <li>เช้า: 06:50 น.</li>
+                      <li>เย็น: 17:25 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -852,7 +852,7 @@
               </div>
               <div class="item">
                 <div class="package-box">
-                  <h3>ตำบลหนองหย่าง</h3>
+                  <h3>ตำบลหนองฝาง</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>650</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -860,8 +860,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:20 น.</li>
-                      <li>เย็น: 16:12 น.</li>
+                      <li>เช้า: 07:05 น.</li>
+                      <li>เย็น: 17:10 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -869,7 +869,7 @@
               </div>
               <div class="item">
                 <div class="package-box">
-                  <h3>ตำบลทุ่งนางาม</h3>
+                  <h3>ตำบลเมืองการุ้ง</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>650</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -877,25 +877,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:28 น.</li>
-                      <li>เย็น: 16:02 น.</li>
-                    </ul>
-                    <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="package-box">
-                  <h3>ตำบลการุ้ง</h3>
-                  <div class="price-box"><span>฿</span>
-                    <h2>650</h2>
-                    <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
-                  </div>
-                  <div class="price-plan text-center">
-                    <ul>
-                      <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:45 น.</li>
-                      <li>เย็น: 15:57 น.</li>
+                      <li>เช้า: 07:10 น.</li>
+                      <li>เย็น: 17:05 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -911,8 +894,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:56 น.</li>
-                      <li>เย็น: 15:47 น.</li>
+                      <li>เช้า: 07:20 น.</li>
+                      <li>เย็น: 16:55 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -928,8 +911,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 08:05 น.</li>
-                      <li>เย็น: 15:35 น.</li>
+                      <li>เช้า: 07:30 น.</li>
+                      <li>เย็น: 16:45 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -937,7 +920,7 @@
               </div>
               <div class="item">
                 <div class="package-box">
-                  <h3>ตำบลเขาตะพาน</h3>
+                  <h3>ตำบลเขาตะพาบ</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>350</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -945,8 +928,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 08:10 น.</li>
-                      <li>เย็น: 15:29 น.</li>
+                      <li>เช้า: 07:35 น.</li>
+                      <li>เย็น: 16:40 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -974,28 +957,28 @@
               <div class="testimonial-slider owl-carousel owl-theme">
                 <div class="item testi-profile">
                   <div class="media">
-                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/1.png') }}" alt="1"></div>
+                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/review1.png') }}" alt="1"></div>
                     <div class="media-body">
-                      <h3 class="mt-0 sub-title">ลูกค้า 1</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At laudantium sunt omnis exercitationem facere consectetur temporibus eveniet incidunt delectus placeat. Debitis dolorem ut perferendis incidunt libero voluptates, voluptatum nulla ipsam.</p>
+                      <h3 class="mt-0 sub-title">คุณแบม</h3>
+                      <p>เว็บฯ สวย ใช้งานง่าย มีฟีเจอร์ให้ใช้งานเยอะ เหมาะสำหรับนำมาใช้กับธุรกิจประเภทรถรับส่งมากค่ะ แต่ที่ชอบที่สุดคือเราไม่ต้องเปิดเครื่องหรือเว็บฯ ก็สามารถได้รับแจ้งเตือนเหมือนแอปพลิเคชัน แนะนำให้ผู้ปกครองที่ใช้บริการรถรับส่งนักเรียนของ เกษศิลป์ทัวร์ ใช้คะ แล้วคุณจะติดใจ </p>
                     </div>
                   </div>
                 </div>
                 <div class="item testi-profile">
                   <div class="media">
-                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/1.png') }}" alt="1"></div>
+                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/review2.png') }}" alt="1"></div>
                     <div class="media-body">
-                      <h3 class="mt-0 sub-title">ลูกค้า 2</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident quos doloremque itaque possimus, vel esse fuga exercitationem quis enim explicabo eos qui? Pariatur similique at itaque perferendis illum, eligendi autem!</p>
+                      <h3 class="mt-0 sub-title">คุณเทพ</h3>
+                      <p>รู้สึกอุ่นใจ และ ดีใจที่มีเว็บฯ ที่ตอบโจทย์สำหรับผู้ปกครองแบบนี้ ทำให้ผมไม่ต้องกังวลว่าลูกจะขึ้นรถหรือยัง ถึงโรงเรียนหรือยัง หรือว่ารถอยู่ตรงไหนแล้ว ทำให้ไม่ต้องเสียเวลาออกไปรอเวลาไปรับ-ส่ง ถือว่าสะดวกสบายมากเท่าที่ได้ลองสัมผัส  </p>
                     </div>
                   </div>
                 </div>
                 <div class="item testi-profile">
                   <div class="media">
-                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/1.png') }}" alt="1"></div>
+                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/review3.png') }}" alt="1"></div>
                     <div class="media-body">
-                      <h3 class="mt-0 sub-title">ลูกค้า 3</h3>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi aspernatur inventore dolore laborum. Aliquam magnam ipsa ratione dolor. Quibusdam voluptatem voluptas fugiat exercitationem tempore rem, quaerat iusto inventore ut perferendis.</p>
+                      <h3 class="mt-0 sub-title">คุณเจี๊ยบ</h3>
+                      <p>ชอบมากค่ะ สามารถติดตามตำแหน่งรถรับส่งนักเรียนของลูกได้ หายห่วงไม่ต้องกังวลว่าลูกจะขึ้น-ลงรถแล้วหรือยัง และอีกส่วนที่ชอบคือระบบแจ้งเดินทางไป-กลับเอง อันนี้ถือว่าตอบโจทย์มาก ถือได้ว่าเป็นเว็บฯ ที่จบได้ด้วยตัวเองและครบด้วยฟีเจอร์สำหรับผู้ปกครองอย่างเรา ๆ เลยคะ  </p>
                     </div>
                   </div>
                 </div>
