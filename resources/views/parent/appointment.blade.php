@@ -263,7 +263,7 @@
                     return c.substring(name.length, c.length);
                 }
             }
-                return "";
+            return "";
     }
 
     $.post( "/tasks/refresh/appointment/student",{user_id : getCookie('user_id')} , function( result ) {
@@ -274,7 +274,7 @@
         // $(student_id).append('<option>'+ 'เด็กนักเรียน' + '</option>');
 
           for (var i = 0; i < result['data'].length; i++) {
-                {{-- console.log(result['data'][i]['nickname']); --}}
+                // {{-- console.log(result['data'][i]['nickname']); --}}
               $(student_id).append('<option value=' + result['data'][i]['id'] + '>' + result['data'][i]['nickname'] + '</option>');
           }
 
