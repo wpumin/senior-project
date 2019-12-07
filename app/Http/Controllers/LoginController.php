@@ -100,9 +100,11 @@ class LoginController extends Controller
         if ($user) {
 
             $user->status = 0;
+            $user->secure_code = $this->strRandom_ref();
             $user->save();
 
-            return redirect('/');
+            // return redirect('/');
+            return view('auth.login');
         }
 
         \abort(404);
