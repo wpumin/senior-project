@@ -40,17 +40,19 @@ class LoginController extends Controller
         // ->first()
         $has = $user->first();
 
-        // dd(isset());
+        // dd($has);
 
         if ($has) {
 
             $check = $user->where('status', 0)->first();
 
-            // dd($check);
+
 
             if ($check) {
 
+
                 if (Hash::check($this->request->input('password'), $check->password)) {
+
                     $token = $this->jwt($check);
                     // dd($token);
                     $check->token = $token;
@@ -62,9 +64,11 @@ class LoginController extends Controller
                     $role = Role::where('id', $check->role_id)->first();
                     $relationship = Relationship::where('id', $check->relationship_id)->first();
 
-                    $check->role_name = $role['name'];
-                    $check->relationship_name = $relationship['name'];
-                    // dd($user->role_id);
+                    $check->role_name = $role->name;
+                    $check->relationship_name = $relationship->name;
+
+                    // dd($check);
+
                     if ($check->role_id == '2') {
 
                         return $this->responseRequestSuccess($check)
@@ -86,17 +90,19 @@ class LoginController extends Controller
             return $this->responseRequestError('no_user');
         }
     }
-    public function logout()
+    public function logout($id, $secure)
     {
 
-        $user = User::where('id', $this->request->input('user_id'))->where('secure_code', $this->request->input('token'))->first();
+        // dd($id . ' ' . $secure);
+
+        $user = User::where('id', $id)->where('secure_code', $secure)->first();
 
         if ($user) {
 
             $user->status = 0;
             $user->save();
 
-            return $this->responseRequestSuccess('success');
+            return redirect('/');
         }
 
         \abort(404);
