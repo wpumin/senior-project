@@ -125,7 +125,7 @@ class NewsController extends Controller
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($news['user_id']);
+                // dd($news);
                 return view('admin.news_edit', [
                     'id' => $news['id'],
                     'title' => $news['title'],
@@ -143,35 +143,6 @@ class NewsController extends Controller
             \abort(404);
         }
         return redirect('/');
-    }
-
-    function action(Request $request)
-    {
-        // dd($request->all());
-        $validation = Validator::make($request->all(), [
-            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // 'newsid' => 'required',
-            // 'title' => 'required',
-        ]);
-        if ($validation->passes()) {
-            $image = $request->file('select_file');
-            $new_name = rand() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $new_name);
-
-            return response()->json([
-                'news_id' => $request->input('newsid'),
-                'message'   => 'Image Upload Successfully',
-                'uploaded_image' => '<img src="/images/' . $new_name . '" class="img-thumbnail" width="300" />',
-                'class_name'  => 'alert-success'
-            ]);
-        } else {
-            return response()->json([
-                'news_id' => $request->input('news_id'),
-                'message'   => $validation->errors()->all(),
-                'uploaded_image' => '',
-                'class_name'  => 'alert-danger'
-            ]);
-        }
     }
 
     public function update_new()

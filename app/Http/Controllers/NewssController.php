@@ -18,7 +18,7 @@ class NewssController extends Controller
     {
         $this->request = $request;
     }
-    
+
     public function index()
     {
         return view('admin.news_test_form');
@@ -150,7 +150,7 @@ class NewssController extends Controller
                 'errors' => $validator->errors()
             );
 
-        $news = News::find($request->get('news_id'));
+        $news = News::where('id', $request->get('news_id'))->first();
 
         $day = date('d');
         $month = date('m');

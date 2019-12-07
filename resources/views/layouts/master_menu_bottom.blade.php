@@ -354,6 +354,8 @@
                 document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
             }
 
+            setCookie('secure_code', '', time() - 3600);
+
         }
 
         document.getElementById("name").innerHTML = getCookie('f_name');

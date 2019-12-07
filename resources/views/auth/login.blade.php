@@ -100,6 +100,7 @@
 
 
 <script>
+
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -177,7 +178,7 @@
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){
-                
+
                 // login สำเร็จ
                 if(result.status == 'success') {
                     setCookie('secure_code', result.data['secure_code'], 30);
