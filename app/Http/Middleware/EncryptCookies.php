@@ -13,6 +13,7 @@ class EncryptCookies extends Middleware
      */
     protected $except = [
         'name',
-        'car_id'
+        'car_id',
+        'role_number'
     ];
 }

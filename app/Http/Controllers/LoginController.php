@@ -40,17 +40,19 @@ class LoginController extends Controller
         // ->first()
         $has = $user->first();
 
-        // dd(isset());
+        // dd($has);
 
         if ($has) {
 
             $check = $user->where('status', 0)->first();
 
-            // dd($check);
+
 
             if ($check) {
 
+
                 if (Hash::check($this->request->input('password'), $check->password)) {
+
                     $token = $this->jwt($check);
                     // dd($token);
                     $check->token = $token;
@@ -62,9 +64,11 @@ class LoginController extends Controller
                     $role = Role::where('id', $check->role_id)->first();
                     $relationship = Relationship::where('id', $check->relationship_id)->first();
 
-                    $check->role_name = $role['name'];
-                    $check->relationship_name = $relationship['name'];
-                    // dd($user->role_id);
+                    $check->role_name = $role->name;
+                    $check->relationship_name = $relationship->name;
+
+                    // dd($check);
+
                     if ($check->role_id == '2') {
 
                         return $this->responseRequestSuccess($check)

@@ -132,22 +132,6 @@
 
     }
 
-    if (getCookie('role_id') == '1') {
-            //Page User
-            $(location).attr('href', '/parent/index');
-        }
-
-    if (getCookie('role_id') == '2') {
-            //Page Driver
-            $(location).attr('href', '/driver/index');
-    }
-
-
-    if (getCookie('role_id') == '3') {
-            //Page Admin
-            $(location).attr('href', '/admin/index');
-    }
-
     function deleteAllCookies() {
 
         var res = document.cookie;
@@ -193,12 +177,10 @@
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){
+                
                 // login สำเร็จ
                 if(result.status == 'success') {
                     setCookie('secure_code', result.data['secure_code'], 30);
-                    // setCookie('name', result.data['first_name'], 30);
-                    // setCookie('role', result.data['role'], 30);
-                    // setCookie('role_name', result.data['role_name'], 30);
                     setCookie('role_id', result.data['role_id'], 30);
                     setCookie('role_name', result.data['role_name'], 30);
                     setCookie('relationship_id', result.data['relationship_id'], 30);
@@ -220,22 +202,19 @@
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
 
-                }
 
-                if (result.data['role_id'] == '1') {
+                    if (result.data['role_id'] == '1') {
                         //Page User
                         $(location).attr('href', '/parent/index');
+                    } else if (result.data['role_id'] == '2') {
+                            //Page Driver
+                            $(location).attr('href', '/driver/index');
+
+                    }else if (result.data['role_id'] == '3') {
+                            //Page Admin
+                            $(location).attr('href', '/admin/index');
                     }
 
-                if (result.data['role_id'] == '2') {
-                        //Page Driver
-                        $(location).attr('href', '/driver/index');
-                }
-
-
-                if (result.data['role_id'] == '3') {
-                        //Page Admin
-                        $(location).attr('href', '/admin/index');
                 }
 
                 if (result.status == 'occupied') {
