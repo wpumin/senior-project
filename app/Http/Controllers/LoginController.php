@@ -73,10 +73,14 @@ class LoginController extends Controller
 
                         return $this->responseRequestSuccess($check)
                             ->withCookie(cookie('role_number', $check->role_id, 60))
-                            ->withCookie(cookie('car_num', $check->car_id, 60));
+                            ->withCookie(cookie('car_num', $check->car_id, 60))
+                            ->withCookie(cookie('secure', $check->secure_code, 60))
+                            ->withCookie(cookie('use_id', $check->id, 60));
                     } else {
                         return $this->responseRequestSuccess($check)
-                            ->withCookie(cookie('role_number', $check->role_id, 60));
+                            ->withCookie(cookie('role_number', $check->role_id, 60))
+                            ->withCookie(cookie('secure', $check->secure_code, 60))
+                            ->withCookie(cookie('use_id', $check->id, 60));
                     }
                 } else {
                     return $this->responseRequestError('incorrect_password');
@@ -93,9 +97,25 @@ class LoginController extends Controller
     public function logout($id, $secure)
     {
 
-        // dd($id . ' ' . $secure);
-
         $user = User::where('id', $id)->where('secure_code', $secure)->first();
+
+        if ($user) {
+
+            $user->status = 0;
+            $user->save();
+
+            return redirect('/' . "");
+            return view('auth.login');
+        }
+
+        \abort(404);
+    }
+    public function logout_v1()
+    {
+
+        $cookie = $this->request->cookie('secure');
+
+        $user = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $cookie)->first();
 
         if ($user) {
 
@@ -103,8 +123,8 @@ class LoginController extends Controller
             $user->secure_code = $this->strRandom_ref();
             $user->save();
 
-            return redirect('/' . "");
-            return view('auth.login');
+            return redirect('/');
+            // return view('auth.login');
         }
 
         \abort(404);
