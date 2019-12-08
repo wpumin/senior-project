@@ -137,9 +137,10 @@
                                     </div>
                                     <div class="item-content">
                                         <ul class="settings-list">
-                                        <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                            <form id="logoutform" action="{{url('/logout')}}" method="POST">
-                                                <input class="flaticon-logout" type="submit">
+                                            <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
+                                            <form id="logoutform" action="{{url('/logout')}}" method="POST" >
+                                                {{-- <input class="flaticon-logout" type="submit"> --}}
+                                                <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit(); return false;" class="flaticon-logout"> ออกจากระบบ</a></li>
                                             </form>
                                         </ul>
                                     </div>
@@ -151,7 +152,7 @@
                                     <i class="far fa-bell"></i>
                                     <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
                                     <span class="animated tada infinite">3</span>
-                                </a>
+                                </>
 
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="item-header">
