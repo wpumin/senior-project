@@ -70,6 +70,13 @@
 <div class="mt-4 mt-md-5 text-center">
     <a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()">
         <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
+        <form id="logoutform" class="flaticon-logout" action="{{url('/logout')}}" method="POST">
+
+            <input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
+            <input type="hidden" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
+
+            <input class="flaticon-logout" type="submit" value="ออกจากระบบ"></<input>
+        </form>
     </a>
 </div>
 
@@ -114,6 +121,18 @@
             document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
         }
         }
+
+        $(document).ready(function(){
+            // setInterval(function(){
+                $("#logoutform").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+
+                $("#logoutform1").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+            // }, 3000);
+        });
 
         document.getElementById("prefix1").innerHTML = getCookie('prefix');
         document.getElementById("f_name1").innerHTML = getCookie('f_name');

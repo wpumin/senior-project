@@ -349,6 +349,18 @@
 
         }
 
+        $(document).ready(function(){
+            // setInterval(function(){
+                $("#logoutform").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+
+                $("#logoutform1").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+            // }, 3000);
+        });
+
         document.getElementById("name").innerHTML = getCookie('f_name');
         document.getElementById("role_name").innerHTML = getCookie('role_name');
         document.getElementById("prefix").innerHTML = getCookie('prefix');
