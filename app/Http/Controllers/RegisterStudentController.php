@@ -35,10 +35,7 @@ class RegisterStudentController extends Controller
                 'last_name' => 'required',
                 'nickname' => 'required',
                 'phone' => 'required',
-                // 'lattitude' => 'required',
-                // 'longtitude' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 
             if ($validator->fails()) {
@@ -70,7 +67,6 @@ class RegisterStudentController extends Controller
                 $student->image = $public_path . $image_name;
             }
 
-            // 'image' => $this->request->input('image'),
             $student->user_id = $this->request->input('user_id');
             $student->std_status_id = $this->request->input('std_status_id');
             $student->school_id = $this->request->input('school_id');
@@ -82,8 +78,6 @@ class RegisterStudentController extends Controller
             $student->last_name = $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
             $student->phone = $this->request->input('phone');
-            // $student->lattitude = $this->request->input('lattitude');
-            // $student->longtitude = $this->request->input('longtitude');
 
 
             $student->save();
@@ -99,11 +93,7 @@ class RegisterStudentController extends Controller
     {
         $student = Student::where('id', $id)->get();
 
-        // dd($student);
-
         foreach ($student as $s) {
-            // dd($u);
-
 
             if ($s) {
 
@@ -122,9 +112,6 @@ class RegisterStudentController extends Controller
                     'school' => $school->name_school,
                     'car_id' => $s->car_id,
 
-
-
-
                 ];
             }
         }
@@ -138,7 +125,6 @@ class RegisterStudentController extends Controller
 
     public function update_student()
     {
-        // dd($this->request->all());
 
         $student = Student::where('id', $this->request->input('student_id'))->first();
 
@@ -166,8 +152,6 @@ class RegisterStudentController extends Controller
 
         return redirect('/admin/management/parent');
     }
-
-
 
     /*
     |--------------------------------------------------------------------------

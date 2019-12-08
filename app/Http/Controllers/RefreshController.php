@@ -28,11 +28,8 @@ class RefreshController extends Controller
     public function run()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
-
-            // dd($this->request->cookie('role_number') == '2');
 
             if ($this->request->cookie('role_number') == '2') {
 
@@ -46,57 +43,39 @@ class RefreshController extends Controller
                 $data['down'] = $down;
                 $data['self'] = $self;
 
-                // dd($data);
 
                 $news = News::where('role_id', 2)->where('news_statuses_id', 1)->get();
-                // dd($news);
+
                 $d = date('d');
                 $m = date('m');
                 $y = date('Y') + 543;
 
-                // dd($d);
+
 
                 $full = $d . '/' . $m . '/' . $y;
                 $time_now = new DateTime(date('H:i'));
 
                 $full_now = new DateTime($full);
-                // dd($time_now);
-                // dd($news[0]['release_time'] > $time_now);
 
-                // dd($news[0]['news_at'] > $full);
 
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($news);
+
 
                 if ($news) {
 
                     foreach ($news as $n) {
 
-                        // $release_date = new DateTime($n->release_date);
-                        // dd($n->release_date <= $full_now);
 
                         if ($n->release_date <= $full_now) {
 
-                            // dd($n->release_time);
-                            // dd($n);
-
-                            // dd($n->release_time <= $time_now);
-
                             if ($n->release_time <= $time_now) {
-
-                                // $user = User::where('id', $n->user_id)->first();
 
                                 $data['info'][$count++] = [
 
                                     'id' => $n->id,
                                     'image' => $n->image,
-                                    // 'created_at' => $n->news_at,
-                                    // 'name' => $user->username,
-                                    // 'status' => $n->news_statuses_id
-
-
 
                                 ];
                             } else {
@@ -105,11 +84,6 @@ class RefreshController extends Controller
 
                                     'id' => null,
                                     'image' => null,
-                                    // 'created_at' => $n->news_at,
-                                    // 'name' => $user->username,
-                                    // 'status' => $n->news_statuses_id
-
-
 
                                 ];
                             }
@@ -119,11 +93,6 @@ class RefreshController extends Controller
 
                                 'id' => null,
                                 'image' => null,
-                                // 'created_at' => $n->news_at,
-                                // 'name' => $user->username,
-                                // 'status' => $n->news_statuses_id
-
-
 
                             ];
                         }
@@ -134,17 +103,9 @@ class RefreshController extends Controller
 
                         'id' => null,
                         'image' => null,
-                        // 'created_at' => $n->news_at,
-                        // 'name' => $user->username,
-                        // 'status' => $n->news_statuses_id
-
-
 
                     ];
                 }
-
-
-                // dd($data['info']);
 
                 return view('driver.index', [
                     'datas' => $data['info'],
@@ -158,7 +119,7 @@ class RefreshController extends Controller
             \abort(404);
         }
         return redirect('/');
-        // return view('driver.index', $data);
+
     }
 
     public function runAdminOne()
@@ -225,13 +186,11 @@ class RefreshController extends Controller
         $count = 0;
 
         foreach ($data['student'] as $stu) {
-            // dd($stu);
+
             $user_id = User::where('id', $stu->user_id)->first();
             $full_name = $user_id->first_name . ' ' . $user_id->last_name;
 
             $relationship_id = Relationship::where('id', $stu->relationship_id)->first();
-
-            // dd($full_name);
 
             $data['student_info'][$count++] = [
                 'id' => $stu->id,
@@ -250,20 +209,16 @@ class RefreshController extends Controller
             ];
         }
 
-        // dd($data['student_info']);
-
         return $this->responseRequestSuccess($data['student_info']);
     }
 
     public function appointments()
     {
         $appointment = DB::table('appointments')
-            // ->join('users', 'appointments.user_id', '=', 'users.id')
             ->join('period_times', 'appointments.period_time_id', '=', 'period_times.id')
             ->join('app_statuses', 'appointments.app_status_id', '=', 'app_statuses.id')
             ->join('students', 'appointments.student_id', '=', 'students.id')
             ->select('appointments.*', 'students.nickname', 'period_times.name', 'app_statuses.app_status_name')
-            // ->where('appointments.user_id', $this->request->input('user_id'))
             ->orderBy('appointments.created_at', 'desc')
             ->get();
 
@@ -304,7 +259,7 @@ class RefreshController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
-        $auth = User::where('id', $id)->where('secure_code', $token)->first();
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
 
         if ($auth) {
 
@@ -329,13 +284,7 @@ class RefreshController extends Controller
                     $data['info'] = [];
                     $count = 0;
 
-                    // dd($report);
-
                     foreach ($report as $d) {
-
-                        // dd($d->type_name);
-
-
 
                         $data['info'][$count++] = [
                             'title' => $d->title,
@@ -344,11 +293,7 @@ class RefreshController extends Controller
                             'type_name' => $d->type_name
                         ];
 
-                        // dd($data['info']);
-                        // var_dump($data['info']);
                     }
-
-                    // dd($data['info']);
 
                     return view('parent.report', [
                         'data' => $data['info']
@@ -361,8 +306,6 @@ class RefreshController extends Controller
 
         \abort(419);
 
-
-        // return $this->responseRequestSuccess($report);
     }
 
     public function pf_student()
@@ -395,7 +338,6 @@ class RefreshController extends Controller
     public function dashboard1()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -410,7 +352,6 @@ class RefreshController extends Controller
     public function dashboard2()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -425,7 +366,6 @@ class RefreshController extends Controller
     public function admin_profile()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 

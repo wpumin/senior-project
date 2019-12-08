@@ -25,7 +25,6 @@ class PaymentController extends Controller
     public function index($car)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 

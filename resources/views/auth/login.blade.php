@@ -181,8 +181,8 @@
 
                 // login สำเร็จ
                 if(result.status == 'success') {
-                    document.cookie = "secure_code="+result.data['secure_code'];
-                    // setCookie('secure_code', result.data['secure_code'], 30);
+                    // document.cookie = "secure_code="+result.data['secure_code'];
+                    setCookie('secure_code', result.data['secure_code'], 30);
                     setCookie('role_id', result.data['role_id'], 30);
                     setCookie('role_name', result.data['role_name'], 30);
                     setCookie('relationship_id', result.data['relationship_id'], 30);

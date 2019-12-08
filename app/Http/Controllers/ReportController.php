@@ -69,7 +69,6 @@ class ReportController extends Controller
 
         $cookie = $this->request->cookie('role_number');
 
-
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '3') {
@@ -78,8 +77,6 @@ class ReportController extends Controller
 
                 $data['info'] = [];
                 $count = 0;
-
-
 
                 foreach ($reports as $d) {
 

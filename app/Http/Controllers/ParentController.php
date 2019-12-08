@@ -146,14 +146,14 @@ class ParentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
         // dd(isset($cookie));
-        $auth = User::where('id', $id)->where('secure_code', $token)->first();
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
 
         if ($auth) {
 
             if (isset($cookie)) {
 
                 if ($this->request->cookie('role_number') == '1') {
-                    $students = Student::where('user_id', $id)->get();
+                    $students = Student::where('user_id', $this->request->cookie('use_id'))->get();
 
 
                     $data['info'] = [];
@@ -171,11 +171,7 @@ class ParentController extends Controller
                     foreach ($students as $s) {
                         $num = 0;
 
-                        // dd($s);
-
                         $info = DB::table('check_in')->where('card_id', $s->card_id)->get();
-
-                        // if ($info) {
 
                         foreach ($info as $i) {
 
@@ -187,13 +183,11 @@ class ParentController extends Controller
                             }
                         }
 
-                        // dd($list_c);
-
                         $data['check_in'][$check][$num++] = $date_check;
                         $data['check_in'][$check][$num++] = $day_check;
                         $data['check_in'][$check][$num++] = $down_check;
 
-                        // }
+
                         $date_check = [];
                         $day_check = [];
                         $down_check = [];
@@ -207,8 +201,6 @@ class ParentController extends Controller
 
                         ];
                     }
-
-                    // dd($data['check_in']);
 
                     return view('parent.dashboard', [
                         'datas' => $data['info']
@@ -227,7 +219,6 @@ class ParentController extends Controller
     public function ajax_list_student()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -249,12 +240,8 @@ class ParentController extends Controller
                     $num = 0;
                     $name = $s->nickname;
 
-                    // dd($s);
-
                     $info = DB::table('check_in')->where('card_id', $s->card_id)->orderBy('id', 'DESC')->limit(14)->get();
-                    // dd($info);
 
-                    // if ($info) {
 
                     foreach ($info as $i) {
 
@@ -266,14 +253,13 @@ class ParentController extends Controller
                         }
                     }
 
-                    // dd($list_c);
 
                     $data['check_in'][$check][$num++] = $date_check;
                     $data['check_in'][$check][$num++] = $day_check;
                     $data['check_in'][$check][$num++] = $down_check;
                     $data['check_in'][$check][$num++] = $name;
 
-                    // }
+
                     $date_check = [];
                     $day_check = [];
                     $down_check = [];
@@ -291,7 +277,6 @@ class ParentController extends Controller
     public function profile()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 

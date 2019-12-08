@@ -34,7 +34,6 @@ class RegisterStaffController extends Controller
 
     public function store()
     {
-        // dd($this->request->all());
 
         $this->validate($this->request, [
 
@@ -59,9 +58,7 @@ class RegisterStaffController extends Controller
             $user->image = $public_path . $image_name;
         }
 
-        // 'image' => $this->request->input('image'),
         $user->role_id = $this->request->input('role_id');
-        // $user->relationship_id = $this->request->input('relationship_id');
         $user->car_id = $this->request->input('car_id');
         $user->prefix = $this->request->input('prefix');
         $user->first_name = $this->request->input('first_name');
@@ -118,7 +115,6 @@ class RegisterStaffController extends Controller
             'email' => '',
             'cemail' => 'same:email'
 
-
         ]);
 
         $staff = User::where('id', $this->request->input('staff_id'))->first();
@@ -134,9 +130,7 @@ class RegisterStaffController extends Controller
             $staff->image = $public_path . $image_name;
         }
 
-        // 'image' => $this->request->input('image'),
         $staff->role_id = $this->request->input('role_id');
-        // $user->relationship_id = $this->request->input('relationship_id');
         $staff->car_id = $this->request->input('car_id');
         $staff->prefix = $this->request->input('prefix');
         $staff->first_name = $this->request->input('first_name');

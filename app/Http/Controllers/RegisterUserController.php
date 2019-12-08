@@ -95,7 +95,6 @@ class RegisterUserController extends Controller
                 $user->image = $public_path . $image_name;
             }
 
-            // 'image' => $this->request->input('image'),
             $user->role_id = $this->request->input('role_id');
             $user->relationship_id = $this->request->input('relationship_id');
             $user->car_id = $this->request->input('car_id');
@@ -123,19 +122,15 @@ class RegisterUserController extends Controller
     public function list_user()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
             if ($this->request->cookie('role_number') == '3') {
 
-
                 $users = User::get();
 
                 $data['info'] = [];
                 $count = 0;
-
-                // dd($users);
 
                 foreach ($users as $u) {
 
@@ -155,8 +150,6 @@ class RegisterUserController extends Controller
                     }
                 }
 
-                // dd($data['info']);
-
                 return view('admin.parent_management', [
                     'datas' => $data['info'],
 
@@ -170,7 +163,6 @@ class RegisterUserController extends Controller
     public function edit_user($id)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -431,7 +423,6 @@ class RegisterUserController extends Controller
     public function list_staff()
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -441,8 +432,6 @@ class RegisterUserController extends Controller
 
                 $data['info'] = [];
                 $count = 0;
-
-
 
                 foreach ($users as $u) {
 

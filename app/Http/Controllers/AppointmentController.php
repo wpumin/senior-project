@@ -25,7 +25,7 @@ class AppointmentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
 
-        $auth = User::where('id', $id)->where('secure_code', $token)->first();
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
 
         if ($auth) {
 

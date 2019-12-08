@@ -48,7 +48,6 @@ class NewssController extends Controller
     public function create_store(Request $request)
     {
         $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
         if (isset($cookie)) {
 
@@ -58,17 +57,7 @@ class NewssController extends Controller
                     $request->all(),
                     [
                         'imgInp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-                        // 'fname' => 'required',
-                        // 'lname' => 'required',
-                        // 'user_id' => '',
-                        // 'role_id' => '',
-                        // 'status_id' => '',
-                        // 'release_date' => '',
-                        // 'release_time' => '',
-                        // 'content' => '',
-                        // ],
-                        // [
-                        //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+
                     ]
                 );
 
@@ -106,7 +95,7 @@ class NewssController extends Controller
 
                 return redirect('admin/management/news');
                 return $this->responseRequestSuccess('success');
-                // return $image_name;
+
             }
             \abort(404);
         }
@@ -157,7 +146,6 @@ class NewssController extends Controller
         $year = date('Y') + 543;
 
         $full = $day . '/' . $month . '/' . $year;
-        // dd($request->all());
 
         DB::beginTransaction();
 
@@ -178,10 +166,7 @@ class NewssController extends Controller
             $request->file('imgInp')->move($destination, $image_name);
             $news->image = $public_path . $image_name;
             $news->save();
-            // // $news['image']->save();
-            // return $this->responseRequestSuccess('Success!');
-            // return $this->responseRequestSuccess($image_name);
-            // return $image_name;
+
         }
         $news->save();
 
@@ -190,7 +175,6 @@ class NewssController extends Controller
 
         return redirect('admin/management/news');
         return $this->responseRequestSuccess('success');
-        // return $image_name;
     }
 
     /**
