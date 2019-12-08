@@ -138,21 +138,8 @@
                                     <div class="item-content">
                                         <ul class="settings-list">
                                         <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                            <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
-                                            {{-- <li><form id="logoutform" class="flaticon-logout" action="{{url('/logout')}}" method="POST">
-
-                                                <input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
-                                                <input type="hidden" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
-
-                                                <input class="flaticon-logout" type="submit" value="ออกจากระบบ"></<input>
-                                                </form>
-                                            </li> --}}
                                             <form id="logoutform" action="{{url('/logout')}}" method="POST">
-                                                <input class="flaticon-logout" type="hidden">
-                                                    <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
-                                                </input>
-                                                <input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
-                                                <input type="hidden" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
+                                                <input class="flaticon-logout" type="submit">
                                             </form>
                                         </ul>
                                     </div>

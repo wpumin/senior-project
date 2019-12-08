@@ -127,8 +127,7 @@
                                         <li><a href="{{ url('parent/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
                                         <form id="logoutform" action="{{url('/logout')}}" method="POST">
                                             <input class="flaticon-logout" type="hidden">
-                                                <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
-                                            </input>
+                                            <li><a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
                                             <input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
                                             <input type="hidden" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
                                         </form>
