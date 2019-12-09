@@ -23,20 +23,19 @@ class NewsController extends Controller
 
     public function index()
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
 
                 $news = News::get();
-
                 $data['info'] = [];
                 $count = 0;
-
-                // dd($users);
 
                 foreach ($news as $n) {
 
@@ -52,24 +51,22 @@ class NewsController extends Controller
                     ];
                 }
 
-                // dd($data['info']);
-
                 return view('admin.news', [
                     'datas' => $data['info'],
 
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function del_new($id)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -77,16 +74,12 @@ class NewsController extends Controller
                 $news->delete();
 
                 $news = News::get();
-
                 $data['info'] = [];
                 $count = 0;
-
-                // dd($users);
 
                 foreach ($news as $n) {
 
                     $user = User::where('id', $n->user_id)->first();
-
                     $data['info'][$count++] = [
                         'id' => $n->id,
                         'title' => $n->title,
@@ -96,36 +89,32 @@ class NewsController extends Controller
                     ];
                 }
 
-                // dd($data['info']);
-
                 return view('admin.news', [
                     'datas' => $data['info'],
 
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function edit_new($id)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
+
                 $news = News::where('id', $id)->first();
-
                 $role = Role::where('id', $news['role_id'])->first();
-
                 $status = News_status::where('id', $news['news_statuses_id'])->first();
 
                 $data['info'] = [];
                 $count = 0;
 
-                // dd($news);
                 return view('admin.news_edit', [
                     'id' => $news['id'],
                     'title' => $news['title'],
@@ -141,8 +130,6 @@ class NewsController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
     /*
     |--------------------------------------------------------------------------

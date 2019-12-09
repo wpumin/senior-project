@@ -24,15 +24,16 @@ class PaymentController extends Controller
 
     public function index($car)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
-
                 $inform = Payment_inform::get();
-
                 $data['info'] = [];
                 $count = 0;
 
@@ -41,8 +42,6 @@ class PaymentController extends Controller
                 } else {
                     $car_num = 2;
                 }
-
-                // dd($car_num);
 
                 $bank_1 = 0;
                 $bank_2 = 0;
@@ -53,8 +52,6 @@ class PaymentController extends Controller
                 $month_now = $month_sub[date('m') - 1];
                 $year_now = date('Y') + 543;
 
-
-
                 foreach ($inform as $d) {
 
                     if ($d->pm_status_id == '1' || $d->pm_status_id == '3') {
@@ -62,17 +59,13 @@ class PaymentController extends Controller
                         $log = Payment_log::where('id', $d->payment_log_id)->first();
                         $std = Student::where('id', $log->student_id)->first();
 
-
                         if ($std->car_id == $car_num) {
 
                             $parent = User::where('id', $std->user_id)->first(); // เอาข้อมูลผู้ปกครองออกมาไม่เป็น
                             $school = School::where('id', $std->school_id)->first();
                             $district = District::where('id', $std->district_id)->first();
 
-
-
                             if ($d->bank_id == '1') {
-
                                 $bank_1++;
                             } else if ($d->bank_id == '2') {
                                 $bank_2++;
@@ -106,8 +99,6 @@ class PaymentController extends Controller
 
                                 'price' => $district->price,
                             ];
-
-                            // dd($data['info']);
                         }
                     }
                 }
@@ -123,12 +114,17 @@ class PaymentController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function addPayment()
     {
+
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         try {
 
@@ -148,7 +144,6 @@ class PaymentController extends Controller
             $student_id = Payment_log::where('tran_key', $this->request->input('tran_key'))->first();
 
             DB::beginTransaction();
-
 
             $payment = new Payment_inform();
 
@@ -170,15 +165,12 @@ class PaymentController extends Controller
 
     public function overview($id, $token)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
-        $auth = User::where('id', $id)->where('secure_code', $token)->first();
+                //Check login
+                $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        // dd(isset($auth));
-
-        if ($auth) {
-
-            if (isset($cookie)) {
+                if (!$auth) {
+                    return redirect('/');
+                }
 
                 if ($this->request->cookie('role_number') == '1') {
 
@@ -218,27 +210,21 @@ class PaymentController extends Controller
                         }
                     }
 
-
                     return view('parent.payment_overview', [
                         'data' => $data['info']
                     ]);
                 }
                 \abort(404);
-            }
-            return redirect('/');
-        }
-        \abort(404);
     }
 
     public function parent_list($id, $token)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        $auth = User::where('id', $id)->where('secure_code', $token)->first();
-
-        if ($auth) {
-
-            if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
                 if ($this->request->cookie('role_number') == '1') {
 
@@ -281,22 +267,19 @@ class PaymentController extends Controller
                     ]);
                 }
                 \abort(404);
-            }
-            return redirect('/');
-        }
-
-        \abort(419);
     }
 
     public function store()
     {
 
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '1') {
-
 
                 $this->validate($this->request, [
 
@@ -322,12 +305,9 @@ class PaymentController extends Controller
 
                 ]);
 
-
                 DB::beginTransaction();
 
-
                 $bill = Payment_inform::create($this->request->all());
-
                 $bill->pm_status_id = 3;
 
                 if ($this->request->has('imgInp')) {
@@ -345,27 +325,23 @@ class PaymentController extends Controller
                     $log_bill->save();
                 }
 
-
                 DB::commit();
 
-
                 return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('secure_code'));
-                // return $this->responseRequestSuccess('success');
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function admin_list($car)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
-
 
                 if ($car == 'car1') {
                     $car_num = 1;
@@ -384,7 +360,6 @@ class PaymentController extends Controller
 
                 $month = date('m');
 
-
                 $data['info'] = [];
                 $count = 0;
 
@@ -394,13 +369,11 @@ class PaymentController extends Controller
 
                 $income = 0;
 
-
                 foreach ($bill as $b) {
 
                     if ($b->month == $month) {
 
                         $stu = Student::where('id', $b->student_id)->first();
-
 
                         if ($stu->car_id == $car_num) {
 
@@ -423,7 +396,6 @@ class PaymentController extends Controller
 
                             if ($b->month == date('m')) {
 
-
                                 $data['info'][$count++] = [
 
                                     'nickname' => $stu->nickname,
@@ -440,7 +412,6 @@ class PaymentController extends Controller
                     }
                 }
 
-
                 return view('admin.payment_overview', [
                     'data' => $data['info'],
                     'no_1' => $status_1,
@@ -452,20 +423,18 @@ class PaymentController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function confirm($car, $trankey)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
-
-
 
                 $bill_log = Payment_log::where('tran_key', $trankey)->first();
                 $bill_log->pm_status_id = 2;
@@ -480,8 +449,6 @@ class PaymentController extends Controller
                 return redirect('/admin/payment/confirm/car' . $stu->car_id);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     /*

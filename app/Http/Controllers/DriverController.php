@@ -30,17 +30,15 @@ class DriverController extends Controller
 
     public function list_student($car, $id, $token)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd($this->request->cookie('role_number'));
-        $driver = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('car_id', $car)->first();
+
+        $driver = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('car_id', $car)->where('status', 1)->first();
 
         if (!$driver) {
-            \abort(419);
+            return redirect('/');
         }
 
-        if (isset($cookie)) { //check have cookie.
-
-            if ($this->request->cookie('role_number') == '2') { //check role equal driver
+            //check role equal driver.
+            if ($this->request->cookie('role_number') == '2') {
 
                 $data['info'] = [];
                 $count = 0;
@@ -61,22 +59,16 @@ class DriverController extends Controller
 
                 $appointment = Appointment::where('appointment_at', $full)->orderBy('appointments.created_at', 'asc')->get();
 
-                // dd(\count($appointment));
-                // dd($full);
-
                 if (\count($appointment) > 0) {
-
-                    // dd($appointment);
 
                     foreach ($appointment as $app) {
 
                         $s = Student::where('id', $app->student_id)->where('car_id', $car)->first();
-                        if ($s) {
 
+                        if ($s) {
 
                             $school = School::where('id', $s->school_id)->first();
 
-                            // dd($school);
                             $user = User::where('id', $app->user_id)->first();
                             $relation = Relationship::where('id', $user->relationship_id)->first();
 
@@ -102,23 +94,23 @@ class DriverController extends Controller
                     ]);
                 }
 
-                // dd(\count($data['info']));
                 return view('driver.appointment', [
                     'datas' => $data['info'],
                     'date_' => $full
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function del_app($car, $id, $user_id, $token)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
 
-        if (isset($cookie)) {
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '2') {
 
@@ -141,31 +133,23 @@ class DriverController extends Controller
                 return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
 
     public function accept_app($car, $id, $user_id, $token)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-
-
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '2') {
 
-                $driver = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
-                // dd($driver);
-                if (!$driver) {
-                    \abort(419);
-                }
-
                 $appointment = Appointment::where('id', $id)->first();
-                // dd($appointment->student_id);
                 $stu = Student::where('id', $appointment->student_id)->first();
-                // dd('stu' . $stu->car_id . ': ' . 'driver' . $driver->car_id);
+
                 if ($stu->car_id == $driver->car_id) {
 
                     $appointment->app_status_id = 2;
@@ -181,44 +165,47 @@ class DriverController extends Controller
                 return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function broadcast()
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '2') {
                 return view('driver.broadcast');
             }
+
             \abort(404);
-        }
-        return redirect('/');
+
     }
     public function profile()
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '2') {
                 return view('driver.profile');
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
     public function show_news($id)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd($this->request->cookie('role_number') == '2');
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+        if (!$auth) {
+            return redirect('/');
+        }
 
             if ($this->request->cookie('role_number') == '2') {
 
@@ -237,8 +224,6 @@ class DriverController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     protected function responseRequestSuccess($ret)

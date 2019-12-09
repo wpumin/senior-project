@@ -25,7 +25,8 @@ class AppointmentController extends Controller
     {
         $cookie = $this->request->cookie('role_number');
 
-        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
         if ($auth) {
 
@@ -61,7 +62,8 @@ class AppointmentController extends Controller
             return redirect('/');
         }
 
-        \abort(419);
+        return redirect('/');
+        // \abort(419);
     }
 
     public function list_stu()
@@ -73,6 +75,12 @@ class AppointmentController extends Controller
 
     public function createAppointment()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         try {
 

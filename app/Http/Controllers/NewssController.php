@@ -21,7 +21,21 @@ class NewssController extends Controller
 
     public function index()
     {
-        return view('admin.news_test_form');
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
+        if ($this->request->cookie('role_number') == '3') {
+
+            return view('admin.news_test_form');
+        }else {
+            \abort(404);
+        }
+
+
     }
 
     /**
@@ -31,25 +45,29 @@ class NewssController extends Controller
      */
     public function create()
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
                 return view('admin.news_create');
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
 
     //create
     public function create_store(Request $request)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -98,8 +116,6 @@ class NewssController extends Controller
 
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
 
@@ -114,67 +130,78 @@ class NewssController extends Controller
     public function store(Request $request)
     {
 
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                // 'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                // 'fname' => 'required',
-                // 'lname' => 'required',
-                // 'user_id' => '',
-                // 'role_id' => '',
-                // 'status_id' => '',
-                // 'release_date' => '',
-                // 'release_time' => '',
-                // 'content' => '',
-                // ],
-                // [
-                //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
-            ]
-        );
+            if (!$auth) {
+                return redirect('/');
+            }
 
-        if ($validator->fails())
-            return array(
-                'fail' => true,
-                'errors' => $validator->errors()
+            if ($this->request->cookie('role_number') == '3') {
+
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    // 'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'fname' => 'required',
+                    // 'lname' => 'required',
+                    // 'user_id' => '',
+                    // 'role_id' => '',
+                    // 'status_id' => '',
+                    // 'release_date' => '',
+                    // 'release_time' => '',
+                    // 'content' => '',
+                    // ],
+                    // [
+                    //     'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+                ]
             );
 
-        $news = News::where('id', $request->get('news_id'))->first();
+            if ($validator->fails())
+                return array(
+                    'fail' => true,
+                    'errors' => $validator->errors()
+                );
 
-        $day = date('d');
-        $month = date('m');
-        $year = date('Y') + 543;
+            $news = News::where('id', $request->get('news_id'))->first();
 
-        $full = $day . '/' . $month . '/' . $year;
+            $day = date('d');
+            $month = date('m');
+            $year = date('Y') + 543;
 
-        DB::beginTransaction();
+            $full = $day . '/' . $month . '/' . $year;
 
-        $news->user_id = $request->get('user_id');
-        $news->news_statuses_id = $request->get('status_id');
-        $news->role_id = $request->get('role_id');
-        $news->title = $request->get('title');
-        $news->content = $request->get('content');
-        $news->release_date = $request->get('release_date');
-        $news->release_time = $request->get('release_time');
-        $news->news_at = $full;
+            DB::beginTransaction();
 
-        if ($request->has('imgInp')) {
-            $image_filename = $request->file('imgInp')->getClientOriginalName();
-            $image_name =  $image_filename;
-            $public_path = 'images/News/';
-            $destination = base_path() . "/public/" . $public_path;
-            $request->file('imgInp')->move($destination, $image_name);
-            $news->image = $public_path . $image_name;
+            $news->user_id = $request->get('user_id');
+            $news->news_statuses_id = $request->get('status_id');
+            $news->role_id = $request->get('role_id');
+            $news->title = $request->get('title');
+            $news->content = $request->get('content');
+            $news->release_date = $request->get('release_date');
+            $news->release_time = $request->get('release_time');
+            $news->news_at = $full;
+
+            if ($request->has('imgInp')) {
+                $image_filename = $request->file('imgInp')->getClientOriginalName();
+                $image_name =  $image_filename;
+                $public_path = 'images/News/';
+                $destination = base_path() . "/public/" . $public_path;
+                $request->file('imgInp')->move($destination, $image_name);
+                $news->image = $public_path . $image_name;
+                $news->save();
+
+            }
             $news->save();
 
+            DB::commit();
+
+
+            return redirect('admin/management/news');
+            return $this->responseRequestSuccess('success');
         }
-        $news->save();
 
-        DB::commit();
-
-
-        return redirect('admin/management/news');
-        return $this->responseRequestSuccess('success');
+        \abort(404);
     }
 
     /**

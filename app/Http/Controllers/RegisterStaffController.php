@@ -18,18 +18,19 @@ class RegisterStaffController extends Controller
     public function staff()
     {
 
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
                 return view('admin.staff_management_create');
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
 
     public function store()

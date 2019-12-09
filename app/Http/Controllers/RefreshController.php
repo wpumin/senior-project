@@ -27,9 +27,12 @@ class RefreshController extends Controller
 
     public function run()
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '2') {
 
@@ -43,30 +46,22 @@ class RefreshController extends Controller
                 $data['down'] = $down;
                 $data['self'] = $self;
 
-
                 $news = News::where('role_id', 2)->where('news_statuses_id', 1)->get();
 
                 $d = date('d');
                 $m = date('m');
                 $y = date('Y') + 543;
 
-
-
                 $full = $d . '/' . $m . '/' . $y;
                 $time_now = new DateTime(date('H:i'));
-
                 $full_now = new DateTime($full);
-
 
                 $data['info'] = [];
                 $count = 0;
 
-
-
                 if ($news) {
 
                     foreach ($news as $n) {
-
 
                         if ($n->release_date <= $full_now) {
 
@@ -117,8 +112,6 @@ class RefreshController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
 
     }
 
@@ -181,6 +174,7 @@ class RefreshController extends Controller
             ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school', 'users.lattitude', 'users.longtitude')->where('cars.id', $this->request->car_id)
             ->orderBy('students.std_status_id', 'desc')
             ->get();
+
         $data['student'] = $users;
         $data['student_info'] = [];
         $count = 0;
@@ -251,22 +245,19 @@ class RefreshController extends Controller
 
         $data['appointment'] = $appointment;
 
-
         return $this->responseRequestSuccess($data);
     }
 
     public function report($id, $token)
     {
-        $cookie = $this->request->cookie('role_number');
-        // dd(isset($cookie));
-        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if ($auth) {
-
-            if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
                 if ($this->request->cookie('role_number') == '1') {
-
 
                     $day = date('d');
                     $month = date('m');
@@ -300,12 +291,6 @@ class RefreshController extends Controller
                     ]);
                 }
                 \abort(404);
-            }
-            return redirect('/');
-        }
-
-        \abort(419);
-
     }
 
     public function pf_student()
@@ -320,7 +305,6 @@ class RefreshController extends Controller
             return $this->responseRequestError($errors);
         }
 
-
         $student = DB::table('students')
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
@@ -332,36 +316,38 @@ class RefreshController extends Controller
 
         $data['student'] = $student;
 
-
         return $this->responseRequestSuccess($data);
     }
     public function dashboard1()
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
                 return view('admin.dashboard');
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
     public function dashboard2()
     {
-        $cookie = $this->request->cookie('role_number');
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
-
-            if ($this->request->cookie('role_number') == '3') {
-
-                return view('admin.dashboard');
-            }
-            \abort(404);
+        if (!$auth) {
+            return redirect('/');
         }
-        return redirect('/');
+
+        if ($this->request->cookie('role_number') == '3') {
+
+            return view('admin.dashboard');
+        }
+        \abort(404);
     }
     public function admin_profile()
     {

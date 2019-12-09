@@ -121,9 +121,13 @@ class RegisterUserController extends Controller
     }
     public function list_user()
     {
-        $cookie = $this->request->cookie('role_number');
 
-        if (isset($cookie)) {
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -156,15 +160,16 @@ class RegisterUserController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function edit_user($id)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -228,8 +233,6 @@ class RegisterUserController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     public function update_user()
@@ -289,10 +292,12 @@ class RegisterUserController extends Controller
 
     public function del_user($id)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
                 $user = User::where('id', $id)->first();
@@ -302,7 +307,6 @@ class RegisterUserController extends Controller
                 $count = 0;
 
                 $users = User::get();
-
 
                 foreach ($users as $u) {
 
@@ -317,12 +321,9 @@ class RegisterUserController extends Controller
                             'phone' => $u->phone,
                             'date' => $u->created_at,
 
-
                         ];
                     }
                 }
-
-
 
                 return view('admin.parent_management', [
                     'datas' => $data['info'],
@@ -330,22 +331,22 @@ class RegisterUserController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
     public function create()
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
                 return view('admin.parent_management_create');
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
 
     public function store_user()
@@ -412,7 +413,6 @@ class RegisterUserController extends Controller
 
 
             $student->save();
-
             DB::commit();
         }
 
@@ -422,9 +422,12 @@ class RegisterUserController extends Controller
 
     public function list_staff()
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -449,12 +452,9 @@ class RegisterUserController extends Controller
                             'phone' => $u->phone,
                             'date' => $u->created_at,
 
-
                         ];
                     }
                 }
-
-
 
                 return view('admin.staff_management', [
                     'datas' => $data['info'],
@@ -462,8 +462,6 @@ class RegisterUserController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
 
     /*

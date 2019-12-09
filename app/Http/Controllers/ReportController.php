@@ -22,7 +22,6 @@ class ReportController extends Controller
 
     public function createReport()
     {
-
         try {
 
             $this->validate($this->request, [
@@ -67,14 +66,16 @@ class ReportController extends Controller
     public function list_report()
     {
 
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
                 $reports = Report::orderBy('reports.report_at', 'desc')->orderBy('reports.created_at', 'desc')->get();
-
                 $data['info'] = [];
                 $count = 0;
 
@@ -99,7 +100,6 @@ class ReportController extends Controller
                 }
 
                 $news = News::get();
-
                 $data['info_news'] = [];
                 $count_news = 0;
 
@@ -119,8 +119,6 @@ class ReportController extends Controller
                             'name' => $n->username,
                             'status' => $n->news_statuses_id
 
-
-
                         ];
                     }
                 } else {
@@ -135,11 +133,8 @@ class ReportController extends Controller
                         'name' => '',
                         'status' => ''
 
-
-
                     ];
                 }
-
 
                 return view('admin.index', [
                     'data' => $data['info'],
@@ -147,16 +142,17 @@ class ReportController extends Controller
                 ]);
             }
             \abort(404);
-        }
 
-        return redirect('/');
     }
 
     public function show_news($id)
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -187,8 +183,6 @@ class ReportController extends Controller
                 ]);
             }
             \abort(404);
-        }
-        return redirect('/');
     }
     /*
     |--------------------------------------------------------------------------

@@ -94,22 +94,22 @@ class LoginController extends Controller
             return $this->responseRequestError('no_user');
         }
     }
-    public function logout($id, $secure)
-    {
+    // public function logout($id, $secure)
+    // {
 
-        $user = User::where('id', $id)->where('secure_code', $secure)->first();
+    //     $user = User::where('id', $id)->where('secure_code', $secure)->first();
 
-        if ($user) {
+    //     if ($user) {
 
-            $user->status = 0;
-            $user->save();
+    //         $user->status = 0;
+    //         $user->save();
 
-            return redirect('/' . "");
-            return view('auth.login');
-        }
+    //         return redirect('/' . "");
+    //         return view('auth.login');
+    //     }
 
-        \abort(404);
-    }
+    //     \abort(404);
+    // }
     public function logout_v1()
     {
 
