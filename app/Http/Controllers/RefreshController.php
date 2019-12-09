@@ -117,6 +117,16 @@ class RefreshController extends Controller
 
     public function runAdminOne()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
+        if ($this->request->cookie('role_number') != '3') {
+            \abort(404);
+        }
 
         $no = Student::where('std_status_id', 1)->where('car_id', '1')->count();
         $up = Student::where('std_status_id', 2)->where('car_id', '1')->count();
@@ -133,6 +143,16 @@ class RefreshController extends Controller
 
     public function runAdminTwo()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
+        if ($this->request->cookie('role_number') != '3') {
+            \abort(404);
+        }
 
         $no = Student::where('std_status_id', 1)->where('car_id', '2')->count();
         $up = Student::where('std_status_id', 2)->where('car_id', '2')->count();
@@ -223,6 +243,7 @@ class RefreshController extends Controller
 
     public function appointment()
     {
+
         // validator
         $validator = Validator::make($this->request->all(), [
             'user_id' => 'required',
@@ -351,17 +372,19 @@ class RefreshController extends Controller
     }
     public function admin_profile()
     {
-        $cookie = $this->request->cookie('role_number');
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (isset($cookie)) {
+            if (!$auth) {
+                return redirect('/');
+            }
 
             if ($this->request->cookie('role_number') == '3') {
 
                 return view('admin.profile');
             }
             \abort(404);
-        }
-        return redirect('/');
+
     }
 
     /*

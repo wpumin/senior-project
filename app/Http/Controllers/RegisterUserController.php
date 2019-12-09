@@ -25,6 +25,13 @@ class RegisterUserController extends Controller
 
     public function register_user()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
         try {
 
             $validator = Validator::make($this->request->all(), [
@@ -237,6 +244,12 @@ class RegisterUserController extends Controller
 
     public function update_user()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         $this->validate($this->request, [
 
@@ -351,6 +364,12 @@ class RegisterUserController extends Controller
 
     public function store_user()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         $user = new User();
 

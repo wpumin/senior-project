@@ -17,7 +17,6 @@ class RegisterStaffController extends Controller
 
     public function staff()
     {
-
             //Check login
             $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
@@ -35,6 +34,13 @@ class RegisterStaffController extends Controller
 
     public function store()
     {
+
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         $this->validate($this->request, [
 
@@ -85,8 +91,14 @@ class RegisterStaffController extends Controller
 
     public function edit_staff($id)
     {
-        $staff = User::where('id', $id)->first();
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
+        if (!$auth) {
+            return redirect('/');
+        }
+
+        $staff = User::where('id', $id)->first();
         $role = Role::where('id', $staff->role_id)->first();
 
         return view('admin.staff_management_edit', [
@@ -110,6 +122,12 @@ class RegisterStaffController extends Controller
 
     public function update_staff()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         $this->validate($this->request, [
 

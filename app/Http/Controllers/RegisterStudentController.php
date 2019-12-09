@@ -21,6 +21,13 @@ class RegisterStudentController extends Controller
 
     public function register_student()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
         try {
 
             $validator = Validator::make($this->request->all(), [
@@ -43,12 +50,10 @@ class RegisterStudentController extends Controller
                 return $this->responseRequestError('error', $errors);
             }
 
-
             //validator_phone
             $validator_phone = Validator::make($this->request->all(), [
                 'phone' => 'required|digits_between:9,10',
             ]);
-
 
             //validator_phone
             if ($validator_phone->fails()) {
@@ -79,7 +84,6 @@ class RegisterStudentController extends Controller
             $student->nickname = $this->request->input('nickname');
             $student->phone = $this->request->input('phone');
 
-
             $student->save();
 
             DB::commit();
@@ -91,6 +95,13 @@ class RegisterStudentController extends Controller
 
     public function edit_student($id)
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
         $student = Student::where('id', $id)->get();
 
         foreach ($student as $s) {
@@ -125,6 +136,13 @@ class RegisterStudentController extends Controller
 
     public function update_student()
     {
+
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         $student = Student::where('id', $this->request->input('student_id'))->first();
 
