@@ -242,14 +242,6 @@
 
 <script>
 
-    // $(document).ready(function(){
-    //     // setInterval(function(){
-    //     //     $("#appointmentForm").submit(function(event){
-    //     //         $('#successAppointment').modal('show');
-    //     //     });
-    //     // }, 3000);
-    // });
-
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -267,14 +259,12 @@
     }
 
     $.post( "/tasks/refresh/appointment/student",{user_id : getCookie('user_id')} , function( result ) {
-        //alert(result['data']['appointment']['student_id']);
 
         var student_id = document.getElementById('student_id');
         $(student_id).empty();
-        // $(student_id).append('<option>'+ 'เด็กนักเรียน' + '</option>');
 
           for (var i = 0; i < result['data'].length; i++) {
-                // {{-- console.log(result['data'][i]['nickname']); --}}
+
               $(student_id).append('<option value=' + result['data'][i]['id'] + '>' + result['data'][i]['nickname'] + '</option>');
           }
 
@@ -317,11 +307,7 @@
       filter_month = input_month.value;
 
       table = document.getElementById("myTable");
-        //   console.log('Filter: '+filter);
-        //   console.log('Filter: '+filter_num);
-        //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
-        //   console.log(tr.length);
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
@@ -329,97 +315,30 @@
         td_name = tr[i].getElementsByTagName("td")[2]; //choose table that search. (Name)
         td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
         td_date = tr[i].getElementsByTagName("td")[3]; //choose table that search. (Date)
-        // console.log(td);
+
         if (td_name) {
           txtValue = td_name.textContent || td_name.innerText;
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
           txtValue_date = td_date.textContent || td_date.innerText;
 
-        //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
-        //   console.log('Total: '+txtValue_date);
-
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
             tr[i].style.display = "";
             $('#myInputName').val("");
-            $('#myInputPeriodTime').val(null).trigger('change');
-            // $('#myInputPeriodTime').val();
+            $('#myInputPeriodTime').val(null).trigger('change'); //type select
             $('#appointment_at').val("");
-            // myFunction();
+
           } else {
             tr[i].style.display = "none";
             $('#myInputName').val(null);
             $('#myInputPeriodTime').val(null).trigger('change');
-            // $('#myInputPeriodTime').val();
             $('#appointment_at').val(null);
 
           }
-        }else{
-            // console.log('ไม่มีข้อมูล');
-
-            // $('#myTable tbody tr').remove();
-            // $('#myTable tbody').append(
-            //     '<tr role="row" style="display: contents !important;">' +
-            //         '<td></td>' +
-            //         '<td></td>' +
-            //         '<td>ไม่มีข้อมูล</td>' +
-            //         '<td></td>' +
-            //         '<td></td>' +
-            //     '</tr>'
-            // );
-
         }
       }
     }
 
-    // $.ajax({
-    //             url: '/tasks/refresh/appointment',
-    //             type: 'POST',
-    //             data: {
-    //                 user_id : getCookie('user_id')
-    //             },
-    //             dataType: 'json',
-    //             success: function(response) {
-    //                 if (response.status == 'success') {
-
-    //                     $('table tbody').html('');
-    //                     // let modalUser = document.getElementById("name").innerHTML = name;
-
-    //                     for (var i = 0; i < response.data['appointment'].length; i++) {
-    //                         if (response.data['appointment'][i]['app_status_id'] == '1') {
-    //                                         status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>';
-    //                                         } else if (response.data['appointment'][i]['app_status_id'] == '2') {
-    //                                         status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>';
-    //                                         }
-    //                         $('table tbody').append(
-    //                             '<tr>' +
-    //                             '<td>' + (i + 1) + '</td>' +
-    //                             status +
-    //                             // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
-    //                             '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
-    //                             '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
-    //                             '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-    //                             '</td>' +
-    //                             '</tr>'
-    //                         );
-    //                     }
-
-
-    //                 }
-    //             },
-    //             error: function(err) {
-
-    //             }
-    //         })
-
-
     function submitForm(){
-
-        // var user_id =  getCookie('user_id');
-        // var student_id = $('#student_id').val();
-        // var period_time_id = $('#period_time_id').val();
-        // var appointment_at = $('#appointment_at').val();
-        // var content = $('#content').val();
 
         var data = {
             'user_id' : getCookie('user_id'),
@@ -440,63 +359,16 @@
 
             success: function(result){
 
-                // ส่งฟอร์มสำเร็จ
+                // Send success
                 if (result.status == 'success') {
+
                     $(".wrap-modal > #successAppointment").modal('show');
-                    // window.location.reload(true);
-                    // window.location = window.location.href+'?eraseCache=true';
+
                     var url = "/parent/appointment/"+getCookie('user_id')+"?"+ new Date().getTime() + Math.random();
-                    // alert(url);
                     window.location.assign(url);
-
-
-                    // $.ajax({
-                    //     url: '/tasks/refresh/appointment',
-                    //     type: 'POST',
-                    //     data: {
-                    //         user_id : getCookie('user_id')
-                    //     },
-                    //     dataType: 'json',
-                    //     success: function(response) {
-
-                    //         if (response.status == 'success') {
-
-                    //             $('table tbody').html('');
-                    //             // let modalUser = document.getElementById("name").innerHTML = name;
-
-                    //             for (var i = 0; i < response.data['appointment'].length; i++) {
-                    //                 if (response.data['appointment'][i]['app_status_id'] == '1') {
-                    //                                 status = '<td class="badge badge-pill badge-red d-block mg-t-8">รอการอนุมัติ</td>';
-                    //                                 } else if (response.data['appointment'][i]['app_status_id'] == '2') {
-                    //                                 status = '<td class="badge badge-pill badge-green d-block mg-t-8">อนุมัติแล้ว</td>';
-                    //                                 }
-                    //                 $('table tbody').append(
-                    //                     '<tr>' +
-                    //                     '<td>' + (i + 1) + '</td>' +
-                    //                     status +
-                    //                     // '<td>' + response.data['appointment'][i]['fullname_s'] + '</td>' +
-                    //                     '<td>' + response.data['appointment'][i]['nickname'] + '</td>' +
-                    //                     '<td>' + response.data['appointment'][i]['appointment_at'] + '</td>' +
-                    //                     '<td>' + response.data['appointment'][i]['name'] + '</td>' +
-                    //                     '</td>' +
-                    //                     '</tr>'
-                    //                 );
-                    //             }
-
-                    //             window.location.reload(true);
-
-                    //         }
-
-                    //     },
-                    //     error: function(err) {
-
-                    //     }
-                    // })
                 }
 
-
-
-                // ส่งไม่สำเร็จ (กรอกไม่ครบหรือกรอกผิด)
+                // Send Fail -> (กรอกไม่ครบหรือกรอกผิด)
                 if (result.status == 'field_required') {
                     $(".wrap-modal > #failAppointment").modal('show');
                     window.location.reload(true);
@@ -504,12 +376,10 @@
 
             },
             error: function(){
-                // เซิร์ฟเวอร์มีปัญหา
+                // Server Fail -> เซิร์ฟเวอร์มีปัญหา
                 $(".wrap-modal > #errorAppointment").modal('show');
             }
         });
-
-
     }
 
 </script>

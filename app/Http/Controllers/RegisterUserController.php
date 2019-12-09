@@ -180,9 +180,7 @@ class RegisterUserController extends Controller
 
             if ($this->request->cookie('role_number') == '3') {
 
-
                 $user = User::where('id', $id)->first();
-
 
                 $data['info'] = [];
                 $count = 0;
@@ -259,11 +257,6 @@ class RegisterUserController extends Controller
             'parent_email_confirm' => 'same:parent_email'
 
 
-        ], [
-
-            'parent_password' => '* กรุณาตั้งรหัสผ่านมากกว่า 5 ตัว',
-            'parent_password_confirm' => '* รหัสผ่านไม่ตรงกัน',
-
         ]);
 
         $user = User::where('id', $this->request->input('user_id_update'))->first();
@@ -272,7 +265,7 @@ class RegisterUserController extends Controller
 
         if ($this->request->file('parentImage0')) {
             $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
-            $image_name = $this->request->input('first_name') . '_' . $image_filename;
+            $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
             $public_path = 'images/Users/';
             $destination = base_path() . "/public/" . $public_path;
             $this->request->file('parentImage0')->move($destination, $image_name);

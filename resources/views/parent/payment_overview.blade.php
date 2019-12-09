@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function(){
+        $('#successConfirm').modal('show');
+        });
+    </script>
+@endif
+
 <!-- Bank Account Table Area Start Here -->
 <div class="heading mt-5 pt-5 mt-md-0 pt-md-0 text-left">
     <h3>บัญชีธนาคาร</h3>
@@ -523,9 +531,38 @@
 <!-- QR Modal End Here -->
 @endforeach
 
+<!-- Modal: Success -->
+<div class="wrap-modal">
+    <div class="modal fade" id="successConfirm" tabindex="-1" role="dialog" aria-labelledby="successConfirm" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>แจ้งชำระเงินสำเร็จ</b>
+                <p>กรุณาตรวจสอบสถานะการชำระเงินของท่านภายใน 24 ชั่วโมง หลังการแจ้งชำระเงิน</p>
+                <div class="modal-button text-center mt-3" >
+                    {{-- <button href="#"><button type="button" class="btn btn-primary">ตกลง</button></button> --}}
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="//maps.googleapis.com/maps/api/js"></script>
 
 <script>
+
+    $(document).ready(function(){
+
+        $('button.btn-primary').click(function(){
+            $('#btn-submit').prop('disabled',false);
+            $('#btn-submit').css('cursor','pointer');
+        });
+
+    });
     function forceDownload(link){
         var url = link.getAttribute("data-href");
         var fileName = link.getAttribute("download");

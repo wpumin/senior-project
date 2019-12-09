@@ -65,7 +65,6 @@ Route::group(array('prefix' => 'parent'), function () {
 Route::group(array('prefix' => 'driver'), function () {
 
     Route::get('/index', 'RefreshController@run');
-    // Route::get('/index', 'DriverController@index');
 
     Route::get('/appointment/{car}/{id}/{token}', 'DriverController@list_student');
 
@@ -74,9 +73,7 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/appointment/{car}/accept/{id}/{user_id}/{token}', 'DriverController@accept_app');
 
     Route::get('/broadcast', 'DriverController@broadcast');
-    // Route::get('/profile', function () {
-    //     return view('driver.profile');
-    // });
+
     Route::get('/profile', 'DriverController@profile');
     Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
@@ -90,14 +87,12 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/news/edit/{id}', 'NewsController@edit_new');
 
-    // Route::put('/management/news/update', 'NewsController@update_new');
-
     Route::get('/management/news/del/{id}', 'NewsController@del_new');
 
     // สำหรับสร้าง
     Route::post('/management/news/create/new', 'NewssController@create_store');
-    Route::get('/management/news/create', 'NewssController@create');
 
+    Route::get('/management/news/create', 'NewssController@create');
 
     Route::get('/payment/confirm/{car}', 'PaymentController@index');
 
@@ -105,9 +100,6 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/confirm/{car}/{trankey}', 'PaymentController@confirm');
 
-    // Route::get('/payment/overview/car2', function () {
-    //     return view('admin.payment_overview');
-    // });
     Route::get('/management/parent', 'RegisterUserController@list_user');
 
     Route::get('/management/parent/create', 'RegisterUserController@create');
@@ -124,20 +116,10 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::post('/management/student/update', 'RegisterStudentController@update_student');
 
-    // Route::get('/management/student/edit',  function () {
-    //     return view('admin.student_edit');
-    // });
-
-    // Route::get('/management/parent/create', function () {
-    //     return view('admin.parent_management_create');
-    // });
     Route::get('/management/parent/create', 'RegisterUserController@create');
 
     Route::get('/management/staff', 'RegisterUserController@list_staff');
 
-    // Route::get('/management/staff/create', function () {
-    //     return view('admin.staff_management_create');
-    // });
     Route::get('/management/staff/create', 'RegisterStaffController@staff');
 
     Route::get('/management/staff/edit/{id}', 'RegisterStaffController@edit_staff');
@@ -145,17 +127,11 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::post('/management/staff/store', 'RegisterStaffController@store');
 
     Route::post('/management/staff/update', 'RegisterStaffController@update_staff');
-    // Route::get('/dashboard/car1', function () {
-    //     return view('admin.dashboard');
-    // });
-    // Route::get('/dashboard/car2', function () {
-    //     return view('admin.dashboard');
-    // });
+
     Route::get('/dashboard/car1', 'RefreshController@dashboard1');
+
     Route::get('/dashboard/car2', 'RefreshController@dashboard2');
-    // Route::get('/profile', function () {
-    //     return view('admin.profile');
-    // });
+
     Route::get('/profile', 'RefreshController@admin_profile');
 
     Route::get('/news/detail/{id}', 'ReportController@show_news');
@@ -190,18 +166,10 @@ Route::post('/tasks/refresh/student', 'RefreshController@student');
 Route::get('tasks/refresh/order', 'RefreshController@order_report');
 
 Route::post('tasks/refresh/pf_student', 'RefreshController@pf_student');
-// Route::get('tasks/refresh/report/{id}', 'RefreshController@report');
 Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
 Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list_stu');
 
-
-// Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');
-// Route::get('admin/payment/confirm/car2', 'PaymentController@index');
-
-// Route::get('image/upload', 'ImageUploadController@fileCreate');
-// Route::post('image/upload/store', 'ImageUploadController@fileStore');
-// Route::post('image/delete', 'ImageUploadController@fileDestroy');
 
 Route::post('/ajax_upload/action', 'NewsController@action')->name('ajaxupload.action');
 

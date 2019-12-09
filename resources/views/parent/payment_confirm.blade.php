@@ -181,14 +181,6 @@
 @section('script')
 <script>
 
-    $(document).ready(function(){
-        setInterval(function(){
-            $("#paymentConfirmForm").submit(function(event){
-                $('#successConfirm').modal('show');
-            });
-        }, 3000);
-    });
-
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);

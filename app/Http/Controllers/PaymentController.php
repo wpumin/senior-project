@@ -326,7 +326,7 @@ class PaymentController extends Controller
                 }
 
                 DB::commit();
-
+                session()->flash('success', 'Create Article Complete');
                 return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('secure_code'));
             }
             \abort(404);

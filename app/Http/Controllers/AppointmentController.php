@@ -128,7 +128,6 @@ class AppointmentController extends Controller
             DB::commit();
 
             session()->flash('success', 'Create Article Complete');
-
             return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
