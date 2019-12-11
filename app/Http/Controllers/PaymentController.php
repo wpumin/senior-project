@@ -314,7 +314,7 @@ class PaymentController extends Controller
                     $image_filename = $this->request->file('imgInp')->getClientOriginalName();
                     $image_name =  $image_filename;
                     $public_path = 'images/Payments/';
-                    $destination = base_path() . "/public/" . $public_path;
+                    $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
                     $this->request->file('imgInp')->move($destination, $image_name);
                     $bill->imgInp = $public_path . $image_name;
 

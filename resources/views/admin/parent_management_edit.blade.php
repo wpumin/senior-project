@@ -20,7 +20,7 @@
                 <input type="hidden" id="secure_code" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
 
             <input type="hidden" id="user_id_update" name="user_id_update" value="{{ $no }}">
-                {{-- @csrf --}}
+                @csrf
                 <div class="row">
                     <div class="col-lg-12 col-12 form-group">
                         <div class="uploader" >
