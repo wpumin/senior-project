@@ -156,7 +156,6 @@ class RegisterUserController extends Controller
                             'phone' => $u->phone,
                             'date' => $u->created_at,
 
-
                         ];
                     }
                 }
@@ -187,12 +186,10 @@ class RegisterUserController extends Controller
 
                 $students = Student::where('user_id', $user->id)->get();
 
-
                 if ($user->role_id == '1') {
 
                     $relation = Relationship::where('id', $user->relationship_id)->first();
                 }
-
 
                 foreach ($students as $u) {
 
@@ -255,7 +252,6 @@ class RegisterUserController extends Controller
             'parent_password_confirm' => 'min:5|max:35|same:parent_password',
             'parent_email' => '',
             'parent_email_confirm' => 'same:parent_email'
-
 
         ]);
 
@@ -423,7 +419,6 @@ class RegisterUserController extends Controller
             $student->nickname = $this->request->input('nickname')[$i];
             $student->phone = "ไม่มีข้อมูล";
 
-
             $student->save();
             DB::commit();
         }
@@ -469,6 +464,7 @@ class RegisterUserController extends Controller
                 }
 
                 return view('admin.staff_management', [
+
                     'datas' => $data['info'],
 
                 ]);

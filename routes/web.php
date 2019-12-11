@@ -11,16 +11,14 @@
 |
 */
 
-// about (external page)
+/** ---------- ABOUT PAGE  (external page) ---------- */
 Route::get('/about', function () {
     return view('public.index');
 });
 
 Route::post('line/notify', 'ContactController@notify');
 
-// block url
-
-// login
+/** ---------- LOGIN ---------- */
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -37,7 +35,7 @@ Route::get('/create-newpassword', function () {
     return view('auth.create-newpassword');
 });
 
-// parent
+/** ---------- PARENT ---------- */
 Route::group(array('prefix' => 'parent'), function () {
 
     Route::get('/index', 'ParentController@index');
@@ -61,7 +59,7 @@ Route::group(array('prefix' => 'parent'), function () {
     Route::get('/news/detail/{id}', 'ParentController@show_news');
 });
 
-// driver
+/** ---------- DRIVER ---------- */
 Route::group(array('prefix' => 'driver'), function () {
 
     Route::get('/index', 'RefreshController@run');
@@ -78,7 +76,7 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
 
-// driver
+/** ---------- ADMIN ---------- */
 Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/index', 'ReportController@list_report');
@@ -128,9 +126,9 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::post('/management/staff/update', 'RegisterStaffController@update_staff');
 
-    Route::get('/dashboard/car1', 'RefreshController@dashboard1');
+    Route::get('/dashboard/{car}', 'RefreshController@dashboard');
 
-    Route::get('/dashboard/car2', 'RefreshController@dashboard2');
+    // Route::get('/dashboard/car2', 'RefreshController@dashboard2');
 
     Route::get('/profile', 'RefreshController@admin_profile');
 
