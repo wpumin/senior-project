@@ -398,10 +398,10 @@ class RefreshController extends Controller
                     for ($i = 0;$i <= 30; $i++) {
 
                         $day = (!isset($i) ? "00" : sprintf('%02d', $i + 1));
+                        $full = $day.'/'.$month.'/'.$year;
 
                         foreach ($checks as $check) {
 
-                            $full = $day.'/'.$month.'/'.$year;
 
                             if ($full == $check->date_check) {
 
