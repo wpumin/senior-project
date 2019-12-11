@@ -149,6 +149,8 @@ class DriverController extends Controller
 
                 $appointment = Appointment::where('id', $id)->first();
                 $stu = Student::where('id', $appointment->student_id)->first();
+                $user = User::where('id', $stu->user_id)->first();
+                $driver = User::where('car_id', $this->request->cookie('car_id'))->first();
 
                 if ($stu->car_id == $driver->car_id) {
 
