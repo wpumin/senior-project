@@ -60,7 +60,7 @@ class RegisterStaffController extends Controller
             $image_filename = $this->request->file('staffImage')->getClientOriginalName();
             $image_name = $this->request->input('first_name') . '_' . $image_filename;
             $public_path = 'images/Users/';
-            $destination = base_path() . "/public/" . $public_path;
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
             $this->request->file('staffImage')->move($destination, $image_name);
             $user->image = $public_path . $image_name;
         }
@@ -144,7 +144,7 @@ class RegisterStaffController extends Controller
             $image_filename = $this->request->file('staffImage')->getClientOriginalName();
             $image_name = $this->request->input('first_name') . '_' . $image_filename;
             $public_path = 'images/Users/';
-            $destination = base_path() . "/public/" . $public_path;
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
             $this->request->file('staffImage')->move($destination, $image_name);
             $staff->image = $public_path . $image_name;
         }

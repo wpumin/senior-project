@@ -97,7 +97,7 @@ class RegisterUserController extends Controller
                 $image_filename = $this->request->file('image')->getClientOriginalName();
                 $image_name = $this->request->input('first_name') . '_' . $image_filename;
                 $public_path = 'images/Users/';
-                $destination = base_path() . "/public/" . $public_path;
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
                 $this->request->file('image')->move($destination, $image_name);
                 $user->image = $public_path . $image_name;
             }
@@ -246,14 +246,17 @@ class RegisterUserController extends Controller
             return redirect('/');
         }
 
-        $this->validate($this->request, [
+        if ($this->request->input('parent_password')) {
 
-            'parent_password' => 'min:5|max:35',
-            'parent_password_confirm' => 'min:5|max:35|same:parent_password',
-            'parent_email' => '',
-            'parent_email_confirm' => 'same:parent_email'
+            $this->validate($this->request, [
 
-        ]);
+                'parent_password' => 'min:5|max:35',
+                'parent_password_confirm' => 'min:5|max:35|same:parent_password',
+                'parent_email' => '',
+                'parent_email_confirm' => 'same:parent_email'
+
+            ]);
+        }
 
         $user = User::where('id', $this->request->input('user_id_update'))->first();
 
@@ -263,7 +266,7 @@ class RegisterUserController extends Controller
             $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
             $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
             $public_path = 'images/Users/';
-            $destination = base_path() . "/public/" . $public_path;
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
             $this->request->file('parentImage0')->move($destination, $image_name);
             $user->image = $public_path . $image_name;
         }
@@ -368,7 +371,7 @@ class RegisterUserController extends Controller
             $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
             $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
             $public_path = 'images/Users/';
-            $destination = base_path() . "/public/" . $public_path;
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
             $this->request->file('parentImage0')->move($destination, $image_name);
             $user->image = $public_path . $image_name;
         }
@@ -402,7 +405,7 @@ class RegisterUserController extends Controller
                 $image_filename = $this->request->file('userprofile_picture')[$i]->getClientOriginalName();
                 $image_name = $this->request->input('first_name')[$i] . '_' . $image_filename;
                 $public_path = 'images/Students/';
-                $destination = base_path() . "/public/" . $public_path;
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
                 $this->request->file('userprofile_picture')[$i]->move($destination, $image_name);
                 $student->image = $public_path . $image_name;
             }
