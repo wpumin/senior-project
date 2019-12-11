@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\School;
 use App\User;
 use App\Appointment;
 use App\News;
+use App\Check_in;
 use App\Report;
 use App\Period_time;
 use App\Payment_log;
@@ -339,8 +341,18 @@ class RefreshController extends Controller
 
         return $this->responseRequestSuccess($data);
     }
-    public function dashboard1()
+    public function dashboard($car)
     {
+            $car_num = 0;
+
+            if ($car == 'car1') {
+                $car_num = 1;
+            }
+
+            if ($car == 'car2') {
+                $car_num = 2;
+            }
+
             //Check login
             $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
@@ -348,28 +360,201 @@ class RefreshController extends Controller
                 return redirect('/');
             }
 
+            $month = date('m');
+            $year = date('Y') + 543;
+
+            $data['info'][] = [];
+            $count = 0;
+            $check_count = 0;
+
+            /** ------------------------ */
+            $day_up = [];
+            $day_up_check = [];
+
+            /** ------------------------ */
+            $day_down = [];
+            $day_down_check = [];
+
+            /** ------------------------ */
+            $ev_up = [];
+            $ev_up_check = [];
+
+            /** ------------------------ */
+            $ev_down = [];
+            $ev_down_check = [];
+
+
             if ($this->request->cookie('role_number') == '3') {
 
-                return view('admin.dashboard');
+                $students = Student::where('car_id', $car_num)->get();
+                $num = 0;
+
+                foreach ($students as $student) {
+
+                    $school = School::where('id', $student->school_id)->first();
+
+                    $checks = Check_in::where('card_id', $student->card_id)->where('filter', $month)->get();
+
+                    for ($i = 0;$i <= 30; $i++) {
+
+                        $day = (!isset($i) ? "00" : sprintf('%02d', $i + 1));
+
+                        foreach ($checks as $check) {
+
+                            $full = $day.'/'.$month.'/'.$year;
+
+                            if ($full == $check->date_check) {
+
+                                if (in_array($check->date_check, $day_up)) {
+
+                                }else{
+
+                                    if ($check->get_on_id == '1' && $check->period_time == '1') {
+
+                                        array_push($day_up, $full); /**CHECK DATE */
+                                        array_push($day_up_check, 1);
+
+                                    }
+
+                                }/** DAY UP */
+
+                                if (in_array($check->date_check, $day_down)) {
+
+                                }else{
+
+                                    if ($check->get_on_id == '2' && $check->period_time == '1') {
+
+                                        array_push($day_down, $full); /**CHECK DATE */
+                                        array_push($day_down_check, 1);
+
+                                    }
+
+                                }/**DAY DOWN */
+
+                                if (in_array($check->date_check, $ev_up)) {
+
+                                }else{
+
+                                    if ($check->get_on_id == '1' && $check->period_time == '2') {
+
+                                        array_push($ev_up, $full); /**CHECK DATE */
+                                        array_push($ev_up_check, 1);
+
+                                    }
+
+                                }/**EV UP */
+
+                                if (in_array($check->date_check, $ev_down)) {
+
+                                }else{
+
+                                    if ($check->get_on_id == '2' && $check->period_time == '2') {
+
+                                        array_push($ev_down, $full); /**CHECK DATE */
+                                        array_push($ev_down_check, 1);
+
+                                    }
+
+                                }/**EV DOWN */
+
+                            }/**END IF */
+
+                        } /**END FOREACH */
+
+
+                        /**DAY UP */
+                        if (in_array($full, $day_up)) {
+
+                            /**CHECK DATE */
+
+                        }else{
+                            array_push($day_up, "out".$full);
+                            array_push($day_up_check, 0);
+                        }
+
+
+                        /**DAY DOWN */
+                        if (in_array($full, $day_down)) {
+
+                            /**CHECK DATE */
+
+                        }else{
+                            array_push($day_down, "out".$full);
+                            array_push($day_down_check, 0);
+                        }
+
+
+                        /**EV UP */
+                        if (in_array($full, $ev_up)) {
+
+                            /**CHECK DATE */
+
+                        }else{
+                            array_push($ev_up, "out".$full);
+                            array_push($ev_up_check, 0);
+                        }
+
+
+                        /**EV DOWN */
+                        if (in_array($full, $ev_down)) {
+
+                            /**CHECK DATE */
+
+                        }else{
+                            array_push($ev_down, "out".$full);
+                            array_push($ev_down_check, 0);
+                        }
+                    }
+
+                    $data['info'][$check_count] = [
+
+                        'name' => $student->nickname,
+                        'school' => $school->name_school,
+                        'check_day_up' => $day_up_check,
+                        'check_day_down' => $day_down_check,
+                        'check_ev_up' => $ev_up_check,
+                        'check_ev_down' => $ev_down_check
+
+                    ];
+
+                    $check_count++;
+                    $num++;
+                    $day_up = [];
+                    $day_up_check = [];
+
+                    $day_down = [];
+                    $day_down_check = [];
+
+                    $ev_up = [];
+                    $ev_up_check = [];
+
+                    $ev_down = [];
+                    $ev_down_check = [];
+
+                }
+
+                return view('admin.dashboard', [
+                    'infos' => $data['info']
+                ]);
             }
             \abort(404);
 
     }
-    public function dashboard2()
-    {
-        //Check login
-        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+    // public function dashboard2()
+    // {
+    //     //Check login
+    //     $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        if (!$auth) {
-            return redirect('/');
-        }
+    //     if (!$auth) {
+    //         return redirect('/');
+    //     }
 
-        if ($this->request->cookie('role_number') == '3') {
+    //     if ($this->request->cookie('role_number') == '3') {
 
-            return view('admin.dashboard');
-        }
-        \abort(404);
-    }
+    //         return view('admin.dashboard');
+    //     }
+    //     \abort(404);
+    // }
     public function admin_profile()
     {
             //Check login

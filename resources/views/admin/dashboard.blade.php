@@ -86,7 +86,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+
+                                    <?php $count=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                            <td class="text-center"><?php print $count ?></td>
+                                            <td class="text-center">{{ $info['name'] }}</td>
+                                            <td class="text-left">{{ $info['school'] }}</td>
+
+                                            @foreach ($info['check_day_up'] as $check )
+
+                                                @if ($check == 1)
+
+                                                <td><i class='fas fa-check text-success'></i></td>
+
+                                                @else
+
+                                                <td><i class='fas fa-times text-danger'></i></td>
+
+                                                @endif
+
+                                            @endforeach
+
+                                        </tr>
+
+                                    <?php $count++ ?>
+                                    @endforeach
+
+
+                                {{-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
@@ -121,8 +151,8 @@
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
-                                <tr>
+                                </tr> --}}
+                                {{-- <tr>
                                     <td class="text-center">2</td>
                                     <td class="text-center">กาย</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
@@ -265,7 +295,7 @@
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -312,6 +342,36 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                    <?php $count_1=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                            <td class="text-center"><?php print $count_1 ?></td>
+                                            <td class="text-center">{{ $info['name'] }}</td>
+                                            <td class="text-left">{{ $info['school'] }}</td>
+
+                                            @foreach ($info['check_day_down'] as $check )
+
+                                                @if ($check == 1)
+
+                                                <td><i class='fas fa-check text-success'></i></td>
+
+                                                @else
+
+                                                <td><i class='fas fa-times text-danger'></i></td>
+
+                                                @endif
+
+                                            @endforeach
+
+                                        </tr>
+
+                                        <?php $count_1++ ?>
+                                        @endforeach
+{{--
+
+                                    <tr>
                                 <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
@@ -491,7 +551,7 @@
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -538,7 +598,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                    <?php $count_2=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                        <td class="text-center"><?php print $count_2 ?></td>
+                                        <td class="text-center">{{ $info['name'] }}</td>
+                                        <td class="text-left">{{ $info['school'] }}</td>
+
+                                        @foreach ($info['check_ev_up'] as $check )
+
+                                            @if ($check == 1)
+
+                                            <td><i class='fas fa-check text-success'></i></td>
+
+                                            @else
+
+                                            <td><i class='fas fa-times text-danger'></i></td>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </tr>
+
+                                        <?php $count_2++ ?>
+
+                                        @endforeach
+                                {{-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">วัดหนองขุนชาติ</td>
@@ -717,7 +805,7 @@
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -764,7 +852,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                    <?php $count_3=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                        <td class="text-center"><?php print $count_3 ?></td>
+                                        <td class="text-center">{{ $info['name'] }}</td>
+                                        <td class="text-left">{{ $info['school'] }}</td>
+
+                                        @foreach ($info['check_ev_down'] as $check )
+
+                                            @if ($check == 1)
+
+                                            <td><i class='fas fa-check text-success'></i></td>
+
+                                            @else
+
+                                            <td><i class='fas fa-times text-danger'></i></td>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </tr>
+
+                                        <?php $count_3++ ?>
+
+                                        @endforeach
+                                {{-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">บ้านไร่วิทยา</td>
@@ -943,7 +1059,7 @@
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
