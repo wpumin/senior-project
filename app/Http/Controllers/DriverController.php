@@ -147,10 +147,14 @@ class DriverController extends Controller
 
             if ($this->request->cookie('role_number') == '2') {
 
+                $driver = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
+                if (!$driver) {
+                    \abort(419);
+                }
+
                 $appointment = Appointment::where('id', $id)->first();
                 $stu = Student::where('id', $appointment->student_id)->first();
                 $user = User::where('id', $stu->user_id)->first();
-                $driver = User::where('car_id', $this->request->cookie('car_id'))->first();
 
                 if ($stu->car_id == $driver->car_id) {
 
