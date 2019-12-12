@@ -64,7 +64,6 @@ class NewssController extends Controller
     //create
     public function create_store(Request $request)
     {
-        dd($request->all());
             //Check login
             $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
