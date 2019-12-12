@@ -215,7 +215,7 @@ class DriverController extends Controller
 
             if ($this->request->cookie('role_number') == '2') {
 
-                $news = News::where('id', $id)->first();
+                $news = News::where('id', $id)->whereIn('role_id', [2, 4])->first();
                 $user = User::where('id', $news->user_id)->first();
 
                 return view('news.news_detail', [

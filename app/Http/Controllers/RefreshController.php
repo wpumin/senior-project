@@ -48,7 +48,7 @@ class RefreshController extends Controller
                 $data['down'] = $down;
                 $data['self'] = $self;
 
-                $news = News::where('role_id', 2)->where('news_statuses_id', 1)->get();
+                $news = News::whereIn('role_id', [2, 4])->where('news_statuses_id', 1)->get();
 
                 $d = date('d');
                 $m = date('m');

@@ -73,6 +73,7 @@ Route::group(array('prefix' => 'driver'), function () {
     Route::get('/broadcast', 'DriverController@broadcast');
 
     Route::get('/profile', 'DriverController@profile');
+
     Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
 

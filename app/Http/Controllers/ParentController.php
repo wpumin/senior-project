@@ -35,7 +35,7 @@ class ParentController extends Controller
 
             if ($this->request->cookie('role_number') == '1') {
 
-                $news = News::where('role_id', 1)->where('news_statuses_id', 1)->get();
+                $news = News::whereIn('role_id', [1, 4])->where('news_statuses_id', 1)->get();
 
                 $d = date('d');
                 $m = date('m');
@@ -110,7 +110,7 @@ class ParentController extends Controller
 
             if ($this->request->cookie('role_number') == '1') {
 
-                $news = News::where('id', $id)->where('role_id', 1)->where('news_statuses_id', 1)->first();
+                $news = News::where('id', $id)->whereIn('role_id', [1, 4])->where('news_statuses_id', 1)->first();
                 $user = User::where('id', $news->user_id)->first();
 
                 return view('news.news_detail', [
