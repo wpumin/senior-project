@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\News;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -53,6 +54,7 @@ class NewssController extends Controller
             }
 
             if ($this->request->cookie('role_number') == '3') {
+
                 return view('admin.news_create');
             }
             \abort(404);

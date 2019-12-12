@@ -6,7 +6,7 @@
 
 <!-- News Create Area Start Here -->
 <div class="heading text-left">
-    <h3>เพิ่มข่าวสาร</3>
+    <h3>เพิ่มข่าวสาร</h3>
 </div>
 <div class="card height-auto pb-0">
     <div class="card-body pt-5">
