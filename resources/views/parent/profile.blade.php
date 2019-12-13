@@ -89,13 +89,10 @@
 
 <div class="mt-4 mt-md-5 text-center">
     <a href="#" id="logoutform">
-        <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
-        <form id="logoutform" class="flaticon-logout" action="{{url('/logout')}}" method="POST">
-
-            <input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
-            <input type="hidden" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
-
-            <input class="flaticon-logout" type="submit" value="ออกจากระบบ"></<input>
+        {{-- <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button> --}}
+        <form id="logoutform" action="{{url('/logout')}}" method="POST">
+            {{-- <input class="flaticon-logout" type="submit" value="ออกจากระบบ"></<input> --}}
+            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn" form="logoutform"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
         </form>
     </a>
 </div>
