@@ -36,14 +36,14 @@ class ParentController extends Controller
             if ($this->request->cookie('role_number') == '1') {
 
                 $news = News::whereIn('role_id', [1, 4])->where('news_statuses_id', 1)->get();
-
                 $d = date('d');
                 $m = date('m');
                 $y = date('Y') + 543;
 
                 $full = $d . '/' . $m . '/' . $y;
                 $time_now = date('H:i');
-                $full_now = new DateTime($full);
+                // $full_now = new DateTime($full);
+                $full_now = DateTime::createFromFormat('d/m/Y', $full);
 
                 $data['info'] = [];
                 $count = 0;

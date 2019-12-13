@@ -55,9 +55,11 @@ class RefreshController extends Controller
                 $y = date('Y') + 543;
 
                 $full = $d . '/' . $m . '/' . $y;
-                $time_now = new DateTime(date('H:i'));
-                $full_now = new DateTime($full);
-
+                // $time_now = new DateTime(date('H:i'));
+                // $full_now = new DateTime($full);
+                $time_now = date('H:i');
+                $full_now = DateTime::createFromFormat('d/m/Y', $full);
+                
                 $data['info'] = [];
                 $count = 0;
 
