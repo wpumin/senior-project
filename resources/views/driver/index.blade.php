@@ -154,6 +154,7 @@
                         <th>ความสัมพันธ์</th>
                         <th>เบอร์ติดต่อ</th>
                         <th>จุดรับส่ง</th>
+                        <th>ลืมแท็ก</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -176,6 +177,28 @@
     </div>
 </div>
 <!-- Student Table Area End Here -->
+
+<!-- Forgot RFID Modal -->
+<div class="wrap-modal">
+    <div class="modal fade" id="forgotRFID" tabindex="-1" role="dialog" aria-labelledby="forgotRFID" aria-hidden="true">
+        <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header _success">
+                </div>
+                <div class="modal-body my-4 text-center">
+                    <b>ยืนยันการทำรายการ</b>
+                    <p>น้อง <span class="text-red">ใส่ชื่อเล่นตรงนี้</span> ลืมแท็ก ใช่หรือไม่</p>
+                    <div class="modal-button text-center mt-3">
+                        <button type="button" class="btn btn-secondary" id="confirmForgot" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
+                        <!-- data-dismiss="modal" -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Forgot RFID Modal End Here -->
 
 <!-- Google Map Modal -->
 <div class="modal fade pr-0" id="mapEmbed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -341,6 +364,7 @@
                                 '</a>' +
                                 '</div>' +
                                 '</td>' +
+                                '<td> <div class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#forgotRFID"> <span class="flaticon-correct-1"></span> </a> </div></td>' +
                                 '</tr>'
                             );
 
@@ -361,7 +385,6 @@
                                 modalSurname.innerHTML = lastname;
                                 modalNickName.innerHTML = nickname;
                                 modalSchool.innerHTML = school;
-
                             }
                         }
 
