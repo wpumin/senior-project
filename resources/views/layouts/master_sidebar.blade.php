@@ -189,14 +189,14 @@
                                     </div>
                                 </div>
                             </li> --}}
-                            <li class="navbar-item dropdown header-language">
+                            {{-- <li class="navbar-item dropdown header-language">
                                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Thai</a>
                                     <a class="dropdown-item" href="#">English</a>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     <?php
                         }

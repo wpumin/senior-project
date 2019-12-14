@@ -132,14 +132,14 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="navbar-item dropdown header-language">
+                        {{-- <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Thai</a>
                                 <a class="dropdown-item" href="#">English</a>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 <?php
                     }
@@ -166,20 +166,21 @@
                                     <ul class="settings-list">
                                     <li><a href="{{ url('driver/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
                                         <form id="logoutform" action="{{url('/logout')}}" method="POST">
+                                            {{-- <input class="flaticon-logout" type="submit"> --}}
                                             <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit(); return false;" class="flaticon-logout"> ออกจากระบบ</a></li>
                                         </form>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="navbar-item dropdown header-language">
+                        {{-- <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Thai</a>
                                 <a class="dropdown-item" href="#">English</a>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 <?php
                     }
@@ -362,11 +363,11 @@
 
         $(document).ready(function(){
             // setInterval(function(){
-                $("#logoutform").submit(function(event){
+                $("#logoutform").click(function(event){
                     deleteAllCookies().delay(1000);
                 });
 
-                $("#logoutform1").submit(function(event){
+                $("#logoutform").submit(function(event){
                     deleteAllCookies().delay(1000);
                 });
             // }, 3000);
