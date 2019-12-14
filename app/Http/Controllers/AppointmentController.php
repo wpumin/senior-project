@@ -107,7 +107,7 @@ class AppointmentController extends Controller
 
 
                 ], [
-                    'err.required' => 'ข้อมูลซ้ำ',
+                    'err.required' => '* การนัดหมายซ้ำ',
 
                 ]);
             }

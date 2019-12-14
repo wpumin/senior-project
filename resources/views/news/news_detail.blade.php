@@ -52,7 +52,9 @@
                             <hr class="mt-4">
                             <div class="d-flex justify-content-between">
                                 <p class="mb-2">โพสต์โดย: {{ $name }}</p>
-                                <p class="mb-2">เมื่อ: {{ $release_date }} น.</p>
+                                {{-- substing time format --}}
+                                <?php //$time_substing = substr($release_date,0,16-0) ?>
+                                <p class="mb-2">เมื่อ: {{ $release_date  }}</p>
                             </div>
                         </div>
                     </div>

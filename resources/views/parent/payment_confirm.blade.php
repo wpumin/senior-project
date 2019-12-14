@@ -199,11 +199,9 @@
 
     $(document).ready(function(){
 
-        $("#paymentConfirm").submit(function(event){
+        $("#paymentConfirmForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
-            // submitForm();
-            return false;
         });
 
         $('button.btn-primary').click(function(){

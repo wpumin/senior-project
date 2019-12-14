@@ -154,7 +154,7 @@ class RegisterUserController extends Controller
                             'first_name' => $u->first_name,
                             'last_name' => $u->last_name,
                             'phone' => $u->phone,
-                            'date' => $u->created_at,
+                            'datetime' => $u->updated_at,
 
                         ];
                     }
@@ -460,7 +460,7 @@ class RegisterUserController extends Controller
                             'first_name' => $u->first_name,
                             'last_name' => $u->last_name,
                             'phone' => $u->phone,
-                            'date' => $u->created_at,
+                            'datetime' => $u->updated_at,
 
                         ];
                     }

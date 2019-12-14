@@ -63,27 +63,20 @@
                         <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('appointment_at') ? 'has-error' : '' }}>
                             <input type="text" id="appointment_at" name="appointment_at" placeholder="วว/ดด/ปปปป" class="form-control air-datepicker calendar" data-position="bottom right" autocomplete="off">
                             <i class="far fa-calendar-alt"></i>
-
                             @if ($errors->has('appointment_at'))
-
-                            <span class="help-block">
-                                {{$errors->first('appointment_at')}}
-                            </span>
-
+                                <span class="help-block">
+                                    {{$errors->first('appointment_at')}}
+                                </span>
+                            @endif
+                            @if ($errors->has('err'))
+                                <span class="help-block">
+                                    {{$errors->first('err')}}
+                                </span>
                             @endif
                         </div>
                         {{-- <div class="col-12 form-group">
                             <textarea class="textarea form-control" name="message" id="content" cols="10" rows="12" placeholder="หมายเหตุ (ถ้ามี)" autocomplete="off"></textarea>
                         </div> --}}
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('err') ? 'has-error' : '' }}>
-                                @if ($errors->has('err'))
-
-                                <span class="help-block">
-                                    {{$errors->first('err')}}
-                                </span>
-
-                                @endif
-                            </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
                             <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
                         </div>

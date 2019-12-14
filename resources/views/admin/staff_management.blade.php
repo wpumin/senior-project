@@ -43,7 +43,7 @@
                         <th>ชื่อ</th>
                         <th>นามสกุล</th>
                         <th>ติดต่อ</th>
-                        <th>เวลาสร้าง</th>
+                        <th>แก้ไขล่าสุด</th>
                         <th>จัดการ</th>
                     </tr>
                 </thead>
@@ -53,6 +53,15 @@
 
                         @foreach($datas as $key=>$data)
 
+                        <?php
+                            $updated_at = $data['datetime'];
+                            $year_substr = substr($updated_at,0,4-0);
+                            $month_substr = substr($updated_at,5,7-5);
+                            $date_substr = substr($updated_at,8,10-8);
+                            $time_substr = substr($updated_at,11,16-11);
+                            $concat_updated_at = '' . $date_substr . '/' . $month_substr . '/' . $year_substr . ' - ' . $time_substr . ' น.';
+                        ?>
+
                         <tr>
                                 <td><?php print $count ?></td>
                                 <td>{{ $data['username'] }}</td>
@@ -60,7 +69,7 @@
                                 <td>{{ $data['first_name'] }}</td>
                                 <td>{{ $data['last_name'] }}</td>
                                 <td>{{ $data['phone'] }}</td>
-                                <td>{{ $data['date'] }}</td>
+                                <td>{{ $concat_updated_at }}</td>
                                 <td>
                                     {{-- {{ url('admin/management/staff/edit') }} --}}
                                 <a href="<?php echo "/admin/management/staff/edit/"; ?>{{ $data['id'] }}"><span class="flaticon-edit"></span></a><a href="#" data-toggle="modal" data-target="#deleteUser"><span class="flaticon-bin"></span></a>
