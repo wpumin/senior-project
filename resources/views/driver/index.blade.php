@@ -187,7 +187,7 @@
                 </div>
                 <div class="modal-body my-4 text-center">
                     <b>ยืนยันการทำรายการ</b>
-                    <p>น้อง <span class="text-red">ใส่ชื่อเล่นตรงนี้</span> ลืมแท็ก ใช่หรือไม่</p>
+                    <p>น้อง <span class="text-red" id="nickname_modal">ใส่ชื่อเล่นตรงนี้</span> ลืมแท็ก ใช่หรือไม่</p>
                     <div class="modal-button text-center mt-3">
                         <button type="button" class="btn btn-secondary" id="confirmForgot" data-dismiss="modal">ยืนยัน</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
@@ -329,6 +329,9 @@
                         let modalSurname = document.getElementById("surname");
                         let modalSchool = document.getElementById("school");
 
+                        let modal2 = document.getElementById('forgotRFID')
+                        let forgetNickname = document.getElementById("nickname_modal");
+
                         let stu_nickname = document.getElementById("stu_nickname");
                         let stu_first = document.getElementById("stu_first");
                         let stu_last = document.getElementById("stu_last");
@@ -376,7 +379,7 @@
                             let lastname = response.data[i]['last_name'];
                             let nickname = response.data[i]['nickname'];
                             let school = response.data[i]['name_school'];
-
+                            
                             img[i].onclick = function() {
                                 // console.log(img[i]);
                                 modal.style.display = "block";
@@ -385,6 +388,13 @@
                                 modalSurname.innerHTML = lastname;
                                 modalNickName.innerHTML = nickname;
                                 modalSchool.innerHTML = school;
+                                forgetNickname.innerhtml = nick;
+                            }
+                            let forget = document.getElementsByClassName("flaticon-correct-1");
+                            let nick = response.data[i]['nickname_modal'];
+
+                            forget[i].onclick = function() {
+                                forgetNickname.innerHTML = nick;
                             }
                         }
 

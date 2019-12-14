@@ -118,7 +118,7 @@ class RefreshController extends Controller
             \abort(404);
 
     }
-
+    
     public function runAdminOne()
     {
         //Check login
@@ -195,7 +195,9 @@ class RefreshController extends Controller
             ->join('users', 'students.user_id', '=', 'users.id')
             ->join('cars', 'students.car_id', '=', 'cars.id')
             ->join('schools', 'students.school_id', '=', 'schools.id')
-            ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school', 'users.lattitude', 'users.longtitude')->where('cars.id', $this->request->car_id)
+            ->select('students.*', 'users.phone', 'users.relationship_id', 'cars.name', 'schools.name_school', 'users.lattitude', 'users.longtitude')
+            ->where('cars.id', $this->request->car_id)
+            ->orderBy('students.id', 'asc')
             ->orderBy('students.std_status_id', 'desc')
             ->get();
 
@@ -213,6 +215,7 @@ class RefreshController extends Controller
             $data['student_info'][$count++] = [
                 'id' => $stu->id,
                 'nickname' => $stu->nickname,
+                'nickname_modal' => $stu->nickname,
                 'fullname_s' => $stu->first_name . '' . $stu->last_name,
                 'first_name' => $stu->first_name,
                 'last_name' => $stu->last_name,
@@ -228,6 +231,9 @@ class RefreshController extends Controller
         }
 
         return $this->responseRequestSuccess($data['student_info']);
+        return view('driver.index', [
+            'datas' => $data['info'],
+        ]);
     }
 
     public function appointments()
