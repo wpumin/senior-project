@@ -93,7 +93,7 @@ function convertStringDes($input){
 
                     {{-- @if ($ro == 1) --}}
                         <li class="nav-item custom-nav w-50">
-                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">{{ $data['nickname'] }}</a>
+                            <a class="nav-link" data-toggle="tab" href="#tab<?php print $ro ?>" role="tab" aria-selected="false">น้อง{{ $data['nickname'] }}</a>
                         </li>
                         {{-- @else --}}
                         {{-- <li class="nav-item custom-nav w-50">
