@@ -60,6 +60,11 @@
         display: block;
         padding-top: 1rem;
     }
+    span.help-block-green{
+        color: green;
+        display: block;
+        padding-top: 1rem;
+    }
   </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="75">
@@ -1099,6 +1104,11 @@
                     <span class="help-block">
                         {{$errors->first('message')}}
                     </span>
+                @endif
+                @if(Session::has('success'))
+                  <span class="help-block-green">
+                    {{ Session::get('success') }}
+                  </span>
                 @endif
               </div>
               <div class="form-group mb-0">
