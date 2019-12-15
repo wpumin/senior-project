@@ -1433,7 +1433,7 @@ class StudentsTableSeeder extends Seeder
         ]);
 
         DB::table('students')->insert([
-            'nickname' => 'น้องส้มน้ำ',
+            'nickname' => 'ส้มน้ำ',
             'district_id' => 4,
             'card_id' => Str::random(8),
             'prefix' => 'เด็กหญิง',
@@ -1442,7 +1442,7 @@ class StudentsTableSeeder extends Seeder
             'phone' => '0951235151',
             'car_id' => 1,
             'std_status_id' => 1,
-            'image' => 'images/Students/น้องส้มน้ำ.jpg',
+            'image' => 'images/Students/ส้มน้ำ.jpg',
             'user_id' => 45,
             'school_id' => 3
 
