@@ -69,26 +69,7 @@ class NewsController extends Controller
                 $news = News::where('id', $id)->first();
                 $news->delete();
 
-                $news = News::get();
-                $data['info'] = [];
-                $count = 0;
-
-                foreach ($news as $n) {
-
-                    $user = User::where('id', $n->user_id)->first();
-                    $data['info'][$count++] = [
-                        'id' => $n->id,
-                        'title' => $n->title,
-                        'created_at' => $n->news_at,
-                        'name' => $user->username,
-                        'status' => $n->news_statuses_id
-                    ];
-                }
-
-                return view('admin.news', [
-                    'datas' => $data['info'],
-
-                ]);
+                return redirect('/admin/management/news');
             }
             \abort(404);
     }
