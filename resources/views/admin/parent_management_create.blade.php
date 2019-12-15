@@ -160,7 +160,7 @@
                         <input id="lon" value="" type="number" name="longtitude" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" name="district_id">
+                        <select class="select2" name="district_id" required>
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>
                             <option value="2">หูช้าง - ฿700 </option>

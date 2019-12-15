@@ -248,18 +248,6 @@ class RegisterUserController extends Controller
             return redirect('/');
         }
 
-        if ($this->request->input('parent_password')) {
-
-            $this->validate($this->request, [
-
-                'parent_password' => 'min:5|max:35',
-                'parent_password_confirm' => 'min:5|max:35|same:parent_password',
-                'parent_email' => '',
-                'parent_email_confirm' => 'same:parent_email'
-
-            ]);
-        }
-
         $user = User::where('id', $this->request->input('user_id_update'))->first();
 
         DB::beginTransaction();
