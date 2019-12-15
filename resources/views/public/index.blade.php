@@ -54,6 +54,13 @@
           });
       }
   </script>
+  <style>
+    span.help-block{
+        color: red;
+        display: block;
+        padding-top: 1rem;
+    }
+  </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="75">
     <!-- loader-->
