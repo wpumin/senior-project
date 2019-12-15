@@ -1,3 +1,10 @@
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function(){
+        $('#successSending').modal('show');
+    });
+    </script>
+@endif
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1063,29 +1070,29 @@
               <div class="form-group">
                 <label for="exampleInputName1">ชื่อ - สกุล</label><i class="fa fa-user"></i>
                 <input class="form-control" id="exampleInputName" name="exampleInputName" type="text" placeholder="ชื่อ - สกุล">
-                {{-- @if ($errors->has('exampleInputName'))
+                @if ($errors->has('exampleInputName'))
                     <span class="help-block">
                         {{$errors->first('exampleInputName')}}
                     </span>
-                @endif --}}
+                @endif
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail12">เบอร์โทร</label><i class="fa fa-phone"></i>
                 <input class="form-control" id="exampleInputEmail" name="exampleInputEmail" type="tel" placeholder="เบอร์โทรศัพท์">
-                {{-- @if ($errors->has('exampleInputEmail'))
+                @if ($errors->has('exampleInputEmail'))
                     <span class="help-block">
                         {{$errors->first('exampleInputEmail')}}
                     </span>
-                @endif --}}
+                @endif
               </div>
               <div class="form-group">
                 <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
                 <textarea class="form-control" id="message" name="message" cols="30" rows="10" placeholder="ข้อความ"></textarea>
-                {{-- @if ($errors->has('message'))
+                @if ($errors->has('message'))
                     <span class="help-block">
                         {{$errors->first('message')}}
                     </span>
-                @endif --}}
+                @endif
               </div>
               <div class="form-group mb-0">
                 <button class="btn-theme" type="submit" data-toggle="#successSending" id="send_noti">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
@@ -1239,17 +1246,16 @@
 
       $(document).ready(function(){
 
-        setInterval(function(){
+        // setInterval(function(){
           $("#mailForm").submit(function(event){
               $('.spinner-border').css('display','inline-block');
                 // submitForm();
                 //disable the submit button
-                $('#successSending').modal('show');
                 $("#send_noti").attr("disabled", true);
-                $(location).attr('href', '/public'); 
+                // $(location).attr('href', '/public'); 
                 // return false;
           });
-        }, 3000);
+        // }, 3000);
 
       });
 

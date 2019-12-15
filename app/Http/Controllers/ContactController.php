@@ -9,19 +9,19 @@ class ContactController extends Controller_Make
 {
     public function notify(Request $request)
     {
-        // $this->validate($this->request, [
-        //     'exampleInputName' => 'required|regex:/(^[A-Za-zก-ฮ]+$/u',
-        //     'exampleInputEmail' => 'required|regex:/(0)[0-9]{9}/',
-        //     'message' => 'required|min:50',
-        // ], [
-        //     'exampleInputName.required' => '* กรุณาใส่ชื่อจริงและนามสกุล',
-        //     'exampleInputName.regex' => '* กรุณากรอก a-z หรือ ก-ฮ เท่านั้น',
-        //     'exampleInputEmail.required' => '* กรุณากรอกเบอร์โทรศัพท์',
-        //     'exampleInputEmail.regex' => '* เบอร์โทรศัพท์ไม่ควรเกิน 10 หลัก',
-        //     'message.required' => '* กรุณากรอกข้อความ',
-        //     'message.min' => '* ความยาวของข้อความต้องไม่ต่ำกว่า 50 อักขระ',
+        $this->validate($request, [
+            'exampleInputName' => ['required', 'regex:/^([A-Za-zก-ฮ])/'],
+            'exampleInputEmail' => ['required', 'regex:/[0][0-9]{9}/'],
+            'message' => 'required|min:50',
+        ], [
+            'exampleInputName.required' => '* กรุณาใส่ชื่อจริงและนามสกุล',
+            'exampleInputName.regex' => '* กรุณากรอก a-z หรือ ก-ฮ เท่านั้น',
+            'exampleInputEmail.required' => '* กรุณากรอกเบอร์โทรศัพท์',
+            'exampleInputEmail.regex' => '* เบอร์โทรศัพท์ไม่ควรเกิน 10 หลัก',
+            'message.required' => '* กรุณากรอกข้อความ',
+            'message.min' => '* ความยาวของข้อความต้องไม่ต่ำกว่า 50 อักขระ',
 
-        // ]);
+        ]);
         // dd($request->all());
         $d = date('d');
         $m = date('m');
@@ -49,10 +49,11 @@ class ContactController extends Controller_Make
         );
 
         $result = $this->send_notify_message($line_api, $access_token, $message_data);
-        return redirect('/about');
-        return response()->json(['status' => true]);
-        return response()->json(['Hello, Motherfucker']);
-        echo 'Hello';
+        session()->flash('success', 'Create Article Complete');
+        return redirect('/public');
+        // return response()->json(['status' => true]);
+        // return response()->json(['Hello, Motherfucker']);
+        // echo 'Hello';
     }
 
     private function send_notify_message($line_api, $access_token, $message_data)
