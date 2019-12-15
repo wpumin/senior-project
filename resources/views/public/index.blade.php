@@ -1,10 +1,3 @@
-@if(Session::has('success'))
-    <script>
-        $(document).ready(function(){
-        $('#successSending').modal('show');
-    });
-    </script>
-@endif
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,6 +50,11 @@
   <style>
     span.help-block{
         color: red;
+        display: block;
+        padding-top: 1rem;
+    }
+    span.help-block-green{
+        color: green;
         display: block;
         padding-top: 1rem;
     }
@@ -1100,6 +1098,11 @@
                         {{$errors->first('message')}}
                     </span>
                 @endif
+                @if(Session::has('success'))
+                  <span class="help-block-green">
+                    {{ Session::get('success') }}
+                  </span>
+                @endif
               </div>
               <div class="form-group mb-0">
                 <button class="btn-theme" type="submit" data-toggle="#successSending" id="send_noti">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
@@ -1244,6 +1247,13 @@
           $(this).toggleClass('fa-align-justify');
         });
     </script> --}}
+    @if(Session::has('success'))
+      <script>
+          $(document).ready(function(){
+              $('#successSending').modal('show');
+          });
+      </script>
+    @endif
     <script>
 
       $('.delete-spinner').click(function() {
