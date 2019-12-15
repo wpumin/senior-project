@@ -345,6 +345,15 @@ class RegisterUserController extends Controller
             return redirect('/');
         }
 
+        $this->validate($this->request, [
+
+            'parent_password' => 'min:5|max:35',
+            'parent_password_confirm' => 'min:5|max:35|same:parent_password',
+            'parent_email' => '',
+            'parent_email_confirm' => 'same:parent_email'
+
+        ]);
+
         $user = new User();
 
         DB::beginTransaction();
