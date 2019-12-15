@@ -10,11 +10,12 @@ class ContactController extends Controller_Make
     public function notify(Request $request)
     {
         $this->validate($request, [
-            'exampleInputName' => ['required', 'regex:/^([A-Za-zก-ฮ])/'],
+            'exampleInputName' => ['required', 'regex:/^([A-Za-zก-ฮ])/', 'max:100'],
             'exampleInputEmail' => ['required', 'regex:/[0][0-9]{9}/'],
             'message' => 'required|min:50',
         ], [
             'exampleInputName.required' => '* กรุณาใส่ชื่อจริงและนามสกุล',
+            'exampleInputName.max' => '* ความยาวของข้อความต้องไม่เกิน 100 อักขระ',
             'exampleInputName.regex' => '* กรุณากรอก a-z หรือ ก-ฮ เท่านั้น',
             'exampleInputEmail.required' => '* กรุณากรอกเบอร์โทรศัพท์',
             'exampleInputEmail.regex' => '* เบอร์โทรศัพท์ไม่ควรเกิน 10 หลัก',

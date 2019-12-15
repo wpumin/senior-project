@@ -1,10 +1,3 @@
-@if(Session::has('success'))
-    <script>
-        $(document).ready(function(){
-        $('#successSending').modal('show');
-    });
-    </script>
-@endif
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1254,6 +1247,14 @@
           $(this).toggleClass('fa-align-justify');
         });
     </script> --}}
+    @if(Session::has('success'))
+      <script>
+          $(document).ready(function(){
+              $('#successSending').modal('show');
+              console.log('assssssssssss');
+          });
+      </script>
+    @endif
     <script>
 
       $('.delete-spinner').click(function() {
