@@ -232,6 +232,7 @@ class RegisterUserController extends Controller
                     'long' => $user->longtitude,
                     'district_id' => $district->id,
                     'district' => $district->name,
+                    'map_address' => $user->map_address,
 
                 ]);
             }
@@ -288,6 +289,7 @@ class RegisterUserController extends Controller
             $user->password = Hash::make($this->request->input('parent_password'));
         }
 
+        $user->map_address = $this->request->input('map_address');
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
         $user->secure_code = $this->strRandom_ref();
@@ -348,7 +350,7 @@ class RegisterUserController extends Controller
             if (!$auth) {
                 return redirect('/');
             }
-            
+
 
             if ($this->request->cookie('role_number') == '3') {
 
@@ -394,6 +396,7 @@ class RegisterUserController extends Controller
         $user->username = $this->request->input('parent_username');
         $user->password = Hash::make($this->request->input('parent_password'));
         $user->district_id = $this->request->input('district_id');
+        $user->map_address = $this->request->input('map_address');
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
         $user->secure_code = $this->strRandom_ref();
