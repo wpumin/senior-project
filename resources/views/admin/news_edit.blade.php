@@ -15,6 +15,11 @@
                 <input required type="text" placeholder="หัวข้อข่าวสาร" id="title" class="form-control" name="title" value="{{ $title }}">
                 <input type="hidden" class="form-control" id="news_id" value="{{ $id }}" name="news_id">
                 <input type="hidden" class="form-control" id="user_id" value="<?php echo $_COOKIE['user_id']; ?>" name="user_id">
+                @if ($errors->has('title'))
+                    <span class="help-block">
+                        {{$errors->first('title')}}
+                    </span>
+                @endif
             </div>
             <div class="col-12 form-group mb-0">
                 <label for="">ภาพหน้าปก</label>
@@ -25,6 +30,11 @@
                         <span class='label' data-js-label>ยังไม่ได้เลือกไฟล์</label>
                     </div>
                     <img id="blah" src="{{asset($image)}}" alt="news image" class="my-3 text-center news-image w-100"/>
+                    @if ($errors->has('imgInp'))
+                        <span class="help-block">
+                            {{$errors->first('imgInp')}}
+                        </span>
+                    @endif
                 </div>
                 <div class="text-center text-lg-left mt-3">
                     <span class="text-red small">ไฟล์ต้องเป็นสกุลไฟล์ .jpg, jpeg และ .png เท่านั้น<span>
@@ -39,6 +49,11 @@
                     <option value="3">แอดมิน</option>
                     <option value="4">ทั้งหมด</option>
                 </select>
+                @if ($errors->has('role_id'))
+                    <span class="help-block">
+                        {{$errors->first('role_id')}}
+                    </span>
+                @endif
             </div>
             <input type="hidden" class="form-control" id="id_user" value="{{ $id_user }}">
             <div class="col-xl-3 col-lg-6 col-12 form-group" id="status">
@@ -48,17 +63,37 @@
                     <option value="1">เผยแพร่</option>
                     <option value="2">งดเผยแพร่</option>
                 </select>
+                @if ($errors->has('news_statuses_id'))
+                    <span class="help-block">
+                        {{$errors->first('news_statuses_id')}}
+                    </span>
+                @endif
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <input required type="text" id="release_date" name="release_date" placeholder="วันที่เผยแพร่" class="form-control air-datepicker calendar" value="{{ $release_date }}">
                 <i class="far fa-calendar-alt"></i>
+                @if ($errors->has('release_date'))
+                    <span class="help-block">
+                        {{$errors->first('release_date')}}
+                    </span>
+                @endif
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <input required type="text" name="release_time" placeholder="เวลาเผยแพร่" class="form-control" id="timepicker" value="{{ $release_time }}">
                 <i class="far fa-clock"></i>
+                @if ($errors->has('release_time'))
+                    <span class="help-block">
+                        {{$errors->first('release_time')}}
+                    </span>
+                @endif
             </div>
             <div class="col-xl-12 col-12 form-group">
                 <textarea required class="textarea form-control" id="content" name="content" placeholder="รายละเอียดข่าว" rows="15">{{ $content }}</textarea>
+                @if ($errors->has('content'))
+                    <span class="help-block">
+                        {{$errors->first('content')}}
+                    </span>
+                @endif
             </div>
             <div class="col-12 form-group mg-t-8 text-right">
                 <input type="submit"  class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="addNewsBtn" value="ยืนยัน">
