@@ -29,6 +29,7 @@ class ParentController extends Controller
             if ($this->request->cookie('role_number') == '1') {
 
                 $news = News::whereIn('role_id', [1, 4])->where('news_statuses_id', 1)->get();
+
                 $d = date('d');
                 $m = date('m');
                 $y = date('Y') + 543;
@@ -46,9 +47,7 @@ class ParentController extends Controller
 
                         $release_date = DateTime::createFromFormat('d/m/Y', $n->release_date);
 
-                        if ($release_date <= $full_now) {
-
-                            if ($time_now > $n->release_time) {
+                        if ($release_date < $full_now) {
 
                                 $data['info'][$count++] = [
 
@@ -56,6 +55,18 @@ class ParentController extends Controller
                                     'image' => $n->image,
 
                                 ];
+
+                        } else if ($release_date == $full_now) {
+
+                            if ($n->release_time >= $time_now) {
+
+                                $data['info'][$count++] = [
+
+                                    'id' => $n->id,
+                                    'image' => $n->image,
+
+                                ];
+
                             } else {
 
                                 $data['info'][$count++] = [
@@ -64,15 +75,8 @@ class ParentController extends Controller
                                     'image' => null,
 
                                 ];
+
                             }
-                        } else {
-
-                            $data['info'][$count++] = [
-
-                                'id' => null,
-                                'image' => null,
-
-                            ];
                         }
                     }
                 } else {
