@@ -50,7 +50,7 @@ class ContactController extends Controller_Make
         );
 
         $result = $this->send_notify_message($line_api, $access_token, $message_data);
-        session()->flash('success', '* เราได้รับฟอร์มติดต่อของคุณแล้ว');
+        session()->flash('success', '* เราได้รับฟอร์มการติดต่อของคุณแล้ว');
         return redirect('/public');
 
     }

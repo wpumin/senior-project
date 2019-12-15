@@ -1251,7 +1251,6 @@
       <script>
           $(document).ready(function(){
               $('#successSending').modal('show');
-              console.log('assssssssssss');
           });
       </script>
     @endif
