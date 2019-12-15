@@ -187,7 +187,7 @@
                 </div>
                 <div class="modal-body my-4 text-center">
                     <b>ยืนยันการทำรายการ</b>
-                    <p>น้อง <span class="text-red" id="nickname_modal">ใส่ชื่อเล่นตรงนี้</span> ลืมแท็ก ใช่หรือไม่</p>
+                    <p><span class="text-red">น้อง</span><span class="text-red" id="nickname_modal"></span> ลืมแท็ก ใช่หรือไม่</p>
                     <div class="modal-button text-center mt-3">
                         <button type="button" class="btn btn-secondary" id="confirmForgot" data-dismiss="modal">ยืนยัน</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
