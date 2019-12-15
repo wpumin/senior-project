@@ -6,18 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Student;
 use App\School;
 use App\User;
-use App\Appointment;
 use App\News;
 use App\Check_in;
-use App\Report;
-use App\Period_time;
-use App\Payment_log;
-use App\Order_report;
 use App\Relationship;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
 class RefreshController extends Controller
@@ -55,11 +49,9 @@ class RefreshController extends Controller
                 $y = date('Y') + 543;
 
                 $full = $d . '/' . $m . '/' . $y;
-                // $time_now = new DateTime(date('H:i'));
-                // $full_now = new DateTime($full);
-                $time_now = date('H:i');
+                $time_now = date('h:i A');
                 $full_now = DateTime::createFromFormat('d/m/Y', $full);
-                
+
                 $data['info'] = [];
                 $count = 0;
 
@@ -67,7 +59,9 @@ class RefreshController extends Controller
 
                     foreach ($news as $n) {
 
-                        if ($n->release_date <= $full_now) {
+                        $release_date = DateTime::createFromFormat('d/m/Y', $n->release_date);
+
+                        if ($release_date <= $full_now) {
 
                             if ($n->release_time <= $time_now) {
 
@@ -77,6 +71,7 @@ class RefreshController extends Controller
                                     'image' => $n->image,
 
                                 ];
+
                             } else {
 
                                 $data['info'][$count++] = [
@@ -107,6 +102,7 @@ class RefreshController extends Controller
                 }
 
                 return view('driver.index', [
+
                     'datas' => $data['info'],
                     'no' => $no,
                     'up' => $up,
@@ -118,7 +114,7 @@ class RefreshController extends Controller
             \abort(404);
 
     }
-    
+
     public function runAdminOne()
     {
         //Check login
@@ -173,7 +169,6 @@ class RefreshController extends Controller
 
     public function refresh()
     {
-
         $no = Student::where('std_status_id', 1)->where('car_id', $this->request->car_id)->count();
         $up = Student::where('std_status_id', 2)->where('car_id', $this->request->car_id)->count();
         $down = Student::where('std_status_id', 3)->where('car_id', $this->request->car_id)->count();
@@ -253,7 +248,6 @@ class RefreshController extends Controller
 
     public function appointment()
     {
-
         // validator
         $validator = Validator::make($this->request->all(), [
             'user_id' => 'required',
@@ -289,11 +283,6 @@ class RefreshController extends Controller
             }
 
                 if ($this->request->cookie('role_number') == '1') {
-
-                    $day = date('d');
-                    $month = date('m');
-                    $year = date('Y') + 543;
-                    $full = $day . '-' . $month . '-' . $year;
 
                     $report = DB::table('reports')
                         ->join('users', 'reports.user_id', '=', 'users.id')
@@ -372,7 +361,6 @@ class RefreshController extends Controller
             $year = date('Y') + 543;
 
             $data['info'][] = [];
-            $count = 0;
             $check_count = 0;
 
             /** ------------------------ */
@@ -548,21 +536,7 @@ class RefreshController extends Controller
             \abort(404);
 
     }
-    // public function dashboard2()
-    // {
-    //     //Check login
-    //     $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-    //     if (!$auth) {
-    //         return redirect('/');
-    //     }
-
-    //     if ($this->request->cookie('role_number') == '3') {
-
-    //         return view('admin.dashboard');
-    //     }
-    //     \abort(404);
-    // }
     public function admin_profile()
     {
             //Check login

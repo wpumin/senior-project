@@ -99,7 +99,7 @@ class NewssController extends Controller
                     'title.required' => '* กรุณาใส่หัวข้อข่าวสาร',
                     'title.max' => '* ความยาวของข้อความต้องไม่เกิน 100 อักขระ',
                     'role_id.required' => '* กรุณาเลือกผู้ที่สามารถเห็นข่าวนี้ได้',
-                    'news_statuses_id.required' => '* กรุณาเลือกสถานะ', 
+                    'news_statuses_id.required' => '* กรุณาเลือกสถานะ',
                     'release_date.required' => '* กรุณาเลือกวันที่เผยแพร่',
                     'release_time.required' => '* กรุณาเลือกเวลาเผยแพร่',
                     'content.required' => '* กรุณากรอกรายละเอียดข่าว',
@@ -123,7 +123,8 @@ class NewssController extends Controller
                     $image_filename = $request->file('imgInp')->getClientOriginalName();
                     $image_name =  $image_filename;
                     $public_path = 'images/News/';
-                    $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
+                    $destination = base_path() . "/public/" . $public_path; //Local
+                    // $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                     $request->file('imgInp')->move($destination, $image_name);
                     $news->image = $public_path . $image_name;
                     $news->save();

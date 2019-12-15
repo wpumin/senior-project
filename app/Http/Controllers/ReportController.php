@@ -6,11 +6,7 @@ use App\News;
 use Illuminate\Http\Request;
 use App\Report;
 use App\Type_report;
-use App\Order_report;
 use App\User;
-use LogicException;
-use Validator;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller

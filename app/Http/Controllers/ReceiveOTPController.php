@@ -3,16 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Otp;
-use App\User;
-use Carbon\Carbon;
-
 use App\Http\Controllers\Controller;
 use Firebase\JWT\JWT;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use LogicException;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Blocktrail\CryptoJSAES\CryptoJSAES;
 

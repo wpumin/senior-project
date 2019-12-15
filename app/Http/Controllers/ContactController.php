@@ -51,9 +51,7 @@ class ContactController extends Controller_Make
         $result = $this->send_notify_message($line_api, $access_token, $message_data);
         session()->flash('success', 'Create Article Complete');
         return redirect('/public');
-        // return response()->json(['status' => true]);
-        // return response()->json(['Hello, Motherfucker']);
-        // echo 'Hello';
+
     }
 
     private function send_notify_message($line_api, $access_token, $message_data)

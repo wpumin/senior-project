@@ -6,13 +6,9 @@ use App\Http\Controllers\Controller;
 use App\News;
 use App\News_status;
 use App\Role;
-use App\Relationship;
-use Carbon\Carbon;
 use App\User;
-use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+
 
 class NewsController extends Controller
 {
@@ -130,7 +126,7 @@ class NewsController extends Controller
                 //     'title.required' => '* กรุณาใส่หัวข้อข่าวสาร',
                 //     'title.max' => '* ความยาวของข้อความต้องไม่เกิน 100 อักขระ',
                 //     'role_id.required' => '* กรุณาเลือกผู้ที่สามารถเห็นข่าวนี้ได้',
-                //     'news_statuses_id.required' => '* กรุณาเลือกสถานะ', 
+                //     'news_statuses_id.required' => '* กรุณาเลือกสถานะ',
                 //     'release_date.required' => '* กรุณาเลือกวันที่เผยแพร่',
                 //     'release_time.required' => '* กรุณาเลือกเวลาเผยแพร่',
                 //     'content.required' => '* กรุณากรอกรายละเอียดข่าว',

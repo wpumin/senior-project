@@ -18,7 +18,7 @@ class NewsTableSeeder extends Seeder
             'role_id' => '1',
             'title' => 'ปัญหาครอบครัว',
             'content' => 'แม่ส่งอีเมลล์บอกลูกชายชั้น 2 ให้ลงมากินข้าวชั้นล่าง',
-            'image' => 'images\Users\moss2.jpg',
+            'image' => 'images/Users/moss2.jpg',
             'release_date' => '15/12/2562',
             'release_time' => '12:20 PM',
             'news_at' => '26/11/2562',
