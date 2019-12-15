@@ -131,14 +131,14 @@
                     </select>
                 </div>
                 <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                    <select class="form-control select2" autocomplete="off" id="price">
                         <option value="">ค้นหาด้วยจำนวนเงิน</option>
-                        <option value="1">350.00</option>
-                        <option value="2">500.00</option>
-                        <option value="3">600.00</option>
-                        <option value="4">650.00</option>
-                        <option value="5">700.00</option>
-                        <option value="6">900.00</option>
+                        <option value="350">350.00</option>
+                        <option value="500">500.00</option>
+                        <option value="600">600.00</option>
+                        <option value="650">650.00</option>
+                        <option value="700">700.00</option>
+                        <option value="900">900.00</option>
                     </select>
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
@@ -306,10 +306,12 @@ function myFunction() {
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
       input = document.getElementById("search_nickname");
-      var input_periodtime = document.getElementById("search_key");
+      var input_key = document.getElementById("search_key");
+      var input_price = document.getElementById("price");
 
       filter = input.value;
-      filter_input_periodtime = input_periodtime.value;
+      filter_input_key = input_key.value;
+      filter_input_price = input_price.value;
 
       table = document.getElementById("myTable");
       tr = table.getElementsByTagName("tr");
@@ -317,20 +319,28 @@ function myFunction() {
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
 
-        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
-        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
+        td_name = tr[i].getElementsByTagName("td")[4]; //choose table that search. (Name)
+        td_key = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Key)
+        td_price = tr[i].getElementsByTagName("td")[6]; //choose table that search. (Price)
 
         if (td_name) {
 
-          txtValue = td_name.textContent || td_name.innerText;
-          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
+          txtValue_name = td_name.textContent || td_name.innerText;
+          txtValue_key = td_key.textContent || td_key.innerText;
+          txtValue_price = td_price.textContent || td_price.innerText;
 
-          if (txtValue.indexOf(filter_input_periodtime) > -1 && txtValue_period_time.indexOf(filter) > -1) {
+          if (txtValue_name.indexOf(filter) > -1 && txtValue_key.indexOf(filter_input_key) > -1 && txtValue_price.indexOf(filter_input_price) > -1) {
 
             tr[i].style.display = "";
+            $('#search_nickname').val("");
+            $('#search_key').val("");
+            $('#price').val(null).trigger('change'); //type select
           } else {
 
             tr[i].style.display = "none";
+            $('#search_nickname').val("");
+            $('#search_key').val("");
+            $('#price').val(null).trigger('change'); //type select
           }
         }
       }

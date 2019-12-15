@@ -65,7 +65,8 @@ class RegisterStudentController extends Controller
                 $image_filename = $this->request->file('image')->getClientOriginalName();
                 $image_name = $this->request->input('first_name') . '_' . $image_filename;
                 $public_path = 'images/Students/';
-                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
+                // $destination = base_path() . "/public/" . $public_path; //Local
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                 $this->request->file('image')->move($destination, $image_name);
                 $student->image = $public_path . $image_name;
             }
@@ -150,8 +151,8 @@ class RegisterStudentController extends Controller
             $image_filename = $this->request->file('userprofile_picture')->getClientOriginalName();
             $image_name = $this->request->input('first_name') . '_' . $image_filename;
             $public_path = 'images/Students/';
-            $destination = base_path() . "/public/" . $public_path; //Local
-            // $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+            // $destination = base_path() . "/public/" . $public_path; //Local
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
             $this->request->file('userprofile_picture')->move($destination, $image_name);
             $student->image = $public_path . $image_name;
         }

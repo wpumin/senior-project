@@ -163,12 +163,9 @@
 
             let myForm = document.getElementById('addUserForm');
             var image_file = myForm[3].files[0];
-            // console.log(image_file);
-
 
             var formData_1 = new FormData();
             formData_1.append("file", image_file);
-            // console.log('----------');
 
             $.ajax({
                 type: "PUT",

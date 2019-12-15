@@ -1080,8 +1080,6 @@ $('#select-box').change(function () {
    dropdown = $(this).val();
   //first hide all tabs again when a new option is selected
   $('.tab-pane').hide();
-//   $('.tab-pane.fade').fadeOut();
-//   console.log(dropdown);
   //then show the tab content of whatever option value was selected
   $('#tab' + dropdown).show();
   $('#tab' + dropdown).css('opacity','1');
@@ -1102,7 +1100,6 @@ $('#select-box').change(function () {
 
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
-        // console.log('asdasdasdasdasdasd');
         $('.maptoggle').toggleClass('customHeight');
     });
 

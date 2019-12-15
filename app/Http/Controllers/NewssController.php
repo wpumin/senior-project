@@ -123,8 +123,8 @@ class NewssController extends Controller
                     $image_filename = $request->file('imgInp')->getClientOriginalName();
                     $image_name =  $image_filename;
                     $public_path = 'images/News/';
-                    $destination = base_path() . "/public/" . $public_path; //Local
-                    // $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+                    // $destination = base_path() . "/public/" . $public_path; //Local
+                    $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                     $request->file('imgInp')->move($destination, $image_name);
                     $news->image = $public_path . $image_name;
                     $news->save();
@@ -209,7 +209,8 @@ class NewssController extends Controller
                 $image_filename = $request->file('imgInp')->getClientOriginalName();
                 $image_name =  $image_filename;
                 $public_path = 'images/News/';
-                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
+                // $destination = base_path() . "/public/" . $public_path; //Local
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                 $request->file('imgInp')->move($destination, $image_name);
                 $news->image = $public_path . $image_name;
                 $news->save();
