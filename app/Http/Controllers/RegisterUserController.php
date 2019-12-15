@@ -8,6 +8,7 @@ use App\Role;
 use App\School;
 use App\Student;
 use App\User;
+use App\District;
 use Exception;
 use LogicException;
 use Illuminate\Http\Request;
@@ -188,6 +189,8 @@ class RegisterUserController extends Controller
 
                 $relation = Relationship::where('id', $user->relationship_id)->first();
 
+                $district = District::where('id', $user->district_id)->first();
+
                 foreach ($students as $u) {
 
                     if ($u) {
@@ -227,7 +230,8 @@ class RegisterUserController extends Controller
                     'date' => $user->created_at,
                     'lat' => $user->lattitude,
                     'long' => $user->longtitude,
-                    // 'district' =>
+                    'district_id' => $district->id,
+                    'district' => $district->name,
 
                 ]);
             }
@@ -270,6 +274,7 @@ class RegisterUserController extends Controller
         }
 
         $user->relationship_id = $this->request->input('parent_relation');
+        $user->district_id = $this->request->input('district_id');
         $user->prefix = $this->request->input('prefix_parent');
         $user->first_name = $this->request->input('parent_fname');
         $user->last_name = $this->request->input('parent_lname');

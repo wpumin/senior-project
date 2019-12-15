@@ -25,6 +25,7 @@ class User extends Model
         'longtitude', 
         'secure_code',
         'status',
+        'district_id',
 
     ];
 
