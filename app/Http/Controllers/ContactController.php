@@ -22,7 +22,7 @@ class ContactController extends Controller_Make
             'message.min' => '* ความยาวของข้อความต้องไม่ต่ำกว่า 50 อักขระ',
 
         ]);
-        // dd($request->all());
+
         $d = date('d');
         $m = date('m');
         $y = date('Y') + 543;

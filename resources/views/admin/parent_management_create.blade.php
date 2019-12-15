@@ -48,7 +48,7 @@
                         <input type="text" placeholder="นามสกุล" name="parent_lname" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2 name="parent_relation">
+                        <select class="select2" name="parent_relation">
                             <option value="">ความสัมพันธ์</option>
                             <option value="1">พ่อ</option>
                             <option value="2">แม่</option>
@@ -131,7 +131,7 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2 name="car[]">
+                                <select class="select2" name="car[]">
                                     <option value="">ประจำคันรถ</option>
                                     <option value="1">คันที่ 1: สินาท</option>
                                     <option value="2">คันที่ 2: โกญจนาท</option>
