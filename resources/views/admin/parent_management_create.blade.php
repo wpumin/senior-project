@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="col-12 form-group">
-                        <input id="address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง">
+                        <input id="address" type="text" name="map_address" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
                         <input id="lat" value="" type="number" name="lattitude" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">

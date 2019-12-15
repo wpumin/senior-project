@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('secure_code')->nullable();
             $table->string('status')->nullable();
+            $table->string('map_address')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
             $table->string('token')->nullable();

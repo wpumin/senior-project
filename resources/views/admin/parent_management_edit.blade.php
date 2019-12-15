@@ -199,7 +199,7 @@
                         </div>
                     </div>
                     <div class="col-12 form-group">
-                    <input id="address" name="parent_address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง" value="{{ $address }}" readonly>
+                    <input id="address" name="map_address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง" value="{{ $map_address }}" readonly>
                     </div>
                     <div class="col-lg-4 col-12 form-group">
                     <input id="lat" value="{{ $lat }}" type="number" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
