@@ -72,20 +72,40 @@ class NewssController extends Controller
             }
 
             if ($this->request->cookie('role_number') == '3') {
+                // $validator = Validator::make(
+                //     $request->all(),
+                //     [
+                //         'imgInp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                //     ]
+                // );
 
-                $validator = Validator::make(
-                    $request->all(),
-                    [
-                        'imgInp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                // if ($validator->fails())
+                // return array(
+                //     'fail' => true,
+                //     'errors' => $validator->errors()
+                // );
+                $this->validate($this->request, [
+                    'imgInp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                    'title' => 'required|max:120',
+                    'role_id' => 'required',
+                    'news_statuses_id' => 'required',
+                    'release_date' => 'required',
+                    'release_time' => 'required',
+                    'content' => 'required|min:50'
+                ], [
+                    'imgInp.required' => '* กรุณาอัพโหลดรูปภาพ',
+                    'imgInp.image' => '* ไฟล์ภาพต้องเป็น jpg, jpeg หรือ gif เท่านั้น',
+                    'imgInp.max' => '* ไฟล์ภาพต้องขนาดไม่เกิน 2MB',
+                    'title.required' => '* กรุณาใส่หัวข้อข่าวสาร',
+                    'title.max' => '* ความยาวของข้อความต้องไม่เกิน 100 อักขระ',
+                    'role_id.required' => '* กรุณาเลือกผู้ที่สามารถเห็นข่าวนี้ได้',
+                    'news_statuses_id.required' => '* กรุณาเลือกสถานะ', 
+                    'release_date.required' => '* กรุณาเลือกวันที่เผยแพร่',
+                    'release_time.required' => '* กรุณาเลือกเวลาเผยแพร่',
+                    'content.required' => '* กรุณากรอกรายละเอียดข่าว',
+                    'content.min' => '* ความยาวของข้อความต้องไม่ต่ำกว่า 50 อักขระ',
 
-                    ]
-                );
-
-                if ($validator->fails())
-                    return array(
-                        'fail' => true,
-                        'errors' => $validator->errors()
-                    );
+                ]);
 
                 $day = date('d');
                 $month = date('m');
