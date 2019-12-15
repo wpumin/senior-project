@@ -25,11 +25,16 @@
                             <input type="file" name="parentImage0"  id="parentImage0" data-id="0" class="filePhoto" onchange="readURL(this,this.getAttribute('data-id'))" />
                         </div>
                         <div class="text-center mt-3">
-                            <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
+                            <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 2MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
+                            {{-- @if ($errors->has('title'))
+                                <span class="help-block">
+                                    {{$errors->first('title')}}
+                                </span>
+                            @endif --}}
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2" required name="prefix_parent">
+                        <select class="select2" name="prefix_parent">
                             <option value="">คำนำหน้า</option>
                             <option value="นาย">นาย</option>
                             <option value="นาง">นาง</option>
@@ -37,13 +42,13 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ชื่อ" class="form-control" name="parent_fname">
+                        <input type="text" placeholder="ชื่อ" class="form-control" name="parent_fname">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="นามสกุล" name="parent_lname" class="form-control">
+                        <input type="text" placeholder="นามสกุล" name="parent_lname" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2"required name="parent_relation">
+                        <select class="select2 name="parent_relation">
                             <option value="">ความสัมพันธ์</option>
                             <option value="1">พ่อ</option>
                             <option value="2">แม่</option>
@@ -51,28 +56,28 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control">
+                        <input type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ไลน์ไอดี"  name="parent_line_id" class="form-control">
+                        <input type="text" placeholder="ไลน์ไอดี"  name="parent_line_id" class="form-control">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="email" placeholder="อีเมล" class="form-control" name="parent_email">
+                        <input type="email" placeholder="อีเมล" class="form-control" name="parent_email">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control">
+                        <input type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control">
                     </div>
                     <div class="col-xl-12 col-12 form-group">
-                        <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
+                        <textarea class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="parent_username">
+                        <input type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="parent_username">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="password" placeholder="รหัสผ่าน" class="form-control" name="parent_password">
+                        <input type="password" placeholder="รหัสผ่าน" class="form-control" name="parent_password">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="parent_password_confirm">
+                        <input type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="parent_password_confirm">
                     </div>
                 </div>
                 <div class="row" id="student-profile">
@@ -91,12 +96,12 @@
                                 <input type="file" name="userprofile_picture[]" id="studentImage1" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
                             </div>
                             <div class="text-center mt-3">
-                                <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
+                                <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 2MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" required name="prefix[]">
+                                <select class="select2" name="prefix[]">
                                     <option value="">คำนำหน้า</option>
                                     <option value="เด็กชาย">เด็กชาย</option>
                                     <option value="เด็กหญิง">เด็กหญิง</option>
@@ -106,19 +111,19 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="first_name[]" placeholder="ชื่อ" class="form-control">
+                                <input type="text" name="first_name[]" placeholder="ชื่อ" class="form-control">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="last_name[]" placeholder="นามสกุล" class="form-control">
+                                <input type="text" name="last_name[]" placeholder="นามสกุล" class="form-control">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control">
+                                <input type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input required type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control">
+                                <input type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" required name="school[]">
+                                <select class="select2" name="school[]">
                                     <option value="">โรงเรียน</option>
                                     <option value="1">หนองฉางวิทยา</option>
                                     <option value="2">ธรรมานุวัตร</option>
@@ -126,7 +131,7 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2"required name="car[]">
+                                <select class="select2 name="car[]">
                                     <option value="">ประจำคันรถ</option>
                                     <option value="1">คันที่ 1: สินาท</option>
                                     <option value="2">คันที่ 2: โกญจนาท</option>
@@ -149,13 +154,13 @@
                         <input id="address" type="text" class="form-control search_addr" style="height: auto; min-height: 45px; padding: 1.05rem 1.5rem;" placeholder="จุดรับ-ส่ง">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <input id="lat" value="" type="number" name="lattitude" required readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
+                        <input id="lat" value="" type="number" name="lattitude" readonly type="text" placeholder="ละติจูด" class="form-control search_latitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <input id="lon" value="" type="number" name="longtitude" required readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
+                        <input id="lon" value="" type="number" name="longtitude" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" required name="district_id">
+                        <select class="select2" name="district_id">
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>
                             <option value="2">หูช้าง - ฿700 </option>
@@ -368,12 +373,12 @@
                             '<input type="file" name="userprofile_picture[]" id="studentImage'+ i +'"  data-id="'+i+'" class="filePhoto" onchange="readURL(this,this.getAttribute(\'data-id\'))" />' +
                         '</div>' +
                         '<div class="text-center mt-3">' +
-                            '<span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>' +
+                            '<span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 2MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>' +
                         '</div>' +
                     '</div>' +
                     '<div class="row">' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<select class="select2" required name="prefix[]" id="student-prefix' + i + '">' +
+                            '<select class="select2" name="prefix[]" id="student-prefix' + i + '">' +
                                 '<option value="">คำนำหน้า</option>' +
                                 '<option value="เด็กชาย">เด็กชาย</option>' +
                                 '<option value="เด็กหญิง">เด็กหญิง</option>' +
@@ -383,19 +388,19 @@
                             '</select>' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<input required type="text" name="first_name[]" placeholder="ชื่อ" class="form-control id="student-firstname' + i + '">' +
+                            '<input type="text" name="first_name[]" placeholder="ชื่อ" class="form-control id="student-firstname' + i + '">' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<input required type="text" name="last_name[]" placeholder="นามสกุล" class="form-control id="student-lastname' + i + '">' +
+                            '<input type="text" name="last_name[]" placeholder="นามสกุล" class="form-control id="student-lastname' + i + '">' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<input required type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control id="student-nickname' + i + '">' +
+                            '<input type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control id="student-nickname' + i + '">' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<input required type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control id="student-tel' + i + '">' +
+                            '<input type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control id="student-tel' + i + '">' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<select class="select2" required name="school[]" id="student-school' + i + '">' +
+                            '<select class="select2" name="school[]" id="student-school' + i + '">' +
                                 '<option value="">โรงเรียน</option>' +
                                 '<option value="1">หนองฉางวิทยา</option>' +
                                 '<option value="2">ธรรมานุวัตร</option>' +
@@ -403,7 +408,7 @@
                             '</select>' +
                         '</div>' +
                         '<div class="col-xl-3 col-lg-6 col-12 form-group">' +
-                            '<select class="select2"required name="car[]" id="student-car' + i + '">' +
+                            '<select class="select2 name="car[]" id="student-car' + i + '">' +
                                 '<option value="">ประจำคันรถ</option>' +
                                 '<option value="1">คันที่ 1: สินาท</option>' +
                                 '<option value="2">คันที่ 2: โกญจนาท</option>' +

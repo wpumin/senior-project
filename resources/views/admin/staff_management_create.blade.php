@@ -25,7 +25,7 @@
                                 <input type="file" name="staffImage" id="staffImage" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
                             </div>
                     <div class="text-center mt-3">
-                        <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
+                        <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 2MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">

@@ -345,6 +345,7 @@ class RegisterUserController extends Controller
             if (!$auth) {
                 return redirect('/');
             }
+            
 
             if ($this->request->cookie('role_number') == '3') {
 

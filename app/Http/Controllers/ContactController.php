@@ -4,10 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class ContactController extends Controller_Make
 {
     public function notify(Request $request)
     {
+        // $this->validate($this->request, [
+        //     'exampleInputName' => 'required|regex:/(^[A-Za-zก-ฮ]+$/u',
+        //     'exampleInputEmail' => 'required|regex:/(0)[0-9]{9}/',
+        //     'message' => 'required|min:50',
+        // ], [
+        //     'exampleInputName.required' => '* กรุณาใส่ชื่อจริงและนามสกุล',
+        //     'exampleInputName.regex' => '* กรุณากรอก a-z หรือ ก-ฮ เท่านั้น',
+        //     'exampleInputEmail.required' => '* กรุณากรอกเบอร์โทรศัพท์',
+        //     'exampleInputEmail.regex' => '* เบอร์โทรศัพท์ไม่ควรเกิน 10 หลัก',
+        //     'message.required' => '* กรุณากรอกข้อความ',
+        //     'message.min' => '* ความยาวของข้อความต้องไม่ต่ำกว่า 50 อักขระ',
+
+        // ]);
         // dd($request->all());
         $d = date('d');
         $m = date('m');

@@ -12,7 +12,7 @@
 */
 
 /** ---------- ABOUT PAGE  (external page) ---------- */
-Route::get('/about', function () {
+Route::get('/public', function () {
     return view('public.index');
 });
 

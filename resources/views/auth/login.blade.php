@@ -27,13 +27,13 @@
                             <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
                         </div>
                         <div class="mt-4">
-                            <label class="small-ps" for="readCondition">หากยังไม่ได้สมัครสมาชิก <a class="small-ps underline" href="{{ url('/about') }}">อ่านเงื่อนไขการให้บริการ</a></label>
+                            <label class="small-ps" for="readCondition">หากยังไม่ได้สมัครสมาชิก <a class="small-ps underline" href="{{ url('/public') }}">อ่านเงื่อนไขการให้บริการ</a></label>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <a href="{{ url('/about') }}">
+        <a href="{{ url('/public') }}">
             <div class="information-index">
                 ?
             </div>
