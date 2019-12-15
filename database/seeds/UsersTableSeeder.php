@@ -1465,5 +1465,47 @@ class UsersTableSeeder extends Seeder
             'longtitude' => '99.672083',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
+        DB::table('users')->insert([
+            'role_id' => '3',
+            'relationship_id' => '3',
+            'car_id' => '1',
+            'username' => 'nonstop-admin',
+            'password' => Hash::make('123123123'),
+            'secure_code' => Str::random(6),
+            'status' => '0',
+            'prefix' => 'นาย',
+            'first_name' => 'ภูมินท์',
+            'last_name' => 'วงษ์ศิริ',
+            'line_id' => 'nonstop27',
+            'address' => 'ซอย พุทธบูชา 47 แขวง บางมด เขตทุ่งครุ กรุงเทพมหานคร 10140',
+            'email' => 'topumin@hotmail.com',
+            'phone' => '0892348123',
+            'image' => 'images/Users/pumin.jpg',
+            'lattitude' => '15.147868',
+            'longtitude' => '99.672083',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('users')->insert([
+            'role_id' => '2',
+            'relationship_id' => '1',
+            'car_id' => '2',
+            'username' => 'nonstop-driver',
+            'password' => Hash::make('123123123'),
+            'secure_code' => Str::random(6),
+            'status' => '0',
+            'prefix' => 'นาย',
+            'first_name' => 'ภูมินท์',
+            'last_name' => 'วงษ์ศิริ',
+            'line_id' => 'nonstop-driver',
+            'address' => 'ซอย พุทธบูชา 47 แขวง บางมด เขตทุ่งครุ กรุงเทพมหานคร 10140',
+            'email' => 'pumin_wong@hotmail.com',
+            'phone' => '0648763435',
+            'image' => 'images/Users/pumin.jpg',
+            'lattitude' => '15.147868',
+            'longtitude' => '99.672083',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }
