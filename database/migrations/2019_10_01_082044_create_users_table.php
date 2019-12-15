@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('role_id');
             $table->string('relationship_id')->nullable();
             $table->string('car_id')->nullable();
+            $table->string('district_id')->nullable();
             $table->string('image');
             $table->string('prefix');
             $table->string('first_name');

@@ -186,10 +186,7 @@ class RegisterUserController extends Controller
 
                 $students = Student::where('user_id', $user->id)->get();
 
-                if ($user->role_id == '1') {
-
-                    $relation = Relationship::where('id', $user->relationship_id)->first();
-                }
+                $relation = Relationship::where('id', $user->relationship_id)->first();
 
                 foreach ($students as $u) {
 
@@ -266,7 +263,8 @@ class RegisterUserController extends Controller
             $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
             $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
             $public_path = 'images/Users/';
-            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
+            $destination = base_path() . "/public/" . $public_path; //Local
+            // $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
             $this->request->file('parentImage0')->move($destination, $image_name);
             $user->image = $public_path . $image_name;
         }
@@ -372,7 +370,8 @@ class RegisterUserController extends Controller
             $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
             $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
             $public_path = 'images/Users/';
-            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
+            $destination = base_path() . "/public/" . $public_path; //Local
+            // $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
             $this->request->file('parentImage0')->move($destination, $image_name);
             $user->image = $public_path . $image_name;
         }
@@ -389,7 +388,7 @@ class RegisterUserController extends Controller
         $user->address = $this->request->input('address');
         $user->username = $this->request->input('parent_username');
         $user->password = Hash::make($this->request->input('parent_password'));
-        // $user->district_id = $this->request->input('district_id');
+        $user->district_id = $this->request->input('district_id');
         $user->lattitude = $this->request->input('lattitude');
         $user->longtitude = $this->request->input('longtitude');
         $user->secure_code = $this->strRandom_ref();
@@ -406,7 +405,8 @@ class RegisterUserController extends Controller
                 $image_filename = $this->request->file('userprofile_picture')[$i]->getClientOriginalName();
                 $image_name = $this->request->input('first_name')[$i] . '_' . $image_filename;
                 $public_path = 'images/Students/';
-                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path;
+                $destination = base_path() . "/public/" . $public_path; //Local
+                // $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                 $this->request->file('userprofile_picture')[$i]->move($destination, $image_name);
                 $student->image = $public_path . $image_name;
             }
