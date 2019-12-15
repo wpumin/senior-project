@@ -2,24 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\App_status;
 use App\Appointment;
-use App\Period_time;
-use Carbon\Carbon;
-
 use App\Http\Controllers\Controller;
 use App\News;
 use App\Relationship;
 use App\School;
 use App\Student;
 use App\User;
-use Firebase\JWT\JWT;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use LogicException;
-
-
 
 class DriverController extends Controller
 {
@@ -120,7 +110,6 @@ class DriverController extends Controller
                 }
 
                 $appointment = Appointment::where('id', $id)->first();
-                // dd($appointment->student_id);
                 $stu = Student::where('id', $appointment->student_id)->first();
 
                 if ($stu->car_id == $driver->car_id) {
@@ -154,7 +143,6 @@ class DriverController extends Controller
 
                 $appointment = Appointment::where('id', $id)->first();
                 $stu = Student::where('id', $appointment->student_id)->first();
-                $user = User::where('id', $stu->user_id)->first();
 
                 if ($stu->car_id == $driver->car_id) {
 

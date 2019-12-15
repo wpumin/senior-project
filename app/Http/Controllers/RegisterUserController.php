@@ -10,9 +10,7 @@ use App\Student;
 use App\User;
 use App\District;
 use Exception;
-use LogicException;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -248,18 +246,6 @@ class RegisterUserController extends Controller
             return redirect('/');
         }
 
-        if ($this->request->input('parent_password')) {
-
-            $this->validate($this->request, [
-
-                'parent_password' => 'min:5|max:35',
-                'parent_password_confirm' => 'min:5|max:35|same:parent_password',
-                'parent_email' => '',
-                'parent_email_confirm' => 'same:parent_email'
-
-            ]);
-        }
-
         $user = User::where('id', $this->request->input('user_id_update'))->first();
 
         DB::beginTransaction();
@@ -310,35 +296,11 @@ class RegisterUserController extends Controller
             }
 
             if ($this->request->cookie('role_number') == '3') {
+
                 $user = User::where('id', $id)->first();
                 $user->delete();
 
-                $data['info'] = [];
-                $count = 0;
-
-                $users = User::get();
-
-                foreach ($users as $u) {
-
-                    if ($u->role_id == '1') {
-
-                        $data['info'][$count++] = [
-
-                            'no' => $u->id,
-                            'username' => $u->username,
-                            'first_name' => $u->first_name,
-                            'last_name' => $u->last_name,
-                            'phone' => $u->phone,
-                            'date' => $u->created_at,
-
-                        ];
-                    }
-                }
-
-                return view('admin.parent_management', [
-                    'datas' => $data['info'],
-
-                ]);
+                return redirect('/admin/management/parent');
             }
             \abort(404);
     }
@@ -368,6 +330,15 @@ class RegisterUserController extends Controller
         if (!$auth) {
             return redirect('/');
         }
+
+        $this->validate($this->request, [
+
+            'parent_password' => 'min:5|max:35',
+            'parent_password_confirm' => 'min:5|max:35|same:parent_password',
+            'parent_email' => '',
+            'parent_email_confirm' => 'same:parent_email'
+
+        ]);
 
         $user = new User();
 

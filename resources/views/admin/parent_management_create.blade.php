@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2" name="prefix_parent">
+                        <select class="select2" name="prefix_parent" required>
                             <option value="">คำนำหน้า</option>
                             <option value="นาย">นาย</option>
                             <option value="นาง">นาง</option>
@@ -42,13 +42,13 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="ชื่อ" class="form-control" name="parent_fname">
+                        <input type="text" placeholder="ชื่อ" class="form-control" name="parent_fname" required>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="นามสกุล" name="parent_lname" class="form-control">
+                        <input type="text" placeholder="นามสกุล" name="parent_lname" class="form-control" required>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2" name="parent_relation">
+                        <select class="select2" name="parent_relation" required>
                             <option value="">ความสัมพันธ์</option>
                             <option value="1">พ่อ</option>
                             <option value="2">แม่</option>
@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control">
+                        <input type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control" required>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <input type="text" placeholder="ไลน์ไอดี"  name="parent_line_id" class="form-control">
@@ -68,16 +68,16 @@
                         <input type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control">
                     </div>
                     <div class="col-xl-12 col-12 form-group">
-                        <textarea class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
+                        <textarea class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6" required></textarea>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="parent_username">
+                        <input type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="parent_username" required>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="password" placeholder="รหัสผ่าน" class="form-control" name="parent_password">
+                        <input type="password" placeholder="รหัสผ่าน" class="form-control" name="parent_password" required>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="parent_password_confirm">
+                        <input type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="parent_password_confirm" required>
                     </div>
                 </div>
                 <div class="row" id="student-profile">
@@ -101,7 +101,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" name="prefix[]">
+                                <select class="select2" name="prefix[]" required>
                                     <option value="">คำนำหน้า</option>
                                     <option value="เด็กชาย">เด็กชาย</option>
                                     <option value="เด็กหญิง">เด็กหญิง</option>
@@ -111,19 +111,19 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input type="text" name="first_name[]" placeholder="ชื่อ" class="form-control">
+                                <input type="text" name="first_name[]" placeholder="ชื่อ" class="form-control" required>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input type="text" name="last_name[]" placeholder="นามสกุล" class="form-control">
+                                <input type="text" name="last_name[]" placeholder="นามสกุล" class="form-control" required>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <input type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control">
+                                <input type="text" name="nickname[]" placeholder="ชื่อเล่น" class="form-control" required>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
                                 <input type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" name="school[]">
+                                <select class="select2" name="school[]" required>
                                     <option value="">โรงเรียน</option>
                                     <option value="1">หนองฉางวิทยา</option>
                                     <option value="2">ธรรมานุวัตร</option>
@@ -131,7 +131,7 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" name="car[]">
+                                <select class="select2" name="car[]" required>
                                     <option value="">ประจำคันรถ</option>
                                     <option value="1">คันที่ 1: สินาท</option>
                                     <option value="2">คันที่ 2: โกญจนาท</option>
@@ -160,7 +160,7 @@
                         <input id="lon" value="" type="number" name="longtitude" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" name="district_id">
+                        <select class="select2" name="district_id" required>
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>
                             <option value="2">หูช้าง - ฿700 </option>

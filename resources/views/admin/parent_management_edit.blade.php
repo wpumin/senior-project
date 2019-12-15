@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2" required name="prefix_parent">
+                        <select class="select2" name="prefix_parent">
                             <option value="{{ $prefix }}" selected>{{ $prefix }}</option>
                             <option value="">คำนำหน้า</option>
                             <option value="นาย">นาย</option>
@@ -42,13 +42,13 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ชื่อ" name="parent_fname" class="form-control" value="{{ $first_name }}">
+                        <input type="text" placeholder="ชื่อ" name="parent_fname" class="form-control" value="{{ $first_name }}">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="นามสกุล" name="parent_lname" class="form-control" value="{{ $last_name }}">
+                        <input type="text" placeholder="นามสกุล" name="parent_lname" class="form-control" value="{{ $last_name }}">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <select class="select2"required name="parent_relation">
+                        <select class="select2" name="parent_relation">
                             <option value="{{ $relationship_id }}" selected>{{ $relation }}</option>
                             <option value="">ความสัมพันธ์</option>
                             <option value="1">พ่อ</option>
@@ -57,13 +57,13 @@
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control" value="{{ $phone }}">
+                        <input type="text" placeholder="เบอร์โทร" name="parent_phone" class="form-control" value="{{ $phone }}">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ไลน์ไอดี" name="parent_line_id" class="form-control" value="{{ $line_id }}">
+                        <input type="text" placeholder="ไลน์ไอดี" name="parent_line_id" class="form-control" value="{{ $line_id }}">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_email') ? 'has-error' : '' }}>
-                        <input required type="email" placeholder="อีเมล" name="parent_email" class="form-control" value="{{ $email }}">
+                        <input type="email" placeholder="อีเมล" name="parent_email" class="form-control" value="{{ $email }}">
                         @if ($errors->has('parent_email'))
 
                         <span class="help-block">
@@ -73,7 +73,7 @@
                         @endif
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_email_confirm') ? 'has-error' : '' }}>
-                        <input required type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control" value="{{ $email }}">
+                        <input type="email" placeholder="ยืนยันอีเมล" name="parent_email_confirm" class="form-control" value="{{ $email }}">
                         @if ($errors->has('parent_email_confirm'))
 
                         <span class="help-block">
@@ -83,10 +83,10 @@
                         @endif
                     </div>
                     <div class="col-xl-12 col-12 form-group">
-                        <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6" style="height: 156.4px;" >{{ $address }}</textarea>
+                        <textarea class="textarea form-control" name="parent_address" placeholder="ที่อยู่" rows="6" style="height: 156.4px;" >{{ $address }}</textarea>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
-                        <input required type="text" placeholder="ชื่อผู้ใช้" name="parent_username" class="form-control" value="{{ $username }}">
+                        <input type="text" placeholder="ชื่อผู้ใช้" name="parent_username" class="form-control" value="{{ $username }}">
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('parent_password') ? 'has-error' : '' }}>
                         <input  type="password" placeholder="รหัสผ่าน" name="parent_password" class="form-control">
@@ -164,7 +164,7 @@
                                 <input readonly type="text" name="tel[]" placeholder="เบอร์โทร" class="form-control" value="{{ $data['phone'] }}">
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2" required name="school[]">
+                                <select class="select2" name="school[]">
                                         <option value="{{ $data['school'] }}" selected>{{ $data['school'] }}</option>
                                     {{-- <option value="">โรงเรียน</option>
                                     <option value="1">หนองฉางวิทยา</option>
@@ -173,7 +173,7 @@
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <select class="select2"required name="car[]">
+                                <select class="select2" name="car[]">
                                         <option value="{{ $data['car_id'] }}" selected>คันที่ {{ $data['car_id'] }}</option>
 
                                 </select>
@@ -208,7 +208,7 @@
                         <input id="lon" value="{{ $long }}" type="number" readonly type="text" placeholder="ลองติจูด" class="form-control search_longitude">
                     </div>
                     <div class="col-lg-4 col-12 form-group">
-                        <select class="select2" required readonly name="district_id">
+                        <select class="select2" readonly name="district_id">
                             <option value="{{ $district_id }}" selected>{{ $district }}</option>
                             <option value="">ตำบล</option>
                             <option value="1">บ้านไร่ - ฿900 </option>

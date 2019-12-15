@@ -6,13 +6,9 @@ use App\Http\Controllers\Controller;
 use App\News;
 use App\News_status;
 use App\Role;
-use App\Relationship;
-use Carbon\Carbon;
 use App\User;
-use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+
 
 class NewsController extends Controller
 {
@@ -73,26 +69,7 @@ class NewsController extends Controller
                 $news = News::where('id', $id)->first();
                 $news->delete();
 
-                $news = News::get();
-                $data['info'] = [];
-                $count = 0;
-
-                foreach ($news as $n) {
-
-                    $user = User::where('id', $n->user_id)->first();
-                    $data['info'][$count++] = [
-                        'id' => $n->id,
-                        'title' => $n->title,
-                        'created_at' => $n->news_at,
-                        'name' => $user->username,
-                        'status' => $n->news_statuses_id
-                    ];
-                }
-
-                return view('admin.news', [
-                    'datas' => $data['info'],
-
-                ]);
+                return redirect('/admin/management/news');
             }
             \abort(404);
     }
@@ -130,7 +107,7 @@ class NewsController extends Controller
                 //     'title.required' => '* กรุณาใส่หัวข้อข่าวสาร',
                 //     'title.max' => '* ความยาวของข้อความต้องไม่เกิน 100 อักขระ',
                 //     'role_id.required' => '* กรุณาเลือกผู้ที่สามารถเห็นข่าวนี้ได้',
-                //     'news_statuses_id.required' => '* กรุณาเลือกสถานะ', 
+                //     'news_statuses_id.required' => '* กรุณาเลือกสถานะ',
                 //     'release_date.required' => '* กรุณาเลือกวันที่เผยแพร่',
                 //     'release_time.required' => '* กรุณาเลือกเวลาเผยแพร่',
                 //     'content.required' => '* กรุณากรอกรายละเอียดข่าว',

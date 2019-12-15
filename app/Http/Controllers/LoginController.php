@@ -37,10 +37,7 @@ class LoginController extends Controller
         }
 
         $user = User::where('username', $this->request->input('username'));
-        // ->first()
         $has = $user->first();
-
-        // dd($has);
 
         if ($has) {
 
@@ -54,7 +51,6 @@ class LoginController extends Controller
                 if (Hash::check($this->request->input('password'), $check->password)) {
 
                     $token = $this->jwt($check);
-                    // dd($token);
                     $check->token = $token;
                     $check->last_login_date = Carbon::now();
                     $check->secure_code = $this->strRandom_ref();
@@ -66,8 +62,6 @@ class LoginController extends Controller
 
                     $check->role_name = $role->name;
                     $check->relationship_name = $relationship->name;
-
-                    // dd($check);
 
                     if ($check->role_id == '2') {
 
@@ -90,26 +84,10 @@ class LoginController extends Controller
                 return $this->responseRequestError('occupied');
             }
         } else {
-            // \abort(419);
+
             return $this->responseRequestError('no_user');
         }
     }
-    // public function logout($id, $secure)
-    // {
-
-    //     $user = User::where('id', $id)->where('secure_code', $secure)->first();
-
-    //     if ($user) {
-
-    //         $user->status = 0;
-    //         $user->save();
-
-    //         return redirect('/' . "");
-    //         return view('auth.login');
-    //     }
-
-    //     \abort(404);
-    // }
     public function logout_v1()
     {
 
@@ -124,7 +102,6 @@ class LoginController extends Controller
             $user->save();
 
             return redirect('/');
-            // return view('auth.login');
         }
 
         \abort(404);

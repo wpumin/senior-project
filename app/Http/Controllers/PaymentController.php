@@ -7,7 +7,6 @@ use App\District;
 use Illuminate\Http\Request;
 use App\Payment_inform;
 use App\Payment_log;
-use App\Payment_status;
 use App\School;
 use App\Student;
 use App\User;
@@ -158,6 +157,7 @@ class PaymentController extends Controller
 
             DB::commit();
             return $this->responseRequestSuccess('Success!');
+
         } catch (Exception $e) {
             return response()->json($this->formatResponse($e->getMessage()));
         }
@@ -252,7 +252,9 @@ class PaymentController extends Controller
 
                                 ];
                             }
+
                         } else {
+
                             $data['info'][$count++] = [
 
                                 'log_id' => null,
@@ -263,7 +265,9 @@ class PaymentController extends Controller
                     }
 
                     return view('parent.payment_confirm', [
+
                         'data' => $data['info']
+
                     ]);
                 }
                 \abort(404);

@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-
 use App\Http\Controllers\Controller;
 use App\News;
 use App\Student;
 use App\User;
 use DateTime;
-use Firebase\JWT\JWT;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use LogicException;
-
-
 
 class ParentController extends Controller
 {
@@ -41,8 +34,7 @@ class ParentController extends Controller
                 $y = date('Y') + 543;
 
                 $full = $d . '/' . $m . '/' . $y;
-                $time_now = date('H:i');
-                // $full_now = new DateTime($full);
+                $time_now = date('h:i A');
                 $full_now = DateTime::createFromFormat('d/m/Y', $full);
 
                 $data['info'] = [];
@@ -52,7 +44,9 @@ class ParentController extends Controller
 
                     foreach ($news as $n) {
 
-                        if ($full_now >= $n->release_date) {
+                        $release_date = DateTime::createFromFormat('d/m/Y', $n->release_date);
+
+                        if ($release_date <= $full_now) {
 
                             if ($time_now > $n->release_time) {
 
@@ -196,10 +190,10 @@ class ParentController extends Controller
     {
 
             if ($this->request->cookie('role_number') == '1') {
+
                 $students = Student::where('user_id', $this->request->input('user_id'))->get();
 
                 $data['check_in'][] = [];
-                $count = 0;
 
                 $date_check = [];
                 $day_check = [];
@@ -223,7 +217,6 @@ class ParentController extends Controller
                         }
                     }
 
-
                     $data['check_in'][$check][$num++] = $date_check;
                     $data['check_in'][$check][$num++] = $day_check;
                     $data['check_in'][$check][$num++] = $down_check;
@@ -236,7 +229,6 @@ class ParentController extends Controller
 
                     $check++;
                 }
-
 
                 return $this->responseRequestSuccess($data['check_in']);
             }

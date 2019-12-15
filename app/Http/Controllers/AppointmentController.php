@@ -8,10 +8,6 @@ use App\Appointment;
 use App\Period_time;
 use App\Student;
 use App\User;
-use Carbon\Carbon;
-use LogicException;
-use Validator;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
@@ -63,7 +59,6 @@ class AppointmentController extends Controller
         }
 
         return redirect('/');
-        // \abort(419);
     }
 
     public function list_stu()
@@ -129,7 +124,9 @@ class AppointmentController extends Controller
 
             session()->flash('success', 'Create Article Complete');
             return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
+
         } catch (Exception $e) {
+
             return response()->json($this->formatResponse($e->getMessage()));
         }
     }

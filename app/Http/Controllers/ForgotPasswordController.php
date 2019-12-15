@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Otp;
 use App\User;
-use Carbon\Carbon;
-
 use App\Http\Controllers\Controller;
-use App\Mail\Sendmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
