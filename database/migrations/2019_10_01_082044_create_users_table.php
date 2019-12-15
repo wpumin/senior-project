@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('secure_code')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->nullable()->default(0);
             $table->string('map_address')->nullable();
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();

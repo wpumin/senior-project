@@ -310,35 +310,11 @@ class RegisterUserController extends Controller
             }
 
             if ($this->request->cookie('role_number') == '3') {
+
                 $user = User::where('id', $id)->first();
                 $user->delete();
 
-                $data['info'] = [];
-                $count = 0;
-
-                $users = User::get();
-
-                foreach ($users as $u) {
-
-                    if ($u->role_id == '1') {
-
-                        $data['info'][$count++] = [
-
-                            'no' => $u->id,
-                            'username' => $u->username,
-                            'first_name' => $u->first_name,
-                            'last_name' => $u->last_name,
-                            'phone' => $u->phone,
-                            'date' => $u->created_at,
-
-                        ];
-                    }
-                }
-
-                return view('admin.parent_management', [
-                    'datas' => $data['info'],
-
-                ]);
+                return redirect('/admin/management/parent');
             }
             \abort(404);
     }
