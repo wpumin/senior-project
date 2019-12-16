@@ -130,12 +130,12 @@
         $(location).attr('href', '/parent/index');
     }
 
-    if (getCookie('role_id') == '2') {
+    else if (getCookie('role_id') == '2') {
 
         $(location).attr('href', '/driver/index');
     }
 
-    if (getCookie('role_id') == '3') {
+    else if (getCookie('role_id') == '3') {
 
         $(location).attr('href', '/admin/index');
     }

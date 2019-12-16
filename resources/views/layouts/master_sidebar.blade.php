@@ -342,6 +342,9 @@
                 document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
             }
 
+            setCookie('secure_code', '', time() - 3600);
+            document.cookie = "secure_code=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
         }
 
         $(document).ready(function(){
