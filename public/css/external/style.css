@@ -467,3 +467,14 @@ header {
     line-height: 1.25;
     font-weight: bold;
 }
+/* #_hj-f5b2a1eb-9b07_feedback[data-minimized-position="middle_right"] #_hj-f5b2a1eb-9b07_feedback_minimized{
+    display: none !important;
+}
+
+@media only screen and (min-width: 75em){
+  #_hj-f5b2a1eb-9b07_feedback[data-minimized-position="middle_right"] #_hj-f5b2a1eb-9b07_feedback_minimized{
+      display: block !important;
+      right: 0 !important;
+      bottom: 50vh !important;
+  }
+} */
