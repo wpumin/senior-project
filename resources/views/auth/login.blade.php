@@ -137,7 +137,7 @@
 
     if (getCookie('role_id') == '3') {
 
-        $(location).attr('href', '/index/index');
+        $(location).attr('href', '/admin/index');
     }
 
 
