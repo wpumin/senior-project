@@ -285,52 +285,107 @@ class PaymentController extends Controller
 
             if ($this->request->cookie('role_number') == '1') {
 
-                $this->validate($this->request, [
+                if ($this->request->input('payment_log_id') == 'all') {
 
-                    'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                    'payment_log_id' => 'required',
-                    'timepicker' => 'required',
-                    'date' => 'required',
-                    'bank_id' => 'required',
-                    'price' => 'required|numeric',
-                    // 'release_date' => '',
-                    // 'release_time' => '',
-                    // 'content' => '',
+                    $students = Student::where('user_id', $this->request->cookie('use_id'))->get();
+                    $i = 0;
+                    $copy = '';
 
-                ], [
-                    'payment_log_id.required' => '* กรุณาเลือกรายการที่ต้องการชำระ',
-                    'timepicker.required' => '* กรุณากรอกเวลาที่ชำระตามใบเสร็จ',
-                    'date.required' => '* กรุณากรอกวันที่ชำระตามใบเสร็จ',
-                    'bank_id.required' => '* กรุณาเลือกธนาคารที่ชำระเงิน',
-                    'imgInp.required' => '* กรุณาเลือกไฟล์ใบเสร็จที่ชำระเงิน',
-                    'price.required' => '* กรุณากรอกจำนวนเงินตามใบเสร็จที่ชำระเงิน',
-                    'price.numeric' => '* กรุณากรอกเป็นตัวเลขเท่านั้น',
-                    'imgInp.image' => '* ไฟล์ต้องเป็นสกุลไฟล์ jpg, jpeg, png, gif เท่านั้น',
+                    foreach ($students as $stu) {
 
-                ]);
+                        $log = Payment_log::where('student_id', $stu->id)->first();
 
-                DB::beginTransaction();
+                        $infrom = new Payment_inform;
+                        $infrom->payment_log_id = $log->id;
+                        $infrom->timepicker = $this->request->input('timepicker');
+                        $infrom->date = $this->request->input('date');
+                        $infrom->bank_id = $this->request->input('bank_id');
+                        $infrom->pm_status_id = 3;
+                        $infrom->price = $this->request->input('price');
 
-                $bill = Payment_inform::create($this->request->all());
-                $bill->pm_status_id = 3;
+                        if ($i == 0) {
 
-                if ($this->request->has('imgInp')) {
-                    $image_filename = $this->request->file('imgInp')->getClientOriginalName();
-                    $image_name =  $image_filename;
-                    $public_path = 'images/Payments/';
-                    // $destination = base_path() . "/public/" . $public_path; //Local
-                    $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
-                    $this->request->file('imgInp')->move($destination, $image_name);
-                    $bill->imgInp = $public_path . $image_name;
+                            if ($this->request->has('imgInp')) {
+                                $image_filename = $this->request->file('imgInp')->getClientOriginalName();
+                                $image_name =  $image_filename;
+                                $public_path = 'images/Payments/';
+                                // $destination = base_path() . "/public/" . $public_path; //Local
+                                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+                                $this->request->file('imgInp')->move($destination, $image_name);
+                                $infrom->imgInp = $public_path . $image_name;
+                                $copy = $public_path . $image_name . '_SUM_OF_'. $log->id;
+                                $infrom->save();
 
-                    $bill->save();
+                                $log_bill = Payment_log::where('id', $log->id)->first();
+                                $log_bill->pm_status_id = 3;
+                                $log_bill->save();
 
-                    $log_bill = Payment_log::where('id', $this->request->input('payment_log_id'))->first();
-                    $log_bill->pm_status_id = 3;
-                    $log_bill->save();
+                                $i++;
+                            }
+
+                        }else {
+
+                            $infrom->imgInp = $copy;
+                            $infrom->save();
+
+                            $log_bill = Payment_log::where('id', $log->id)->first();
+                            $log_bill->pm_status_id = 3;
+                            $log_bill->save();
+                        }
+
+
+                    }
+
+                } else {
+
+                    $this->validate($this->request, [
+
+                        'imgInp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                        'payment_log_id' => 'required',
+                        'timepicker' => 'required',
+                        'date' => 'required',
+                        'bank_id' => 'required',
+                        'price' => 'required|numeric',
+                        // 'release_date' => '',
+                        // 'release_time' => '',
+                        // 'content' => '',
+
+                    ], [
+                        'payment_log_id.required' => '* กรุณาเลือกรายการที่ต้องการชำระ',
+                        'timepicker.required' => '* กรุณากรอกเวลาที่ชำระตามใบเสร็จ',
+                        'date.required' => '* กรุณากรอกวันที่ชำระตามใบเสร็จ',
+                        'bank_id.required' => '* กรุณาเลือกธนาคารที่ชำระเงิน',
+                        'imgInp.required' => '* กรุณาเลือกไฟล์ใบเสร็จที่ชำระเงิน',
+                        'price.required' => '* กรุณากรอกจำนวนเงินตามใบเสร็จที่ชำระเงิน',
+                        'price.numeric' => '* กรุณากรอกเป็นตัวเลขเท่านั้น',
+                        'imgInp.image' => '* ไฟล์ต้องเป็นสกุลไฟล์ jpg, jpeg, png, gif เท่านั้น',
+
+                    ]);
+
+                    DB::beginTransaction();
+
+                    $bill = Payment_inform::create($this->request->all());
+                    $bill->pm_status_id = 3;
+
+                    if ($this->request->has('imgInp')) {
+                        $image_filename = $this->request->file('imgInp')->getClientOriginalName();
+                        $image_name =  $image_filename;
+                        $public_path = 'images/Payments/';
+                        // $destination = base_path() . "/public/" . $public_path; //Local
+                        $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+                        $this->request->file('imgInp')->move($destination, $image_name);
+                        $bill->imgInp = $public_path . $image_name;
+
+                        $bill->save();
+
+                        $log_bill = Payment_log::where('id', $this->request->input('payment_log_id'))->first();
+                        $log_bill->pm_status_id = 3;
+                        $log_bill->save();
+                    }
+
+                    DB::commit();
                 }
 
-                DB::commit();
                 session()->flash('success', 'Create Article Complete');
                 return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('secure_code'));
             }

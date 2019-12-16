@@ -129,7 +129,6 @@ class NewssController extends Controller
                     $news->image = $public_path . $image_name;
                     $news->save();
                 }
-                $news->save();
 
                 DB::commit();
 
