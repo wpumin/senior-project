@@ -14,7 +14,7 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'จ๋าย',
             'district_id' => 1,
-            'card_id' => Str::random(8),
+            'card_id' => 'qTVThuEz',
             'prefix' => 'เด็กหญิง',
             'first_name' => 'มนิศรา',
             'last_name' => 'เกตุวิริยกรรม',
@@ -30,7 +30,7 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'จิน',
             'district_id' => 1,
-            'card_id' => Str::random(8),
+            'card_id' => 'yul7k2xf',
             'prefix' => 'เด็กหญิง',
             'first_name' => 'วิจตรา',
             'last_name' => 'เกตุวิริยกรรม',
