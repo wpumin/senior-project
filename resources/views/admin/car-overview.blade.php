@@ -374,7 +374,7 @@
 
                 }
             })
-        }, 2000);
+        }, 10000);
 
     function myFunction() {
           // Declare variables
