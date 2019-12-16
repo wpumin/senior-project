@@ -101,7 +101,7 @@ class LoginController extends Controller
             $user->secure_code = $this->strRandom_ref();
             $user->save();
 
-            return redirect('/')->withCookie(cookie('role_number', 0, 60));
+            return redirect('/');
         }
 
         \abort(404);
