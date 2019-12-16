@@ -5,6 +5,7 @@
 {{-- @extends('layouts.header') --}}
 
 @section('content')
+
 <div class="content-login">
     <div class="container-fluid" style="position: relative;">
         <div class="row">
@@ -124,6 +125,21 @@
         return "";
     }
 
+    if (getCookie('role_id') == '1') {
+
+        $(location).attr('href', '/parent/index');
+    }
+
+    if (getCookie('role_id') == '2') {
+
+        $(location).attr('href', '/driver/index');
+    }
+
+    if (getCookie('role_id') == '3') {
+
+        $(location).attr('href', '/admin/index');
+    }
+
 
 
     if (!getCookie('role_id')) {
@@ -181,7 +197,6 @@
 
                 // login สำเร็จ
                 if(result.status == 'success') {
-                    // document.cookie = "secure_code="+result.data['secure_code'];
                     setCookie('secure_code', result.data['secure_code'], 30);
                     setCookie('role_id', result.data['role_id'], 30);
                     setCookie('role_name', result.data['role_name'], 30);
@@ -192,22 +207,19 @@
                     setCookie('prefix', result.data['prefix'], 30);
                     setCookie('f_name', result.data['first_name'], 30);
                     setCookie('l_name', result.data['last_name'], 30);
-                    // setCookie('fullname_u', result.data['fullname_u'], 30);
-                    // setCookie('relationship', result.data['relationship'], 30);
                     setCookie('line_id', result.data['line_id'], 30);
                     setCookie('phone', result.data['phone'], 30);
                     setCookie('username', result.data['username'], 30);
                     setCookie('email', result.data['email'], 30);
                     setCookie('address', result.data['address'], 30);
-                    // setCookie('datetime', result.data['datetime'], 30);
-
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
 
 
                     if (result.data['role_id'] == '1') {
-                        //Page User
-                        $(location).attr('href', '/parent/index');
+                            //Page User
+                            $(location).attr('href', '/parent/index');
+
                     } else if (result.data['role_id'] == '2') {
                             //Page Driver
                             $(location).attr('href', '/driver/index');

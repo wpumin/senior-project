@@ -359,10 +359,10 @@
             setCookie('secure_code', '', time() - 3600);
             document.cookie = "secure_code=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-        }
+        }//END Delete Cookie
 
         $(document).ready(function(){
-            // setInterval(function(){
+
                 $("#logoutform").click(function(event){
                     deleteAllCookies().delay(1000);
                 });
@@ -370,7 +370,6 @@
                 $("#logoutform").submit(function(event){
                     deleteAllCookies().delay(1000);
                 });
-            // }, 3000);
         });
 
         document.getElementById("name").innerHTML = getCookie('f_name');
@@ -378,6 +377,7 @@
         document.getElementById("prefix").innerHTML = getCookie('prefix');
         document.getElementById("f_name").innerHTML = getCookie('f_name');
         document.getElementById("l_name").innerHTML = getCookie('l_name');
+
         if(getCookie('image') != ""){
             document.getElementById("photo_user").src = '{{URL::asset('')}}'+getCookie('image');
         }else{

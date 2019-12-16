@@ -19,6 +19,10 @@
                  <div class="col-xl-3 col-lg-6 col-12 form-group" {{ $errors->has('payment_log_id') ? 'has-error' : '' }}>
                     <select class="select2" autocomplete="off" id="payment_log_id" name="payment_log_id">
                         <option value="">หมายเลขรายการ</option>
+                        @if ($data) {
+                            <option value="all">ทั้งหมด</option>
+                            }
+                        @endif
                         @foreach($data as $key => $info)
                         <option value="{{ $info['log_id'] }}">{{ $info['tran_key'] }}</option>
                         {{-- <option value="2">986</option>
