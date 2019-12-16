@@ -346,7 +346,7 @@
 
         $(document).ready(function(){
             // setInterval(function(){
-                $("#logoutform").submit(function(event){
+                $("#logoutform").click(function(event){
                     deleteAllCookies().delay(1000);
                 });
 
