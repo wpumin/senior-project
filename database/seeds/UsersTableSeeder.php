@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
             'secure_code' => Str::random(6),
             'status' => '0',
             'prefix' => 'ดร.',
-            'first_name' => 'วิทวินธ์',
+            'first_name' => 'วิธวินท์',
             'last_name' => 'สุสุทธิ',
             'line_id' => 'dsgas2020',
             'address' => 'ถนนเทอดไท แขวงบางยี่เรือ เขตธนบุรี กรุงเทพมหานคร 10600',
