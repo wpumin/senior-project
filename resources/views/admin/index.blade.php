@@ -362,12 +362,7 @@
       filter_date = input_date.value;
 
       table = document.getElementById("myTable");
-    //   console.log('Filter: '+filter);
-    //   console.log('Filter: '+filter_num);
-    //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
-
-    //   console.log(tr.length);
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
@@ -375,29 +370,22 @@
         td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
         td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
         td_date = tr[i].getElementsByTagName("td")[3]; //choose table that search. (Date)
-        // console.log(td);
         if (td_name) {
           txtValue = td_name.textContent || td_name.innerText;
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
           txtValue_date = td_date.textContent || td_date.innerText;
-
-        //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
-        //   console.log('Total: '+txtValue_date);
 
           if (txtValue.indexOf(filter_title) > -1 && txtValue_period_time.indexOf(filter_type) > -1 && txtValue_date.indexOf(filter_date) > -1) {
             tr[i].style.display = "";
 
             $('#search_title').val(null);
             $('#search_type').val(null).trigger('change');
-            // $('#search_type').val("");
             $('#search_date').val(null);
           } else {
             tr[i].style.display = "none";
 
             $('#search_title').val(null);
             $('#search_type').val(null).trigger('change');
-            // $('#search_type').val("");
             $('#search_date').val(null);
 
           }

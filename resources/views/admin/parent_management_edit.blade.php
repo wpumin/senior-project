@@ -339,45 +339,12 @@
     <script>
 
         $(document).ready(function(){
-            // $("#addUserBtn").submit(function(event){
 
-            //     submitForm();
-            //     return false;
-            // });
         });
 
         function submitForm(){
 
-            // $.ajax({
-            //     type: "POST",
-            //     url: "https://localhost:8000/addUserParent",
-            //     headers: {
-            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //     },
-            //     cache:false,
-            //     data: $('form#addUserForm').serialize(),
-            //     success: function(result){
-            //         // เพิ่มบัญชีผู้ใช้สำเร็จ
-            //         if(result.status == 'success') {
-            //             $(".wrap-modal > #successModal").modal('show');
-            //         }
-            //         // เบอร์โทรซ้ำ
-            //         if (result.status == 'same_tel') {
-            //             $(".wrap-modal > #telModal").modal('show');
-            //         }
-            //         // อีเมลซ้ำ
-            //         if (result.status == 'same_email') {
-            //             $(".wrap-modal > #emailModal").modal('show');
-            //         }
-            //         // ชื่อบัญชีผู้ใช้ซ้ำ
-            //         if (result.status == 'same_username') {
-            //             $(".wrap-modal > #usernameModal").modal('show');
-            //         }
-            //     },
-            //     error: function(result){
-            //         $(".wrap-modal > #systemError").modal('show');
-            //     }
-            // });
+
         }
     </script>
 
@@ -386,7 +353,6 @@
         function readURL(e,id){
             var reader = new FileReader();
             reader.onload = function (event) {
-              // var temp =  $('.uploader img').attr('id');
                $('#image'+id).attr('src',event.target.result);
            }
            reader.readAsDataURL(e.files[0]);

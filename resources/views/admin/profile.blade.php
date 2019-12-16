@@ -114,15 +114,13 @@
         }
 
         $(document).ready(function(){
-            // setInterval(function(){
                 $("#logoutform").submit(function(event){
-                    deleteAllCookies().delay(1000);
+                    deleteAllCookies();
                 });
 
                 $("#logoutform1").submit(function(event){
-                    deleteAllCookies().delay(1000);
+                    deleteAllCookies();
                 });
-            // }, 3000);
         });
 
 

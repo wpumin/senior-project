@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="heading text-left">
-    <h3>แก้ไขข่าวสาร</3>
+    <h3>แก้ไขข่าวสาร</h3>
 </div>
 <div class="card height-auto pb-0">
     <div class="card-body pt-5">

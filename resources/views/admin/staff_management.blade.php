@@ -17,24 +17,25 @@
             </div>
             <a href="{{ url('admin/management/staff/create') }}" style="color: #bcbcbc !important;" role="button" aria-expanded="true"> <i class="fas fa-user-plus"></i> เพิ่มผู้ใช้งาน</a>
         </div>
-        <form class="mb-5 mb-lg-0 new-added-form">
+        {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8">
                 <div class="col-4-xxxl col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อผู้ใช้งาน" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อผู้ใช้งาน" class="form-control" id="username">
                 </div>
                 <div class="col-4-xxxl col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อ" class="form-control" id="nickname">
                 </div>
                 <div class="col-3-xxxl col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยเบอร์โทร" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยเบอร์โทร" class="form-control" id="phone">
                 </div>
                 <div class="col-1-xxxl col-lg-3 col-12 form-group">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    <button onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    {{-- <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button> --}}
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -201,6 +202,54 @@
 @endsection
 
 @section('script')
+<script>
+
+    function myFunction() {
+          // Declare variables
+          var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+          input_username = document.getElementById("username");
+          var input_name = document.getElementById("nickname");
+          var input_phone = document.getElementById("phone");
+
+          filter_input_username = input_username.value;
+          filter_input_name = input_name.value;
+          filter_input_phone = input_phone.value;
+
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+
+            td_username = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Username)
+            td_name = tr[i].getElementsByTagName("td")[3]; //choose table that search. (Name)
+            td_phone = tr[i].getElementsByTagName("td")[5]; //choose table that search. (Phone)
+
+            if (td_name) {
+
+              txtValue_username = td_username.textContent || td_username.innerText;
+              txtValue_name = td_name.textContent || td_name.innerText;
+              txtValue_phone = td_phone.textContent || td_phone.innerText;
+
+              if (txtValue_username.indexOf(filter_input_username) > -1 && txtValue_name.indexOf(filter_input_name) > -1 && txtValue_phone.indexOf(filter_input_phone) > -1) {
+
+                tr[i].style.display = "";
+                $('#username').val(null);
+                $('#nickname').val(null);
+                $('#phone').val(null);
+              } else {
+
+                tr[i].style.display = "none";
+                $('#username').val(null);
+                $('#nickname').val(null);
+                $('#phone').val(null);
+              }
+            }
+          }
+        }
+
+    </script>
     <script>
 
         $('.sidebar-color').addClass('addHeight');

@@ -425,36 +425,22 @@ function myFunction() {
 
       input = document.getElementById("search_nickname");
       var input_periodtime = document.getElementById("search_key");
-    //   var input_month = document.getElementById("search_phone");
-
 
       filter = input.value;
       filter_input_periodtime = input_periodtime.value;
-    //   filter_month = input_month.value;
 
       table = document.getElementById("myTable");
-    //   console.log('Filter: '+filter);
-    //   console.log('Filter: '+filter_num);
-    //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
-
-    //   console.log(tr.length);
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
 
         td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
         td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
-        // td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
-        // console.log(td);
+
         if (td_name) {
           txtValue = td_name.textContent || td_name.innerText;
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
-        //   txtValue_date = td_date.textContent || td_date.innerText;
-
-        //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
-        //   console.log('Total: '+txtValue_date);
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1) {
             tr[i].style.display = "";
@@ -462,7 +448,6 @@ function myFunction() {
             $('#search_nickname').val(null);
             $('#search_key').val(null);
           } else {
-            // tr[1].innerHTML = "ไม่มีข้อมูล";
             tr[i].style.display = "none";
 
             $('#search_nickname').val(null);

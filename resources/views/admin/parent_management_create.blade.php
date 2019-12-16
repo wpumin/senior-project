@@ -333,7 +333,6 @@
         function readURL(e,id){
             var reader = new FileReader();
             reader.onload = function (event) {
-              // var temp =  $('.uploader img').attr('id');
                $('#image'+id).attr('src',event.target.result);
            }
            reader.readAsDataURL(e.files[0]);

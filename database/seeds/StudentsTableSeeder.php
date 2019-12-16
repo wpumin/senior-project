@@ -14,7 +14,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'จ๋าย',
             'district_id' => 1,
+<<<<<<< HEAD
             'card_id' => 'E08956D3',
+=======
+            'card_id' => 'qTVThuEz',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'มนิศรา',
             'last_name' => 'เกตุวิริยกรรม',
@@ -30,7 +34,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'จิน',
             'district_id' => 1,
+<<<<<<< HEAD
             'card_id' => '6B6BB2C3',
+=======
+            'card_id' => 'yul7k2xf',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'วิจตรา',
             'last_name' => 'เกตุวิริยกรรม',
@@ -46,7 +54,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'อาย',
             'district_id' => 2,
+<<<<<<< HEAD
             'card_id' => 'DBC7B2C3',
+=======
+            'card_id' => 'qqsrtjCb',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นางสาว',
             'first_name' => 'สุภัทรตรี',
             'last_name' => 'สุสุทธิ',
@@ -61,7 +73,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'มารุ',
             'district_id' => 2,
+<<<<<<< HEAD
             'card_id' => '4C9756D3',
+=======
+            'card_id' => '1Mu8QjYZ',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นางสาว',
             'first_name' => 'ธมลวรรณ',
             'last_name' => 'สุสุทธิ',
@@ -76,7 +92,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'กาย',
             'district_id' => 3,
+<<<<<<< HEAD
             'card_id' => 'B0B056D3',
+=======
+            'card_id' => 'gxSe4hWz',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นาย',
             'first_name' => 'อนุพงศ์',
             'last_name' => 'วัฒายุ',
@@ -91,7 +111,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'ฟ้าใส',
             'district_id' => 3,
+<<<<<<< HEAD
             'card_id' => '6020B2C3',
+=======
+            'card_id' => 'f0tbJRlo',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'นฤมล',
             'last_name' => 'วัฒายุ',
@@ -107,7 +131,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'ติว',
             'district_id' => 4,
+<<<<<<< HEAD
             'card_id' => 'DCE656D3',
+=======
+            'card_id' => 'OjJJpnrg',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กชาย',
             'first_name' => 'สุชาติ',
             'last_name' => 'วรสุชีพ',
@@ -123,7 +151,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'เนย',
             'district_id' => 4,
+<<<<<<< HEAD
             'card_id' => '0C18B3C3',
+=======
+            'card_id' => 'HVcyru5h',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นางสาว',
             'first_name' => 'นรินทร์',
             'last_name' => 'วรสุชีพ',
@@ -139,7 +171,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'น้ำฟ้า',
             'district_id' => 5,
+<<<<<<< HEAD
             'card_id' => 'F9E756D3',
+=======
+            'card_id' => '3w7H9XVF',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'ลินลภัส',
             'last_name' => 'ชมชัยยา',
@@ -155,7 +191,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'แพรวา',
             'district_id' => 5,
+<<<<<<< HEAD
             'card_id' => '3CB7B7C3',
+=======
+            'card_id' => 'jbY2HkBo',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นางสาว',
             'first_name' => 'สุภาวดี',
             'last_name' => 'ชมชัยยา',
@@ -171,7 +211,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'ทิวทัศ',
             'district_id' => 6,
+<<<<<<< HEAD
             'card_id' => 'FAEA56D3',
+=======
+            'card_id' => 'OI0Sl0vo',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กชาย',
             'first_name' => 'นครินรทร์',
             'last_name' => 'วรรณโกวิท',
@@ -187,7 +231,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'อิ๊ง',
             'district_id' => 6,
+<<<<<<< HEAD
             'card_id' => '694EB2C3',
+=======
+            'card_id' => 'HuZm8wcm',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นางสาว',
             'first_name' => 'สุวดี',
             'last_name' => 'วรรณโกวิท',
@@ -203,7 +251,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'อัน',
             'district_id' => 7,
+<<<<<<< HEAD
             'card_id' => '25AF56D3',
+=======
+            'card_id' => 'cectvm20',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'อัญชลี',
             'last_name' => 'ศิริเจริญ',
@@ -219,7 +271,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'ต้นข้าว',
             'district_id' => 7,
+<<<<<<< HEAD
             'card_id' => 'C6B2B2C3',
+=======
+            'card_id' => 'o119AfKM',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'กชกร',
             'last_name' => 'ศิริเจริญ',
@@ -235,7 +291,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'น้ำฟ้า',
             'district_id' => 8,
+<<<<<<< HEAD
             'card_id' => '6979B2C3',
+=======
+            'card_id' => 'C6roA27G',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'ยานิศา',
             'last_name' => 'วัฒนพรพรหม',
@@ -251,7 +311,11 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'กล้า',
             'district_id' => 8,
+<<<<<<< HEAD
             'card_id' => 'F6ADB8C3',
+=======
+            'card_id' => 'XGK2XWly',
+>>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'นาย',
             'first_name' => 'บดินทร์',
             'last_name' => 'วัฒนพรพรหม',

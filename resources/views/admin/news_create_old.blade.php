@@ -6,7 +6,7 @@
 
 <!-- News Create Area Start Here -->
 <div class="heading text-left">
-    <h3>เพิ่มข่าวสาร</3>
+    <h3>เพิ่มข่าวสาร<h3>
 </div>
 <div class="card height-auto pb-0">
     <div class="card-body pt-5">
@@ -48,7 +48,7 @@
                         <option value="2">งดเผยแพร่</option>
                     </select>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-12 form-group"> 
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <input required type="text" placeholder="วันที่เผยแพร่" class="form-control air-datepicker calendar">
                     <i class="far fa-calendar-alt"></i>
                 </div>
