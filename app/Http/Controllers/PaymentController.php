@@ -313,7 +313,7 @@ class PaymentController extends Controller
                                 $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                                 $this->request->file('imgInp')->move($destination, $image_name);
                                 $infrom->imgInp = $public_path . $image_name;
-                                $copy = $public_path . $image_name . '_SUM_OF_'. $log->id;
+                                $copy = $public_path . $image_name;
                                 $infrom->save();
 
                                 $log_bill = Payment_log::where('id', $log->id)->first();
