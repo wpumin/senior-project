@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\School;
 use App\Student;
-use LogicException;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
@@ -20,6 +19,13 @@ class RegisterStudentController extends Controller
 
     public function register_student()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
         try {
 
             $validator = Validator::make($this->request->all(), [
@@ -34,10 +40,7 @@ class RegisterStudentController extends Controller
                 'last_name' => 'required',
                 'nickname' => 'required',
                 'phone' => 'required',
-                // 'lattitude' => 'required',
-                // 'longtitude' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                // 'image_map' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 
             if ($validator->fails()) {
@@ -45,12 +48,10 @@ class RegisterStudentController extends Controller
                 return $this->responseRequestError('error', $errors);
             }
 
-
             //validator_phone
             $validator_phone = Validator::make($this->request->all(), [
                 'phone' => 'required|digits_between:9,10',
             ]);
-
 
             //validator_phone
             if ($validator_phone->fails()) {
@@ -64,12 +65,12 @@ class RegisterStudentController extends Controller
                 $image_filename = $this->request->file('image')->getClientOriginalName();
                 $image_name = $this->request->input('first_name') . '_' . $image_filename;
                 $public_path = 'images/Students/';
-                $destination = base_path() . "/public/" . $public_path;
+                // $destination = base_path() . "/public/" . $public_path; //Local
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                 $this->request->file('image')->move($destination, $image_name);
-                $student->image= $public_path . $image_name;
+                $student->image = $public_path . $image_name;
             }
 
-            // 'image' => $this->request->input('image'),
             $student->user_id = $this->request->input('user_id');
             $student->std_status_id = $this->request->input('std_status_id');
             $student->school_id = $this->request->input('school_id');
@@ -81,9 +82,6 @@ class RegisterStudentController extends Controller
             $student->last_name = $this->request->input('last_name');
             $student->nickname = $this->request->input('nickname');
             $student->phone = $this->request->input('phone');
-            // $student->lattitude = $this->request->input('lattitude');
-            // $student->longtitude = $this->request->input('longtitude');
-
 
             $student->save();
 
@@ -93,6 +91,86 @@ class RegisterStudentController extends Controller
             return response()->json($this->formatResponse($e->getMessage()));
         }
     }
+
+    public function edit_student($id)
+    {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
+        $student = Student::where('id', $id)->get();
+
+        foreach ($student as $s) {
+
+            if ($s) {
+
+                $school = School::where('id', $s->school_id)->first();
+
+                $data['info'][0] = [
+
+                    'no' => $s->id,
+                    'image' => $s->image,
+                    'prefix' => $s->prefix,
+                    'first_name' => $s->first_name,
+                    'last_name' => $s->last_name,
+                    'nickname' => $s->nickname,
+                    'phone' => $s->phone,
+                    'school_id' => $s->school_id,
+                    'school' => $school->name_school,
+                    'car_id' => $s->car_id,
+
+                ];
+            }
+        }
+
+        return view('admin.student_edit', [
+
+            'datas' => $data['info'],
+
+        ]);
+    }
+
+    public function update_student()
+    {
+
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
+        $student = Student::where('id', $this->request->input('student_id'))->first();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('userprofile_picture')) {
+            $image_filename = $this->request->file('userprofile_picture')->getClientOriginalName();
+            $image_name = $this->request->input('first_name') . '_' . $image_filename;
+            $public_path = 'images/Students/';
+            // $destination = base_path() . "/public/" . $public_path; //Local
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+            $this->request->file('userprofile_picture')->move($destination, $image_name);
+            $student->image = $public_path . $image_name;
+        }
+
+        $student->school_id = $this->request->input('school_id');
+        $student->car_id = $this->request->input('car_id');
+        $student->prefix = $this->request->input('prefix');
+        $student->first_name = $this->request->input('first_name');
+        $student->last_name = $this->request->input('last_name');
+        $student->nickname = $this->request->input('nickname');
+        $student->phone = $this->request->input('phone');
+        $student->save();
+
+        DB::commit();
+
+        return redirect('/admin/management/parent');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง

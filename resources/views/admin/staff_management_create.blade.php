@@ -15,69 +15,69 @@
                 <h3>ข้อมูลพนักงาน</h3>
             </div>
         </div>
-        <form id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
-            @csrf
+        <form action="{{url('/admin/management/staff/store')}}" method="POST" enctype="multipart/form-data" id="addUserForm" class="mb-5 mb-lg-0 new-added-form">
+            {{-- @csrf --}}
             <div class="row">
                 <div class="col-lg-12 col-12 form-group">
                         <div class="uploader" onclick="$('#staffImage').click()">
                                 <span class='flaticon-photo'></span>
                                 <img src="" alt="staff profile" class="text-center" id="image1"/>
-                                <input type="file" name="userprofile_picture" id="staffImage" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
+                                <input type="file" name="staffImage" id="staffImage" class="filePhoto" data-id="1"  onchange="readURL(this,this.getAttribute('data-id'))" />
                             </div>
                     <div class="text-center mt-3">
-                        <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 4MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
+                        <span class="text-red small">ไฟล์ต้องมีขนาดไม่เกิน 2MB และเป็นสกุลไฟล์ .jpg, .png, เท่านั้น<span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required>
+                    <select class="select2" required name="prefix">
                         <option value="">คำนำหน้า</option>
-                        <option value="1">นาย</option>
-                        <option value="2">นาง</option>
-                        <option value="3">นางสาว</option>
+                        <option value="นาย">นาย</option>
+                        <option value="นาง">นาง</option>
+                        <option value="นางสาว">นางสาว</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="ชื่อ" class="form-control">
+                    <input required type="text" placeholder="ชื่อ" class="form-control" name="first_name">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="นามสกุล" class="form-control">
+                    <input required type="text" placeholder="นามสกุล" class="form-control" name="last_name">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2" required >
+                    <select class="select2" required name="car_id">
                         <option value="">ประจำคันรถ</option>
                         <option value="1">คันที่ 1: สินาท</option>
                         <option value="2">คันที่ 2: โกญจนาท</option>
                     </select>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="เบอร์โทร" class="form-control">
+                    <input required type="text" placeholder="เบอร์โทร" class="form-control" name="phone">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="ไลน์ไอดี" class="form-control">
+                    <input required type="text" placeholder="ไลน์ไอดี" class="form-control" name="line_id">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="email" placeholder="อีเมล" class="form-control">
+                    <input required type="email" placeholder="อีเมล" class="form-control" name="email">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="email" placeholder="ยืนยันอีเมล" class="form-control">
+                    <input required type="email" placeholder="ยืนยันอีเมล" class="form-control" name="cemail">
                 </div>
                 <div class="col-xl-12 col-lg-12 col-12 form-group">
                     <textarea required class="textarea form-control" name="address" placeholder="ที่อยู่" rows="6"></textarea>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control">
+                    <input required type="text" placeholder="ชื่อผู้ใช้" class="form-control" name="username">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="password" placeholder="รหัสผ่าน" class="form-control">
+                    <input required type="password" placeholder="รหัสผ่าน" class="form-control" name="password">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <input required type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control">
+                    <input required type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="cpassword">
                 </div>
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="select2">
+                    <select class="select2" name="role_id">
                         <option value="">บทบาท</option>
-                        <option value="1">คนขับรถ</option>
-                        <option value="2">แอดมิน</option>
+                        <option value="2">คนขับรถ</option>
+                        <option value="3">แอดมิน</option>
                     </select>
                 </div>
                 <div class="col-12 form-group mg-t-8 text-right">
@@ -186,7 +186,7 @@
         </div>
     </div>
 </div>
-<!-- System error End Here -->  
+<!-- System error End Here -->
 
 @endsection
 
@@ -197,13 +197,11 @@
         function readURL(e,id){
             var reader = new FileReader();
             reader.onload = function (event) {
-                // var temp =  $('.uploader img').attr('id');
                 $('#image'+id).attr('src',event.target.result);
             }
             reader.readAsDataURL(e.files[0]);
         }
         function handleImage(e) {
-        console.log(e);
         var reader = new FileReader();
         reader.onload = function (event) {
             var temp =  $('.uploader img').attr('id');
@@ -218,8 +216,8 @@
         // ajax
         $(document).ready(function(){
             $("#addUserForm").submit(function(event){
-                submitForm();
-                return false;
+                // submitForm();
+                // return false;
             });
         });
 

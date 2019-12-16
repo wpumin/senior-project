@@ -20,13 +20,20 @@
         </div>
         {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8 mg-b-20">
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
+                    <select class="select2" required autocomplete="off" id="period_time" name="period_time">
+                        <option value="">ค้นหาด้วยช่วงเวลา</option>
+                        <option value="ช่วงเช้า">ช่วงเช้า</option>
+                        <option value="ช่วงย็น">ช่วงย็น</option>
+                    </select>
+                </div>
+                <div class="col-2-xxxl col-xl-2 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
-                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control" id="search_school">
                 </div>
-                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                <div class="col-3-xxxl col-xl-3 col-lg-2 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control" id="search_phone">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
@@ -43,18 +50,35 @@
                         <th>สถานะ</th>
                         <th>รูปเด็ก</th>
                         <th>โรงเรียน</th>
+                        <th>ช่วงเวลา</th>
                         <th>ชื่อผู้ปกครอง</th>
                         <th>ความสัมพันธ์</th>
                         <th>เบอร์ติดต่อ</th>
+                        <th>เวลาที่แจ้ง</th>
                         <th>จัดการ</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                        <?php $count=1; ?>
+                    {{-- @if ($datas->completed->count() > 0) --}}
+
+                        <?php $count=1;
+                        // dd(count($datas) > 0);
+                        if(count($datas) > 0 ) {
+                        ?>
 
                         @foreach($datas as $key => $info)
-                        <tr>
+
+                            <?php
+                                $created_at = $info['created_at'];
+                                $year_substr = substr($created_at,0,4-0);
+                                $month_substr = substr($created_at,5,7-5);
+                                $date_substr = substr($created_at,8,10-8);
+                                $time_substr = substr($created_at,11,16-11);
+                                $concat_created_at = '' . $date_substr . '/' . $month_substr . '/' . $year_substr . ' - ' . $time_substr . ' น.';
+                            ?>
+
+                            <tr>
                                 <td><?php print $count ?></td>
                                 <td>{{ $info['nickname'] }}</td>
 
@@ -67,22 +91,36 @@
                                 <td class="text-center student-profile"><a href="#" data-target="#studentProfile-{{ $info['no'] }}" data-toggle="modal"><img class="myImg-{{ $info['no'] }}" src="{{asset($info['photo_stu'])}}"></a></td>
 
                                 <td>{{ $info['school'] }}</td>
+
+                                @if($info['period_time'] == 1)
+                                    <td>ช่วงเช้า</td>
+                                @elseif($info['period_time'] == 2)
+                                    <td>ช่วงเย็น</td>
+                                @endif
+
+
                                 <td>{{ $info['parent_name'] }}</td>
                                 <td>{{ $info['relationship'] }}</td>
                                 <td>{{ $info['phone'] }}</td>
+                                <td><?php echo $concat_created_at; ?></td>
 
                                 @if($info['app_status'] == 1)
-                                <td>
+                                    <td>
                                         <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran-{{ $info['no'] }}"><span class="flaticon-close-2"></span></a><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#acceptTran-{{ $info['no'] }}"><span class="flaticon-correct-1"></span></a></div>
-                                </td>
+                                    </td>
                                 @elseif($info['app_status'] == 2)
-                                    <td>-</td>
+                                    <td>
+                                        <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#deleteTran-{{ $info['no'] }}"><span class="flaticon-close-2"></span></a></div>
+                                    </td>
                                 @endif
 
-                        </tr>
+                            </tr>
 
                         <?php $count++ ?>
                         @endforeach
+                        <?php } ?>
+                        {{-- @endif --}}
+
 
                     {{-- <tr>
                         <td>2</td>
@@ -220,7 +258,7 @@
                 <b>ยกเลิกการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/del/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/del/"; ?>{{ $info['no'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['secure_code'] }}">ยืนยัน</a>
                     {{-- <button type="button" class="btn btn-secondary" id="confirmDelete">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->
@@ -244,7 +282,7 @@
                 <b>ยืนยันการนัดหมาย</b>
                 <p>การแจ้งเดินทางไป-กลับเอง ใช่หรือไม่</p>
                 <div class="modal-button text-center mt-3">
-                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/accept/"; ?>{{ $info['no'] }}">ยืนยัน</a>
+                    <a class="btn btn-secondary" href="<?php echo "/driver/appointment/".$_COOKIE['car_id']."/accept/"; ?>{{ $info['no'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['secure_code'] }}">ยืนยัน</a>
                     {{-- <button type="button" class="btn btn-secondary" id="confirmAccept">ยืนยัน</button> --}}
                     <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                     <!-- data-dismiss="modal" -->
@@ -385,13 +423,15 @@
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
       input = document.getElementById("search_nickname");
-      var input_periodtime = document.getElementById("search_school");
-      var input_month = document.getElementById("search_phone");
+      var input_school = document.getElementById("search_school");
+      var input_month = document.getElementById("search_phone"); //period_time
+      var input_period_time = document.getElementById("period_time");
 
 
       filter = input.value;
-      filter_input_periodtime = input_periodtime.value;
+      filter_input_school = input_school.value;
       filter_month = input_month.value;
+      filter_input_period_time = input_period_time.value;
 
       table = document.getElementById("myTable");
     //   console.log('Filter: '+filter);
@@ -405,24 +445,25 @@
       for (i = 0; i < tr.length; i++) {
 
         td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
-        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
-        td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
+        td_school = tr[i].getElementsByTagName("td")[4]; //choose table that search. (td_school)
+        td_period_time = tr[i].getElementsByTagName("td")[5]; //choose table that search. (Date)
         // console.log(td);
         if (td_name) {
           txtValue = td_name.textContent || td_name.innerText;
+          txtValue_school = td_school.textContent || td_school.innerText;
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
-          txtValue_date = td_date.textContent || td_date.innerText;
 
         //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
+          console.log('Total: '+txtValue_period_time);
         //   console.log('Total: '+txtValue_date);
 
-          if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1 && txtValue_date.indexOf(filter_month) > -1) {
+          if (txtValue.indexOf(filter) > -1 && txtValue_school.indexOf(filter_input_school) > -1 && txtValue_period_time.indexOf(filter_input_period_time) > -1) {
             tr[i].style.display = "";
 
             $('#search_nickname').val(null);
             $('#search_school').val(null);
             $('#search_phone').val(null);
+            $('#period_time').val(null).trigger('change');
 
           } else {
             tr[i].style.display = "none";
@@ -430,6 +471,7 @@
             $('#search_nickname').val(null);
             $('#search_school').val(null);
             $('#search_phone').val(null);
+            $('#period_time').val(null).trigger('change');
           }
         }
       }

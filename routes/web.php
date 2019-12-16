@@ -11,14 +11,14 @@
 |
 */
 
-// about (external page)
-Route::get('/about', function () {
+/** ---------- ABOUT PAGE  (external page) ---------- */
+Route::get('/public', function () {
     return view('public.index');
 });
 
-// block url
+Route::post('line/notify', 'ContactController@notify');
 
-// login
+/** ---------- LOGIN ---------- */
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -35,56 +35,49 @@ Route::get('/create-newpassword', function () {
     return view('auth.create-newpassword');
 });
 
-// parent
+/** ---------- PARENT ---------- */
 Route::group(array('prefix' => 'parent'), function () {
 
-    Route::get('/index', function () {
-        return view('parent.index');
-    });
-    Route::get('/payment/overview/{id}', 'PaymentController@overview');
+    Route::get('/index', 'ParentController@index');
 
-    Route::get('/payment/confirm/{id}', 'PaymentController@parent_list');
+    Route::get('/payment/overview/{id}/{token}', 'PaymentController@overview');
 
-    Route::get('/appointment/{id}', 'AppointmentController@list');
+    Route::get('/payment/confirm/{id}/{token}', 'PaymentController@parent_list');
 
-    Route::get('/report/{id}', 'RefreshController@report');
+    Route::post('/store', 'PaymentController@store');
 
-    Route::get('/profile', function () {
-        return view('parent.profile');
-    });
-    Route::get('/dashboard/{id}', 'ParentController@list_student');
+    Route::get('/appointment/{id}/{token}', 'AppointmentController@list');
+
+    Route::get('/report/{id}/{token}', 'RefreshController@report');
+
+    Route::get('/profile', 'ParentController@profile');
+
+    Route::get('/dashboard/{id}/{token}', 'ParentController@list_student');
 
     Route::post('/dashboard/info', 'ParentController@ajax_list_student');
 
-    Route::get('/news/detail', function () {
-        return view('news.news_detail');
-    });
+    Route::get('/news/detail/{id}', 'ParentController@show_news');
 });
 
-// driver
+/** ---------- DRIVER ---------- */
 Route::group(array('prefix' => 'driver'), function () {
-    Route::get('/index', function () {
-        return view('driver.index');
-    });
 
-    Route::get('/appointment/{car}', 'DriverController@list_student');
+    Route::get('/index', 'RefreshController@run');
 
-    Route::get('/appointment/{car}/del/{id}', 'DriverController@del_app');
+    Route::get('/appointment/{car}/{id}/{token}', 'DriverController@list_student');
 
-    Route::get('/appointment/{car}/accept/{id}', 'DriverController@accept_app');
+    Route::get('/appointment/{car}/del/{id}/{user_id}/{token}', 'DriverController@del_app');
 
-    Route::get('/broadcast', function () {
-        return view('driver.broadcast');
-    });
-    Route::get('/profile', function () {
-        return view('driver.profile');
-    });
-    Route::get('/news/detail', function () {
-        return view('news.news_detail');
-    });
+    Route::get('/appointment/{car}/accept/{id}/{user_id}/{token}', 'DriverController@accept_app');
+
+    Route::get('/broadcast', 'DriverController@broadcast');
+
+    Route::get('/profile', 'DriverController@profile');
+
+    Route::get('/news/detail/{id}', 'DriverController@show_news');
 });
 
-// driver
+/** ---------- ADMIN ---------- */
 Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/index', 'ReportController@list_report');
@@ -93,49 +86,54 @@ Route::group(array('prefix' => 'admin'), function () {
 
     Route::get('/management/news/edit/{id}', 'NewsController@edit_new');
 
-    Route::post('/management/news/update', 'NewsController@update_new');
-
     Route::get('/management/news/del/{id}', 'NewsController@del_new');
 
-    Route::get('/management/news/create', function () {
-        return view('admin.news_create');
-    });
+    // สำหรับสร้าง
+    Route::post('/management/news/create/new', 'NewssController@create_store');
+
+    Route::get('/management/news/create', 'NewssController@create');
 
     Route::get('/payment/confirm/{car}', 'PaymentController@index');
 
     Route::get('/payment/overview/{car}', 'PaymentController@admin_list');
 
-    Route::get('/confirm/{car}/{id}', 'PaymentController@confirm');
+    Route::get('/confirm/{car}/{trankey}', 'PaymentController@confirm');
 
-    // Route::get('/payment/overview/car2', function () {
-    //     return view('admin.payment_overview');
-    // });
     Route::get('/management/parent', 'RegisterUserController@list_user');
+
+    Route::get('/management/parent/create', 'RegisterUserController@create');
+
+    Route::post('/management/parent/store', 'RegisterUserController@store_user');
 
     Route::get('/management/parent/edit/{id}', 'RegisterUserController@edit_user');
 
+    Route::post('/management/parent/update', 'RegisterUserController@update_user');
+
     Route::get('/management/parent/del/{id}', 'RegisterUserController@del_user');
 
-    Route::get('/management/parent/create', function () {
-        return view('admin.parent_management_create');
-    });
+    Route::get('/management/student/edit/{id}', 'RegisterStudentController@edit_student');
+
+    Route::post('/management/student/update', 'RegisterStudentController@update_student');
+
+    Route::get('/management/parent/create', 'RegisterUserController@create');
+
     Route::get('/management/staff', 'RegisterUserController@list_staff');
 
-    Route::get('/management/staff/create', function () {
-        return view('admin.staff_management_create');
-    });
-    Route::get('/dashboard/car1', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/dashboard/car2', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/profile', function () {
-        return view('admin.profile');
-    });
-    Route::get('/news/detail', function () {
-        return view('news.news_detail_admin');
-    });
+    Route::get('/management/staff/create', 'RegisterStaffController@staff');
+
+    Route::get('/management/staff/edit/{id}', 'RegisterStaffController@edit_staff');
+
+    Route::post('/management/staff/store', 'RegisterStaffController@store');
+
+    Route::post('/management/staff/update', 'RegisterStaffController@update_staff');
+
+    Route::get('/dashboard/{car}', 'RefreshController@dashboard');
+
+    // Route::get('/dashboard/car2', 'RefreshController@dashboard2');
+
+    Route::get('/profile', 'RefreshController@admin_profile');
+
+    Route::get('/news/detail/{id}', 'ReportController@show_news');
 });
 
 Route::get('/map', function () {
@@ -147,6 +145,10 @@ Auth::routes();
 Route::post('register/user', 'RegisterUserController@register_user');
 Route::post('register/student', 'RegisterStudentController@register_student');
 Route::post('/login', 'LoginController@login')->name('login');
+
+Route::get('/logout/{id}/{secure}', 'LoginController@logout');
+Route::post('/logout', 'LoginController@logout_v1');
+
 Route::post('/pass_forgot', 'ForgotPasswordController@pass_forgot');
 Route::post('/forgotpassword/againotp', 'ForgotPasswordController@againOTP');
 Route::post('/newpassword', 'NewPasswordController@NewPassword');
@@ -155,25 +157,19 @@ Route::post('/appointment', 'AppointmentController@createAppointment');
 Route::post('/report', 'ReportController@createReport');
 Route::post('/bill', 'PaymentController@addPayment');
 
-
-Route::get('/driver/index', 'RefreshController@run');
-Route::get('/admin/car-overview/car1', 'RefreshController@runAdmin');
-Route::get('/admin/car-overview/car2', 'RefreshController@runAdmin');
+Route::get('/admin/car-overview/car1', 'RefreshController@runAdminOne');
+Route::get('/admin/car-overview/car2', 'RefreshController@runAdminTwo');
 
 Route::post('/tasks/refresh', 'RefreshController@refresh');
 Route::post('/tasks/refresh/student', 'RefreshController@student');
 Route::get('tasks/refresh/order', 'RefreshController@order_report');
 
 Route::post('tasks/refresh/pf_student', 'RefreshController@pf_student');
-// Route::get('tasks/refresh/report/{id}', 'RefreshController@report');
 Route::post('/tasks/refresh/appointment', 'RefreshController@appointment');
 Route::post('/tasks/refresh/appointment/student', 'AppointmentController@list_stu');
 
-
-// Route::get('firebase/{lat}/{long}', 'FirebaseController@index');
 Route::get('firebase/getlocation', 'FirebaseController@get_location')->middleware('cros');
-// Route::get('admin/payment/confirm/car2', 'PaymentController@index');
 
-// Route::get('image/upload', 'ImageUploadController@fileCreate');
-// Route::post('image/upload/store', 'ImageUploadController@fileStore');
-// Route::post('image/delete', 'ImageUploadController@fileDestroy');
+Route::post('/ajax_upload/action', 'NewsController@action')->name('ajaxupload.action');
+
+Route::resource('news', 'NewssController');

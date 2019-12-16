@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>เกี่ยวกับ - Bear Bus</title>
+    <title>Bear Bus</title>
 
     <!-- Manifest -->
     <meta name="theme-color" content="#f1f1f1">
@@ -37,7 +37,7 @@
       // Initialize the service worker
       if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/swe.js', {
-              scope: '.' 
+              scope: '.'
           }).then(function (registration) {
               // Registration was successful
               // console.log('Bear Bus: ServiceWorker registration successful with scope: ', registration.scope);
@@ -47,6 +47,18 @@
           });
       }
   </script>
+  <style>
+    span.help-block{
+        color: red;
+        display: block;
+        padding-top: 1rem;
+    }
+    span.help-block-green{
+        color: green;
+        display: block;
+        padding-top: 1rem;
+    }
+  </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="75">
     <!-- loader-->
@@ -196,7 +208,7 @@
                 </g>
               </svg>
               <h3>การแสดงผลเป็นมิตร</h3>
-              <p>ด้วยการแสดงที่เป็นมิตรและใช้งานง่าย เหมาะกับทุกเพศทุกวัย และรองรับการแสดงผลแบบ Responsive</p>
+              <p>ด้วยการแสดงที่เป็นมิตรและใช้งานง่าย เหมาะกับทุกเพศทุกวัย และรองรับการแสดงผลแบบ responsive</p>
               <svg class="bg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50px" height="50px">
                 <g>
                   <g>
@@ -343,7 +355,7 @@
                 </g>
                 </svg>
               <h3>การแจ้งเตือน</h3>
-              <p>คุณจะได้รับแจ้งเตือน เมื่อมีสิ่งใหม่ ๆ ที่เราอยากบอกคุณ แม้ว่าคุณจะไม่ได้เปิดเว็บไซต์หรือบราวเซอร์</p>
+              <p>คุณจะได้รับแจ้งเตือน เมื่อมีสิ่งใหม่ ๆ ที่เราอยากบอกคุณ แม้ว่าคุณจะไม่ได้เปิดเว็บบราวเซอร์อยู่ก็ตาม</p>
               <svg class="bg-icon" width="55px" height="55px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
                 <g>
                   <g>
@@ -497,7 +509,7 @@
              </g>
              <g>
              </g>
-             </svg>             
+             </svg>
               <h3>ติดตามรถด้วย GPS</h3>
               <p>อุ่นใจเมื่อคุณเปิดเว็บไซต์ของเราเพื่อติดตามตำแหน่งของรถรับส่งนักเรียนบนแผนที่</p>
               <svg class="bg-icon" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
@@ -579,7 +591,7 @@
               </g>
               <g>
               </g>
-           </svg>           
+           </svg>
             </div>
           </div>
         </div>
@@ -633,11 +645,11 @@
                   </li>
                   <li class="timeline-right">
                     <h4>แจ้งชำระเงินผ่านเว็บไซต์</h4>
-                    <p>เพื่อเกิดความสะดวกแก่ผู้ปกครอง</p>
+                    <p>เพื่อความสะดวกแก่ผู้ปกครอง</p>
                   </li>
                   <li class="timeline-right">
                     <h4>แจ้งเดินทางเองของนักเรียน</h4>
-                    <p>เพื่อเกิดความสะดวกแก่ผู้ปกครอง</p>
+                    <p>เพื่อความสะดวกแก่ผู้ปกครอง</p>
                   </li>
                   <li class="timeline-right">
                     <h4>ร้องเรียนการบริการ</h4>
@@ -694,7 +706,7 @@
               <div class="item">
                 <div class="team-box">
                   <div class="team-under-box">
-                    <div class="team-under-box-button text-white" data-id="1"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/1.jpg') }}" alt="1">
+                    <div class="team-under-box-button text-white" data-id="1"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/blon.jpg') }}" alt="1">
                     <div class="team-overlay">
                       <div class="social-icon">
                         <ul>
@@ -710,7 +722,7 @@
               <div class="item">
                 <div class="team-box">
                   <div class="team-under-box">
-                    <div class="team-under-box-button text-white" data-id="2"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/2.jpg') }}" alt="2">
+                    <div class="team-under-box-button text-white" data-id="2"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/top.jpg') }}" alt="2">
                     <div class="team-overlay">
                       <div class="social-icon">
                         <ul>
@@ -726,7 +738,7 @@
               <div class="item">
                 <div class="team-box">
                   <div class="team-under-box">
-                    <div class="team-under-box-button text-white" data-id="3"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/3.jpg') }}" alt="3">
+                    <div class="team-under-box-button text-white" data-id="3"><i class="fa fa-plus" aria-hidden="true"></i></div><img class="img-fluid" src="{{ URL::asset('images/public/kid.jpg') }}" alt="3">
                     <div class="team-overlay">
                       <div class="social-icon">
                         <ul>
@@ -745,7 +757,7 @@
             <div class="team-hover" id="1">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/1.jpg') }}" alt="1"></div>
+                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/blon.jpg') }}" alt="1"></div>
                 </div>
                 <div class="col-md-8">
                   <div class="d-flex-1">
@@ -765,7 +777,7 @@
             <div class="team-hover" id="2">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/2.jpg') }}" alt="2"></div>
+                  <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/top.jpg') }}" alt="2"></div>
                 </div>
                 <div class="col-md-8">
                   <div class="d-flex-1">
@@ -774,7 +786,7 @@
                       <h3>ภูมินท์ วงษ์ศิริ</h3>
                       <h4 class="m-0 text-muted">Developer & Designer</h4>
                       <h5>HTML, CSS, JavaScript </h5>
-                      <p>มุ่งพัฒนาให้เว็บไซต์ Bear Bus เป็นเว็บไซต์ที่ไม่ว่าใครก็ตามที่มีสมาร์ทโฟน แท็บเลต หรือ คอมพิวเตอร์ ก็สามารถใช้งานเว็บไซต์เพื่อดำเนินการเกี่ยวกับรถรับส่งนักเรียนได้อย่างสะดวกสบาย เช่น ติดตามสถานะของรถรับส่งนักเรียน แจ้งชำระแพ็คเกจ ตรวจสอบประวัติการขึ้นรถ ได้รับ Notification ผ่านเว็บแอปฯ อีกทั้งในการพัฒนายังทำให้เว็บไซต์สามารถรองรับการทำงานได้แบบ Progressive Web Application</p>
+                      <p>มุ่งพัฒนาให้เว็บไซต์ Bear Bus เป็นเว็บไซต์ที่ไม่ว่าใครก็ตามที่มีสมาร์ทโฟน แท็บเลต หรือ คอมพิวเตอร์ ก็สามารถใช้งานเว็บไซต์เพื่อดำเนินการเกี่ยวกับรถรับส่งนักเรียนได้อย่างสะดวกสบาย เช่น ติดตามสถานะของรถรับส่งนักเรียน แจ้งชำระเงิน ตรวจสอบประวัติการขึ้น-ลงรถ ได้รับ Notification ผ่านเว็บแอปฯ อีกทั้งในการพัฒนายังทำให้เว็บไซต์สามารถรองรับการแสดงผลแบบ Progressive Web Application</p>
                     </div>
                   </div>
                 </div>
@@ -784,7 +796,7 @@
               <div class="team-hover" id="3">
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/3.jpg') }}" alt="3"></div>
+                    <div class="team-profile"><img class="img-fluid" src="{{ URL::asset('images/public/kid.jpg') }}" alt="3"></div>
                   </div>
                   <div class="col-md-8">
                     <div class="d-flex-1">
@@ -793,7 +805,7 @@
                         <h3>อชิตะ ลิลิตสัจจะ</h3>
                         <h4 class="m-0 text-muted">Developer & Tester</h4>
                         <h5>Laravel, JavaScript </h5>
-                        <p>มุ่งเน้นพัฒนาตัวระบบของเว็บไซต์ Bear Bus ให้สะดวกต่อการใช้งานของผู้ปกครองและมีข้อผิดพลาดน้อยที่สุด พร้อมพัฒนาระบบต่าง ๆ ให้เป็นประโยชน์กับผู้ปกครองและเด็กนักเรียนเอง เช่น ระบบติดตามเด็กนักเรียนได้ว่าได้ขึ้น-รถแล้วหรือไม่, ระบบการแจ้งชำระเงิน, ระบบการแจ้งเดินทางไป-กลับเอง และระบบร้องเรียนข้อผิดพลาด เป็นต้น</p>
+                        <p>มุ่งเน้นพัฒนาตัวระบบของเว็บไซต์ Bear Bus ให้สะดวกต่อการใช้งานของผู้ปกครองและมีข้อผิดพลาดน้อยที่สุด พร้อมพัฒนาระบบต่าง ๆ ให้เป็นประโยชน์กับผู้ปกครองและเด็กนักเรียนเอง เช่น ระบบติดตามเด็กนักเรียนได้ว่าได้ขึ้น-รถแล้วหรือไม่ ระบบการแจ้งชำระเงิน ระบบการแจ้งเดินทางไป-กลับเอง และระบบร้องเรียน เป็นต้น</p>
                       </div>
                     </div>
                   </div>
@@ -818,7 +830,7 @@
             <div class="plan-slider owl-carousel owl-theme">
               <div class="item">
                 <div class="package-box">
-                  <h3>เทศบาลบ้านไร่</h3>
+                  <h3>ตำบลบ้านไร่</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>900</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -826,8 +838,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:02 น.</li>
-                      <li>เย็น: 16:30 น.</li>
+                      <li>เช้า: 06:30 น.</li>
+                      <li>เย็น: 17:45 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -843,8 +855,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:12 น.</li>
-                      <li>เย็น: 16:18 น.</li>
+                      <li>เช้า: 06:50 น.</li>
+                      <li>เย็น: 17:25 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -852,7 +864,7 @@
               </div>
               <div class="item">
                 <div class="package-box">
-                  <h3>ตำบลหนองหย่าง</h3>
+                  <h3>ตำบลหนองฝาง</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>650</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -860,8 +872,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:20 น.</li>
-                      <li>เย็น: 16:12 น.</li>
+                      <li>เช้า: 07:05 น.</li>
+                      <li>เย็น: 17:10 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -869,7 +881,7 @@
               </div>
               <div class="item">
                 <div class="package-box">
-                  <h3>ตำบลทุ่งนางาม</h3>
+                  <h3>ตำบลเมืองการุ้ง</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>650</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -877,25 +889,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:28 น.</li>
-                      <li>เย็น: 16:02 น.</li>
-                    </ul>
-                    <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="package-box">
-                  <h3>ตำบลการุ้ง</h3>
-                  <div class="price-box"><span>฿</span>
-                    <h2>650</h2>
-                    <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
-                  </div>
-                  <div class="price-plan text-center">
-                    <ul>
-                      <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:45 น.</li>
-                      <li>เย็น: 15:57 น.</li>
+                      <li>เช้า: 07:10 น.</li>
+                      <li>เย็น: 17:05 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -911,8 +906,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 07:56 น.</li>
-                      <li>เย็น: 15:47 น.</li>
+                      <li>เช้า: 07:20 น.</li>
+                      <li>เย็น: 16:55 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -928,8 +923,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 08:05 น.</li>
-                      <li>เย็น: 15:35 น.</li>
+                      <li>เช้า: 07:30 น.</li>
+                      <li>เย็น: 16:45 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -937,7 +932,7 @@
               </div>
               <div class="item">
                 <div class="package-box">
-                  <h3>ตำบลเขาตะพาน</h3>
+                  <h3>ตำบลเขาตะพาบ</h3>
                   <div class="price-box"><span>฿</span>
                     <h2>350</h2>
                     <h5 class="plan-clr"><span class="d-block">/ เดือน</span></h5>
@@ -945,8 +940,8 @@
                   <div class="price-plan text-center">
                     <ul>
                       <li>เวลาจอดรับ-ส่งเฉลี่ย</li>
-                      <li>เช้า: 08:10 น.</li>
-                      <li>เย็น: 15:29 น.</li>
+                      <li>เช้า: 07:35 น.</li>
+                      <li>เย็น: 16:40 น.</li>
                     </ul>
                     <div class="price-plan-btn"><a class="text-white" href="tel:0648763436">สั่งซื้อ</a></div>
                   </div>
@@ -974,28 +969,28 @@
               <div class="testimonial-slider owl-carousel owl-theme">
                 <div class="item testi-profile">
                   <div class="media">
-                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/1.png') }}" alt="1"></div>
+                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/review1.png') }}" alt="1"></div>
                     <div class="media-body">
-                      <h3 class="mt-0 sub-title">ลูกค้า 1</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At laudantium sunt omnis exercitationem facere consectetur temporibus eveniet incidunt delectus placeat. Debitis dolorem ut perferendis incidunt libero voluptates, voluptatum nulla ipsam.</p>
+                      <h3 class="mt-0 sub-title">คุณแบม</h3>
+                      <p>เว็บฯ สวย ใช้งานง่าย มีฟีเจอร์ให้ใช้งานเยอะ เหมาะสำหรับนำมาใช้กับธุรกิจประเภทรถรับส่งมากค่ะ แต่ที่ชอบที่สุดคือเราไม่ต้องเปิดเครื่องหรือเว็บฯ ก็สามารถได้รับแจ้งเตือนเหมือนแอปพลิเคชัน แนะนำให้ผู้ปกครองที่ใช้บริการรถรับส่งนักเรียนของ เกษศิลป์ทัวร์ ใช้คะ แล้วคุณจะติดใจ </p>
                     </div>
                   </div>
                 </div>
                 <div class="item testi-profile">
                   <div class="media">
-                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/1.png') }}" alt="1"></div>
+                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/review2.png') }}" alt="1"></div>
                     <div class="media-body">
-                      <h3 class="mt-0 sub-title">ลูกค้า 2</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident quos doloremque itaque possimus, vel esse fuga exercitationem quis enim explicabo eos qui? Pariatur similique at itaque perferendis illum, eligendi autem!</p>
+                      <h3 class="mt-0 sub-title">คุณเทพ</h3>
+                      <p>รู้สึกอุ่นใจ และ ดีใจที่มีเว็บฯ ที่ตอบโจทย์สำหรับผู้ปกครองแบบนี้ ทำให้ผมไม่ต้องกังวลว่าลูกจะขึ้นรถหรือยัง ถึงโรงเรียนหรือยัง หรือว่ารถอยู่ตรงไหนแล้ว ทำให้ไม่ต้องเสียเวลาออกไปรอเวลาไปรับ-ส่ง ถือว่าสะดวกสบายมากเท่าที่ได้ลองสัมผัส  </p>
                     </div>
                   </div>
                 </div>
                 <div class="item testi-profile">
                   <div class="media">
-                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/1.png') }}" alt="1"></div>
+                    <div class="animated-circle"><img class="img-fluid align-self-center" src="{{ URL::asset('images/public/review3.png') }}" alt="1"></div>
                     <div class="media-body">
-                      <h3 class="mt-0 sub-title">ลูกค้า 3</h3>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi aspernatur inventore dolore laborum. Aliquam magnam ipsa ratione dolor. Quibusdam voluptatem voluptas fugiat exercitationem tempore rem, quaerat iusto inventore ut perferendis.</p>
+                      <h3 class="mt-0 sub-title">คุณเจี๊ยบ</h3>
+                      <p>ชอบมากค่ะ สามารถติดตามตำแหน่งรถรับส่งนักเรียนของลูกได้ หายห่วงไม่ต้องกังวลว่าลูกจะขึ้น-ลงรถแล้วหรือยัง และอีกส่วนที่ชอบคือระบบแจ้งเดินทางไป-กลับเอง อันนี้ถือว่าตอบโจทย์มาก ถือได้ว่าเป็นเว็บฯ ที่จบได้ด้วยตัวเองและครบด้วยฟีเจอร์สำหรับผู้ปกครองอย่างเรา ๆ เลยค่ะ  </p>
                     </div>
                   </div>
                 </div>
@@ -1047,7 +1042,7 @@
                   </h5>
                 </div>
                 <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                  <div class="card-body">เว็บไซต์อำนวยความสะดวกในการให้บริการรถรับส่งนักเรียนของเราไม่จำเป็นต้องติดตั้งให้เสียเวลาเหมือนแอปพลิเคชัน เพียงกดปุ่ม "add to home screen" เมื่อคุณอยู่หน้าเว็บไซต์ของเรา (https://bear-bus.com) เพียงเท่านี้คุณจะสามารถใช้งานเว็บไซต์ Bear Bus ได้เสมือนใช้งานแอปฯ และ ได้รับแจ้งเตือน (Notification) เมื่อเรามีสิ่งใหม่ ๆ ที่ต้องการบอกคุณ</div>
+                  <div class="card-body">เว็บไซต์อำนวยความสะดวกในการให้บริการรถรับส่งนักเรียนของเราไม่จำเป็นต้องติดตั้งให้เสียเวลาเหมือนแอปพลิเคชัน เพียงกดปุ่ม "add to home screen" เมื่อคุณอยู่หน้าเว็บไซต์ของเรา เพียงเท่านี้คุณจะสามารถใช้งานเว็บไซต์ Bear Bus ได้เสมือนแอปพลิเคชัน และได้รับแจ้งเตือนเมื่อเรามีสิ่งใหม่ ๆ ที่ต้องการบอกคุณ</div>
                 </div>
               </div>
               <div class="card">
@@ -1075,22 +1070,42 @@
             <div class="section-title">
               <h2>ติดต่อ</h2>
             </div>
-            <form class="auth-form" id="mailForm">
-              @csrf
+            <form class="auth-form" id="mailForm" action="{{url('line/notify')}}" method="POST">
+              {{-- @csrf --}}
               <div class="form-group">
                 <label for="exampleInputName1">ชื่อ - สกุล</label><i class="fa fa-user"></i>
-                <input class="form-control" id="exampleInputName" required="" name="login[name]" type="text" placeholder="ชื่อ - สกุล">
+                <input class="form-control" id="exampleInputName" name="exampleInputName" type="text" placeholder="ชื่อ - สกุล">
+                @if ($errors->has('exampleInputName'))
+                    <span class="help-block">
+                        {{$errors->first('exampleInputName')}}
+                    </span>
+                @endif
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail12">อีเมล</label><i class="fa fa-envelope-o"></i>
-                <input class="form-control" id="exampleInputEmail" required="" name="login[email]" type="email" placeholder="อีเมล">
+                <label for="exampleInputEmail12">เบอร์โทร</label><i class="fa fa-phone"></i>
+                <input class="form-control" id="exampleInputEmail" name="exampleInputEmail" type="tel" placeholder="เบอร์โทรศัพท์">
+                @if ($errors->has('exampleInputEmail'))
+                    <span class="help-block">
+                        {{$errors->first('exampleInputEmail')}}
+                    </span>
+                @endif
               </div>
               <div class="form-group">
                 <label for="message">ข้อความ</label><i class="fa fa-commenting-o"></i>
                 <textarea class="form-control" id="message" name="message" cols="30" rows="10" placeholder="ข้อความ"></textarea>
+                @if ($errors->has('message'))
+                    <span class="help-block">
+                        {{$errors->first('message')}}
+                    </span>
+                @endif
+                @if(Session::has('success'))
+                  <span class="help-block-green">
+                    {{ Session::get('success') }}
+                  </span>
+                @endif
               </div>
               <div class="form-group mb-0">
-                <button class="btn-theme" type="submit">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
+                <button class="btn-theme" type="submit" data-toggle="#successSending" id="send_noti">ส่งข้อความถึงเรา</button> <span class="spinner-border" style="display: none;"></span>
               </div>
             </form>
           </div>
@@ -1111,7 +1126,7 @@
                 <div class="contact-circle"><i class="fa fa-phone" aria-hidden="true"></i></div>
                 <div class="contact-text">
                   <h3>ติดต่อ</h3>
-                  <p><a href="tel:0648763436" style="color: #826d58;">+66 64-876-3436</a></p>
+                  <p><a href="tel:0648763436" style="color: #826d58;">064-876-3436</a></p>
                 </div>
               </li>
               <li>
@@ -1232,6 +1247,13 @@
           $(this).toggleClass('fa-align-justify');
         });
     </script> --}}
+    @if(Session::has('success'))
+      <script>
+          $(document).ready(function(){
+              $('#successSending').modal('show');
+          });
+      </script>
+    @endif
     <script>
 
       $('.delete-spinner').click(function() {
@@ -1241,45 +1263,51 @@
 
       $(document).ready(function(){
 
-      $("#mailForm").submit(function(event){
-          $('.spinner-border').css('display','inline-block');
-            submitForm();
-            return false;
-        });
+        // setInterval(function(){
+          $("#mailForm").submit(function(event){
+              $('.spinner-border').css('display','inline-block');
+                // submitForm();
+                //disable the submit button
+                $("#send_noti").attr("disabled", true);
+                // $(location).attr('href', '/public'); 
+                // return false;
+          });
+        // }, 3000);
+
       });
 
-      function submitForm(){
-          $.ajax({
-              type: "POST",
-              url: "/email",
-              headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              },
-              cache:false,
-              data: $('form#mailForm').serialize(),
-              success: function(result){
-                  //  ส่งอีเมลสำเร็จ
-                  if(result.status == 'success') {
-                      setInterval(function(){
-                          $('#successSending').modal('show');
-                      }, 3000);
-                      $(location).attr('href', '/about');
-                  }
+    //   function submitForm(){
+    //       $.ajax({
+    //           type: "POST",
+    //           url: "/email",
+    //           headers: {
+    //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //           },
+    //           cache:false,
+    //           data: $('form#mailForm').serialize(),
+    //           success: function(result){
+    //               //  ส่งอีเมลสำเร็จ
+    //               if(result.status == 'success') {
+    //                   setInterval(function(){
+    //                       $('#successSending').modal('show');
+    //                   }, 3000);
+    //                   $(location).attr('href', '/about');
+    //               }
 
-                  // ส่งอีเมลไม่สำเร็จ
-                  if (result.status == 'error') {
-                      $('#errorSending').modal('show');
-                      $('#exampleInputName').val("");
-                      $('#exampleInputEmail').val("");
-                      $('#message').val("");
-                  }
+    //               // ส่งอีเมลไม่สำเร็จ
+    //               if (result.status == 'error') {
+    //                   $('#errorSending').modal('show');
+    //                   $('#exampleInputName').val("");
+    //                   $('#exampleInputEmail').val("");
+    //                   $('#message').val("");
+    //               }
 
-              },
-              error: function(result){
-                  $(".wrap-modal > #systemError").modal('show');
-              }
-          });
-      }
+    //           },
+    //           error: function(result){
+    //               $(".wrap-modal > #systemError").modal('show');
+    //           }
+    //       });
+    //   }
 
     </script>
   </body>

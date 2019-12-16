@@ -165,24 +165,31 @@
         // console.log(email);
         // alert(email);
 
-        $.ajax({
-            type: "POST",
-            url: "https://bear-bus.com/forgotpassword/againotp",
-            cache:false,
-            data: {
-                email: email
-            },
-            success: function(result){
+        const data = {
+            email: email
+        }
+        
+        $.post('https://bear-bus.com/pass_forgot',data , function(result, status) {
+        if (result['status'] == 'success') {
 
-                // มีอีเมลนี้ในระบบ ส่ง OTP ไปยังอีเมล
-                if (result.status == 'success') {
-                    setCookie('ref', result.data['ref'], 30);
-                }
-            },
-            error: function(){
-                $(".wrap-modal > #systemError").modal('show');
-            }
+        $.get('https://bear-bus.com/mail/mail.php?email='+email+'&ref='+result['data']['ref']+'&otp='+result['data']['otp'], function(result, status) {
+
         });
+
+
+            setCookie('ref', result['data']['ref'], 30);
+            setCookie('email', result['data']['email'], 30);
+
+            $(location).attr('href', '/confirm-otp');
+            // window.location.replace('https://bear-bus.com/confirm-otp');
+            // $(".wrap-modal > #sendOTP").modal('show');
+        }
+
+        // ไม่มีอีเมลในระบบ กรอกอีเมลใหม่
+        if (result.status == 'error') {
+            $(".wrap-modal > #errorEmail").modal('show');
+        }
+    });
 
 
     }

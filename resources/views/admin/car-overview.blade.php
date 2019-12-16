@@ -8,8 +8,14 @@
 <?php
     $current_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     $current_page = (explode("/",$current_url));
-    $menu_active = $current_page[2];
+    // $menu_active = $current_page[2];
     // echo $menu_active;
+    if(!empty($current_page[2]))
+    {
+        $menu_active = $current_page[2];
+    }else{
+        $menu_active2 = "";
+    }
     if(!empty($current_page[3]))
     {
         $menu_active2 = $current_page[3];
@@ -113,7 +119,7 @@
 <!-- Student Table Area Start Here -->
 <div class="card height-auto pb-0">
     <div class="card-body">
-        <div class="heading-layout1">
+        <div class="heading-layout1 pt-4">
             <div class="item-title">
             <h3>ข้อมูลนักเรียนประจำคันรถที่ <?php if(($menu_active == "car-overview") && !empty($menu_active2 == "car1")) echo "1"; else echo "2";?></h3>
             </div>
@@ -121,24 +127,25 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mg-b-20">
+        {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8">
-                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control">
+                <div class="col-4-xxxl col-lg-3 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="nickname">
                 </div>
-                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control">
+                <div class="col-4-xxxl col-lg-3 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control" id="school">
                 </div>
-                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control">
+                <div class="col-3-xxxl col-lg-3 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control" id="phone">
                 </div>
-                <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                <div class="col-1-xxxl col-lg-3 col-12 form-group">
+                    <button onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    {{-- <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button> --}}
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -183,8 +190,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4">
-                        <h2 class="mb-2 text-special-orange">กาย</h2>
-                        <p>ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p>
+                        {{-- <h2 class="mb-2 text-special-orange">กาย</h2>
+                        <p>ด.ช. สมเกียรติ เรียนดี | โรงเรียนทัพหลวง</p> --}}
                     </div>
                 </div>
                 <div class="row">
@@ -223,13 +230,19 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var javaScriptVar = "<?php echo $menu_active2; ?>";
+</script>
 <!-- Picture Modal End Here -->
 
     {{-- free --}}
     {{-- <script src="//maps.googleapis.com/maps/api/js"></script> --}}
     {{-- paid --}}
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script>
+
     <script>
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -253,16 +266,13 @@
             return "";
         }
 
-        // console.log(getCookie('car_id'));
-        var car_id = getCookie('car_id');
-
         setInterval(function() {
 
             $.ajax({
                 url: '/tasks/refresh',
                 type: 'POST',
                 data: {
-                    car_id: car_id
+                    car_id: javaScriptVar[3]
                 },
                 dataType: 'json',
                 success: function(response) {
@@ -283,7 +293,7 @@
                 url: '/tasks/refresh/student',
                 type: 'POST',
                 data: {
-                    car_id: getCookie('car_id')
+                    car_id: javaScriptVar[3]
                 },
                 dataType: 'json',
                 success: function(response) {
@@ -315,12 +325,12 @@
 
                                 status +
                                 //modal
-                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc=' + 
-                                response['data'][i]['name_school'] + ' name=' + 
-                                response['data'][i]['fullname_s'] + 
-                                ' src=https://bear-bus.com/' + 
-                                response['data'][i]['image'] + 
-                                ' alt=' + response['data'][i]['nickname'] + 
+                                '<td class="text-center student-profile"><a href="#" data-target="#studentProfile" data-toggle="modal"><img class="myImg" desc=' +
+                                response['data'][i]['name_school'] + ' name=' +
+                                response['data'][i]['fullname_s'] +
+                                ' src=https://bear-bus.com/' +
+                                response['data'][i]['image'] +
+                                ' alt=' + response['data'][i]['nickname'] +
                                 '></a></td>' +
                                 //modal
 
@@ -329,15 +339,17 @@
                                 '<td>' + response['data'][i]['relationship'] + '</td>' +
                                 '<td>' + response['data'][i]['phone'] + '</td>' +
                                 '<td>' +
+                                // '<div class="dropdown">' +
+                                // '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
+                                // '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
                                 '<div class="dropdown">' +
-                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response['data'][i]['lattitude'] + ' data-lng=' + response['data'][i]['longtitude'] + '>' +
-                                '<span class="flaticon-pin" data-toggle="modal" data-target="#mapEmbed"  data-lat="15.263551" data-lng="99.672852"></span>' +
+                                '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#mapEmbed" data-lat=' + response.data[i]['lattitude'] + ' data-lng=' + response.data[i]['longtitude'] + '>' +
+                                '<span class="flaticon-pin"></span>' +
                                 '</a>' +
                                 '</div>' +
                                 '</td>' +
                                 '</tr>'
                             );
-
 
                             let img = document.getElementsByClassName("myImg");
                             let firstname = response['data'][i]['first_name'];
@@ -346,7 +358,6 @@
                             let school = response['data'][i]['name_school'];
 
                             img[i].onclick = function() {
-                                // console.log(img[i]);
                                 modal.style.display = "block";
                                 modalImg.src = this.src;
                                 modalFirstName.innerHTML = firstname;
@@ -364,5 +375,52 @@
                 }
             })
         }, 2000);
+
+    function myFunction() {
+          // Declare variables
+          var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+          input_username = document.getElementById("nickname");
+          var input_name = document.getElementById("school");
+          var input_phone = document.getElementById("phone");
+
+          filter_input_username = input_username.value;
+          filter_input_name = input_name.value;
+          filter_input_phone = input_phone.value;
+
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+
+            td_username = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Username)
+            td_name = tr[i].getElementsByTagName("td")[4]; //choose table that search. (Name)
+            td_phone = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Phone)
+
+            if (td_name) {
+
+              txtValue_username = td_username.textContent || td_username.innerText;
+              txtValue_name = td_name.textContent || td_name.innerText;
+              txtValue_phone = td_phone.textContent || td_phone.innerText;
+
+              if (txtValue_username.indexOf(filter_input_username) > -1 && txtValue_name.indexOf(filter_input_name) > -1 && txtValue_phone.indexOf(filter_input_phone) > -1) {
+
+                tr[i].style.display = "";
+                $('#school').val(null);
+                $('#nickname').val(null);
+                $('#phone').val(null);
+              } else {
+
+                tr[i].style.display = "none";
+                $('#school').val(null);
+                $('#nickname').val(null);
+                $('#phone').val(null);
+              }
+            }
+          }
+        }
+
     </script>
+
 @endsection

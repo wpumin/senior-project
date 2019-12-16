@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function(){
+            $('#successReport').modal('show');
+    });
+    </script>
+@endif
+
 <div class="heading text-left">
     <h3>ร้องเรียน / แนะนำการบริการ</h3>
 </div>
@@ -17,13 +25,22 @@
                         <h3>ฟอร์มการแจ้ง</h3>
                     </div>
                 </div>
-                <form id="reportForm" class="new-added-form">
+                <form action="{{url('/report')}}" method="POST" id="reportForm" class="new-added-form">
+                    <input type="hidden" id="user_id" name="user_id" value="<?php echo $_COOKIE['user_id'] ?>">
+                    <input type="hidden" id="secure_code" name="secure_code" value="<?php echo $_COOKIE['secure_code'] ?>">
                     <div class="row">
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group ">
-                            <input type="text" placeholder="หัวข้อ" class="form-control" required autocomplete="off" id="title">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group " {{ $errors->has('title') ? 'has-error' : '' }}>
+                            <input type="text" placeholder="หัวข้อ" class="form-control" autocomplete="off" id="title" name="title">
+                            @if ($errors->has('title'))
+
+                            <span class="help-block">
+                                {{$errors->first('title')}}
+                            </span>
+
+                            @endif
                         </div>
-                        <div class="col-12-xxxl col-lg-4 col-12 form-group">
-                            <select class="select2" required autocomplete="off" id="type_id">
+                        <div class="col-12-xxxl col-lg-4 col-12 form-group" {{ $errors->has('type_id') ? 'has-error' : '' }}>
+                            <select class="select2" autocomplete="off" id="type_id" name="type_id">
                                 <option value="">ประเภทการร้องเรียน</option>
                                 <option value="1">บริการทั่วไป</option>
                                 <option value="2">พฤติกรรมคนขับ</option>
@@ -33,6 +50,13 @@
                                 <option value="6">แดชบอร์ด</option>
                                 <option value="7">แก้ไขโปรไฟล์</option>
                             </select>
+                            @if ($errors->has('type_id'))
+
+                            <span class="help-block">
+                                {{$errors->first('type_id')}}
+                            </span>
+
+                            @endif
                         </div>
                         {{-- <div class="col-12-xxxl col-lg-4 col-12 form-group">
                             <select class="select2" required autocomplete="off" id="order_id">
@@ -42,8 +66,15 @@
                                 <option value="3">เร่งด่วน</option>
                             </select>
                         </div> --}}
-                        <div class="col-12 form-group">
-                            <textarea class="textarea form-control" name="message" id="content" cols="10" rows="15" placeholder="รายละเอียด" autocomplete="off"></textarea>
+                        <div class="col-12 form-group" {{ $errors->has('message') ? 'has-error' : '' }}>
+                            <textarea class="textarea form-control" name="message" id="content" name="content" cols="10" rows="15" placeholder="รายละเอียด" autocomplete="off"></textarea>
+                            @if ($errors->has('message'))
+
+                            <span class="help-block">
+                                {{$errors->first('message')}}
+                            </span>
+
+                            @endif
                         </div>
                         <div class="col-12 form-group mg-t-8 text-center text-md-right">
                             <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow " id="btn-submit" data-toggle="modal" >ยืนยัน</button>
@@ -115,7 +146,7 @@
                 <b>การร้องเรียนสำเร็จ</b>
                 <p>ระบบได้บันทึกการแจ้งการร้องเรียนของท่านแล้ว</p>
                 <div class="modal-button text-center mt-3" >
-                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal" id="reloadPage">ตกลง</button></a>
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
                 </div>
             </div>
         </div>
@@ -237,6 +268,14 @@
     </script>
 <script>
 
+    // $(document).ready(function(){
+    //     setInterval(function(){
+    //         $("#reportForm").submit(function(event){
+    //             $('#successReport').modal('show');
+    //         });
+    //     }, 3000);
+    // });
+
 
     function getCookie(cname) {
         var name = cname + "=";
@@ -259,8 +298,9 @@
         $("#reportForm").submit(function(event){
             $('#btn-submit').prop('disabled',true);
             $('#btn-submit').css('cursor','not-allowed');
-            submitForm();
-            return false;
+            // $(".wrap-modal > #successReport").modal('show');
+            // submitForm();
+            // return false;
         });
 
         $('button.btn-primary').click(function(){

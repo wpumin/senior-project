@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
+    <!--admin -->
     <meta name="description" content="">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -136,8 +137,11 @@
                                     </div>
                                     <div class="item-content">
                                         <ul class="settings-list">
-                                        <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                            <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                            <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
+                                            <form id="logoutform" action="{{url('/logout')}}" method="POST" >
+                                                {{-- <input class="flaticon-logout" type="submit"> --}}
+                                                <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit(); return false;" class="flaticon-logout"> ออกจากระบบ</a></li>
+                                            </form>
                                         </ul>
                                     </div>
                                 </div>
@@ -148,7 +152,7 @@
                                     <i class="far fa-bell"></i>
                                     <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
                                     <span class="animated tada infinite">3</span>
-                                </a>
+                                </>
 
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="item-header">
@@ -185,14 +189,14 @@
                                     </div>
                                 </div>
                             </li> --}}
-                            <li class="navbar-item dropdown header-language">
+                            {{-- <li class="navbar-item dropdown header-language">
                                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Thai</a>
                                     <a class="dropdown-item" href="#">English</a>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     <?php
                         }
@@ -293,6 +297,8 @@
 
     <script>
 
+
+
         $('.sidebar-color').addClass('addHeight');
 
         function setCookie(cname, cvalue, exdays) {
@@ -337,6 +343,18 @@
             }
 
         }
+
+        $(document).ready(function(){
+            // setInterval(function(){
+                $("#logoutform").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+
+                $("#logoutform1").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+            // }, 3000);
+        });
 
         document.getElementById("name").innerHTML = getCookie('f_name');
         document.getElementById("role_name").innerHTML = getCookie('role_name');
@@ -389,7 +407,7 @@
     <script src="{{ URL::asset('js/internal/main.js') }}"></script>
 
     @yield('script')
-    
+
 </body>
 
 </html>

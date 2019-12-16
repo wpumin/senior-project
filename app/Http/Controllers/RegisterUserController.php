@@ -8,9 +8,9 @@ use App\Role;
 use App\School;
 use App\Student;
 use App\User;
-use LogicException;
+use App\District;
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +24,13 @@ class RegisterUserController extends Controller
 
     public function register_user()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
         try {
 
             $validator = Validator::make($this->request->all(), [
@@ -89,12 +96,12 @@ class RegisterUserController extends Controller
                 $image_filename = $this->request->file('image')->getClientOriginalName();
                 $image_name = $this->request->input('first_name') . '_' . $image_filename;
                 $public_path = 'images/Users/';
-                $destination = base_path() . "/public/" . $public_path;
+                // $destination = base_path() . "/public/" . $public_path; //Local
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
                 $this->request->file('image')->move($destination, $image_name);
                 $user->image = $public_path . $image_name;
             }
 
-            // 'image' => $this->request->input('image'),
             $user->role_id = $this->request->input('role_id');
             $user->relationship_id = $this->request->input('relationship_id');
             $user->car_id = $this->request->input('car_id');
@@ -109,6 +116,7 @@ class RegisterUserController extends Controller
             $user->password = Hash::make($this->request->password);
             $user->lattitude = $this->request->input('lattitude');
             $user->longtitude = $this->request->input('longtitude');
+            $user->secure_code = $this->strRandom_ref();
 
             $user->save();
 
@@ -118,181 +126,336 @@ class RegisterUserController extends Controller
             return response()->json($this->formatResponse($e->getMessage()));
         }
     }
-
     public function list_user()
     {
-        $users = User::get();
 
-        $data['info'] = [];
-        $count = 0;
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        // dd($users);
-
-        foreach ($users as $u) {
-
-            if ($u->role_id == '1') {
-
-                $data['info'][$count++] = [
-
-                    'no' => $u->id,
-                    'username' => $u->username,
-                    'first_name' => $u->first_name,
-                    'last_name' => $u->last_name,
-                    'phone' => $u->phone,
-                    'date' => $u->created_at,
-
-
-                ];
+            if (!$auth) {
+                return redirect('/');
             }
-        }
 
-        // dd($data['info']);
+            if ($this->request->cookie('role_number') == '3') {
 
-        return view('admin.parent_management', [
-            'datas' => $data['info'],
+                $users = User::get();
 
-        ]);
+                $data['info'] = [];
+                $count = 0;
+
+                foreach ($users as $u) {
+
+                    if ($u->role_id == '1') {
+
+                        $data['info'][$count++] = [
+
+                            'no' => $u->id,
+                            'username' => $u->username,
+                            'first_name' => $u->first_name,
+                            'last_name' => $u->last_name,
+                            'phone' => $u->phone,
+                            'datetime' => $u->updated_at,
+
+                        ];
+                    }
+                }
+
+                return view('admin.parent_management', [
+                    'datas' => $data['info'],
+
+                ]);
+            }
+            \abort(404);
     }
 
     public function edit_user($id)
     {
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        $user = User::where('id', $id)->first();
-
-        $data['info'] = [];
-        $count = 0;
-
-        $students = Student::where('user_id', $user->id)->get();
-
-        // dd($user->role_id);
-
-        if ($user->role_id == '1') {
-
-            $relation = Relationship::where('id', $user->relationship_id)->first();
-        }
-
-
-        foreach ($students as $u) {
-            // dd($u);
-
-
-            if ($u) {
-
-                $school = School::where('id', $u->school_id)->first();
-
-                $data['info'][$count++] = [
-
-                    'no' => $u->id,
-                    'image' => $u->image,
-                    'prefix' => $u->prefix,
-                    'first_name' => $u->first_name,
-                    'last_name' => $u->last_name,
-                    'nickname' => $u->nickname,
-                    'phone' => $u->phone,
-                    'school' => $school->name_school,
-                    'car_id' => $u->car_id
-
-
-
-                ];
+            if (!$auth) {
+                return redirect('/');
             }
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                $user = User::where('id', $id)->first();
+
+                $data['info'] = [];
+                $count = 0;
+
+                $students = Student::where('user_id', $user->id)->get();
+
+                $relation = Relationship::where('id', $user->relationship_id)->first();
+
+                $district = District::where('id', $user->district_id)->first();
+
+                foreach ($students as $u) {
+
+                    if ($u) {
+
+                        $school = School::where('id', $u->school_id)->first();
+
+                        $data['info'][$count++] = [
+
+                            'no' => $u->id,
+                            'image' => $u->image,
+                            'prefix' => $u->prefix,
+                            'first_name' => $u->first_name,
+                            'last_name' => $u->last_name,
+                            'nickname' => $u->nickname,
+                            'phone' => $u->phone,
+                            'school' => $school->name_school,
+                            'car_id' => $u->car_id,
+
+                        ];
+                    }
+                }
+
+                return view('admin.parent_management_edit', [
+                    'datas' => $data['info'],
+                    'no' => $user->id,
+                    'prefix' => $user->prefix,
+                    'image' => $user->image,
+                    'relationship_id' => $user->relationship_id,
+                    'relation' => $relation->name,
+                    'username' => $user->username,
+                    'first_name' => $user->first_name,
+                    'last_name' => $user->last_name,
+                    'phone' => $user->phone,
+                    'line_id' => $user->line_id,
+                    'email' => $user->email,
+                    'address' => $user->address,
+                    'date' => $user->created_at,
+                    'lat' => $user->lattitude,
+                    'long' => $user->longtitude,
+                    'district_id' => $district->id,
+                    'district' => $district->name,
+                    'map_address' => $user->map_address,
+
+                ]);
+            }
+            \abort(404);
+    }
+
+    public function update_user()
+    {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
         }
 
-        // dd($data['info']);
+        $user = User::where('id', $this->request->input('user_id_update'))->first();
 
-        return view('admin.parent_management_edit', [
-            'datas' => $data['info'],
-            'no' => $user->id,
-            'prefix' => $user->prefix,
-            'image' => $user->image,
-            'relation' => $relation->name,
-            'username' => $user->username,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'phone' => $user->phone,
-            'line_id' => $user->line_id,
-            'email' => $user->email,
-            'address' => $user->address,
-            'date' => $user->created_at,
-            'lat' => $user->lattitude,
-            'long' => $user->longtitude,
+        DB::beginTransaction();
 
-        ]);
+        if ($this->request->file('parentImage0')) {
+            $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
+            $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
+            $public_path = 'images/Users/';
+            // $destination = base_path() . "/public/" . $public_path; //Local
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+            $this->request->file('parentImage0')->move($destination, $image_name);
+            $user->image = $public_path . $image_name;
+        }
+
+        $user->relationship_id = $this->request->input('parent_relation');
+        $user->district_id = $this->request->input('district_id');
+        $user->prefix = $this->request->input('prefix_parent');
+        $user->first_name = $this->request->input('parent_fname');
+        $user->last_name = $this->request->input('parent_lname');
+        $user->phone = $this->request->input('parent_phone');
+        $user->line_id = $this->request->input('parent_line_id');
+        $user->email = $this->request->input('parent_email');
+        $user->address = $this->request->input('parent_address');
+        $user->username = $this->request->input('parent_username');
+
+        if ($this->request->input('parent_password') != null) {
+            $user->password = Hash::make($this->request->input('parent_password'));
+        }
+
+        $user->map_address = $this->request->input('map_address');
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
+        $user->secure_code = $this->strRandom_ref();
+
+        $user->save();
+
+        DB::commit();
+        return redirect('admin/management/parent');
     }
 
     public function del_user($id)
     {
-        $user = User::where('id', $id)->first();
-        $user->delete();
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        $data['info'] = [];
-        $count = 0;
-
-        $users = User::get();
-        // dd($users);
-
-        foreach ($users as $u) {
-
-            if ($u->role_id == '1') {
-
-                $data['info'][$count++] = [
-
-                    'no' => $u->id,
-                    'username' => $u->username,
-                    'first_name' => $u->first_name,
-                    'last_name' => $u->last_name,
-                    'phone' => $u->phone,
-                    'date' => $u->created_at,
-
-
-                ];
+            if (!$auth) {
+                return redirect('/');
             }
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                $user = User::where('id', $id)->first();
+                $user->delete();
+
+                return redirect('/admin/management/parent');
+            }
+            \abort(404);
+    }
+    public function create()
+    {
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+            if (!$auth) {
+                return redirect('/');
+            }
+
+
+            if ($this->request->cookie('role_number') == '3') {
+
+                return view('admin.parent_management_create');
+            }
+            \abort(404);
+
+    }
+
+    public function store_user()
+    {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
         }
 
-        // dd($data['info']);
+        $this->validate($this->request, [
 
-        return view('admin.parent_management', [
-            'datas' => $data['info'],
+            'parent_password' => 'min:5|max:35',
+            'parent_password_confirm' => 'min:5|max:35|same:parent_password',
+            'parent_email' => '',
+            'parent_email_confirm' => 'same:parent_email'
 
         ]);
+
+        $user = new User();
+
+        DB::beginTransaction();
+
+        if ($this->request->file('parentImage0')) {
+            $image_filename = $this->request->file('parentImage0')->getClientOriginalName();
+            $image_name = $this->request->input('parent_fname') . '_' . $image_filename;
+            $public_path = 'images/Users/';
+            // $destination = base_path() . "/public/" . $public_path; //Local
+            $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+            $this->request->file('parentImage0')->move($destination, $image_name);
+            $user->image = $public_path . $image_name;
+        }
+
+        $user->role_id = 1;
+        $user->relationship_id = $this->request->input('parent_relation');
+        $user->car_id = null;
+        $user->prefix = $this->request->input('prefix_parent');
+        $user->first_name = $this->request->input('parent_fname');
+        $user->last_name = $this->request->input('parent_lname');
+        $user->phone = $this->request->input('parent_phone');
+        $user->line_id = $this->request->input('parent_line_id');
+        $user->email = $this->request->input('parent_email');
+        $user->address = $this->request->input('address');
+        $user->username = $this->request->input('parent_username');
+        $user->password = Hash::make($this->request->input('parent_password'));
+        $user->district_id = $this->request->input('district_id');
+        $user->map_address = $this->request->input('map_address');
+        $user->lattitude = $this->request->input('lattitude');
+        $user->longtitude = $this->request->input('longtitude');
+        $user->secure_code = $this->strRandom_ref();
+
+        $user->save();
+        DB::commit();
+
+        for ($i = 0; $i < count($this->request->input('prefix')); $i++) {
+
+            $student = new Student();
+            DB::beginTransaction();
+
+            if ($this->request->file('userprofile_picture')[$i]) {
+                $image_filename = $this->request->file('userprofile_picture')[$i]->getClientOriginalName();
+                $image_name = $this->request->input('first_name')[$i] . '_' . $image_filename;
+                $public_path = 'images/Students/';
+                // $destination = base_path() . "/public/" . $public_path; //Local
+                $destination = '/home/bearbusc/domains/bear-bus.com/public_html/'. $public_path; //Server
+                $this->request->file('userprofile_picture')[$i]->move($destination, $image_name);
+                $student->image = $public_path . $image_name;
+            }
+
+            $student->user_id = $user->id;
+            $student->std_status_id = 1;
+            $student->school_id = $this->request->input('school')[$i];
+            $student->car_id = $this->request->input('car')[$i];
+            $student->district_id = $this->request->input('district_id')[$i];
+            $student->card_id = "xxxxxxxx";
+            $student->prefix = $this->request->input('prefix')[$i];
+            $student->first_name = $this->request->input('first_name')[$i];
+            $student->last_name = $this->request->input('last_name')[$i];
+            $student->nickname = $this->request->input('nickname')[$i];
+            $student->phone = "ไม่มีข้อมูล";
+
+            $student->save();
+            DB::commit();
+        }
+
+
+        return redirect('admin/management/parent');
     }
 
     public function list_staff()
     {
-        $users = User::get();
+            //Check login
+            $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        $data['info'] = [];
-        $count = 0;
-
-        // dd($users);
-
-        foreach ($users as $u) {
-
-            if ($u->role_id != '1') {
-
-                $role = Role::where('id', $u->role_id)->first();
-
-                $data['info'][$count++] = [
-
-                    'username' => $u->username,
-                    'role' => $role->name,
-                    'first_name' => $u->first_name,
-                    'last_name' => $u->last_name,
-                    'phone' => $u->phone,
-                    'date' => $u->created_at,
-
-
-                ];
+            if (!$auth) {
+                return redirect('/');
             }
-        }
 
-        // dd($data['info']);
+            if ($this->request->cookie('role_number') == '3') {
 
-        return view('admin.staff_management', [
-            'datas' => $data['info'],
+                $users = User::get();
 
-        ]);
+                $data['info'] = [];
+                $count = 0;
+
+                foreach ($users as $u) {
+
+                    if ($u->role_id != '1') {
+
+                        $role = Role::where('id', $u->role_id)->first();
+
+                        $data['info'][$count++] = [
+
+                            'id' => $u->id,
+                            'username' => $u->username,
+                            'role' => $role->name,
+                            'first_name' => $u->first_name,
+                            'last_name' => $u->last_name,
+                            'phone' => $u->phone,
+                            'datetime' => $u->updated_at,
+
+                        ];
+                    }
+                }
+
+                return view('admin.staff_management', [
+
+                    'datas' => $data['info'],
+
+                ]);
+            }
+            \abort(404);
     }
+
     /*
     |--------------------------------------------------------------------------
     | response เมื่อข้อมูลส่งถูกต้อง
@@ -314,5 +477,14 @@ class RegisterUserController extends Controller
         return response()->json(['status' => $status, 'data' => $ret, 'error' => $message], $statusCode)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ Random String
+    |--------------------------------------------------------------------------
+     */
+    protected function strRandom_ref($length = 6)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
     }
 }

@@ -88,8 +88,12 @@
 {{-- ข้อมูลบุตรหลาน end --}}
 
 <div class="mt-4 mt-md-5 text-center">
-    <a href="/" onclick="deleteAllCookies()">
-        <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
+    <a href="#" id="logoutform">
+        {{-- <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button> --}}
+        <form id="logoutform" action="{{url('/logout')}}" method="POST">
+            {{-- <input class="flaticon-logout" type="submit" value="ออกจากระบบ"></<input> --}}
+            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn" form="logoutform"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
+        </form>
     </a>
 </div>
 
@@ -135,6 +139,18 @@
 
         }
 
+        $(document).ready(function(){
+            // setInterval(function(){
+                $("#logoutform").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+
+                $("#logoutform1").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+            // }, 3000);
+        });
+
         // document.getElementById("pf_name").innerHTML = getCookie('f_name');
         document.getElementById("prefix1").innerHTML = getCookie('prefix');
         document.getElementById("f_name1").innerHTML = getCookie('f_name');
@@ -160,7 +176,7 @@
                 dataType: 'json',
                 success: function(response) {
                     if (response.status == 'success') {
-                        
+
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
                             if (response.data['student'][i]['std_status_id'] == '1') {
@@ -171,44 +187,44 @@
                                 status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
                             } else if (response.data['student'][i]['std_status_id'] == '4') {
                                 status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> เดินทางเอง</td>';
-                            } 
+                            }
 
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
                             '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3 class="mt-4">#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
-                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
-                             
+                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' +
+
                              '<div class="item-content">' + '<div class="header-inline item-header">' +
-                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' 
+                             '<h3 class="text-dark-medium font-medium text-center text-md-left">'
                              + response.data['student'][i]['prefix'] + response.data['student'][i]['first_name'] + ' ' + response.data['student'][i]['last_name']
                              + '</h3>' + '</div>' +
 
-                             '<div class="info-table table-responsive">' + 
-                             '<table class="table text-nowrap">' + 
-                             '<tbody>' + 
+                             '<div class="info-table table-responsive">' +
+                             '<table class="table text-nowrap">' +
+                             '<tbody>' +
 
-                             '<tr>' + 
-                             '<td>ชื่อเล่น:</td>' + 
+                             '<tr>' +
+                             '<td>ชื่อเล่น:</td>' +
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['nickname'] +
-                              '</td>' + 
+                              '</td>' +
                               '</tr>' +
 
-                             '<tr>' + 
-                             '<td>เบอร์โทร:</td>' + 
+                             '<tr>' +
+                             '<td>เบอร์โทร:</td>' +
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
                              '</td>' +
                              '</tr>' +
 
-                             '<tr>' + 
-                             '<td>โรงเรียน:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] + 
+                             '<tr>' +
+                             '<td>โรงเรียน:</td>' +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] +
                              '</td>' +
                              '</tr>' +
 
-                             '<tr>' + 
-                             '<td>รถ:</td>' + 
+                             '<tr>' +
+                             '<td>รถ:</td>' +
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_driver'] +
                              ' ('+response.data['student'][i]['name'] +')' +
                              '</td>' +
@@ -223,7 +239,7 @@
 
                 '</div>'+
             '</div>'+
-        '</div>' + 
+        '</div>' +
         '<hr class="mt-md-5">'
                         );
                         $('#mapp').html('');
@@ -238,7 +254,7 @@
         '<div class="w-100 maps">'+
             '<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
                 //  คิวรี่เปลี่ยนเป็นเก็บ lat long ที่ ผปค cmo'<iframe src="https://maps.google.com/maps?q='+response.data['student'][i]['lattitude']+','+response.data['student'][i]['longtitude']+'&hl=es;z=14&output=embed" width="600" height="450"' +'frameborder="0" style="border:0;" allowfullscreen=""></iframe>'+
-        '</div>'    
+        '</div>'
                         );
                     }
                 }
@@ -259,7 +275,7 @@
                 dataType: 'json',
                 success: function(response) {
                     if (response.status == 'success') {
-                        
+
                         $('#showForm').html('');
                         for (var i = 0; i < response.data['student'].length; i++) {
                             if (response.data['student'][i]['std_status_id'] == '1') {
@@ -270,44 +286,44 @@
                                 status = '<td class="font-medium text-green text-dark-medium"><span class="flaticon-school"></span> ลงรถแล้ว</td>';
                             } else if (response.data['student'][i]['std_status_id'] == '4') {
                                 status = '<td class="font-medium text-black text-dark-medium"><span class="flaticon-calendar-1"></span> แจ้งเดินทางเอง</td>';
-                            } 
+                            }
 
 
                         $('#showForm').append(
                             '<div class="heading-layout1">' + '<div class="item-title heading-profile pt-2 pb-3 d-flex justify-content-between w-100">' +
                             '<h3 class="mt-4">ข้อมูลบุตรหลาน</h3>' + '<h3 class="mt-4">#' + (i + 1) + '</h3>' + '</div>' + '</div>' +
 
-                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' + 
-                             
+                            '<div class="single-info-details">' + '<div class="item-img">' + '<img src={{URL::asset('')}}'+ response.data['student'][i]['image']+' alt="parent" class="parent-profile">' + '</div>' +
+
                              '<div class="item-content">' + '<div class="header-inline item-header">' +
-                             '<h3 class="text-dark-medium font-medium text-center text-md-left">' 
+                             '<h3 class="text-dark-medium font-medium text-center text-md-left">'
                              + response.data['student'][i]['prefix'] + response.data['student'][i]['first_name'] + ' ' + response.data['student'][i]['last_name']
                              + '</h3>' + '</div>' +
 
-                             '<div class="info-table table-responsive">' + 
-                             '<table class="table text-nowrap">' + 
-                             '<tbody>' + 
+                             '<div class="info-table table-responsive">' +
+                             '<table class="table text-nowrap">' +
+                             '<tbody>' +
 
-                             '<tr>' + 
-                             '<td>ชื่อเล่น:</td>' + 
+                             '<tr>' +
+                             '<td>ชื่อเล่น:</td>' +
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['nickname'] +
-                              '</td>' + 
+                              '</td>' +
                               '</tr>' +
 
-                             '<tr>' + 
-                             '<td>เบอร์โทร:</td>' + 
+                             '<tr>' +
+                             '<td>เบอร์โทร:</td>' +
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['phone'] +
                              '</td>' +
                              '</tr>' +
 
-                             '<tr>' + 
-                             '<td>โรงเรียน:</td>' + 
-                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] + 
+                             '<tr>' +
+                             '<td>โรงเรียน:</td>' +
+                             '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_school'] +
                              '</td>' +
                              '</tr>' +
 
-                             '<tr>' + 
-                             '<td>รถ:</td>' + 
+                             '<tr>' +
+                             '<td>รถ:</td>' +
                              '<td class="font-medium text-dark-medium">' + response.data['student'][i]['name_driver'] +
                              ' ('+response.data['student'][i]['name'] +')' +
                              '</td>' +
@@ -324,7 +340,7 @@
             '</div>'+
         '</div>' +
         '<hr class="mt-md-5">'
-        
+
 
 
                         );
@@ -336,5 +352,40 @@
                 }
             })
         }, 7000);
+
+        $(document).ready(function() {
+            $("#logoutform").click(function(event){
+
+            $.ajax({
+                type: "POST",
+                url: "/logout",
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                cache:false,
+                data: {
+
+                    user_id: getCookie('user_id'),
+                    token: getCookie('secure_code')
+
+                },
+                success: function(result){
+
+                    if (result.status == 'success') {
+
+                        deleteAllCookies();
+                        $(location).attr('href', '/');
+                    }
+
+
+                },
+                error: function(result){
+                    $(".wrap-modal > #systemError").modal('show');
+                }
+                });
+
+
+            });
+        });
         </script>
 @endsection

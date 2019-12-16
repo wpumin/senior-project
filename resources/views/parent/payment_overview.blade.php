@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function(){
+        $('#successConfirm').modal('show');
+        });
+    </script>
+@endif
+
 <!-- Bank Account Table Area Start Here -->
 <div class="heading mt-5 pt-5 mt-md-0 pt-md-0 text-left">
     <h3>บัญชีธนาคาร</h3>
@@ -101,16 +109,16 @@
                         <option value="">ค้นหาด้วยรอบการชำระเงิน (12 เดือนย้อนหลัง) *</option>
                         <option value="ม.ค.">ม.ค.</option>
                         <option value="ก.พ.">ก.พ.</option>
-                        <option value="ส.ค.">ส.ค.</option>
-                        <option value="ก.ค.">ก.ค.</option>
-                        <option value="มิ.ย.">มิ.ย.</option>
-                        <option value="พ.ค.">พ.ค.</option>
-                        <option value="เม.ย.">เม.ย.</option>
                         <option value="มี.ค.">มี.ค.</option>
-                        <option value="ก.พ.">ก.พ.</option>
-                        <option value="ม.ค.">ม.ค.</option>
-                        <option value="ธ.ค.">ธ.ค.</option>
+                        <option value="เม.ย.">เม.ย.</option>
+                        <option value="พ.ค.">พ.ค.</option>
+                        <option value="มิ.ย.">มิ.ย.</option>
+                        <option value="ก.ค.">ก.ค.</option>
+                        <option value="ส.ค.">ส.ค.</option>
+                        <option value="ก.ย.">ก.ย.</option>
+                        <option value="ต.ค.">ต.ค.</option>
                         <option value="พ.ย.">พ.ย.</option>
+                        <option value="ธ.ค.">ธ.ค.</option>
                     </select>
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
@@ -506,10 +514,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 modal_body_content px-4 text-center">
-                        <h2 class="mb-2 text-special-orange text-center pt-4">สแกนเพื่อชำระเงิน</h2>
+                        <h2 class="mb-2 text-special-orange text-center pt-4">สแกนชำระเงิน</h2>
                         <p class="text-center">กรุณาเปิดแอปพลิเคชันธนาคารและสแกน QR code เพื่อชำระเงิน</p>
                         <img class="w-50 text-center" src="{{asset($info['qrcode'])}}" alt="qr code">
-                        <p class="text-center text-special-orange">สแกน QR Code เข้าบัญชี</p>
+                        <a href="#" data-href='{{asset($info['qrcode2'])}}' download="qrcode.jpg" onclick='forceDownload(this)' class="text-special-orange d-block">กดเพื่อดาวน์โหลด QR code</a>
                         <p class="text-center">ชื่อ: นายภูมินท์ วงษ์ศิริ <br> เลขที่บัญชี: 002-2-85496-8 </p>
                     </div>
                 </div>
@@ -523,9 +531,59 @@
 <!-- QR Modal End Here -->
 @endforeach
 
+<!-- Modal: Success -->
+<div class="wrap-modal">
+    <div class="modal fade" id="successConfirm" tabindex="-1" role="dialog" aria-labelledby="successConfirm" aria-hidden="true">
+        <div class="modal-dialog modal-dialog2 modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-4 text-center">
+                <b>แจ้งชำระเงินสำเร็จ</b>
+                <p>กรุณาตรวจสอบสถานะการชำระเงินของท่านภายใน 24 ชั่วโมง หลังการแจ้งชำระเงิน</p>
+                <div class="modal-button text-center mt-3" >
+                    {{-- <button href="#"><button type="button" class="btn btn-primary">ตกลง</button></button> --}}
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">ตกลง</button></a>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="//maps.googleapis.com/maps/api/js"></script>
 
 <script>
+
+    $(document).ready(function(){
+
+        $('button.btn-primary').click(function(){
+            $('#btn-submit').prop('disabled',false);
+            $('#btn-submit').css('cursor','pointer');
+        });
+
+    });
+    function forceDownload(link){
+        var url = link.getAttribute("data-href");
+        var fileName = link.getAttribute("download");
+        link.innerText = "กำลังดาวน์โหลด...";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.responseType = "blob";
+        xhr.onload = function(){
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL(this.response);
+            var tag = document.createElement('a');
+            tag.href = imageUrl;
+            tag.download = fileName;
+            document.body.appendChild(tag);
+            tag.click();
+            document.body.removeChild(tag);
+            link.innerText="กดเพื่อดาวน์โหลด QR code";
+        }
+        xhr.send();
+    }
+
     function myFunction() {
       // Declare variables
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;

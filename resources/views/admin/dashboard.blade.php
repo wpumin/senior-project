@@ -8,7 +8,7 @@
     <h3>ติดตามรถรับส่งนักเรียน</h3>
 </div>
 <div class="card ui-tab-card maptoggle" style="height: 490px; transition: 0.3s all;">
-    <div class="card-body" style="padding: 15px; position: relative;"> 
+    <div class="card-body" style="padding: 15px; position: relative;">
         <span class="toggle-result flaticon-info-1 text-theme"></span>
         {{-- <div id="map" style=""></div> --}}
         <iframe type="text/html" frameborder="0" height="100%" width="100%" src="https://bear-bus.com/map" style="min-height: 435px; max-height: 900px" scrolling="no"></iframe>
@@ -43,7 +43,7 @@
                     <option value="4">ลงรถ (เย็น)</option>
                 </select>
             </div>
-            <div class="tab-content pt-2 pt-lg-5">
+            <div class="tab-content pt-2 pt-lg-5" id="detail_student">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                     <div class="table-responsive">
                         <table class="table bs-table table-striped table-bordered text-nowrap">
@@ -86,186 +86,216 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+
+                                    <?php $count=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                            <td class="text-center"><?php print $count ?></td>
+                                            <td class="text-center">{{ $info['name'] }}</td>
+                                            <td class="text-left">{{ $info['school'] }}</td>
+
+                                            @foreach ($info['check_day_up'] as $check )
+
+                                                @if ($check == 1)
+
+                                                <td><i class='fas fa-check text-success'></i></td>
+
+                                                @else
+
+                                                <td><i class='fas fa-times text-danger'></i></td>
+
+                                                @endif
+
+                                            @endforeach
+
+                                        </tr>
+
+                                    <?php $count++ ?>
+                                    @endforeach
+
+
+                                {{-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
-                                <tr>
+                                </tr> --}}
+                                {{-- <tr>
                                     <td class="text-center">2</td>
                                     <td class="text-center">กาย</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
                                     <td class="text-center">ดิว</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
                                     <td class="text-center">น้ำฟ้า</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">5</td>
                                     <td class="text-center">ทิวทัศ</td>
                                     <td class="text-left">หนองฉางวิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -312,186 +342,216 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                    <?php $count_1=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                            <td class="text-center"><?php print $count_1 ?></td>
+                                            <td class="text-center">{{ $info['name'] }}</td>
+                                            <td class="text-left">{{ $info['school'] }}</td>
+
+                                            @foreach ($info['check_day_down'] as $check )
+
+                                                @if ($check == 1)
+
+                                                <td><i class='fas fa-check text-success'></i></td>
+
+                                                @else
+
+                                                <td><i class='fas fa-times text-danger'></i></td>
+
+                                                @endif
+
+                                            @endforeach
+
+                                        </tr>
+
+                                        <?php $count_1++ ?>
+                                        @endforeach
+{{--
+
+                                    <tr>
                                 <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">ธรรมานุวัตร</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">2</td>
                                     <td class="text-center">กาย</td>
                                     <td class="text-left">ธรรมานุวัตร</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
                                     <td class="text-center">ดิว</td>
                                     <td class="text-left">ธรรมานุวัตร</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
                                     <td class="text-center">น้ำฟ้า</td>
                                     <td class="text-left">ธรรมานุวัตร</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">5</td>
                                     <td class="text-center">ทิวทัศ</td>
                                     <td class="text-left">ธรรมานุวัตร</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -538,186 +598,214 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                    <?php $count_2=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                        <td class="text-center"><?php print $count_2 ?></td>
+                                        <td class="text-center">{{ $info['name'] }}</td>
+                                        <td class="text-left">{{ $info['school'] }}</td>
+
+                                        @foreach ($info['check_ev_up'] as $check )
+
+                                            @if ($check == 1)
+
+                                            <td><i class='fas fa-check text-success'></i></td>
+
+                                            @else
+
+                                            <td><i class='fas fa-times text-danger'></i></td>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </tr>
+
+                                        <?php $count_2++ ?>
+
+                                        @endforeach
+                                {{-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">วัดหนองขุนชาติ</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">2</td>
                                     <td class="text-center">กาย</td>
                                     <td class="text-left">วัดหนองขุนชาติ</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
                                     <td class="text-center">ดิว</td>
                                     <td class="text-left">วัดหนองขุนชาติ</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
                                     <td class="text-center">น้ำฟ้า</td>
                                     <td class="text-left">วัดหนองขุนชาติ</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">5</td>
                                     <td class="text-center">ทิวทัศ</td>
                                     <td class="text-left">วัดหนองขุนชาติ</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -764,186 +852,214 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                    <?php $count_3=1; ?>
+
+                                    @foreach($infos as $key => $info)
+
+                                    <tr>
+                                        <td class="text-center"><?php print $count_3 ?></td>
+                                        <td class="text-center">{{ $info['name'] }}</td>
+                                        <td class="text-left">{{ $info['school'] }}</td>
+
+                                        @foreach ($info['check_ev_down'] as $check )
+
+                                            @if ($check == 1)
+
+                                            <td><i class='fas fa-check text-success'></i></td>
+
+                                            @else
+
+                                            <td><i class='fas fa-times text-danger'></i></td>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </tr>
+
+                                        <?php $count_3++ ?>
+
+                                        @endforeach
+                                {{-- <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">จิน</td>
                                     <td class="text-left">บ้านไร่วิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">2</td>
                                     <td class="text-center">กาย</td>
                                     <td class="text-left">บ้านไร่วิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
                                     <td class="text-center">ดิว</td>
                                     <td class="text-left">บ้านไร่วิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
                                     <td class="text-center">น้ำฟ้า</td>
                                     <td class="text-left">บ้านไร่วิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">5</td>
                                     <td class="text-center">ทิวทัศ</td>
                                     <td class="text-left">บ้านไร่วิทยา</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-times text-danger"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-times text-danger'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                    <td><i class="fas fa-check text-success"></i></td>
-                                    <td><i class="fas fa-check text-success"></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
+                                    <td><i class='fas fa-check text-success'></i></td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -959,15 +1075,14 @@
 
 <script>
 
+
 $('#select-box').change(function () {
    dropdown = $(this).val();
   //first hide all tabs again when a new option is selected
   $('.tab-pane').hide();
-//   $('.tab-pane.fade').fadeOut();
-//   console.log(dropdown);
   //then show the tab content of whatever option value was selected
   $('#tab' + dropdown).show();
-  $('#tab' + dropdown).css('opacity','1');                                        
+  $('#tab' + dropdown).css('opacity','1');
 });
 
 </script>
@@ -979,13 +1094,12 @@ $('#select-box').change(function () {
 
     // hide scrollup
     $(document).ready(function(){
-        $("#map").attr("src","https://bear-bus.com/map"); 
+        $("#map").attr("src","https://bear-bus.com/map");
         $('#scrollUp').css('z-index','-1');
     });
 
     $('.toggle-result').click(function(){
         $('#result').slideToggle();
-        // console.log('asdasdasdasdasdasd');
         $('.maptoggle').toggleClass('customHeight');
     });
 

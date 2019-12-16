@@ -7064,3 +7064,14 @@ textarea.form-control{
     height: 900px !important;
     transition: 0.3s all;
 }
+
+span.help-block{
+    color: red;
+    font-size: 1.4rem;
+    display: block;
+    padding-top: 1rem;
+}
+
+.form-group[has-error]{
+    margin-bottom: 1.3rem;
+}

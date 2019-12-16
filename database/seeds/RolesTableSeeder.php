@@ -22,5 +22,9 @@ class RolesTableSeeder extends Seeder
         DB::table('roles')->insert([
             'name' => 'แอดมิน',
         ]);
+
+        DB::table('roles')->insert([
+            'name' => 'ทั้งหมด',
+        ]);
     }
 }

@@ -68,8 +68,12 @@
 {{-- ข้อมูลคนขับรถ end --}}
 
 <div class="mt-4 mt-md-5 text-center">
-    <a href="/" onclick="deleteAllCookies()">
-        <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
+    <a href="<?php echo "/logout/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" onclick="deleteAllCookies()">
+        {{-- <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button> --}}
+        <form id="logoutform" action="{{url('/logout')}}" method="POST">
+            {{-- <input class="flaticon-logout" type="submit" value="ออกจากระบบ"></<input> --}}
+            <button type="submit" class="btn-fill-lg bg-blue-dark btn-hover-yellow logout-btn" form="logoutform"><i class="flaticon-logout pr-1"></i> ออกจากระบบ</button>
+        </form>
     </a>
 </div>
 
@@ -77,6 +81,9 @@
 
 @section('script')
     <script>
+
+
+
          function getCookie(cname) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
@@ -112,6 +119,18 @@
         }
         }
 
+        $(document).ready(function(){
+            // setInterval(function(){
+                $("#logoutform").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+
+                $("#logoutform1").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+            // }, 3000);
+        });
+
         document.getElementById("prefix1").innerHTML = getCookie('prefix');
         document.getElementById("f_name1").innerHTML = getCookie('f_name');
         document.getElementById("l_name1").innerHTML = getCookie('l_name');
@@ -135,7 +154,7 @@
                 // jQuery(".navbar-expand-md").css("position", "fixed");
                 // jQuery(".navbar-expand-md").css("width", "100%");
                 // jQuery(".navbar-expand-md").css("z-index", "99");
-            }  
+            }
         });
     </script>
 @endsection

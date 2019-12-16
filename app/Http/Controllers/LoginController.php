@@ -36,27 +36,75 @@ class LoginController extends Controller
             return $this->responseRequestError($errors);
         }
 
-        $user = User::where('username', $this->request->input('username'))->first();
+        $user = User::where('username', $this->request->input('username'));
+        $has = $user->first();
+
+        if ($has) {
+
+            $check = $user->where('status', 0)->first();
+
+
+
+            if ($check) {
+
+
+                if (Hash::check($this->request->input('password'), $check->password)) {
+
+                    $token = $this->jwt($check);
+                    $check->token = $token;
+                    $check->last_login_date = Carbon::now();
+                    $check->secure_code = $this->strRandom_ref();
+                    $check->status = 1;
+                    $check->save();
+
+                    $role = Role::where('id', $check->role_id)->first();
+                    $relationship = Relationship::where('id', $check->relationship_id)->first();
+
+                    $check->role_name = $role->name;
+                    $check->relationship_name = $relationship->name;
+
+                    if ($check->role_id == '2') {
+
+                        return $this->responseRequestSuccess($check)
+                            ->withCookie(cookie('role_number', $check->role_id, 60))
+                            ->withCookie(cookie('car_num', $check->car_id, 60))
+                            ->withCookie(cookie('secure', $check->secure_code, 60))
+                            ->withCookie(cookie('use_id', $check->id, 60));
+                    } else {
+                        return $this->responseRequestSuccess($check)
+                            ->withCookie(cookie('role_number', $check->role_id, 60))
+                            ->withCookie(cookie('secure', $check->secure_code, 60))
+                            ->withCookie(cookie('use_id', $check->id, 60));
+                    }
+                } else {
+                    return $this->responseRequestError('incorrect_password');
+                }
+            } else {
+
+                return $this->responseRequestError('occupied');
+            }
+        } else {
+
+            return $this->responseRequestError('no_user');
+        }
+    }
+    public function logout_v1()
+    {
+
+        $cookie = $this->request->cookie('secure');
+
+        $user = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $cookie)->first();
 
         if ($user) {
 
-            $role = Role::where('id', $user->role_id)->first();
-            $relationship = Relationship::where('id', $user->relationship_id)->first();
-            if (Hash::check($this->request->input('password'), $user->password)) {
-                $token = $this->jwt($user);
-                $user->token = $token;
-                $user->last_login_date = Carbon::now();
-                $user->save();
+            $user->status = 0;
+            $user->secure_code = $this->strRandom_ref();
+            $user->save();
 
-                $user->role_name = $role['name'];
-                $user->relationship_name = $relationship['name'];
-                return $this->responseRequestSuccess($user);
-            } else {
-                return $this->responseRequestError('incorrect_password');
-            }
-        } else {
-            return $this->responseRequestError('no_user');
+            return redirect('/');
         }
+
+        \abort(404);
     }
     /*
     |--------------------------------------------------------------------------
@@ -79,6 +127,15 @@ class LoginController extends Controller
         return response()->json(['status' => $status, 'data' => $ret, 'error' => $message], $statusCode)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | function สำหรับ Random String
+    |--------------------------------------------------------------------------
+     */
+    protected function strRandom_ref($length = 6)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
     }
     /*
     |--------------------------------------------------------------------------

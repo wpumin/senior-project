@@ -105,13 +105,10 @@
 
 <div class="card height-auto pb-0">
     <div class="card-body">
-        <div class="heading-layout1">
+        <div class="heading-layout1 pt-4">
             <div class="item-title">
                 <h3>ประจำคันรถที่ <?php if(($menu_active2 == "overview") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: เดือน{{$display_month}} {{$display_year}}</h3>
             </div>
-            {{-- <div class="dropdown-refresh">
-                    <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
-                </div> --}}
         </div>
         {{-- <form class="mb-5 mb-lg-0 new-added-form"> --}}
             <div class="row gutters-8 mg-b-20">
@@ -124,32 +121,14 @@
                         <option value="5">มิถุนายน 2562</option>
                         <option value="6">พฤษภาคม 2562</option>
                     </select>
-                </div>
-                <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
-                        <option value="">ค้นหาด้วยจำนวนเงิน</option>
-                        <option value="1">350.00</option>
-                        <option value="2">500.00</option>
-                        <option value="3">600.00</option>
-                        <option value="4">650.00</option>
-                        <option value="5">700.00</option>
-                        <option value="6">900.00</option>
-                    </select>
                 </div> --}}
-                <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
-                        <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
-                    {{-- <select class="form-control select2" autocomplete="off" id="search_nickname">
-                        <option value="">ค้นหาด้วยชื่อเล่น</option>
-                        <option value="1">จ๋าย</option>
-                        <option value="2">จ่า</option>
-                        <option value="3">สกาย</option>
-                        <option value="3">แพรว</option>
-                    </select> --}}
+                <div class="col-5-xxxl col-xl-5 col-lg-6 col-12 form-group">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="search_nickname">
                 </div>
-                <div class="col-3-xxxl col-xl-2 col-lg-6 col-12 form-group">
+                <div class="col-5-xxxl col-xl-5 col-lg-6 col-12 form-group">
                     <input type="text" placeholder="ค้นหาด้วยหมายเลขรายการ" class="form-control" id="search_key">
                 </div>
-                <div class="col-1-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
+                <div class="col-2-xxxl col-xl-2 col-lg-12 col-12 form-group pb-lg-5 pb-xl-0">
                     <button type="submit" onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
@@ -446,36 +425,22 @@ function myFunction() {
 
       input = document.getElementById("search_nickname");
       var input_periodtime = document.getElementById("search_key");
-    //   var input_month = document.getElementById("search_phone");
-
 
       filter = input.value;
       filter_input_periodtime = input_periodtime.value;
-    //   filter_month = input_month.value;
 
       table = document.getElementById("myTable");
-    //   console.log('Filter: '+filter);
-    //   console.log('Filter: '+filter_num);
-    //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
-
-    //   console.log(tr.length);
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
 
         td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
         td_period_time = tr[i].getElementsByTagName("td")[2]; //choose table that search. (PeriodTime)
-        // td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
-        // console.log(td);
+
         if (td_name) {
           txtValue = td_name.textContent || td_name.innerText;
           txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
-        //   txtValue_date = td_date.textContent || td_date.innerText;
-
-        //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
-        //   console.log('Total: '+txtValue_date);
 
           if (txtValue.indexOf(filter) > -1 && txtValue_period_time.indexOf(filter_input_periodtime) > -1) {
             tr[i].style.display = "";
@@ -483,7 +448,6 @@ function myFunction() {
             $('#search_nickname').val(null);
             $('#search_key').val(null);
           } else {
-            // tr[1].innerHTML = "ไม่มีข้อมูล";
             tr[i].style.display = "none";
 
             $('#search_nickname').val(null);

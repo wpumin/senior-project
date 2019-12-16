@@ -27,13 +27,13 @@
                             <input type="submit" name="submit" class="submit-box w-100" value="เข้าสู่ระบบ">
                         </div>
                         <div class="mt-4">
-                            <label class="small-ps" for="readCondition">หากยังไม่ได้สมัครสมาชิก <a class="small-ps underline" href="{{ url('/about') }}">อ่านเงื่อนไขการให้บริการ</a></label>
+                            <label class="small-ps" for="readCondition">หากยังไม่ได้สมัครสมาชิก <a class="small-ps underline" href="{{ url('/public') }}">อ่านเงื่อนไขการให้บริการ</a></label>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <a href="{{ url('/about') }}">
+        <a href="{{ url('/public') }}">
             <div class="information-index">
                 ?
             </div>
@@ -51,6 +51,25 @@
             <div class="modal-body my-3 text-center">
                 <b>เข้าสู่ระบบไม่สำเร็จ</b>
                 <p>ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง</p>
+                <div class="modal-button text-center mt-3">
+                    <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
+                    <!-- data-dismiss="modal" -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Occupied-->
+<div class="wrap-modal">
+    <div class="modal fade" id="occupiedUser" tabindex="-1" role="dialog" aria-labelledby="occupiedUser" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header _success">
+            </div>
+            <div class="modal-body my-3 text-center">
+                <b>เข้าสู่ระบบไม่สำเร็จ</b>
+                <p>ชื่อผู้ใช้นี้ถูกใช้งานอยู่ในขณะนี้</p>
                 <div class="modal-button text-center mt-3">
                     <button type="button" class="btn btn-primary delete-spinner" data-dismiss="modal">ตกลง</button>
                     <!-- data-dismiss="modal" -->
@@ -81,6 +100,7 @@
 
 
 <script>
+
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -104,6 +124,15 @@
         return "";
     }
 
+
+
+    if (!getCookie('role_id')) {
+
+        setCookie('role_id', 0, 30);
+        console.log(getCookie('role_id'));
+
+    }
+
     function deleteAllCookies() {
 
         var res = document.cookie;
@@ -123,6 +152,7 @@
         }
 
     }
+
 
     $('.delete-spinner').click(function() {
         $('.spinner-border').css('display','none');
@@ -148,12 +178,11 @@
             cache:false,
             data: $('form#loginForm').serialize(),
             success: function(result){
+
                 // login สำเร็จ
                 if(result.status == 'success') {
-                    setCookie('Authorization', result.data['token'], 30);
-                    // setCookie('name', result.data['first_name'], 30);
-                    // setCookie('role', result.data['role'], 30);
-                    // setCookie('role_name', result.data['role_name'], 30);
+                    // document.cookie = "secure_code="+result.data['secure_code'];
+                    setCookie('secure_code', result.data['secure_code'], 30);
                     setCookie('role_id', result.data['role_id'], 30);
                     setCookie('role_name', result.data['role_name'], 30);
                     setCookie('relationship_id', result.data['relationship_id'], 30);
@@ -174,20 +203,24 @@
 
                     setCookie('image', result.data['image'], 30);
                     setCookie('user_id', result.data['id'], 30);
-                    
+
 
                     if (result.data['role_id'] == '1') {
                         //Page User
                         $(location).attr('href', '/parent/index');
-                    }else  if (result.data['role_id'] == '2') {
-                        //Page Driver
-                        $(location).attr('href', '/driver/index');
-                    }else  if (result.data['role_id'] == '3') {
-                        //Page Admin
-                        $(location).attr('href', '/admin/index');
+                    } else if (result.data['role_id'] == '2') {
+                            //Page Driver
+                            $(location).attr('href', '/driver/index');
+
+                    }else if (result.data['role_id'] == '3') {
+                            //Page Admin
+                            $(location).attr('href', '/admin/index');
                     }
 
+                }
 
+                if (result.status == 'occupied') {
+                    $(".wrap-modal > #occupiedUser").modal('show');
                 }
 
                 // รหัสผ่านผิด

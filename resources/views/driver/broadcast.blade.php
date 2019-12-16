@@ -9,35 +9,35 @@
     <h3>Broadcast</h3>
 </div>
 <div class="row gutters-20 mt-md-4">
-    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="รถจอดพักเทศบาลบ้านไร่">
+    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#modal" data-display="รถจอดพักเทศบาลบ้านไร่">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-fb">
                 <div class="social-like"> <span class="flaticon-bus-stop"></span> รถจอดพักเทศบาลบ้านไร่</div>
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="รถเสีย">
+    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#modal" data-display="รถเสีย">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-twitter">
                 <div class="social-like"> <span class="flaticon-exclamation"></span> รถเสีย</div>
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="การจราจรติดขัด">
+    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#modal" data-display="การจราจรติดขัด">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-gplus">
                 <div class="social-like"> <span class="flaticon-exclamation"></span> การจราจรติดขัด</div>
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="ทัศนวิสัยไม่ดี">
+    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#modal" data-display="ทัศนวิสัยไม่ดี">
         <div class="card dashboard-card-seven pointer">
             <div class="social-media bg-special-orange hover-linked">
                 <div class="social-like"><span class="flaticon-exclamation"></span> ทัศนวิสัยไม่ดี</div>
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#confirmBroadcast" data-display="เกิดอุบัติเหตุ">
+    <div class="col-12 col-lg-6 btn-broadcast pb-2 pb-md-0" data-toggle="modal" data-target="#modal" data-display="เกิดอุบัติเหตุ">
         <div class="card dashboard-card-seven pb-0 pointer">
             <div class="social-media bg-special-orange hover-linked">
                 <div class="social-like"><span class="flaticon-exclamation"></span> เกิดอุบัติเหตุ</div>
@@ -49,7 +49,7 @@
 
 <!-- Accept Modal -->
 <div class="wrap-modal">
-    <div class="modal fade" id="confirmBroadcast" tabindex="-1" role="dialog" aria-labelledby="confirmBroadcast" aria-hidden="true">
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="confirmBroadcast" aria-hidden="true">
         <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header _success">
@@ -58,7 +58,7 @@
                     <b>ยืนยันการประกาศ</b>
                     <p><span id="data-display"></span> ใช่หรือไม่</p>
                     <div class="modal-button text-center mt-3">
-                        <button type="button" class="btn btn-secondary" id="confirmBroadcast">ยืนยัน</button>
+                        <button type="button" class="btn btn-secondary" id="confirmBroadcast" data-dismiss="modal">ยืนยัน</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                         <!-- data-dismiss="modal" -->
                     </div>

@@ -31,9 +31,9 @@ while ($row = mysqli_fetch_array($result)) {
 
     $nickname = $row['nickname'];
 
-    if ($row['std_status_id'] == 1) {
+    if ($row['status'] == 1) {
 
-        $sql_update = "UPDATE students SET std_status_id = 2 WHERE card_id = '$uuid'";
+        $sql_update = "UPDATE students SET status = 2 WHERE card_id = '$uuid'";
         mysqli_query($con, $sql_update);
 
         //ช่วงเช้าขามาโรงเรียน
@@ -68,9 +68,9 @@ while ($row = mysqli_fetch_array($result)) {
             print($return);
             print("\n");
         }
-    } else if ($row['std_status_id'] == 2) {
+    } else if ($row['status'] == 2) {
 
-        $sql_update = "UPDATE students SET std_status_id = 3 WHERE card_id = '$uuid'";
+        $sql_update = "UPDATE students SET status = 3 WHERE card_id = '$uuid'";
         mysqli_query($con, $sql_update);
 
         //ช่วงเช้าขามาโรงเรียน

@@ -676,5 +676,9 @@ if (input.files && input.files[0]) {
 }
 
 $("#imgInp").change(function() {
-readURL(this);
+  readURL(this);
+}); 
+
+$('#reloadPage').click(function(){
+    window.location.reload();
 });

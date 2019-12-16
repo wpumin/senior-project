@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 use App\Appointment;
 use App\Period_time;
 use App\Student;
-use Carbon\Carbon;
-use LogicException;
-use Validator;
-use Illuminate\Support\Facades\View;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
@@ -20,31 +17,48 @@ class AppointmentController extends Controller
         $this->request = $request;
     }
 
-    public function list($id)
+    public function list($id, $token)
     {
-        $Appointments = Appointment::where('user_id', $id)->get();
+        $cookie = $this->request->cookie('role_number');
 
-        $data['info'] = [];
-        $count = 0;
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
 
-        foreach ($Appointments as $app) {
+        if ($auth) {
 
-            $status = App_status::where('id', $app->app_status_id)->first();
-            $student = Student::where('id', $app->student_id)->first();
-            $period_time = Period_time::where('id', $app->period_time_id)->first();
+            if (isset($cookie)) {
 
-            $data['info'][$count++] = [
-                'app_status_id' => $status->id,
-                'student_id' => $student->nickname,
-                'appointment_at' => $app->appointment_at,
-                'period_time_id' => $period_time->name
-            ];
+                if ($this->request->cookie('role_number') == '1') {
+                    $Appointments = Appointment::where('user_id', $id)->orderBy('appointments.created_at', 'desc')->orderBy('appointments.app_status_id', 'desc')->get();
+
+                    $data['info'] = [];
+                    $count = 0;
+
+                    foreach ($Appointments as $app) {
+
+                        $status = App_status::where('id', $app->app_status_id)->first();
+                        $student = Student::where('id', $app->student_id)->first();
+                        $period_time = Period_time::where('id', $app->period_time_id)->first();
+
+                        $data['info'][$count++] = [
+                            'app_status_id' => $status->id,
+                            'student_id' => $student->nickname,
+                            'appointment_at' => $app->appointment_at,
+                            'period_time_id' => $period_time->name,
+                            'created_at' => $app->created_at
+                        ];
+                    }
+
+                    return view('parent.appointment', [
+                        'data' => $data['info']
+                    ]);
+                }
+                \abort(404);
+            }
+            return redirect('/');
         }
 
-        return view('parent.appointment', [
-            'data' => $data['info']
-        ]);
-
+        return redirect('/');
     }
 
     public function list_stu()
@@ -56,19 +70,41 @@ class AppointmentController extends Controller
 
     public function createAppointment()
     {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
 
         try {
-            $validate = Validator::make($this->request->all(), [
+
+            $this->validate($this->request, [
+
                 'user_id' => 'required',
                 'student_id' => 'required',
                 'period_time_id' => 'required',
                 'appointment_at' => 'required',
-                'content' => ''
+
+            ], [
+                'period_time_id.required' => '* กรุณาเลือกช่วงเวลาที่ต้องการนัดหมาย',
+                'appointment_at.required' => '* กรุณาเลือกวันที่ที่ต้องการนัดหมาย'
             ]);
-            if ($validate->fails()) {
-                // throw new LogicException($validate->errors());
-                $errors = $validate->errors();
-                return $this->responseRequestError('field_required');
+
+
+            $app = Appointment::where('student_id', $this->request->input('student_id'))->where('appointment_at', $this->request->input('appointment_at'))->where('period_time_id', $this->request->input('period_time_id'))->first();
+
+            if ($app) {
+
+                $this->validate($this->request, [
+
+                    'err' => 'required',
+
+
+                ], [
+                    'err.required' => '* การนัดหมายซ้ำ',
+
+                ]);
             }
 
             DB::beginTransaction();
@@ -79,16 +115,18 @@ class AppointmentController extends Controller
                 'app_status_id' => 1,
                 'period_time_id' => $this->request->input('period_time_id'),
                 'appointment_at' => $this->request->input('appointment_at'),
-                'content' => $this->request->input('content'),
+
             ]);
 
-            $student = Student::where('id', $this->request->input('student_id'))->first();
-            $student->std_status_id = 4;
-            $student->save();
+
 
             DB::commit();
-            return $this->responseRequestSuccess('success');
+
+            session()->flash('success', 'Create Article Complete');
+            return redirect('parent/appointment/' . $this->request->get('user_id') . '/' . $this->request->get('secure_code'));
+
         } catch (Exception $e) {
+
             return response()->json($this->formatResponse($e->getMessage()));
         }
     }

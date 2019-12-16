@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') - Bear Bus </title>
+    <!-- parent and driver -->
     <meta name="description" content="">
     <meta rel="apple-mobile-web-app-status-bar" content="#aa7700">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,62 +125,21 @@
                                 <div class="item-content">
                                     <ul class="settings-list">
                                         <li><a href="{{ url('parent/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                        <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                        <form id="logoutform" action="{{url('/logout')}}" method="POST">
+                                            <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit(); return false;" class="flaticon-logout"> ออกจากระบบ</a></li>
+                                        </form>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        {{-- <li class="navbar-item dropdown header-notification">
-                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="far fa-bell"></i>
-                                <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                <span class="animated tada infinite">3</span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="item-header">
-                                    <h6 class="item-title">3 การแจ้งเตือน</h6>
-                                </div>
-                                <div class="item-content">
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">น้องคิด ได้ลงจากรถแล้ว</div>
-                                            <span>1 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">น้องมาร์ช ได้ลงจากรถแล้ว</div>
-                                            <span>1 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">น้องมาร์ช ได้ขึ้นรถแล้ว</div>
-                                            <span>8 ชั่วโมงที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> --}}
-                        <li class="navbar-item dropdown header-language">
+                        {{-- <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Thai</a>
                                 <a class="dropdown-item" href="#">English</a>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 <?php
                     }
@@ -205,62 +165,22 @@
                                 <div class="item-content">
                                     <ul class="settings-list">
                                     <li><a href="{{ url('driver/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
-                                        <li><a href="/" onclick="deleteAllCookies()"><i class="flaticon-logout"></i>ออกจากระบบ</a></li>
+                                        <form id="logoutform" action="{{url('/logout')}}" method="POST">
+                                            {{-- <input class="flaticon-logout" type="submit"> --}}
+                                            <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit(); return false;" class="flaticon-logout"> ออกจากระบบ</a></li>
+                                        </form>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        {{-- <li class="navbar-item dropdown header-notification">
-                            <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="far fa-bell"></i>
-                                <div class="item-title d-md-none text-16 mg-l-10">แจ้งเตือน</div>
-                                <span class="animated tada infinite">3</span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="item-header">
-                                    <h6 class="item-title">3 การแจ้งเตือน</h6>
-                                </div>
-                                <div class="item-content">
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">ส่งนักเรียนครบทุกคนแล้ว</div>
-                                            <span>1 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">นักเรียนขึ้นรถครบทุกคนแล้ว</div>
-                                            <span>1 ชั่วโมง 20 นาทีที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="item-icon bg-orange">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="media-body space-sm">
-                                            <div class="post-title">ส่งนักเรียนครบทุกคนแล้ว</div>
-                                            <span>8 ชั่วโมงที่แล้ว</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> --}}
-                        <li class="navbar-item dropdown header-language">
+                        {{-- <li class="navbar-item dropdown header-language">
                             <a class="navbar-nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe-americas"></i>TH</a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Thai</a>
                                 <a class="dropdown-item" href="#">English</a>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 <?php
                     }
@@ -274,15 +194,14 @@
         {{-- สำหรับผู้ปกครอง --}}
         <div class="submenu-mobile <?php if($menu_active2 == "overview" || $menu_active2 == "confirm")  echo "d-flex"; else echo "d-none"; ?>  flex-row justify-content-center align-items-center d-md-none">
             <div class="left <?php if($menu_active2=="overview") echo "active"; else "" ?>">
-                <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>">ชำระเงิน</a>
+                <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>">ชำระเงิน</a>
             </div>
             <div class="right <?php if($menu_active2=="confirm") echo "active"; else "" ?>">
-                <a href="<?php echo "/parent/payment/confirm/".$_COOKIE['user_id']; ?>">แจ้งชำระเงิน</a>
+                <a href="<?php echo "/parent/payment/confirm/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>">แจ้งชำระเงิน</a>
             </div>
         </div>
         <?php
             }
-
         ?>
         <!-- Header Menu Area End Here -->
         <!-- Page Area Start Here -->
@@ -303,18 +222,18 @@
                                     <a href="#" class="nav-link <?php if($menu_active == "payment") echo "menu-active"; else echo ""?>"><i class="flaticon-bank"></i><span>การชำระเงิน</span></a>
                                     <ul class="nav sub-group-menu <?php if(!empty($menu_active2 == "overview" || $menu_active2=="confirm")) echo "sub-group-active"; else echo "";?>">
                                         <li class="nav-item">
-                                            <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
+                                            <a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active2 == "overview") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>ชำระเงิน</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="<?php echo "/parent/payment/confirm/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
+                                            <a href="<?php echo "/parent/payment/confirm/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active2 == "confirm") echo "menu-active"; else echo ""?>"><i class="fas fa-angle-right"></i>แจ้งชำระเงิน</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo "/parent/appointment/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
+                                    <a href="<?php echo "/parent/appointment/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>แจ้งเดินทางเอง</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo "/parent/report/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
+                                    <a href="<?php echo "/parent/report/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "report") echo "menu-active"; else echo ""?>"><i class="flaticon-email"></i><span>ร้องเรียน / แนะนำการบริการ</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{url('parent/profile')}}" class="nav-link <?php if($menu_active == "profile") echo "menu-active"; else echo ""?>"><i class="flaticon-man"></i><span>โปรไฟล์</span></a>
@@ -333,7 +252,7 @@
                                     <a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "menu-active"; else echo ""?>"><i class="flaticon-home"></i><span>หน้าหลัก</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo "/driver/appointment/".$_COOKIE['car_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
+                                    <a href="<?php echo "/driver/appointment/".$_COOKIE['car_id'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "menu-active"; else echo ""?>"><i class="flaticon-appointment"></i><span>แจ้งเดินทางเอง</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "menu-active"; else echo ""?>"><i class="flaticon-promotion"></i><span>ประกาศ</span></a>
@@ -359,14 +278,13 @@
                     <div class="nav-bar-footer-user" style="padding-right: 2rem;">
                         <div class="header-logo">
                             <?php
-                            if($_COOKIE['role_id'] == '1') {
-
+                                if($_COOKIE['role_id'] == '1') {
                             ?>
                                 <div class="mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('parent/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
-                                    <div><a href="<?php echo "/parent/appointment/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
-                                    <div><a href="<?php echo "/parent/report/".$_COOKIE['user_id']; ?>" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/parent/payment/overview/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "payment") echo "active"; else echo ""?>"><i class="flaticon-bank text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/parent/appointment/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/parent/report/".$_COOKIE['user_id']."/".$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "report") echo "active"; else echo ""?>"><i class="flaticon-email text-noactive"></i></a></div>
                                     <div><a href="{{ url('parent/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>"><i class="flaticon-man text-noactive"></i></a></div>
                                 </div>
                             <?php
@@ -377,7 +295,7 @@
                             ?>
                                 <div class="d-md-none mobile-nav-bar justify-content-between">
                                     <div><a href="{{ url('driver/index') }}" class="nav-link <?php if($menu_active == "index") echo "active"; else echo ""?>"><i class="flaticon-home text-noactive"></i></a></div>
-                                    <div><a href="<?php echo "/driver/appointment/".$_COOKIE['car_id']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
+                                    <div><a href="<?php echo "/driver/appointment/".$_COOKIE['car_id'].'/'.$_COOKIE['user_id'].'/'.$_COOKIE['secure_code']; ?>" class="nav-link <?php if($menu_active == "appointment") echo "active"; else echo ""?>"><i class="flaticon-appointment text-noactive"></i></a></div>
                                     <div><a href="{{ url('driver/broadcast') }}" class="nav-link <?php if($menu_active == "broadcast") echo "active"; else echo ""?>""><i class="flaticon-promotion text-noactive"></i></a></div>
                                     <div><a href="{{ url('driver/profile') }}" class="nav-link <?php if($menu_active == "profile") echo "active"; else echo ""?>""><i class="flaticon-man text-noactive"></i></a></div>
                                 </div>
@@ -438,7 +356,22 @@
                 document.cookie = key[0] + " =; expires = Thu, 01 Jan 1970 00:00:00 UTC; ;";
             }
 
+            setCookie('secure_code', '', time() - 3600);
+            document.cookie = "secure_code=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
         }
+
+        $(document).ready(function(){
+            // setInterval(function(){
+                $("#logoutform").click(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+
+                $("#logoutform").submit(function(event){
+                    deleteAllCookies().delay(1000);
+                });
+            // }, 3000);
+        });
 
         document.getElementById("name").innerHTML = getCookie('f_name');
         document.getElementById("role_name").innerHTML = getCookie('role_name');
@@ -450,13 +383,6 @@
         }else{
             document.getElementById("photo_user").src = '{{URL::asset("images/internal/figure/default.jpg")}}';
         }
-        // document.getElementById("fullname_u").innerHTML = getCookie('fullname_u');
-        // document.getElementById("relationship").innerHTML = getCookie('relationship');
-        // document.getElementById("line_id").innerHTML = getCookie('line_id');
-        // document.getElementById("mobile").innerHTML = getCookie('mobile');
-        // document.getElementById("username").innerHTML = getCookie('username');
-        // document.getElementById("email").innerHTML = getCookie('email');
-        // document.getElementById("address").innerHTML = getCookie('address');
     </script>
     <!-- jquery-->
     <script src="{{ URL::asset('js/internal/jquery-3.3.1.min.js') }}"></script>

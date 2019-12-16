@@ -20,6 +20,7 @@ class CreateCheckInTable extends Migration
             $table->string('date_check');
             $table->string('get_on_id');
             $table->string('period_time');
+            $table->string('filter')->nullable();
             // $table->timestamps();
         });
     }

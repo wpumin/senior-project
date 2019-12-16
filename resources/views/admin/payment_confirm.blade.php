@@ -33,7 +33,7 @@
 
 <!-- Payment Table Area Start Here -->
 <div class="heading text-left">
-    <h3>ภาพรวมการเงิน</h3>
+    <h3>ยืนยันการชำระเงิน</h3>
 </div>
 
 
@@ -110,7 +110,7 @@
 
 <div class="card height-auto pb-0">
     <div class="card-body">
-        <div class="heading-layout1">
+        <div class="heading-layout1 pt-4">
             <div class="item-title">
                 <h3>ประจำคันรถที่ <?php if(($menu_active2 == "confirm") && !empty($menu_active3 == "car1")) echo "1"; else echo "2";?>: {{$month_now}} {{$year_now}}</h3>
             </div>
@@ -131,14 +131,14 @@
                     </select>
                 </div>
                 <div class="col-3-xxxl col-xl-3 col-lg-6 col-12 form-group">
-                    <select class="form-control select2" autocomplete="off">
+                    <select class="form-control select2" autocomplete="off" id="price">
                         <option value="">ค้นหาด้วยจำนวนเงิน</option>
-                        <option value="1">350.00</option>
-                        <option value="2">500.00</option>
-                        <option value="3">600.00</option>
-                        <option value="4">650.00</option>
-                        <option value="5">700.00</option>
-                        <option value="6">900.00</option>
+                        <option value="350">350.00</option>
+                        <option value="500">500.00</option>
+                        <option value="600">600.00</option>
+                        <option value="650">650.00</option>
+                        <option value="700">700.00</option>
+                        <option value="900">900.00</option>
                     </select>
                 </div>
                 <div class="col-2-xxxl col-xl-2 col-lg-6 col-12 form-group">
@@ -183,7 +183,7 @@
                     ?>
                     @foreach($datas as $key=>$data)
                         {{-- @if($data['car_id'] == $temp_car) --}}
-                            @if($data['status_bill'] == '1')
+                            @if($data['status_bill'] == '1' || $data['status_bill'] == '3')
                             <tr>
                                     <td>
                                     <?php print $count ?>
@@ -306,45 +306,41 @@ function myFunction() {
       var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
 
       input = document.getElementById("search_nickname");
-      var input_periodtime = document.getElementById("search_key");
-    //   var input_month = document.getElementById("search_phone");
-
+      var input_key = document.getElementById("search_key");
+      var input_price = document.getElementById("price");
 
       filter = input.value;
-      filter_input_periodtime = input_periodtime.value;
-    //   filter_month = input_month.value;
+      filter_input_key = input_key.value;
+      filter_input_price = input_price.value;
 
       table = document.getElementById("myTable");
-    //   console.log('Filter: '+filter);
-    //   console.log('Filter: '+filter_input_periodtime);
-    //   console.log('Filter: '+filter_month);
       tr = table.getElementsByTagName("tr");
-
-    //   console.log(tr.length);
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
 
-        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
-        td_period_time = tr[i].getElementsByTagName("td")[4]; //choose table that search. (PeriodTime)
-        // td_date = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Date)
-        // console.log(td_name);
+        td_name = tr[i].getElementsByTagName("td")[4]; //choose table that search. (Name)
+        td_key = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Key)
+        td_price = tr[i].getElementsByTagName("td")[6]; //choose table that search. (Price)
+
         if (td_name) {
 
-          txtValue = td_name.textContent || td_name.innerText;
-          txtValue_period_time = td_period_time.textContent || td_period_time.innerText;
-        //   txtValue_date = td_date.textContent || td_date.innerText;
+          txtValue_name = td_name.textContent || td_name.innerText;
+          txtValue_key = td_key.textContent || td_key.innerText;
+          txtValue_price = td_price.textContent || td_price.innerText;
 
-        //   console.log('Total: '+txtValue);
-        //   console.log('Total: '+txtValue_period_time);
-        //   console.log('Total: '+txtValue_date);
-
-          if (txtValue.indexOf(filter_input_periodtime) > -1 && txtValue_period_time.indexOf(filter) > -1) {
+          if (txtValue_name.indexOf(filter) > -1 && txtValue_key.indexOf(filter_input_key) > -1 && txtValue_price.indexOf(filter_input_price) > -1) {
 
             tr[i].style.display = "";
+            $('#search_nickname').val("");
+            $('#search_key').val("");
+            $('#price').val(null).trigger('change'); //type select
           } else {
-            // tr[1].innerHTML = "ไม่มีข้อมูล";
+
             tr[i].style.display = "none";
+            $('#search_nickname').val("");
+            $('#search_key').val("");
+            $('#price').val(null).trigger('change'); //type select
           }
         }
       }

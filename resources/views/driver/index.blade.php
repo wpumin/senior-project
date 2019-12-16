@@ -18,21 +18,23 @@
     <h3>อัพเดตข่าวสาร</h3>
 </div>
 <div class="owl-carousel owl-theme d-md-none">
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/true.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/seat_bus.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/brick.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/route.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{ URL::asset("images/internal/banner/route2.jpg")}})"></div></a>
+    @foreach($datas as $key => $info)
+        @if ($info['id'] == null)
+
+        @else
+        <a href="<?php echo "/driver/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: linear-gradient(to bottom, rgba(255, 94, 0, 0) 44%, rgba(255, 94, 0, 0.6) 89%), url({{URL::asset($info['image'])}})"></div></a>
+        @endif
+    @endforeach
 </div>
 <!-- ไอแพดขึ้นไป -->
-<div class="owl-carousel owl-theme d-none d-md-block">
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/news.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/true.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/seat_bus.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/brick.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/route.jpg")}})"></div></a>
-    <a href="{{ url('driver/news/detail') }}"><div class="item" style="background-image: url({{ URL::asset("images/internal/banner/route2.jpg")}})"></div></a>
+<div class="owl-carousel owl-theme d-none d-md-block mb-md-5">
+    @foreach($datas as $key => $info)
+        @if ($info['id'] == null)
+
+        @else
+        <a href="<?php echo "/driver/news/detail/"; ?>{{ $info['id'] }}"><div class="item" style="background-image: url({{ URL::asset($info['image'])}})"></div></a>
+        @endif
+    @endforeach
 </div>
 <!-- Owl-Carousel Area End Here-->
 
@@ -123,24 +125,25 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-expanded="false" value = "Refresh" onclick="history.go(0)"> <i class="fas fa-redo-alt"></i></a>
                 </div> --}}
         </div>
-        <form class="mg-b-20">
+        {{-- <form class="mg-b-20"> --}}
             <div class="row gutters-8">
                 <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อเล่น" class="form-control" id="nickname">
                 </div>
                 <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยชื่อโรงเรียน" class="form-control" id="school">
                 </div>
                 <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                    <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control">
+                    <input type="text" placeholder="ค้นหาด้วยเบอร์ติดต่อ" class="form-control" id="phone">
                 </div>
                 <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
-                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
+                    {{-- <button type="submit" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button> --}}
+                    <button onclick="myFunction()" class="fw-btn-fill btn-gradient-yellow">ค้นหา</button>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
         <div class="table-responsive student-profile-table">
-            <table class="table display data-table text-nowrap">
+            <table class="table display data-table text-nowrap" id="myTable">
                 <thead>
                     <tr class="bg-special-orange">
                         <th>ลำดับ</th>
@@ -152,6 +155,7 @@
                         <th>ความสัมพันธ์</th>
                         <th>เบอร์ติดต่อ</th>
                         <th>จุดรับส่ง</th>
+                        <th>ลืมแท็ก</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -174,6 +178,28 @@
     </div>
 </div>
 <!-- Student Table Area End Here -->
+
+<!-- Forgot RFID Modal -->
+<div class="wrap-modal">
+    <div class="modal fade" id="forgotRFID" tabindex="-1" role="dialog" aria-labelledby="forgotRFID" aria-hidden="true">
+        <div class="modal-dialog modal-dialog3 modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header _success">
+                </div>
+                <div class="modal-body my-4 text-center">
+                    <b>ยืนยันการทำรายการ</b>
+                    <p><span class="text-red">น้อง</span><span class="text-red" id="nickname_modal"></span> ลืมแท็ก ใช่หรือไม่</p>
+                    <div class="modal-button text-center mt-3">
+                        <button type="button" class="btn btn-secondary" id="confirmForgot" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
+                        <!-- data-dismiss="modal" -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Forgot RFID Modal End Here -->
 
 <!-- Google Map Modal -->
 <div class="modal fade pr-0" id="mapEmbed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -257,7 +283,6 @@
             return "";
         }
 
-        // console.log(getCookie('car_id'));
         var car_id = getCookie('car_id');
 
         setInterval(function() {
@@ -270,8 +295,6 @@
                 },
                 dataType: 'json',
                 success: function(response) {
-
-                    // console.log(response);
 
                     if (response.status == 'success') {
                         document.getElementById("no").innerHTML = response.data['no'];
@@ -304,12 +327,14 @@
                         let modalSurname = document.getElementById("surname");
                         let modalSchool = document.getElementById("school");
 
+                        let modal2 = document.getElementById('forgotRFID')
+                        let forgetNickname = document.getElementById("nickname_modal");
+
                         let stu_nickname = document.getElementById("stu_nickname");
                         let stu_first = document.getElementById("stu_first");
                         let stu_last = document.getElementById("stu_last");
                         let stu_school = document.getElementById("stu_school");
 
-                        // console.log(response.data);
                         for (var i = 0; i < response.data.length; i++) {
 
                             if (response.data[i]['std_status_id'] == '1') {
@@ -339,11 +364,9 @@
                                 '</a>' +
                                 '</div>' +
                                 '</td>' +
+                                '<td> <div class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#forgotRFID"> <span class="flaticon-correct-1"></span> </a> </div></td>' +
                                 '</tr>'
                             );
-
-
-
 
                             let img = document.getElementsByClassName("myImg");
                             let firstname = response.data[i]['first_name'];
@@ -352,14 +375,19 @@
                             let school = response.data[i]['name_school'];
 
                             img[i].onclick = function() {
-                                // console.log(img[i]);
                                 modal.style.display = "block";
                                 modalImg.src = this.src;
                                 modalFirstName.innerHTML = firstname;
                                 modalSurname.innerHTML = lastname;
                                 modalNickName.innerHTML = nickname;
                                 modalSchool.innerHTML = school;
+                                forgetNickname.innerhtml = nick;
+                            }
+                            let forget = document.getElementsByClassName("flaticon-correct-1");
+                            let nick = response.data[i]['nickname_modal'];
 
+                            forget[i].onclick = function() {
+                                forgetNickname.innerHTML = nick;
                             }
                         }
 
@@ -370,5 +398,54 @@
                 }
             })
         }, 2000);
+
+        // ---------  Search ----------//
+
+    function myFunction() {
+      // Declare variables
+      var input, filter, filter_num, filter_month, table, tr, td, i, txtValue;
+
+      input = document.getElementById("nickname");
+      var input_school = document.getElementById("school");
+      var input_phone = document.getElementById("phone");
+
+
+      filter = input.value;
+      filter_input_school = input_school.value;
+      filter_input_phone = input_phone.value;
+
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+
+        td_name = tr[i].getElementsByTagName("td")[1]; //choose table that search. (Name)
+        td_input_school = tr[i].getElementsByTagName("td")[4]; //choose table that search. (School)
+        td_phone = tr[i].getElementsByTagName("td")[7]; //choose table that search. (Phone)
+
+        if (td_name) {
+          txtValue = td_name.textContent || td_name.innerText;
+          txtValue_input_school = td_input_school.textContent || td_input_school.innerText;
+          txtValue_phone = td_phone.textContent || td_phone.innerText;
+
+          if (txtValue.indexOf(filter) > -1 && txtValue_input_school.indexOf(filter_input_school) > -1 && txtValue_phone.indexOf(filter_input_phone) > -1) {
+
+            tr[i].style.display = "";
+            $('#nickname').val("");
+            $('#school').val("");
+            $('#phone').val("");
+
+          } else {
+
+            tr[i].style.display = "none";
+            $('#nickname').val("");
+            $('#school').val("");
+            $('#phone').val("");
+
+          }
+        }
+      }
+    }
     </script>
     @endsection
