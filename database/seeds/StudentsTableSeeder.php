@@ -354,7 +354,7 @@ class StudentsTableSeeder extends Seeder
             'phone' => 'ไม่มีข้อมูล',
             'car_id' => 1,
             'std_status_id' => 1,
-            'image' => 'images/Students/ต้นข้าว_ช้าง.jpg',
+            'image' => 'images/Students/ต้นข้าว.jpg',
             'user_id' => 11,
             'school_id' => 2
 
