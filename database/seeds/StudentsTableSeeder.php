@@ -14,11 +14,7 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             'nickname' => 'จ๋าย',
             'district_id' => 1,
-<<<<<<< HEAD
             'card_id' => 'E08956D3',
-=======
-            'card_id' => 'qTVThuEz',
->>>>>>> 2de7cc1c37e937f883e69d3914c34d893acf3aab
             'prefix' => 'เด็กหญิง',
             'first_name' => 'มนิศรา',
             'last_name' => 'เกตุวิริยกรรม',
