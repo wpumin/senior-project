@@ -65,7 +65,7 @@
     }
 ?>
 
-<body <?php if($current_page[1] == "parent" && ($menu_active == "index" || $menu_active == "dashboard")){ echo "onload='init();'"; } ?>">
+<body <?php if($current_page[1] == "parent" && ($menu_active == "index" || $menu_active == "dashboard")){ echo "onload='init();'"; } ?>>
     <!-- google map -->
     <!-- Preloader Start Here -->
     <div id="preloader"></div>

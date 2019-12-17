@@ -140,7 +140,7 @@
                                             <li><a href="{{ url('admin/profile') }}"><i class="flaticon-user"></i>โปรไฟล์</a></li>
                                             <form id="logoutform" action="{{url('/logout')}}" method="POST" >
                                                 {{-- <input class="flaticon-logout" type="submit"> --}}
-                                                <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit(); return false;" class="flaticon-logout"> ออกจากระบบ</a></li>
+                                                <li> <a href="javascript:{}" onclick="document.getElementById('logoutform').submit();" class="flaticon-logout"> ออกจากระบบ</a></li>
                                             </form>
                                         </ul>
                                     </div>
@@ -348,7 +348,7 @@
         }
 
         $(document).ready(function(){
-            // setInterval(function(){
+
                 $("#logoutform").click(function(event){
                     deleteAllCookies().delay(1000);
                 });
@@ -356,7 +356,7 @@
                 $("#logoutform1").submit(function(event){
                     deleteAllCookies().delay(1000);
                 });
-            // }, 3000);
+
         });
 
         document.getElementById("name").innerHTML = getCookie('f_name');
