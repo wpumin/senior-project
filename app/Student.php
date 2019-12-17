@@ -19,8 +19,6 @@ class Student extends Model
         'last_name',
         'nickname',
         'phone',
-        // 'lattitude',
-        // 'longtitude',
         'image'
     ];
 

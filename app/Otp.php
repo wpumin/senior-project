@@ -13,14 +13,12 @@ class Otp extends Model
      */
     protected $table = 'otp';
     protected $fillable = [
-        'id', 'email', 'otp', 'ref' 
+        'id', 'email', 'otp', 'ref'
     ];
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    // protected $hidden = ['password'];
-
     protected $dates = ['created_at	', 'updated_at'];
 }

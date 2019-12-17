@@ -173,3 +173,4 @@ Route::get('firebase/getlocation', 'FirebaseController@get_location')->middlewar
 Route::post('/ajax_upload/action', 'NewsController@action')->name('ajaxupload.action');
 
 Route::resource('news', 'NewssController');
+
