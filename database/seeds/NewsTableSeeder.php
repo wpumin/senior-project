@@ -22,7 +22,7 @@ class NewsTableSeeder extends Seeder
             'release_date' => '16/11/2562',
             'release_time' => '10:52 PM',
             'news_at' => '16/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('news')->insert([
@@ -35,7 +35,7 @@ class NewsTableSeeder extends Seeder
             'release_date' => '15/11/2562',
             'release_time' => '10:57 PM',
             'news_at' => '18/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
 
@@ -49,7 +49,7 @@ class NewsTableSeeder extends Seeder
             'release_date' => '20/11/2562',
             'release_time' => '11:04 PM',
             'news_at' => '22/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('news')->insert([
@@ -62,7 +62,7 @@ class NewsTableSeeder extends Seeder
             'release_date' => '16/11/2562',
             'release_time' => '11:08 PM',
             'news_at' => '16/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('news')->insert([
@@ -75,7 +75,7 @@ class NewsTableSeeder extends Seeder
             'release_date' => '16/11/2562',
             'release_time' => '11:08 PM',
             'news_at' => '16/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('news')->insert([
@@ -86,9 +86,9 @@ class NewsTableSeeder extends Seeder
             'content' => 'ทางรถรับ-ส่งนักเรียนของบริษัทเกษศิลป์ ต้องการรับสมัครพนักงานขับรถเพิ่มจำนวน 1-2 อัตรา โดยสามารถขับเส้นทางตั้งแต่ตำบลบ้านไร่-ตำบลหนองฉางได้',
             'image' => 'images/internal/banner/driver1.jpg',
             'release_date' => '23/11/2562',
-            'release_time' => '11:08 PM',
+            'release_time' => '08:40 AM',
             'news_at' => '25/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
         DB::table('news')->insert([
@@ -99,9 +99,9 @@ class NewsTableSeeder extends Seeder
             'content' => 'ทางบริษัทเกษศิลป์ขอปรับอัตราค่าเงินของคนขับรถ โดยขอลดอัตราเงินเดือนของคนขับรถจากจำนวนสุทธิ 6,000 บาท เป็น 7,500 บาท ตามค่าเงินที่รับาลกำหนด ',
             'image' => 'images/internal/banner/driver2.jpg',
             'release_date' => '24/11/2562',
-            'release_time' => '11:08 PM',
+            'release_time' => '08:40 AM',
             'news_at' => '26/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('news')->insert([
@@ -112,9 +112,9 @@ class NewsTableSeeder extends Seeder
             'content' => 'ทางคณะผู้จัดทำเว็บไซต์ bear-bus ขอเชิญชวนให้นักลงทุนได้ช่วยสนับสนุนให้พี่หมี Bear-Bus มีอนาคตที่เติบโตยิ่งขึ้น',
             'image' => 'images/internal/banner/driver3.jpg',
             'release_date' => '25/11/2562',
-            'release_time' => '11:08 PM',
+            'release_time' => '08:40 AM',
             'news_at' => '27/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('news')->insert([
@@ -125,9 +125,9 @@ class NewsTableSeeder extends Seeder
             'content' => 'สำหรับผู้ที่ทำงานขับรถของบริษัทเกษศิลป์ จะได้รับสวัสดิการ ประกันสังคม โบนัสตามวาระต่างๆ สำหรับคุณสมบัติจะแจ้งให้ทราบในอนาคตครับ',
             'image' => 'images/internal/banner/driver4.jpg',
             'release_date' => '26/11/2562',
-            'release_time' => '11:08 PM',
+            'release_time' => '08:40 AM',
             'news_at' => '28/11/2562',
-            // 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
 
