@@ -190,7 +190,8 @@
                     <b>ยืนยันการทำรายการ</b>
                     <p><span class="text-red">น้อง</span><span class="text-red" id="nickname_modal"></span> ลืมแท็ก ใช่หรือไม่</p>
                     <div class="modal-button text-center mt-3">
-                        <button type="button" class="btn btn-secondary" id="confirmForgot" data-dismiss="modal">ยืนยัน</button>
+                        <a class="btn btn-secondary" id="confirmForgot" href="<?php echo "/driver/index/".$_COOKIE['car_id']."/".$_COOKIE['stu_id']; ?>">ยืนยัน</a>
+                        {{-- <button type="button" class="btn btn-secondary" id="confirmForgot" data-dismiss="modal">ยืนยัน</button> --}}
                         <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
                         <!-- data-dismiss="modal" -->
                     </div>
@@ -260,6 +261,7 @@
     {{-- paid --}}
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDBR5ep3J8E9BF3ZLanAvD_mYdSWbbrSPY"></script>
     <script>
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -268,6 +270,7 @@
         }
 
         function getCookie(cname) {
+
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
             var ca = decodedCookie.split(';');
@@ -385,9 +388,15 @@
                             }
                             let forget = document.getElementsByClassName("flaticon-correct-1");
                             let nick = response.data[i]['nickname_modal'];
+                            let stu_id = response.data[i]['id'];
 
                             forget[i].onclick = function() {
                                 forgetNickname.innerHTML = nick;
+                                document.cookie = "stu_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                                document.cookie = "stu_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; ;";
+
+                                setCookie('stu_id', stu_id, 30)
+                                console.log(stu_id);
                             }
                         }
 

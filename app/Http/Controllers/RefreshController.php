@@ -211,6 +211,7 @@ class RefreshController extends Controller
                 'id' => $stu->id,
                 'nickname' => $stu->nickname,
                 'nickname_modal' => $stu->nickname,
+                // 'car_id' => $stu->car_id,
                 'fullname_s' => $stu->first_name . '' . $stu->last_name,
                 'first_name' => $stu->first_name,
                 'last_name' => $stu->last_name,
@@ -226,9 +227,7 @@ class RefreshController extends Controller
         }
 
         return $this->responseRequestSuccess($data['student_info']);
-        return view('driver.index', [
-            'datas' => $data['info'],
-        ]);
+       
     }
 
     public function appointments()

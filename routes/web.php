@@ -64,6 +64,8 @@ Route::group(array('prefix' => 'driver'), function () {
 
     Route::get('/index', 'RefreshController@run');
 
+    Route::get('/index/{car}/{stu_id}', 'DriverController@forgotRFID');
+
     Route::get('/appointment/{car}/{id}/{token}', 'DriverController@list_student');
 
     Route::get('/appointment/{car}/del/{id}/{user_id}/{token}', 'DriverController@del_app');

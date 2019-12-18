@@ -145,6 +145,7 @@
     if (!getCookie('role_id')) {
 
         setCookie('role_id', 0, 30);
+        setCookie('stu_id', 0, 30)
         console.log(getCookie('role_id'));
 
     }

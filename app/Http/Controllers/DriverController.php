@@ -9,6 +9,7 @@ use App\Relationship;
 use App\School;
 use App\Student;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -176,6 +177,41 @@ class DriverController extends Controller
 
             \abort(404);
 
+    }
+    public function forgotRFID($car, $stu_id)
+    {
+        //Check login
+        $auth = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->where('status', 1)->first();
+
+        if (!$auth) {
+            return redirect('/');
+        }
+
+            if ($this->request->cookie('role_number') == '2') {
+                
+                $driver = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
+                if (!$driver) {
+                    \abort(419);
+                }
+                // dd($stu_id);
+                $std = Student::where('car_id', $car)->where('id', $stu_id)->first();
+                // dd($std);  
+ 
+                // $stud = Student::where('id', $std->id)->first();
+                
+                if ($std->std_status_id = 1) {
+                    $std->std_status_id = 2;
+                    $std->save();
+                } elseif($stud->std_status_id = 2) {
+                    $std->std_status_id = 3;
+                    $std->save();
+                }else {
+                    return redirect('/driver/index');
+                }
+            
+                return redirect('/driver/index');        
+        }
+        \abort(404);
     }
     public function profile()
     {
