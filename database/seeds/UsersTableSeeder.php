@@ -33,7 +33,8 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/moss.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('users')->insert([
@@ -54,7 +55,8 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.wit.jpg',
             'lattitude' => '15.085595',
             'longtitude' => '99.522781',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('users')->insert([
@@ -75,7 +77,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.wib.jpg',
             'lattitude' => '15.085383',
             'longtitude' => '99.524846',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -96,7 +100,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.chu.jpg',
             'lattitude' => '15.084139',
             'longtitude' => '99.522403',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -117,7 +123,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.suv.jpg',
             'lattitude' => '15.081456',
             'longtitude' => '99.520796',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -138,7 +146,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.par.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -159,7 +169,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.pun.jpg',
             'lattitude' => '15.080757',
             'longtitude' => '99.517247',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -180,7 +192,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/aj.war.jpg',
             'lattitude' => '15.085942',
             'longtitude' => '99.520962',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -201,7 +215,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/วัชชารี.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -222,7 +238,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สำเนียง.jpg',
             'lattitude' => '15.084646',
             'longtitude' => '99.531925',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -243,7 +261,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สุรดิต.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -264,7 +284,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ชลาสินท์.jpg',
             'lattitude' => '15.084037',
             'longtitude' => '99.538276',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -285,7 +307,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อภิสรา.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -306,7 +330,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ชรงค์กล.jpg',
             'lattitude' => '15.085038',
             'longtitude' => '99.547698',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -327,7 +353,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ชนา.jpg',
             'lattitude' => '15.085577',
             'longtitude' => '99.551002',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -348,7 +376,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อังคนา.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -369,7 +399,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/รัชกฤต.jpg',
             'lattitude' => '15.088180',
             'longtitude' => '99.563139',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -390,7 +422,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นิรมล.jpg',
             'lattitude' => '15.088273',
             'longtitude' => '99.567441',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -411,7 +445,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/บดินทร์.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -432,7 +468,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ดนัยวัตร.jpg',
             'lattitude' => '15.086782',
             'longtitude' => '99.584613',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -453,7 +491,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/คมกฤต.jpg',
             'lattitude' => '15.084322',
             'longtitude' => '99.600097',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -474,7 +514,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/วชิราภรณ์.jpg',
             'lattitude' => '15.091638',
             'longtitude' => '99.609078',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -495,7 +537,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/กษิรา.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -516,7 +560,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/คณิตศร.jpg',
             'lattitude' => '15.094635',
             'longtitude' => '99.612893',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -537,7 +583,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ภัณฑิรา.jpg',
             'lattitude' => '15.094635',
             'longtitude' => '99.612893',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -558,7 +606,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ไชยรัตน์.jpg',
             'lattitude' => '15.094635',
             'longtitude' => '99.612893',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            
         ]);
 
         DB::table('users')->insert([
@@ -579,7 +629,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/พรรณวงศ์.jpg',
             'lattitude' => '15.097473',
             'longtitude' => '99.616616',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -600,7 +652,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/เอกพิสิต.jpg',
             'lattitude' => '15.101368',
             'longtitude' => '99.621884',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -621,7 +675,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/รุ่งรวี.jpg',
             'lattitude' => '15.103636',
             'longtitude' => '99.624845',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -642,7 +698,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/พรรณนิภา.jpg',
             'lattitude' => '15.097473',
             'longtitude' => '99.616616',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -663,7 +721,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/กิติพล.jpg',
             'lattitude' => '15.103636',
             'longtitude' => '99.624845',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -684,7 +744,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สุวรรณา.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -705,7 +767,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สุริยะ.jpg',
             'lattitude' => '15.097473',
             'longtitude' => '99.616616',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -726,7 +790,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สุกฤต.jpg',
             'lattitude' => '15.137692',
             'longtitude' => '99.655859',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -747,7 +813,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ทกร.jpg',
             'lattitude' => '15.103636',
             'longtitude' => '99.624845',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -768,7 +836,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/กชพร.jpg',
             'lattitude' => '15.137692',
             'longtitude' => '99.655859',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -789,7 +859,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/วิชชาพัช.jpg',
             'lattitude' => '15.144272',
             'longtitude' => '99.666144',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -810,7 +882,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/เกตุม.jpg',
             'lattitude' => '15.155990',
             'longtitude' => '99.684932',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -831,7 +905,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ปวีณา.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -852,7 +928,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อเนก.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -873,7 +951,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ปัญชลี.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -894,7 +974,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นาวี.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -915,7 +997,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สร้อยฟ้า.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -936,7 +1020,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นวลศรี.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -957,7 +1043,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นิพล.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -978,7 +1066,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สุวรรณา2.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -999,7 +1089,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/จำลอง.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1020,7 +1112,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ปรียา.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1041,7 +1135,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นรรัชต์.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1062,7 +1158,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นฤมล.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1083,7 +1181,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/หญิง.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1104,7 +1204,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/วาริสา.jpg',
             'lattitude' => '15.175908',
             'longtitude' => '99.696597',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1125,7 +1227,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/จรวย.jpg',
             'lattitude' => '15.194091',
             'longtitude' => '99.694862',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1146,7 +1250,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อร่าม.jpg',
             'lattitude' => '15.206127',
             'longtitude' => '99.693075',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1167,7 +1273,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ณรงค์.jpg',
             'lattitude' => '15.258014',
             'longtitude' => '99.679948',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1188,7 +1296,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อัชราภรณ์.jpg',
             'lattitude' => '15.270341',
             'longtitude' => '99.680846',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1209,7 +1319,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/นิชา.jpg',
             'lattitude' => '15.284103',
             'longtitude' => '99.681888',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1230,7 +1342,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/เอกนิพัตฏิ์.jpg',
             'lattitude' => '15.326443',
             'longtitude' => '99.738517',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1251,7 +1365,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อรชุน.jpg',
             'lattitude' => '15.330328',
             'longtitude' => '99.744176',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1272,7 +1388,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/กรพงษ์.jpg',
             'lattitude' => '15.330328',
             'longtitude' => '99.744176',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1293,7 +1411,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ขจิต.jpg',
             'lattitude' => '15.326443',
             'longtitude' => '99.738517',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1314,7 +1434,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/พรรณี.jpg',
             'lattitude' => '15.355383',
             'longtitude' => '99.781490',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1335,7 +1457,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ประยุทธ.jpg',
             'lattitude' => '15.358722',
             'longtitude' => '99.786406',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1356,7 +1480,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/สมเกียติ.jpg',
             'lattitude' => '15.369419',
             'longtitude' => '99.801737',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1377,7 +1503,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/อรอนงค์.jpg',
             'lattitude' => '15.363882',
             'longtitude' => '99.793288',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1398,7 +1526,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/พิมพ์ใจ.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         //! for dev
@@ -1421,7 +1551,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/ashita.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1442,7 +1574,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/blon.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1463,7 +1597,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/nonstop.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1484,7 +1620,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/pumin.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
 
         DB::table('users')->insert([
@@ -1505,7 +1643,9 @@ class UsersTableSeeder extends Seeder
             'image' => 'images/Users/pumin.jpg',
             'lattitude' => '15.147868',
             'longtitude' => '99.672083',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ]);
     }
 }
