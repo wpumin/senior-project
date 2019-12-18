@@ -199,10 +199,13 @@ class DriverController extends Controller
  
                 // $stud = Student::where('id', $std->id)->first();
                 
-                if ($std->std_status_id = 1) {
+                if ($std->std_status_id == 1) {
+
                     $std->std_status_id = 2;
                     $std->save();
-                } elseif($stud->std_status_id = 2) {
+
+                } else if ($std->std_status_id == 2) {
+
                     $std->std_status_id = 3;
                     $std->save();
                 }else {

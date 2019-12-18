@@ -330,8 +330,8 @@
                         let modalSurname = document.getElementById("surname");
                         let modalSchool = document.getElementById("school");
 
-                        let modal2 = document.getElementById('forgotRFID')
-                        let forgetNickname = document.getElementById("nickname_modal");
+                        // let modal2 = document.getElementById('forgotRFID')
+                        // let forgetNickname = document.getElementById("nickname_modal");
 
                         let stu_nickname = document.getElementById("stu_nickname");
                         let stu_first = document.getElementById("stu_first");
@@ -367,7 +367,7 @@
                                 '</a>' +
                                 '</div>' +
                                 '</td>' +
-                                '<td> <div class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#forgotRFID"> <span class="flaticon-correct-1"></span> </a> </div></td>' +
+                                '<td> <div class="dropdown"> <a href="/driver/index/'+getCookie('car_id')+"/"+response.data[i]['id']+'" class="dropdown-toggle"> <span class="flaticon-correct-1"></span> </a> </div></td>' +
                                 '</tr>'
                             );
 
@@ -387,16 +387,12 @@
                                 forgetNickname.innerhtml = nick;
                             }
                             let forget = document.getElementsByClassName("flaticon-correct-1");
-                            let nick = response.data[i]['nickname_modal'];
+                            // let nick = response.data[i]['nickname_modal'];
                             let stu_id = response.data[i]['id'];
 
                             forget[i].onclick = function() {
                                 forgetNickname.innerHTML = nick;
-                                document.cookie = "stu_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                                document.cookie = "stu_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; ;";
 
-                                setCookie('stu_id', stu_id, 30)
-                                console.log(stu_id);
                             }
                         }
 
