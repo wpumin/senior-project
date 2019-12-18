@@ -358,6 +358,7 @@
                             let school = response['data'][i]['name_school'];
 
                             img[i].onclick = function() {
+
                                 modal.style.display = "block";
                                 modalImg.src = this.src;
                                 modalFirstName.innerHTML = firstname;
@@ -410,6 +411,7 @@
                 $('#school').val(null);
                 $('#nickname').val(null);
                 $('#phone').val(null);
+
               } else {
 
                 tr[i].style.display = "none";
