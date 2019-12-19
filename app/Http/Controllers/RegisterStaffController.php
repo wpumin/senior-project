@@ -28,7 +28,7 @@ class RegisterStaffController extends Controller
 
                 return view('admin.staff_management_create');
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 

@@ -144,7 +144,7 @@ class ReportController extends Controller
                     'datas' => $data['info_news']
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 
@@ -185,7 +185,7 @@ class ReportController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
     /*
     |--------------------------------------------------------------------------

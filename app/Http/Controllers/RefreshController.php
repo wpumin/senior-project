@@ -111,7 +111,7 @@ class RefreshController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 
@@ -125,7 +125,7 @@ class RefreshController extends Controller
         }
 
         if ($this->request->cookie('role_number') != '3') {
-            \abort(404);
+            return view('errors.404');
         }
 
         $no = Student::where('std_status_id', 1)->where('car_id', '1')->count();
@@ -151,7 +151,7 @@ class RefreshController extends Controller
         }
 
         if ($this->request->cookie('role_number') != '3') {
-            \abort(404);
+            return view('errors.404');
         }
 
         $no = Student::where('std_status_id', 1)->where('car_id', '2')->count();
@@ -227,7 +227,7 @@ class RefreshController extends Controller
         }
 
         return $this->responseRequestSuccess($data['student_info']);
-       
+
     }
 
     public function appointments()
@@ -309,7 +309,7 @@ class RefreshController extends Controller
                         'data' => $data['info']
                     ]);
                 }
-                \abort(404);
+                return view('errors.404');
     }
 
     public function pf_student()
@@ -532,7 +532,7 @@ class RefreshController extends Controller
                     'infos' => $data['info']
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 
@@ -549,7 +549,7 @@ class RefreshController extends Controller
 
                 return view('admin.profile');
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 

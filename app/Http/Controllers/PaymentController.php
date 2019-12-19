@@ -112,7 +112,7 @@ class PaymentController extends Controller
                     'year_now' => $year_now
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function addPayment()
@@ -214,7 +214,7 @@ class PaymentController extends Controller
                         'data' => $data['info']
                     ]);
                 }
-                \abort(404);
+                return view('errors.404');
     }
 
     public function parent_list($id, $token)
@@ -270,7 +270,7 @@ class PaymentController extends Controller
 
                     ]);
                 }
-                \abort(404);
+                return view('errors.404');
     }
 
     public function store()
@@ -389,7 +389,7 @@ class PaymentController extends Controller
                 session()->flash('success', 'Create Article Complete');
                 return redirect('parent/payment/overview/' . $this->request->input('user_id') . '/' . $this->request->input('secure_code'));
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function admin_list($car)
@@ -482,7 +482,7 @@ class PaymentController extends Controller
                     'display_year' => $display_year
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function confirm($car, $trankey)
@@ -508,7 +508,7 @@ class PaymentController extends Controller
 
                 return redirect('/admin/payment/confirm/car' . $stu->car_id);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     /*

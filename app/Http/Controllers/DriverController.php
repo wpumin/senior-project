@@ -90,7 +90,7 @@ class DriverController extends Controller
                     'date_' => $full
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function del_app($car, $id, $user_id, $token)
@@ -122,7 +122,7 @@ class DriverController extends Controller
 
                 return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 
@@ -159,7 +159,7 @@ class DriverController extends Controller
 
                 return redirect('driver/appointment/' . $car . '/' . $user_id . '/' . $token);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function broadcast()
@@ -175,7 +175,7 @@ class DriverController extends Controller
                 return view('driver.broadcast');
             }
 
-            \abort(404);
+            return view('errors.404');
 
     }
     public function forgotRFID($car, $stu_id)
@@ -188,17 +188,17 @@ class DriverController extends Controller
         }
 
             if ($this->request->cookie('role_number') == '2') {
-                
+
                 $driver = User::where('id', $this->request->cookie('use_id'))->where('secure_code', $this->request->cookie('secure'))->first();
                 if (!$driver) {
                     \abort(419);
                 }
                 // dd($stu_id);
                 $std = Student::where('car_id', $car)->where('id', $stu_id)->first();
-                // dd($std);  
- 
+                // dd($std);
+
                 // $stud = Student::where('id', $std->id)->first();
-                
+
                 if ($std->std_status_id == 1) {
 
                     $std->std_status_id = 2;
@@ -211,10 +211,10 @@ class DriverController extends Controller
                 }else {
                     return redirect('/driver/index');
                 }
-            
-                return redirect('/driver/index');        
+
+                return redirect('/driver/index');
         }
-        \abort(404);
+        return view('errors.404');
     }
     public function profile()
     {
@@ -228,7 +228,7 @@ class DriverController extends Controller
             if ($this->request->cookie('role_number') == '2') {
                 return view('driver.profile');
             }
-            \abort(404);
+            return view('errors.404');
 
     }
     public function show_news($id)
@@ -256,7 +256,7 @@ class DriverController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     protected function responseRequestSuccess($ret)

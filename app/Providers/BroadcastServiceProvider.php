@@ -26,7 +26,7 @@ class BroadcastServiceProvider extends ServiceProvider
 
                 require base_path('routes/channels.php');
             }
-            \abort(404);
+            return view('errors.404');
         }
         return redirect('/');
     }

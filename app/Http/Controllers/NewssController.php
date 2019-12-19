@@ -33,7 +33,7 @@ class NewssController extends Controller
 
             return view('admin.news_test_form');
         }else {
-            \abort(404);
+            return view('errors.404');
         }
 
 
@@ -57,7 +57,8 @@ class NewssController extends Controller
 
                 return view('admin.news_create');
             }
-            \abort(404);
+
+            //Check logi'errors.404');
 
     }
 
@@ -137,7 +138,8 @@ class NewssController extends Controller
                 return $this->responseRequestSuccess('success');
 
             }
-            \abort(404);
+            c function create()
+    {'errors.404');
     }
 
 
@@ -224,7 +226,9 @@ class NewssController extends Controller
             return $this->responseRequestSuccess('success');
         }
 
-        \abort(404);
+        sponse
+     */
+    publi'errors.404');
     }
 
     /**

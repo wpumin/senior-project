@@ -52,7 +52,7 @@ class NewsController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function del_new($id)
@@ -71,7 +71,7 @@ class NewsController extends Controller
 
                 return redirect('/admin/management/news');
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function edit_new($id)
@@ -128,7 +128,7 @@ class NewsController extends Controller
                     'content' => $news['content']
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
     /*
     |--------------------------------------------------------------------------

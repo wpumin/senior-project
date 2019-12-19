@@ -165,7 +165,7 @@ class RegisterUserController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function edit_user($id)
@@ -235,7 +235,7 @@ class RegisterUserController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function update_user()
@@ -303,7 +303,7 @@ class RegisterUserController extends Controller
 
                 return redirect('/admin/management/parent');
             }
-            \abort(404);
+            return view('errors.404');
     }
     public function create()
     {
@@ -319,7 +319,7 @@ class RegisterUserController extends Controller
 
                 return view('admin.parent_management_create');
             }
-            \abort(404);
+            return view('errors.404');
 
     }
 
@@ -453,7 +453,7 @@ class RegisterUserController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     /*

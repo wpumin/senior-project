@@ -104,7 +104,7 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-        \abort(404);
+        return view('errors.404');
     }
     /*
     |--------------------------------------------------------------------------

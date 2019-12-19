@@ -94,7 +94,7 @@ class ParentController extends Controller
 
                 ]);
             }
-            \abort(404);
+            return view('errors.404');
     }
 
     public function show_news($id)
@@ -122,7 +122,7 @@ class ParentController extends Controller
                 ]);
             }
 
-            \abort(404);
+            return view('errors.404');
     }
 
     public function list_student($id, $token)
@@ -186,7 +186,7 @@ class ParentController extends Controller
 
                     return $this->responseRequestSuccess($data['check_in']);
                 }
-                \abort(404);
+                return view('errors.404');
 
     }
 
@@ -236,7 +236,7 @@ class ParentController extends Controller
 
                 return $this->responseRequestSuccess($data['check_in']);
             }
-            \abort(404);
+            return view('errors.404');
     }
     public function profile()
     {
@@ -251,7 +251,7 @@ class ParentController extends Controller
 
                 return view('parent.profile');
             }
-            \abort(404);
+            return view('errors.404');
     }
     protected function responseRequestSuccess($ret)
     {

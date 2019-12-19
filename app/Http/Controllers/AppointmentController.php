@@ -53,7 +53,7 @@ class AppointmentController extends Controller
                         'data' => $data['info']
                     ]);
                 }
-                \abort(404);
+                return view('errors.404');
             }
             return redirect('/');
         }
